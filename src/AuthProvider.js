@@ -1,6 +1,6 @@
 import * as React from "react";
 import { fakeAuthProvider } from "./auth";
-// import { AuthContext } from "./AuthContext";
+import { AuthContext } from "./AuthContext";
 
 export let AuthContext = React.createContext();
 
