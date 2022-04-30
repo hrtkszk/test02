@@ -179,11 +179,13 @@ import { LoginPage } from "./LoginPage";
 import { ProtectedPage } from "./ProtectedPage";
 // import { PublicPage } from "./PublicPage";
 import { RequireAuth } from "./RequireAuth";
+import { AuthStatus } from "./AuthStatus";
 
 export default function App() {
   return (
     <AuthProvider>
       <h1>Auth Example</h1>
+      <AuthStatus />
 
       <Routes>
         {/* <Route element={<Layout />}> */}
