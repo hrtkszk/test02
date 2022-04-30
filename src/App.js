@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Routes, Route, Outlet, useParams } from "react-router-dom";
 import './App.css';
 
 // function App() {
