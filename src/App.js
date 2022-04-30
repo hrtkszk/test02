@@ -129,13 +129,15 @@ import {  Routes, Route, Outlet, useParams } from "react-router-dom";
 function App() {
   return (
     <Routes>
-      <Route path="invoices" element={<Invoices />}>
+      <Route path="/" element={<Invoices />}>
         <Route path=":invoiceId" element={<Invoice />} />
         <Route path="sent" element={<SentInvoices />} />
       </Route>
     </Routes>
   );
 }
+
+export default App;
 
 function Invoices() {
   return (
@@ -155,4 +157,3 @@ function SentInvoices() {
   return <h1>Sent Invoices</h1>;
 }
 
-export default App;
