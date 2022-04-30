@@ -177,7 +177,7 @@ import { AuthProvider } from "./AuthProvider";
 import { Layout } from "./Layout";
 import { LoginPage } from "./LoginPage";
 import { ProtectedPage } from "./ProtectedPage";
-import { PublicPage } from "./PublicPage";
+// import { PublicPage } from "./PublicPage";
 import { RequireAuth } from "./RequireAuth";
 
 export default function App() {
