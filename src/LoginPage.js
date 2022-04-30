@@ -10,7 +10,8 @@ export function LoginPage() {
   let location = useLocation();
   let auth = useAuth();
 
-  let from = location.state?.from?.pathname || "/";
+//   let from = location.state?.from?.pathname || "/";
+  let from = "/protected"
 
   function handleSubmit(event) {
     event.preventDefault();
