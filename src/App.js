@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import { Routes, Route, Outlet, useParams } from "react-router-dom";
+import {  BrowserRouter, Routes, Route, Outlet, useParams } from "react-router-dom";
 import './App.css';
 
 // function App() {
@@ -26,12 +26,14 @@ import './App.css';
 
 function App() {
   return (
-    <Routes>
-      <Route path="invoices" element={<Invoices />}>
-        <Route path=":invoiceId" element={<Invoice />} />
-        <Route path="sent" element={<SentInvoices />} />
-      </Route>
-    </Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route path="invoices" element={<Invoices />}>
+          <Route path=":invoiceId" element={<Invoice />} />
+          <Route path="sent" element={<SentInvoices />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
