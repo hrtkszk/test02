@@ -13,9 +13,9 @@ export function Layout() {
         <li>
           <Link to="/">Login Page</Link>
         </li>
-        <li>
+        {/* <li>
           <Link to="/protected">Protected Page</Link>
-        </li>
+        </li> */}
       </ul>
 
       <Outlet />

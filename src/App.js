@@ -186,7 +186,7 @@ export default function App() {
       <h1>Auth Example</h1>
 
       <Routes>
-        <Route element={<Layout />}>
+        {/* <Route element={<Layout />}> */}
           {/* <Route path="/" element={<PublicPage />} /> */}
           <Route path="/" element={<LoginPage />} />
           <Route
@@ -197,7 +197,7 @@ export default function App() {
               </RequireAuth>
             }
           />
-        </Route>
+        {/* </Route> */}
       </Routes>
     </AuthProvider>
   );
