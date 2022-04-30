@@ -1,4 +1,4 @@
-import * as React from "react";
+// import * as React from "react";
 // import { Routes, Route, Outlet, Link } from "react-router-dom";
 
 // export default function App() {
@@ -101,7 +101,7 @@ import * as React from "react";
 // }
 
 // import logo from './logo.svg';
-import {  Routes, Route, Outlet, useParams } from "react-router-dom";
+// import {  Routes, Route, Outlet, useParams } from "react-router-dom";
 // import './App.css';
 
 // function App() {
@@ -126,34 +126,46 @@ import {  Routes, Route, Outlet, useParams } from "react-router-dom";
 // }
 
 
+import {
+  Routes,
+  Route,
+  Link,
+  Outlet,
+} from "react-router-dom";
+
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Invoices />}>
-        <Route path=":invoiceId" element={<Invoice />} />
-        <Route path="sent" element={<SentInvoices />} />
+      <Route path="/" element={<Layout />}>
+        <Route path="invoices" element={<Invoices />} />
+        <Route path="dashboard" element={<Dashboard />} />
       </Route>
     </Routes>
   );
 }
 
-export default App;
-
-function Invoices() {
+function Layout() {
   return (
     <div>
-      <h1>Invoices</h1>
-      <Outlet />
+      <h1>Welcome to the app!</h1>
+      <nav>
+        <Link to="invoices">Invoices</Link> |{" "}
+        <Link to="dashboard">Dashboard</Link>
+      </nav>
+      <div className="content">
+        <Outlet />
+      </div>
     </div>
   );
 }
 
-function Invoice() {
-  let { invoiceId } = useParams();
-  return <h1>Invoice {invoiceId}</h1>;
+function Invoices() {
+  return <h1>Invoices</h1>;
 }
 
-function SentInvoices() {
-  return <h1>Sent Invoices</h1>;
+function Dashboard() {
+  return <h1>Dashboard</h1>;
 }
+export default App;
+
 
