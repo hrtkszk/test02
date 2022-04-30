@@ -18,6 +18,7 @@ export function LoginPage() {
 
     let formData = new FormData(event.currentTarget);
     let username = formData.get("username");
+    console.log(username)
 
     if (username === "") {navigate("/", {replace:true})}
 
