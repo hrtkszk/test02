@@ -1,13 +1,13 @@
 import * as React from "react";
 import {
   useNavigate,
-  useLocation
+//   useLocation
 } from "react-router-dom";
 import { useAuth } from "./useAuth";
 
 export function LoginPage() {
   let navigate = useNavigate();
-  let location = useLocation();
+//   let location = useLocation();
   let auth = useAuth();
 
 //   let from = location.state?.from?.pathname || "/";
