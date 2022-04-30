@@ -232,7 +232,7 @@ function Layout() {
 let AuthContext = React.createContext();
 
 function AuthProvider({ children }) {
-  let [user, setUser] = React.useState<any>(null);
+  let [user, setUser] = React.useState();
 
   let signin = (newUser, callback) => {
     return fakeAuthProvider.signin(() => {
