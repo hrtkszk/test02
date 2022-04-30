@@ -5,7 +5,7 @@ export function AuthStatus() {
   let auth = useAuth();
 
   if (auth.user) {
-    return <p>You are logged in.</p>;
+    return <p>You are logged in as {auth.user}.</p>;
   } else {
     return <p>You are not logged in.</p>;
   }
