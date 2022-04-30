@@ -187,8 +187,8 @@ export default function App() {
 
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<PublicPage />} />
-          <Route path="/login" element={<LoginPage />} />
+          {/* <Route path="/" element={<PublicPage />} /> */}
+          <Route path="/" element={<LoginPage />} />
           <Route
             path="/protected"
             element={
