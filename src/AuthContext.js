@@ -1,4 +1,4 @@
-import * as React from "react";
+// import * as React from "react";
 
 // interface AuthContextType {
 //   user: any;
@@ -6,4 +6,3 @@ import * as React from "react";
 //   signout: (callback: VoidFunction) => void;
 // }
 
-export let AuthContext = React.createContext();
