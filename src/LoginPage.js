@@ -11,7 +11,7 @@ export function LoginPage() {
   let auth = useAuth();
 
 //   let from = location.state?.from?.pathname || "/";
-  let from = "protected"
+  let from = auth.user
 
   function handleSubmit(event) {
     event.preventDefault();
