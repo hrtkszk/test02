@@ -1,8 +1,8 @@
 import * as React from "react";
 import { fakeAuthProvider } from "./auth";
-// import { AuthContext } from "./AuthContext";
+import { AuthContext } from "./AuthContext";
 
-let AuthContext = React.createContext();
+// export let AuthContext = React.createContext();
 
 export function AuthProvider({ children }) {
   let [user, setUser] = React.useState();
