@@ -9,10 +9,8 @@ import { RequireAuth } from "./RequireAuth";
 import { AuthStatus } from "./AuthStatus";
 import { Page1 } from "./page1";
 import { Page2 } from "./page2";
-import { useAuth } from "./useAuth";
 
 export default function App() {
-  let auth = useAuth();
   return (
     <AuthProvider>
       <h1>Auth Example</h1>
