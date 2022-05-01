@@ -22,7 +22,7 @@ export default function App() {
         <Route index element={<LoginPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route
-          path={auth.user}
+          path="protected"
           element={
             <RequireAuth>
               <Header />
