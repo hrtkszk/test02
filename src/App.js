@@ -21,6 +21,7 @@ export default function App() {
       <Routes>
         {/* <Route element={<Layout />}> */}
           {/* <Route path="/" element={<PublicPage />} /> */}
+          <Route index element={<LoginPage />} />
           <Route path="/" element={<LoginPage />} />
           <Route
             path="/protected"
