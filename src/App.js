@@ -193,8 +193,7 @@ export default function App() {
           {/* <Route path="/" element={<PublicPage />} /> */}
           <Route path="/" element={<LoginPage />} />
           <Route
-            index
-            // path="/protected"
+            path="/protected"
             element={
               <RequireAuth>
                 <ProtectedPage />
