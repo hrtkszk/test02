@@ -12,7 +12,7 @@ export function Page1() {
     <>
         <h3>Page 1</h3>
         <p>
-            This is page 1. {auth.user}!{" "}
+            This is page 1!
         </p>
     </>
   );
