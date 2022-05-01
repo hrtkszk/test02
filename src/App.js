@@ -22,7 +22,7 @@ export default function App() {
         {/* <Route element={<Layout />}> */}
           {/* <Route path="/" element={<PublicPage />} /> */}
           <Route index element={<LoginPage />} />
-          <Route path="/" element={<LoginPage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route
             path="/protected"
             element={
