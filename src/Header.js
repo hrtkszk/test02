@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { useAuth } from "./useAuth";
 
-export function ProtectedPage() {
+export function Header() {
   let auth = useAuth();
   let navigate = useNavigate();
 
@@ -14,7 +14,7 @@ export function ProtectedPage() {
     <>
       <h3>Protected</h3>
       <p>
-          Welcome {auth.user}!{" "}
+          Welcome {auth.user}!
           <button
           onClick={() => {
               auth.signout(() => navigate("/"));
