@@ -1,6 +1,9 @@
 import * as React from "react";
-
-import { useNavigate } from "react-router-dom";
+import {
+  Link,
+  // Outlet
+  useNavigate
+} from "react-router-dom";
 import { useAuth } from "./useAuth";
 
 export function ProtectedPage() {
@@ -19,6 +22,14 @@ export function ProtectedPage() {
             >
             Sign out
             </button>
+            <ul>
+              <li>
+                <Link to="/">Go back to Login Page</Link>
+              </li>
+              {/* <li>
+                <Link to="/protected">Protected Page</Link>
+              </li> */}
+            </ul>
         </p>
     </>
   );
