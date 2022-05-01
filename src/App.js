@@ -180,6 +180,7 @@ import { ProtectedPage } from "./ProtectedPage";
 // import { PublicPage } from "./PublicPage";
 import { RequireAuth } from "./RequireAuth";
 import { AuthStatus } from "./AuthStatus";
+import { Page1 } from "./page1";
 
 export default function App() {
   return (
@@ -192,13 +193,16 @@ export default function App() {
           {/* <Route path="/" element={<PublicPage />} /> */}
           <Route path="/" element={<LoginPage />} />
           <Route
-            path="/protected"
+            index
+            // path="/protected"
             element={
               <RequireAuth>
                 <ProtectedPage />
               </RequireAuth>
             }
-          />
+          >
+            <Route path="page1" element={<Page1 />}/>
+          </Route>
         {/* </Route> */}
       </Routes>
     </AuthProvider>
