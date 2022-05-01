@@ -24,7 +24,7 @@ export function ProtectedPage() {
           </button>
           <ul>
             <li>
-              <Link to="">Show Page 1</Link>
+              <Link to="page1">Show Page 1</Link>
             </li>
             <li>
               <Link to="page2">Show Page 2</Link>
