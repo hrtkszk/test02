@@ -28,9 +28,7 @@ export function Page3() {
     .then((response)=> response.json())
     .then(result =>{
       console.log(result)
-      if (result.pythonout2!==Messages) {
-        setMessages(result.pythonout2)
-      }
+      setMessages(result.pythonout2)
       // console.log(Messages)
     })
     setinitialized(true)
