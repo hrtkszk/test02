@@ -19,12 +19,12 @@ export function Page3() {
     const requestOptions ={
       method: 'POST',
       headers:{'Content-Type': 'application/json'},
-      body: JSON.stringify({"id":SendMessage})
+      body: JSON.stringify({"id":auth.user, "message":SendMessage})
     }
 
     console.log(requestOptions)
 
-    fetch("../receive_get.php",requestOptions)
+    fetch("../send_post.php",requestOptions)
     .then((response)=> response.json())
     .then(result =>{
       console.log(result)
@@ -57,7 +57,7 @@ export function Page3() {
         <div>
         <ul>
             {Messages.map((Message, i) => {
-              return <li key={Message.message}>{Message.DateTime}{Message.message}</li>;
+              return <li key={Message.message}>{Message.DateTime}   {Message.message}</li>;
             })}
         </ul>
         </div>
