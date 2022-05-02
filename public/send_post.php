@@ -3,7 +3,7 @@ header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Headers: Content-Type');
 $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
 $_POST = json_decode($rest_json, true); // JSON文字列をデコード
-$command="python3 post2SQL.py ".$_POST['id','message']; //pythonに引数を渡す
+$command="python3 post2SQL.py ".$_POST['id']; //pythonに引数を渡す
 exec($command,$output); //python実行と、返り数受け取り
 
 // pythonからの返り数のうち、SQLのヘッダーの受け取りと、文字列から配列変換(pythonの出力1行目)
@@ -35,6 +35,7 @@ if(empty($_POST['id'])) {
            "error" => true,
            "message" => "Error: 入力してください。",
            "pythonout2" => $output2,
+           "command" => $command,
         ]
     ); 
 } else {
@@ -43,6 +44,7 @@ if(empty($_POST['id'])) {
            "error" => false,
            "message" => 'Success: 入力されたテキスト→'.$_POST['id'],
            "pythonout2" => $output2,
+           "command" => $command,
         ]
     ); 
 }

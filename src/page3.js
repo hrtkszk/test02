@@ -29,7 +29,7 @@ export function Page3() {
     .then(result =>{
       console.log(result)
       setMessages(result.pythonout2)
-      console.log(Messages)
+      // console.log(Messages)
       inputRef.current.value = ""
       setSendMessage("")
     })
