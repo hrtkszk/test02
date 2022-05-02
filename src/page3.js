@@ -35,20 +35,13 @@ export function Page3() {
   }
 
   setInterval(() =>{
-    const initialRequestOptions ={
-      method: 'POST',
-      headers:{'Content-Type': 'application/json'},
-      body: JSON.stringify({"id":auth.user})
-    }
-    console.log(initialRequestOptions)
     fetch("../receive_get.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{
-      console.log(result)
+      console.log("update runs")
       if (result.pythonout2!==Messages) {
         setMessages(result.pythonout2)
       }
-      // console.log(Messages)
     })
   }, 10000);
 
