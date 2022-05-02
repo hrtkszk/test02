@@ -10,25 +10,29 @@ import { useAuth } from "./useAuth";
 
 export function Page3() {
   let auth = useAuth();
+  let initialized=false;
 
   const inputRef = useRef();
   const [Messages, setMessages] = useState([]);
   const [SendMessage, setSendMessage] = useState("");
 
   // ページが読み込まれる時に実行され、Messagesとして登録される。
-  const initialRequestOptions ={
-    method: 'POST',
-    headers:{'Content-Type': 'application/json'},
-    body: JSON.stringify({"id":auth.user})
+  if (initialized=false) {
+    const initialRequestOptions ={
+      method: 'POST',
+      headers:{'Content-Type': 'application/json'},
+      body: JSON.stringify({"id":auth.user})
+    }
+    console.log(initialRequestOptions)
+    fetch("../receive_get.php",initialRequestOptions)
+    .then((response)=> response.json())
+    .then(result =>{
+      console.log(result)
+      setMessages(result.pythonout2)
+      // console.log(Messages)
+    })
+    initialized=true
   }
-  console.log(initialRequestOptions)
-  fetch("../receive_get.php",initialRequestOptions)
-  .then((response)=> response.json())
-  .then(result =>{
-    console.log(result)
-    setMessages(result.pythonout2)
-    // console.log(Messages)
-  })
 
   const sendMsg = () => {
     const requestOptions ={
