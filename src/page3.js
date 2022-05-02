@@ -24,7 +24,7 @@ export function Page3() {
 
     console.log(requestOptions)
 
-    fetch("receive_get.php",requestOptions)
+    fetch("../receive_get.php",requestOptions)
     .then((response)=> response.json())
     .then(result =>{
       console.log(result)
