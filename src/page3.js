@@ -39,11 +39,11 @@ export function Page3() {
   }
   
   if (initialized===false) {
-    hitsuji
+    hitsuji()
     setinitialized(true)
   }
 
-  setInterval(hitsuji, 10000);
+  setInterval(hitsuji(), 10000);
 
   const sendMsg = () => {
     const requestOptions ={
