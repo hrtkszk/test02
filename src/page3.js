@@ -17,10 +17,7 @@ export function Page3() {
   const [initialized, setinitialized] = useState(false);
 
   // ページが読み込まれる時に実行し、Messagesとして登録する。
-
-
-
-  let hitsuji = () => {
+  if (initialized===false) {
     const initialRequestOptions ={
       method: 'POST',
       headers:{'Content-Type': 'application/json'},
@@ -36,14 +33,26 @@ export function Page3() {
       }
       // console.log(Messages)
     })
-  }
-  
-  if (initialized===false) {
-    hitsuji()
     setinitialized(true)
   }
 
-  setInterval(hitsuji(), 10000);
+  setInterval(() =>{
+    const initialRequestOptions ={
+      method: 'POST',
+      headers:{'Content-Type': 'application/json'},
+      body: JSON.stringify({"id":auth.user})
+    }
+    console.log(initialRequestOptions)
+    fetch("../receive_get.php",initialRequestOptions)
+    .then((response)=> response.json())
+    .then(result =>{
+      console.log(result)
+      if (result.pythonout2!==Messages) {
+        setMessages(result.pythonout2)
+      }
+      // console.log(Messages)
+    })
+  }, 10000);
 
   const sendMsg = () => {
     const requestOptions ={
