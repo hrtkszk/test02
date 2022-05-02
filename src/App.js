@@ -9,6 +9,7 @@ import { RequireAuth } from "./RequireAuth";
 import { AuthStatus } from "./AuthStatus";
 import { Page1 } from "./page1";
 import { Page2 } from "./page2";
+import { Page3 } from "./page3";
 import { LogOutPage } from "./logoutPage";
 
 export default function App() {
@@ -31,6 +32,7 @@ export default function App() {
           <Route index element={<Page1 />}/>
           <Route path="page1" element={<Page1 />}/>
           <Route path="page2" element={<Page2 />}/>
+          <Route path="page3" element={<Page3 />}/>
           <Route path="logout" element={<LogOutPage />}/>
         </Route>
       </Routes>

@@ -42,7 +42,7 @@ export function LoginPage() {
       <form onSubmit={handleSubmit}>
         <label>
           Username: <input name="username" type="text" />
-        </label>{" "}
+        </label>
         <button type="submit">Login</button>
       </form>
     </div>
