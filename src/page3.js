@@ -40,7 +40,7 @@ export function Page3() {
     .then(result =>{
       console.log("update runs")
       if (result.pythonout2==Messages) {
-        null
+        
       } else {
         console.log("message updated")
         console.log(result.pythonout2)
