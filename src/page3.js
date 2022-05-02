@@ -15,6 +15,21 @@ export function Page3() {
   const [Messages, setMessages] = useState([]);
   const [SendMessage, setSendMessage] = useState("");
 
+  // ページが読み込まれる時に実行され、Messagesとして登録される。
+  const initialRequestOptions ={
+    method: 'POST',
+    headers:{'Content-Type': 'application/json'},
+    body: JSON.stringify({"id":auth.user})
+  }
+  console.log(initialRequestOptions)
+  fetch("../receive_get.php",initialRequestOptions)
+  .then((response)=> response.json())
+  .then(result =>{
+    console.log(result)
+    setMessages(result.pythonout2)
+    // console.log(Messages)
+  })
+
   const sendMsg = () => {
     const requestOptions ={
       method: 'POST',
@@ -57,7 +72,7 @@ export function Page3() {
         <div>
         <ul>
             {Messages.map((Message, i) => {
-              return <li key={Message.message}>{Message.DateTime}   {Message.message}</li>;
+              return <li key={Message.message}>{Message.DateTime}"     "{Message.message}</li>;
             })}
         </ul>
         </div>
