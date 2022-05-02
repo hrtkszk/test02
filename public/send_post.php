@@ -4,9 +4,7 @@ header('Access-Control-Allow-Headers: Content-Type');
 $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
 $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 $command_post="python3 post2SQL.py ".$_POST['id']." ".$_POST['message']; //pythonに引数を渡す
-exec($command_post); //python実行と、返り数受け取り
-$command_receive="python3 exe_from_php.py ".$_POST['id']; //pythonに引数を渡す
-exec($command_recieve,$output); //python実行と、返り数受け取り
+exec($command_post, $output); //python実行と、返り数受け取り
 
 // pythonからの返り数のうち、SQLのヘッダーの受け取りと、文字列から配列変換(pythonの出力1行目)
 $output[0]=trim($output[0],"\"['");
