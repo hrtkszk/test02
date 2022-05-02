@@ -39,9 +39,7 @@ export function Page3() {
     .then((response)=> response.json())
     .then(result =>{
       console.log("update runs")
-      if (result.pythonout2=Messages) {
-        
-      } else {
+      if (str(result.pythonout2)!==str(Messages)) {
         console.log("message updated")
         console.log(result.pythonout2)
         console.log(Messages)
