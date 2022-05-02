@@ -14,17 +14,19 @@ export function Page3() {
   const inputRef = useRef();
   const [Messages, setMessages] = useState([]);
   const [SendMessage, setSendMessage] = useState("");
-  // const [initialized, setinitialized] = useState(false);
+  const [initialized, setinitialized] = useState(false);
 
   // ページが読み込まれる時に実行し、Messagesとして登録する。
-  const initialRequestOptions ={
-    method: 'POST',
-    headers:{'Content-Type': 'application/json'},
-    body: JSON.stringify({"id":auth.user})
-  }
-  console.log(initialRequestOptions)
+
+
 
   let hitsuji = () => {
+    const initialRequestOptions ={
+      method: 'POST',
+      headers:{'Content-Type': 'application/json'},
+      body: JSON.stringify({"id":auth.user})
+    }
+    console.log(initialRequestOptions)
     fetch("../receive_get.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{
@@ -35,6 +37,12 @@ export function Page3() {
       // console.log(Messages)
     })
   }
+  
+  if (initialized===false) {
+    hitsuji
+    setinitialized(true)
+  }
+
   setInterval(hitsuji, 10000);
 
   const sendMsg = () => {
