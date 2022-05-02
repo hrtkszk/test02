@@ -10,11 +10,11 @@ import { useAuth } from "./useAuth";
 
 export function Page3() {
   let auth = useAuth();
-  let initialized=false;
 
   const inputRef = useRef();
   const [Messages, setMessages] = useState([]);
   const [SendMessage, setSendMessage] = useState("");
+  const [initialized, setinitialized] = useState(false);
 
   // ページが読み込まれる時に実行され、Messagesとして登録される。
   if (initialized===false) {
@@ -31,7 +31,7 @@ export function Page3() {
       setMessages(result.pythonout2)
       // console.log(Messages)
     })
-    initialized=true
+    setinitialized(true)
   }
 
   const sendMsg = () => {
