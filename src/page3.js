@@ -41,6 +41,7 @@ export function Page3() {
       console.log("update runs")
       if (result.pythonout2!==Messages) {
         setMessages(result.pythonout2)
+        console.log("message updated")
       }
     })
   }, 10000);
