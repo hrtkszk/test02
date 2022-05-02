@@ -16,7 +16,7 @@ connection = MySQLdb.connect(
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
 cursor = connection.cursor()
 
-cursor.execute(f"INSERT (`ID`, `DateTime`, `message`) VALUES ('{sys.argv[1]}', CURRENT_TIMESTAMP, '{sys.argv[2]}')")
+cursor.execute(f"INSERT `LAA1422834-test`.`test` (`ID`, `DateTime`, `message`) VALUES ('{sys.argv[1]}', CURRENT_TIMESTAMP, '{sys.argv[2]}')")
 
 #ここから下はreceive_get.phpで流してもよさそう
 cursor.execute(f"SELECT * FROM test WHERE id='{sys.argv[1]}'")
