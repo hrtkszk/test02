@@ -16,7 +16,8 @@ connection = MySQLdb.connect(
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
 cursor = connection.cursor()
 
-cursor.execute(f"INSERT `LAA1422834-test`.`test` (`ID`, `DateTime`, `message`) VALUES ('{sys.argv[1]}', CURRENT_TIMESTAMP, '{sys.argv[2]}')")
+# cursor.execute(f"INSERT `LAA1422834-test`.`test` (`ID`, `DateTime`, `message`) VALUES ('{sys.argv[1]}', CURRENT_TIMESTAMP, '{sys.argv[2]}')")
+cursor.execute(f"INSERT `LAA1422834-test`.`test` (`ID`, `DateTime`, `message`) VALUES ('1234', CURRENT_TIMESTAMP, 'test test test')")
 
 
 
