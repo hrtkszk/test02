@@ -14,7 +14,7 @@ export function Page3() {
   const inputRef = useRef();
   const [Messages, setMessages] = useState([]);
   const [SendMessage, setSendMessage] = useState("");
-  const [initialized, setinitialized] = useState(false);
+  // const [initialized, setinitialized] = useState(false);
 
   // ページが読み込まれる時に実行し、Messagesとして登録する。
   const initialRequestOptions ={
