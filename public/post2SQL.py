@@ -16,10 +16,13 @@ connection = MySQLdb.connect(
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
 cursor = connection.cursor()
 
-# cursor.execute(f"INSERT `LAA1422834-test`.`test` (`ID`, `DateTime`, `message`) VALUES ('{sys.argv[1]}', CURRENT_TIMESTAMP, '{sys.argv[2]}')")
-cursor.execute(f"INSERT `LAA1422834-test`.`test` (`ID`, `DateTime`, `message`) VALUES ('1234', CURRENT_TIMESTAMP, 'test test test')")
+cursor.execute(f"INSERT `LAA1422834-test`.`test` (`ID`, `DateTime`, `message`) VALUES ('{sys.argv[1]}', CURRENT_TIMESTAMP, '{sys.argv[2]}')")
 
+# 保存を実行
+connection.commit()
 
+# 接続を閉じる
+connection.close()
 
 #ここから下はreceive_get.phpで流してもよさそう
 #cursor.execute(f"SELECT * FROM test WHERE id='{sys.argv[1]}'")
@@ -43,8 +46,4 @@ cursor.execute(f"INSERT `LAA1422834-test`.`test` (`ID`, `DateTime`, `message`) V
 #     # printでのpythonからphpへの受け渡し
 #     print (row1)
 
-# 保存を実行
-connection.commit()
 
-# 接続を閉じる
-connection.close()
