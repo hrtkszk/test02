@@ -16,13 +16,13 @@ export function Page3() {
   const [SendMessage, setSendMessage] = useState("");
   const [initialized, setinitialized] = useState(false);
 
+  const initialRequestOptions ={
+    method: 'POST',
+    headers:{'Content-Type': 'application/json'},
+    body: JSON.stringify({"id":auth.user})
+  }
   // ページが読み込まれる時に実行し、Messagesとして登録する。
   if (initialized===false) {
-    const initialRequestOptions ={
-      method: 'POST',
-      headers:{'Content-Type': 'application/json'},
-      body: JSON.stringify({"id":auth.user})
-    }
     console.log(initialRequestOptions)
     fetch("../receive_get.php",initialRequestOptions)
     .then((response)=> response.json())
