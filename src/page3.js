@@ -16,23 +16,26 @@ export function Page3() {
   const [SendMessage, setSendMessage] = useState("");
   const [initialized, setinitialized] = useState(false);
 
-  // ページが読み込まれる時に実行され、Messagesとして登録される。
-  if (initialized===false) {
-    const initialRequestOptions ={
-      method: 'POST',
-      headers:{'Content-Type': 'application/json'},
-      body: JSON.stringify({"id":auth.user})
-    }
-    console.log(initialRequestOptions)
+  // ページが読み込まれる時に実行し、Messagesとして登録する。
+  const initialRequestOptions ={
+    method: 'POST',
+    headers:{'Content-Type': 'application/json'},
+    body: JSON.stringify({"id":auth.user})
+  }
+  console.log(initialRequestOptions)
+
+  let hitsuji = () => {
     fetch("../receive_get.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{
       console.log(result)
-      setMessages(result.pythonout2)
+      if (result.pythonout2!=Messages) {
+        setMessages(result.pythonout2)
+      }
       // console.log(Messages)
     })
-    setinitialized(true)
   }
+  setInterval(hitsuji, 10000);
 
   const sendMsg = () => {
     const requestOptions ={
@@ -40,9 +43,7 @@ export function Page3() {
       headers:{'Content-Type': 'application/json'},
       body: JSON.stringify({"id":auth.user, "message":SendMessage})
     }
-
     console.log(requestOptions)
-
     fetch("../send_post.php",requestOptions)
     .then((response)=> response.json())
     .then(result =>{
