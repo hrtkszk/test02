@@ -17,7 +17,7 @@ export function Page3() {
   const [SendMessage, setSendMessage] = useState("");
 
   // ページが読み込まれる時に実行され、Messagesとして登録される。
-  if (initialized=false) {
+  if (initialized===false) {
     const initialRequestOptions ={
       method: 'POST',
       headers:{'Content-Type': 'application/json'},
