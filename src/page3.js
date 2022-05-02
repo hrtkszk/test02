@@ -40,8 +40,11 @@ export function Page3() {
     .then(result =>{
       console.log("update runs")
       if (result.pythonout2!==Messages) {
-        setMessages(result.pythonout2)
         console.log("message updated")
+        console.log(result.pythonout2)
+        console.log(Messages)
+        setMessages(result.pythonout2)
+
       }
     })
   }, 10000);
