@@ -45,7 +45,7 @@ export function Page3() {
           console.log("message updated")
           console.log(result.pythonout2)
           console.log(Messages)
-          setMessages(result.pythonout2)
+          setMessages(() => result.pythonout2)
         }
       })
     }, 10000);
