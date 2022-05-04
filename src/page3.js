@@ -40,11 +40,9 @@ export function Page3() {
   console.log("outside of constant update")
   console.log("Messages: ", Messages)
 
-  useCallback(() => {
-    if (intervalRef.current !== null) {
-      return;
-    }
-
+  if (intervalRef.current !== null) {
+    return;
+  } else {
     intervalRef.current = setInterval(() =>{
       console.log("Messages in interval 1: ", Messages)
       fetch("../receive_get.php",initialRequestOptions)
@@ -62,8 +60,7 @@ export function Page3() {
         setMessages(FetchMessages)
       }
     }, 10000);
-
-  }, []);
+  }
 
   const sendMsg = () => {
     const requestOptions ={
