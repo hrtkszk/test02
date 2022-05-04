@@ -35,10 +35,15 @@ export function Page3() {
   }
   
   console.log("outside of constant update")
-  
+
   useEffect(() => {
+    const initialRequestOptions1 ={
+      method: 'POST',
+      headers:{'Content-Type': 'application/json'},
+      body: JSON.stringify({"id":auth.user})
+    }
     setInterval(() =>{
-      fetch("../receive_get.php",initialRequestOptions)
+      fetch("../receive_get.php",initialRequestOptions1)
       .then((response)=> response.json())
       .then(result =>{
         if (String(result.pythonout2)!==String(Messages)) {
@@ -50,6 +55,9 @@ export function Page3() {
       })
     }, 1000);
   }, []);
+  useEffect(()=>{
+    console.log('Messages changed')
+},[Messages]);
 
   const sendMsg = () => {
     const requestOptions ={
