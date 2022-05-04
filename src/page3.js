@@ -4,7 +4,7 @@ import * as React from "react";
 //   // Outlet
 //   useNavigate
 // } from "react-router-dom";
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useAuth } from "./useAuth";
 
 
@@ -36,20 +36,22 @@ export function Page3() {
   
   console.log("outside of constant update")
   let i = 0
-  setInterval(() =>{
-    console.log(i)
-    i = i + 1;
-    // fetch("../receive_get.php",initialRequestOptions)
-    // .then((response)=> response.json())
-    // .then(result =>{
-    //   if (String(result.pythonout2)!==String(Messages)) {
-    //     console.log("message updated")
-    //     console.log(result.pythonout2)
-    //     console.log(Messages)
-    //     setMessages(result.pythonout2)
-    //   }
-    // })
-  }, 1000);
+  useEffect(() => {
+    const interval = setInterval(() =>{
+      console.log(i)
+      i = i + 1;
+      fetch("../receive_get.php",initialRequestOptions)
+      .then((response)=> response.json())
+      .then(result =>{
+        if (String(result.pythonout2)!==String(Messages)) {
+          console.log("message updated")
+          console.log(result.pythonout2)
+          console.log(Messages)
+          setMessages(result.pythonout2)
+        }
+      })
+    }, 1000);
+  }, []);
 
   const sendMsg = () => {
     const requestOptions ={
