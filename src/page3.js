@@ -38,7 +38,7 @@ export function Page3() {
   console.log("outside of constant update")
 
   intervalRef.current = setInterval(() =>{
-    fetch("../receive_get.php",initialRequestOptions1)
+    fetch("../receive_get.php",initialRequestOptions)
       .then((response)=> response.json())
       .then(result =>{
         if (String(result.pythonout2)!==String(Messages)) {
