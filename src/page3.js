@@ -14,7 +14,6 @@ export function Page3() {
 
   const inputRef = useRef();
   const [Messages, setMessages] = useState([]);
-  const [FetchMessages, setFetchMessages] = useState([]);
   const [SendMessage, setSendMessage] = useState("");
   const [initialized, setinitialized] = useState(false);
 
@@ -38,27 +37,14 @@ export function Page3() {
     setinitialized(true)
   }
   
-  console.log("outside of constant update")
-  console.log("Messages: ", Messages)
-  console.log("Fetched message: ", FetchMessages)
-
   if (intervalRef.current === null) {
     intervalRef.current = setInterval(() =>{
       fetch("../receive_get.php",initialRequestOptions)
         .then((response)=> response.json())
         .then(result =>{
           console.log("result.pythonout2: ", result.pythonout2)
-          setFetchMessages(result.pythonout2)
-          console.log("message after fetch: ", FetchMessages)
-          console.log("Messages in interval 2: ", Messages)
+          setMessages(result.pythonout2)
         })
-        .then(()=> {
-          if (String(FetchMessages)!==String(Messages)) {
-            console.log("message updated == message is not equal to Messages")
-            setMessages(FetchMessages)
-          }
-        })
-      
     }, 10000);
   }
 
