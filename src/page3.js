@@ -50,14 +50,16 @@ export function Page3() {
           console.log("result.pythonout2: ", result.pythonout2)
           setFetchMessages(result.pythonout2)
         })
-
-      console.log("message after fetch: ", FetchMessages)
-      console.log("Messages in interval 2: ", Messages)
-
-      if (String(FetchMessages)!==String(Messages)) {
-        console.log("message updated == message is not equal to Messages")
-        setMessages(FetchMessages)
-      }
+        .then(
+          console.log("message after fetch: ", FetchMessages),
+          console.log("Messages in interval 2: ", Messages)
+        )
+        .then(()=> {
+          if (String(FetchMessages)!==String(Messages)) {
+            console.log("message updated == message is not equal to Messages")
+            setMessages(FetchMessages)
+          }
+        })
     }, 10000);
   }
 
