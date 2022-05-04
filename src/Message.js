@@ -95,7 +95,7 @@ export function Message() {
         <div>
         <ul>
             {Messages.map((Message, i) => {
-              return <li key={Message.message}>{Message.DateTime}"     "{Message.message}</li>;
+              return <li key={Message.message}>{Message.messageDateTime}"     "{Message.message}</li>;
             })}
             {console.log("page reloaded")}
         </ul>
