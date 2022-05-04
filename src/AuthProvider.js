@@ -6,12 +6,12 @@ import { AuthContext } from "./AuthContext";
 
 export function AuthProvider({ children }) {
   let [user, setUser] = React.useState();
-  // let [aite, setAite] = React.useState();
-  // setAite(null)
+  let [aite, setAite] = React.useState();
 
   let signin = (newUser, callback) => {
     return fakeAuthProvider.signin(() => {
       setUser(newUser);
+      setAite(null);
       callback();
     });
   };
@@ -19,11 +19,12 @@ export function AuthProvider({ children }) {
   let signout = (callback) => {
     return fakeAuthProvider.signout(() => {
       setUser(null);
+      setAite(null);
       callback();
     });
   };
 
-  let value = { user, signin, signout };
+  let value = { user, aite, signin, signout };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
