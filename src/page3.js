@@ -37,7 +37,6 @@ export function Page3() {
   }
   
   console.log("outside of constant update")
-  console.log(result.pythonout2)
   console.log(Messages)
 
   intervalRef.current = setInterval(() =>{
@@ -46,7 +45,7 @@ export function Page3() {
       .then(result =>{
         if (String(result.pythonout2)!==String(Messages)) {
           console.log("message updated")
-          // console.log(result.pythonout2)
+          console.log(result.pythonout2)
           // console.log(Messages)
           setMessages(result.pythonout2)
         }
