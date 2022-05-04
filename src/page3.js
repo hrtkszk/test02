@@ -34,21 +34,22 @@ export function Page3() {
     setinitialized(true)
   }
   
-  console.log("outside of timely update")
-
+  console.log("outside of constant update")
+  let i = 0
   setInterval(() =>{
-    fetch("../receive_get.php",initialRequestOptions)
-    .then((response)=> response.json())
-    .then(result =>{
-      console.log("update runs")
-      if (String(result.pythonout2)!==String(Messages)) {
-        console.log("message updated")
-        console.log(result.pythonout2)
-        console.log(Messages)
-        setMessages(result.pythonout2)
-      }
-    })
-  }, 10000);
+    console.log(i)
+    i = i + 1;
+    // fetch("../receive_get.php",initialRequestOptions)
+    // .then((response)=> response.json())
+    // .then(result =>{
+    //   if (String(result.pythonout2)!==String(Messages)) {
+    //     console.log("message updated")
+    //     console.log(result.pythonout2)
+    //     console.log(Messages)
+    //     setMessages(result.pythonout2)
+    //   }
+    // })
+  }, 1000);
 
   const sendMsg = () => {
     const requestOptions ={
