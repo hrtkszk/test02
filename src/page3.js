@@ -43,7 +43,6 @@ export function Page3() {
 
   if (intervalRef.current === null) {
     intervalRef.current = setInterval(() =>{
-
       fetch("../receive_get.php",initialRequestOptions)
         .then((response)=> response.json())
         .then(result =>{
@@ -58,6 +57,7 @@ export function Page3() {
             setMessages(FetchMessages)
           }
         })
+      console.log("Fetched message: ", FetchMessages)
     }, 10000);
   }
 
