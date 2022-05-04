@@ -37,13 +37,13 @@ export function LoginPage() {
 
   return (
     <div>
-      <p>You must log in to view the page at {from}</p>
+      <p>ログインしてください {from}</p>
 
       <form onSubmit={handleSubmit}>
         <label>
-          Username: <input name="username" type="text" />
+          ユーザー名：<input name="username" type="text" />
         </label>
-        <button type="submit">Login</button>
+        <button type="submit">ログイン</button>
       </form>
     </div>
   );

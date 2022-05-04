@@ -20,7 +20,7 @@ export function Page3() {
   const initialRequestOptions ={
     method: 'POST',
     headers:{'Content-Type': 'application/json'},
-    body: JSON.stringify({"id":auth.user})
+    body: JSON.stringify({"id":auth.user, "aite":auth.aite})
   }
 
   // ページが読み込まれる時に実行し、Messagesとして登録する。
@@ -59,7 +59,7 @@ export function Page3() {
     const requestOptions ={
       method: 'POST',
       headers:{'Content-Type': 'application/json'},
-      body: JSON.stringify({"id":auth.user, "message":SendMessage})
+      body: JSON.stringify({"id":auth.user, "aite":auth.aite, "message":SendMessage})
     }
     console.log(requestOptions)
     fetch("../send_post.php",requestOptions)
@@ -97,6 +97,7 @@ export function Page3() {
             {Messages.map((Message, i) => {
               return <li key={Message.message}>{Message.DateTime}"     "{Message.message}</li>;
             })}
+            {console.log("page reloaded")}
         </ul>
         </div>
         <div>
