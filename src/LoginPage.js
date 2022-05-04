@@ -37,7 +37,7 @@ export function LoginPage() {
 
   return (
     <div>
-      <p>ログインしてください {from}</p>
+      <p>ログインしてください</p>
 
       <form onSubmit={handleSubmit}>
         <label>

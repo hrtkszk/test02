@@ -8,7 +8,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useAuth } from "./useAuth";
 
 
-export function Page3() {
+export function Message() {
   let auth = useAuth();
   const intervalRef = useRef(null);
 
