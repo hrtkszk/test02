@@ -24,7 +24,7 @@ cursor.execute(f"INSERT `{db_name}`.`{table_name}` (`ID`, `aiteID`, `messagedDat
 
 
 # ここから下はreceive_get.phpで流してもよさそう
-cursor.execute(f"SELECT * FROM {table_name} WHERE id='{sys.argv[1]}' AND aite='{sys.argv[2]}'")
+cursor.execute(f"SELECT * FROM {table_name} WHERE ID='{sys.argv[1]}' AND aiteID='{sys.argv[2]}'")
 
 num_fields = len(cursor.description)
 field_names = [i[0] for i in cursor.description]
