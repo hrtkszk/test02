@@ -49,11 +49,9 @@ export function Page3() {
         .then(result =>{
           console.log("result.pythonout2: ", result.pythonout2)
           setFetchMessages(result.pythonout2)
-        })
-        .then(
-          console.log("message after fetch: ", FetchMessages),
+          console.log("message after fetch: ", FetchMessages)
           console.log("Messages in interval 2: ", Messages)
-        )
+        })
         .then(()=> {
           if (String(FetchMessages)!==String(Messages)) {
             console.log("message updated == message is not equal to Messages")
