@@ -38,7 +38,6 @@ export function Page3() {
   
   console.log("outside of constant update")
   console.log("Messages: ", Messages)
-  let message = []
 
   intervalRef.current = setInterval(() =>{
     console.log("Messages in interval 1: ", Messages)
