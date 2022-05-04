@@ -4,7 +4,7 @@ import * as React from "react";
 //   // Outlet
 //   useNavigate
 // } from "react-router-dom";
-import { useState, useRef } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { useAuth } from "./useAuth";
 
 
@@ -40,21 +40,30 @@ export function Page3() {
   console.log("outside of constant update")
   console.log("Messages: ", Messages)
 
-  intervalRef.current = setInterval(() =>{
-    console.log("Messages in interval 1: ", Messages)
-    fetch("../receive_get.php",initialRequestOptions)
-      .then((response)=> response.json())
-      .then(result =>{
-        console.log("result.pythonout2: ", result.pythonout2)
-        setFetchMessages(result.pythonout2)
-      })
-    console.log("message after fetch: ", FetchMessages)
-    console.log("Messages in interval 2: ", Messages)
-    if (String(FetchMessages)!==String(Messages)) {
-      console.log("message updated == message is not equal to Messages")
-      setMessages(FetchMessages)
+  useCallback(() => {
+    if (intervalRef.current !== null) {
+      return;
     }
+
+    intervalRef.current = setInterval(() =>{
+      console.log("Messages in interval 1: ", Messages)
+      fetch("../receive_get.php",initialRequestOptions)
+        .then((response)=> response.json())
+        .then(result =>{
+          console.log("result.pythonout2: ", result.pythonout2)
+          setFetchMessages(result.pythonout2)
+        })
+
+      console.log("message after fetch: ", FetchMessages)
+      console.log("Messages in interval 2: ", Messages)
+
+      if (String(FetchMessages)!==String(Messages)) {
+        console.log("message updated == message is not equal to Messages")
+        setMessages(FetchMessages)
+      }
     }, 10000);
+
+  }, []);
 
   const sendMsg = () => {
     const requestOptions ={
