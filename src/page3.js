@@ -28,14 +28,17 @@ export function Page3() {
     fetch("../receive_get.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{
-      console.log(result)
+      // console.log(result)
       setMessages(result.pythonout2)
-      // console.log(Messages)
+      console.log(result.pythonout2)
+      console.log(Messages)
     })
     setinitialized(true)
   }
   
   console.log("outside of constant update")
+  console.log(result.pythonout2)
+  console.log(Messages)
 
   intervalRef.current = setInterval(() =>{
     fetch("../receive_get.php",initialRequestOptions)
@@ -43,9 +46,9 @@ export function Page3() {
       .then(result =>{
         if (String(result.pythonout2)!==String(Messages)) {
           console.log("message updated")
-          console.log(result.pythonout2)
-          console.log(Messages)
-          setMessages(() => result.pythonout2)
+          // console.log(result.pythonout2)
+          // console.log(Messages)
+          setMessages(result.pythonout2)
         }
       })
     }, 10000);
