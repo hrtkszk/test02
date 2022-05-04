@@ -32,7 +32,6 @@ export function Page3() {
       // console.log(result)
       setMessages(result.pythonout2)
       console.log(result.pythonout2)
-      console.log(Messages)
     })
     setinitialized(true)
   }
