@@ -23,6 +23,7 @@ export function Page3() {
     headers:{'Content-Type': 'application/json'},
     body: JSON.stringify({"id":auth.user})
   }
+
   // ページが読み込まれる時に実行し、Messagesとして登録する。
   if (initialized===false) {
     console.log(initialRequestOptions)
@@ -40,11 +41,9 @@ export function Page3() {
   console.log("outside of constant update")
   console.log("Messages: ", Messages)
 
-  if (intervalRef.current !== null) {
-    return;
-  } else {
+  if (intervalRef.current === null) {
     intervalRef.current = setInterval(() =>{
-      console.log("Messages in interval 1: ", Messages)
+
       fetch("../receive_get.php",initialRequestOptions)
         .then((response)=> response.json())
         .then(result =>{
