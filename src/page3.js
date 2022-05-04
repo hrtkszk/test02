@@ -48,7 +48,7 @@ export function Page3() {
           setMessages(result.pythonout2)
         }
       })
-    }, 1000);
+    }, 10000);
 
   const sendMsg = () => {
     const requestOptions ={
