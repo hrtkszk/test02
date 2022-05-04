@@ -40,13 +40,14 @@ export function Page3() {
   console.log("Messages: ", Messages)
 
   intervalRef.current = setInterval(() =>{
+    console.log("Messages in interval 1: ", Messages)
     fetch("../receive_get.php",initialRequestOptions)
       .then((response)=> response.json())
       .then(result =>{
         if (String(result.pythonout2)!==String(Messages)) {
           console.log("message updated")
           console.log("result.pythonout2: ", result.pythonout2)
-          console.log("Messages in interval: ", Messages)
+          console.log("Messages in interval 2: ", Messages)
           setMessages(result.pythonout2)
         }
       })
