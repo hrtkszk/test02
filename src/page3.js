@@ -35,11 +35,9 @@ export function Page3() {
   }
   
   console.log("outside of constant update")
-  let i = 0
+  
   useEffect(() => {
-    const interval = setInterval(() =>{
-      console.log(i)
-      i = i + 1;
+    setInterval(() =>{
       fetch("../receive_get.php",initialRequestOptions)
       .then((response)=> response.json())
       .then(result =>{
