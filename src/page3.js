@@ -45,11 +45,12 @@ export function Page3() {
     fetch("../receive_get.php",initialRequestOptions)
       .then((response)=> response.json())
       .then(result =>{
+        console.log("result.pythonout2: ", result.pythonout2)
         message = result.pythonout2
       })
     if (String(message)!==String(Messages)) {
       console.log("message updated")
-      console.log("result.pythonout2: ", message)
+      console.log("message after fetch: ", message)
       console.log("Messages in interval 2: ", Messages)
       setMessages(message)
     }
