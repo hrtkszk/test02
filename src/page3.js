@@ -4,7 +4,7 @@ import * as React from "react";
 //   // Outlet
 //   useNavigate
 // } from "react-router-dom";
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useAuth } from "./useAuth";
 
 
@@ -47,6 +47,14 @@ export function Page3() {
         })
     }, 10000);
   }
+
+  useEffect(() => {
+    // componentDidMount のタイミングで実行したい処理を記述
+    return () => {
+      // componentWillUnmount のタイミングで実行したい処理を記述
+      clearInterval(intervalRef.current)
+    }
+  }, []);
 
   const sendMsg = () => {
     const requestOptions ={
