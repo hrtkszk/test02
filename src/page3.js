@@ -40,6 +40,7 @@ export function Page3() {
   
   console.log("outside of constant update")
   console.log("Messages: ", Messages)
+  console.log("Fetched message: ", FetchMessages)
 
   if (intervalRef.current === null) {
     intervalRef.current = setInterval(() =>{
@@ -57,7 +58,7 @@ export function Page3() {
             setMessages(FetchMessages)
           }
         })
-      console.log("Fetched message: ", FetchMessages)
+      
     }, 10000);
   }
 
