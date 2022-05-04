@@ -6,7 +6,7 @@ import sys
 import datetime
 
 db_name="LAA1422834-test"
-table_name="test"
+table_name="MessageDB"
 
 # データベースへの接続とカーソルの生成
 connection = MySQLdb.connect(
@@ -19,10 +19,12 @@ connection = MySQLdb.connect(
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
 cursor = connection.cursor()
 
-cursor.execute(f"INSERT `{db_name}`.`{table_name}` (`ID`, `DateTime`, `message`) VALUES ('{sys.argv[1]}', CURRENT_TIMESTAMP, '{sys.argv[2]}')")
+cursor.execute(f"INSERT `{db_name}`.`{table_name}` (`ID`, `aiteID`, `messagedDateTime`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[1]}', '{sys.argv[2]}', CURRENT_TIMESTAMP, '{sys.argv[3]}', '1', NULL)")
+cursor.execute(f"INSERT `{db_name}`.`{table_name}` (`ID`, `aiteID`, `messagedDateTime`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[2]}', '{sys.argv[1]}', CURRENT_TIMESTAMP, '{sys.argv[3]}', '1', NULL)")
+
 
 # ここから下はreceive_get.phpで流してもよさそう
-cursor.execute(f"SELECT * FROM test WHERE id='{sys.argv[1]}'")
+cursor.execute(f"SELECT * FROM test WHERE id='{sys.argv[1]}' AND aite='{sys.argv[2]}'")
 
 num_fields = len(cursor.description)
 field_names = [i[0] for i in cursor.description]

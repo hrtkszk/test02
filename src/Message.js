@@ -20,7 +20,7 @@ export function Message() {
   const initialRequestOptions ={
     method: 'POST',
     headers:{'Content-Type': 'application/json'},
-    body: JSON.stringify({"id":auth.user, "aite":auth.aite})
+    body: JSON.stringify({"id":auth.user, "aite":"12345"})
   }
 
   // ページが読み込まれる時に実行し、Messagesとして登録する。
@@ -59,7 +59,7 @@ export function Message() {
     const requestOptions ={
       method: 'POST',
       headers:{'Content-Type': 'application/json'},
-      body: JSON.stringify({"id":auth.user, "aite":auth.aite, "message":SendMessage})
+      body: JSON.stringify({"id":auth.user, "aite":"12345", "message":SendMessage})
     }
     console.log(requestOptions)
     fetch("../send_post.php",requestOptions)

@@ -16,7 +16,7 @@ connection = MySQLdb.connect(
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
 cursor = connection.cursor()
 
-cursor.execute(f"SELECT * FROM test WHERE id='{sys.argv[1]}'")
+cursor.execute(f"SELECT * FROM MessageDB WHERE id='{sys.argv[1]}' AND aite='{sys.argv[2]}'")
 
 # num_fields = len(cursor.description)
 field_names = [i[0] for i in cursor.description]
