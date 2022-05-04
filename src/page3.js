@@ -33,6 +33,8 @@ export function Page3() {
     })
     setinitialized(true)
   }
+  
+  console.log("outside of timely update")
 
   setInterval(() =>{
     fetch("../receive_get.php",initialRequestOptions)
