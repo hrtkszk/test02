@@ -100,6 +100,7 @@ export function Message() {
               return <li key={Message.message}> 
               <div class="balloon_l">
                 <div class="faceicon">
+                  {Message.aiteID}
                 </div>
                 <div class="says">{Message.message}</div>
               </div>
@@ -108,6 +109,7 @@ export function Message() {
               return <li key={Message.message}> 
               <div class="balloon_r">
                 <div class="faceicon">
+                  {Message.ID}
                 </div>
                   <div class="says">{Message.message}</div>
               </div>                              
