@@ -18,7 +18,8 @@ connection = MySQLdb.connect(
 # field name込みの場合はこっちを使う
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
 cursor = connection.cursor()
-message = " ".join(sys.argv[3:]).replace('"', '”').replace('#', '＃').replace('$', '＄').replace("'", "’").replace("(", "（").replace(")", "）")
+message = " ".join(sys.argv[3:]).replace('"', '”')
+# .replace('#', '＃').replace('$', '＄').replace("'", "’").replace("(", "（").replace(")", "）")
 
 cursor.execute(f"INSERT `{db_name}`.`{table_name}` (`ID`, `aiteID`, `messagedDateTime`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[1]}', '{sys.argv[2]}', CURRENT_TIMESTAMP, '{message}', '1', NULL)")
 cursor.execute(f"INSERT `{db_name}`.`{table_name}` (`ID`, `aiteID`, `messagedDateTime`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[2]}', '{sys.argv[1]}', CURRENT_TIMESTAMP, '{message}', '1', NULL)")
