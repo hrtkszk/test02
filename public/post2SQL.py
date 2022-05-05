@@ -24,7 +24,7 @@ cursor.execute(f"INSERT `{db_name}`.`{table_name}` (`ID`, `aiteID`, `messagedDat
 cursor.execute(f"INSERT `{db_name}`.`{table_name}` (`ID`, `aiteID`, `messagedDateTime`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[2]}', '{sys.argv[1]}', CURRENT_TIMESTAMP, '{message}', '1', NULL)")
 
 
-# ここから下はreceive_get.phpで流してもよさそう
+# ここから下はreceive_get.phpで流してもよさそう(同じ)
 cursor.execute(f"SELECT * FROM {table_name} WHERE ID='{sys.argv[1]}' AND aiteID='{sys.argv[2]}'")
 
 num_fields = len(cursor.description)
