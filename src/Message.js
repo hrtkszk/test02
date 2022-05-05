@@ -105,7 +105,9 @@ export function Message() {
               <input
                 id="sendMessage"
                 ref={inputRef}
-                onChange={evt => setSendMessage(evt.target.value)}
+                onChange={evt => {
+                  setSendMessage(evt.target.value.replace('"', '”'))
+                }}
                 placeholder='メッセージ'
               />
               <button onClick={sendMsg}>Send</button>
