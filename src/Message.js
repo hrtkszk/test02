@@ -103,8 +103,9 @@ export function Message() {
                   {Message.aiteID}
                 </div>
                 <div class="says">{Message.message}</div>
+                {Message.messagedDateTime}
               </div>
-              {Message.messagedDateTime}</li>
+              </li>
             } else {
               return <li key={Message.message}> 
               <div class="balloon_r">
@@ -112,8 +113,9 @@ export function Message() {
                   {Message.ID}
                 </div>
                   <div class="says">{Message.message}</div>
+                  {Message.messagedDateTime}
               </div>                              
-              {Message.messagedDateTime}</li>
+              </li>
             }
           })}
         </ul>
