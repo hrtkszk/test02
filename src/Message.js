@@ -106,7 +106,7 @@ export function Message() {
                 id="sendMessage"
                 ref={inputRef}
                 onChange={evt => {
-                  setSendMessage(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/\</g, '＜').replace(/\>/g, '＞').replace(/\*/g, '＊').replace(/\`/g, '｀').replace(/\|/g, '｜'))
+                  setSendMessage(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
                 }}
                 placeholder='メッセージ'
               />
