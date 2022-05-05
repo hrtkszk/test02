@@ -102,8 +102,8 @@ export function Message() {
                 <div class="faceicon">
                   {Message.aiteID}
                 </div>
-                <div class="says">{Message.message}</div><br />
-                {Message.messagedDateTime}
+                <div class="says">{Message.message}</div>
+                <div>{Message.messagedDateTime}</div>
               </div>
               </li>
             } else {
@@ -112,9 +112,9 @@ export function Message() {
                 <div class="faceicon">
                   {Message.ID}
                 </div>
-                  <div class="says">{Message.message}</div><br />
-                  {Message.messagedDateTime}
-              </div>                              
+                <div class="says">{Message.message}</div>
+                <div>{Message.messagedDateTime}</div>
+              </div>
               </li>
             }
           })}
