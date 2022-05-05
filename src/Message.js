@@ -42,7 +42,6 @@ export function Message() {
         .then((response)=> response.json())
         .then(result =>{
           console.log("result.pythonout2: ", result.pythonout2)
-          console.log("result.output: ", result.output)
           setMessages(result.pythonout2)
         })
     }, 10000);
@@ -96,7 +95,7 @@ export function Message() {
         <div>
         <ul>
             {Messages.map((Message, i) => {
-              return <li key={Message.message}>{Message.messagedDateTime}"     "{Message.message}</li>;
+              return <li key={Message.message}>{Message.messagedDateTime}     {Message.message}</li>;
             })}
         </ul>
         </div>

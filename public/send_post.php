@@ -35,7 +35,6 @@ if(empty($_POST['id'])) {
            "error" => true,
            "message" => "Error: 入力してください。",
            "pythonout2" => $output2,
-           "output" => $output,
         ]
     ); 
 } else {
@@ -44,7 +43,6 @@ if(empty($_POST['id'])) {
            "error" => false,
            "message" => 'Success: 入力されたテキスト→'.$_POST['id'],
            "pythonout2" => $output2,
-           "output" => $output,
         ]
     ); 
 }
