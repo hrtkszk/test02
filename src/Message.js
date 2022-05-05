@@ -96,7 +96,7 @@ export function Message() {
         <div>
         <ul>
           {Messages.map((Message, i) => {
-            if (Message.sender===auth.user) {
+            if (Message.sender!==auth.user) {
               return <li key={Message.message}> 
               <div class="balloon_l">
                 <div class="faceicon">
