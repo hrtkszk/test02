@@ -6,6 +6,7 @@ import * as React from "react";
 // } from "react-router-dom";
 import { useState, useRef, useEffect } from 'react';
 import { useAuth } from "./useAuth";
+import "./Message.css";
 
 
 export function Message() {
@@ -94,9 +95,25 @@ export function Message() {
         <h1>Welcome {auth.user}</h1>
         <div>
         <ul>
-            {Messages.map((Message, i) => {
-              return <li key={Message.message}>{Message.messagedDateTime}     {Message.message}</li>;
-            })}
+          {Messages.map((Message, i) => {
+            if (Message.ID===auth.user) {
+              return <li key={Message.message}> 
+              <div class="balloon_l">
+                <div class="faceicon">
+                </div>
+                <div class="says">{Message.message}</div>
+              </div>
+              {Message.messagedDateTime}</li>
+            } else {
+              return <li key={Message.message}> 
+              <div class="balloon_r">
+                <div class="faceicon">
+                </div>
+                  <div class="says">{Message.message}</div>
+              </div>                              
+              {Message.messagedDateTime}</li>
+            }
+          })}
         </ul>
         </div>
         <div>
