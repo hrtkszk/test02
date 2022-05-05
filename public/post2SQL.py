@@ -20,8 +20,8 @@ connection = MySQLdb.connect(
 cursor = connection.cursor()
 message = " ".join(sys.argv[3:])
 
-cursor.execute(f"INSERT `{db_name}`.`{table_name}` (`ID`, `aiteID`, `messagedDateTime`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[1]}', '{sys.argv[2]}', CURRENT_TIMESTAMP, '{message}', '1', NULL)")
-cursor.execute(f"INSERT `{db_name}`.`{table_name}` (`ID`, `aiteID`, `messagedDateTime`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[2]}', '{sys.argv[1]}', CURRENT_TIMESTAMP, '{message}', '1', NULL)")
+cursor.execute(f"INSERT `{db_name}`.`{table_name}` (`ID`, `aiteID`, `sender`, `messagedDateTime`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[1]}', '{sys.argv[2]}', CURRENT_TIMESTAMP, '{message}', '1', NULL)")
+cursor.execute(f"INSERT `{db_name}`.`{table_name}` (`ID`, `aiteID`, `sender`, `messagedDateTime`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[2]}', '{sys.argv[1]}', CURRENT_TIMESTAMP, '{message}', '1', NULL)")
 
 
 # ここから下はreceive_get.phpで流してもよさそう(同じ)
