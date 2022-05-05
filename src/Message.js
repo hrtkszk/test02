@@ -106,7 +106,7 @@ export function Message() {
                 id="sendMessage"
                 ref={inputRef}
                 onChange={evt => {
-                  setSendMessage(evt.target.value.replace('"', '”'))
+                  setSendMessage(evt.target.value.replace(/"/g, '”'))
                 }}
                 placeholder='メッセージ'
               />
