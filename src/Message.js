@@ -102,9 +102,9 @@ export function Message() {
                 <div class="faceicon">
                   {Message.aiteID}
                 </div>
-                <div class="says">{Message.message}</div><br />
-                <span class="new_line">{Message.messagedDateTime}</span>
+                <div class="says">{Message.message}</div>
               </div>
+              <span class="datetime_l">{Message.messagedDateTime}</span>
               </li>
             } else {
               return <li key={Message.message}> 
@@ -112,9 +112,9 @@ export function Message() {
                 <div class="faceicon">
                   {Message.ID}
                 </div>
-                <div class="says">{Message.message}</div><br />
-                <span class="new_line">{Message.messagedDateTime}</span>
+                <div class="says">{Message.message}</div>
               </div>
+              <span class="datetime_r">{Message.messagedDateTime}</span>
               </li>
             }
           })}

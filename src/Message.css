@@ -5,8 +5,17 @@ ul li {
 ul {
   list-style-type: none;
 }
-.new_line {
-  display: block;
+
+.datetime_l,
+.datetime_r{
+  margin: 0px 0;
+  display:flex;
+  justify-content: flex-start;
+  align-items: flex-start; /*縦位置を上揃え*/
+/*   align-items: center; */ /*縦位置を真ん中揃え*/
+}
+.datetime_r{
+  justify-content:flex-end;
 }
 
 /*吹き出し*/
