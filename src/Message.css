@@ -1,6 +1,6 @@
 ul li {
-  padding-top:5px; 
-  padding-bottom:5px;
+  padding-top:0px; 
+  padding-bottom:0px;
 }
 ul {
   list-style-type: none;
@@ -12,7 +12,7 @@ ul {
 /*吹き出し*/
 .balloon_l,
 .balloon_r{
-  margin: 5px 0;
+  margin: 0px 0;
   display:flex;
   justify-content: flex-start;
   align-items: flex-start; /*縦位置を上揃え*/

@@ -102,7 +102,7 @@ export function Message() {
                 <div class="faceicon">
                   {Message.aiteID}
                 </div>
-                <div class="says">{Message.message}</div>
+                <div class="says">{Message.message}</div><br />
                 <span class="new_line">{Message.messagedDateTime}</span>
               </div>
               </li>
@@ -112,7 +112,7 @@ export function Message() {
                 <div class="faceicon">
                   {Message.ID}
                 </div>
-                <div class="says">{Message.message}</div>
+                <div class="says">{Message.message}</div><br />
                 <span class="new_line">{Message.messagedDateTime}</span>
               </div>
               </li>
