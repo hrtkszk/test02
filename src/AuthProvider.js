@@ -24,7 +24,7 @@ export function AuthProvider({ children }) {
     });
   };
 
-  let value = { user, aite, signin, signout };
+  let value = { user, aite, signin, signout, setAite };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

@@ -10,6 +10,7 @@ import { AuthStatus } from "./AuthStatus";
 import { Page1 } from "./page1";
 import { Page2 } from "./page2";
 import { Message } from "./Message";
+import { MessageList } from "./MessageList";
 import { LogOutPage } from "./logoutPage";
 
 export default function App() {
@@ -33,6 +34,7 @@ export default function App() {
           <Route path="page1" element={<Page1 />}/>
           <Route path="page2" element={<Page2 />}/>
           <Route path="Message" element={<Message />}/>
+          <Route path="MessageList" element={<MessageList />}/>
           <Route path="logout" element={<LogOutPage />}/>
         </Route>
       </Routes>

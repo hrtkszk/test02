@@ -33,6 +33,9 @@ export function Header() {
               <Link to="Message">Show Message</Link>
             </li>
             <li>
+              <Link to="MessageList">Show Message List</Link>
+            </li>
+            <li>
               <Link to="logout">Logout Page</Link>
             </li>
           </ul>
