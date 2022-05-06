@@ -60,7 +60,7 @@ export function Message() {
     const requestOptions ={
       method: 'POST',
       headers:{'Content-Type': 'application/json'},
-      body: JSON.stringify({"id":auth.user, "aite":"12345", "message":SendMessage})
+      body: JSON.stringify({"id":auth.user, "aite":auth.aite, "message":SendMessage})
     }
     console.log(requestOptions)
     fetch("../send_post.php",requestOptions)
