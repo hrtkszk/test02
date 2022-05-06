@@ -103,7 +103,7 @@ export function Message() {
                   {Message.aiteID}
                 </div>
                 <div class="says">{Message.message}</div>
-                <div>{Message.messagedDateTime}</div>
+                <span class="new_line">{Message.messagedDateTime}</span>
               </div>
               </li>
             } else {
@@ -113,7 +113,7 @@ export function Message() {
                   {Message.ID}
                 </div>
                 <div class="says">{Message.message}</div>
-                <div>{Message.messagedDateTime}</div>
+                <span class="new_line">{Message.messagedDateTime}</span>
               </div>
               </li>
             }
