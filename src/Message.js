@@ -21,7 +21,7 @@ export function Message() {
   const initialRequestOptions ={
     method: 'POST',
     headers:{'Content-Type': 'application/json'},
-    body: JSON.stringify({"id":auth.user, "aite":"12345"})
+    body: JSON.stringify({"id":auth.user, "aite":auth.aite})
   }
 
   // ページが読み込まれる時に実行し、Messagesとして登録する。
