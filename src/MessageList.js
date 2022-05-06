@@ -24,7 +24,7 @@ export function MessageList() {
   // ページが読み込まれる時に実行し、MessageListとして登録する。
   if (initialized===false) {
     console.log(initialRequestOptions)
-    fetch("../receive_get.php",initialRequestOptions)
+    fetch("../message_list.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{
       // console.log(result)
@@ -36,7 +36,7 @@ export function MessageList() {
   
   if (intervalRef.current === null) {
     intervalRef.current = setInterval(() =>{
-      fetch("../receive_get.php",initialRequestOptions)
+      fetch("../message_list.php",initialRequestOptions)
         .then((response)=> response.json())
         .then(result =>{
           console.log("result.pythonout2: ", result.pythonout2)
@@ -66,7 +66,7 @@ export function MessageList() {
         <div>
         <ul>
             {MessageList.map((Message, i) => {
-              return <li key={Message.message}>{Message.DateTime}"     "{Message.message}</li>;
+              return <li key={Message.aiteID}>{Message.aiteID} {Message.messagedDateTime} {Message.message}</li>;
             })}
         </ul>
         </div>
