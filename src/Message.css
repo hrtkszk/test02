@@ -4,6 +4,7 @@ ul li {
 }
 ul {
   list-style-type: none;
+  padding-inline-start: 0px;
 }
 
 .datetime_l,

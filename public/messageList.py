@@ -20,7 +20,8 @@ connection = MySQLdb.connect(
 cursor = connection.cursor()
 
 # ここから下はreceive_get.phpで流してもよさそう(同じ)
-cursor.execute(f"SELECT * FROM {table_name} WHERE ID='{sys.argv[1]}' AND messagedDateTime=(SELECT max(messagedDateTime) FROM {table_name} AS md WHERE {table_name}.aiteID=md.aiteID)")
+cursor.execute(f"SELECT * FROM {table_name} WHERE ID='{sys.argv[1]}' GROUP BY aiteID ORDER BY messagedDateTime")
+# AND messagedDateTime=(SELECT max(messagedDateTime) FROM {table_name} AS md WHERE {table_name}.aiteID=md.aiteID)
 
 num_fields = len(cursor.description)
 field_names = [i[0] for i in cursor.description]

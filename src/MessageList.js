@@ -4,13 +4,15 @@ import {
   // Outlet
   // useNavigate
 } from "react-router-dom";
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { useAuth } from "./useAuth";
+import "./Message.css";
 
 
 export function MessageList() {
   let auth = useAuth();
-  const intervalRef = useRef(null);
+  const inputRef = useRef();
+  // const intervalRef = useRef(null);
 
   const [MessageList, setMessageList] = useState([]);
   const [initialized, setinitialized] = useState(false);
@@ -34,24 +36,24 @@ export function MessageList() {
     setinitialized(true)
   }
   
-  if (intervalRef.current === null) {
-    intervalRef.current = setInterval(() =>{
-      fetch("../message_list.php",initialRequestOptions)
-        .then((response)=> response.json())
-        .then(result =>{
-          console.log("result.pythonout2: ", result.pythonout2)
-          setMessageList(result.pythonout2)
-        })
-    }, 10000);
-  }
+  // if (intervalRef.current === null) {
+  //   intervalRef.current = setInterval(() =>{
+  //     fetch("../message_list.php",initialRequestOptions)
+  //       .then((response)=> response.json())
+  //       .then(result =>{
+  //         console.log("result.pythonout2: ", result.pythonout2)
+  //         setMessageList(result.pythonout2)
+  //       })
+  //   }, 10000);
+  // }
 
-  useEffect(() => {
-    // componentDidMount のタイミングで実行したい処理を記述
-    return () => {
-      // componentWillUnmount のタイミングで実行したい処理を記述
-      clearInterval(intervalRef.current)
-    }
-  }, []);
+  // useEffect(() => {
+  //   // componentDidMount のタイミングで実行したい処理を記述
+  //   return () => {
+  //     // componentWillUnmount のタイミングで実行したい処理を記述
+  //     clearInterval(intervalRef.current)
+  //   }
+  // }, []);
 
   if (MessageList === []) {
     return (
@@ -66,10 +68,13 @@ export function MessageList() {
         <div>
         <ul>
             {MessageList.map((Message, i) => {
-              return <li key={Message.aiteID}>{Message.messagedDateTime} {Message.message}
-                <Link to="../Message" onClick={auth.setAite(Message.aiteID)}>Here</Link>
-              {Message.aiteID}
-            </li>
+              return <li key={Message.aiteID} onClick={auth.setAite(this.key)}>
+                <Link to="../Message">
+                  {Message.aiteID}
+                  {Message.message}
+                  <span class="datetime_l">{Message.messagedDateTime}</span>
+                </Link>
+              </li>
             })}
         </ul>
         </div>
