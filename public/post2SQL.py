@@ -19,9 +19,11 @@ connection = MySQLdb.connect(
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
 cursor = connection.cursor()
 message = " ".join(sys.argv[3:])
+messageID1 = str(sys.argv[1])+"_"+str(sys.argv[2])+"_"+datetime.datetime.now()
+messageID2 = str(sys.argv[2])+"_"+str(sys.argv[1])+"_"+datetime.datetime.now()
 
-cursor.execute(f"INSERT `{db_name}`.`{table_name}` (`ID`, `aiteID`, `sender`, `messagedDateTime`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[1]}', '{sys.argv[2]}', '{sys.argv[1]}', CURRENT_TIMESTAMP, '{message}', '1', NULL)")
-cursor.execute(f"INSERT `{db_name}`.`{table_name}` (`ID`, `aiteID`, `sender`, `messagedDateTime`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[2]}', '{sys.argv[1]}', '{sys.argv[1]}', CURRENT_TIMESTAMP, '{message}', '1', NULL)")
+cursor.execute(f"INSERT `{db_name}`.`{table_name}` (`ID`, `aiteID`, `sender`, `messagedDateTime`, `messageID`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[1]}', '{sys.argv[2]}', '{sys.argv[1]}', CURRENT_TIMESTAMP, '{messageID1}', '{message}', '1', NULL)")
+cursor.execute(f"INSERT `{db_name}`.`{table_name}` (`ID`, `aiteID`, `sender`, `messagedDateTime`, `messageID`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[2]}', '{sys.argv[1]}', '{sys.argv[1]}', CURRENT_TIMESTAMP, '{messageID2}', '{message}', '1', NULL)")
 
 
 # ここから下はreceive_get.phpで流してもよさそう(同じ)
