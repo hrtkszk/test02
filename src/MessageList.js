@@ -4,14 +4,13 @@ import {
   // Outlet
   // useNavigate
 } from "react-router-dom";
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { useAuth } from "./useAuth";
 import "./Message.css";
 
 
 export function MessageList() {
   let auth = useAuth();
-  const inputRef = useRef();
   // const intervalRef = useRef(null);
 
   const [MessageList, setMessageList] = useState([]);
