@@ -32,7 +32,7 @@ cursor.execute(f" \
     WHERE ID='{sys.argv[1]}' \
     GROUP BY aiteID) AS t2 \
     ON t1.ID = t2.ID AND t1.aiteID = t2.aiteID AND t1.messagedDateTime = t2.latestDateTime \
-    ORDER BY t1.messagedDateTime \
+    ORDER BY t1.messagedDateTime DESC\
 ")
 
 num_fields = len(cursor.description)
