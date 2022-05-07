@@ -133,6 +133,7 @@ export function ForgetPwd() {
               />
               <button onClick={sendMsg}>Send</button>
             </footer>
+            <Link to="../login">戻る</Link>
         </div>
       </div>
     )
