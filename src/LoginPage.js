@@ -41,10 +41,15 @@ export function LoginPage() {
 
       <form onSubmit={handleSubmit}>
         <label>
-          ユーザー名：<input name="username" type="text" />
+          メールアドレス／電話番号<input name="username" type="text" />
+        </label>
+        <label>
+          パスワード：<input name="password" type="text" />
         </label>
         <button type="submit">ログイン</button>
       </form>
+      <Link to="../NewUser">新規登録</Link>
+      <Link to="../ForgetPwd">パスワードを忘れた方はこちら</Link>
     </div>
   );
 }

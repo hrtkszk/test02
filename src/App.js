@@ -12,6 +12,8 @@ import { Page2 } from "./page2";
 import { Message } from "./Message";
 import { MessageList } from "./MessageList";
 import { LogOutPage } from "./logoutPage";
+import { ForgetPwd } from "./ForgetPwd";
+import { NewUser } from "./NewUser";
 
 export default function App() {
   return (
@@ -36,6 +38,8 @@ export default function App() {
           <Route path="Message" element={<Message />}/>
           <Route path="MessageList" element={<MessageList />}/>
           <Route path="logout" element={<LogOutPage />}/>
+          <Route path="NewUser" element={<NewUser />}/>
+          <Route path="ForgetPwd" element={<ForgetPwd />}/>
         </Route>
       </Routes>
     </AuthProvider>
