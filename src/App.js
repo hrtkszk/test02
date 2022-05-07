@@ -24,6 +24,8 @@ export default function App() {
       <Routes>
         <Route index element={<LoginPage />} />
         <Route path="login" element={<LoginPage />} />
+        <Route path="NewUser" element={<NewUser />}/>
+        <Route path="ForgetPwd" element={<ForgetPwd />}/>
         <Route
           path="protected"
           element={
@@ -38,8 +40,7 @@ export default function App() {
           <Route path="Message" element={<Message />}/>
           <Route path="MessageList" element={<MessageList />}/>
           <Route path="logout" element={<LogOutPage />}/>
-          <Route path="NewUser" element={<NewUser />}/>
-          <Route path="ForgetPwd" element={<ForgetPwd />}/>
+
         </Route>
       </Routes>
     </AuthProvider>
