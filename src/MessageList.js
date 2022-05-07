@@ -69,8 +69,7 @@ export function MessageList() {
             {MessageList.map((Message, i) => {
               return <li key={Message.aiteID}>
                 <Link to="../Message">
-                  <div value={Message.aiteID} onClick={auth.setAite(this.value)}>
-                    {console.log(this.value)}
+                  <div value="test" onClick={auth.setAite(this.value)}>
                   {Message.aiteID}
                   {Message.message}
                   <span class="datetime_l">{Message.messagedDateTime}</span></div>
