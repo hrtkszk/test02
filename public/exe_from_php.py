@@ -16,6 +16,8 @@ connection = MySQLdb.connect(
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
 cursor = connection.cursor()
 
+# 既読処理が必要。
+
 cursor.execute(f"SELECT * FROM MessageDB WHERE ID='{sys.argv[1]}' AND aiteID='{sys.argv[2]}' ORDER BY messagedDateTime")
 
 # num_fields = len(cursor.description)
