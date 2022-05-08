@@ -15,7 +15,8 @@ export function NewUser() {
 
   let navigate = useNavigate();
   const [submitted, setSubmitted] = useState(false);
-  
+
+  // 入力値に問題があれば遷移しない。問題なければ遷移する
   const submit = e => {
     e.preventDefault();
     setSubmitted(true);
@@ -75,16 +76,20 @@ export function NewUser() {
           
           <input
             type="password"
-            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            // title="8文字以上で、数字・小文字アルファベット・大文字アルファベットを含めてください"
             onChange={evt => {
-              // パスワード入力がないとエラーとしたい
               setPwd(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
             }}
             placeholder='パスワード'
-            title="8文字以上で、数字・小文字アルファベット・大文字アルファベットを含めてください"
+
             required
           /><br />
-          <PasswordStrengthBar password={Pwd} /><br />
+          <PasswordStrengthBar
+            minLength={8}
+            style={{ width: 200 }}
+            password={Pwd}
+          /><br />
           <button onClick={setEmailPhonePwd}>登録する</button>
         </form>
         <br />
