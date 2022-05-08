@@ -2,14 +2,14 @@ import * as React from "react";
 import {
   Link,
   // Outlet
-  // useNavigate
+  useNavigate
 } from "react-router-dom";
 import { useState } from 'react';
 import "./Message.css";
 
 
 export function NewUser() {
-  // let navigate = useNavigate();
+  let navigate = useNavigate();
 
   const [EmailPhone, setEmailPhone] = useState("");
   const [Pwd, setPwd] = useState("");
@@ -53,11 +53,12 @@ export function NewUser() {
           <input
             type="text"
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-            title="アットマーク（“@”）の後にカンマ(“.”)を含んだ形式で入力してください"
+            title="有効なメールアドレスを入力してください"
             onChange={evt => {
               // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
               setEmailPhone(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
             }}
+            placeholder='メールアドレス'
             required
           /><br />
           <input
