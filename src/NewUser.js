@@ -29,9 +29,6 @@ export function NewUser() {
   const setEmailPhonePwd = e => {
     e.preventDefault();
     setSubmitted(true);
-  }
-  
-  if (submitted) {
     if (EmailPhone.match(/@/)) {
       console.log(EmailPhone, "includes @ mark. ", Pwd)
 
@@ -58,6 +55,10 @@ export function NewUser() {
       console.log(EmailPhone, "is not valid. ", Pwd)
 
     }
+  }
+
+  if (submitted) {
+
     navigate("/")
   }
 
