@@ -123,6 +123,7 @@ export function Message() {
         <div>
             <footer>
               <input
+              // textarea
                 id="sendMessage"
                 ref={inputRef}
                 onChange={evt => {

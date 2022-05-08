@@ -77,7 +77,7 @@ export function NewUser() {
             required
           /><br />
           <PasswordStrengthBar password={Pwd} /><br />
-          <button onClick={setEmailPhonePwd}>登録する</button>
+          <button onClick={() => setEmailPhonePwd}>登録する</button>
         </form>
         <br />
         <Link to="../">戻る</Link>
