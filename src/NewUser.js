@@ -75,7 +75,7 @@ export function NewUser() {
             required
           /><br />
           <button onClick={setEmailPhonePwd}>登録する</button>
-        </form>{document.body.appendChild(form)}
+        </form>
         <br />
         <Link to="../">戻る</Link>
       </div>
