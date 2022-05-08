@@ -31,9 +31,7 @@ export function NewUser() {
     setSubmitted(true);
     if (EmailPhone.match(/@/)) {
       console.log(EmailPhone, "includes @ mark. ", Pwd)
-      if (submitted) {
-        navigate("/")
-      }
+
       // const requestOptions ={
       //   method: 'POST',
       //   headers:{'Content-Type': 'application/json'},
@@ -52,24 +50,23 @@ export function NewUser() {
       // 電話番号は10桁であること
       // ハイフンなどは省きたい
       console.log(EmailPhone, "is a number. ", Pwd)
-      if (submitted) {
-        navigate("/")
-      }
+
     } else {
       console.log(EmailPhone, "is not valid. ", Pwd)
-      if (submitted) {
-        navigate("/")
-      } 
-    }
-  }
 
+    }
+
+  }
+  if (submitted) {
+    navigate("/")
+  }
 
   return (
     <div>
       <h1>新規登録</h1>
 
       <div>
-        <form>
+        <form onSubmit={e => setEmailPhonePwd(e)}>
           <input
             type="email"
             // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
@@ -98,7 +95,7 @@ export function NewUser() {
             style={{ width: 200 }}
             password={Pwd}
           /><br />
-          <button onSubmit={e => setEmailPhonePwd(e)}>登録する</button>
+          <button type="submit">登録する</button>
         </form>
         <br />
         <Link to="../">戻る</Link>
