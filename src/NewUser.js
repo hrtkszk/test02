@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import { useState } from 'react';
 import "./Message.css";
+import PasswordStrengthBar from 'react-password-strength-bar';
 
 
 export function NewUser() {
@@ -63,6 +64,7 @@ export function NewUser() {
             placeholder='メールアドレス'
             required
           /><br />
+          
           <input
             type="password"
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
@@ -74,6 +76,7 @@ export function NewUser() {
             title="8文字以上で、数字・小文字アルファベット・大文字アルファベットを含めてください"
             required
           /><br />
+          <PasswordStrengthBar password={Pwd} /><br />
           <button onClick={setEmailPhonePwd}>登録する</button>
         </form>
         <br />
