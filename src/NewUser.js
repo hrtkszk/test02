@@ -2,7 +2,7 @@ import * as React from "react";
 import {
   Link,
   // Outlet
-  // useNavigate
+  useNavigate
 } from "react-router-dom";
 import { useState } from 'react';
 import "./Message.css";
@@ -10,7 +10,7 @@ import PasswordStrengthBar from 'react-password-strength-bar';
 
 
 export function NewUser() {
-  // let navigate = useNavigate();
+  let navigate = useNavigate();
 
   const [EmailPhone, setEmailPhone] = useState("");
   const [Pwd, setPwd] = useState("");
@@ -20,7 +20,7 @@ export function NewUser() {
   const setEmailPhonePwd = () => {
     if (EmailPhone.match(/@/)) {
       console.log(EmailPhone, "includes @ mark. ", Pwd)
-      // navigate("/")
+      navigate("/")
       // const requestOptions ={
       //   method: 'POST',
       //   headers:{'Content-Type': 'application/json'},
@@ -39,10 +39,10 @@ export function NewUser() {
       // 電話番号は10桁であること
       // ハイフンなどは省きたい
       console.log(EmailPhone, "is a number. ", Pwd)
-      // navigate("/")
+      navigate("/")
     } else {
       console.log(EmailPhone, "is not valid. ", Pwd)
-      // navigate("/")   
+      navigate("/")   
     }
   }
 
@@ -54,9 +54,9 @@ export function NewUser() {
       <div>
         <form>
           <input
-            type="text"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-            title="有効なメールアドレスを入力してください"
+            type="email"
+            // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+            // title="有効なメールアドレスを入力してください"
             onChange={evt => {
               // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
               setEmailPhone(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
