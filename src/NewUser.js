@@ -51,7 +51,7 @@ export function NewUser() {
       <div>
         <form>
           <input
-            type="text"
+            type="email"
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
             title="有効なメールアドレスを入力してください"
             onChange={evt => {
