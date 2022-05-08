@@ -17,17 +17,18 @@ export function NewUser() {
   const [submitted, setSubmitted] = useState(false);
 
   // 入力値に問題があれば遷移しない。問題なければ遷移する
-  const submit = e => {
+  // const submit = e => {
+  //   e.preventDefault();
+  //   setSubmitted(true);
+  // }
+  // if (submitted) {
+  //   navigate("/")
+  // }
+
+
+  const setEmailPhonePwd = e => {
     e.preventDefault();
     setSubmitted(true);
-  }
-  if (submitted) {
-    navigate("/")
-  }
-
-
-  const setEmailPhonePwd = () => {
-
     if (EmailPhone.match(/@/)) {
       console.log(EmailPhone, "includes @ mark. ", Pwd)
 
@@ -54,7 +55,10 @@ export function NewUser() {
       console.log(EmailPhone, "is not valid. ", Pwd)
 
     }
-
+    
+    if (submitted) {
+      navigate("/")
+    }
   }
 
 
@@ -64,7 +68,7 @@ export function NewUser() {
       <h1>新規登録</h1>
 
       <div>
-        <form onSubmit={e => submit(e)}>
+        <form onSubmit={e => setEmailPhonePwd(e)}>
           <input
             type="email"
             // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
@@ -93,7 +97,7 @@ export function NewUser() {
             style={{ width: 200 }}
             password={Pwd}
           /><br />
-          <button onClick={setEmailPhonePwd}>登録する</button>
+          <button type="submit">登録する</button>
         </form>
         <br />
         <Link to="../">戻る</Link>
