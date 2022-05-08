@@ -17,19 +17,23 @@ export function NewUser() {
   const [submitted, setSubmitted] = useState(false);
 
   // 入力値に問題があれば遷移しない。問題なければ遷移する
-  const submit = e => {
+  // const submit = e => {
+  //   e.preventDefault();
+  //   setSubmitted(true);
+  // }
+  // if (submitted) {
+  //   navigate("/")
+  // }
+
+
+  const setEmailPhonePwd = e => {
     e.preventDefault();
     setSubmitted(true);
-  }
-  if (submitted) {
-    navigate("/")
-  }
-
-
-  const setEmailPhonePwd = () => {
     if (EmailPhone.match(/@/)) {
       console.log(EmailPhone, "includes @ mark. ", Pwd)
-      // navigate("/")
+      if (submitted) {
+        navigate("/")
+      }
       // const requestOptions ={
       //   method: 'POST',
       //   headers:{'Content-Type': 'application/json'},
@@ -48,10 +52,14 @@ export function NewUser() {
       // 電話番号は10桁であること
       // ハイフンなどは省きたい
       console.log(EmailPhone, "is a number. ", Pwd)
-      // navigate("/")
+      if (submitted) {
+        navigate("/")
+      }
     } else {
       console.log(EmailPhone, "is not valid. ", Pwd)
-      // navigate("/")   
+      if (submitted) {
+        navigate("/")
+      } 
     }
   }
 
@@ -61,7 +69,7 @@ export function NewUser() {
       <h1>新規登録</h1>
 
       <div>
-        <form onSubmit={e => submit(e)}>
+        <form>
           <input
             type="email"
             // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
@@ -90,7 +98,7 @@ export function NewUser() {
             style={{ width: 200 }}
             password={Pwd}
           /><br />
-          <button onClick={setEmailPhonePwd}>登録する</button>
+          <button onSubmit={e => setEmailPhonePwd(e)}>登録する</button>
         </form>
         <br />
         <Link to="../">戻る</Link>
