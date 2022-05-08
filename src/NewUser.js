@@ -2,140 +2,71 @@ import * as React from "react";
 import {
   Link,
   // Outlet
-  // useNavigate
+  useNavigate
 } from "react-router-dom";
-import { useState, useRef, useEffect } from 'react';
-import { useAuth } from "./useAuth";
+import { useState, useRef } from 'react';
 import "./Message.css";
 
 
 export function NewUser() {
-  let auth = useAuth();
-  const intervalRef = useRef(null);
-
+  let navigate = useNavigate();
   const inputRef = useRef();
-  const [Messages, setMessages] = useState([]);
-  const [SendMessage, setSendMessage] = useState("");
-  const [initialized, setinitialized] = useState(false);
 
-  const initialRequestOptions ={
-    method: 'POST',
-    headers:{'Content-Type': 'application/json'},
-    body: JSON.stringify({"id":auth.user, "aite":auth.aite})
-  }
+  const [EmailPhone, setEmailPhone] = useState("");
+  const [Pwd, setPwd] = useState("");
 
-  // ページが読み込まれる時に実行し、Messagesとして登録する。
-  if (initialized===false) {
-    console.log(initialRequestOptions)
-    fetch("../receive_get.php",initialRequestOptions)
-    .then((response)=> response.json())
-    .then(result =>{
-      // console.log(result)
-      setMessages(result.pythonout2)
-      console.log(result.pythonout2)
-    })
-    setinitialized(true)
-  }
-  
-  if (intervalRef.current === null) {
-    intervalRef.current = setInterval(() =>{
-      fetch("../receive_get.php",initialRequestOptions)
-        .then((response)=> response.json())
-        .then(result =>{
-          console.log("result.pythonout2: ", result.pythonout2)
-          setMessages(result.pythonout2)
-        })
-    }, 10000);
-  }
-
-  useEffect(() => {
-    // componentDidMount のタイミングで実行したい処理を記述
-    return () => {
-      // componentWillUnmount のタイミングで実行したい処理を記述
-      clearInterval(intervalRef.current)
+  const setEmailPhonePwd = () => {
+    if (EmalPhone.match(/\@/)) {
+      console.log(EmailPhone, "includes @ mark. ", Pwd)
+      navigate("/")
+      // const requestOptions ={
+      //   method: 'POST',
+      //   headers:{'Content-Type': 'application/json'},
+      //   body: JSON.stringify({"EmailPhone":EmailPhone, "Pwd":Pwd})
+      // }
+      // console.log(requestOptions)
+      // fetch("../send_post.php",requestOptions)
+      // .then((response)=> response.json())
+      // .then(result =>{
+      //   console.log(result)
+      //   setMessages(result.pythonout2)
+      //   // console.log(Messages)
+      //   navigate("/")
+      // })
+    } else if (!isNaN(EmalPhone)) {
+      console.log(EmailPhone, "is a number. ", Pwd)
+      navigate("/")
+    } else {
+      console.log(EmailPhone, "is not valid. ", Pwd)
+      navigate("/")   
     }
-  }, []);
-
-  const sendMsg = () => {
-    const requestOptions ={
-      method: 'POST',
-      headers:{'Content-Type': 'application/json'},
-      body: JSON.stringify({"id":auth.user, "aite":auth.aite, "message":SendMessage})
-    }
-    console.log(requestOptions)
-    fetch("../send_post.php",requestOptions)
-    .then((response)=> response.json())
-    .then(result =>{
-      console.log(result)
-      setMessages(result.pythonout2)
-      // console.log(Messages)
-      inputRef.current.value = ""
-      setSendMessage("")
-    })
   }
 
-  if (Messages === []) {
-    return (
+
+  return (
+    <div>
+      <h1>新規登録</h1>
+
       <div>
-        <h1>Welcome {auth.user}</h1>
-        <footer>
-          <input
-            id="sendMessage"
-            ref={inputRef}
-            onChange={evt => setSendMessage(evt.target.value)}
-            placeholder='メッセージ'
-          />
-          <button onClick={sendMsg}>Send</button>
-        </footer>
-        <Link to="../login">戻る</Link>
+          <footer>
+            <input
+              id="EmailPhone"
+              onChange={evt => {
+                setEmailPhone(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
+              }}
+              placeholder='メールアドレス／電話番号'
+            />
+            <input
+              id="Password"
+              onChange={evt => {
+                setPwd(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
+              }}
+              placeholder='パスワード'
+            />
+            <button onClick={setEmailPhonePwd}>登録する</button>
+          </footer>
+          <Link to="../">戻る</Link>
       </div>
-    )
-  } else {
-    return (
-      <div>
-        <h1>Welcome {auth.user}</h1>
-        <div>
-        <ul>
-          {Messages.map((Message, i) => {
-            if (Message.sender!==auth.user) {
-              return <li key={Message.message}> 
-              <div class="balloon_l">
-                <div class="faceicon">
-                  {Message.aiteID}
-                </div>
-                <div class="says">{Message.message}</div>
-              </div>
-              <span class="datetime_l">{Message.messagedDateTime}</span>
-              </li>
-            } else {
-              return <li key={Message.message}> 
-              <div class="balloon_r">
-                <div class="faceicon">
-                  {Message.ID}
-                </div>
-                <div class="says">{Message.message}</div>
-              </div>
-              <span class="datetime_r">{Message.messagedDateTime}</span>
-              </li>
-            }
-          })}
-        </ul>
-        </div>
-        <div>
-            <footer>
-              <input
-                id="sendMessage"
-                ref={inputRef}
-                onChange={evt => {
-                  setSendMessage(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
-                }}
-                placeholder='メッセージ'
-              />
-              <button onClick={sendMsg}>Send</button>
-            </footer>
-            <Link to="../login">戻る</Link>
-        </div>
-      </div>
-    )
-  }
+    </div>
+  )
 }
