@@ -2,14 +2,14 @@ import * as React from "react";
 import {
   Link,
   // Outlet
-  useNavigate
+  // useNavigate
 } from "react-router-dom";
 import { useState } from 'react';
 import "./Message.css";
 
 
 export function NewUser() {
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
   const [EmailPhone, setEmailPhone] = useState("");
   const [Pwd, setPwd] = useState("");
@@ -17,7 +17,7 @@ export function NewUser() {
   const setEmailPhonePwd = () => {
     if (EmailPhone.match(/@/)) {
       console.log(EmailPhone, "includes @ mark. ", Pwd)
-      navigate("/")
+      // navigate("/")
       // const requestOptions ={
       //   method: 'POST',
       //   headers:{'Content-Type': 'application/json'},
@@ -36,10 +36,10 @@ export function NewUser() {
       // 電話番号は10桁であること
       // ハイフンなどは省きたい
       console.log(EmailPhone, "is a number. ", Pwd)
-      navigate("/")
+      // navigate("/")
     } else {
       console.log(EmailPhone, "is not valid. ", Pwd)
-      navigate("/")   
+      // navigate("/")   
     }
   }
 
