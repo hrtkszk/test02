@@ -10,17 +10,25 @@ import PasswordStrengthBar from 'react-password-strength-bar';
 
 
 export function NewUser() {
-  let navigate = useNavigate();
-
   const [EmailPhone, setEmailPhone] = useState("");
   const [Pwd, setPwd] = useState("");
 
+  let navigate = useNavigate();
+  const [submitted, setSubmitted] = useState(false);
+  
+  const submit = e => {
+    e.preventDefault();
+    setSubmitted(true);
+  }
+  if (submitted) {
+    navigate("/")
+  }
 
 
   const setEmailPhonePwd = () => {
     if (EmailPhone.match(/@/)) {
       console.log(EmailPhone, "includes @ mark. ", Pwd)
-      navigate("/")
+      // navigate("/")
       // const requestOptions ={
       //   method: 'POST',
       //   headers:{'Content-Type': 'application/json'},
@@ -39,10 +47,10 @@ export function NewUser() {
       // 電話番号は10桁であること
       // ハイフンなどは省きたい
       console.log(EmailPhone, "is a number. ", Pwd)
-      navigate("/")
+      // navigate("/")
     } else {
       console.log(EmailPhone, "is not valid. ", Pwd)
-      navigate("/")   
+      // navigate("/")   
     }
   }
 
@@ -52,7 +60,7 @@ export function NewUser() {
       <h1>新規登録</h1>
 
       <div>
-        <form>
+        <form onSubmit={e => submit(e)}>
           <input
             type="email"
             // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
@@ -77,7 +85,7 @@ export function NewUser() {
             required
           /><br />
           <PasswordStrengthBar password={Pwd} /><br />
-          <button onClick={() => setEmailPhonePwd}>登録する</button>
+          <button onClick={setEmailPhonePwd}>登録する</button>
         </form>
         <br />
         <Link to="../">戻る</Link>
