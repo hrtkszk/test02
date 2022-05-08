@@ -14,6 +14,8 @@ import { MessageList } from "./MessageList";
 import { LogOutPage } from "./logoutPage";
 import { ForgetPwd } from "./ForgetPwd";
 import { NewUser } from "./NewUser";
+import { EmailSent } from "./EmailSent";
+import { EmailExist } from "./EmailExist";
 
 export default function App() {
   return (
@@ -25,6 +27,8 @@ export default function App() {
         <Route index element={<LoginPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="NewUser" element={<NewUser />}/>
+        <Route path="EmailSent" element={<EmailSent />}/>
+        <Route path="EmailExist" element={<EmailExist />}/>
         <Route path="ForgetPwd" element={<ForgetPwd />}/>
         <Route
           path="protected"

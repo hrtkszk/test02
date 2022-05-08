@@ -4,14 +4,15 @@ import {
   // Outlet
   // useNavigate
 } from "react-router-dom";
-import "./Message.css";
 
-export function EmailExist() {
+
+export function EmailSent() {
 
   return (
     <div>
-      <h1>このメールはすでに登録されています</h1>
+      <h1>確認メールを送信しました</h1>
       <div>
+          送信したメールに記載されているURLをクリックして、認証してください。
         <br />
         <Link to="../">ログインページに戻る</Link>
       </div>

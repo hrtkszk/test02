@@ -21,16 +21,16 @@ export function NewUser() {
     e.preventDefault();
     setSubmitted(true);
   }
-  if (submitted) {
-    navigate("/")
-  }
 
 
-  const setEmailPhonePwd = () => {
+
+  const setEmailPwd = () => {
 
     if (EmailPhone.match(/@/)) {
       console.log(EmailPhone, "includes @ mark. ", Pwd)
-
+      if (submitted) {
+        navigate("/")
+      }
       // const requestOptions ={
       //   method: 'POST',
       //   headers:{'Content-Type': 'application/json'},
@@ -44,15 +44,13 @@ export function NewUser() {
       //   setMessages(result.pythonout2)
       //   // console.log(Messages)
       //   navigate("/")
-      // })
-    } else if (!isNaN(EmailPhone)) {
-      // 電話番号は10桁であること
-      // ハイフンなどは省きたい
-      console.log(EmailPhone, "is a number. ", Pwd)
 
+      // })
     } else {
       console.log(EmailPhone, "is not valid. ", Pwd)
-
+      if (submitted) {
+        navigate("/")
+      }
     }
 
   }
@@ -79,8 +77,8 @@ export function NewUser() {
           
           <input
             type="password"
-            // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-            // title="8文字以上で、数字・小文字アルファベット・大文字アルファベットを含めてください"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="8文字以上で、数字・小文字アルファベット・大文字アルファベットを含めてください"
             onChange={evt => {
               setPwd(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
             }}
@@ -93,7 +91,7 @@ export function NewUser() {
             style={{ width: 200 }}
             password={Pwd}
           /><br />
-          <button onClick={setEmailPhonePwd}>登録する</button>
+          <button onClick={setEmailPwd}>登録する</button>
         </form>
         <br />
         <Link to="../">戻る</Link>
