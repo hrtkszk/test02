@@ -13,6 +13,8 @@ export function NewUser() {
 
   const [EmailPhone, setEmailPhone] = useState("");
   const [Pwd, setPwd] = useState("");
+  
+  document.body.appendChild(form);
 
   const setEmailPhonePwd = () => {
     if (EmailPhone.match(/@/)) {
@@ -51,7 +53,7 @@ export function NewUser() {
       <div>
         <form>
           <input
-            // type="email"
+            type="text"
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
             title="有効なメールアドレスを入力してください"
             onChange={evt => {
@@ -72,7 +74,7 @@ export function NewUser() {
             title="8文字以上で、数字・小文字アルファベット・大文字アルファベットを含めてください"
             required
           /><br />
-          <button type="button" onClick={setEmailPhonePwd}>登録する</button>
+          <button onClick={setEmailPhonePwd}>登録する</button>
         </form><br />
         <Link to="../">戻る</Link>
       </div>
