@@ -55,12 +55,13 @@ export function NewUser() {
       console.log(EmailPhone, "is not valid. ", Pwd)
 
     }
+    
+    if (submitted) {
+      navigate("/")
+    }
   }
 
-  if (submitted) {
 
-    navigate("/")
-  }
 
   return (
     <div>
