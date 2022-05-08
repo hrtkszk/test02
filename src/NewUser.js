@@ -51,8 +51,7 @@ export function NewUser() {
       <div>
         <form>
           <input
-            type="email"
-            name="email"
+            type="text"
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
             title="アットマーク（“@”）を含んだ形式で入力してください"
             onChange={evt => {
@@ -63,18 +62,17 @@ export function NewUser() {
           /><br />
           <input
             type="password"
-            name="password"
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             onChange={evt => {
               // パスワード入力がないとエラーとしたい
               setPwd(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
             }}
             placeholder='パスワード'
+            title="8文字以上で、数字・小文字アルファベット・大文字アルファベットを含めてください"
             required
           /><br />
-          <div>8文字以上で1文字以上の数字、小文字アルファベット、大文字アルファベットがそれぞれ含まれていること</div><br /><br />
-          <button onClick={setEmailPhonePwd}>登録する</button><br />
-        </form>
+          <button onClick={setEmailPhonePwd}>登録する</button>
+        </form><br />
         <Link to="../">戻る</Link>
       </div>
     </div>
