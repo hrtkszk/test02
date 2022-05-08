@@ -17,7 +17,7 @@ export function NewUser() {
   const setEmailPhonePwd = () => {
     if (EmailPhone.match(/@/)) {
       console.log(EmailPhone, "includes @ mark. ", Pwd)
-      // navigate("/")
+      navigate("/")
       // const requestOptions ={
       //   method: 'POST',
       //   headers:{'Content-Type': 'application/json'},
@@ -36,10 +36,10 @@ export function NewUser() {
       // 電話番号は10桁であること
       // ハイフンなどは省きたい
       console.log(EmailPhone, "is a number. ", Pwd)
-      // navigate("/")
+      navigate("/")
     } else {
       console.log(EmailPhone, "is not valid. ", Pwd)
-      // navigate("/")   
+      navigate("/")   
     }
   }
 
@@ -53,7 +53,7 @@ export function NewUser() {
           <input
             type="text"
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-            title="アットマーク（“@”）を含んだ形式で入力してください"
+            title="アットマーク（“@”）の後にカンマ(“.”)を含んだ形式で入力してください"
             onChange={evt => {
               // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
               setEmailPhone(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
