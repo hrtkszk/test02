@@ -43,13 +43,13 @@ export function LoginPage() {
       <form onSubmit={handleSubmit}>
         <label>
           メールアドレス／電話番号<input name="username" type="text" />
-        </label>
+        </label><br />
         <label>
           パスワード：<input name="password" type="text" />
-        </label>
+        </label><br />
         <button type="submit">ログイン</button>
       </form>
-      <Link to="../NewUser">新規登録</Link>
+      <Link to="../NewUser">新規登録</Link><br />
       <Link to="../ForgetPwd">パスワードを忘れた方はこちら</Link>
     </div>
   );
