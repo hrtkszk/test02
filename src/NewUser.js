@@ -4,7 +4,7 @@ import {
   // Outlet
   useNavigate
 } from "react-router-dom";
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import "./Message.css";
 
 
@@ -15,7 +15,7 @@ export function NewUser() {
   const [Pwd, setPwd] = useState("");
 
   const setEmailPhonePwd = () => {
-    if (EmailPhone.match(/\@/)) {
+    if (EmailPhone.match(/@/)) {
       console.log(EmailPhone, "includes @ mark. ", Pwd)
       navigate("/")
       // const requestOptions ={
