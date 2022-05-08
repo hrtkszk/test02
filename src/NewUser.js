@@ -52,6 +52,7 @@ export function NewUser() {
           <footer>
             <input
               id="EmailPhone"
+              type="email"
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
               onChange={evt => {
                 // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
@@ -61,6 +62,7 @@ export function NewUser() {
             /><br />
             <input
               id="Password"
+              type="password"
               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
               onChange={evt => {
                 // パスワード入力がないとエラーとしたい
