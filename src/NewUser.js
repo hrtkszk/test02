@@ -10,13 +10,12 @@ import "./Message.css";
 
 export function NewUser() {
   let navigate = useNavigate();
-  const inputRef = useRef();
 
   const [EmailPhone, setEmailPhone] = useState("");
   const [Pwd, setPwd] = useState("");
 
   const setEmailPhonePwd = () => {
-    if (EmalPhone.match(/\@/)) {
+    if (EmailPhone.match(/\@/)) {
       console.log(EmailPhone, "includes @ mark. ", Pwd)
       navigate("/")
       // const requestOptions ={
@@ -33,7 +32,9 @@ export function NewUser() {
       //   // console.log(Messages)
       //   navigate("/")
       // })
-    } else if (!isNaN(EmalPhone)) {
+    } else if (!isNaN(EmailPhone)) {
+      // 電話番号は10桁であること
+      // ハイフンなどは省きたい
       console.log(EmailPhone, "is a number. ", Pwd)
       navigate("/")
     } else {
@@ -52,6 +53,7 @@ export function NewUser() {
             <input
               id="EmailPhone"
               onChange={evt => {
+                // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
                 setEmailPhone(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
               }}
               placeholder='メールアドレス／電話番号'
