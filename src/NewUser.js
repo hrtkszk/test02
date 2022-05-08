@@ -20,6 +20,7 @@ export function NewUser() {
   const submit = e => {
     e.preventDefault();
     setSubmitted(true);
+    console.log(submitted);
   }
 
 
