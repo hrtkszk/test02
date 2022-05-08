@@ -13,8 +13,8 @@ export function NewUser() {
 
   const [EmailPhone, setEmailPhone] = useState("");
   const [Pwd, setPwd] = useState("");
-  
-  document.body.appendChild(form);
+
+
 
   const setEmailPhonePwd = () => {
     if (EmailPhone.match(/@/)) {
@@ -75,7 +75,8 @@ export function NewUser() {
             required
           /><br />
           <button onClick={setEmailPhonePwd}>登録する</button>
-        </form><br />
+        </form>{document.body.appendChild(form)}
+        <br />
         <Link to="../">戻る</Link>
       </div>
     </div>
