@@ -5,13 +5,13 @@ import MySQLdb
 import sys
 import datetime
 
-db_name="LAA1422834-test"
+db_name="LAA1425978-test"
 table_name="MessageDB"
 
 # データベースへの接続とカーソルの生成
 connection = MySQLdb.connect(
     host='mysql203.phy.lolipop.lan',
-    user='LAA1422834',
+    user='LAA1425978',
     passwd='1234testTEST',
     db=db_name)
 

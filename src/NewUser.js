@@ -79,6 +79,7 @@ export function NewUser() {
           <input
             type="password"
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            // 特殊文字を弾く必要がある。
             title="8文字以上で、数字・小文字アルファベット・大文字アルファベットを含めてください"
             onChange={evt => {
               setPwd(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
