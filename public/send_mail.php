@@ -7,11 +7,10 @@ $message = "<html><body><h1>This is HTML MAIL</h1></body></html>";
 // $headers = "From: hrtkszk@gmail.com";
 // $headers .= "\r\n";
 // $headers .= "Content-type: text/html; charset=UTF-8";
-$headers = <<<HEAD
-From : from@pg-happy.jp //送信元メールアドレス
-Return-Path: from@pg-happy.jp //送信元メールアドレス
-Content-Type: text/plain;charset=ISO-2022-JP //おまじない（無くてもいいっぽい）
-HEAD;
+// $headers = ;
+$headers = "From : from@pg-happy.jp"; //送信元メールアドレス
+$headers .= "Return-Path: from@pg-happy.jp"; //送信元メールアドレス
+$headers .= "Content-Type: text/plain;charset=ISO-2022-JP"; //おまじない（無くてもいいっぽい）
 
 mb_language("Japanese");
 mb_internal_encoding("UTF-8");
