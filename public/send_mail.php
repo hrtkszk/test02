@@ -4,7 +4,7 @@
 $to = "hrtkszk@gmail.com";
 $subject = "TEST";
 $message = "<html><body><h1>This is HTML MAIL</h1></body></html>";
-$headers = "From: from@example.com";
+$headers = "From: hrtkszk@gmail.com";
 $headers .= "\r\n";
 $headers .= "Content-type: text/html; charset=UTF-8";
 mb_language("Japanese");
