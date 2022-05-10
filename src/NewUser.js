@@ -30,7 +30,7 @@ export function NewUser() {
     if (EmailPhone.match(/@/)) {
       console.log(EmailPhone, "includes @ mark. ", Pwd)
       if (submitted) {
-        navigate("/")
+        navigate("EmailSent")
       }
       // const requestOptions ={
       //   method: 'POST',
@@ -50,7 +50,7 @@ export function NewUser() {
     } else {
       console.log(EmailPhone, "is not valid. ", Pwd)
       if (submitted) {
-        navigate("/")
+        navigate("EmailSent")
       }
     }
 
