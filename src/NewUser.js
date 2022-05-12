@@ -29,9 +29,9 @@ export function NewUser() {
 
     if (EmailPhone.match(/@/)) {
       console.log(EmailPhone, "includes @ mark. ", Pwd)
-      if (submitted) {
-        navigate("EmailSent")
-      }
+      // if (submitted) {
+      //   navigate("EmailSent")
+      // }
 
       const requestOptions ={
         method: 'POST',
