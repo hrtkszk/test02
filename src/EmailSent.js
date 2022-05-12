@@ -1,9 +1,9 @@
 import * as React from "react";
-// import {
-//   Link,
-//   // Outlet
-//   // useNavigate
-// } from "react-router-dom";
+import {
+  Link,
+  // Outlet
+  // useNavigate
+} from "react-router-dom";
 // import "./Message.css";
 
 export function EmailSent() {
