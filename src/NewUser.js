@@ -44,11 +44,11 @@ export function NewUser() {
       .then((response)=> response.json())
       .then(result =>{
         console.log(result)
-        if (result==="OK") {
+        // if (result==="OK") {
           navigate("EmailSent")
-        } else {
-          navigate("EmailExist")
-        }
+        // } else {
+        //   navigate("EmailExist")
+        // }
       })
     } else {
       console.log(EmailPhone, "is not valid. ", Pwd)
