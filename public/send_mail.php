@@ -17,9 +17,9 @@ mb_internal_encoding("UTF-8");
 
 if(mb_send_mail($to, $title, $message, $headers))
 {
-  echo "メール送信成功です";
+  echo "OK";
 }
 else
 {
-  echo "メール送信失敗です";
+  echo "NG";
 }

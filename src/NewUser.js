@@ -32,25 +32,29 @@ export function NewUser() {
       if (submitted) {
         navigate("EmailSent")
       }
-      // const requestOptions ={
-      //   method: 'POST',
-      //   headers:{'Content-Type': 'application/json'},
-      //   body: JSON.stringify({"EmailPhone":EmailPhone, "Pwd":Pwd})
-      // }
-      // console.log(requestOptions)
-      // fetch("../send_post.php",requestOptions)
-      // .then((response)=> response.json())
-      // .then(result =>{
-      //   console.log(result)
-      //   setMessages(result.pythonout2)
-      //   // console.log(Messages)
-      //   navigate("/")
 
-      // })
+      const requestOptions ={
+        method: 'POST',
+        headers:{'Content-Type': 'application/json'},
+        body: JSON.stringify({"EmailPhone":EmailPhone})
+      }
+
+      console.log(requestOptions)
+      
+      fetch("../send_mail.php",requestOptions)
+      .then((response)=> {
+
+        console.log(response)
+        if (response==="OK") {
+          navigate("EmailSent")
+        } else {
+          navigate("EmailExist")
+        }
+      })
     } else {
       console.log(EmailPhone, "is not valid. ", Pwd)
       if (submitted) {
-        navigate("EmailSent")
+        navigate("EmailExist")
       }
     }
 
