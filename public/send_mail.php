@@ -17,9 +17,15 @@ mb_internal_encoding("UTF-8");
 
 if(mb_send_mail($to, $title, $message, $headers))
 {
-  echo "OK";
+  echo json_encode(
+    [
+       "EmailSend" => true,
+    ]
 }
 else
 {
-  echo "NG";
+  echo json_encode(
+    [
+       "EmailSend" => false,
+    ]
 }
