@@ -44,8 +44,7 @@ export function NewUser() {
       fetch("../send_mail.php",requestOptions)
       .then((response)=> response.json())
       .then(result =>{
-
-        console.log(result.statusText)
+        console.log(result)
         if (result.statusText==="OK") {
           navigate("EmailSent")
         } else {
