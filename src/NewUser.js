@@ -42,10 +42,11 @@ export function NewUser() {
       console.log(requestOptions)
       
       fetch("../send_mail.php",requestOptions)
-      .then((response)=> {
+      .then((response)=> response.json())
+      .then(result =>{
 
-        console.log(response)
-        if (response==="OK") {
+        console.log(result.statusText)
+        if (result.statusText==="OK") {
           navigate("EmailSent")
         } else {
           navigate("EmailExist")
