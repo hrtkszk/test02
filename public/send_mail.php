@@ -1,9 +1,10 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Headers: Content-Type');
-$rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
-$_POST = json_decode($rest_json, true); // JSON文字列をデコード
-$to = $_POST['EmailPhone'];
+// $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
+// $_POST = json_decode($rest_json, true); // JSON文字列をデコード
+// $to = $_POST['emailphone'];
+$to = "hrtkszk@gmail.com";
 $subject = "TEST";
 $message = "<html><body><h1>This is HTML MAIL</h1></body></html>";
 $headers = "From: hrtkszk@gmail.com";

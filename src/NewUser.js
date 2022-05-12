@@ -36,7 +36,7 @@ export function NewUser() {
       const requestOptions ={
         method: 'POST',
         headers:{'Content-Type': 'application/json'},
-        body: JSON.stringify({"EmailPhone":EmailPhone})
+        body: JSON.stringify({"emailphone":EmailPhone})
       }
 
       console.log(requestOptions)
