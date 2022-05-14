@@ -35,7 +35,7 @@ for row in cursor:
     print (row1)
 
 print(cursor.fetchall())
-if cursor.fetchall():
+if not(cursor.fetchall()):
     print("cursor is null")
 
 
