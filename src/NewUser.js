@@ -43,12 +43,13 @@ export function NewUser() {
       fetch("../send_mail.php",requestOptions)
       .then((response)=> response.json())
       .then(result =>{
+        console.log(result)
         console.log(result.EmailSend)
-        if (result.EmailSend===true) {
+        // if (result.EmailSend===true) {
           navigate("EmailSent")
-        } else {
-          navigate("EmailExist")
-        }
+        // } else {
+        //   navigate("EmailExist")
+        // }
       })
     } else {
       console.log(EmailPhone, "is not valid. ", Pwd)
