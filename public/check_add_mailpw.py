@@ -4,14 +4,14 @@
 import MySQLdb
 import sys
 import datetime
-from . import config
+from . import SQLconfig
 
 # データベースへの接続とカーソルの生成
 connection = MySQLdb.connect(
-    host=config.host,
-    user=config.user,
-    passwd=config.passwd,
-    db=config.db)
+    host=SQLconfig.host,
+    user=SQLconfig.user,
+    passwd=SQLconfig.passwd,
+    db=SQLconfig.db)
 
 
 # field name込みの場合はこっちを使う
@@ -23,15 +23,16 @@ pwdtable="PwdSettings"
 
 # メールアドレスが存在するかチェック。存在しなければ、アドレス・PW・UUID追加に進む。存在したら、同じUUIDでパスワードを追加する。
 
-cursor.execute(f"SELECT * FROM {emailtable} WHERE email='{sys.argv[1]}'")
-field_names = [i[0] for i in cursor.description]
-print(field_names)
-for row in cursor:
-    row1 = list()
-    for item in row:
-        row1.append(item)
-    # printでのpythonからphpへの受け渡し
-    print (row1)
+cursor.execute(f"SELECT * FROM {emailtable}")
+print(cursor)
+# field_names = [i[0] for i in cursor.description]
+# print(field_names)
+# for row in cursor:
+#     row1 = list()
+#     for item in row:
+#         row1.append(item)
+#     # printでのpythonからphpへの受け渡し
+#     print (row1)
 
 # UUID、メールアドレス登録→パスワード登録
 # UUID、メールアドレス登録

@@ -4,14 +4,14 @@
 import MySQLdb
 import sys
 import datetime
-from . import config
+from . import SQLconfig
 
 # データベースへの接続とカーソルの生成
 connection = MySQLdb.connect(
-    host=config.host,
-    user=config.user,
-    passwd=config.passwd,
-    db=config.db)
+    host=SQLconfig.host,
+    user=SQLconfig.user,
+    passwd=SQLconfig.passwd,
+    db=SQLconfig.db)
 
 table_name="MessageDB"
 

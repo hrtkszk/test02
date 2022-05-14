@@ -4,14 +4,14 @@
 import MySQLdb
 import sys
 import datetime
-from . import config
+from . import SQLconfig
 
 # データベースへの接続とカーソルの生成
 connection = MySQLdb.connect(
-    host=config.host,
-    user=config.user,
-    passwd=config.passwd,
-    db=config.db)
+    host=SQLconfig.host,
+    user=SQLconfig.user,
+    passwd=SQLconfig.passwd,
+    db=SQLconfig.db)
 
 table_name="MessageDB"
 
@@ -22,8 +22,8 @@ message = " ".join(sys.argv[3:])
 messageID1 = str(sys.argv[1])+"_"+str(sys.argv[2])+"_"+str(datetime.datetime.now())
 messageID2 = str(sys.argv[2])+"_"+str(sys.argv[1])+"_"+str(datetime.datetime.now())
 
-cursor.execute(f"INSERT `{config.db}`.`{table_name}` (`ID`, `aiteID`, `sender`, `messagedDateTime`, `messageID`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[1]}', '{sys.argv[2]}', '{sys.argv[1]}', CURRENT_TIMESTAMP, '{messageID1}', '{message}', '1', NULL)")
-cursor.execute(f"INSERT `{config.db}`.`{table_name}` (`ID`, `aiteID`, `sender`, `messagedDateTime`, `messageID`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[2]}', '{sys.argv[1]}', '{sys.argv[1]}', CURRENT_TIMESTAMP, '{messageID2}', '{message}', '0', NULL)")
+cursor.execute(f"INSERT `{SQLconfig.db}`.`{table_name}` (`ID`, `aiteID`, `sender`, `messagedDateTime`, `messageID`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[1]}', '{sys.argv[2]}', '{sys.argv[1]}', CURRENT_TIMESTAMP, '{messageID1}', '{message}', '1', NULL)")
+cursor.execute(f"INSERT `{SQLconfig.db}`.`{table_name}` (`ID`, `aiteID`, `sender`, `messagedDateTime`, `messageID`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[2]}', '{sys.argv[1]}', '{sys.argv[1]}', CURRENT_TIMESTAMP, '{messageID2}', '{message}', '0', NULL)")
 
 # 既読処理が必要。
 
