@@ -36,12 +36,11 @@ print(cursor)
 
 # UUID、メールアドレス登録→パスワード登録
 # UUID、メールアドレス登録
-cursor2 = connection.cursor()
-cursor2.execute(f"INSERT `{SQLconfig.db}`.`{emailtable}` (`UUID`, `email`, `datetime`) VALUES (UUID(), {sys.argv[1]}, CURRENT_TIME)")
-cursor2.execute(f"SELECT * FROM {emailtable} WHERE email='{sys.argv[1]}'")
-field_names = [i[0] for i in cursor2.description]
+cursor.execute(f"INSERT `{SQLconfig.db}`.`{emailtable}` (`UUID`, `email`, `datetime`) VALUES (UUID(), {sys.argv[1]}, CURRENT_TIME)")
+cursor.execute(f"SELECT * FROM {emailtable} WHERE email='{sys.argv[1]}'")
+field_names = [i[0] for i in cursor.description]
 print(field_names)
-for row in cursor2:
+for row in cursor:
     row1 = list()
     for item in row:
         row1.append(item)
