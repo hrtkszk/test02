@@ -35,11 +35,12 @@ for row in cursor:
 
 # UUID、メールアドレス登録→パスワード登録
 # UUID、メールアドレス登録
-cursor.execute(f"INSERT `{config.db}`.`{emailtable}` (`UUID`, `email`, `datetime`) VALUES (UUID(), {sys.argv[1]}, CURRENT_TIME)")
-cursor.execute(f"SELECT UUID FROM {emailtable} WHERE email='{sys.argv[1]}'")
-field_names = [i[0] for i in cursor.description]
+cursor2 = connection.cursor()
+cursor2.execute(f"INSERT `{config.db}`.`{emailtable}` (`UUID`, `email`, `datetime`) VALUES (UUID(), {sys.argv[1]}, CURRENT_TIME)")
+cursor2.execute(f"SELECT * FROM {emailtable} WHERE email='{sys.argv[1]}'")
+field_names = [i[0] for i in cursor2.description]
 print(field_names)
-for row in cursor:
+for row in cursor2:
     row1 = list()
     for item in row:
         row1.append(item)
