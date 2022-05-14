@@ -40,7 +40,7 @@ for row in cursor:
 # UUID、メールアドレス登録
 
 
-cursor.execute(f"INSERT `{SQLconfig.db}`.`{emailtable}` (`UUID`, `email`, `datetime`) VALUES (UUID(), {sys.argv[1]}, CURRENT_TIME)")
+cursor.execute(f"INSERT `{SQLconfig.db}`.`{emailtable}` (`UUID`, `email`, `datetime`) VALUES (UUID(), '{sys.argv[1]}', CURRENT_TIME)")
 cursor.execute(f"SELECT * FROM {emailtable} WHERE email='{sys.argv[1]}'")
 field_names = [i[0] for i in cursor.description]
 print(field_names)
