@@ -34,7 +34,8 @@ for row in cursor:
     # printでのpythonからphpへの受け渡し
     print (row1)
 
-if cursor == []:
+print(cursor.fetchall())
+if cursor.fetchall() == ():
     print("cursor is null")
 
 
