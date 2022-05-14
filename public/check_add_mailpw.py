@@ -13,18 +13,19 @@ connection = MySQLdb.connect(
     passwd=SQLconfig.passwd,
     db=SQLconfig.db)
 
+emailtable="EmailSettings"
+pwdtable="PwdSettings"
+
+
+
+# メールアドレスが存在するかチェック。存在しなければ、アドレス・PW・UUID追加に進む。存在したら、同じUUIDでパスワードを追加する。
 
 # field name込みの場合はこっちを使う
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
 cursor = connection.cursor()
 
-emailtable="EmailSettings"
-pwdtable="PwdSettings"
-
-# メールアドレスが存在するかチェック。存在しなければ、アドレス・PW・UUID追加に進む。存在したら、同じUUIDでパスワードを追加する。
-
 cursor.execute(f"SELECT * FROM {emailtable} WHERE email='{sys.argv[1]}'")
-print(cursor)
+print(cursor[0])
 # field_names = [i[0] for i in cursor.description]
 # print(field_names)
 # for row in cursor:
@@ -34,13 +35,26 @@ print(cursor)
 #     # printでのpythonからphpへの受け渡し
 #     print (row1)
 
+# 保存を実行
+connection.commit()
+
+# 接続を閉じる
+connection.close()
+
+
 # UUID、メールアドレス登録→パスワード登録
 # UUID、メールアドレス登録
-cursor.execute(f"INSERT `{SQLconfig.db}`.`{emailtable}` (`UUID`, `email`, `datetime`) VALUES (UUID(), {sys.argv[1]}, CURRENT_TIME)")
-cursor.execute(f"SELECT * FROM {emailtable} WHERE email='{sys.argv[1]}'")
-field_names = [i[0] for i in cursor.description]
+
+
+# field name込みの場合はこっちを使う
+# cursor = connection.cursor(MySQLdb.cursors.DictCursor)
+cursor1 = connection.cursor()
+
+cursor1.execute(f"INSERT `{SQLconfig.db}`.`{emailtable}` (`UUID`, `email`, `datetime`) VALUES (UUID(), {sys.argv[1]}, CURRENT_TIME)")
+cursor1.execute(f"SELECT * FROM {emailtable} WHERE email='{sys.argv[1]}'")
+field_names = [i[0] for i in cursor1.description]
 print(field_names)
-for row in cursor:
+for row in cursor1:
     row1 = list()
     for item in row:
         row1.append(item)
