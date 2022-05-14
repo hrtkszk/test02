@@ -45,16 +45,16 @@ export function NewUser() {
       .then(result =>{
         console.log(result)
         console.log(result.EmailSend)
-        // if (result.EmailSend===true) {
-          navigate("EmailSent")
-        // } else {
-        //   navigate("EmailExist")
-        // }
+        if (result.EmailSend===true) {
+          navigate("../EmailSent")
+        } else {
+          navigate("../EmailExist")
+        }
       })
     } else {
       console.log(EmailPhone, "is not valid. ", Pwd)
       if (submitted) {
-        navigate("EmailExist")
+        navigate("../EmailExist")
       }
     }
 
