@@ -25,36 +25,26 @@ pwdtable="PwdSettings"
 cursor = connection.cursor()
 
 cursor.execute(f"SELECT * FROM {emailtable} WHERE email='{sys.argv[1]}'")
-print(cursor[0])
-# field_names = [i[0] for i in cursor.description]
-# print(field_names)
-# for row in cursor:
-#     row1 = list()
-#     for item in row:
-#         row1.append(item)
-#     # printでのpythonからphpへの受け渡し
-#     print (row1)
+field_names = [i[0] for i in cursor.description]
+print(field_names)
+for row in cursor:
+    row1 = list()
+    for item in row:
+        row1.append(item)
+    # printでのpythonからphpへの受け渡し
+    print (row1)
 
-# 保存を実行
-connection.commit()
-
-# 接続を閉じる
-connection.close()
 
 
 # UUID、メールアドレス登録→パスワード登録
 # UUID、メールアドレス登録
 
 
-# field name込みの場合はこっちを使う
-# cursor = connection.cursor(MySQLdb.cursors.DictCursor)
-cursor1 = connection.cursor()
-
-cursor1.execute(f"INSERT `{SQLconfig.db}`.`{emailtable}` (`UUID`, `email`, `datetime`) VALUES (UUID(), {sys.argv[1]}, CURRENT_TIME)")
-cursor1.execute(f"SELECT * FROM {emailtable} WHERE email='{sys.argv[1]}'")
-field_names = [i[0] for i in cursor1.description]
+cursor.execute(f"INSERT `{SQLconfig.db}`.`{emailtable}` (`UUID`, `email`, `datetime`) VALUES (UUID(), {sys.argv[1]}, CURRENT_TIME)")
+cursor.execute(f"SELECT * FROM {emailtable} WHERE email='{sys.argv[1]}'")
+field_names = [i[0] for i in cursor.description]
 print(field_names)
-for row in cursor1:
+for row in cursor:
     row1 = list()
     for item in row:
         row1.append(item)
