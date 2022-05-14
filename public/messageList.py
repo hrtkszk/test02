@@ -4,7 +4,7 @@
 import MySQLdb
 import sys
 import datetime
-from . import SQLconfig
+# from . import SQLconfig
 
 # データベースへの接続とカーソルの生成
 connection = MySQLdb.connect(
