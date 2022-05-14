@@ -25,9 +25,10 @@ pwdtable="PwdSettings"
 cursor = connection.cursor()
 
 cursor.execute(f"SELECT * FROM {emailtable} WHERE email='{sys.argv[1]}'")
-field_names = [i[0] for i in cursor.description]
-print(field_names)
+# field_names = [i[0] for i in cursor.description]
+# print(field_names)
 for row in cursor:
+    print (row)
     row1 = list()
     for item in row:
         row1.append(item)
@@ -41,8 +42,7 @@ for row in cursor:
 
 
 cursor.execute(f"INSERT `{SQLconfig.db}`.`{emailtable}` (`UUID`, `email`, `datetime`) VALUES (UUID(), '{sys.argv[1]}', CURRENT_TIME)")
-cursor.execute(f"SELECT * FROM {emailtable} WHERE email='{sys.argv[1]}'")
-print (cursor.fetchall())
+cursor.execute(f"SELECT UUID FROM {emailtable} WHERE email='{sys.argv[1]}'")
 field_names = [i[0] for i in cursor.description]
 print(field_names)
 for row in cursor:
