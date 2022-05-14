@@ -4,7 +4,7 @@
 import MySQLdb
 import sys
 import datetime
-from . import SQLconfig
+import SQLconfig
 
 # データベースへの接続とカーソルの生成
 connection = MySQLdb.connect(
@@ -23,7 +23,7 @@ pwdtable="PwdSettings"
 
 # メールアドレスが存在するかチェック。存在しなければ、アドレス・PW・UUID追加に進む。存在したら、同じUUIDでパスワードを追加する。
 
-cursor.execute(f"SELECT * FROM {emailtable}")
+cursor.execute(f"SELECT * FROM {emailtable} WHERE email='{sys.argv[1]}'")
 print(cursor)
 # field_names = [i[0] for i in cursor.description]
 # print(field_names)
@@ -37,7 +37,7 @@ print(cursor)
 # UUID、メールアドレス登録→パスワード登録
 # UUID、メールアドレス登録
 cursor2 = connection.cursor()
-cursor2.execute(f"INSERT `{config.db}`.`{emailtable}` (`UUID`, `email`, `datetime`) VALUES (UUID(), {sys.argv[1]}, CURRENT_TIME)")
+cursor2.execute(f"INSERT `{SQLconfig.db}`.`{emailtable}` (`UUID`, `email`, `datetime`) VALUES (UUID(), {sys.argv[1]}, CURRENT_TIME)")
 cursor2.execute(f"SELECT * FROM {emailtable} WHERE email='{sys.argv[1]}'")
 field_names = [i[0] for i in cursor2.description]
 print(field_names)
