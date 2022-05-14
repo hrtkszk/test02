@@ -10,8 +10,9 @@ import PasswordStrengthBar from 'react-password-strength-bar';
 
 
 export function NewUser() {
-  const [EmailPhone, setEmailPhone] = useState("");
+  const [Email, setEmail] = useState("");
   const [Pwd, setPwd] = useState("");
+  const [EmailExist, setEmailExist] = useState(false);
 
   let navigate = useNavigate();
   const [submitted, setSubmitted] = useState(false);
@@ -23,39 +24,38 @@ export function NewUser() {
     console.log(submitted);
   }
 
+  const setTempRegister = () => {
 
-
-  const setEmailPwd = () => {
-
-    if (EmailPhone.match(/@/)) {
-      console.log(EmailPhone, "includes @ mark. ", Pwd)
-
-
-      const requestOptions ={
-        method: 'POST',
-        headers:{'Content-Type': 'application/json'},
-        body: JSON.stringify({"emailphone":EmailPhone})
-      }
-      console.log(requestOptions)
-      fetch("../send_mail.php",requestOptions)
-      .then((response)=> response.json())
-      .then(result =>{
-        console.log(result)
-        console.log(result.EmailSend)
-        if (submitted) {
-          if (result.EmailSend===true) {
-            navigate("../EmailSent")
-          } else {
-            navigate("../EmailExist")
-          }
-        }
-      })
-    } else {
-      console.log(EmailPhone, "is not valid. ", Pwd)
-      if (submitted) {
-        navigate("../EmailExist")
-      }
+    // メールアドレス登録確認、仮登録
+    const requestOptions1 ={
+      method: 'POST',
+      headers:{'Content-Type': 'application/json'},
+      body: JSON.stringify({"email":Email, "pwd":Pwd})
     }
+    fetch("../check_add_mailpw.php",requestOptions1)
+    .then((response)=> response.json())
+    .then(result =>{
+      console.log(result)
+      setEmailExist(false)
+    })
+
+    // メール発信
+    const requestOptions2 ={
+      method: 'POST',
+      headers:{'Content-Type': 'application/json'},
+      body: JSON.stringify({"email":Email})
+    }
+    fetch("../send_mail.php",requestOptions2)
+    .then((response)=> response.json())
+    .then(result =>{
+      if (submitted && !EmailExist) {
+        if (result.EmailSend===true) {
+          navigate("../EmailSent")
+        } else {
+          navigate("../EmailExist")
+        }
+      }
+    })
 
   }
 
@@ -73,7 +73,7 @@ export function NewUser() {
             // title="有効なメールアドレスを入力してください"
             onChange={evt => {
               // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-              setEmailPhone(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
+              setEmail(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
             }}
             placeholder='メールアドレス'
             required
@@ -96,7 +96,7 @@ export function NewUser() {
             style={{ width: 200 }}
             password={Pwd}
           /><br />
-          <button onClick={setEmailPwd}>登録する</button>
+          <button onClick={setTempRegister}>登録する</button>
         </form>
         <br />
         <Link to="../">戻る</Link>

@@ -4,16 +4,16 @@
 import MySQLdb
 import sys
 import datetime
-
-db_name="LAA1425978-test"
-table_name="MessageDB"
+from . import config
 
 # データベースへの接続とカーソルの生成
 connection = MySQLdb.connect(
-    host='mysql203.phy.lolipop.lan',
-    user='LAA1425978',
-    passwd='1234testTEST',
-    db=db_name)
+    host=config.host,
+    user=config.user,
+    passwd=config.passwd,
+    db=config.db)
+
+table_name="MessageDB"
 
 # field name込みの場合はこっちを使う
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)

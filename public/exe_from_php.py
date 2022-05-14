@@ -4,13 +4,16 @@
 import MySQLdb
 import sys
 import datetime
+from . import config
 
 # データベースへの接続とカーソルの生成
 connection = MySQLdb.connect(
-    host='mysql203.phy.lolipop.lan',
-    user='LAA1425978',
-    passwd='1234testTEST',
-    db='LAA1425978-test')
+    host=config.host,
+    user=config.user,
+    passwd=config.passwd,
+    db=config.db)
+
+table_name="MessageDB"
 
 # field name込みの場合はこっちを使う
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
@@ -18,7 +21,7 @@ cursor = connection.cursor()
 
 # 既読処理が必要。
 
-cursor.execute(f"SELECT * FROM MessageDB WHERE ID='{sys.argv[1]}' AND aiteID='{sys.argv[2]}' ORDER BY messagedDateTime")
+cursor.execute(f"SELECT * FROM {table_name} WHERE ID='{sys.argv[1]}' AND aiteID='{sys.argv[2]}' ORDER BY messagedDateTime")
 
 # num_fields = len(cursor.description)
 field_names = [i[0] for i in cursor.description]

@@ -4,16 +4,16 @@
 import MySQLdb
 import sys
 import datetime
-
-db_name="LAA1425978-test"
-table_name="MessageDB"
+from . import config
 
 # データベースへの接続とカーソルの生成
 connection = MySQLdb.connect(
-    host='mysql203.phy.lolipop.lan',
-    user='LAA1425978',
-    passwd='1234testTEST',
-    db=db_name)
+    host=config.host,
+    user=config.user,
+    passwd=config.passwd,
+    db=config.db)
+
+table_name="MessageDB"
 
 # field name込みの場合はこっちを使う
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
@@ -22,8 +22,8 @@ message = " ".join(sys.argv[3:])
 messageID1 = str(sys.argv[1])+"_"+str(sys.argv[2])+"_"+str(datetime.datetime.now())
 messageID2 = str(sys.argv[2])+"_"+str(sys.argv[1])+"_"+str(datetime.datetime.now())
 
-cursor.execute(f"INSERT `{db_name}`.`{table_name}` (`ID`, `aiteID`, `sender`, `messagedDateTime`, `messageID`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[1]}', '{sys.argv[2]}', '{sys.argv[1]}', CURRENT_TIMESTAMP, '{messageID1}', '{message}', '1', NULL)")
-cursor.execute(f"INSERT `{db_name}`.`{table_name}` (`ID`, `aiteID`, `sender`, `messagedDateTime`, `messageID`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[2]}', '{sys.argv[1]}', '{sys.argv[1]}', CURRENT_TIMESTAMP, '{messageID2}', '{message}', '0', NULL)")
+cursor.execute(f"INSERT `{config.db}`.`{table_name}` (`ID`, `aiteID`, `sender`, `messagedDateTime`, `messageID`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[1]}', '{sys.argv[2]}', '{sys.argv[1]}', CURRENT_TIMESTAMP, '{messageID1}', '{message}', '1', NULL)")
+cursor.execute(f"INSERT `{config.db}`.`{table_name}` (`ID`, `aiteID`, `sender`, `messagedDateTime`, `messageID`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[2]}', '{sys.argv[1]}', '{sys.argv[1]}', CURRENT_TIMESTAMP, '{messageID2}', '{message}', '0', NULL)")
 
 # 既読処理が必要。
 
