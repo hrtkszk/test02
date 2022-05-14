@@ -1,11 +1,11 @@
 <?php
-// header("Access-Control-Allow-Origin: *");
-// header('Access-Control-Allow-Headers: Content-Type');
-// $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
-// $_POST = json_decode($rest_json, true); // JSON文字列をデコード
-// $to = $_POST['emailphone'];
-$to = "hrtkszk@gmail.com";
-$subject = "TEST";
+header("Access-Control-Allow-Origin: *");
+header('Access-Control-Allow-Headers: Content-Type');
+$rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
+$_POST = json_decode($rest_json, true); // JSON文字列をデコード
+$to = $_POST['emailphone'];
+// $to = "hrtkszk@gmail.com";
+$title = "TEST";
 $message = "<html><body><h1>This is HTML MAIL</h1></body></html>";
 $headers = "From: hrtkszk@gmail.com";
 $headers .= "\r\n";
@@ -21,14 +21,16 @@ mb_internal_encoding("UTF-8");
 if(mb_send_mail($to, $title, $message, $headers))
 {
   echo json_encode(
-    [
-       "EmailSend" => true,
-    ]
+      [
+        "EmailSend" => true,
+      ]
+    );
 }
 else
 {
   echo json_encode(
-    [
-       "EmailSend" => false,
-    ]
+      [
+        "EmailSend" => false,
+      ]
+    );
 }
