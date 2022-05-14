@@ -29,26 +29,25 @@ export function NewUser() {
 
     if (EmailPhone.match(/@/)) {
       console.log(EmailPhone, "includes @ mark. ", Pwd)
-      // if (submitted) {
-      //   navigate("EmailSent")
-      // }
+
 
       const requestOptions ={
         method: 'POST',
         headers:{'Content-Type': 'application/json'},
         body: JSON.stringify({"emailphone":EmailPhone})
       }
-
       console.log(requestOptions)
       fetch("../send_mail.php",requestOptions)
       .then((response)=> response.json())
       .then(result =>{
         console.log(result)
         console.log(result.EmailSend)
-        if (result.EmailSend===true) {
-          navigate("../EmailSent")
-        } else {
-          navigate("../EmailExist")
+        if (submitted) {
+          if (result.EmailSend===true) {
+            navigate("../EmailSent")
+          } else {
+            navigate("../EmailExist")
+          }
         }
       })
     } else {
