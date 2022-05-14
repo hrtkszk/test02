@@ -28,13 +28,14 @@ cursor.execute(f"SELECT * FROM {emailtable} WHERE email='{sys.argv[1]}'")
 # field_names = [i[0] for i in cursor.description]
 # print(field_names)
 for row in cursor:
-    print (row)
     row1 = list()
     for item in row:
         row1.append(item)
     # printでのpythonからphpへの受け渡し
     print (row1)
 
+if cursor == []:
+    print("cursor is null")
 
 
 # UUID、メールアドレス登録→パスワード登録
