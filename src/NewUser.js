@@ -12,7 +12,7 @@ import PasswordStrengthBar from 'react-password-strength-bar';
 export function NewUser() {
   const [Email, setEmail] = useState("");
   const [Pwd, setPwd] = useState("");
-  const [EmailExist, setEmailExist] = useState(false);
+  const [NewEmail, setNewEmail] = useState(false);
 
   let navigate = useNavigate();
   const [submitted, setSubmitted] = useState(false);
@@ -37,15 +37,15 @@ export function NewUser() {
     .then(result =>{
       console.log(result.result[0])
       if (result.result[0]==="TRC") {
-        setEmailExist(false)
+        setNewEmail(true)
       } else {
-        setEmailExist(true)
+        setNewEmail(false)
       }
     })
     .then(() => {
       // メール発信
-      console.log(EmailExist)
-      if (submitted && !EmailExist) {
+      console.log(NewEmail)
+      if (submitted && NewEmail) {
         console.log("just before send email")
         const requestOptions2 ={
           method: 'POST',
