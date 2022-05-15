@@ -7,7 +7,7 @@ $to = $_POST['email'];
 // $to = "hrtkszk@gmail.com";
 $title = "TEST";
 $message = "<html><body><h1>This is HTML MAIL</h1></body></html>";
-$headers = "From: hrtkszk@gmail.com";
+$headers = "From: hrtkszk+fewfjf4o43u@lolipop.jp";
 $headers .= "\r\n";
 $headers .= "Content-type: text/html; charset=UTF-8";
 // $headers = ;
