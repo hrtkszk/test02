@@ -37,9 +37,9 @@ export function NewUser() {
     .then(result =>{
       console.log(result.result[0])
       if (result.result[0]==="TRC") {
-        setNewEmail(true)
+        () => setNewEmail(true)
       } else {
-        setNewEmail(false)
+        () => setNewEmail(false)
       }
     })
     .then(() => {
