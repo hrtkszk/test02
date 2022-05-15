@@ -25,7 +25,7 @@ export function NewUser() {
   }
 
   const setTempRegister = () => {
-
+    test = 0
     // メールアドレス登録確認、仮登録
     const requestOptions1 ={
       method: 'POST',
