@@ -35,11 +35,11 @@
 //     );
 // }
 
-// //Qdmailをロード
-// require_once('./qdmail.php');
-// //Qdsmtpをロード
-// //（ドキュメントには、記述不要とかいてあるが、書かないとうまくいかないことがあった）
-// require_once('./qdsmtp.php');
+//Qdmailをロード
+require_once('./qdmail.php');
+//Qdsmtpをロード
+//（ドキュメントには、記述不要とかいてあるが、書かないとうまくいかないことがあった）
+require_once('./qdsmtp.php');
 
 echo "test";
 
