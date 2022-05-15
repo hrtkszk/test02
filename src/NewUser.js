@@ -43,6 +43,7 @@ export function NewUser() {
     .then(() => {
       // メール発信
       console.log(NewEmail)
+      console.log(submitted)
       if (submitted && NewEmail) {
         console.log("just before send email")
         const requestOptions2 ={
