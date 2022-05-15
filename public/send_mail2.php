@@ -41,6 +41,8 @@ require_once('qdmail.php');
 //（ドキュメントには、記述不要とかいてあるが、書かないとうまくいかないことがあった）
 require_once('qdsmtp.php');
 
+echo "test";
+
 
 $to = "hrtkszk@gmail.com";
 $subject = "try for registration";
@@ -73,3 +75,4 @@ $mail ->from($fromaddress,$fromname);
 $mail ->text($body);
 $mail ->send();
 
+?>
