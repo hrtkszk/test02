@@ -5,9 +5,9 @@ $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータ�
 $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 $to = $_POST['email'];
 // $to = "hrtkszk@gmail.com";
-$title = "TEST";
-$message = "<html><body><h1>This is HTML MAIL</h1></body></html>";
-$headers = "From: hrtkszk+fewfjf4o43u@lolipop.jp";
+$title = "try for registration";
+$message = "<html><body>testing the resigstration</body></html>";
+$headers = "From: ewfafewre@lolipop.jp";
 $headers .= "\r\n";
 $headers .= "Content-type: text/html; charset=UTF-8";
 // $headers = ;
