@@ -12,18 +12,16 @@ import PasswordStrengthBar from 'react-password-strength-bar';
 export function NewUser() {
   const [Email, setEmail] = useState("");
   const [Pwd, setPwd] = useState("");
+  let SubmitStat = false;
   let NewEmail = false;
 
   let navigate = useNavigate();
-  const [submitted, setSubmitted] = useState(false);
 
   // 入力値に問題があれば遷移しない。問題なければ遷移する
   const submit = e => {
     e.preventDefault();
-    setSubmitted(true);
+    SubmitStat = true;
   }
-  
-  console.log(submitted);
 
   const setTempRegister = () => {
   
@@ -44,8 +42,8 @@ export function NewUser() {
     .then(() => {
       // メール発信
       console.log(NewEmail)
-      console.log(submitted)
-      if (submitted && NewEmail) {
+      console.log(SubmitStat)
+      if (SubmitStat && NewEmail) {
         console.log("just before send email")
         const requestOptions2 ={
           method: 'POST',
@@ -55,12 +53,10 @@ export function NewUser() {
         fetch("../send_mail.php",requestOptions2)
         .then((response)=> response.json())
         .then(result =>{
-          if (submitted) {
-            if (result.EmailSend===true) {
-              navigate("../EmailSent")
-            } else {
-              navigate("../EmailExist")
-            }
+          if (result.EmailSend===true) {
+            navigate("../EmailSent")
+          } else {
+            navigate("../EmailExist")
           }
         })
       } else {
