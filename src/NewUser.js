@@ -33,8 +33,9 @@ export function NewUser() {
       body: JSON.stringify({"email":Email, "pwd":Pwd})
     }
     fetch("../check_add_mailpw.php",requestOptions1)
-    .then(response =>{
-      console.log(response)
+    .then((response)=> response.json())
+    .then(result =>{
+      console.log(result)
       setEmailExist(false)
     })
 
