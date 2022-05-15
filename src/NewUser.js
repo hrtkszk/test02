@@ -33,7 +33,6 @@ export function NewUser() {
     fetch("../check_add_mailpw.php",requestOptions1)
     .then((response)=> response.json())
     .then(result =>{
-      console.log(result.result[0])
       if (result.result[0]==="TRC") {
         NewEmail = true;
       }
