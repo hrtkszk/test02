@@ -35,11 +35,11 @@
 //     );
 // }
 
-//Qdmailをロード
-require_once('qdmail.php');
-//Qdsmtpをロード
-//（ドキュメントには、記述不要とかいてあるが、書かないとうまくいかないことがあった）
-require_once('qdsmtp.php');
+// //Qdmailをロード
+// require_once('./qdmail.php');
+// //Qdsmtpをロード
+// //（ドキュメントには、記述不要とかいてあるが、書かないとうまくいかないことがあった）
+// require_once('./qdsmtp.php');
 
 echo "test";
 
@@ -58,21 +58,22 @@ $fromname = "hewfoufafsd";
 // $fromaddress：送信元メールアドレス
 // function mailsender($to,$subject,$body,$fromname,$fromaddress){
     //SMTP送信
-$mail = new Qdmail();
-$mail -> smtp(true);
-$param = array(
-    'host'=>'smtp.lolipop.jp',
-    'port'=> 465 ,
-    'from'=>'hewfoufafsd@lolipop.jp',
-    'protocol'=>'SMTP_AUTH',
-    'user'=>'',
-    'pass' => '',
-);
-$mail ->smtpServer($param);
-$mail ->to($to);
-$mail ->subject($subject);
-$mail ->from($fromaddress,$fromname);
-$mail ->text($body);
-$mail ->send();
+
+// $mail = new Qdmail();
+// $mail -> smtp(true);
+// $param = array(
+//     'host'=>'smtp.lolipop.jp',
+//     'port'=> 465 ,
+//     'from'=>'hewfoufafsd@lolipop.jp',
+//     'protocol'=>'SMTP_AUTH',
+//     'user'=>'',
+//     'pass' => '',
+// );
+// $mail ->smtpServer($param);
+// $mail ->to($to);
+// $mail ->subject($subject);
+// $mail ->from($fromaddress,$fromname);
+// $mail ->text($body);
+// $mail ->send();
 
 ?>
