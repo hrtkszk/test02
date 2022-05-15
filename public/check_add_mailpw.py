@@ -32,10 +32,10 @@ if not(checkExist):
     cursor.execute(f"SELECT UUID FROM {emailtable} WHERE email='{sys.argv[1]}'")
     # パスワード登録
     cursor.execute(f"INSERT `{SQLconfig.db}`.`{pwdtable}` (`UUID`, `password`, `datetime`) VALUES ('{cursor.fetchone()[0]}', '{sys.argv[2]}', CURRENT_TIME)")
-    print("Temporary Registration Complete")
+    print("TRC") # Temporary Registration Complete
 
 else:
-    print("Email Exist")
+    print("EE") # Email Exist
 
 # 保存を実行
 connection.commit()

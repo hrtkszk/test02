@@ -36,24 +36,33 @@ export function NewUser() {
     .then((response)=> response.json())
     .then(result =>{
       console.log(result.result[0])
-      setEmailExist(false)
+      if (result.result[0]==="TRC") {
+        setEmailExist(false)
+      } else {
+        setEmailExist(true)
+      }
     })
-
-    // メール発信
-    const requestOptions2 ={
-      method: 'POST',
-      headers:{'Content-Type': 'application/json'},
-      body: JSON.stringify({"email":Email})
-    }
-    fetch("../send_mail.php",requestOptions2)
-    .then((response)=> response.json())
-    .then(result =>{
+    .then(() => {
+      // メール発信
       if (submitted && !EmailExist) {
-        if (result.EmailSend===true) {
-          navigate("../EmailSent")
-        } else {
-          navigate("../EmailExist")
+        const requestOptions2 ={
+          method: 'POST',
+          headers:{'Content-Type': 'application/json'},
+          body: JSON.stringify({"email":Email})
         }
+        fetch("../send_mail.php",requestOptions2)
+        .then((response)=> response.json())
+        .then(result =>{
+          if (submitted) {
+            if (result.EmailSend===true) {
+              navigate("../EmailSent")
+            } else {
+              navigate("../EmailExist")
+            }
+          }
+        })
+      } else {
+        navigate("../EmailExist")
       }
     })
 
