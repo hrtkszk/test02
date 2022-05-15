@@ -37,14 +37,17 @@ export function NewUser() {
     .then(result =>{
       console.log(result.result[0])
       if (result.result[0]==="TRC") {
-        () => {setNewEmail(true)}
+        setNewEmail(true)
+        test = 1
       } else {
-        () => {setNewEmail(false)}
+        setNewEmail(false)
+        test = 2
       }
     })
     .then(() => {
       // メール発信
       console.log(NewEmail)
+      console.log(test)
       if (submitted && NewEmail) {
         console.log("just before send email")
         const requestOptions2 ={
