@@ -44,7 +44,9 @@ export function NewUser() {
     })
     .then(() => {
       // メール発信
+      console.log(EmailExist)
       if (submitted && !EmailExist) {
+        console.log("just before send email")
         const requestOptions2 ={
           method: 'POST',
           headers:{'Content-Type': 'application/json'},
