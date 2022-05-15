@@ -24,7 +24,6 @@ export function NewUser() {
   }
 
   const setTempRegister = () => {
-  
     // メールアドレス登録確認、仮登録
     const requestOptions1 ={
       method: 'POST',
@@ -41,10 +40,7 @@ export function NewUser() {
     })
     .then(() => {
       // メール発信
-      console.log(NewEmail)
-      console.log(SubmitStat)
       if (SubmitStat && NewEmail) {
-        console.log("just before send email")
         const requestOptions2 ={
           method: 'POST',
           headers:{'Content-Type': 'application/json'},
@@ -63,7 +59,6 @@ export function NewUser() {
         navigate("../EmailExist")
       }
     })
-
   }
 
 
