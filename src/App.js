@@ -32,7 +32,7 @@ export default function App() {
         <Route path="EmailSent" element={<EmailSent />}/>
         <Route path="EmailExist" element={<EmailExist />}/>
         <Route path="ForgetPwd" element={<ForgetPwd />}/>
-        <Route path="UrlParameter" element={<UrlParameter />}/>
+        <Route path=":userId" element={<UrlParameter />} />
         {/* <Route path="*" element={<NotExist />}/> */}
         <Route
           path="protected"
