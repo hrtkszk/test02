@@ -17,7 +17,7 @@ import { NewUser } from "./NewUser";
 import { EmailSent } from "./EmailSent";
 import { EmailExist } from "./EmailExist";
 import { NotExist } from "./NotExist";
-import { UrlParameter } from "./URLParameter";
+import { UrlParameter } from "./UrlParameter";
 
 export default function App() {
   return (
