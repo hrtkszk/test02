@@ -14,6 +14,7 @@ export function NewUser() {
   const [Pwd, setPwd] = useState("");
   let SubmitStat = false;
   let NewEmail = false;
+  let UUID = "";
 
   let navigate = useNavigate();
 
@@ -35,7 +36,7 @@ export function NewUser() {
     .then(result =>{
       if (result.result[0]==="TRC") {
         NewEmail = true;
-        console.log(result.result[1])
+        UUID = result.result[1]
       }
     })
     .then(() => {
@@ -44,7 +45,7 @@ export function NewUser() {
         const requestOptions2 ={
           method: 'POST',
           headers:{'Content-Type': 'application/json'},
-          body: JSON.stringify({"email":Email, "UUID":result.result[1]})
+          body: JSON.stringify({"email":Email, "UUID":UUID})
         }
         fetch("../send_mail.php",requestOptions2)
         .then((response)=> response.json())
