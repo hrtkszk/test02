@@ -35,7 +35,7 @@ export function NewUser() {
     .then(result =>{
       if (result.result[0]==="TRC") {
         NewEmail = true;
-        UUID = result.result[1];
+        console.log(result.result[1])
       }
     })
     .then(() => {
@@ -44,7 +44,7 @@ export function NewUser() {
         const requestOptions2 ={
           method: 'POST',
           headers:{'Content-Type': 'application/json'},
-          body: JSON.stringify({"email":Email, "UUID":UUID})
+          body: JSON.stringify({"email":Email, "UUID":result.result[1]})
         }
         fetch("../send_mail.php",requestOptions2)
         .then((response)=> response.json())
