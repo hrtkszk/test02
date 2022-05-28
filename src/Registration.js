@@ -1,22 +1,32 @@
 import React from 'react';
 import {
+  Link,
   useParams,
-  // useNavigate,
-  useLocation,
 } from 'react-router-dom';
 
 export function Registration(){
   let { userId } = useParams();
-  const location = useLocation(); // URL path や パラメータなど。JSのlocationと同じ
-  // const params = useParams();     // URLのパスパラメータを取得。例えば、 /uses/2 なら、2の部分を取得
-  // const navigate = useNavigate();   // historyオブジェクトを取得。
+
+  const Register = () => {
+    // 登録
+    const requestOptions1 ={
+      method: 'POST',
+      headers:{'Content-Type': 'application/json'},
+      body: JSON.stringify({"UUID":userId})
+    }
+    fetch("../register.php",requestOptions1)
+    .then((response)=> response.json())
+    .then(result =>{
+      console.log(result)
+    })
+  }
 
   return(
-      <>
-    <p>ロケーション：{location}</p>
-    <p>パスパラメーター：{userId}</p>
-    {/* <p>履歴：{navigate}</p> */}
-    </>
+    <div>
+      <h1>Welcome</h1>
+      <p>パスパラメーター：{userId}</p>
+      <Register />
+      <Link to="../../">戻る</Link>
+    </div>
   )
-
 }
