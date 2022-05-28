@@ -35,6 +35,7 @@ export function NewUser() {
     .then((response)=> response.json())
     .then(result =>{
       if (result.result[0]==="TRC") {
+        console.log(result.result[0])
         NewEmail = true;
         UUID = result.result[1]
       }
