@@ -17,7 +17,7 @@ import { NewUser } from "./NewUser";
 import { EmailSent } from "./EmailSent";
 import { EmailExist } from "./EmailExist";
 import { NotExist } from "./NotExist";
-import { UrlParameter } from "./UrlParameter";
+import { Registration } from "./Registration";
 
 export default function App() {
   return (
@@ -32,7 +32,7 @@ export default function App() {
         <Route path="EmailSent" element={<EmailSent />}/>
         <Route path="EmailExist" element={<EmailExist />}/>
         <Route path="ForgetPwd" element={<ForgetPwd />}/>
-        <Route path="test/:userId" element={<UrlParameter />} />
+        <Route path="Registration/:userId" element={<Registration />} />
         <Route path="*" element={<NotExist />}/>
         <Route
           path="protected"
