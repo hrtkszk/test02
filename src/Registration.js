@@ -19,7 +19,7 @@ export function Registration(){
     fetch("../register.php",requestOptions1)
     .then((response)=> response.json())
     .then(result =>{
-      setRegResult = result
+      setRegResult(result)
     })
   }
 
