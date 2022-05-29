@@ -37,18 +37,17 @@ export function NewUser() {
       if (result.result[0]==="TRC") {
         NewEmail = true;
         UUID = result.result[1]
-        console.log(UUID)
       }
     })
     .then(() => {
       // メール発信
-      console.log(UUID)
       if (SubmitStat && NewEmail) {
         const requestOptions2 ={
           method: 'POST',
           headers:{'Content-Type': 'application/json'},
           body: JSON.stringify({"email":Email, "UUID":UUID})
         }
+        console.log(requestOptions2)
         fetch("../send_mail.php",requestOptions2)
         .then((response)=> response.json())
         .then(result =>{
