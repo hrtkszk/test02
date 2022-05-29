@@ -6,7 +6,7 @@ import {
 import { useState } from 'react';
 
 export function Registration(){
-  // const [RegResult, setRegResult] = useState("");
+  const [RegResult, setRegResult] = useState("");
   const [initialized, setinitialized] = useState(false);
   let { userId } = useParams();
 
@@ -22,7 +22,7 @@ export function Registration(){
       fetch("../register.php",requestOptions1)
       .then((response)=> response.json())
       .then(result =>{
-        // setRegResult(result)
+        setRegResult(result.result)
         console.log(result)
       })
       setinitialized(true)
@@ -34,7 +34,7 @@ export function Registration(){
     <div>
       <h1>登録が完了しました。</h1>
       <p>パスパラメーター：{userId}</p>
-      {/* <div>登録結果：{RegResult}</div> */}
+      <div>登録結果：{RegResult}</div>
       <div><Register /></div>
       <Link to="../../">戻る</Link>  
 
