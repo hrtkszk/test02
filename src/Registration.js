@@ -10,9 +10,10 @@ export function Registration(){
   const [initialized, setinitialized] = useState(false);
   let { userId } = useParams();
 
-  if (initialized===false) {
-    const Register = () => {
-      // 登録
+
+  const Register = () => {
+    // 登録
+    if (initialized===false) {
       const requestOptions1 ={
         method: 'POST',
         headers:{'Content-Type': 'application/json'},
@@ -24,9 +25,10 @@ export function Registration(){
         setRegResult(result)
         console.log(result)
       })
+      setinitialized(true)
     }
-    setinitialized(true)
   }
+
 
   return(
     <div>
