@@ -33,6 +33,7 @@ if not(checkExist):
     UUID = {cursor.fetchone()[0]}
     # パスワード登録
     cursor.execute(f"INSERT `{SQLconfig.db}`.`{pwdtable}` (`UUID`, `password`, `datetime`) VALUES ('{UUID}', '{sys.argv[2]}', CURRENT_TIME)")
+    
     print("TRC") # Temp Registration Complete
     # print(UUID)
 
