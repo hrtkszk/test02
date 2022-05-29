@@ -21,12 +21,14 @@ export function Registration(){
   }
   const Register = () => {
     // 登録
+
     if (SubmitStat && initialized===false) {
       const requestOptions1 ={
         method: 'POST',
         headers:{'Content-Type': 'application/json'},
         body: JSON.stringify({"UUID":userId, "nickname":NickName, "gender":Gender,"age":Age})
       }
+      console.log(requestOptions1)
       fetch("../register.php",requestOptions1)
       .then((response)=> response.json())
       .then(result =>{
@@ -57,10 +59,7 @@ export function Registration(){
               placeholder='ニックネーム'
               required
             /><br />
-            <div onChange={evt => {
-              (setGender(evt.target.value)),
-              (console.log(Gender))
-              }}>
+            <div onChange={evt => {setGender(evt.target.value)}}>
               <input type="radio" value="Male" name="gender" /> 男性
               <input type="radio" value="Female" name="gender" /> 女性
               <input type="radio" value="Other" name="gender" /> LGBTQ
