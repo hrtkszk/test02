@@ -34,7 +34,7 @@ if not(checkExist):
     # パスワード登録
     cursor.execute(f"INSERT `{SQLconfig.db}`.`{pwdtable}` (`UUID`, `password`, `datetime`) VALUES ('{UUID}', '{sys.argv[2]}', CURRENT_TIME)")
     print("TRC") # Temp Registration Complete
-    print(UUID)
+    # print(UUID)
 
 else:
     print("EE") # Email Exist
