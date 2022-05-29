@@ -57,10 +57,10 @@ export function Registration(){
               placeholder='ニックネーム'
               required
             /><br />
-            <div onChange={evt => {(
-              setGender(evt.target.value),
-              console.log(Gender)
-              )}}>
+            <div onChange={evt => {
+              (setGender(evt.target.value)),
+              (console.log(Gender))
+              }}>
               <input type="radio" value="Male" name="gender" /> 男性
               <input type="radio" value="Female" name="gender" /> 女性
               <input type="radio" value="Other" name="gender" /> LGBTQ
