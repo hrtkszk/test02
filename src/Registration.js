@@ -9,17 +9,23 @@ export function Registration(){
   const [NickName, setNickName] = useState("");
   const [Gender, setGender] = useState("");
   const [Age, setAge] = useState("");
+  const [RegResult, setRegResult] = useState("");
   const [initialized, setinitialized] = useState(false);
   let { userId } = useParams();
+  let SubmitStat = false;
 
 
+  const submit = e => {
+    e.preventDefault();
+    SubmitStat = true;
+  }
   const Register = () => {
     // 登録
     if (initialized===false) {
       const requestOptions1 ={
         method: 'POST',
         headers:{'Content-Type': 'application/json'},
-        body: JSON.stringify({"UUID":userId})
+        body: JSON.stringify({"UUID":userId, "nickname":NickName, "gender":Gender,"age":Age})
       }
       fetch("../register.php",requestOptions1)
       .then((response)=> response.json())
@@ -37,7 +43,6 @@ export function Registration(){
       <h1>登録が完了しました。</h1>
       <p>パスパラメーター：{userId}</p>
       <div>登録結果：{RegResult}</div>
-      <div><Register /></div>
       <Link to="../../">戻る</Link>  
       <div>
           <form onSubmit={e => submit(e)}>
@@ -70,7 +75,7 @@ export function Registration(){
               placeholder='年齢'
               required
             /><br />
-            <button onClick={setTempRegister}>登録する</button>
+            <button onClick={Register}>登録する</button>
           </form>
           <br />
           <Link to="../">戻る</Link>
