@@ -23,7 +23,7 @@ export function Registration(){
 
   return(
     <div>
-      <h1>Welcome</h1>
+      <h1>登録が完了しました。</h1>
       <p>パスパラメーター：{userId}</p>
       <Register />
       <Link to="../../">戻る</Link>
