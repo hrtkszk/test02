@@ -21,7 +21,7 @@ export function Registration(){
   }
   const Register = () => {
     // 登録
-    if (initialized===false) {
+    if (SubmitStat && initialized===false) {
       const requestOptions1 ={
         method: 'POST',
         headers:{'Content-Type': 'application/json'},
