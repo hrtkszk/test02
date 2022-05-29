@@ -7,7 +7,8 @@ $to = $_POST['email'];
 $UUID = $_POST['UUID']
 // $to = "hrtkszk@gmail.com";
 $title = "try for registration";
-$message = "<html><body><a herf=\"https://quiet-yame-6258.chu.jp/Registration/$UUID\">Test</a></body></html>";
+// $message = "<html><body><a herf=\"https://quiet-yame-6258.chu.jp/Registration/$UUID\">Test</a></body></html>";
+$message = "<html><body><a herf=\"https://quiet-yame-6258.chu.jp/Registration/\">Test</a></body></html>";
 $headers = "From: ewfafewre@lolipop.jp";
 $headers .= "\r\n";
 $headers .= "Content-type: text/html; charset=UTF-8";
