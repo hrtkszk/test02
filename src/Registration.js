@@ -12,17 +12,15 @@ export function Registration(){
   const [RegResult, setRegResult] = useState("");
   const [initialized, setinitialized] = useState(false);
   let { userId } = useParams();
-  let SubmitStat = false;
-
 
   const submit = e => {
+    // 何もしない。JSによるインプットチェックが目的
     e.preventDefault();
-    SubmitStat = true;
   }
   const Register = () => {
     // 登録
 
-    if (SubmitStat && initialized===false) {
+    if (initialized===false) {
       const requestOptions1 ={
         method: 'POST',
         headers:{'Content-Type': 'application/json'},

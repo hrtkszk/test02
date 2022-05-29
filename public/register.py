@@ -16,7 +16,7 @@ try:
 
     profiletable="basicProfileTable"
 
-    # メールアドレスが存在するかチェック。存在しなければ、アドレス・PW・UUID追加に進む。存在したら、同じUUIDでパスワードを追加する。
+    #先に、UUIDが存在するか確認する。存在しない場合は、エラーを返す。
 
     # field name込みの場合はこっちを使う
     # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
