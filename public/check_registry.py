@@ -37,7 +37,7 @@ try:
     # except (MySQLdb.Error, MySQLdb.Warning) as e:
     #     print(e)
 
-    if len(checkExist1)==0:
+    if checkExist1==None:
         print("NRY") # Not Registered Yet
         # if RegistrationStatus=="":
         #     print("EBNR") # Exist But Not Registered
