@@ -33,7 +33,7 @@ try:
     finally:
         None
 
-    if len(checkExist)==0:
+    if len(checkExist)=="0":
         print("NRY") # Not Registered Yet
         if RegistrationStatus=="":
             print("EBNR") # Exist But Not Registered
