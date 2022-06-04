@@ -12,10 +12,12 @@ export function Registration(){
   const [RegResult, setRegResult] = useState("");
   const [initialized, setinitialized] = useState(false);
   let { userId } = useParams();
+  let SubmitStat = false;
+  let NewRegistry = false;
 
   const submit = e => {
-    // 何もしない。JSによるインプットチェックが目的
     e.preventDefault();
+    SubmitStat = true;
   }
   const Register = () => {
     // 登録
@@ -27,22 +29,34 @@ export function Registration(){
         body: JSON.stringify({"UUID":userId, "nickname":NickName, "gender":Gender,"age":Age})
       }
       console.log(requestOptions1)
-      fetch("../register.php",requestOptions1)
+      fetch("../check_registry.php",requestOptions1)
       .then((response)=> response.json())
       .then(result =>{
-        setRegResult(result.result[0])
-        console.log(result)
+        if (result.result[0]==="NRY") {
+          NewRegistry = true;
+        } else {
+          
+          //登録済み。ログアウト。
+        }
       })
-      setinitialized(true)
+      .then(() => {
+        if (SubmitStat && NewRegistry) {
+          fetch("../register.php",requestOptions1)
+          .then((response)=> response.json())
+          .then(result =>{
+            setRegResult(result.result[0])
+            console.log(result)
+          })
+          setinitialized(true)
+          // そのままログイン。naviate。UUIDをcontextに保存要。
+        }
+      })
     }
   }
 
-
   return(
     <div>
-      <h1>登録が完了しました。</h1>
       <p>パスパラメーター：{userId}</p>
-      <div>登録結果：{RegResult}</div>
 
       <div>
           <form onSubmit={e => submit(e)}>
