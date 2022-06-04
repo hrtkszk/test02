@@ -28,9 +28,9 @@ try:
     print(checkExist)
     RegistrationStatus = checkExist[1]
     print(RegistrationStatus)
-    if checkExist==():
+    if checkExist=="none":
         print("NRY") # Not Registered Yet
-        if not(RegistrationStatus):
+        if RegistrationStatus=="":
             print("EBNR") # Exist But Not Registered
     
     # 保存を実行
