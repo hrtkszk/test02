@@ -58,9 +58,9 @@ export function Registration(){
               required
             /><br />
             <div onChange={evt => {setGender(evt.target.value)}}>
-              <input type="radio" value="Male" name="gender" /> 男性
-              <input type="radio" value="Female" name="gender" /> 女性
-              <input type="radio" value="Other" name="gender" /> LGBTQ
+              <input type="radio" value="1" name="gender" /> 男性
+              <input type="radio" value="0" name="gender" /> 女性
+              <input type="radio" value="2" name="gender" /> LGBTQ
             </div><br />
             <input
             type='number'
