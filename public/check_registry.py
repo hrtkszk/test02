@@ -27,16 +27,16 @@ try:
     checkExist = cursor.fetchall()
     # checkExist = cursor.fetchone()
     print(len(checkExist))
-    try:
-        RegistrationStatus = cursor.fetchone()[1]
-        print(RegistrationStatus)
-    finally:
-        None
+    # try:
+    #     RegistrationStatus = cursor.fetchone()[1]
+    #     print(RegistrationStatus)
+    # finally:
+    #     None
 
     if len(checkExist)=="0":
         print("NRY") # Not Registered Yet
-        if RegistrationStatus=="":
-            print("EBNR") # Exist But Not Registered
+        # if RegistrationStatus=="":
+        #     print("EBNR") # Exist But Not Registered
     
     # 保存を実行
     connection.commit()
