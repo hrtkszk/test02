@@ -24,8 +24,8 @@ try:
 
     # 該当するUUIDのRegistrationStatusを1に変更する。
     cursor.execute(f"SELECT UUID, RegistrationStatus FROM {profiletable} WHERE UUID='{sys.argv[1]}'")
-    # checkExist = cursor.fetchall()
-    checkExist = cursor.fetchone()
+    checkExist = cursor.fetchall()
+    # checkExist = cursor.fetchone()
     print(len(checkExist))
     try:
         RegistrationStatus = checkExist[1]
@@ -33,7 +33,7 @@ try:
     finally:
         None
 
-    if len(checkExist)==0:
+    if len(checkExist)=="":
         print("NRY") # Not Registered Yet
         if RegistrationStatus=="":
             print("EBNR") # Exist But Not Registered
