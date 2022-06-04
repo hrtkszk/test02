@@ -26,6 +26,7 @@ try:
     cursor.execute(f"SELECT UUID, RegistrationStatus FROM {profiletable} WHERE UUID='{sys.argv[1]}'")
     checkExist = cursor.fetchall()
     # checkExist = cursor.fetchone()
+    print(type(len(checkExist)))
     print(len(checkExist))
     # try:
     #     RegistrationStatus = cursor.fetchone()[1]
