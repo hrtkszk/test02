@@ -27,7 +27,8 @@ try:
     checkExist = cursor.fetchall()
     print(checkExist)
     RegistrationStatus = cursor.fetchone()[1]
-    if not(checkExist):
+    print(RegistrationStatus)
+    if checkExist==():
         print("NRY") # Not Registered Yet
     if not(RegistrationStatus):
         print("EBNR") # Exist But Not Registered
