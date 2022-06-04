@@ -9,7 +9,7 @@ export function Registration(){
   const [NickName, setNickName] = useState("");
   const [Gender, setGender] = useState("");
   const [Age, setAge] = useState("");
-  const [RegResult, setRegResult] = useState("");
+  // const [RegResult, setRegResult] = useState("");
   const [initialized, setinitialized] = useState(false);
   let { userId } = useParams();
   let SubmitStat = false;
