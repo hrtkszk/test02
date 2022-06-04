@@ -28,13 +28,14 @@ try:
     # checkExist = cursor.fetchone()
     print(type(len(checkExist)))
     print(len(checkExist))
+    print(type(0))
     # try:
     #     RegistrationStatus = cursor.fetchone()[1]
     #     print(RegistrationStatus)
     # finally:
     #     None
 
-    if len(checkExist)=="0":
+    if len(checkExist)==0:
         print("NRY") # Not Registered Yet
         # if RegistrationStatus=="":
         #     print("EBNR") # Exist But Not Registered
