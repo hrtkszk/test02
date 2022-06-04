@@ -44,7 +44,7 @@ export function Registration(){
           fetch("../register.php",requestOptions1)
           .then((response)=> response.json())
           .then(result =>{
-            setRegResult(result.result[0])
+            // setRegResult(result.result[0])
             console.log(result)
           })
           setinitialized(true)
