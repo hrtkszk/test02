@@ -28,15 +28,14 @@ try:
     # checkExist1 = cursor.fetchone()
     print(type(len(checkExist)))
     print(len(checkExist))
-    print(type(0))
     # print(checkExist1)
     # print(type(checkExist1))
     # print(len(checkExist1))
-    try:
-        RegistrationStatus = cursor.fetchone()[1]
-        print(RegistrationStatus)
-    except (MySQLdb.Error, MySQLdb.Warning) as e:
-        print(e)
+    # try:
+    #     RegistrationStatus = cursor.fetchone()[1]
+    #     print(RegistrationStatus)
+    # except (MySQLdb.Error, MySQLdb.Warning) as e:
+    #     print(e)
 
     if len(checkExist)==0:
         print("NRY") # Not Registered Yet
