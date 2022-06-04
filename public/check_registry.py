@@ -24,20 +24,20 @@ try:
 
     # 該当するUUIDのRegistrationStatusを1に変更する。
     cursor.execute(f"SELECT UUID, RegistrationStatus FROM {profiletable} WHERE UUID='{sys.argv[1]}'")
-    checkExist = cursor.fetchall()
-    # checkExist1 = cursor.fetchone()
-    print(type(len(checkExist)))
-    print(len(checkExist))
-    # print(checkExist1)
-    # print(type(checkExist1))
-    # print(len(checkExist1))
+    # checkExist = cursor.fetchall()
+    checkExist1 = cursor.fetchone()
+    # print(type(len(checkExist)))
+    # print(len(checkExist))
+    print(checkExist1)
+    print(type(checkExist1))
+    print(len(checkExist1))
     # try:
     #     RegistrationStatus = cursor.fetchone()[1]
     #     print(RegistrationStatus)
     # except (MySQLdb.Error, MySQLdb.Warning) as e:
     #     print(e)
 
-    if len(checkExist)==0:
+    if len(checkExist1)==0:
         print("NRY") # Not Registered Yet
         # if RegistrationStatus=="":
         #     print("EBNR") # Exist But Not Registered
