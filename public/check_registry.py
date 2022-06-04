@@ -26,9 +26,11 @@ try:
     cursor.execute(f"SELECT UUID, RegistrationStatus FROM {profiletable} WHERE UUID='{sys.argv[1]}'")
     checkExist = cursor.fetchall()
     RegistrationStatus = cursor.fetchone()[1]
-    if not(checkExist) or not(RegistrationStatus):
+    if not(checkExist):
         print("NRY") # Not Registered Yet
-
+    if not(RegistrationStatus):
+        print("EBNR") # Exist But Not Registered
+    
     # 保存を実行
     connection.commit()
 
