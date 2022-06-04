@@ -30,7 +30,7 @@ try:
     # print(len(checkExist))
     print(checkExist1)
     print(type(checkExist1))
-    print(len(checkExist1))
+    # print(len(checkExist1))
     # try:
     #     RegistrationStatus = cursor.fetchone()[1]
     #     print(RegistrationStatus)
