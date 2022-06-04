@@ -29,7 +29,8 @@ try:
     print(type(len(checkExist)))
     print(len(checkExist))
     print(type(0))
-    print(type(len(checkExist1)))
+    print(checkExist1)
+    print(type(checkExist1))
     print(len(checkExist1))
     # try:
     #     RegistrationStatus = cursor.fetchone()[1]
