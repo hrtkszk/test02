@@ -30,9 +30,9 @@ try:
         RegistrationStatus = checkExist[1]
         print(RegistrationStatus)
     finally:
-        print("")
+        None
 
-    if checkExist==None:
+    if checkExist=="None":
         print("NRY") # Not Registered Yet
         if RegistrationStatus=="":
             print("EBNR") # Exist But Not Registered
