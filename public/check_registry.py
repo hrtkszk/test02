@@ -26,9 +26,13 @@ try:
     cursor.execute(f"SELECT UUID, RegistrationStatus FROM {profiletable} WHERE UUID='{sys.argv[1]}'")
     checkExist = cursor.fetchone()
     print(checkExist)
-    RegistrationStatus = checkExist[1]
-    print(RegistrationStatus)
-    if checkExist=="none":
+    try:
+        RegistrationStatus = checkExist[1]
+        print(RegistrationStatus)
+    finally:
+        print("")
+
+    if checkExist==None:
         print("NRY") # Not Registered Yet
         if RegistrationStatus=="":
             print("EBNR") # Exist But Not Registered
