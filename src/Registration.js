@@ -32,6 +32,7 @@ export function Registration(){
       fetch("../check_registry.php",requestOptions1)
       .then((response)=> response.json())
       .then(result =>{
+        console.log(result)
         if (result.result[0]==="NRY") {
           NewRegistry = true;
         } else {
