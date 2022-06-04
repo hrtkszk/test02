@@ -31,12 +31,12 @@ try:
     print(type(0))
     print(checkExist1)
     print(type(checkExist1))
-    print(len(checkExist1))
-    # try:
-    #     RegistrationStatus = cursor.fetchone()[1]
-    #     print(RegistrationStatus)
-    # finally:
-    #     None
+    # print(len(checkExist1))
+    try:
+        RegistrationStatus = cursor.fetchone()[1]
+        print(RegistrationStatus)
+    finally:
+        None
 
     if len(checkExist)==0:
         print("NRY") # Not Registered Yet
