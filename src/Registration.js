@@ -36,7 +36,7 @@ export function Registration(){
         if (result.result[0]==="NRY") {
           NewRegistry = true;
         } else {
-          
+          console.log("登録済み")
           //登録済み。ログアウト。
         }
       })
