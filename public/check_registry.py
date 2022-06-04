@@ -35,8 +35,8 @@ try:
     try:
         RegistrationStatus = cursor.fetchone()[1]
         print(RegistrationStatus)
-    finally:
-        None
+    except (MySQLdb.Error, MySQLdb.Warning) as e:
+        print(e)
 
     if len(checkExist)==0:
         print("NRY") # Not Registered Yet
