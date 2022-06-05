@@ -54,10 +54,10 @@ export function Registration(){
             console.log(result)
           })
           setinitialized(true)
-          // let username = 
-          // auth.signin(username, () => {
-          //   navigate("../protected/", { replace: true });
-          //   });
+          let username = "1234"
+          auth.signin(username, () => {
+            // navigate("../protected/", { replace: true });
+          });
         }
       })
     }
