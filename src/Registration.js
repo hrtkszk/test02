@@ -2,8 +2,10 @@ import React from 'react';
 import {
   Link,
   useParams,
+  useNavigate
 } from 'react-router-dom';
 import { useState } from 'react';
+import { useAuth } from "./useAuth";
 
 export function Registration(){
   const [NickName, setNickName] = useState("");
@@ -14,6 +16,8 @@ export function Registration(){
   let { userId } = useParams();
   let SubmitStat = false;
   let NewRegistry = false;
+  let navigate = useNavigate();
+  let auth = useAuth();
 
   const submit = e => {
     e.preventDefault();
@@ -37,6 +41,7 @@ export function Registration(){
           NewRegistry = true;
         } else {
           console.log("登録済み")
+          navigate("../")
           //登録済み。ログアウト。
         }
       })
@@ -49,7 +54,10 @@ export function Registration(){
             console.log(result)
           })
           setinitialized(true)
-          // そのままログイン。naviate。UUIDをcontextに保存要。
+          // let username = 
+          // auth.signin(username, () => {
+          //   navigate("../protected/", { replace: true });
+          //   });
         }
       })
     }

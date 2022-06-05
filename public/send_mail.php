@@ -1,4 +1,5 @@
 <?php
+include('./phpConfig.php');
 header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Headers: Content-Type');
 $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
@@ -7,7 +8,7 @@ $to = $_POST['email'];
 $UUID = $_POST['UUID'];
 // $to = "hrtkszk@gmail.com";
 $title = "try for registration";
-$message = "<html><body><a href=\"https://black-goto-1093.frenchkiss.jp/Registration/$UUID\">Test</a></body></html>";
+$message = "<html><body><a href=\"$URL/$UUID\">Test</a></body></html>";
 // $message = "<html><body><a href=\"https://black-goto-1093.frenchkiss.jp/Registration/\">Test</a></body></html>";
 $headers = "From: ewfafewre@lolipop.jp";
 $headers .= "\r\n";
