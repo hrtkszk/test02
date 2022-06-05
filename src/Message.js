@@ -110,7 +110,7 @@ export function Message() {
               return <li key={Message.message}> 
               <div class="balloon_r">
                 <div class="faceicon">
-                  {Message.ID}
+                  {Message.UUID}
                 </div>
                 <div class="says">{Message.message}</div>
               </div>
