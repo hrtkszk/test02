@@ -56,7 +56,7 @@ export function Registration(){
           setinitialized(true)
           let username = "1234"
           auth.signin(username, () => {
-            // navigate("../protected/", { replace: true });
+            navigate("../protected/", { replace: true });
           });
         }
       })
