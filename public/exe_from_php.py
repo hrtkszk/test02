@@ -21,7 +21,7 @@ cursor = connection.cursor()
 
 # 既読処理が必要。
 
-cursor.execute(f"SELECT * FROM {table_name} WHERE ID='{sys.argv[1]}' AND aiteID='{sys.argv[2]}' ORDER BY messagedDateTime")
+cursor.execute(f"SELECT * FROM {table_name} WHERE UUID='{sys.argv[1]}' AND aiteID='{sys.argv[2]}' ORDER BY messagedDateTime")
 
 # num_fields = len(cursor.description)
 field_names = [i[0] for i in cursor.description]
