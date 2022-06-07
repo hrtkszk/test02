@@ -19,8 +19,8 @@ export function AuthProvider({ children }) {
     .then((response)=> response.json())
     .then(result =>{
       console.log(result.result)
-      console.log(result.result[1])
-      setUser(result.result[1]);
+      console.log(result.result(1))
+      setUser(result.result(1));
       // setAite(null);
     })
     // callback();
