@@ -19,14 +19,14 @@ export function LoginPage() {
 
     let formData = new FormData(event.currentTarget);
     let username = formData.get("username");
-    // let password = formData.get("password");
+    let password = formData.get("password");
     console.log(username)
-    // console.log(password)
+    console.log(password)
 
     if (username === "") {
         navigate("/", {replace:true})
     } else {
-        auth.signin(username, () => {
+        auth.signin(username, password, () => {
         // Send them back to the page they tried to visit when they were
         // redirected to the login page. Use { replace: true } so we don't create
         // another entry in the history stack for the login page.  This means that
