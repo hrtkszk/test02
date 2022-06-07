@@ -20,7 +20,7 @@ export function AuthProvider({ children }) {
     .then(result =>{
       console.log(result.result[1])
       // console.log(result.result(1))
-      // setUser(result.result(1));
+      setUser(result.result[1]);
       // setTimeout(callback, 100);
       // setAite(null);
     })
