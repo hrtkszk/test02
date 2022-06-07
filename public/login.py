@@ -53,14 +53,14 @@ if checkExist!=None:
     #     ORDER BY t1.datetime DESC\
     # ")
 
-    # print(UUID)
+    print(UUID)
     
-    print(cursor.fetchall())
+    print(cursor.fetchone())
     # latestpwd = cursor.fetchone()[0]
 
     # print(latestpwd)
     # print(sys.argv[2])
-    
+
     # if latestpwd == sys.argv[2]:
     #     print("LS") # Login Success
     #     print(UUID)
