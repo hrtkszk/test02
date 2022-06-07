@@ -8,10 +8,23 @@ export function AuthProvider({ children }) {
   let [user, setUser] = React.useState();
   let [aite, setAite] = React.useState();
 
-  let signin = (newUser, callback) => {
-    setUser(newUser);
-    // setAite(null);
-    callback();
+  let signin = (newUser, passWord, callback) => {
+    const initialRequestOptions ={
+      method: 'POST',
+      headers:{'Content-Type': 'application/json'},
+      body: JSON.stringify({"email":newUser, "pwd":passWord})
+    }
+    
+    fetch("../login.php",initialRequestOptions)
+    .then((response)=> response.json())
+    .then(result =>{
+      console.log(result)
+      setUser(result.UUID);
+      // setAite(null);
+      callback();
+
+    })
+
     // return fakeAuthProvider.signin(() => {
     //   setUser(newUser);
     //   setAite(null);

@@ -24,8 +24,8 @@ cursor = connection.cursor()
 
 cursor.execute(f"SELECT * FROM {emailtable} WHERE email='{sys.argv[1]}'")
 
-checkExist = cursor.fetchall()
-if not(checkExist):
+checkExist = cursor.fetchone()
+if checkExist==None:
     # UUID、メールアドレス登録→パスワード登録
     # UUID、メールアドレス登録
     cursor.execute(f"INSERT `{SQLconfig.db}`.`{emailtable}` (`UUID`, `email`, `datetime`) VALUES (UUID(), '{sys.argv[1]}', CURRENT_TIME)")
