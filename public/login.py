@@ -35,17 +35,37 @@ if checkExist!=None:
 
     # UUIDから「最新の」パスワード照合
 
-    cursor.execute(f"SELECT password FROM {pwdtable} WHERE UUID='{UUID}'")
-    
+    # cursor.execute(f"SELECT password FROM {pwdtable} WHERE UUID='{UUID}'")
+    cursor.execute(f" \
+        SELECT password, MAX(datetime) \
+        FROM {pwdtable} \
+        WHERE UUID='{UUID}' \
+    ")
+    # cursor.execute(f" \
+    #     SELECT t1.* \
+    #     FROM {pwdtable} AS t1 \
+    #     JOIN ( \
+    #         SELECT UUID, MAX(datetime) AS latestDateTime \
+    #         FROM {pwdtable} \
+    #         WHERE UUID='{UUID}' \
+    #         GROUP BY aiteID) AS t2 \
+    #         ON t1.UUID = t2.UUID AND t1.aiteID = t2.aiteID AND t1.datetime = t2.latestDateTime \
+    #     ORDER BY t1.datetime DESC\
+    # ")
+
     # print(UUID)
-    latestpwd = cursor.fetchone()[0]
+    
+    print(cursor.fetchall())
+    # latestpwd = cursor.fetchone()[0]
+
     # print(latestpwd)
     # print(sys.argv[2])
-    if latestpwd == sys.argv[2]:
-        print("LS") # Login Success
-        print(UUID)
-    else:
-        print("ICI") # InCorrect Input
+    
+    # if latestpwd == sys.argv[2]:
+    #     print("LS") # Login Success
+    #     print(UUID)
+    # else:
+    #     print("ICI") # InCorrect Input
 
 # メールアドレスが存在しない場合：
 else:
