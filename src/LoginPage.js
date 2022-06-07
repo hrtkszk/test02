@@ -19,7 +19,9 @@ export function LoginPage() {
 
     let formData = new FormData(event.currentTarget);
     let username = formData.get("username");
+    // let password = formData.get("password");
     console.log(username)
+    // console.log(password)
 
     if (username === "") {
         navigate("/", {replace:true})
@@ -42,7 +44,7 @@ export function LoginPage() {
 
       <form onSubmit={handleSubmit}>
         <label>
-          メールアドレス／電話番号<input name="username" type="text" />
+          メールアドレス<input name="username" type="text" />
         </label><br />
         <label>
           パスワード：<input name="password" type="text" />
