@@ -44,10 +44,23 @@ export function LoginPage() {
 
       <form onSubmit={handleSubmit}>
         <label>
-          メールアドレス<input name="username" type="text" />
+          <input
+            name="username"
+            type="email"
+            placeholder='メールアドレス'
+            required
+          />
         </label><br />
         <label>
-          パスワード：<input name="password" type="text" />
+          <input
+            name="password"
+            type="password"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            // 特殊文字を弾く必要がある。
+            title="8文字以上で、数字・小文字アルファベット・大文字アルファベットを含めてください"
+            placeholder='パスワード'
+            required
+          />
         </label><br />
         <button type="submit">ログイン</button>
       </form>
