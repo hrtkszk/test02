@@ -38,6 +38,7 @@ if checkExist!=None:
     print(UUID)
     latestpwd = cursor.fetchone()[0]
     print(latestpwd)
+    print(sys.argv[2])
     if latestpwd == sys.argv[2]:
         print("LS") # Login Success
     else:

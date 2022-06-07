@@ -14,7 +14,7 @@ export function AuthProvider({ children }) {
       headers:{'Content-Type': 'application/json'},
       body: JSON.stringify({"email":newUser, "pwd":passWord})
     }
-    
+    console.log(initialRequestOptions)
     fetch("../login.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{
