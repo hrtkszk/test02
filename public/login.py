@@ -34,13 +34,16 @@ if checkExist!=None:
     UUID = cursor.fetchone()[0]
 
     # UUIDから「最新の」パスワード照合
+
     cursor.execute(f"SELECT password FROM {pwdtable} WHERE UUID='{UUID}'")
-    print(UUID)
+    
+    # print(UUID)
     latestpwd = cursor.fetchone()[0]
-    print(latestpwd)
-    print(sys.argv[2])
+    # print(latestpwd)
+    # print(sys.argv[2])
     if latestpwd == sys.argv[2]:
         print("LS") # Login Success
+        print(UUID)
     else:
         print("ICI") # InCorrect Input
 

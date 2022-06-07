@@ -14,12 +14,12 @@ export function AuthProvider({ children }) {
       headers:{'Content-Type': 'application/json'},
       body: JSON.stringify({"email":newUser, "pwd":passWord})
     }
-    console.log(initialRequestOptions)
+    // console.log(initialRequestOptions)
     fetch("../login.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{
-      console.log(result)
-      setUser(result.UUID);
+      console.log(result.result)
+      setUser(result.result[1]);
       // setAite(null);
     })
     // callback();

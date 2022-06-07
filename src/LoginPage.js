@@ -20,8 +20,8 @@ export function LoginPage() {
     let formData = new FormData(event.currentTarget);
     let username = formData.get("username");
     let password = formData.get("password");
-    console.log(username)
-    console.log(password)
+    // console.log(username)
+    // console.log(password)
 
     if (username === "") {
         navigate("/", {replace:true})
