@@ -8,7 +8,7 @@ export function AuthProvider({ children }) {
   let [user, setUser] = React.useState();
   let [aite, setAite] = React.useState();
 
-  let signin = (newUser, passWord, callback) => {
+  let signin = (newUser, passWord) => {
     const initialRequestOptions ={
       method: 'POST',
       headers:{'Content-Type': 'application/json'},
@@ -21,7 +21,7 @@ export function AuthProvider({ children }) {
       // console.log(result.result)
       // console.log(result.result(1))
       setUser(result.result(1));
-      setTimeout(callback, 100);
+      // setTimeout(callback, 100);
       // setAite(null);
     })
     // callback();
