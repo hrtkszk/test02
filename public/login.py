@@ -32,15 +32,14 @@ if checkExist!=None:
     # メールアドレスからUUID取得
     cursor.execute(f"SELECT UUID FROM {emailtable} WHERE email='{sys.argv[1]}'")
     UUID = cursor.fetchone()[0]
-    
+
     # UUIDから「最新の」パスワード照合
     cursor.execute(f"SELECT password FROM {pwdtable} WHERE UUID='{UUID}'")
     print(UUID)
-    latestpwd = cursor.fetchone()
+    latestpwd = cursor.fetchone()[0]
     print(latestpwd)
     if latestpwd == sys.argv[2]:
         print("LS") # Login Success
-        print(UUID)
     else:
         print("ICI") # InCorrect Input
 

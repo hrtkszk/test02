@@ -21,10 +21,8 @@ export function AuthProvider({ children }) {
       console.log(result)
       setUser(result.UUID);
       // setAite(null);
-      callback();
-
     })
-
+    callback();
     // return fakeAuthProvider.signin(() => {
     //   setUser(newUser);
     //   setAite(null);
