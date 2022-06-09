@@ -34,7 +34,7 @@ export function LoginPage() {
           // won't end up back on the login page, which is also really nice for the
           // user experience.
           console.log(auth.user)
-          if (auth.user!==null) {
+          if (auth.user!=="") {
             navigate(from, { replace: true });
           } else {
             console.log("Login Failed.")

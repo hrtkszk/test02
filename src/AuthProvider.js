@@ -5,8 +5,8 @@ import { AuthContext } from "./AuthContext";
 // export let AuthContext = React.createContext();
 
 export function AuthProvider({ children }) {
-  let [user, setUser] = React.useState();
-  let [aite, setAite] = React.useState();
+  let [user, setUser] = React.useState("");
+  let [aite, setAite] = React.useState("");
 
   let signin = (newUser, passWord, callback) => {
     const initialRequestOptions ={
