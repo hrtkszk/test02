@@ -3,7 +3,6 @@ import {
   Link,
   useNavigate,
 //   useLocation
-  useEffect,
 } from "react-router-dom";
 import { useAuth } from "./useAuth";
 
