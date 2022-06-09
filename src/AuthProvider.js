@@ -18,15 +18,15 @@ export function AuthProvider({ children }) {
     fetch("../login.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{
-      console.log(result.result[0])
-      console.log(result.result[1])
+      // console.log(result.result[0])
+      // console.log(result.result[1])
       // console.log(result.result(1))
       if (result.result[0]==="LS") {
         setUser(result.result[1]);
         // setTimeout(callback, 100);
         // setAite(null);
       }
-      callback();
+      callback("test");
     })
     // callback();
     // return fakeAuthProvider.signin(() => {
