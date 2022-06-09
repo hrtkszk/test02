@@ -37,6 +37,7 @@ export function LoginPage() {
             navigate(from, { replace: true });
           } else {
             console.log("Login Failed.")
+            navigate("", { replace: true });
           }
         });
     }
