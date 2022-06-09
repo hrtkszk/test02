@@ -22,8 +22,7 @@ export function AuthProvider({ children }) {
       // console.log(result.result[1])
       // console.log(result.result(1))
       if (result.result[0]==="LS") {
-        test = result.result[1]
-        setUser(test);
+        setUser(result.result[1]);
         // setTimeout(callback, 100);
         // setAite(null);
       } else {
