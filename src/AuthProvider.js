@@ -39,7 +39,7 @@ export function AuthProvider({ children }) {
   };
 
   let signout = (callback) => {
-    setUser(null);
+    setUser("");
     // setAite(null);
     callback();
     // return fakeAuthProvider.signout(() => {
