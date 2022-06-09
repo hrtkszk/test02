@@ -26,7 +26,7 @@ export function LoginPage() {
     if (username === "") {
         navigate("/", {replace:true})
     } else {
-        auth.signin(username, password, (test) => {
+        auth.signin(username, password, test, () => {
           // Send them back to the page they tried to visit when they were
           // redirected to the login page. Use { replace: true } so we don't create
           // another entry in the history stack for the login page.  This means that
