@@ -25,6 +25,8 @@ export function AuthProvider({ children }) {
         setUser(result.result[1]);
         // setTimeout(callback, 100);
         // setAite(null);
+      } else {
+        console.log("Login Failed in python")
       }
       callback();
     })
