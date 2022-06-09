@@ -26,7 +26,8 @@ export function AuthProvider({ children }) {
         // setTimeout(callback, 100);
         // setAite(null);
       }
-      callback("test");
+      // callback();
+      return "test"
     })
     // callback();
     // return fakeAuthProvider.signin(() => {
