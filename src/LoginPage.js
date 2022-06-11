@@ -33,16 +33,16 @@ export function LoginPage() {
           // when they get to the protected page and click the back button, they
           // won't end up back on the login page, which is also really nice for the
           // user experience.
-          useEffect(() => {
-            console.log(auth.user)
-            if (auth.user!=="") {
-              navigate(from, { replace: true });
-            } else {
-              console.log("Login Failed.")
-              // navigate("", { replace: true });
-            }
-          }, [auth.user])
+          console.log(auth.user)
+          // if (auth.user!=="") {
+          //   // navigate(from, { replace: true });
+          // } else {
+          //   console.log("Login Failed.")
+          //   // navigate("", { replace: true });
+          // }
         });
+        console.log(auth.user)
+        navigate(from, { replace: true });
     }
   }
 
