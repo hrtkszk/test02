@@ -18,8 +18,8 @@ export function RequireAuth({ children }) {
     // than dropping them off on the home page.
     // navigate("/")
     // auth.signout(() => navigate("/"))
-    console.log(auth.user)
-    auth.signout()
+    
+    auth.signout(()=>{console.log(auth.user)})
     return <Navigate to="login" />;
     // return <Navigate to="login" state={{ from: location }} replace />;
   } else {
