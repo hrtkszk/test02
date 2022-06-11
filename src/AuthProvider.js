@@ -7,7 +7,7 @@ import { AuthContext } from "./AuthContext";
 export function AuthProvider({ children }) {
   let [user, setUser] = React.useState("");
   let [aite, setAite] = React.useState("");
-  let [AuthStatus, setAuthStatus] = React.useState("");
+  let [AuthStatus, setAuthStatus] = React.useState(false);
   let [Message, setMessage] = React.useState("");
 
   let signin = (newUser, passWord, callback) => {
@@ -26,11 +26,12 @@ export function AuthProvider({ children }) {
       // console.log(result.result(1))
       if (result.result[0]==="LS") {
         setUser(result.result[1]);
+        setAuthStatus(true)
+        setMessage("")
         // setTimeout(callback, 100);
         // setAite(null);
       } else {
         console.log("Login Failed in python")
-        console.log(user)
       }
       callback();
     })
