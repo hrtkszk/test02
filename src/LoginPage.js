@@ -40,9 +40,11 @@ export function LoginPage() {
           //   console.log("Login Failed.")
           //   // navigate("", { replace: true });
           // }
-        });
-        console.log(auth.user)
-        navigate(from, { replace: true });
+        })
+        .then(
+          console.log(auth.user),
+          navigate(from, { replace: true })
+        )
     }
   }
 
