@@ -36,13 +36,13 @@ export function LoginPage() {
         
         // const forceUpdate = React.useState()[1].bind(null, {})
         // console.log(forceUpdate)
-        console.log(auth.user)
-        if (auth.user!=="") {
+        // console.log(auth.user)
+        // if (auth.user!=="") {
           navigate(from, { replace: true });
-        } else {
-          console.log("Login Failed.")
-          navigate("", { replace: true });
-        }
+        // } else {
+        //   console.log("Login Failed.")
+        //   navigate("", { replace: true });
+        // }
         // })
           // console.log(auth.user)
           // navigate(from, { replace: true })

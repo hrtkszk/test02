@@ -20,7 +20,7 @@ export function AuthProvider({ children }) {
     .then((response)=> response.json())
     .then(result =>{
       // console.log(result.result[0])
-      console.log(result.result[1])
+      // console.log(result.result[1])
       // console.log(result.result(1))
       if (result.result[0]==="LS") {
         setUser(result.result[1]);
