@@ -31,7 +31,7 @@ export function AuthProvider({ children }) {
         // setTimeout(callback, 100);
         // setAite(null);
       } else {
-        console.log("Login Failed in python")
+        setMessage("メールアドレス又はパスワードが間違っています。")
       }
       callback();
     })

@@ -18,7 +18,6 @@ export function RequireAuth({ children }) {
     // navigate("/")
     // auth.signout(() => navigate("/"))
     auth.signout(()=>{})
-    auth.setMessage("メールアドレス又はパスワードが間違っています。")
     // return <Navigate to="../login" />;
     return <Navigate to="../" state={{ from: location }} replace />;
   } else {
