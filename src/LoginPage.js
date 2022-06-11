@@ -26,7 +26,7 @@ export function LoginPage() {
     if (username === "") {
         navigate("/", {replace:true})
     } else {
-        auth.signin(username, password) //, () => {
+        () => {//, () => {
         //   // Send them back to the page they tried to visit when they were
         //   // redirected to the login page. Use { replace: true } so we don't create
         //   // another entry in the history stack for the login page.  This means that
@@ -41,10 +41,11 @@ export function LoginPage() {
         //   //   // navigate("", { replace: true });
         //   // }
         // })
+        auth.signin(username, password)
         .then(
           console.log(auth.user),
           navigate(from, { replace: true })
-        )
+        )}
     }
   }
 
