@@ -40,8 +40,6 @@ export function LoginPage() {
 
   return (
     <div>
-      <p>ログインしてください</p>
-
       <form onSubmit={handleSubmit}>
         <label>
           <input
