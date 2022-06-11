@@ -8,7 +8,7 @@ export function AuthProvider({ children }) {
   let [user, setUser] = React.useState("");
   let [aite, setAite] = React.useState("");
 
-  let signin = (newUser, passWord) => {
+  let signin = (newUser, passWord, callback) => {
   // let signin = (newUser, passWord, callback) => {
     const initialRequestOptions ={
       method: 'POST',
@@ -23,13 +23,13 @@ export function AuthProvider({ children }) {
       // console.log(result.result[1])
       // console.log(result.result(1))
       if (result.result[0]==="LS") {
-        setUser(result.result[1]);
+        setUser(() => result.result[1]);
         // setTimeout(callback, 100);
         // setAite(null);
       } else {
         console.log("Login Failed in python")
       }
-      // callback();
+      callback();
     })
     // callback();
     // return fakeAuthProvider.signin(() => {
