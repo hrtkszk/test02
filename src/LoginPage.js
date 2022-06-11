@@ -34,8 +34,9 @@ export function LoginPage() {
         //   // won't end up back on the login page, which is also really nice for the
         //   // user experience.
         auth.signin(username, password)
-        const forceUpdate = React.useState()[1].bind(null, {})
-        console.log(forceUpdate)
+        .then(console.log(auth.user))
+        // const forceUpdate = React.useState()[1].bind(null, {})
+        // console.log(forceUpdate)
         console.log(auth.user)
         if (auth.user!=="") {
           navigate(from, { replace: true });
