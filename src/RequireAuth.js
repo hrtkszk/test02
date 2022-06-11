@@ -8,7 +8,7 @@ import { useAuth } from "./useAuth";
 
 export function RequireAuth({ children }) {
   let auth = useAuth();
-  // let location = useLocation();
+  let location = useLocation();
   // let navigate = useNavigate();
 
   if (!auth.user) {
