@@ -30,6 +30,7 @@ export function AuthProvider({ children }) {
         // setAite(null);
       } else {
         console.log("Login Failed in python")
+        console.log(user)
       }
       callback();
     })
