@@ -7,6 +7,8 @@ import { AuthContext } from "./AuthContext";
 export function AuthProvider({ children }) {
   let [user, setUser] = React.useState("");
   let [aite, setAite] = React.useState("");
+  let [AuthStatus, setAuthStatus] = React.useState("");
+  let [Message, setMessage] = React.useState("");
 
   let signin = (newUser, passWord, callback) => {
   // let signin = (newUser, passWord, callback) => {
@@ -50,7 +52,7 @@ export function AuthProvider({ children }) {
     // });
   };
 
-  let value = { user, aite, signin, signout, setAite };
+  let value = { user, aite, AuthStatus, Message, signin, signout, setAite, setAuthStatus, setMessage };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

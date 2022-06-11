@@ -20,10 +20,11 @@ export function RequireAuth({ children }) {
     // auth.signout(() => navigate("/"))
     
     auth.signout(()=>{})
-    // console.log(auth.user)
+    console.log(auth.user)
     // return <Navigate to="../login" />;
     return <Navigate to="../login" state={{ from: location }} replace />;
   } else {
+    console.log(auth.user)
     return children;
   }
 }
