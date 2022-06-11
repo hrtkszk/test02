@@ -1,7 +1,7 @@
 // import * as React from "react";
 import {
   // useLocation,
-  useNavigate,
+  // useNavigate,
   Navigate
 } from "react-router-dom";
 import { useAuth } from "./useAuth";
@@ -9,7 +9,7 @@ import { useAuth } from "./useAuth";
 export function RequireAuth({ children }) {
   let auth = useAuth();
   // let location = useLocation();
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
   if (!auth.user) {
     // Redirect them to the /login page, but save the current location they were
@@ -20,11 +20,11 @@ export function RequireAuth({ children }) {
     // auth.signout(() => navigate("/"))
     
     auth.signout(()=>{
-      console.log(auth.user)
-      navigate("/")
+      // console.log(auth.user)
+      // navigate("/")
     })
-    console.log(auth.user)
-    return <Navigate to="login" />;
+    // console.log(auth.user)
+    return <Navigate to="../login" />;
     // return <Navigate to="login" state={{ from: location }} replace />;
   } else {
     return children;
