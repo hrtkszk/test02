@@ -52,17 +52,27 @@ export function Registration(){
           .then(result =>{
             // setRegResult(result.result[0])
             console.log(result)
-            if (result.result[0]==="RC") {
-              setinitialized(true)
-              auth.registration(userId, () => {
-                navigate("../protected/", { replace: true })
-              })
-            } else {
-              console.log("エラー：", result.result[0])
-              navigate("../")
-              //登録エラー。ログアウト。
-            }
+            // if (result.result[0]==="RC") {
+            //   setinitialized(true)
+            //   auth.registration(userId, () => {
+            //     navigate("../protected/", { replace: true })
+            //   })
+            // } else {
+            //   console.log("エラー：", result.result[0])
+            //   navigate("../")
+            //   //登録エラー。ログアウト。
+            // }
           })
+          if (result.result[0]==="RC") {
+            setinitialized(true)
+            auth.registration(userId, () => {
+              navigate("../protected/", { replace: true })
+            })
+          } else {
+            console.log("エラー：", result.result[0])
+            navigate("../")
+            //登録エラー。ログアウト。
+          }
           // setinitialized(true)
           // let username = userId
           // auth.setMessage("")
