@@ -61,7 +61,7 @@ if checkExist!=None:
 
     cursor.execute(f"SELECT RegistrationStatus FROM {profiletable} WHERE UUID='{UUID}'")
     # checkExist = cursor.fetchone()
-    RegistrationStatus = cursor.fetchone()[0]
+    # RegistrationStatus = cursor.fetchone()[0]
 
     # print(latestpwd)
     # print(sys.argv[2])
