@@ -58,8 +58,9 @@ if checkExist!=None:
 
     # print(UUID)
     # print(cursor.fetchone())
-    cursor.execute(f"SELECT RegistrationStatus FROM {profiletable} WHERE UUID='{UUID}'")
+
     try:
+        cursor.execute(f"SELECT RegistrationStatus FROM {profiletable} WHERE UUID='{UUID}'")
         RegistrationStatus = cursor.fetchone()[0]
     except (MySQLdb.Error, MySQLdb.Warning) as e:
         RegistrationStatus = e
