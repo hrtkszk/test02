@@ -21,7 +21,8 @@ export function RequireAuth({ children }) {
     // return <Navigate to="../login" />;
     return <Navigate to="../" state={{ from: location }} replace />;
   } else if (auth.RegistrationStatus==="RIC") {
-    return <Navigate to="../Registration/${auth.user}" state={{ from: location }} replace />;
+    auth.setMessage("登録が完了していません。登録してください。")
+    return <Navigate to={"../Registration/" + auth.user} state={{ from: location }} replace />;
   } else {
     return children;
   }

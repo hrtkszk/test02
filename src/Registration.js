@@ -55,6 +55,7 @@ export function Registration(){
           })
           setinitialized(true)
           let username = userId
+          auth.setMessage("")
           auth.signin(username, () => {
             navigate("../protected/", { replace: true });
           });
