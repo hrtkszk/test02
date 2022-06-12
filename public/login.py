@@ -62,22 +62,22 @@ if checkExist!=None:
     try:
         cursor.execute(f"SELECT RegistrationStatus FROM {profiletable} WHERE UUID='{UUID}'")
         RegistrationStatus = cursor.fetchone()[0]
-    except (MySQLdb.Error, MySQLdb.Warning) as e:
+    except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
         print(e)
     # if checkExist!=None:
     #     RegistrationStatus = cursor.fetchone()[0]
 
     # print(latestpwd)
     # print(sys.argv[2])
-
-    if latestpwd == sys.argv[2]:
-        print("LS") # Login Success
-        print(UUID)
-        print(RegistrationStatus)
-        # if checkExist==None or RegistrationStatus=="0":
-        #     print("RIC") # Registration InComplete
-    else:
-        print("ICI") # InCorrect Input
+    finally:
+        if latestpwd == sys.argv[2]:
+            print("LS") # Login Success
+            print(UUID)
+            # print(RegistrationStatus)
+            # if checkExist==None or RegistrationStatus=="0":
+            #     print("RIC") # Registration InComplete
+        else:
+            print("ICI") # InCorrect Input
 
 # メールアドレスが存在しない場合：
 else:
