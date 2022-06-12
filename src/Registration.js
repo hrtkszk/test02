@@ -18,6 +18,7 @@ export function Registration(){
   let NewRegistry = false;
   let navigate = useNavigate();
   let auth = useAuth();
+  let registerResult = "";
 
   const submit = e => {
     e.preventDefault();
@@ -52,6 +53,7 @@ export function Registration(){
           .then(result =>{
             // setRegResult(result.result[0])
             console.log(result)
+            registerResult = result.result[0]
             // if (result.result[0]==="RC") {
             //   setinitialized(true)
             //   auth.registration(userId, () => {
@@ -63,13 +65,13 @@ export function Registration(){
             //   //登録エラー。ログアウト。
             // }
           })
-          if (result.result[0]==="RC") {
+          if (registerResult==="RC") {
             setinitialized(true)
             auth.registration(userId, () => {
               navigate("../protected/", { replace: true })
             })
           } else {
-            console.log("エラー：", result.result[0])
+            console.log("エラー：", registerResult)
             navigate("../")
             //登録エラー。ログアウト。
           }
