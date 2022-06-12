@@ -27,8 +27,13 @@ try:
     # checkExist = cursor.fetchall()
     # print(type(len(checkExist)))
     # print(len(checkExist))
-
     checkExist1 = cursor.fetchone()
+    try:
+        RegistrationStatus = cursor.fetchone()[0]
+    except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
+        RegistrationStatus = e
+    finally:
+    
     # print(checkExist1)
     # print(type(checkExist1))
 
@@ -38,12 +43,12 @@ try:
     # except (MySQLdb.Error, MySQLdb.Warning) as e:
     #     print(e)
 
-    if checkExist1==None:
-        print("NRY") # Not Registered Yet
-        # if RegistrationStatus=="":
-        #     print("EBNR") # Exist But Not Registered
-    
-    # 保存を実行
+        if checkExist1==None or RegistrationStatus!=1:
+            print("NRY") # Not Registered Yet
+            # if RegistrationStatus=="":
+            #     print("EBNR") # Exist But Not Registered
+        
+        # 保存を実行
     connection.commit()
 
     # 接続を閉じる

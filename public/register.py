@@ -15,6 +15,7 @@ try:
         db=SQLconfig.db)
 
     profiletable="basicProfileTable"
+    pwdtable="PwdSettings"
 
     #先に、UUIDが存在するか確認する。存在しない場合は、エラーを返す。
 

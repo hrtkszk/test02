@@ -52,13 +52,18 @@ export function Registration(){
           .then(result =>{
             // setRegResult(result.result[0])
             console.log(result)
-          })
-          setinitialized(true)
-          let username = userId
-          auth.setMessage("")
-          auth.signin(username, () => {
+            setinitialized(true)
+            auth.setUser(userId)
+            auth.setAuthStatus(true)
+            auth.setMessage("")
             navigate("../protected/", { replace: true });
-          });
+          })
+          // setinitialized(true)
+          // let username = userId
+          // auth.setMessage("")
+          // auth.signin(username, () => {
+          //   navigate("../protected/", { replace: true });
+          // });
         }
       })
     }

@@ -56,7 +56,7 @@ export function AuthProvider({ children }) {
     // });
   };
 
-  let value = { user, aite, AuthStatus, RegistrationStatus, Message, signin, signout, setAite, setAuthStatus, setMessage };
+  let value = { user, aite, AuthStatus, RegistrationStatus, Message, signin, signout, setUser, setAite, setAuthStatus, setMessage };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
