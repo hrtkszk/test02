@@ -55,9 +55,10 @@ export function Registration(){
             setinitialized(true)
             auth.setUser(userId)
             auth.setAuthStatus(true)
-            auth.setMessage("", () => {
+            auth.setMessage("")
+            {() => {
               navigate("../protected/", { replace: true })
-            })
+            }}
           })
           // setinitialized(true)
           // let username = userId
