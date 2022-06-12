@@ -59,9 +59,9 @@ if checkExist!=None:
     # print(UUID)
     # print(cursor.fetchone())
 
-    cursor.execute(f"SELECT RegistrationStatus FROM {profiletable} WHERE UUID='{UUID}'")
-    checkExist = cursor.fetchone()
-    RegistrationStatus = cursor.fetchone()[0]
+    # cursor.execute(f"SELECT RegistrationStatus FROM {profiletable} WHERE UUID='{UUID}'")
+    # checkExist = cursor.fetchone()
+    # RegistrationStatus = cursor.fetchone()[0]
 
     # print(latestpwd)
     # print(sys.argv[2])
@@ -69,8 +69,8 @@ if checkExist!=None:
     if latestpwd == sys.argv[2]:
         print("LS") # Login Success
         print(UUID)
-        if checkExist==None or RegistrationStatus=="0":
-            print("RIC") # Registration InComplete
+        # if checkExist==None or RegistrationStatus=="0":
+        #     print("RIC") # Registration InComplete
     else:
         print("ICI") # InCorrect Input
 
