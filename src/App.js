@@ -45,6 +45,7 @@ export default function App() {
           <Route index element={<Page1 />}/>
           <Route path="page1" element={<Page1 />}/>
           <Route path="page2" element={<Page2 />}/>
+          <Route path="ProfileList" element={<ProfileList />}/>
           <Route path="Message" element={<Message />}/>
           <Route path="MessageList" element={<MessageList />}/>
           <Route path="logout" element={<LogOutPage />}/>

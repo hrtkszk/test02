@@ -1,18 +1,19 @@
 import * as React from "react";
-// import {
-//   Link,
-//   // Outlet
-//   useNavigate
-// } from "react-router-dom";
-import { useState, useRef, useEffect } from 'react';
+import {
+  Link,
+  // Outlet
+  // useNavigate
+} from "react-router-dom";
+import { useState } from 'react';
 import { useAuth } from "./useAuth";
+import "./Profile.css";
 
 
 export function ProfileList() {
   let auth = useAuth();
-  const intervalRef = useRef(null);
+  // const intervalRef = useRef(null);
 
-  const [ProfileList, setProfileList] = useState([]);
+  const [Profile_List, setProfileList] = useState([]);
   const [initialized, setinitialized] = useState(false);
 
   const initialRequestOptions ={
@@ -21,10 +22,10 @@ export function ProfileList() {
     body: JSON.stringify({"id":auth.user})
   }
 
-  // ページが読み込まれる時に実行し、ProfileListとして登録する。
+  // ページが読み込まれる時に実行し、Profile_Listとして登録する。
   if (initialized===false) {
     console.log(initialRequestOptions)
-    fetch("../receive_get.php",initialRequestOptions)
+    fetch("../profile_list.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{
       // console.log(result)
@@ -34,26 +35,7 @@ export function ProfileList() {
     setinitialized(true)
   }
   
-  if (intervalRef.current === null) {
-    intervalRef.current = setInterval(() =>{
-      fetch("../receive_get.php",initialRequestOptions)
-        .then((response)=> response.json())
-        .then(result =>{
-          console.log("result.pythonout2: ", result.pythonout2)
-          setProfileList(result.pythonout2)
-        })
-    }, 10000);
-  }
-
-  useEffect(() => {
-    // componentDidMount のタイミングで実行したい処理を記述
-    return () => {
-      // componentWillUnmount のタイミングで実行したい処理を記述
-      clearInterval(intervalRef.current)
-    }
-  }, []);
-
-  if (ProfileList === []) {
+  if (Profile_List === []) {
     return (
       <div>
         <h1>Profile List for {auth.user}</h1>
@@ -65,8 +47,15 @@ export function ProfileList() {
         <h1>Profile List for {auth.user}</h1>
         <div>
         <ul>
-            {ProfileList.map((Profile, i) => {
-              return <li key={Profile.message}>{Profile.DateTime}"     "{Profile.message}</li>;
+            {Profile_List.map((Profile, i) => {
+              return <li key={Profile.UUID} onClick={() => auth.setAite(Profile.UUID)}>
+                <Link to="../Message">
+                  {Profile.nickname}
+                  {Profile.gender}
+                  {Profile.age}
+                  <span class="datetime_l">{Profile.age}</span>
+                </Link>
+              </li>
             })}
         </ul>
         </div>

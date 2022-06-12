@@ -30,6 +30,9 @@ export function Header() {
               <Link to="page2">Show Page 2</Link>
             </li>
             <li>
+              <Link to="ProfileList">Show Profile List</Link>
+            </li>
+            <li>
               <Link to="MessageList">Show Message List</Link>
             </li>
             <li>
