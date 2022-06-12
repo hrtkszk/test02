@@ -27,7 +27,7 @@ export function Message() {
   // ページが読み込まれる時に実行し、Messagesとして登録する。
   if (initialized===false) {
     console.log(initialRequestOptions)
-    fetch("../receive_get.php",initialRequestOptions)
+    fetch("../get_message.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{
       // console.log(result)
@@ -39,7 +39,7 @@ export function Message() {
   
   if (intervalRef.current === null) {
     intervalRef.current = setInterval(() =>{
-      fetch("../receive_get.php",initialRequestOptions)
+      fetch("../get_message.php",initialRequestOptions)
         .then((response)=> response.json())
         .then(result =>{
           console.log("result.pythonout2: ", result.pythonout2)
@@ -63,7 +63,7 @@ export function Message() {
       body: JSON.stringify({"id":auth.user, "aite":auth.aite, "message":SendMessage})
     }
     console.log(requestOptions)
-    fetch("../send_post.php",requestOptions)
+    fetch("../send_message.php",requestOptions)
     .then((response)=> response.json())
     .then(result =>{
       console.log(result)
