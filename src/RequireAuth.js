@@ -20,6 +20,8 @@ export function RequireAuth({ children }) {
     auth.signout(()=>{})
     // return <Navigate to="../login" />;
     return <Navigate to="../" state={{ from: location }} replace />;
+  } else if (auth.RegistrationStatus==="RIC") {
+    return <Navigate to="../Registration/${auth.user}" state={{ from: location }} replace />;
   } else {
     return children;
   }
