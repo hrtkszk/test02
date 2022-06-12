@@ -64,17 +64,18 @@ export function Registration(){
             //   navigate("../")
             //   //登録エラー。ログアウト。
             // }
+            if (registerResult==="RC") {
+              setinitialized(true)
+              auth.registration(userId, () => {
+                navigate("../protected/", { replace: true })
+              })
+            } else {
+              console.log("エラー：", registerResult)
+              navigate("../")
+              //登録エラー。ログアウト。
+            }
           })
-          if (registerResult==="RC") {
-            setinitialized(true)
-            auth.registration(userId, () => {
-              navigate("../protected/", { replace: true })
-            })
-          } else {
-            console.log("エラー：", registerResult)
-            navigate("../")
-            //登録エラー。ログアウト。
-          }
+
           // setinitialized(true)
           // let username = userId
           // auth.setMessage("")
