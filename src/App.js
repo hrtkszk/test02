@@ -9,6 +9,7 @@ import { RequireAuth } from "./RequireAuth";
 import { AuthStatus } from "./AuthStatus";
 import { Page1 } from "./page1";
 import { Page2 } from "./page2";
+import { ProfileList } from "./ProfileList";
 import { Message } from "./Message";
 import { MessageList } from "./MessageList";
 import { LogOutPage } from "./logoutPage";
