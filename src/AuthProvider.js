@@ -56,8 +56,8 @@ export function AuthProvider({ children }) {
     // });
   };
 
-  let registration = (newUser, callback) => {
-    setUser(newUser)
+  let registration = (newUserID, callback) => {
+    setUser(newUserID)
     setAuthStatus(true)
     setMessage("")
     callback()

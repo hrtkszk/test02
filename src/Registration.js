@@ -54,6 +54,11 @@ export function Registration(){
             // setRegResult(result.result[0])
             console.log(result)
             registerResult = result.result[0]
+
+            // ここだとnavigateが動かない。ここに書いた上で、navigateの後、判定する必要がありそう。
+            // auth.signinを使いたいが、パスワードが必要。
+            // （Registrationの時にパスワードが必要ないはセキュリティ上良くない・・・Registrationの時だけワンタイムパスワードを発行するか？）
+            // ワンタイムパスワード（時間制限付き）を使う場合、結構大掛かりな見直しが必要となりそう。
             // if (result.result[0]==="RC") {
             //   setinitialized(true)
             //   auth.registration(userId, () => {
@@ -64,17 +69,19 @@ export function Registration(){
             //   navigate("../")
             //   //登録エラー。ログアウト。
             // }
-            if (registerResult==="RC") {
-              setinitialized(true)
-              auth.registration(userId, () => {
-                navigate("../protected/", { replace: true })
-              })
-            } else {
-              console.log("エラー：", registerResult)
-              navigate("../")
-              //登録エラー。ログアウト。
-            }
           })
+
+          // ここだとダメ。fetchよりも先に実行されてしまう。
+          if (registerResult==="RC") {
+            setinitialized(true)
+            auth.registration(userId, () => {
+              navigate("../protected/", { replace: true })
+            })
+          } else {
+            console.log("エラー：", registerResult)
+            navigate("../")
+            //登録エラー。ログアウト。
+          }
 
           // setinitialized(true)
           // let username = userId

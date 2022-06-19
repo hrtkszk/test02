@@ -1,2 +1,2 @@
 <?php
-$URL="https://black-goto-1093.frenchkiss.jp/Registration";
+$URL="https://sweet-obi-9117.babymilk.jp/Registration";
