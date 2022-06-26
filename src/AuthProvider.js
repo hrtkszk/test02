@@ -11,6 +11,7 @@ export function AuthProvider({ children }) {
   let [RegistrationStatus, setRegistrationStatus] = React.useState(false);
   let [Message, setMessage] = React.useState("");
   let NewRegistry = false;
+  let registerResult = "";
 
   let signin = (newUser, passWord, callback) => {
   // let signin = (newUser, passWord, callback) => {
