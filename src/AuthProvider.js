@@ -56,11 +56,81 @@ export function AuthProvider({ children }) {
     // });
   };
 
-  let registration = (newUserID, callback) => {
-    setUser(newUserID)
-    setAuthStatus(true)
-    setMessage("")
-    callback()
+  let registration = (newUserID, NickName, Gender, Age, callback) => {
+    const requestOptions1 ={
+      method: 'POST',
+      headers:{'Content-Type': 'application/json'},
+      body: JSON.stringify({"UUID":newUserID, "nickname":NickName, "gender":Gender,"age":Age})
+    }
+    console.log(requestOptions1)
+    fetch("../check_registry.php",requestOptions1)
+    .then((response)=> response.json())
+    .then(result =>{
+      console.log(result)
+      if (result.result[0]==="NRY") {
+        NewRegistry = true;
+      } else {
+        console.log("登録済み")
+        navigate("../")
+        //登録済み。ログアウト。
+      }
+    })
+    .then(() => {
+      if (NewRegistry) {
+        fetch("../register.php",requestOptions1)
+        .then((response)=> response.json())
+        .then(result =>{
+          // setRegResult(result.result[0])
+          console.log(result)
+          // registerResult = result.result[0]
+
+          if (result.result[0]==="RC") {
+            setUser(newUserID)
+            setAuthStatus(true)
+            setMessage("")
+          } else {
+            console.log("エラー：", registerResult)
+            setUser("")
+            setAuthStatus(false)
+            setMessage("エラー："+registerResult)
+          }
+
+          callback()
+          // ここだとnavigateが動かない。ここに書いた上で、navigateの後、判定する必要がありそう。
+          // auth.signinを使いたいが、パスワードが必要。
+          // （Registrationの時にパスワードが必要ないはセキュリティ上良くない・・・Registrationの時だけワンタイムパスワードを発行するか？）
+          // ワンタイムパスワード（時間制限付き）を使う場合、結構大掛かりな見直しが必要となりそう。
+          // if (result.result[0]==="RC") {
+          //   setinitialized(true)
+          //   auth.registration(userId, () => {
+          //     navigate("../protected/", { replace: true })
+          //   })
+          // } else {
+          //   console.log("エラー：", result.result[0])
+          //   navigate("../")
+          //   //登録エラー。ログアウト。
+          // }
+        })
+
+        // ここだとダメ。fetchよりも先に実行されてしまう。
+        // if (registerResult==="RC") {
+        //   setUser(newUserID)
+        //   setAuthStatus(true)
+        //   setMessage("")
+        // } else {
+        //   console.log("エラー：", registerResult)
+        //   //登録エラー。ログアウト。
+        // }
+        // callback()
+        // setinitialized(true)
+        // let username = userId
+        // auth.setMessage("")
+        // auth.signin(username, () => {
+        //   navigate("../protected/", { replace: true });
+        // });
+      }
+    })
+
   }
 
   let value = { user, aite, AuthStatus, RegistrationStatus, Message, signin, signout, registration, setAite, setMessage };

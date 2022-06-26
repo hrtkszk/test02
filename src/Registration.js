@@ -15,81 +15,20 @@ export function Registration(){
   const [initialized, setinitialized] = useState(false);
   let { userId } = useParams();
   let SubmitStat = false;
-  let NewRegistry = false;
   let navigate = useNavigate();
   let auth = useAuth();
-  let registerResult = "";
 
   const submit = e => {
     e.preventDefault();
     SubmitStat = true;
-  }
-  const Register = () => {
+  // }
+  // const Register = () => {
     // 登録
 
     if (initialized===false) {
-      const requestOptions1 ={
-        method: 'POST',
-        headers:{'Content-Type': 'application/json'},
-        body: JSON.stringify({"UUID":userId, "nickname":NickName, "gender":Gender,"age":Age})
-      }
-      console.log(requestOptions1)
-      fetch("../check_registry.php",requestOptions1)
-      .then((response)=> response.json())
-      .then(result =>{
-        console.log(result)
-        if (result.result[0]==="NRY") {
-          NewRegistry = true;
-        } else {
-          console.log("登録済み")
-          navigate("../")
-          //登録済み。ログアウト。
-        }
-      })
-      .then(() => {
-        if (SubmitStat && NewRegistry) {
-          fetch("../register.php",requestOptions1)
-          .then((response)=> response.json())
-          .then(result =>{
-            // setRegResult(result.result[0])
-            console.log(result)
-            registerResult = result.result[0]
-
-            // ここだとnavigateが動かない。ここに書いた上で、navigateの後、判定する必要がありそう。
-            // auth.signinを使いたいが、パスワードが必要。
-            // （Registrationの時にパスワードが必要ないはセキュリティ上良くない・・・Registrationの時だけワンタイムパスワードを発行するか？）
-            // ワンタイムパスワード（時間制限付き）を使う場合、結構大掛かりな見直しが必要となりそう。
-            // if (result.result[0]==="RC") {
-            //   setinitialized(true)
-            //   auth.registration(userId, () => {
-            //     navigate("../protected/", { replace: true })
-            //   })
-            // } else {
-            //   console.log("エラー：", result.result[0])
-            //   navigate("../")
-            //   //登録エラー。ログアウト。
-            // }
-          })
-
-          // ここだとダメ。fetchよりも先に実行されてしまう。
-          if (registerResult==="RC") {
-            setinitialized(true)
-            auth.registration(userId, () => {
-              navigate("../protected/", { replace: true })
-            })
-          } else {
-            console.log("エラー：", registerResult)
-            navigate("../")
-            //登録エラー。ログアウト。
-          }
-
-          // setinitialized(true)
-          // let username = userId
-          // auth.setMessage("")
-          // auth.signin(username, () => {
-          //   navigate("../protected/", { replace: true });
-          // });
-        }
+      auth.registration(userId, NickName, Gender, Age, () => {
+        setinitialized(true)
+        navigate("../protected/", { replace: true });
       })
     }
   }
@@ -127,7 +66,8 @@ export function Registration(){
             placeholder='年齢'
             required
             /><br />
-            <button onClick={Register}>登録する</button>
+            {/* <button onClick={Register}>登録する</button> */}
+            <button type='submit'>登録する</button>
           </form>
           <br />
           <Link to="../../">戻る</Link>  

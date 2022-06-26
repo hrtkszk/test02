@@ -22,9 +22,9 @@ export function NewUser() {
   const submit = e => {
     e.preventDefault();
     SubmitStat = true;
-  }
+  // }
 
-  const setTempRegister = () => {
+  // const setTempRegister = () => {
     // メールアドレス登録確認、仮登録
     const requestOptions1 ={
       method: 'POST',
@@ -99,7 +99,8 @@ export function NewUser() {
             style={{ width: 200 }}
             password={Pwd}
           /><br />
-          <button onClick={setTempRegister}>登録する</button>
+          {/* <button onClick={setTempRegister}>登録する</button> */}
+          <button type="submit">登録する</button>
         </form>
         <br />
         <Link to="../">戻る</Link>
