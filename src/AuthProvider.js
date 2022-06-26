@@ -10,6 +10,7 @@ export function AuthProvider({ children }) {
   let [AuthStatus, setAuthStatus] = React.useState(false);
   let [RegistrationStatus, setRegistrationStatus] = React.useState(false);
   let [Message, setMessage] = React.useState("");
+  let NewRegistry = false;
 
   let signin = (newUser, passWord, callback) => {
   // let signin = (newUser, passWord, callback) => {
@@ -71,7 +72,7 @@ export function AuthProvider({ children }) {
         NewRegistry = true;
       } else {
         console.log("登録済み")
-        navigate("../")
+        // navigate("../")
         //登録済み。ログアウト。
       }
     })
@@ -82,9 +83,9 @@ export function AuthProvider({ children }) {
         .then(result =>{
           // setRegResult(result.result[0])
           console.log(result)
-          // registerResult = result.result[0]
+          registerResult = result.result[0]
 
-          if (result.result[0]==="RC") {
+          if (registerResult==="RC") {
             setUser(newUserID)
             setAuthStatus(true)
             setMessage("")
