@@ -14,7 +14,7 @@ export function Registration(){
   // const [RegResult, setRegResult] = useState("");
   const [initialized, setinitialized] = useState(false);
   let { userId } = useParams();
-  // let SubmitStat = false;
+  let SubmitStat = false;
   let navigate = useNavigate();
   let auth = useAuth();
 
@@ -25,7 +25,7 @@ export function Registration(){
   // const Register = () => {
     // 登録
 
-    if (initialized===false) {
+    if (initialized===false && SubmitStat) {
       auth.registration(userId, NickName, Gender, Age, () => {
         setinitialized(true)
         navigate("../protected/", { replace: true });
