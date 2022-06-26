@@ -4,10 +4,10 @@ import { useAuth } from "./useAuth";
 export function AuthStatus() {
   let auth = useAuth();
 
-  if (auth.user && auth.AuthStatus && auth.RegistrationStatus) {
+  if (auth.user && auth.AuthStatus && auth.RegistrationStatus==="1") {
     console.log(auth.user+", "+auth.AuthStatus+","+auth.RegistrationStatus)
     return <p>{auth.user}</p>;
-  } else if (auth.user && auth.AuthStatus && !auth.RegistrationStatus) {
+  } else if (auth.user && auth.AuthStatus && auth.RegistrationStatus==="RIC") {
     console.log(auth.user+", "+auth.AuthStatus+","+auth.RegistrationStatus)
     return <p>基本情報が未登録です。基本情報を登録してください</p>;
   }  else if (auth.Message!=="") {

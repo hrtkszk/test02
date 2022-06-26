@@ -73,9 +73,10 @@ if checkExist!=None:
         if latestpwd == sys.argv[2]:
             print("LS") # Login Success
             print(UUID)
-            # if RegistrationStatus!=1:
-            #     print("RIC") # Registration InComplete
-            print(RegistrationStatus)
+            if RegistrationStatus!=1:
+                print("RIC") # Registration InComplete
+            else:
+                print(RegistrationStatus)
         else:
             print("ICI") # InCorrect Input
 
