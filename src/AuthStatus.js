@@ -5,7 +5,7 @@ export function AuthStatus() {
   let auth = useAuth();
 
   if (auth.user && auth.AuthStatus && auth.RegistrationStatus) {
-    return <p>{auth.user}さんとしてログインしています</p>;
+    return <p>{auth.user}</p>;
   } else if (auth.user && auth.AuthStatus && !auth.RegistrationStatus) {
     return <p>基本情報が未登録です。基本情報を登録してください</p>;
   }  else if (auth.Message!=="") {
