@@ -14,7 +14,7 @@ export function Registration(){
   // const [RegResult, setRegResult] = useState("");
   const [initialized, setinitialized] = useState(false);
   let { userId } = useParams();
-  let SubmitStat = false;
+  // let SubmitStat = false;
   let navigate = useNavigate();
   let auth = useAuth();
 
