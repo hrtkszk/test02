@@ -15,12 +15,11 @@ connection = MySQLdb.connect(
 
 table_name="MessageDB"
 
+print("test")
 # field name込みの場合はこっちを使う
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
 cursor = connection.cursor()
-
 message = " ".join(sys.argv[3:])
-print(message)
 messageID1 = str(sys.argv[1])+"_"+str(sys.argv[2])+"_"+str(datetime.datetime.now())
 messageID2 = str(sys.argv[2])+"_"+str(sys.argv[1])+"_"+str(datetime.datetime.now())
 
