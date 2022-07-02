@@ -15,17 +15,16 @@ connection = MySQLdb.connect(
 
 table_name="MessageDB"
 
-print("test")
 # field name込みの場合はこっちを使う
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
 cursor = connection.cursor()
-message = " ".join(sys.argv[3:])
-messageID1 = str(sys.argv[1])+"_"+str(sys.argv[2])+"_"+str(datetime.datetime.now())
-messageID2 = str(sys.argv[2])+"_"+str(sys.argv[1])+"_"+str(datetime.datetime.now())
+# message = " ".join(sys.argv[3:])
+# messageID1 = str(sys.argv[1])+"_"+str(sys.argv[2])+"_"+str(datetime.datetime.now())
+# messageID2 = str(sys.argv[2])+"_"+str(sys.argv[1])+"_"+str(datetime.datetime.now())
 
-cursor.execute(f"INSERT `{SQLconfig.db}`.`{table_name}` (`UUID`, `aiteID`, `sender`, `messagedDateTime`, `messageID`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[1]}', '{sys.argv[2]}', '{sys.argv[1]}', CURRENT_TIMESTAMP, '{messageID1}', '{message}', '1', NULL)")
-cursor.execute(f"INSERT `{SQLconfig.db}`.`{table_name}` (`UUID`, `aiteID`, `sender`, `messagedDateTime`, `messageID`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[2]}', '{sys.argv[1]}', '{sys.argv[1]}', CURRENT_TIMESTAMP, '{messageID2}', '{message}', '0', NULL)")
-
+# cursor.execute(f"INSERT `{SQLconfig.db}`.`{table_name}` (`UUID`, `aiteID`, `sender`, `messagedDateTime`, `messageID`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[1]}', '{sys.argv[2]}', '{sys.argv[1]}', CURRENT_TIMESTAMP, '{messageID1}', '{message}', '1', NULL)")
+# cursor.execute(f"INSERT `{SQLconfig.db}`.`{table_name}` (`UUID`, `aiteID`, `sender`, `messagedDateTime`, `messageID`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[2]}', '{sys.argv[1]}', '{sys.argv[1]}', CURRENT_TIMESTAMP, '{messageID2}', '{message}', '0', NULL)")
+print("test")
 # 既読処理が必要。
 
 # ここから下はreceive_get.phpで流してもよさそう(同じ)
