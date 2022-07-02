@@ -89,6 +89,7 @@ export function AuthProvider({ children }) {
           if (registerResult==="RC") {
             setUser(newUserID)
             setAuthStatus(true)
+            setRegistrationStatus("1")
             setMessage("")
           } else {
             console.log("エラー：", registerResult)
