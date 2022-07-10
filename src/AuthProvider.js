@@ -12,6 +12,7 @@ export function AuthProvider({ children }) {
   let [Message, setMessage] = React.useState("");
   let NewRegistry = false;
   let registerResult = "";
+  let PwdReset = "";
 
   let signin = (newUser, passWord, callback) => {
   // let signin = (newUser, passWord, callback) => {

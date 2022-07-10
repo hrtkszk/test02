@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import { useState } from 'react';
 import { useAuth } from "./useAuth";
+import PasswordStrengthBar from 'react-password-strength-bar';
 
 export function ResetPwd(){
   const [initialized, setinitialized] = useState(false);
