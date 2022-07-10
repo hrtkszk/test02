@@ -14,6 +14,7 @@ connection = MySQLdb.connect(
     db=SQLconfig.db)
 
 table_name="MessageDB"
+basicProfileTable="basicProfileTable"
 
 # field name込みの場合はこっちを使う
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
@@ -24,14 +25,19 @@ cursor = connection.cursor()
 # AND messagedDateTime=(SELECT max(messagedDateTime) FROM {table_name} AS md WHERE {table_name}.aiteID=md.aiteID)
 
 cursor.execute(f" \
-    SELECT t1.* \
+    SELECT t1.*, t3.nickname, t3.gender, t3.age \
     FROM {table_name} AS t1 \
-    JOIN ( \
+    INNER JOIN ( \
         SELECT UUID, aiteID, MAX(messagedDateTime) AS latestDateTime \
         FROM {table_name} \
         WHERE UUID='{sys.argv[1]}' \
         GROUP BY aiteID) AS t2 \
-        ON t1.UUID = t2.UUID AND t1.aiteID = t2.aiteID AND t1.messagedDateTime = t2.latestDateTime \
+    ON t1.UUID = t2.UUID AND t1.aiteID = t2.aiteID AND t1.messagedDateTime = t2.latestDateTime \
+    INNER JOIN (\
+        SELECT UUID, nickname, gender, age\
+        FROM {basicProfileTable}\
+        WHERE UUID='{sys.argv[1]}') AS t3\
+    ON t1.aiteID = t3.UUID\
     ORDER BY t1.messagedDateTime DESC\
 ")
 
