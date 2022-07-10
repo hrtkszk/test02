@@ -33,21 +33,22 @@ if checkExist==None:
 else:
     # 最新パスワードの確認
     cursor.execute(f"SELECT password, MAX(datetime) FROM {pwdtable} WHERE UUID='{sys.argv[1]}'")
-    TempPwdDB = cursor.fetchone()[0]
-    # datetime_pwd = cursor.fetchone()[1]
-    if TempPwdDB == sys.argv[2]:
-        # 新パスワード登録
-        cursor.execute(f"INSERT `{pwdtable}` (`UUID`, `password`, `datetime`) VALUES ('{sys.argv[1]}', '{sys.argv[3]}', CURRENT_TIME)")
-        cursor.execute(f"SELECT RegistrationStatus FROM {profiletable} WHERE UUID='{sys.argv[1]}'")
-        RegistrationStatus = cursor.fetchone()[0]
-        print("PRC") # Password Reset Complete
-        print(RegistrationStatus)
-        print(TempPwdDB)
-        # print(datetime_pwd)
-    else:
-        print("TPNC") # Temp Password Not Correct
-        # print(datetime_pwd)
-        print(TempPwdDB)
+    # TempPwdDB = cursor.fetchone()[0]
+    print(cursor.fetchone())
+
+    # if TempPwdDB == sys.argv[2]:
+    #     # 新パスワード登録
+    #     cursor.execute(f"INSERT `{pwdtable}` (`UUID`, `password`, `datetime`) VALUES ('{sys.argv[1]}', '{sys.argv[3]}', CURRENT_TIME)")
+    #     cursor.execute(f"SELECT RegistrationStatus FROM {profiletable} WHERE UUID='{sys.argv[1]}'")
+    #     RegistrationStatus = cursor.fetchone()[0]
+    #     print("PRC") # Password Reset Complete
+    #     print(RegistrationStatus)
+    #     print(TempPwdDB)
+    #     # print(datetime_pwd)
+    # else:
+    #     print("TPNC") # Temp Password Not Correct
+    #     # print(datetime_pwd)
+    #     print(TempPwdDB)
 
 # 保存を実行
 connection.commit()
