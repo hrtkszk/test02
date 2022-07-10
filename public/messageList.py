@@ -34,7 +34,7 @@ cursor.execute(f" \
         GROUP BY aiteID) AS t2 \
     ON t1.UUID = t2.UUID AND t1.aiteID = t2.aiteID AND t1.messagedDateTime = t2.latestDateTime \
     INNER JOIN (\
-        SELECT *\
+        SELECT UUID, nickname, gender, age\
         FROM {basicProfileTable}) AS t3\
     ON t1.aiteID = t3.UUID\
     ORDER BY t1.messagedDateTime DESC\
