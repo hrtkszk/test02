@@ -73,8 +73,11 @@ export function AuthProvider({ children }) {
         NewRegistry = true;
       } else {
         console.log("登録済み")
-        // navigate("../")
-        //登録済み。ログアウト。
+        
+        // Registration/UUIDでなりすましで入ってきた場合は、弾く必要がある。
+        // auth.user=""とすることで、RequireAuth.jsで弾く（signoutする）
+        newUserID = ""
+
       }
     })
     .then(() => {
@@ -133,10 +136,38 @@ export function AuthProvider({ children }) {
         // });
       }
     })
+  };
 
+  let resetPwd = (UserID, TempPwd, NewPwd, callback) => {
+    const requestOptions1 ={
+      method: 'POST',
+      headers:{'Content-Type': 'application/json'},
+      body: JSON.stringify({"UUID":UserID, "TempPwd":TempPwd, "NewPwd":NewPwd})
+    }
+    console.log(requestOptions1)
+    fetch("../check_reset_pwd.php",requestOptions1)
+    .then((response)=> response.json())
+    .then(result =>{
+      console.log(result)
+      PwdReset = result.result[0]
+      // TempPwdが間違っていれば弾き(signoutでuserID=""にする)、
+      // OKならパスワードをリセットして、そのままログインする。
+      if (PwdReset==="PRC") {
+        setUser(UserID)
+        setAuthStatus(true)
+        setRegistrationStatus(result.result[1])
+        setMessage("")
+      } else {
+        console.log("エラー：", PwdReset)
+        setUser("")
+        setAuthStatus(false)
+        setMessage("エラー："+PwdReset)
+      }
+      callback()
+    })
   }
 
-  let value = { user, aite, AuthStatus, RegistrationStatus, Message, signin, signout, registration, setAite, setMessage };
+  let value = { user, aite, AuthStatus, RegistrationStatus, Message, signin, signout, registration, resetPwd, setAite, setMessage };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

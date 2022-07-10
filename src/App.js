@@ -17,8 +17,10 @@ import { ForgetPwd } from "./ForgetPwd";
 import { NewUser } from "./NewUser";
 import { EmailSent } from "./EmailSent";
 import { EmailExist } from "./EmailExist";
+import { EmailNotExist } from "./EmailNotExist";
 import { NotExist } from "./NotExist";
 import { Registration } from "./Registration";
+import { ResetPwd } from "./ResetPwd";
 
 export default function App() {
   return (
@@ -32,8 +34,10 @@ export default function App() {
         <Route path="NewUser" element={<NewUser />}/>
         <Route path="EmailSent" element={<EmailSent />}/>
         <Route path="EmailExist" element={<EmailExist />}/>
+        <Route path="EmailNotExist" element={<EmailNotExist />}/>
         <Route path="ForgetPwd" element={<ForgetPwd />}/>
         <Route path="Registration/:userId" element={<Registration />} />
+        <Route path="ResetPwd/:userId" element={<ResetPwd />} />
         <Route path="*" element={<NotExist />}/>
         <Route
           path="protected"

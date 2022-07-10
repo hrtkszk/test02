@@ -35,6 +35,7 @@ if checkExist!=None:
     UUID = cursor.fetchone()[0]
 
     # UUIDから「最新の」パスワード照合
+    # 本当に最新のPWDが選択されているか確認が必要。
 
     cursor.execute(f"SELECT password, MAX(datetime) FROM {pwdtable} WHERE UUID='{UUID}'")
     latestpwd = cursor.fetchone()[0]

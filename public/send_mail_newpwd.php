@@ -6,9 +6,10 @@ $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータ�
 $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 $to = $_POST['email'];
 $UUID = $_POST['UUID'];
+$TempPwd = $_POST['pwd'];
 // $to = "hrtkszk@gmail.com";
-$title = "try for registration";
-$message = "<html><body><a href=\"$URL/Registration/$UUID\">Test</a></body></html>";
+$title = "Reset Password";
+$message = "<html><body><a href=\"$URL/ResetPwd/$UUID\">Reset Pwd</a><br>Temp Pwd:$TempPwd</body></html>";
 $headers = "From: ewfafewre@lolipop.jp";
 $headers .= "\r\n";
 $headers .= "Content-type: text/html; charset=UTF-8";

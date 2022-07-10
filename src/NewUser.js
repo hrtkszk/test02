@@ -37,6 +37,8 @@ export function NewUser() {
       if (result.result[0]==="TRC") {
         NewEmail = true;
         UUID = result.result[1]
+      } else {
+        navigate("../EmailExist")
       }
     })
     .then(() => {

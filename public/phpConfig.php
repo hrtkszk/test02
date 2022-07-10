@@ -1,2 +1,2 @@
 <?php
-$URL="https://aged-obi-4717.deca.jp/Registration";
+$URL="https://aged-obi-4717.deca.jp";
