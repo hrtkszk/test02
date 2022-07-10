@@ -32,7 +32,7 @@ if checkExist==None:
 
 else:
     # 最新パスワードの確認
-    cursor.execute(f"SELECT password, datetime FROM {pwdtable} WHERE UUID='{sys.argv[1]}' AND datetime = (SELECT MAX(datetime) FROM {pwdtable})")
+    cursor.execute(f"SELECT password, datetime FROM {pwdtable} WHERE UUID='{sys.argv[1]}' AND datetime = (SELECT MAX(datetime) FROM {pwdtable} WHERE UUID='{sys.argv[1]}')")
     # TempPwdDB = cursor.fetchone()[0]
     print(cursor.fetchone())
 
