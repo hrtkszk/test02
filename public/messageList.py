@@ -33,12 +33,11 @@ cursor.execute(f" \
         WHERE UUID='{sys.argv[1]}' \
         GROUP BY aiteID) AS t2 \
     ON t1.UUID = t2.UUID AND t1.aiteID = t2.aiteID AND t1.messagedDateTime = t2.latestDateTime \
+    ORDER BY t1.messagedDateTime DESC\
     INNER JOIN (\
         SELECT UUID, nickname, gender, age\
-        FROM {basicProfileTable}\
-        WHERE UUID='{sys.argv[1]}') AS t3\
-    ON t1.aiteID = t3.UUID\
-    ORDER BY t1.messagedDateTime DESC\
+        FROM {basicProfileTable}) AS t3\
+    ON t2.aiteID = t3.UUID\
 ")
 
 num_fields = len(cursor.description)
