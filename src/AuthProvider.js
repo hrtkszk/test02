@@ -157,7 +157,7 @@ export function AuthProvider({ children }) {
         setUser(UserID)
         setAuthStatus(true)
         setRegistrationStatus(result.result[1])
-        setMessage("")
+        setMessage("パスワードを再設定しました")
       } else {
         console.log("エラー：", PwdReset)
         setUser("")
