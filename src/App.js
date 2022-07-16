@@ -47,7 +47,7 @@ export default function App() {
             </RequireAuth>
           }
         >
-          <Route index element={<Page1 />}/>
+          <Route index element={<Profile />}/>
           <Route path="profile" element={<Profile />}/>
           <Route path="page2" element={<Page2 />}/>
           <Route path="ProfileList" element={<ProfileList />}/>
