@@ -7,7 +7,7 @@ import { LoginPage } from "./LoginPage";
 import { Header } from "./Header";
 import { RequireAuth } from "./RequireAuth";
 import { AuthStatus } from "./AuthStatus";
-import { Page1 } from "./page1";
+import { Profile } from "./Profile";
 import { Page2 } from "./page2";
 import { ProfileList } from "./ProfileList";
 import { Message } from "./Message";
@@ -48,7 +48,7 @@ export default function App() {
           }
         >
           <Route index element={<Page1 />}/>
-          <Route path="page1" element={<Page1 />}/>
+          <Route path="profile" element={<Profile />}/>
           <Route path="page2" element={<Page2 />}/>
           <Route path="ProfileList" element={<ProfileList />}/>
           <Route path="Message" element={<Message />}/>

@@ -24,7 +24,7 @@ export function Header() {
           </button> */}
           <ul>
             <li>
-              <Link to="page1">Show Page 1</Link>
+              <Link to="profile">Profile</Link>
             </li>
             <li>
               <Link to="page2">Show Page 2</Link>

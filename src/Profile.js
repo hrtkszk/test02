@@ -6,14 +6,14 @@ import * as React from "react";
 // } from "react-router-dom";
 import { useAuth } from "./useAuth";
 
-export function Page1() {
+export function Profile() {
   let auth = useAuth();
 
   return (
     <>
-        <h3>Page 1</h3>
+        <h3>My Profile</h3>
         <p>
-            This is page 1! {auth.user}
+            This is {auth.user} profile page.
         </p>
     </>
   );
