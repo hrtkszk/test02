@@ -9,7 +9,7 @@ import { useAuth } from "./useAuth";
 import "./Message.css";
 
 
-export function ForgetPwd() {
+export function ChangePwd() {
   const [OldPwd, setOldPwd] = useState("");
   const [NewPwd, setNewPwd] = useState("");
   let SubmitStat = false;
