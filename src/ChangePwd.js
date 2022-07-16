@@ -100,7 +100,7 @@ export function ChangePwd() {
           <button type="submit">変更する</button>
         </form>
         <br />
-        <Link to="./">戻る</Link>
+        <Link to="../">戻る</Link>
       </div>
     </div>
   )
