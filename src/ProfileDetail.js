@@ -6,7 +6,7 @@ import * as React from "react";
 // } from "react-router-dom";
 import { useAuth } from "./useAuth";
 
-export function PagProfileDetaile() {
+export function ProfileDetail() {
   let auth = useAuth();
 
   return (
