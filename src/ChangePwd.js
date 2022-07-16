@@ -12,7 +12,7 @@ import "./Message.css";
 export function ChangePwd() {
   const [OldPwd, setOldPwd] = useState("");
   const [NewPwd, setNewPwd] = useState("");
-  let SubmitStat = false;
+  // let SubmitStat = false;
 
   let auth = useAuth();
 
@@ -21,7 +21,7 @@ export function ChangePwd() {
   // 入力値に問題があれば遷移しない。問題なければ遷移する
   const submit = e => {
     e.preventDefault();
-    SubmitStat = true;
+    // SubmitStat = true;
   // }
 
   // const setTempRegister = () => {
