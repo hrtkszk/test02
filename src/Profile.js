@@ -18,16 +18,16 @@ export function Profile() {
         </p>
         <ul>
           <li>
-            <Link to="ProfileDetail">Profile Detail</Link>
+            <Link to="profile/ProfileDetail">Profile Detail</Link>
           </li>
           <li>
-            <Link to="ProfileSetting">Profile Setting</Link>
+            <Link to="profile/ProfileSetting">Profile Setting</Link>
           </li>
           <li>
-            <Link to="ChangePwd">Change Password</Link>
+            <Link to="profile/ChangePwd">Change Password</Link>
           </li>
           <li>
-            <Link to="ChangeEmail">Change Email Address</Link>
+            <Link to="profile/ChangeEmail">Change Email Address</Link>
           </li>
         </ul>
         <Outlet />
