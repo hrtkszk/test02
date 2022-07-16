@@ -1,2 +1,2 @@
 <?php
-$URL="https://aged-obi-4717.deca.jp";
+$URL="https://misty-saga-0885.holy.jp";
