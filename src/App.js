@@ -11,6 +11,7 @@ import { Profile } from "./Profile";
 import { ProfileDetail } from "./ProfileDetail";
 import { ProfileSetting } from "./ProfileSetting";
 import { ChangePwd } from "./ChangePwd";
+import { ChangeEmail } from "./ChangeEmail";
 import { Page2 } from "./page2";
 import { ProfileList } from "./ProfileList";
 import { Message } from "./Message";
@@ -56,6 +57,7 @@ export default function App() {
             <Route path="ProfileDetail" element={<ProfileDetail />}/>
             <Route path="ProfileSetting" element={<ProfileSetting />}/>
             <Route path="ChangePwd" element={<ChangePwd />}/>
+            <Route path="ChangeEmail" element={<ChangeEmail />}/>
           </Route>
           <Route path="page2" element={<Page2 />}/>
           <Route path="ProfileList" element={<ProfileList />}/>

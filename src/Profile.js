@@ -26,6 +26,9 @@ export function Profile() {
           <li>
             <Link to="ChangePwd">Change Password</Link>
           </li>
+          <li>
+            <Link to="ChangeEmail">Change Email Address</Link>
+          </li>
         </ul>
         <Outlet />
     </>
