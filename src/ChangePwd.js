@@ -33,7 +33,7 @@ export function ChangePwd() {
     }
     fetch("../check_change_pwd.php",requestOptions1)
     .then((response)=>{
-      response.json(),
+      response.json()
       console.log(response.json())
     })
     .then(result =>{
