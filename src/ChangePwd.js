@@ -4,6 +4,7 @@ import {
   // Outlet
   useNavigate
 } from "react-router-dom";
+import { ChangePwdStatus } from "./ChangePwdStatus";
 import { useState } from 'react';
 import { useAuth } from "./useAuth";
 import "./Message.css";
@@ -37,9 +38,15 @@ export function ChangePwd() {
       console.log(result)
       if (result.result[0]==="CPS") {
         // パスワード変更成功。リダイレクト
+        <ChangePwdStatus>
+          true
+        </ ChangePwdStatus>
         navigate("../ProfileDetail")
       } else {
         // パスワード間違い。リダイレクト
+        <ChangePwdStatus>
+          false
+        </ ChangePwdStatus>
         navigate("../ProfileDetail")
       }
     })
@@ -72,8 +79,8 @@ export function ChangePwd() {
 
   return (
     <div>
-      <h1>パスワード再発行</h1>
-
+      <h1>パスワード変更</h1>
+      <ChangePwdStatus />
       <div>
         <form onSubmit={handleSubmit}>
           <input
