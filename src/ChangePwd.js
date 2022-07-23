@@ -38,11 +38,11 @@ export function ChangePwd() {
       if (result.result[0]==="CPS") {
         // パスワード変更成功。メッセージ表示。リダイレクト
         auth.setMessage("パスワードを変更しました")
-        navigate("../profile")
+        navigate("../ProfileDetail")
       } else {
         // パスワード間違い。メッセージ表示。リダイレクト？
         auth.setMessage("パスワードの変更ができませんでした")
-        navigate("../profile")
+        navigate("../ProfileDetail")
       }
     })
           // パスワード変更したら、メール発信する？
