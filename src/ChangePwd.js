@@ -32,7 +32,10 @@ export function ChangePwd() {
       body: JSON.stringify({"UUID":auth.user,"OldPwd":OldPwd, "NewPwd":NewPwd})
     }
     fetch("../check_change_pwd.php",requestOptions1)
-    .then((response)=> response.json())
+    .then((response)=>{
+      console.log(response),
+      response.json()
+    })
     .then(result =>{
       console.log(result)
       if (result.result[0]==="CPS") {
