@@ -39,7 +39,7 @@ export function ChangePwd() {
         // パスワード変更成功。メッセージ表示
       } else {
         // パスワード間違い。メッセージ表示。リダイレクト？
-        navigate("../EmailNotExist")
+        navigate("../../EmailNotExist")
       }
     })
           // パスワード変更したら、メール発信する？
