@@ -15,6 +15,7 @@ connection = MySQLdb.connect(
 
 pwdtable="PwdSettings"
 
+print("test")
 # OldPwdをチェック。
 # OldPwdがOKなら、NewPwdを追加する。
 
