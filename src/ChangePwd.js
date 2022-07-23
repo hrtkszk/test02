@@ -31,7 +31,7 @@ export function ChangePwd() {
       headers:{'Content-Type': 'application/json'},
       body: JSON.stringify({"UUID":auth.user,"OldPwd":OldPwd, "NewPwd":NewPwd})
     }
-    fetch("../check_change_pwd.php",requestOptions1)
+    fetch("../../check_change_pwd.php",requestOptions1)
     .then((response)=> response.json())
     .then(result =>{
       console.log(result)
