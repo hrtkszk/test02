@@ -19,8 +19,8 @@ export function ChangePwd() {
   let navigate = useNavigate();
 
   // 入力値に問題があれば遷移しない。問題なければ遷移する
-  const submit = e => {
-    e.preventDefault();
+  function handleSubmit(event) {
+    event.preventDefault();
     // SubmitStat = true;
   // }
 
@@ -73,7 +73,7 @@ export function ChangePwd() {
       <h1>パスワード再発行</h1>
 
       <div>
-        <form onSubmit={e => submit(e)}>
+        <form onSubmit={handleSubmit}>
           <input
             type="password"
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
