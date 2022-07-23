@@ -36,10 +36,13 @@ export function ChangePwd() {
     .then(result =>{
       console.log(result)
       if (result.result[0]==="CPS") {
-        // パスワード変更成功。メッセージ表示
+        // パスワード変更成功。メッセージ表示。リダイレクト
+        auth.setMessage("パスワードを変更しました")
+        navigate("../profile")
       } else {
         // パスワード間違い。メッセージ表示。リダイレクト？
-        navigate("../../EmailNotExist")
+        auth.setMessage("パスワードの変更ができませんでした")
+        navigate("../profile")
       }
     })
           // パスワード変更したら、メール発信する？
