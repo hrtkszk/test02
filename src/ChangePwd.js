@@ -2,7 +2,7 @@ import * as React from "react";
 import {
   Link,
   // Outlet
-  useNavigate
+  // useNavigate
 } from "react-router-dom";
 import { ChangePwdStatus } from "./ChangePwdStatus";
 import { useState } from 'react';
@@ -17,7 +17,7 @@ export function ChangePwd() {
 
   let auth = useAuth();
 
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
   // 入力値に問題があれば遷移しない。問題なければ遷移する
   function handleSubmit(event) {
