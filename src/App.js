@@ -51,7 +51,11 @@ export default function App() {
             </RequireAuth>
           }
         >
-          <Route index element={<Page2 />}/>
+          <Route index element={<ProfileList />}/>
+          <Route path="page2" element={<Page2 />}/>
+          <Route path="ProfileList" element={<ProfileList />}/>
+          <Route path="Message" element={<Message />}/>
+          <Route path="MessageList" element={<MessageList />}/>
           <Route path="profile" element={<Profile />}>
             <Route index element={<ProfileDetail />}/>
             <Route path="ProfileDetail" element={<ProfileDetail />}/>
@@ -59,10 +63,6 @@ export default function App() {
             <Route path="ChangePwd" element={<ChangePwd />}/>
             <Route path="ChangeEmail" element={<ChangeEmail />}/>
           </Route>
-          <Route path="page2" element={<Page2 />}/>
-          <Route path="ProfileList" element={<ProfileList />}/>
-          <Route path="Message" element={<Message />}/>
-          <Route path="MessageList" element={<MessageList />}/>
           <Route path="logout" element={<LogOutPage />}/>
 
         </Route>

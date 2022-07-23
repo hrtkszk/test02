@@ -24,9 +24,6 @@ export function Header() {
           </button> */}
           <ul>
             <li>
-              <Link to="profile">Profile</Link>
-            </li>
-            <li>
               <Link to="page2">Show Page 2</Link>
             </li>
             <li>
@@ -34,6 +31,9 @@ export function Header() {
             </li>
             <li>
               <Link to="MessageList">Show Message List</Link>
+            </li>
+            <li>
+              <Link to="profile">Profile</Link>
             </li>
             <li>
               <Link to="logout">Logout Page</Link>
