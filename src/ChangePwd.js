@@ -37,10 +37,10 @@ export function ChangePwd() {
       console.log(result)
       if (result.result[0]==="CPS") {
         // パスワード変更成功。リダイレクト
-        navigate("ProfileDetail")
+        navigate("../ProfileDetail")
       } else {
         // パスワード間違い。リダイレクト
-        navigate("ProfileDetail")
+        navigate("../ProfileDetail")
       }
     })
           // パスワード変更したら、メール発信する？
