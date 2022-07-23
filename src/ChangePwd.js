@@ -76,22 +76,24 @@ export function ChangePwd() {
         <form onSubmit={e => submit(e)}>
           <input
             type="password"
-            // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-            // title="有効なメールアドレスを入力してください"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            // 特殊文字を弾く必要がある。
+            title="8文字以上で、数字・小文字アルファベット・大文字アルファベットを含めてください"
             onChange={evt => {
               // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-              setOldPwd(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
+              setOldPwd(evt.target.value)
             }}
             placeholder='現在のパスワード'
             required
           /><br />
           <input
             type="password"
-            // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-            // title="有効なメールアドレスを入力してください"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            // 特殊文字を弾く必要がある。
+            title="8文字以上で、数字・小文字アルファベット・大文字アルファベットを含めてください"
             onChange={evt => {
               // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-              setNewPwd(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
+              setNewPwd(evt.target.value)
             }}
             placeholder='新パスワード'
             required
