@@ -41,13 +41,13 @@ export function ChangePwd() {
         <ChangePwdStatus>
           true
         </ ChangePwdStatus>
-        navigate("../ProfileDetail")
+        // navigate("../ProfileDetail")
       } else {
         // パスワード間違い。リダイレクト
         <ChangePwdStatus>
           false
         </ ChangePwdStatus>
-        navigate("../ProfileDetail")
+        // navigate("../ProfileDetail")
       }
     })
           // パスワード変更したら、メール発信する？
