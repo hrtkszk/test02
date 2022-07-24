@@ -4,7 +4,7 @@ import {
   // Outlet
   useNavigate
 } from "react-router-dom";
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useAuth } from "./useAuth";
 import "./Message.css";
 
@@ -12,6 +12,8 @@ import "./Message.css";
 export function ChangePwd() {
   const [OldPwd, setOldPwd] = useState("");
   const [NewPwd, setNewPwd] = useState("");
+  const inputRef1 = useRef();
+  const inputRef2 = useRef();
   // let SubmitStat = false;
 
   let auth = useAuth();
@@ -43,6 +45,10 @@ export function ChangePwd() {
         // パスワード間違い。リダイレクト
         auth.setMessage("パスワードを変更できませんでした")
         navigate("../ChangePwd")
+        inputRef1.current.value = ""
+        setOldPwd("")
+        inputRef2.current.value = ""
+        setNewPwd("")
       }
     })
           // パスワード変更したら、メール発信する？
@@ -87,6 +93,7 @@ export function ChangePwd() {
               setOldPwd(evt.target.value)
             }}
             placeholder='現在のパスワード'
+            ref={inputRef1}
             required
           /><br />
           <input
@@ -99,6 +106,7 @@ export function ChangePwd() {
               setNewPwd(evt.target.value)
             }}
             placeholder='新パスワード'
+            ref={inputRef2}
             required
           /><br />
           
