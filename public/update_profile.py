@@ -21,12 +21,13 @@ profileTable="profileTable"
 cursor = connection.cursor()
 
 # UUIDのチェック（外部からの変更防止）
-
+print("test")
 cursor.execute(f"SELECT * FROM {profileTable} WHERE UUID='{sys.argv[1]}'")
 checkExist = cursor.fetchone()
 
 # UUIDが存在しない→初めての追加？（それとも外部からのアタックか）
 if checkExist==None:
+    print("test1")
     cursor.execute(f" \
         INSERT `{profileTable}` \
         SET \
@@ -69,6 +70,7 @@ if checkExist==None:
 
 # UUIDが存在する場合→更新（変更ないところはそのままにしたいが・・・ロジックが必要）
 else:
+    print("test2")
     cursor.execute(f" \
         UPDATE `{profileTable}` \
         SET \
