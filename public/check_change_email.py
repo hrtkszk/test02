@@ -49,19 +49,16 @@ else:
         # 同じUUIDで過去に同じメールアドレスが登録されているかの確認
         cursor.execute(f"SELECT * FROM {emailtable} WHERE UUID='{sys.argv[1]}' AND email='{sys.argv[2]}'")
         SameEmail = cursor.fetchone()
-        print("test")
 
         # 同じUUIDで同じメールアドレスが存在しない場合→弾く
         if SameEmail == None:
-            print("test1")
             print("NS") # Not Success
             print(SameEmail)
             # print(datetime_pwd)
 
         # 同じUUIDで同じメールアドレスが存在する場合→datetimeをアップデートする
         else:
-            print("test2")
-            cursor.execute(f"UPDATE `{emailtable}` (`datetime`) VALUES (CURRENT_TIME) WHERE UUID='{sys.argv[1]}' AND email='{sys.argv[2]}'")
+            cursor.execute(f"UPDATE `{emailtable}` SET datetime= CURRENT_TIME WHERE UUID='{sys.argv[1]}' AND email='{sys.argv[2]}'")
             print("CES") # Change Email Success
             print(SameEmail)
 
