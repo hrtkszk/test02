@@ -41,7 +41,7 @@ export function ChangeEmail() {
         navigate("../ProfileDetail")
       } else {
         // メールアドレスがすでに存在する。再表示して、リセット。
-        auth.setMessage("登録済みのメールアドレスです。メールアドレスを変更できませんでした")
+        auth.setMessage("メールアドレスを変更できませんでした")
         navigate("../ChangeEmail")
         inputRef.current.value = ""
         setNewEmail("")

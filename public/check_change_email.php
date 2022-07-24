@@ -3,7 +3,7 @@ header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Headers: Content-Type');
 $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
 $_POST = json_decode($rest_json, true); // JSON文字列をデコード
-$command_post="python3 check_change_pwd.py ".$_POST['UUID']." ".$_POST['OldPwd']." ".$_POST['NewPwd']; //pythonに引数を渡す
+$command_post="python3 check_change_pwd.py ".$_POST['UUID']." ".$_POST['NewEmail']; //pythonに引数を渡す
 exec($command_post, $output); //python実行と、返り数受け取り
 
 echo json_encode(
