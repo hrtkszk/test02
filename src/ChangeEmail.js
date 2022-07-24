@@ -34,6 +34,7 @@ export function ChangeEmail() {
     fetch("../../check_change_email.php",requestOptions1)
     .then((response)=> response.json())
     .then(result =>{
+      console.log(result)
       if (result.result[0]==="CES") {
         // メールアドレス変更成功。リダイレクト
         auth.setMessage("メールアドレスを変更しました")
