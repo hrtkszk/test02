@@ -16,22 +16,24 @@ connection = MySQLdb.connect(
 emailtable="EmailSettings"
 pwdtable="PwdSettings"
 
-# メールアドレスが存在するかチェック。存在しなければ、アドレス・PW・UUID追加に進む。存在したら、同じUUIDでパスワードを追加する。
 
 # field name込みの場合はこっちを使う
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
 cursor = connection.cursor()
 
+# メールアドレスが存在するかチェック。
 cursor.execute(f"SELECT * FROM {emailtable} WHERE email='{sys.argv[1]}'")
-
 checkExist = cursor.fetchone()
+
+# メールアドレスが存在しない場合は何もしない。
 if checkExist==None:
     print("ENE") # Email Not Exist
 
+# メールアドレスが存在したら、同じUUIDで仮パスワードを追加する。
 else:
     cursor.execute(f"SELECT UUID FROM {emailtable} WHERE email='{sys.argv[1]}'")
     UUID = cursor.fetchone()[0]
-    # 新たしいpwdの発行（ランダム生成要）
+    # 新しいpwdの発行（ランダム生成要）
     NewPwd ="test"
 
     # パスワード登録

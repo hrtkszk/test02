@@ -4,14 +4,14 @@ import {
   // Outlet
   useNavigate
 } from "react-router-dom";
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useAuth } from "./useAuth";
 import "./Message.css";
 
 
 export function ChangeEmail() {
-  const [OldEmail, setOldEmail] = useState("");
   const [NewEmail, setNewEmail] = useState("");
+  const inputRef = useRef();
   // let SubmitStat = false;
 
   let auth = useAuth();
@@ -29,19 +29,24 @@ export function ChangeEmail() {
     const requestOptions1 ={
       method: 'POST',
       headers:{'Content-Type': 'application/json'},
-      body: JSON.stringify({"UUID":auth.user,"OldEmail":OldEmail, "NewEmail":NewEmail})
+      body: JSON.stringify({"UUID":auth.user,"NewEmail":NewEmail})
     }
-    fetch("../check_change_email.php",requestOptions1)
+    fetch("../../check_change_email.php",requestOptions1)
     .then((response)=> response.json())
     .then(result =>{
       if (result.result[0]==="CES") {
-        // メールアドレス登録成功。メッセージ表示
+        // メールアドレス変更成功。リダイレクト
+        auth.setMessage("メールアドレスを変更しました")
+        navigate("../ProfileDetail")
       } else {
-        // メールアドレス間違い。メッセージ表示。リダイレクト？
-        navigate("../EmailNotExist")
+        // メールアドレスがすでに存在する。再表示して、リセット。
+        auth.setMessage("登録済みのメールアドレスです。メールアドレスを変更できませんでした")
+        navigate("../ChangeEmail")
+        inputRef.current.value = ""
+        setNewEmail("")
       }
     })
-          // パスワード変更したら、メール発信する？
+          // メールアドレス変更したら、メール発信する？
     // .then(() => {
 
     //   if (SubmitStat && EmailExist) {
@@ -80,20 +85,10 @@ export function ChangeEmail() {
             // title="有効なメールアドレスを入力してください"
             onChange={evt => {
               // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-              setOldEmail(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
-            }}
-            placeholder='現在のメールアドレス'
-            required
-          /><br />
-          <input
-            type="email"
-            // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-            // title="有効なメールアドレスを入力してください"
-            onChange={evt => {
-              // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
               setNewEmail(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
             }}
             placeholder='新メールアドレス'
+            ref={inputRef}
             required
           /><br />
           

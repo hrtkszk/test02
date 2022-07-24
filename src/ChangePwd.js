@@ -42,7 +42,7 @@ export function ChangePwd() {
         auth.setMessage("パスワードを変更しました")
         navigate("../ProfileDetail")
       } else {
-        // パスワード間違い。リダイレクト
+        // パスワード間違い。再表示して、リセット。
         auth.setMessage("パスワードを変更できませんでした")
         navigate("../ChangePwd")
         inputRef1.current.value = ""

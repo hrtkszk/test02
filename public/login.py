@@ -30,7 +30,7 @@ checkExist = cursor.fetchone()
 
 # メールアドレスが存在する場合：
 if checkExist!=None:
-    # メールアドレスからUUID取得
+    # メールアドレスからUUID取得。
     cursor.execute(f"SELECT UUID FROM {emailtable} WHERE email='{sys.argv[1]}'")
     UUID = cursor.fetchone()[0]
 
