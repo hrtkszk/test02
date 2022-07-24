@@ -26,6 +26,7 @@ cursor = connection.cursor()
 # UUIDのチェック（外部からの変更防止）
 cursor.execute(f"SELECT * FROM {emailtable} WHERE UUID='{sys.argv[1]}'")
 checkExist = cursor.fetchone()
+print(checkExist)
 if checkExist==None:
     print("UNE") # UUID Not Exist
 else:
@@ -33,6 +34,7 @@ else:
     # DB全体で同じメールアドレスが存在するかの確認
     cursor.execute(f"SELECT email FROM {emailtable} WHERE email='{sys.argv[2]}'")
     SameEmailDB = cursor.fetchone()[0]
+    print(SameEmailDB)
 
     # 存在しない→変更する
     if SameEmailDB == None:
