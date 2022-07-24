@@ -65,7 +65,7 @@ if checkExist==None:
             SelfBrightness='{sys.argv[33]}' \
             SelfElegance='{sys.argv[34]}' \
     ")
-    print("UNE") # UUID Not Exist
+    print("UPS") # Update Profile Success
 
 # UUIDが存在する場合→更新（変更ないところはそのままにしたいが・・・ロジックが必要）
 else:

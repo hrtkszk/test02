@@ -3,7 +3,7 @@ header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Headers: Content-Type');
 $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
 $_POST = json_decode($rest_json, true); // JSON文字列をデコード
-$command_post="python3 check_change_email.py " //pythonに引数を渡す
+$command_post="python3 update_profile.py " //pythonに引数を渡す
 .$_POST['UUID']." "
 .$_POST['Prefecture']." "
 .$_POST['City']." "
