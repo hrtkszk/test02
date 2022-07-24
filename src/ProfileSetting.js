@@ -1,10 +1,13 @@
 import * as React from "react";
-// import {
+import {
 //   Link,
 //   // Outlet
-//   useNavigate
-// } from "react-router-dom";
+  useNavigate
+} from "react-router-dom";
+import { useState } from 'react';
 import { useAuth } from "./useAuth";
+
+
 
 export function ProfileSetting() {
   // 地域状況
