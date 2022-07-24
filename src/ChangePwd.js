@@ -42,7 +42,7 @@ export function ChangePwd() {
       } else {
         // パスワード間違い。リダイレクト
         auth.setMessage("パスワードを変更できませんでした")
-        navigate("../ProfileDetail")
+        navigate("../ChangePwd")
       }
     })
           // パスワード変更したら、メール発信する？
