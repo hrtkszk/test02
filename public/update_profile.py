@@ -31,11 +31,11 @@ if checkExist==None:
         cursor.execute(f" \
             INSERT INTO `{profileTable}` \
             SET \
-                UUID='{sys.argv[1]}',  \
+                UUID='{sys.argv[1]}', \
                 Prefecture='{sys.argv[2]}', \
                 City='{sys.argv[3]}', \
                 Hight='{sys.argv[4]}', \
-                Style='{sys.argv[5]}' \
+                Style='{sys.argv[5]}', \
                 Looks='{sys.argv[6]}', \
                 Cup='{sys.argv[7]}' \
         ")
