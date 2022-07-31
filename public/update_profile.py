@@ -11,15 +11,15 @@ print("test0")
 # 空白＝未設定とする（SQLエラー[list index out of range]対策）
 if sys.argv[2]!=None:
     Prefecture=sys.argv[2]
+    print(Prefecture)
 else:
     Prefecture="None"
-print("test2")
 
 if sys.argv[3]!=None:
     City=sys.argv[3]
+    print(City)
 else:
     City="None"
-print("test4")
 if sys.argv[4]!=None:
     Hight=sys.argv[4]
 else:
@@ -74,9 +74,9 @@ else:
     MarriageStatus="None"
 if sys.argv[17]!=None:
     Kids=sys.argv[17]
+    print(Kids)
 else:
     Kids="None"
-print("test3")
 if sys.argv[18]!=None:
     Tabacco=sys.argv[18]
 else:
