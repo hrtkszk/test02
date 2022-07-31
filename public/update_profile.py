@@ -13,6 +13,8 @@ if sys.argv[2]!=None:
     Prefecture=sys.argv[2]
 else:
     Prefecture="None"
+print("test2")
+
 if sys.argv[3]!=None:
     City=sys.argv[3]
 else:
