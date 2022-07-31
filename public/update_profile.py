@@ -31,17 +31,16 @@ if checkExist==None:
         cursor.execute(f" \
             INSERT INTO `{profileTable}` \
             SET \
-                UUID='{sys.argv[1]}', \
-                Prefecture='{sys.argv[2]}', \
-                City='{sys.argv[3]}', \
-                Hight='{sys.argv[4]}', \
-                Style='{sys.argv[5]}' \
+                UUID='{sys.argv[1]}' \
         ")
         print("UPS") # Update Profile Success
     except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
         print(e)
         print("UPNS") # Update Profile Not Success
-
+                # Prefecture='{sys.argv[2]}', \
+                # City='{sys.argv[3]}', \
+                # Hight='{sys.argv[4]}', \
+                # Style='{sys.argv[5]}' \
                 # Looks='{sys.argv[6]}', \
                 # Cup='{sys.argv[7]}', \
                 # BustSize='{sys.argv[8]}', \
