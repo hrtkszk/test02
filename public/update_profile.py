@@ -75,6 +75,7 @@ if sys.argv[17]!=None:
     Kids=sys.argv[17]
 else:
     Kids="None"
+print("test3")
 if sys.argv[18]!=None:
     Tabacco=sys.argv[18]
 else:
