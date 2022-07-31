@@ -7,135 +7,135 @@ import datetime
 import SQLconfig
 
 # 空白＝未設定とする（SQLエラー[list index out of range]対策）
-if sys.argv[2]!="":
+if sys.argv[2]!=None:
     Prefecture=sys.argv[2]
 else:
     Prefecture="None"
-if sys.argv[3]!="":
+if sys.argv[3]!=None:
     City=sys.argv[3]
 else:
     City="None"
-if sys.argv[4]!="":
+if sys.argv[4]!=None:
     Hight=sys.argv[4]
 else:
     Hight="None"
-if sys.argv[5]!="":
+if sys.argv[5]!=None:
     Style=sys.argv[5]
 else:
     Style="None"
-if sys.argv[6]!="":
+if sys.argv[6]!=None:
     Looks=sys.argv[6]
 else:
     Looks="None"
-if sys.argv[7]!="":
+if sys.argv[7]!=None:
     Cup=sys.argv[7]
 else:
     Cup="None"
-if sys.argv[8]!="":
+if sys.argv[8]!=None:
     BustSize=sys.argv[8]
 else:
     BustSize="None"
-if sys.argv[9]!="":
+if sys.argv[9]!=None:
     WestSize=sys.argv[9]
 else:
     WestSize="None"
-if sys.argv[10]!="":
+if sys.argv[10]!=None:
     HipSize=sys.argv[10]
 else:
     HipSize="None"
-if sys.argv[11]!="":
+if sys.argv[11]!=None:
     BloodType=sys.argv[11]
 else:
     BloodType="None"
-if sys.argv[12]!="":
+if sys.argv[12]!=None:
     Job=sys.argv[12]
 else:
     Job="None"
-if sys.argv[13]!="":
+if sys.argv[13]!=None:
     EduBack=sys.argv[13]
 else:
     EduBack="None"
-if sys.argv[14]!="":
+if sys.argv[14]!=None:
     BirthPrefecture=sys.argv[14]
 else:
     BirthPrefecture="None"
-if sys.argv[15]!="":
+if sys.argv[15]!=None:
     Zodiac=sys.argv[15]
 else:
     Zodiac="None"
-if sys.argv[16]!="":
+if sys.argv[16]!=None:
     MarriageStatus=sys.argv[16]
 else:
     MarriageStatus="None"
-if sys.argv[17]!="":
+if sys.argv[17]!=None:
     Kids=sys.argv[17]
 else:
     Kids="None"
-if sys.argv[18]!="":
+if sys.argv[18]!=None:
     Tabacco=sys.argv[18]
 else:
     Tabacco="None"
-if sys.argv[19]!="":
+if sys.argv[19]!=None:
     Alchole=sys.argv[19]
 else:
     Alchole="None"
-if sys.argv[20]!="":
+if sys.argv[20]!=None:
     Car=sys.argv[20]
 else:
     Car="None"
-if sys.argv[21]!="":
+if sys.argv[21]!=None:
     Interest=sys.argv[21]
 else:
     Interest="None"
-if sys.argv[22]!="":
+if sys.argv[22]!=None:
     ProfilePicture=sys.argv[22]
 else:
     ProfilePicture="None"
-if sys.argv[23]!="":
+if sys.argv[23]!=None:
     ProfileMessage=sys.argv[23]
 else:
     ProfileMessage="None"
-if sys.argv[24]!="":
+if sys.argv[24]!=None:
     PreferedAge=sys.argv[24]
 else:
     PreferedAge="None"
-if sys.argv[25]!="":
+if sys.argv[25]!=None:
     PreferedPersonality=sys.argv[25]
 else:
     PreferedPersonality="None"
-if sys.argv[26]!="":
+if sys.argv[26]!=None:
     Personality=sys.argv[26]
 else:
     Personality="None"
-if sys.argv[27]!="":
+if sys.argv[27]!=None:
     SelfCute=sys.argv[27]
 else:
     SelfCute="None"
-if sys.argv[28]!="":
+if sys.argv[28]!=None:
     SelfSexy=sys.argv[28]
 else:
     SelfSexy="None"
-if sys.argv[29]!="":
+if sys.argv[29]!=None:
     SelfKindness=sys.argv[29]
 else:
     SelfKindness="None"
-if sys.argv[30]!="":
+if sys.argv[30]!=None:
     SelfSmartness=sys.argv[30]
 else:
     SelfSmartness="None"
-if sys.argv[31]!="":
+if sys.argv[31]!=None:
     SelfNeatness=sys.argv[31]
 else:
     SelfNeatness="None"
-if sys.argv[32]!="":
+if sys.argv[32]!=None:
     SelfFashionable=sys.argv[32]
 else:
     SelfFashionable="None"
-if sys.argv[33]!="":
+if sys.argv[33]!=None:
     SelfBrightness=sys.argv[33]
 else:
     SelfBrightness="None"
-if sys.argv[34]!="":
+if sys.argv[34]!=None:
     SelfElegance=sys.argv[34]
 else:
     SelfElegance="None"
