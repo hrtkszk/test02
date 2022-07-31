@@ -37,23 +37,22 @@ if checkExist==None:
                 Hight='{sys.argv[4]}', \
                 Style='{sys.argv[5]}' \
                 Looks='{sys.argv[6]}', \
-                Cup='{sys.argv[7]}', \
-                BustSize='{sys.argv[8]}', \
-                WestSize='{sys.argv[9]}', \
-                HipSize='{sys.argv[10]}', \
-                BloodType='{sys.argv[11]}', \
-                Job='{sys.argv[12]}', \
-                EduBack='{sys.argv[13]}', \
-                BirthPrefecture='{sys.argv[14]}', \
-                Zodiac='{sys.argv[15]}', \
-                MarriageStatus='{sys.argv[16]}', \
-                Kids='{sys.argv[17]}' \
+                Cup='{sys.argv[7]}' \
         ")
         print("UPS") # Update Profile Success
     except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
         print(e)
         print("UPNS") # Update Profile Not Success
-
+                # BustSize='{sys.argv[8]}', \
+                # WestSize='{sys.argv[9]}', \
+                # HipSize='{sys.argv[10]}', \
+                # BloodType='{sys.argv[11]}', \
+                # Job='{sys.argv[12]}', \
+                # EduBack='{sys.argv[13]}', \
+                # BirthPrefecture='{sys.argv[14]}', \
+                # Zodiac='{sys.argv[15]}', \
+                # MarriageStatus='{sys.argv[16]}', \
+                # Kids='{sys.argv[17]}' \
                 # Tabacco='{sys.argv[18]}', \
                 # Alchole='{sys.argv[19]}', \
                 # Car='{sys.argv[20]}', \
