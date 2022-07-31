@@ -4,12 +4,12 @@ header('Access-Control-Allow-Headers: Content-Type');
 $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
 $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 if ($_POST['Prefecture'] =="") {
-  $_POST['Prefecture']="未設定"
+  $Prefecture="未設定"
 }
 
 $command_post="python3 update_profile.py " //pythonに引数を渡す
 .$_POST['UUID']." "
-.$_POST['Prefecture']." "
+.$Prefecture." "
 .$_POST['City']." "
 .$_POST['Height']." "
 .$_POST['Style']." "
