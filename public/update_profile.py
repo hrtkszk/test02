@@ -6,18 +6,14 @@ import sys
 import datetime
 import SQLconfig
 
-print("test0")
-
 # 空白＝未設定とする（SQLエラー[list index out of range]対策）
+print(sys.argv[2])
 if sys.argv[2]!=None:
     Prefecture=sys.argv[2]
-    print(Prefecture)
 else:
     Prefecture="None"
-
 if sys.argv[3]!=None:
     City=sys.argv[3]
-    print(City)
 else:
     City="None"
 if sys.argv[4]!=None:
@@ -74,7 +70,6 @@ else:
     MarriageStatus="None"
 if sys.argv[17]!=None:
     Kids=sys.argv[17]
-    print(Kids)
 else:
     Kids="None"
 if sys.argv[18]!=None:
