@@ -6,6 +6,8 @@ import sys
 import datetime
 import SQLconfig
 
+print("test0")
+
 # 空白＝未設定とする（SQLエラー[list index out of range]対策）
 if sys.argv[2]!=None:
     Prefecture=sys.argv[2]
