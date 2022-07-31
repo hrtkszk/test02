@@ -19,6 +19,7 @@ if sys.argv[3]!=None:
     City=sys.argv[3]
 else:
     City="None"
+print("test4")
 if sys.argv[4]!=None:
     Hight=sys.argv[4]
 else:
