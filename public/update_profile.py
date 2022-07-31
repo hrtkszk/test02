@@ -21,7 +21,6 @@ profileTable="profileTable"
 cursor = connection.cursor()
 
 # UUIDのチェック（外部からの変更防止）
-print("test")
 cursor.execute(f"SELECT * FROM {profileTable} WHERE UUID='{sys.argv[1]}'")
 checkExist = cursor.fetchone()
 
@@ -35,7 +34,7 @@ if checkExist==None:
                 UUID='{sys.argv[1]}', \
                 Prefecture='{sys.argv[2]}', \
                 City='{sys.argv[3]}', \
-                Height='{sys.argv[4]}', \
+                Hight='{sys.argv[4]}', \
                 Style='{sys.argv[5]}', \
                 Looks='{sys.argv[6]}', \
                 Cup='{sys.argv[7]}', \
@@ -67,10 +66,11 @@ if checkExist==None:
                 SelfBrightness='{sys.argv[33]}', \
                 SelfElegance='{sys.argv[34]}' \
         ")
+        print("UPS") # Update Profile Success
     except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
         print(e)
-    finally:
-        print("UPS") # Update Profile Success
+        print("UPNS") # Update Profile Not Success
+
 
 # UUIDが存在する場合→更新（変更ないところはそのままにしたいが・・・ロジックが必要）
 else:
@@ -80,7 +80,7 @@ else:
         SET \
             Prefecture='{sys.argv[2]}', \
             City='{sys.argv[3]}', \
-            Height='{sys.argv[4]}', \
+            Hight='{sys.argv[4]}', \
             Style='{sys.argv[5]}', \
             Looks='{sys.argv[6]}', \
             Cup='{sys.argv[7]}', \
