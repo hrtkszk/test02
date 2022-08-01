@@ -3,7 +3,7 @@ header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Headers: Content-Type');
 $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
 $_POST = json_decode($rest_json, true); // JSON文字列をデコード
-echo gettyep($_POST['Prefecture']);
+echo gettype($_POST['Prefecture']);
 // echo $_POST['Prefecture'];
 // if ($_POST['Prefecture']=="") {
 //   $Prefecture="test";
