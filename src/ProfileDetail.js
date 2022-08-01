@@ -23,7 +23,8 @@ export function ProfileDetail() {
     fetch("../../get_profile.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{
-      console.log(result.test)
+      console.log(result.test0)
+      console.log(result.test1)
       console.log(result.result[0])
       setProfile(result.result[0])
     })
