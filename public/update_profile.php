@@ -3,167 +3,167 @@ header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Headers: Content-Type');
 $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
 $_POST = json_decode($rest_json, true); // JSON文字列をデコード
-if ($_POST['Prefecture']=="") {
+if ($_POST['Prefecture']="") {
   $Prefecture="未設定";
 } else {
   $Prefecture=$_POST['Prefecture'];
 };
-if ($_POST['City']=="") {
+if ($_POST['City']="") {
   $City="未設定";
 } else {
   $City=$_POST['City'];
 };
-if ($_POST['Height']=="") {
+if ($_POST['Height']="") {
   $Height="未設定";
 } else {
   $Height=$_POST['Height'];
 };
-if ($_POST['Style']=="") {
+if ($_POST['Style']="") {
   $Style="未設定";
 } else {
   $Style=$_POST['Style'];
 };
-if ($_POST['Looks']=="") {
+if ($_POST['Looks']="") {
   $Looks="未設定";
 } else {
   $Looks=$_POST['Looks'];
 };
-if ($_POST['Cup']=="") {
+if ($_POST['Cup']="") {
   $Cup="未設定";
 } else {
   $Cup=$_POST['Cup'];
 };
-if ($_POST['BustSize']=="") {
+if ($_POST['BustSize']="") {
   $BustSize="未設定";
 } else {
   $BustSize=$_POST['BustSize'];
 };
-if ($_POST['WestSize']=="") {
+if ($_POST['WestSize']="") {
   $WestSize="未設定";
 } else {
   $WestSize=$_POST['WestSize'];
 };
-if ($_POST['HipSize']=="") {
+if ($_POST['HipSize']="") {
   $HipSize="未設定";
 } else {
   $HipSize=$_POST['HipSize'];
 };
-if ($_POST['BloodType']=="") {
+if ($_POST['BloodType']="") {
   $BloodType="未設定";
 } else {
   $BloodType=$_POST['BloodType'];
 };
-if ($_POST['Job']=="") {
+if ($_POST['Job']="") {
   $Job="未設定";
 } else {
   $Job=$_POST['Job'];
 };
-if ($_POST['EduBack']=="") {
+if ($_POST['EduBack']="") {
   $EduBack="未設定";
 } else {
   $EduBack=$_POST['EduBack'];
 };
-if ($_POST['BirthPrefecture']=="") {
+if ($_POST['BirthPrefecture']="") {
   $BirthPrefecture="未設定";
 } else {
   $BirthPrefecture=$_POST['BirthPrefecture'];
 };
-if ($_POST['Zodiac']=="") {
+if ($_POST['Zodiac']="") {
   $Zodiac="未設定";
 } else {
   $Zodiac=$_POST['Zodiac'];
 };
-if ($_POST['MarriageStatus']=="") {
+if ($_POST['MarriageStatus']="") {
   $MarriageStatus="未設定";
 } else {
   $MarriageStatus=$_POST['MarriageStatus'];
 };
-if ($_POST['Kids']=="") {
+if ($_POST['Kids']="") {
   $Kids="未設定";
 } else {
   $Kids=$_POST['Kids'];
 };
-if ($_POST['Tabacco']=="") {
+if ($_POST['Tabacco']="") {
   $Tabacco="未設定";
 } else {
   $Tabacco=$_POST['Tabacco'];
 };
-if ($_POST['Alchole']=="") {
+if ($_POST['Alchole']="") {
   $Alchole="未設定";
 } else {
   $Alchole=$_POST['Alchole'];
 };
-if ($_POST['Car']=="") {
+if ($_POST['Car']="") {
   $Car="未設定";
 } else {
   $Car=$_POST['Car'];
 };
-if ($_POST['Interest']=="") {
+if ($_POST['Interest']="") {
   $Interest="未設定";
 } else {
   $Interest=$_POST['Interest'];
 };
-if ($_POST['ProfilePicture']=="") {
+if ($_POST['ProfilePicture']="") {
   $ProfilePicture="未設定";
 } else {
   $ProfilePicture=$_POST['ProfilePicture'];
 };
-if ($_POST['ProfileMessage']=="") {
+if ($_POST['ProfileMessage']="") {
   $ProfileMessage="未設定";
 } else {
   $ProfileMessage=$_POST['ProfileMessage'];
 };
-if ($_POST['PreferedAge']=="") {
+if ($_POST['PreferedAge']="") {
   $PreferedAge="未設定";
 } else {
   $PreferedAge=$_POST['PreferedAge'];
 };
-if ($_POST['PreferedPersonality']=="") {
+if ($_POST['PreferedPersonality']="") {
   $PreferedPersonality="未設定";
 } else {
   $PreferedPersonality=$_POST['PreferedPersonality'];
 };
-if ($_POST['Personality']=="") {
+if ($_POST['Personality']="") {
   $Personality="未設定";
 } else {
   $Personality=$_POST['Personality'];
 };
-if ($_POST['SelfCute']=="") {
+if ($_POST['SelfCute']="") {
   $SelfCute="未設定";
 } else {
   $SelfCute=$_POST['SelfCute'];
 };
-if ($_POST['SelfSexy']=="") {
+if ($_POST['SelfSexy']="") {
   $SelfSexy="未設定";
 } else {
   $SelfSexy=$_POST['SelfSexy'];
 };
-if ($_POST['SelfKindness']=="") {
+if ($_POST['SelfKindness']="") {
   $SelfKindness="未設定";
 } else {
   $SelfKindness=$_POST['SelfKindness'];
 };
-if ($_POST['SelfSmartness']=="") {
+if ($_POST['SelfSmartness']="") {
   $SelfSmartness="未設定";
 } else {
   $SelfSmartness=$_POST['SelfSmartness'];
 };
-if ($_POST['SelfNeatness']=="") {
+if ($_POST['SelfNeatness']="") {
   $SelfNeatness="未設定";
 } else {
   $SelfNeatness=$_POST['SelfNeatness'];
 };
-if ($_POST['SelfFashionable']=="") {
+if ($_POST['SelfFashionable']="") {
   $SelfFashionable="未設定";
 } else {
   $SelfFashionable=$_POST['SelfFashionable'];
 };
-if ($_POST['SelfBrightness']=="") {
+if ($_POST['SelfBrightness']="") {
   $SelfBrightness="未設定";
 } else {
   $SelfBrightness=$_POST['SelfBrightness'];
 };
-if ($_POST['SelfElegance']=="") {
+if ($_POST['SelfElegance']="") {
   $SelfElegance="未設定";
 } else {
   $SelfElegance=$_POST['SelfElegance'];
