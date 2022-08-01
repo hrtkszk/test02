@@ -24,7 +24,7 @@ export function ProfileDetail() {
     .then((response)=> response.json())
     .then(result =>{
       console.log(result.result[0])
-      setProfile(result.result[0])
+      setProfile(result.result)
     })
     setinitialized(true)
   }
