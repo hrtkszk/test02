@@ -10,6 +10,8 @@ import { useAuth } from "./useAuth";
 
 
 export function ProfileSetting() {
+  //  各ステータスのdefaultにすでに設定された値を入れたい。
+
   // 地域状況
   const [Prefecture, setPrefecture] = useState("");
   const [City, setCity] = useState("");
