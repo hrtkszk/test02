@@ -211,7 +211,8 @@ $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 echo json_encode(
   [
     // "result" => $output,
-    "result" => gettype($_POST['Prefecture']),
+    "result" => $_POST['Prefecture'],
+    // "result" => gettype($_POST['Prefecture']),
   ]
 );
 
