@@ -248,25 +248,16 @@ export function ProfileSetting() {
                 onChange={evt => setPrefecture(evt.target.value)}>
                   {Profile.Area.map(Area => <option value={Area.value}>{Area.name}</option>)}
                 </select>
-              <Test Prefecture={Prefecture}/>
+                <Test Prefecture={Prefecture}/>
             </span>
             </li>
             <li>
               <span className="dan">身長</span>
               <span className="dan2">
                 <select
-                    defaultValue="--" //defaultの読み込みと設定が必要
-                    onChange={evt => setHeight(evt.target.value)}>
-                    <option value="0">未設定</option>
-                    <option value="1">〜149</option>
-                    <option value="2">150〜154</option>
-                    <option value="3">155〜159</option>
-                    <option value="4">160〜164</option>
-                    <option value="5">165〜169</option>
-                    <option value="6">170〜174</option>
-                    <option value="7">175〜179</option>
-                    <option value="8">180〜184</option>
-                    <option value="9">185〜</option>
+                  defaultValue="0" //defaultの読み込みと設定が必要
+                  onChange={evt => setHeight(evt.target.value)}>
+                    {Profile.Height.map(Height => <option value={Height.value}>{Height.name}</option>)}
                 </select>
               </span>
             </li>
@@ -274,141 +265,131 @@ export function ProfileSetting() {
               <span className="dan">スタイル</span>
               <span className="dan2">
                 <select
-                    defaultValue="--" //defaultの読み込みと設定が必要
-                    onChange={evt => setStyle(evt.target.value)}>
-                    <option value="0">未設定</option>
-                    <option value="1">スレンダー</option>
-                    <option value="2">やや細身</option>
-                    <option value="3">細マッチョ</option>
-                    <option value="4">普通</option>
-                    <option value="5">ナイスバディ</option>
-                    <option value="6">がっちり</option>
-                    <option value="7">ややぽちゃ</option>
-                    <option value="8">ぽっちゃり</option>
-                    <option value="9">ぽちゃぽちゃ</option>
+                  defaultValue="0" //defaultの読み込みと設定が必要
+                  onChange={evt => setStyle(evt.target.value)}>
+                    {Profile.Style.map(Style => <option value={Style.value}>{Style.name}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">ルックス</span>
+              <span className="dan2">
+                <select
+                  defaultValue="0" //defaultの読み込みと設定が必要
+                  onChange={evt => setLooks(evt.target.value)}>
+                    {Profile.Looks.map(Looks => <option value={Looks.value}>{Looks.name}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">カップ</span>
+              <span className="dan2">
+                <select
+                  defaultValue="0" //defaultの読み込みと設定が必要
+                  onChange={evt => setCup(evt.target.value)}>
+                    {Profile.Cup.map(Cup => <option value={Cup.value}>{Cup.name}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">胸周りサイズ</span>
+              <span className="dan2">
+                <input
+                  // プルダウンでの選択式にしたい
+                  type="number"
+                  // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                  // title="有効なメールアドレスを入力してください"
+                  onChange={evt => {
+                    // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
+                    setBustSize(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
+                  }}
+                  placeholder='胸周りサイズ'
+                />                
+              </span>
+            </li>
+            <li>
+              <span className="dan">ウエストサイズ</span>
+              <span className="dan2">
+                <input
+                  // プルダウンでの選択式にしたい
+                  type="number"
+                  // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                  // title="有効なメールアドレスを入力してください"
+                  onChange={evt => {
+                    // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
+                    setWestSize(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
+                  }}
+                  placeholder='ウエストサイズ'
+                />                
+              </span>
+            </li>
+            <li>
+              <span className="dan">ヒップサイズ</span>
+              <span className="dan2">
+                <input
+                  // プルダウンでの選択式にしたい
+                  type="number"
+                  // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                  // title="有効なメールアドレスを入力してください"
+                  onChange={evt => {
+                    // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
+                    setHipSize(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
+                  }}
+                  placeholder='ヒップサイズ'
+                />                
+              </span>
+            </li>
+            <li>
+              <span className="dan">血液型</span>
+              <span className="dan2">
+                <select
+                  defaultValue="0" //defaultの読み込みと設定が必要
+                  onChange={evt => setBloodType(evt.target.value)}>
+                    {Profile.BloodType.map(BloodType => <option value={BloodType.value}>{BloodType.name}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">職業</span>
+              <span className="dan2">
+                <select
+                  defaultValue="0" //defaultの読み込みと設定が必要
+                  onChange={evt => setJob(evt.target.value)}>
+                    {Profile.Job.map(Job => <option value={Job.value}>{Job.name}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">学歴</span>
+              <span className="dan2">
+                <select
+                  defaultValue="0" //defaultの読み込みと設定が必要
+                  onChange={evt => setEduBack(evt.target.value)}>
+                    {Profile.EduBack.map(EduBack => <option value={EduBack.value}>{EduBack.name}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">出身地</span>
+              <span className="dan2">
+                <select
+                  defaultValue="0" //defaultの読み込みと設定が必要
+                  onChange={evt => setBirthPrefecture(evt.target.value)}>
+                    {Profile.Area.map(Area => <option value={Area.value}>{Area.name}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">星座</span>
+              <span className="dan2">
+                <select
+                  defaultValue="0" //defaultの読み込みと設定が必要
+                  onChange={evt => setZodiac(evt.target.value)}>
+                    {Profile.Zodiac.map(Zodiac => <option value={Zodiac.value}>{Zodiac.name}</option>)}
                 </select>
               </span>
             </li>
 
-          <input
-            // プルダウンでの選択式にしたい
-            type="text"
-            // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-            // title="有効なメールアドレスを入力してください"
-            onChange={evt => {
-              // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-              setLooks(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
-            }}
-            placeholder='ルックス'
-          /><br />
-
-          <input
-            // プルダウンでの選択式にしたい
-            type="text"
-            // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-            // title="有効なメールアドレスを入力してください"
-            onChange={evt => {
-              // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-              setCup(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
-            }}
-            placeholder='カップ'
-          /><br />
-
-          <input
-            // プルダウンでの選択式にしたい
-            type="number"
-            // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-            // title="有効なメールアドレスを入力してください"
-            onChange={evt => {
-              // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-              setBustSize(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
-            }}
-            placeholder='胸サイズ'
-          /><br />
-
-          <input
-            // プルダウンでの選択式にしたい
-            type="number"
-            // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-            // title="有効なメールアドレスを入力してください"
-            onChange={evt => {
-              // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-              setWestSize(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
-            }}
-            placeholder='腰サイズ'
-          /><br />
-
-          <input
-            // プルダウンでの選択式にしたい
-            type="number"
-            // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-            // title="有効なメールアドレスを入力してください"
-            onChange={evt => {
-              // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-              setHipSize(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
-            }}
-            placeholder='ヒップサイズ'
-          /><br />
-
-          <input
-            // プルダウンでの選択式にしたい
-            type="text"
-            // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-            // title="有効なメールアドレスを入力してください"
-            onChange={evt => {
-              // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-              setBloodType(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
-            }}
-            placeholder='血液型'
-          /><br />
-
-          <input
-            // プルダウンでの選択式にしたい
-            type="text"
-            // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-            // title="有効なメールアドレスを入力してください"
-            onChange={evt => {
-              // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-              setJob(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
-            }}
-            placeholder='職業'
-          /><br />
-
-          <input
-            // プルダウンでの選択式にしたい
-            type="text"
-            // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-            // title="有効なメールアドレスを入力してください"
-            onChange={evt => {
-              // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-              setEduBack(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
-            }}
-            placeholder='学歴'
-          /><br />
-
-          <input
-            // プルダウンでの選択式にしたい
-            type="text"
-            // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-            // title="有効なメールアドレスを入力してください"
-            onChange={evt => {
-              // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-              setBirthPrefecture(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
-            }}
-            placeholder='出身地'
-          /><br />
-
-          <input
-            // プルダウンでの選択式にしたい
-            type="text"
-            // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-            // title="有効なメールアドレスを入力してください"
-            onChange={evt => {
-              // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-              setZodiac(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
-            }}
-            placeholder='星座'
-          /><br />
           
           <input
             // プルダウンでの選択式にしたい
