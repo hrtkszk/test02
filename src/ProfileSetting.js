@@ -2,7 +2,7 @@ import * as React from "react";
 import {
   Link,
 //   // Outlet
-  // useNavigate
+  useNavigate
 } from "react-router-dom";
 import { useState } from 'react';
 import { useAuth } from "./useAuth";
@@ -56,7 +56,7 @@ export function ProfileSetting() {
 
   let auth = useAuth();
 
-  // let navigate = useNavigate();
+  let navigate = useNavigate();
 
   // 入力値に問題があれば遷移しない。問題なければ遷移する
   const submit = e => {
@@ -117,15 +117,15 @@ export function ProfileSetting() {
     .then((response)=> response.json())
     .then(result =>{
       console.log(result)
-      // if (result.result[0]==="UPS") {
-      //   // プロフィール変更成功。リダイレクト
-      //   auth.setMessage("プロフィールを変更しました")
-      //   navigate("../ProfileDetail")
-      // } else {
-      //   // プロフィール変更失敗。(UUIDが合致しない)再表示。
-      //   auth.setMessage("プロフィールを変更できませんでした")
-      //   navigate("../ProfileDetail")
-      // }
+      if (result.result[0]==="UPS") {
+        // プロフィール変更成功。リダイレクト
+        auth.setMessage("プロフィールを変更しました")
+        navigate("../ProfileDetail")
+      } else {
+        // プロフィール変更失敗。(UUIDが合致しない)再表示。
+        auth.setMessage("プロフィールを変更できませんでした")
+        navigate("../ProfileDetail")
+      }
     })
   }
 

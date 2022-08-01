@@ -3,7 +3,6 @@ header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Headers: Content-Type');
 $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
 $_POST = json_decode($rest_json, true); // JSON文字列をデコード
-
 if ($_POST['Prefecture']=="") {
   $Prefecture="未設定";
 } else {
@@ -169,48 +168,46 @@ if ($_POST['SelfElegance']=="") {
 } else {
   $SelfElegance=$_POST['SelfElegance'];
 }
-// $command_post="python3 update_profile.py " //pythonに引数を渡す
-// .$_POST['UUID']." "
-// .$Prefecture." "
-// .$City." "
-// .$Height." "
-// .$Style." "
-// .$Looks." "
-// .$Cup." "
-// .$BustSize." "
-// .$WestSize." "
-// .$HipSize." "
-// .$BloodType." "
-// .$Job." "
-// .$EduBack." "
-// .$BirthPrefecture." "
-// .$Zodiac." "
-// .$MarriageStatus." "
-// .$Kids." "
-// .$Tabacco." "
-// .$Alchole." "
-// .$Car." "
-// .$Interest." "
-// .$ProfilePicture." "
-// .$ProfileMessage." "
-// .$PreferedAge" "
-// .$PreferedPersonality." "
-// .$Personality." "
-// .$SelfCute." "
-// .$SelfSexy." "
-// .$SelfKindness." "
-// .$SelfSmartness." "
-// .$SelfNeatness." "
-// .$SelfFashionable." "
-// .$SelfBrightness." "
-// .$SelfElegance;
-// exec($command_post, $output); //python実行と、返り数受け取り
+$command_post="python3 update_profile.py " //pythonに引数を渡す
+.$_POST['UUID']." "
+.$Prefecture." "
+.$City." "
+.$Height." "
+.$Style." "
+.$Looks." "
+.$Cup." "
+.$BustSize." "
+.$WestSize." "
+.$HipSize." "
+.$BloodType." "
+.$Job." "
+.$EduBack." "
+.$BirthPrefecture." "
+.$Zodiac." "
+.$MarriageStatus." "
+.$Kids." "
+.$Tabacco." "
+.$Alchole." "
+.$Car." "
+.$Interest." "
+.$ProfilePicture." "
+.$ProfileMessage." "
+.$PreferedAge" "
+.$PreferedPersonality." "
+.$Personality." "
+.$SelfCute." "
+.$SelfSexy." "
+.$SelfKindness." "
+.$SelfSmartness." "
+.$SelfNeatness." "
+.$SelfFashionable." "
+.$SelfBrightness." "
+.$SelfElegance;
+exec($command_post, $output); //python実行と、返り数受け取り
 
 echo json_encode(
   [
-    // "result" => $output,
-    "result" => $Prefecture,
-    // "result" => gettype($_POST['Prefecture']),
+    "result" => $output,
   ]
 );
 

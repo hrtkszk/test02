@@ -6,9 +6,6 @@ import sys
 import datetime
 import SQLconfig
 
-# 空白＝未設定とする（SQLエラー[list index out of range]対策）
-print(sys.argv[2])
-
 # データベースへの接続とカーソルの生成
 connection = MySQLdb.connect(
     host=SQLconfig.host,
