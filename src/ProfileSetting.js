@@ -150,6 +150,7 @@ export function ProfileSetting() {
             <option value="qs">九州</option>
             <option value="ok">沖縄</option>
           </select><br />
+          {console.log(Prefecture)}
           <input
             // 選択式にしたい
             type="text"
