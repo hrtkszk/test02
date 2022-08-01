@@ -184,7 +184,7 @@ $command_post="python3 update_profile.py " //pythonに引数を渡す
 .$EduBack." "
 .$BirthPrefecture." "
 .$Zodiac." "
-.$MarriageStatus." ";
+.$MarriageStatus." "
 .$Kids." "
 .$Tabacco." "
 .$Alchole." "
