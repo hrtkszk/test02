@@ -135,73 +135,87 @@ export function ProfileSetting() {
     switch (Prefecture) {
         case "hk":
             return (
+              <>
               <select onChange={evt => setCity(evt.target.value)}>
                 <option value="0">未設定</option>
                 <option value="1">道央</option>
                 <option value="2">道北</option>
                 <option value="3">道東</option>
                 <option value="4">道南</option>
-              </select>
+              </select><br />
+            </>
             )
         case "th":
           return (
+            <>
             <select onChange={evt => setCity(evt.target.value)}>
               <option value="0">未設定</option>
               <option value="1">道央</option>
               <option value="2">道北</option>
               <option value="3">道東</option>
               <option value="4">道南</option>
-            </select>
+            </select><br />
+            </>
           )
         case "ke":
           return (
+            <>
             <select onChange={evt => setCity(evt.target.value)}>
               <option value="0">未設定</option>
               <option value="1">道央</option>
               <option value="2">道北</option>
               <option value="3">道東</option>
               <option value="4">道南</option>
-            </select>
+            </select><br />
+            </>
           )
         case "kt":
           return (
+            <>
             <select onChange={evt => setCity(evt.target.value)}>
               <option value="0">未設定</option>
               <option value="1">道央</option>
               <option value="2">道北</option>
               <option value="3">道東</option>
               <option value="4">道南</option>
-            </select>
+            </select><br />
+            </>
           )
         case "hr":
           return (
+            <>
             <select onChange={evt => setCity(evt.target.value)}>
               <option value="0">未設定</option>
               <option value="1">道央</option>
               <option value="2">道北</option>
               <option value="3">道東</option>
               <option value="4">道南</option>
-            </select>
+            </select><br />
+            </>
           )
         case "tk":
           return (
+            <>
             <select onChange={evt => setCity(evt.target.value)}>
               <option value="0">未設定</option>
               <option value="1">道央</option>
               <option value="2">道北</option>
               <option value="3">道東</option>
               <option value="4">道南</option>
-            </select>
+            </select><br />
+            </>
           )
         case "ks":
           return (
-            <select onChange={evt => setCity(evt.target.value)}>
-              <option value="0">未設定</option>
-              <option value="1">道央</option>
-              <option value="2">道北</option>
-              <option value="3">道東</option>
-              <option value="4">道南</option>
-            </select>
+            <>
+              <select onChange={evt => setCity(evt.target.value)}>
+                <option value="0">未設定</option>
+                <option value="1">道央</option>
+                <option value="2">道北</option>
+                <option value="3">道東</option>
+                <option value="4">道南</option>
+              </select><br />
+            </>
           )
         default:
             return <></>
@@ -229,7 +243,7 @@ export function ProfileSetting() {
             <option value="ok">沖縄</option>
           </select><br />
           {console.log(Prefecture)}
-          <Test Prefecture={Prefecture}/><br />
+          <Test Prefecture={Prefecture}/>
 
           <input
             // プルダウンでの選択式にしたい
