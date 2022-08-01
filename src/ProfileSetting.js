@@ -137,11 +137,11 @@ export function ProfileSetting() {
             return (
               <>
               <select onChange={evt => setCity(evt.target.value)}>
-                <option value="0">未設定</option>
-                <option value="1">道央</option>
-                <option value="2">道北</option>
-                <option value="3">道東</option>
-                <option value="4">道南</option>
+                <option value="hk0">未設定</option>
+                <option value="hk1">道央</option>
+                <option value="hk2">道北</option>
+                <option value="hk3">道東</option>
+                <option value="hk4">道南</option>
               </select><br />
             </>
             )
@@ -228,7 +228,9 @@ export function ProfileSetting() {
 
       <div>
         <form onSubmit={e => submit(e)}>
-          <select onChange={evt => setPrefecture(evt.target.value)}>
+          <select
+            defaultValue="hk" 
+            onChange={evt => setPrefecture(evt.target.value)}>
             <option value="--">未設定</option>
             <option value="hk">北海道</option>
             <option value="th">東北</option>
@@ -242,7 +244,6 @@ export function ProfileSetting() {
             <option value="qs">九州</option>
             <option value="ok">沖縄</option>
           </select><br />
-          {console.log(Prefecture)}
           <Test Prefecture={Prefecture}/>
 
           <input
