@@ -16,7 +16,7 @@ $it = 0;
 
 // pythonからの返り数のうち、SQLの受け取りと、文字列から配列変換(pythonの残りの行全て)
 foreach ($output as $value) {
-    $value=trim($value,"\"[");
+    $value=trim($value,"\"[(");
     $value=trim($value,"]\"");
     $value=str_replace("'",'',$value);
     $value1=explode(", ",$value);
@@ -32,13 +32,15 @@ $output2 = array_values($output2);
 if(empty($_POST['UUID'])) {
     echo json_encode(
         [
-           "result" => $output2,
+            "test" => $output,
+            "result" => $output2,
         ]
     ); 
 } else {
     echo json_encode(
         [
-           "result" => $output2,
+            "test" => $output,
+            "result" => $output2,
         ]
     ); 
 }
