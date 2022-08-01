@@ -241,36 +241,34 @@ export function ProfileSetting() {
       <h1>プロフィール設定</h1>
         <form onSubmit={e => submit(e)}>
           <ul>
-            <li>
-              <span className="dan">エリア</span>
-              <span className="dan2">
-                  <select
-                  defaultValue="hk" //defaultの読み込みと設定が必要
-                  onChange={evt => setPrefecture(evt.target.value)}>
-                    {AreaData.map((Area, i) => {
-                      return (
-                        <li key={Area.value}>
-                          <option value={Area.value}>{Area.name}</option>
-                        </li>
-                      )
-                    })}
-                  </select>
-                  {/* <option value="--">未設定</option>
-                  <option value="hk">北海道</option>
-                  <option value="th">東北</option>
-                  <option value="ke">甲信越</option>
-                  <option value="kt">関東</option>
-                  <option value="hr">北陸</option>
-                  <option value="tk">東海</option>
-                  <option value="ks">関西</option>
-                  <option value="sk">四国</option>
-                  <option value="cg">中国</option>
-                  <option value="qs">九州</option>
-                  <option value="ok">沖縄</option> */}
+            <span className="dan">エリア</span>
+            <span className="dan2">
+                <select
+                defaultValue="hk" //defaultの読み込みと設定が必要
+                onChange={evt => setPrefecture(evt.target.value)}>
+                  {AreaData.map((Area, i) => {
+                    return (
+                      <li key={Area.value}>
+                        <option value={Area.value}>{Area.name}</option>
+                      </li>
+                    )
+                  })}
+                </select>
+                {/* <option value="--">未設定</option>
+                <option value="hk">北海道</option>
+                <option value="th">東北</option>
+                <option value="ke">甲信越</option>
+                <option value="kt">関東</option>
+                <option value="hr">北陸</option>
+                <option value="tk">東海</option>
+                <option value="ks">関西</option>
+                <option value="sk">四国</option>
+                <option value="cg">中国</option>
+                <option value="qs">九州</option>
+                <option value="ok">沖縄</option> */}
 
-                <Test Prefecture={Prefecture}/>
-              </span>
-            </li>
+              <Test Prefecture={Prefecture}/>
+            </span>
             <li>
               <span className="dan">身長</span>
               <span className="dan2">
