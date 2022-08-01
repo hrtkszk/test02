@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import { useState } from 'react';
 import { useAuth } from "./useAuth";
+import "./ProfileDetail.css";
 
 export function ProfileDetail() {
   let auth = useAuth();
