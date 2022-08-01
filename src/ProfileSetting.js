@@ -244,17 +244,18 @@ export function ProfileSetting() {
             <li>
               <span className="dan">エリア</span>
               <span className="dan2">
-                <select
-                  defaultValue="hk" //defaultの読み込みと設定が必要
-                  onChange={evt => setPrefecture(evt.target.value)}>
                   <ul>
-                    {AreaData.map((Area, i) => {
-                      return (
-                        <li key={Area.value}>
-                          <option value={Area.value}>{Area.name}</option>
-                        </li>
-                      )
-                    })}
+                    <select
+                    defaultValue="hk" //defaultの読み込みと設定が必要
+                    onChange={evt => setPrefecture(evt.target.value)}>
+                      {AreaData.map((Area, i) => {
+                        return (
+                          <li key={Area.value}>
+                            <option value={Area.value}>{Area.name}</option>
+                          </li>
+                        )
+                      })}
+                    </select>
                   </ul>
                   {/* <option value="--">未設定</option>
                   <option value="hk">北海道</option>
@@ -268,7 +269,7 @@ export function ProfileSetting() {
                   <option value="cg">中国</option>
                   <option value="qs">九州</option>
                   <option value="ok">沖縄</option> */}
-                </select>
+
                 <Test Prefecture={Prefecture}/>
               </span>
             </li>
