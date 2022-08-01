@@ -9,11 +9,12 @@ ul {
 }
 
 span.dan {
-  float:left;
+  margin-left: 10px;
+  /* float:left; */
 }
 
 span.dan2 {
   display: block;
-  margin-left: 170px;
+  margin-left: 200px;
   line-height: 24px;
 }
