@@ -9,8 +9,8 @@ ul {
 }
 
 span.dan {
+  float:left;
   margin-left: 10px;
-  /* float:left; */
 }
 
 span.dan2 {
