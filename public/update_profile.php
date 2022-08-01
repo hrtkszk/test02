@@ -3,7 +3,6 @@ header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Headers: Content-Type');
 $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
 $_POST = json_decode($rest_json, true); // JSON文字列をデコード
-echo gettype($_POST['Prefecture']);
 // echo $_POST['Prefecture'];
 // if ($_POST['Prefecture']=="") {
 //   $Prefecture="test";
@@ -209,11 +208,12 @@ echo gettype($_POST['Prefecture']);
 // .$SelfElegance;
 // exec($command_post, $output); //python実行と、返り数受け取り
 
-// echo json_encode(
-//   [
-//     "result" => $output,
-//   ]
-// );
+echo json_encode(
+  [
+    // "result" => $output,
+    "result" => gettype($_POST['Prefecture']),
+  ]
+);
 
 // // pythonからの返り数のうち、SQLのヘッダーの受け取りと、文字列から配列変換(pythonの出力1行目)
 // $output[0]=trim($output[0],"\"['");
