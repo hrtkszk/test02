@@ -16,8 +16,8 @@ $it = 0;
 
 // pythonからの返り数のうち、SQLの受け取りと、文字列から配列変換(pythonの残りの行全て)
 foreach ($output as $value) {
-    $value=trim($value,"\"[(");
-    $value=trim($value,"]\"");
+    $value=trim($value,"\"(");
+    $value=trim($value,")\"");
     $value=str_replace("'",'',$value);
     $value1=explode(", ",$value);
     $output1 = array_combine($output0,$value1);
