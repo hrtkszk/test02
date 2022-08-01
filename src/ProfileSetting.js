@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { useState } from 'react';
 import { useAuth } from "./useAuth";
-
+import { Test } from "./Test";
 
 
 export function ProfileSetting() {
@@ -138,6 +138,7 @@ export function ProfileSetting() {
       <div>
         <form onSubmit={e => submit(e)}>
           <select onChange={evt => setPrefecture(evt.target.value)}>
+          <option value="--">未設定</option>
             <option value="hk">北海道</option>
             <option value="th">東北</option>
             <option value="ke">甲信越</option>
@@ -151,6 +152,7 @@ export function ProfileSetting() {
             <option value="ok">沖縄</option>
           </select><br />
           {console.log(Prefecture)}
+          <Test Prefecture={Prefecture}/>
           <input
             // 選択式にしたい
             type="text"
