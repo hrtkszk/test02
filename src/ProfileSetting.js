@@ -137,7 +137,7 @@ export function ProfileSetting() {
 
       <div>
         <form onSubmit={e => submit(e)}>
-          <select onChange={evt => setPrefecture(evt)}>
+          <select onChange={evt => setPrefecture(evt.target.value)}>
             <option value="hk">北海道</option>
             <option value="th">東北</option>
             <option value="ke">甲信越</option>
