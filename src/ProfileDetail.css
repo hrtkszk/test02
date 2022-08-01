@@ -1,5 +1,11 @@
+ul li {
+  padding-top:10px; 
+  padding-bottom:10px;
+}
+
 ul {
   list-style-type: none;
+  padding-inline-start: 0px;
 }
 
 span.dan {
