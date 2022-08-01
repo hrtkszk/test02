@@ -35,8 +35,9 @@ export function ProfileDetail() {
       <>
           <h3>プロフィール</h3>
           <p>
-              This is Profile Detail! {auth.user}
+              プロフィールを設定してください。
           </p>
+          <Link to="../ProfileSetting">プロフィール設定</Link><br />
           <Link to="../">戻る</Link>
       </>
     );
