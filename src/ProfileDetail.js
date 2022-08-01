@@ -47,13 +47,13 @@ export function ProfileDetail() {
       <div>
         <h1>プロフィール</h1>
         {Profile.UUID}
-        <ul>
+        {/* <ul>
           {Profile.map((ProfileDatum, i) => {
             return <li key={ProfileDatum.UUID}> 
                 {ProfileDatum.Prefecture}
             </li>
           })}
-        </ul>
+        </ul> */}
         <div>
           <Link to="../">戻る</Link>
         </div>
