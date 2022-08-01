@@ -137,18 +137,19 @@ export function ProfileSetting() {
 
       <div>
         <form onSubmit={e => submit(e)}>
-          <input
-            // 選択式にしたい
-            type="text"
-            // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-            // title="有効なメールアドレスを入力してください"
-            onChange={evt => {
-              // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-              setPrefecture(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
-            }}
-            placeholder='都道府県'
-          /><br />
-
+          <select onChange={evt => setPrefecture(evt)}>
+            <option value="hk">北海道</option>
+            <option value="th">東北</option>
+            <option value="ke">甲信越</option>
+            <option value="kt">関東</option>
+            <option value="hr">北陸</option>
+            <option value="tk">東海</option>
+            <option value="ks">関西</option>
+            <option value="sk">四国</option>
+            <option value="cg">中国</option>
+            <option value="qs">九州</option>
+            <option value="ok">沖縄</option>
+          </select><br />
           <input
             // 選択式にしたい
             type="text"
