@@ -185,30 +185,29 @@ $command_post="python3 update_profile.py " //pythonに引数を渡す
 .$BirthPrefecture." "
 .$Zodiac." "
 .$MarriageStatus." ";
-// .$Kids." "
-// .$Tabacco." "
-// .$Alchole." "
-// .$Car." "
-// .$Interest." "
-// .$ProfilePicture." "
-// .$ProfileMessage." "
-// .$PreferedAge" "
-// .$PreferedPersonality." "
-// .$Personality." "
-// .$SelfCute." "
-// .$SelfSexy." "
-// .$SelfKindness." "
-// .$SelfSmartness." "
-// .$SelfNeatness." "
-// .$SelfFashionable." "
-// .$SelfBrightness." "
-// .$SelfElegance;
-// exec($command_post, $output); //python実行と、返り数受け取り
+.$Kids." "
+.$Tabacco." "
+.$Alchole." "
+.$Car." "
+.$Interest." "
+.$ProfilePicture." "
+.$ProfileMessage." "
+.$PreferedAge." "
+.$PreferedPersonality." "
+.$Personality." "
+.$SelfCute." "
+.$SelfSexy." "
+.$SelfKindness." "
+.$SelfSmartness." "
+.$SelfNeatness." "
+.$SelfFashionable." "
+.$SelfBrightness." "
+.$SelfElegance;
+exec($command_post, $output); //python実行と、返り数受け取り
 
 echo json_encode(
   [
-    // "result" => $output,
-    "result" => $Prefecture,
+    "result" => $output,
   ]
 );
 
