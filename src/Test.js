@@ -16,7 +16,7 @@ export function Test({Prefecture}) {
             return <>東海</>
         case "ks":
             return <>関西</>
-        case "--":
-            return <>北海道</>
+        default:
+            return <>未設定</>
     }
 }
