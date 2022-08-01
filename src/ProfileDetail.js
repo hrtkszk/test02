@@ -46,6 +46,7 @@ export function ProfileDetail() {
     return (
       <div>
         <h1>プロフィール</h1>
+        {Profile.UUID}
         <ul>
           {Profile.map((ProfileDatum, i) => {
             return <li key={ProfileDatum.UUID}> 
