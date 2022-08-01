@@ -48,10 +48,8 @@ export function ProfileDetail() {
         <h1>プロフィール</h1>
         <ul>
           {Profile.map((ProfileDatum, i) => {
-            return <li key={ProfileDatum[0]}> 
-                {ProfileDatum[0]}
-                <br />
-                {ProfileDatum[1]}
+            return <li key={ProfileDatum}> 
+                {ProfileDatum}
             </li>
           })}
         </ul>
