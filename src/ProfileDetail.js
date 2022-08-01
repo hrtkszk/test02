@@ -49,12 +49,8 @@ export function ProfileDetail() {
         <h1>プロフィール</h1>
         <ul>
           <li>
-            <span className="dan">都道府県</span>
-            <span className="dan2">{Profile.Prefecture}</span>
-          </li>
-          <li>
-            <span className="dan">市町村</span>
-            <span className="dan2">{Profile.City}</span>
+            <span className="dan">エリア</span>
+            <span className="dan2">{Profile.Prefecture}　{Profile.City}</span>
           </li>
           <li>
             <span className="dan">身長</span>

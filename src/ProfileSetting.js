@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { useState } from 'react';
 import { useAuth } from "./useAuth";
-// import { Test } from "./Test";
+import "./ProfileDetail.css";
 
 
 export function ProfileSetting() {
@@ -225,39 +225,49 @@ export function ProfileSetting() {
   return (
     <div>
       <h1>プロフィール設定</h1>
-
-      <div>
         <form onSubmit={e => submit(e)}>
-          <select
-            defaultValue="hk" 
-            onChange={evt => setPrefecture(evt.target.value)}>
-            <option value="--">未設定</option>
-            <option value="hk">北海道</option>
-            <option value="th">東北</option>
-            <option value="ke">甲信越</option>
-            <option value="kt">関東</option>
-            <option value="hr">北陸</option>
-            <option value="tk">東海</option>
-            <option value="ks">関西</option>
-            <option value="sk">四国</option>
-            <option value="cg">中国</option>
-            <option value="qs">九州</option>
-            <option value="ok">沖縄</option>
-          </select><br />
-          <Test Prefecture={Prefecture}/>
-
-          <input
-            // プルダウンでの選択式にしたい
-            type="text"
-            // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-            // title="有効なメールアドレスを入力してください"
-            onChange={evt => {
-              // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-              setHeight(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
-            }}
-            placeholder='身長'
-          /><br />
-
+          <ul>
+            <li>
+              <span className="dan">エリア</span>
+              <span className="dan2">
+                <select
+                  defaultValue="hk" //defaultの読み込みと設定が必要
+                  onChange={evt => setPrefecture(evt.target.value)}>
+                  <option value="--">未設定</option>
+                  <option value="hk">北海道</option>
+                  <option value="th">東北</option>
+                  <option value="ke">甲信越</option>
+                  <option value="kt">関東</option>
+                  <option value="hr">北陸</option>
+                  <option value="tk">東海</option>
+                  <option value="ks">関西</option>
+                  <option value="sk">四国</option>
+                  <option value="cg">中国</option>
+                  <option value="qs">九州</option>
+                  <option value="ok">沖縄</option>
+                </select>
+                <Test Prefecture={Prefecture}/>
+              </span>
+            </li>
+            <li>
+              <span className="dan">身長</span>
+              <span className="dan2">
+                <select
+                    defaultValue="--" //defaultの読み込みと設定が必要
+                    onChange={evt => setHeight(evt.target.value)}>
+                    <option value="0">未設定</option>
+                    <option value="1">〜149</option>
+                    <option value="2">150〜154</option>
+                    <option value="3">155〜159</option>
+                    <option value="4">160〜164</option>
+                    <option value="5">165〜169</option>
+                    <option value="6">170〜174</option>
+                    <option value="7">175〜179</option>
+                    <option value="8">180〜184</option>
+                    <option value="9">185〜</option>
+                </select>
+              </span>
+            </li>
           <input
             // プルダウンでの選択式にしたい
             type="text"
@@ -610,12 +620,11 @@ export function ProfileSetting() {
             }}
             placeholder='自己評価(エレガンス)'
           /><br />
-
+          </ul>
           <button type="submit">保存する</button>
         </form>
         <br />
         <Link to="../">戻る</Link>
       </div>
-    </div>
   );
 }
