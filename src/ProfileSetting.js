@@ -7,9 +7,11 @@ import {
 import { useState } from 'react';
 import { useAuth } from "./useAuth";
 import "./ProfileDetail.css";
+import Profile from "./Profile.json";
 
 
 export function ProfileSetting() {
+  const AreaData = Profile.Area;
   //  各ステータスのdefaultにすでに設定された値を入れたい。
 
   // 地域状況
@@ -133,21 +135,93 @@ export function ProfileSetting() {
 
   function Test({Prefecture}) {
     switch (Prefecture) {
-        case "hk":
-            return (
-              <>
-              <select onChange={evt => setCity(evt.target.value)}>
-                <option value="hk0">未設定</option>
-                <option value="hk1">道央</option>
-                <option value="hk2">道北</option>
-                <option value="hk3">道東</option>
-                <option value="hk4">道南</option>
-              </select><br />
-            </>
-            )
-        case "th":
-          return (
-            <>
+      case "":
+        return (
+          <>
+          <select onChange={evt => setCity(evt.target.value)}>
+            <option value="hk0">未設定</option>
+            <option value="hk1">道央</option>
+            <option value="hk2">道北</option>
+            <option value="hk3">道東</option>
+            <option value="hk4">道南</option>
+          </select><br />
+        </>
+        )
+      case "hk":
+        return (
+          <>
+          <select onChange={evt => setCity(evt.target.value)}>
+            <option value="hk0">未設定</option>
+            <option value="hk1">道央</option>
+            <option value="hk2">道北</option>
+            <option value="hk3">道東</option>
+            <option value="hk4">道南</option>
+          </select><br />
+        </>
+        )
+      case "th":
+        return (
+          <>
+          <select onChange={evt => setCity(evt.target.value)}>
+            <option value="0">未設定</option>
+            <option value="1">道央</option>
+            <option value="2">道北</option>
+            <option value="3">道東</option>
+            <option value="4">道南</option>
+          </select><br />
+          </>
+        )
+      case "ke":
+        return (
+          <>
+          <select onChange={evt => setCity(evt.target.value)}>
+            <option value="0">未設定</option>
+            <option value="1">道央</option>
+            <option value="2">道北</option>
+            <option value="3">道東</option>
+            <option value="4">道南</option>
+          </select><br />
+          </>
+        )
+      case "kt":
+        return (
+          <>
+          <select onChange={evt => setCity(evt.target.value)}>
+            <option value="0">未設定</option>
+            <option value="1">道央</option>
+            <option value="2">道北</option>
+            <option value="3">道東</option>
+            <option value="4">道南</option>
+          </select><br />
+          </>
+        )
+      case "hr":
+        return (
+          <>
+          <select onChange={evt => setCity(evt.target.value)}>
+            <option value="0">未設定</option>
+            <option value="1">道央</option>
+            <option value="2">道北</option>
+            <option value="3">道東</option>
+            <option value="4">道南</option>
+          </select><br />
+          </>
+        )
+      case "tk":
+        return (
+          <>
+          <select onChange={evt => setCity(evt.target.value)}>
+            <option value="0">未設定</option>
+            <option value="1">道央</option>
+            <option value="2">道北</option>
+            <option value="3">道東</option>
+            <option value="4">道南</option>
+          </select><br />
+          </>
+        )
+      case "ks":
+        return (
+          <>
             <select onChange={evt => setCity(evt.target.value)}>
               <option value="0">未設定</option>
               <option value="1">道央</option>
@@ -155,72 +229,12 @@ export function ProfileSetting() {
               <option value="3">道東</option>
               <option value="4">道南</option>
             </select><br />
-            </>
-          )
-        case "ke":
-          return (
-            <>
-            <select onChange={evt => setCity(evt.target.value)}>
-              <option value="0">未設定</option>
-              <option value="1">道央</option>
-              <option value="2">道北</option>
-              <option value="3">道東</option>
-              <option value="4">道南</option>
-            </select><br />
-            </>
-          )
-        case "kt":
-          return (
-            <>
-            <select onChange={evt => setCity(evt.target.value)}>
-              <option value="0">未設定</option>
-              <option value="1">道央</option>
-              <option value="2">道北</option>
-              <option value="3">道東</option>
-              <option value="4">道南</option>
-            </select><br />
-            </>
-          )
-        case "hr":
-          return (
-            <>
-            <select onChange={evt => setCity(evt.target.value)}>
-              <option value="0">未設定</option>
-              <option value="1">道央</option>
-              <option value="2">道北</option>
-              <option value="3">道東</option>
-              <option value="4">道南</option>
-            </select><br />
-            </>
-          )
-        case "tk":
-          return (
-            <>
-            <select onChange={evt => setCity(evt.target.value)}>
-              <option value="0">未設定</option>
-              <option value="1">道央</option>
-              <option value="2">道北</option>
-              <option value="3">道東</option>
-              <option value="4">道南</option>
-            </select><br />
-            </>
-          )
-        case "ks":
-          return (
-            <>
-              <select onChange={evt => setCity(evt.target.value)}>
-                <option value="0">未設定</option>
-                <option value="1">道央</option>
-                <option value="2">道北</option>
-                <option value="3">道東</option>
-                <option value="4">道南</option>
-              </select><br />
-            </>
-          )
-        default:
-            return <></>
+          </>
+        )
+      default:
+        return <></>
     }
-}
+  }
 
   return (
     <div>
@@ -233,7 +247,16 @@ export function ProfileSetting() {
                 <select
                   defaultValue="hk" //defaultの読み込みと設定が必要
                   onChange={evt => setPrefecture(evt.target.value)}>
-                  <option value="--">未設定</option>
+                  <ul>
+                    {AreaData.map((Area, i) => {
+                      return (
+                        <li key={Area.value}>
+                          <option value={Area.value}>{Area.name}</option>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                  {/* <option value="--">未設定</option>
                   <option value="hk">北海道</option>
                   <option value="th">東北</option>
                   <option value="ke">甲信越</option>
@@ -244,7 +267,7 @@ export function ProfileSetting() {
                   <option value="sk">四国</option>
                   <option value="cg">中国</option>
                   <option value="qs">九州</option>
-                  <option value="ok">沖縄</option>
+                  <option value="ok">沖縄</option> */}
                 </select>
                 <Test Prefecture={Prefecture}/>
               </span>
@@ -268,6 +291,26 @@ export function ProfileSetting() {
                 </select>
               </span>
             </li>
+            <li>
+              <span className="dan">スタイル</span>
+              <span className="dan2">
+                <select
+                    defaultValue="--" //defaultの読み込みと設定が必要
+                    onChange={evt => setStyle(evt.target.value)}>
+                    <option value="0">未設定</option>
+                    <option value="1">スレンダー</option>
+                    <option value="2">やや細身</option>
+                    <option value="3">細マッチョ</option>
+                    <option value="4">普通</option>
+                    <option value="5">ナイスバディ</option>
+                    <option value="6">がっちり</option>
+                    <option value="7">ややぽちゃ</option>
+                    <option value="8">ぽっちゃり</option>
+                    <option value="9">ぽちゃぽちゃ</option>
+                </select>
+              </span>
+            </li>
+
           <input
             // プルダウンでの選択式にしたい
             type="text"
