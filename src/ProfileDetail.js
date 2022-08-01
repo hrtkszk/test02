@@ -20,12 +20,11 @@ export function ProfileDetail() {
 
   // ページが読み込まれる時に実行し、Messagesとして登録する。
   if (initialized===false) {
-    console.log(initialRequestOptions)
     fetch("../../get_profile.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{
-      console.log(result)
-      setProfile(result.result)
+      console.log(result.result[0])
+      setProfile(result.result[0])
     })
     setinitialized(true)
   }
@@ -47,19 +46,15 @@ export function ProfileDetail() {
     return (
       <div>
         <h1>プロフィール</h1>
-        {/* <ul>
-          {Profile.map((EaProfile, i) => {
-            return <li key={EaProfile.UUID}> 
-            <div class="balloon_l">
-              <div class="faceicon">
-                {EaProfile.prefecture}
-              </div>
-              <div class="says">{EaProfile.message}</div>
-            </div>
-            <span class="datetime_l">{EaProfile.messagedDateTime}</span>
+        <ul>
+          {Profile.map((ProfileDatum, i) => {
+            return <li key={ProfileDatum[0]}> 
+                {ProfileDatum[0]}
+                <br />
+                {ProfileDatum[1]}
             </li>
           })}
-        </ul> */}
+        </ul>
         <div>
           <Link to="../">戻る</Link>
         </div>
