@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { useState } from 'react';
 import { useAuth } from "./useAuth";
-import { Test } from "./Test";
+// import { Test } from "./Test";
 
 
 export function ProfileSetting() {
@@ -131,6 +131,83 @@ export function ProfileSetting() {
     })
   }
 
+  function Test({Prefecture}) {
+    switch (Prefecture) {
+        case "hk":
+            return (
+              <select onChange={evt => setCity(evt.target.value)}>
+                <option value="0">未設定</option>
+                <option value="1">道央</option>
+                <option value="2">道北</option>
+                <option value="3">道東</option>
+                <option value="4">道南</option>
+              </select>
+            )
+        case "th":
+          return (
+            <select onChange={evt => setCity(evt.target.value)}>
+              <option value="0">未設定</option>
+              <option value="1">道央</option>
+              <option value="2">道北</option>
+              <option value="3">道東</option>
+              <option value="4">道南</option>
+            </select>
+          )
+        case "ke":
+          return (
+            <select onChange={evt => setCity(evt.target.value)}>
+              <option value="0">未設定</option>
+              <option value="1">道央</option>
+              <option value="2">道北</option>
+              <option value="3">道東</option>
+              <option value="4">道南</option>
+            </select>
+          )
+        case "kt":
+          return (
+            <select onChange={evt => setCity(evt.target.value)}>
+              <option value="0">未設定</option>
+              <option value="1">道央</option>
+              <option value="2">道北</option>
+              <option value="3">道東</option>
+              <option value="4">道南</option>
+            </select>
+          )
+        case "hr":
+          return (
+            <select onChange={evt => setCity(evt.target.value)}>
+              <option value="0">未設定</option>
+              <option value="1">道央</option>
+              <option value="2">道北</option>
+              <option value="3">道東</option>
+              <option value="4">道南</option>
+            </select>
+          )
+        case "tk":
+          return (
+            <select onChange={evt => setCity(evt.target.value)}>
+              <option value="0">未設定</option>
+              <option value="1">道央</option>
+              <option value="2">道北</option>
+              <option value="3">道東</option>
+              <option value="4">道南</option>
+            </select>
+          )
+        case "ks":
+          return (
+            <select onChange={evt => setCity(evt.target.value)}>
+              <option value="0">未設定</option>
+              <option value="1">道央</option>
+              <option value="2">道北</option>
+              <option value="3">道東</option>
+              <option value="4">道南</option>
+            </select>
+          )
+        default:
+            return <></>
+    }
+}
+
   return (
     <div>
       <h1>プロフィール設定</h1>
@@ -138,7 +215,7 @@ export function ProfileSetting() {
       <div>
         <form onSubmit={e => submit(e)}>
           <select onChange={evt => setPrefecture(evt.target.value)}>
-          <option value="--">未設定</option>
+            <option value="--">未設定</option>
             <option value="hk">北海道</option>
             <option value="th">東北</option>
             <option value="ke">甲信越</option>
@@ -152,7 +229,8 @@ export function ProfileSetting() {
             <option value="ok">沖縄</option>
           </select><br />
           {console.log(Prefecture)}
-          <Test Prefecture={Prefecture}/>
+          <Test Prefecture={Prefecture}/><br />
+
           <input
             // 選択式にしたい
             type="text"
