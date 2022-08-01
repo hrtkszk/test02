@@ -115,7 +115,7 @@ export function ProfileSetting() {
     }
     fetch("../../update_profile.php",requestOptions1)
     .then((response)=> {
-      console.log(response)
+      // console.log(response)
       response.json()
     })
     .then(result =>{
