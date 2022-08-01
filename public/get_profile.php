@@ -32,6 +32,7 @@ $output2 = array_values($output2);
 if(empty($_POST['UUID'])) {
     echo json_encode(
         [
+            "test" => $test,
             "test0" => $test[0],
             "test1" => $test[1],
             "result" => $output2,
@@ -40,6 +41,7 @@ if(empty($_POST['UUID'])) {
 } else {
     echo json_encode(
         [
+            "test" => $test,
             "test0" => $test[0],
             "test1" => $test[1],
             "result" => $output2,
