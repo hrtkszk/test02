@@ -5,6 +5,7 @@ $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータ�
 $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 if ($_POST['Prefecture']=="") {
   $Prefecture="test";
+  echo $Prefecture;
 } else {
   $Prefecture=$_POST['Prefecture'];
 };
