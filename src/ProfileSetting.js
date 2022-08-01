@@ -232,18 +232,6 @@ export function ProfileSetting() {
           <Test Prefecture={Prefecture}/><br />
 
           <input
-            // 選択式にしたい
-            type="text"
-            // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-            // title="有効なメールアドレスを入力してください"
-            onChange={evt => {
-              // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-              setCity(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
-            }}
-            placeholder='市町村'
-          /><br />
-
-          <input
             // プルダウンでの選択式にしたい
             type="text"
             // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
