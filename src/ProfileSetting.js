@@ -244,19 +244,17 @@ export function ProfileSetting() {
             <li>
               <span className="dan">エリア</span>
               <span className="dan2">
-                  <ul>
-                    <select
-                    defaultValue="hk" //defaultの読み込みと設定が必要
-                    onChange={evt => setPrefecture(evt.target.value)}>
-                      {AreaData.map((Area, i) => {
-                        return (
-                          <li key={Area.value}>
-                            <option value={Area.value}>{Area.name}</option>
-                          </li>
-                        )
-                      })}
-                    </select>
-                  </ul>
+                  <select
+                  defaultValue="hk" //defaultの読み込みと設定が必要
+                  onChange={evt => setPrefecture(evt.target.value)}>
+                    {AreaData.map((Area, i) => {
+                      return (
+                        <li key={Area.value}>
+                          <option value={Area.value}>{Area.name}</option>
+                        </li>
+                      )
+                    })}
+                  </select>
                   {/* <option value="--">未設定</option>
                   <option value="hk">北海道</option>
                   <option value="th">東北</option>
@@ -311,18 +309,6 @@ export function ProfileSetting() {
                 </select>
               </span>
             </li>
-
-          <input
-            // プルダウンでの選択式にしたい
-            type="text"
-            // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-            // title="有効なメールアドレスを入力してください"
-            onChange={evt => {
-              // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-              setStyle(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
-            }}
-            placeholder='スタイル'
-          /><br />
 
           <input
             // プルダウンでの選択式にしたい
