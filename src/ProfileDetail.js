@@ -52,7 +52,7 @@ export function ProfileDetail() {
     console.log(ProfileDB.Area["1"]["AreaName"])
     // console.log(ProfileDB.Area[Profile.Prefecture][AreaName])
     // console.log(ProfileDB.Area[Profile.Prefecture]['AreaName'])
-    // console.log(ProfileDB.Area[Profile.Prefecture]["AreaName"])
+    console.log(ProfileDB.Area[Profile.Prefecture]["AreaName"])
     return (
       <div>
         <h1>プロフィール</h1>
@@ -103,7 +103,7 @@ export function ProfileDetail() {
           </li>
           <li>
             <span className="dan">出身地</span>
-            <span className="dan2">{ProfileDB.Area[Profile.BirthPlace]}</span>
+            <span className="dan2"></span>
           </li>
           <li>
             <span className="dan">星座</span>
