@@ -7,18 +7,18 @@ $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 $command="python3 get_profile.py ".$_POST['UUID']; //pythonに引数を渡す
 exec($command,$output); //python実行と、返り数受け取り
 
-// // pythonからの返り数のうち、SQLのヘッダーの受け取りと、文字列から配列変換(pythonの出力1行目)
-// $output[0]=trim($output[0],"\"['");
-// $output[0]=trim($output[0],"']\"");
-// $output0=explode("', '",$output[0]);
+// pythonからの返り数のうち、SQLのヘッダーの受け取りと、文字列から配列変換(pythonの出力1行目)
+$output[0]=trim($output[0],"\"['");
+$output[0]=trim($output[0],"']\"");
+$output0=explode("', '",$output[0]);
 
-// $output2=array();
-// $it = 0;
+$output2=array();
+$it = 0;
 
 // // pythonからの返り数のうち、SQLの受け取りと、文字列から配列変換(pythonの残りの行全て)
 // foreach ($output as $value) {
-//     $value=trim($value,"\"[");
-//     $value=trim($value,"]\"");
+//     $value=trim($value,"\"(");
+//     $value=trim($value,")\"");
 //     $value=str_replace("'",'',$value);
 //     $value1=explode(", ",$value);
 //     $output1 = array_combine($output0,$value1);
