@@ -18,7 +18,7 @@ profileTable="profileTable"
 # field name込みの場合はこっちを使う
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
 cursor = connection.cursor()
-
+print("test")
 # 既読処理が必要。
 try:
     cursor.execute(f"SELECT * FROM {profileTable} WHERE UUID='{sys.argv[1]}'")
