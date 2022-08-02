@@ -280,7 +280,7 @@ export function ProfileSetting() {
               <span className="dan">身長</span>
               <span className="dan2">
                 <select
-                  defaultValue={"1"} //defaultの読み込みと設定が必要
+                  defaultValue={ProfileArea} //defaultの読み込みと設定が必要
                   onChange={evt => setHeight(evt.target.value)}>
                     {Object.keys(ProfileDB.Height).map(key => <option value={key}>{ProfileDB.Height[key]}</option>)}
                 </select>
