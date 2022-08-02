@@ -514,7 +514,8 @@ export function ProfileSetting() {
               </span>
             </li>
             <li>
-            <span className="dan">自己評価</span>
+              <span className="dan">自己評価</span>
+              <span className="dan2"></span>
             </li>
             <li>
               {/* 星で表現したい。 */}
@@ -588,7 +589,7 @@ export function ProfileSetting() {
               </span>
             </li>
             <li>
-              <span className="dan">自己評価(エレガンス)</span>
+              <span className="dan">エレガンス</span>
               <span className="dan2">
                 <select
                   defaultValue="0" //defaultの読み込みと設定が必要
