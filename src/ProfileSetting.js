@@ -70,8 +70,6 @@ export function ProfileSetting() {
     headers:{'Content-Type': 'application/json'},
     body: JSON.stringify({"UUID":auth.user})
   }
-
-  console.log(ProfileArea)
   
   // ページが読み込まれる時に実行し、Profileとして登録する。
   if (initialized===false) {
@@ -282,7 +280,7 @@ export function ProfileSetting() {
               <span className="dan">身長</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileArea} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.Height} //defaultの読み込みと設定が必要
                   onChange={evt => setHeight(evt.target.value)}>
                     {Object.keys(ProfileDB.Height).map(key => <option value={key}>{ProfileDB.Height[key]}</option>)}
                 </select>
@@ -370,7 +368,7 @@ export function ProfileSetting() {
               <span className="dan">血液型</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.BloodType[Profile.BloodType]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.BloodType} //defaultの読み込みと設定が必要
                   onChange={evt => setBloodType(evt.target.value)}>
                     {Object.keys(ProfileDB.BloodType).map(key => <option value={key}>{ProfileDB.BloodType[key]}</option>)}
                 </select>
@@ -380,7 +378,7 @@ export function ProfileSetting() {
               <span className="dan">職業</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.Job[Profile.Job]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.Job} //defaultの読み込みと設定が必要
                   onChange={evt => setJob(evt.target.value)}>
                     {Object.keys(ProfileDB.Job).map(key => <option value={key}>{ProfileDB.Job[key]}</option>)}
                 </select>
@@ -390,7 +388,7 @@ export function ProfileSetting() {
               <span className="dan">学歴</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.EduBack[Profile.EduBack]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.EduBack} //defaultの読み込みと設定が必要
                   onChange={evt => setEduBack(evt.target.value)}>
                     {Object.keys(ProfileDB.EduBack).map(key => <option value={key}>{ProfileDB.EduBack[key]}</option>)}
                 </select>
@@ -410,7 +408,7 @@ export function ProfileSetting() {
               <span className="dan">星座</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.Zodiac[Profile.Zodiac]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.Zodiac} //defaultの読み込みと設定が必要
                   onChange={evt => setZodiac(evt.target.value)}>
                     {Object.keys(ProfileDB.Zodiac).map(key => <option value={key}>{ProfileDB.Zodiac[key]}</option>)}
                 </select>
@@ -420,7 +418,7 @@ export function ProfileSetting() {
               <span className="dan">交際状況</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.MarriageStatus[Profile.MarriageStatus]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.MarriageStatus} //defaultの読み込みと設定が必要
                   onChange={evt => setMarriageStatus(evt.target.value)}>
                     {Object.keys(ProfileDB.MarriageStatus).map(key => <option value={key}>{ProfileDB.MarriageStatus[key]}</option>)}
                 </select>
@@ -430,7 +428,7 @@ export function ProfileSetting() {
               <span className="dan">子供</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.Kids[Profile.Kids]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.Kids} //defaultの読み込みと設定が必要
                   onChange={evt => setKids(evt.target.value)}>
                     {Object.keys(ProfileDB.Kids).map(key => <option value={key}>{ProfileDB.Kids[key]}</option>)}
                 </select>
@@ -440,7 +438,7 @@ export function ProfileSetting() {
               <span className="dan">タバコ</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.Tabacco[Profile.Tabacco]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.Tabacco} //defaultの読み込みと設定が必要
                   onChange={evt => setTabacco(evt.target.value)}>
                     {Object.keys(ProfileDB.Tabacco).map(key => <option value={key}>{ProfileDB.Tabacco[key]}</option>)}
                 </select>
@@ -450,7 +448,7 @@ export function ProfileSetting() {
               <span className="dan">お酒</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.Alchole[Profile.Alchole]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.Alchole} //defaultの読み込みと設定が必要
                   onChange={evt => setAlchole(evt.target.value)}>
                     {Object.keys(ProfileDB.Alchole).map(key => <option value={key}>{ProfileDB.Alchole[key]}</option>)}
                 </select>
@@ -460,7 +458,7 @@ export function ProfileSetting() {
               <span className="dan">車</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.Car[Profile.Car]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.Car} //defaultの読み込みと設定が必要
                   onChange={evt => setCar(evt.target.value)}>
                     {Object.keys(ProfileDB.Car).map(key => <option value={key}>{ProfileDB.Car[key]}</option>)}
                 </select>
@@ -472,7 +470,7 @@ export function ProfileSetting() {
               <span className="dan">興味あること</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.Interest[Profile.Interest]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.Interest} //defaultの読み込みと設定が必要
                   onChange={evt => setInterest(evt.target.value)}>
                     {Object.keys(ProfileDB.Interest).map(key => <option value={key}>{ProfileDB.Interest[key]}</option>)}
                 </select>
@@ -506,11 +504,11 @@ export function ProfileSetting() {
               <span className="dan">希望する年齢</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.PreferedAge[Profile.PreferedAge1]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.PreferedAge1} //defaultの読み込みと設定が必要
                   onChange={evt => setPreferedAge1(evt.target.value)}>
                     {Object.keys(ProfileDB.PreferedAge).map(key => <option value={key}>{ProfileDB.PreferedAge[key]}</option>)}
                 </select>〜<select
-                  defaultValue={ProfileDB.PreferedAge[Profile.PreferedAge2]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.PreferedAge2} //defaultの読み込みと設定が必要
                   onChange={evt => setPreferedAge2(evt.target.value)}>
                     {Object.keys(ProfileDB.PreferedAge).map(key => <option value={key}>{ProfileDB.PreferedAge[key]}</option>)}
                 </select>
@@ -521,7 +519,7 @@ export function ProfileSetting() {
               <span className="dan">希望する性格</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.Personality[Profile.PreferedPersonality]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.PreferedPersonality} //defaultの読み込みと設定が必要
                   onChange={evt => setPreferedPersonality(evt.target.value)}>
                     {Object.keys(ProfileDB.Personality).map(key => <option value={key}>{ProfileDB.Personality[key]}</option>)}
                 </select>
@@ -532,7 +530,7 @@ export function ProfileSetting() {
               <span className="dan">性格</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.Personality[Profile.Personality]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.Personality} //defaultの読み込みと設定が必要
                   onChange={evt => setPersonality(evt.target.value)}>
                     {Object.keys(ProfileDB.Personality).map(key => <option value={key}>{ProfileDB.Personality[key]}</option>)}
                 </select>
@@ -546,7 +544,7 @@ export function ProfileSetting() {
               <span className="dan">可愛さ</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.Self[Profile.SelfCute]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.SelfCute} //defaultの読み込みと設定が必要
                   onChange={evt => setSelfCute(evt.target.value)}>
                     {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
                 </select>
@@ -556,7 +554,7 @@ export function ProfileSetting() {
               <span className="dan">セクシーさ</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.Self[Profile.SelfSexy]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.SelfSexy} //defaultの読み込みと設定が必要
                   onChange={evt => setSelfSexy(evt.target.value)}>
                     {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
                 </select>
@@ -566,7 +564,7 @@ export function ProfileSetting() {
               <span className="dan">優しさ</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.Self[Profile.SelfKindness]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.SelfKindness} //defaultの読み込みと設定が必要
                   onChange={evt => setSelfKindness(evt.target.value)}>
                     {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
                 </select>
@@ -576,7 +574,7 @@ export function ProfileSetting() {
               <span className="dan">賢さ</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.Self[Profile.SelfSmartness]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.SelfSmartness} //defaultの読み込みと設定が必要
                   onChange={evt => setSelfSmartness(evt.target.value)}>
                     {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
                 </select>
@@ -586,7 +584,7 @@ export function ProfileSetting() {
               <span className="dan">清楚さ</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.Self[Profile.SelfNeatness]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.SelfNeatness} //defaultの読み込みと設定が必要
                   onChange={evt => setSelfNeatness(evt.target.value)}>
                     {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
                 </select>
@@ -596,7 +594,7 @@ export function ProfileSetting() {
               <span className="dan">ファッション</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.Self[Profile.SelfFashionable]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.SelfFashionable} //defaultの読み込みと設定が必要
                   onChange={evt => setSelfFashionable(evt.target.value)}>
                     {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
                 </select>
@@ -606,7 +604,7 @@ export function ProfileSetting() {
               <span className="dan">明るさ</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.Self[Profile.SelfBrightness]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.SelfBrightness} //defaultの読み込みと設定が必要
                   onChange={evt => setSelfBrightness(evt.target.value)}>
                     {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
                 </select>
@@ -616,7 +614,7 @@ export function ProfileSetting() {
               <span className="dan">エレガンス</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.Self[Profile.SelfElegance]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.SelfElegance} //defaultの読み込みと設定が必要
                   onChange={evt => setSelfElegance(evt.target.value)}>
                     {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
                 </select>
