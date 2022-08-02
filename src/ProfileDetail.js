@@ -150,7 +150,7 @@ export function ProfileDetail() {
             <span className="dan2">{ProfileDB.Personality[Profile.Personality]}</span>
           </li>
           <li>
-            自己評価
+            自己評価<br />
           </li>
           <li>
             <span className="dan">可愛さ</span>
