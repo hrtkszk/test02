@@ -12,7 +12,7 @@ import Profile from "./Profile.json";
 
 export function ProfileSetting() {
   //  各ステータスのdefaultにすでに設定された値を入れたい。
-  console.log(Profile.Area);
+  // console.log(Profile.Area);
   // 地域状況
   const [Prefecture, setPrefecture] = useState("");
   const [City, setCity] = useState("");
@@ -248,7 +248,7 @@ export function ProfileSetting() {
                 <select
                 defaultValue="hk" //defaultの読み込みと設定が必要
                 onChange={evt => setPrefecture(evt.target.value)}>
-                  {/* {Profile.Area.map(Area => <option value={Area.key}>{Area.value}</option>)} */}
+                  {Profile.Area.map(Area => <option value={Area.key}>{Area.value}</option>)}
                 </select>
                 <Test Prefecture={Prefecture}/>
             </span>
