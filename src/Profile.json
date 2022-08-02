@@ -428,5 +428,139 @@
             "name": "うお座",
             "value": "12"
         }
+    ],
+    "MarriageStatus": [
+        {
+            "name": "未設定",
+            "value": "0"
+        },
+        {
+            "name": "独身",
+            "value": "1"
+        },
+        {
+            "name": "交際中",
+            "value": "2"
+        },
+        {
+            "name": "既婚",
+            "value": "3"
+        },
+        {
+            "name": "複雑な関係",
+            "value": "4"
+        },
+        {
+            "name": "別居",
+            "value": "5"
+        },
+        {
+            "name": "その他",
+            "value": "6"
+        }
+    ],
+    "Kids": [
+        {
+            "name": "未設定",
+            "value": "0"
+        },
+        {
+            "name": "いない",
+            "value": "1"
+        },
+        {
+            "name": "同居中",
+            "value": "2"
+        },
+        {
+            "name": "別居中",
+            "value": "3"
+        }
+    ],
+    "Alchole": [
+        {
+            "name": "未設定",
+            "value": "0"
+        },
+        {
+            "name": "飲む",
+            "value": "1"
+        },
+        {
+            "name": "ときどき飲む",
+            "value": "2"
+        },
+        {
+            "name": "飲まない",
+            "value": "3"
+        }
+    ],
+    "Car": [
+        {
+            "name": "未設定",
+            "value": "0"
+        },
+        {
+            "name": "ある",
+            "value": "1"
+        },
+        {
+            "name": "ない",
+            "value": "2"
+        }
+    ],
+    "Interest": [
+        {
+            "name": "未設定",
+            "value": "0"
+        },
+        {
+            "name": "適当",
+            "value": "1"
+        },
+        {
+            "name": "適当",
+            "value": "2"
+        }
+    ],
+    "Personality": [
+        {
+            "name": "未設定",
+            "value": "0"
+        },
+        {
+            "name": "適当",
+            "value": "1"
+        },
+        {
+            "name": "適当",
+            "value": "2"
+        }
+    ],
+    "Self": [
+        {
+            "name": "未設定",
+            "value": "0"
+        },
+        {
+            "name": "1点",
+            "value": "1"
+        },
+        {
+            "name": "2点",
+            "value": "2"
+        },
+        {
+            "name": "3点",
+            "value": "3"
+        },
+        {
+            "name": "4点",
+            "value": "4"
+        },
+        {
+            "name": "5点",
+            "value": "5"
+        }
     ]
 }
