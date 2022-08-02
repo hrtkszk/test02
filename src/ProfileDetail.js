@@ -24,7 +24,7 @@ export function ProfileDetail() {
     fetch("../../get_profile.php",initialRequestOptions)
     .then((response)=> {
       // console.log(response)
-      console.log(response.result)
+      console.log(response.json())
       response.json()
     })
     .then(result =>{
