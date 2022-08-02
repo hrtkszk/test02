@@ -261,9 +261,10 @@ export function ProfileSetting() {
     }
   }
 
-  if (Profile.length!=="0") {
+  if (Profile.length !== 0) {
     return (
       <div>
+        {console.log(Profile.length)}
         {console.log("displayed")}
         {console.log(Profile)}
       <h1>プロフィール設定</h1>
