@@ -7,6 +7,7 @@ import {
 import { useState } from 'react';
 import { useAuth } from "./useAuth";
 import "./ProfileDetail.css";
+import ProfileDB from "./Profile.json";
 
 export function ProfileDetail() {
   let auth = useAuth();
@@ -52,135 +53,135 @@ export function ProfileDetail() {
         <ul>
           <li>
             <span className="dan">エリア</span>
-            <span className="dan2">{Profile.Prefecture}　{Profile.City}</span>
+            <span className="dan2">{ProfileDB.Area[Profile.Prefecture]}　{ProfileDB.Area[Profile.City]}</span>
           </li>
           <li>
             <span className="dan">身長</span>
-            <span className="dan2">{Profile.Height}</span>
+            <span className="dan2">{ProfileDB.Height[Profile.Height]}</span>
           </li>
           <li>
             <span className="dan">スタイル</span>
-            <span className="dan2">{Profile.Style}</span>
+            <span className="dan2">{ProfileDB.Style[Profile.Style]}</span>
           </li>
           <li>
             <span className="dan">ルックス</span>
-            <span className="dan2">{Profile.Looks}</span>
+            <span className="dan2">{ProfileDB.Looks[Profile.Looks]}</span>
           </li>
           <li>
             <span className="dan">カップ</span>
-            <span className="dan2">{Profile.Cup}</span>
+            <span className="dan2">{ProfileDB.Cup[Profile.Cup]}</span>
           </li>
           <li>
-            <span className="dan">胸サイズ</span>
-            <span className="dan2">{Profile.BustSize}</span>
+            <span className="dan">バスト</span>
+            <span className="dan2">{ProfileDB.BustSize[Profile.BustSize]}</span>
           </li>
           <li>
-            <span className="dan">腰サイズ</span>
-            <span className="dan2">{Profile.WestSize}</span>
+            <span className="dan">ウエスト</span>
+            <span className="dan2">{ProfileDB.WestSize[Profile.WestSize]}</span>
           </li>
           <li>
-            <span className="dan">ヒップサイズ</span>
-            <span className="dan2">{Profile.HipSize}</span>
+            <span className="dan">ヒップ</span>
+            <span className="dan2">{ProfileDB.HipSize[Profile.HipSize]}</span>
           </li>
           <li>
             <span className="dan">血液型</span>
-            <span className="dan2">{Profile.BloodType}</span>
+            <span className="dan2">{ProfileDB.BloodType[Profile.BloodType]}</span>
           </li>
           <li>
             <span className="dan">職業</span>
-            <span className="dan2">{Profile.Job}</span>
+            <span className="dan2">{ProfileDB.Job[Profile.Job]}</span>
           </li>
           <li>
             <span className="dan">学歴</span>
-            <span className="dan2">{Profile.EduBack}</span>
+            <span className="dan2">{ProfileDB.EduBack[Profile.EduBack]}</span>
           </li>
           <li>
             <span className="dan">出身地</span>
-            <span className="dan2">{Profile.BirthPlace}</span>
+            <span className="dan2">{ProfileDB.BirthPlace[Profile.BirthPlace]}</span>
           </li>
           <li>
             <span className="dan">星座</span>
-            <span className="dan2">{Profile.Zodiac}</span>
+            <span className="dan2">{ProfileDB.Zodiac[Profile.Zodiac]}</span>
           </li>
           <li>
             <span className="dan">交際状況</span>
-            <span className="dan2">{Profile.MarriageStatus}</span>
+            <span className="dan2">{ProfileDB.MarriageStatus[Profile.MarriageStatus]}</span>
           </li>
           <li>
             <span className="dan">子供</span>
-            <span className="dan2">{Profile.Kids}</span>
+            <span className="dan2">{ProfileDB.Kids[Profile.Kids]}</span>
           </li>
           <li>
             <span className="dan">タバコ</span>
-            <span className="dan2">{Profile.Tabacco}</span>
+            <span className="dan2">{ProfileDB.Tabacco[Profile.Tabacco]}</span>
           </li>
           <li>
             <span className="dan">お酒</span>
-            <span className="dan2">{Profile.Alchole}</span>
+            <span className="dan2">{ProfileDB.Alchole[Profile.Alchole]}</span>
           </li>
           <li>
             <span className="dan">車</span>
-            <span className="dan2">{Profile.Car}</span>
+            <span className="dan2">{ProfileDB.Car[Profile.Car]}</span>
           </li>
           <li>
             <span className="dan">興味あること</span>
-            <span className="dan2">{Profile.Interest}</span>
+            <span className="dan2">{ProfileDB.Interest[Profile.Interest]}</span>
           </li>
           <li>
             <span className="dan">プロフィール写真</span>
-            <span className="dan2">{Profile.ProfilePicture}</span>
+            <span className="dan2">{ProfileDB.ProfilePicture[Profile.ProfilePicture]}</span>
           </li>
           <li>
             <span className="dan">メッセージ</span>
-            <span className="dan2">{Profile.ProfileMessage}</span>
+            <span className="dan2">{ProfileDB.ProfileMessage[Profile.ProfileMessage]}</span>
           </li>
           <li>
-            <span className="dan">希望する年齢1</span>
-            <span className="dan2">{Profile.PreferedAge1}</span>
-          </li>
-          <li>
-            <span className="dan">希望する年齢2</span>
-            <span className="dan2">{Profile.PreferedAge2}</span>
+            <span className="dan">希望する年齢</span>
+            <span className="dan2">{ProfileDB.PreferedAge[Profile.PreferedAge1]}〜{ProfileDB.PreferedAge[Profile.PreferedAge2]}</span>
           </li>
           <li>
             <span className="dan">希望する性格</span>
-            <span className="dan2">{Profile.PreferedPersonality}</span>
+            <span className="dan2">{ProfileDB.PreferedPersonality[Profile.PreferedPersonality]}</span>
           </li>
           <li>
             <span className="dan">性格</span>
-            <span className="dan2">{Profile.Personality}</span>
+            <span className="dan2">{ProfileDB.Personality[Profile.Personality]}</span>
           </li>
           <li>
-            <span className="dan">自己評価(可愛さ)</span>
-            <span className="dan2">{Profile.SelfCute}</span>
+            <span className="dan">自己評価</span>
+            <span className="dan2"></span>
           </li>
           <li>
-            <span className="dan">自己評価(セクシー)</span>
-            <span className="dan2">{Profile.SelfSexy}</span>
+            <span className="dan">可愛さ</span>
+            <span className="dan2">{ProfileDB.Self[Profile.SelfCute]}</span>
           </li>
           <li>
-            <span className="dan">自己評価(優しさ)</span>
-            <span className="dan2">{Profile.SelfKindness}</span>
+            <span className="dan">セクシーさ</span>
+            <span className="dan2">{ProfileDB.Self[Profile.SelfSexy]}</span>
           </li>
           <li>
-            <span className="dan">自己評価(賢さ)</span>
-            <span className="dan2">{Profile.SelfSmartness}</span>
+            <span className="dan">優しさ</span>
+            <span className="dan2">{ProfileDB.Self[Profile.SelfKindness]}</span>
           </li>
           <li>
-            <span className="dan">自己評価(清楚さ)</span>
-            <span className="dan2">{Profile.SelfNeatness}</span>
+            <span className="dan">賢さ</span>
+            <span className="dan2">{ProfileDB.Self[Profile.SelfSmartness]}</span>
           </li>
           <li>
-            <span className="dan">自己評価(ファッション)</span>
-            <span className="dan2">{Profile.SelfFashionable}</span>
+            <span className="dan">清楚さ</span>
+            <span className="dan2">{ProfileDB.Self[Profile.SelfNeatness]}</span>
           </li>
           <li>
-            <span className="dan">自己評価(明るさ)</span>
-            <span className="dan2">{Profile.SelfBrightness}</span>
+            <span className="dan">ファッション</span>
+            <span className="dan2">{ProfileDB.Self[Profile.SelfFashionable]}</span>
           </li>
           <li>
-            <span className="dan">自己評価(エレガンス)</span>
-            <span className="dan2">{Profile.SelfElegance}</span>
+            <span className="dan">明るさ</span>
+            <span className="dan2">{ProfileDB.Self[Profile.SelfBrightness]}</span>
+          </li>
+          <li>
+            <span className="dan">エレガンス</span>
+            <span className="dan2">{ProfileDB.Self[Profile.SelfElegance]}</span>
           </li>
         </ul>
         <div>

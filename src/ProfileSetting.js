@@ -134,7 +134,7 @@ export function ProfileSetting() {
     })
   }
 
-  function Test({Prefecture}) {
+  function AreaDetail({Prefecture}) {
     switch (Prefecture) {
       case "":
         return (
@@ -250,7 +250,7 @@ export function ProfileSetting() {
                 onChange={evt => setPrefecture(evt.target.value)}>
                   {Object.keys(Profile.Area).map(key => <option value={key}>{Profile.Area[key]}</option>)}
                 </select>
-                <Test Prefecture={Prefecture}/>
+                <AreaDetail Prefecture={Prefecture}/>
             </span>
             </li>
             <li>
