@@ -53,7 +53,7 @@ export function ProfileDetail() {
         <ul>
           <li>
             <span className="dan">エリア</span>
-            <span className="dan2">{ProfileDB.Area[Profile.Prefecture]["AreaName"]}　{ProfileDB.Area[Profile.Prefecture]["DetailArea"][Profile.City]}</span>
+            <span className="dan2">{ProfileDB.Area[Profile.Prefecture]}</span>
           </li>
           <li>
             <span className="dan">身長</span>
