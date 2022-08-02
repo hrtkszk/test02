@@ -48,12 +48,13 @@ export function ProfileDetail() {
     //  profileTableにUUIDがあれば、プロフィールを表示＋設定ページボタンの表示
   } else {
     let ProfileArea=ProfileDB.Area[Profile.Prefecture]
+    let AreaName="AreaName"
     console.log(ProfileDB.Area[Profile.Prefecture])
     console.log(ProfileDB.Area["1"])
     console.log(ProfileDB.Area["1"]["AreaName"])
     // console.log(ProfileDB.Area[Profile.Prefecture][AreaName])
     // console.log(ProfileDB.Area[Profile.Prefecture]['AreaName'])
-    console.log(ProfileArea["AreaName"])
+    console.log(ProfileArea[AreaName])
     return (
       <div>
         <h1>プロフィール</h1>
