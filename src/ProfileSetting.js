@@ -85,6 +85,7 @@ export function ProfileSetting() {
     })
     setinitialized(true)
   }
+
   // 入力値に問題があれば遷移しない。問題なければ遷移する
   const submit = e => {
     e.preventDefault();
@@ -260,8 +261,9 @@ export function ProfileSetting() {
     }
   }
 
-  return (
-    <div>
+  if (Profile!==[]) {
+    return (
+      <div>
       <h1>プロフィール設定</h1>
         <form onSubmit={e => submit(e)}>
           <ul>
@@ -626,5 +628,10 @@ export function ProfileSetting() {
         <br />
         <Link to="../">戻る</Link>
       </div>
-  );
+    );
+  } else {
+    return (
+      <></>
+    )
+  } 
 }
