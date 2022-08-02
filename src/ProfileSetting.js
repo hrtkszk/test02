@@ -71,6 +71,8 @@ export function ProfileSetting() {
     body: JSON.stringify({"UUID":auth.user})
   }
 
+  console.log(ProfileArea)
+  
   // ページが読み込まれる時に実行し、Profileとして登録する。
   if (initialized===false) {
     fetch("../../get_profile.php",initialRequestOptions)
@@ -266,12 +268,12 @@ export function ProfileSetting() {
             <li>
             <span className="dan">エリア</span>
             <span className="dan2">
-                <select
+              <select
                 defaultValue={ProfileArea}//defaultの読み込みと設定が必要
                 onChange={evt => setPrefecture(evt.target.value)}>
                   {/* {Object.keys(ProfileDB.Area).map(key => <option value={key}>{ProfileDB.Area[key]}</option>)} */}
-                </select>
-                <AreaDetail Prefecture={Prefecture}/>
+              </select>
+              <AreaDetail Prefecture={Prefecture}/>
             </span>
             </li>
             <li>
