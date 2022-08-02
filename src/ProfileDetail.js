@@ -29,7 +29,7 @@ export function ProfileDetail() {
       console.log(result)
       console.log(result.result)
       setProfile(result.result[0])
-      setProfileArea(Profile.Prefecture)
+      setProfileArea(result.result[0].Prefecture)
     })
     setinitialized(true)
   }
@@ -57,7 +57,7 @@ export function ProfileDetail() {
         <ul>
           <li>
             <span className="dan">エリア</span>
-            <span className="dan2"></span>
+            <span className="dan2">{ProfileDB.Area[ProfileArea]["AreaName"]}</span>
           </li>
           <li>
             <span className="dan">身長</span>
