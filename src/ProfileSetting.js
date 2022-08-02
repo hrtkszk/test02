@@ -186,101 +186,19 @@ export function ProfileSetting() {
     })
   }
 
-  // function AreaDetail({Prefectureslctd}) {
-  //   if (Prefectureslctd !== 0) {
-      
-  //   } else {
-  //     return <></>
-  //   }
-  //   switch (Prefectureslctd) {
-  //     case "0":
-  //       return (
-  //         <>
-  //           <select onChange={evt => setCity(evt.target.value)}>
-  //             <option value="hk0">未設定</option>
-  //             <option value="hk1">道央</option>
-  //             <option value="hk2">道北</option>
-  //             <option value="hk3">道東</option>
-  //             <option value="hk4">道南</option>
-  //           </select><br />
-  //         </>
-  //       )
-  //     case "1":
-  //       return (
-  //         <>
-  //         <select onChange={evt => setCity(evt.target.value)}>
-  //           <option value="0">未設定</option>
-  //           <option value="1">道央</option>
-  //           <option value="2">道北</option>
-  //           <option value="3">道東</option>
-  //           <option value="4">道南</option>
-  //         </select><br />
-  //         </>
-  //       )
-  //     case "2":
-  //       return (
-  //         <>
-  //         <select onChange={evt => setCity(evt.target.value)}>
-  //           <option value="0">未設定</option>
-  //           <option value="1">道央</option>
-  //           <option value="2">道北</option>
-  //           <option value="3">道東</option>
-  //           <option value="4">道南</option>
-  //         </select><br />
-  //         </>
-  //       )
-  //     case "3":
-  //       return (
-  //         <>
-  //         <select onChange={evt => setCity(evt.target.value)}>
-  //           <option value="0">未設定</option>
-  //           <option value="1">道央</option>
-  //           <option value="2">道北</option>
-  //           <option value="3">道東</option>
-  //           <option value="4">道南</option>
-  //         </select><br />
-  //         </>
-  //       )
-  //     case "4":
-  //       return (
-  //         <>
-  //         <select onChange={evt => setCity(evt.target.value)}>
-  //           <option value="0">未設定</option>
-  //           <option value="1">道央</option>
-  //           <option value="2">道北</option>
-  //           <option value="3">道東</option>
-  //           <option value="4">道南</option>
-  //         </select><br />
-  //         </>
-  //       )
-  //     case "5":
-  //       return (
-  //         <>
-  //         <select onChange={evt => setCity(evt.target.value)}>
-  //           <option value="0">未設定</option>
-  //           <option value="1">道央</option>
-  //           <option value="2">道北</option>
-  //           <option value="3">道東</option>
-  //           <option value="4">道南</option>
-  //         </select><br />
-  //         </>
-  //       )
-  //     case "6":
-  //       return (
-  //         <>
-  //           <select onChange={evt => setCity(evt.target.value)}>
-  //             <option value="0">未設定</option>
-  //             <option value="1">道央</option>
-  //             <option value="2">道北</option>
-  //             <option value="3">道東</option>
-  //             <option value="4">道南</option>
-  //           </select><br />
-  //         </>
-  //       )
-  //     default:
-  //       return <></>
-  //   }
-  // }
+  function AreaDetail() {
+    if (Prefecture !== 0) {
+      return (
+        <select
+          defaultValue={City}
+          onChange={evt => setCity(evt.target.value)}>
+            {Object.keys(ProfileDB.Area[Prefecture]["DetailArea"]).map(key => <option value={key}>{ProfileDB.Area[Prefecture]["DetailArea"][key]}</option>)}
+        </select>
+      )
+    } else {
+      return <></>
+    }
+  }
 
   if (Profile.length !== 0) {
     return (
@@ -296,12 +214,7 @@ export function ProfileSetting() {
                 onChange={evt => setPrefecture(evt.target.value)}>
                   {Object.keys(ProfileDB.Area).map(key => <option value={key}>{ProfileDB.Area[key]["AreaName"]}</option>)}
               </select>
-              <select
-                defaultValue={City}
-                onChange={evt => setCity(evt.target.value)}>
-                  {Object.keys(ProfileDB.Area[Prefecture]["DetailArea"]).map(key => <option value={key}>{ProfileDB.Area[Prefecture]["DetailArea"][key]}</option>)}
-              </select>
-              {/* <AreaDetail Prefectureslctd={Prefecture}/> */}
+              <AreaDetail/>
             </span>
             </li>
             <li>
