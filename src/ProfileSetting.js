@@ -267,7 +267,7 @@ export function ProfileSetting() {
             <span className="dan">エリア</span>
             <span className="dan2">
                 <select
-                defaultValue={ProfileDB.Area[ProfileArea]}//defaultの読み込みと設定が必要
+                defaultValue={ProfileArea}//defaultの読み込みと設定が必要
                 onChange={evt => setPrefecture(evt.target.value)}>
                   {/* {Object.keys(ProfileDB.Area).map(key => <option value={key}>{ProfileDB.Area[key]}</option>)} */}
                 </select>
@@ -278,7 +278,7 @@ export function ProfileSetting() {
               <span className="dan">身長</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.Height[Profile.Height]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.Height} //defaultの読み込みと設定が必要
                   onChange={evt => setHeight(evt.target.value)}>
                     {Object.keys(ProfileDB.Height).map(key => <option value={key}>{ProfileDB.Height[key]}</option>)}
                 </select>
@@ -288,7 +288,7 @@ export function ProfileSetting() {
               <span className="dan">スタイル</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.Style[Profile.Style]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.Style} //defaultの読み込みと設定が必要
                   onChange={evt => setStyle(evt.target.value)}>
                     {Object.keys(ProfileDB.Style).map(key => <option value={key}>{ProfileDB.Style[key]}</option>)}
                 </select>
@@ -298,7 +298,7 @@ export function ProfileSetting() {
               <span className="dan">ルックス</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.Looks[Profile.Looks]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.Looks} //defaultの読み込みと設定が必要
                   onChange={evt => setLooks(evt.target.value)}>
                     {Object.keys(ProfileDB.Looks).map(key => <option value={key}>{ProfileDB.Looks[key]}</option>)}
                 </select>
@@ -308,7 +308,7 @@ export function ProfileSetting() {
               <span className="dan">カップ</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.Cup[Profile.Cup]} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.Cup} //defaultの読み込みと設定が必要
                   onChange={evt => setCup(evt.target.value)}>
                     {Object.keys(ProfileDB.Cup).map(key => <option value={key}>{ProfileDB.Cup[key]}</option>)}
                 </select>
