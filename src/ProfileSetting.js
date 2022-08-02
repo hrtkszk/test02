@@ -39,7 +39,7 @@ export function ProfileSetting() {
   const [Car, setCar] = useState("");
   const [Interest, setInterest] = useState("");
   // その他
-  const [ProfilePicture, setProfilePicture] = useState("");
+  // const [ProfilePicture, setProfilePicture] = useState("");
   const [ProfileMessage, setProfileMessage] = useState("");
   // 相手に求めること
   const [PreferedAge, setPreferedAge] = useState("");
@@ -98,7 +98,7 @@ export function ProfileSetting() {
         "Car":Car,
         "Interest":Interest,
 
-        "ProfilePicture":ProfilePicture,
+        // "ProfilePicture":ProfilePicture,
         "ProfileMessage":ProfileMessage,
 
         "PreferedAge":PreferedAge,
