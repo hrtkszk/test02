@@ -49,6 +49,7 @@ export function ProfileDetail() {
   } else {
     console.log(ProfileDB.Area[Profile.Prefecture])
     console.log(ProfileDB.Area["1"])
+    console.log(ProfileDB.Area["1"]["AreaName"])
     // console.log(ProfileDB.Area[Profile.Prefecture][AreaName])
     // console.log(ProfileDB.Area[Profile.Prefecture]['AreaName'])
     // console.log(ProfileDB.Area[Profile.Prefecture]["AreaName"])
