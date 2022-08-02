@@ -294,7 +294,7 @@ export function ProfileSetting() {
               </span>
             </li>
             <li>
-              <span className="dan">胸周りサイズ</span>
+              <span className="dan">バスト</span>
               <span className="dan2">
                 <input
                   // プルダウンでの選択式にしたい
@@ -305,12 +305,12 @@ export function ProfileSetting() {
                     // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
                     setBustSize(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
                   }}
-                  placeholder='胸周りサイズ'
+                  placeholder='バスト'
                 />                
               </span>
             </li>
             <li>
-              <span className="dan">ウエストサイズ</span>
+              <span className="dan">ウエスト</span>
               <span className="dan2">
                 <input
                   // プルダウンでの選択式にしたい
@@ -321,12 +321,12 @@ export function ProfileSetting() {
                     // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
                     setWestSize(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
                   }}
-                  placeholder='ウエストサイズ'
+                  placeholder='ウエスト'
                 />                
               </span>
             </li>
             <li>
-              <span className="dan">ヒップサイズ</span>
+              <span className="dan">ヒップ</span>
               <span className="dan2">
                 <input
                   // プルダウンでの選択式にしたい
@@ -337,7 +337,7 @@ export function ProfileSetting() {
                     // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
                     setHipSize(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
                   }}
-                  placeholder='ヒップサイズ'
+                  placeholder='ヒップ'
                 />                
               </span>
             </li>

@@ -141,7 +141,7 @@ export function ProfileDetail() {
           </li>
           <li>
             <span className="dan">希望する性格</span>
-            <span className="dan2">{ProfileDB.PreferedPersonality[Profile.PreferedPersonality]}</span>
+            <span className="dan2">{ProfileDB.Personality[Profile.PreferedPersonality]}</span>
           </li>
           <li>
             <span className="dan">性格</span>
