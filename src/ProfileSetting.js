@@ -518,7 +518,7 @@ export function ProfileSetting() {
                 <select
                   defaultValue="0" //defaultの読み込みと設定が必要
                   onChange={evt => setSelfCute(evt.target.value)}>
-                    {Profile.SelfCute.map(SelfCute => <option value={SelfCute.value}>{SelfCute.name}</option>)}
+                    {Profile.Self.map(Self => <option value={Self.value}>{Self.name}</option>)}
                 </select>
               </span>
             </li>
