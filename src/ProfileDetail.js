@@ -22,7 +22,10 @@ export function ProfileDetail() {
   // ページが読み込まれる時に実行し、Profileとして登録する。
   if (initialized===false) {
     fetch("../../get_profile.php",initialRequestOptions)
-    .then((response)=> response.json())
+    .then((response)=> {
+      console.log(response)
+      response.json()
+    })
     .then(result =>{
       console.log(result.result)
       setProfile(result.result[0])
