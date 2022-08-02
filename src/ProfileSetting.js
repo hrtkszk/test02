@@ -271,7 +271,7 @@ export function ProfileSetting() {
               <select
                 defaultValue={ProfileArea}//defaultの読み込みと設定が必要
                 onChange={evt => setPrefecture(evt.target.value)}>
-                  {/* {Object.keys(ProfileDB.Area).map(key => <option value={key}>{ProfileDB.Area[key]}</option>)} */}
+                  {Object.keys(ProfileDB.Area).map(key => <option value={key}>{ProfileDB.Area[key]["AreaName"]}</option>)}
               </select>
               <AreaDetail Prefecture={Prefecture}/>
             </span>
