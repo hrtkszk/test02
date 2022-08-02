@@ -248,7 +248,7 @@ export function ProfileSetting() {
                 <select
                 defaultValue="hk" //defaultの読み込みと設定が必要
                 onChange={evt => setPrefecture(evt.target.value)}>
-                  {Profile.Area.map(Area => <option value={Area.value}>{Area.name}</option>)}
+                  {Profile.Area.map(Area => <option value={Area.key}>{Area.value}</option>)}
                 </select>
                 <Test Prefecture={Prefecture}/>
             </span>
