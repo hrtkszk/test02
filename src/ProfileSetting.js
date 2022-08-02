@@ -514,8 +514,7 @@ export function ProfileSetting() {
               </span>
             </li>
             <li>
-              <span className="dan">自己評価</span>
-              <span className="dan2"></span>
+              自己評価<br />
             </li>
             <li>
               {/* 星で表現したい。 */}
