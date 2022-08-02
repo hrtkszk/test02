@@ -23,7 +23,7 @@ export function ProfileDetail() {
   if (initialized===false) {
     fetch("../get_profile.php",initialRequestOptions)
     .then((response)=> {
-      console.log(response)
+      // console.log(response)
       response.json()
     })
     .then(result =>{
