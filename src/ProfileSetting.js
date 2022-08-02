@@ -186,97 +186,101 @@ export function ProfileSetting() {
     })
   }
 
-  function AreaDetail({Prefectureslctd}) {
-    
-    switch (Prefectureslctd) {
-      case "0":
-        return (
-          <>
-            <select onChange={evt => setCity(evt.target.value)}>
-              <option value="hk0">未設定</option>
-              <option value="hk1">道央</option>
-              <option value="hk2">道北</option>
-              <option value="hk3">道東</option>
-              <option value="hk4">道南</option>
-            </select><br />
-          </>
-        )
-      case "1":
-        return (
-          <>
-          <select onChange={evt => setCity(evt.target.value)}>
-            <option value="0">未設定</option>
-            <option value="1">道央</option>
-            <option value="2">道北</option>
-            <option value="3">道東</option>
-            <option value="4">道南</option>
-          </select><br />
-          </>
-        )
-      case "2":
-        return (
-          <>
-          <select onChange={evt => setCity(evt.target.value)}>
-            <option value="0">未設定</option>
-            <option value="1">道央</option>
-            <option value="2">道北</option>
-            <option value="3">道東</option>
-            <option value="4">道南</option>
-          </select><br />
-          </>
-        )
-      case "3":
-        return (
-          <>
-          <select onChange={evt => setCity(evt.target.value)}>
-            <option value="0">未設定</option>
-            <option value="1">道央</option>
-            <option value="2">道北</option>
-            <option value="3">道東</option>
-            <option value="4">道南</option>
-          </select><br />
-          </>
-        )
-      case "4":
-        return (
-          <>
-          <select onChange={evt => setCity(evt.target.value)}>
-            <option value="0">未設定</option>
-            <option value="1">道央</option>
-            <option value="2">道北</option>
-            <option value="3">道東</option>
-            <option value="4">道南</option>
-          </select><br />
-          </>
-        )
-      case "5":
-        return (
-          <>
-          <select onChange={evt => setCity(evt.target.value)}>
-            <option value="0">未設定</option>
-            <option value="1">道央</option>
-            <option value="2">道北</option>
-            <option value="3">道東</option>
-            <option value="4">道南</option>
-          </select><br />
-          </>
-        )
-      case "6":
-        return (
-          <>
-            <select onChange={evt => setCity(evt.target.value)}>
-              <option value="0">未設定</option>
-              <option value="1">道央</option>
-              <option value="2">道北</option>
-              <option value="3">道東</option>
-              <option value="4">道南</option>
-            </select><br />
-          </>
-        )
-      default:
-        return <></>
-    }
-  }
+  // function AreaDetail({Prefectureslctd}) {
+  //   if (Prefectureslctd !== 0) {
+      
+  //   } else {
+  //     return <></>
+  //   }
+  //   switch (Prefectureslctd) {
+  //     case "0":
+  //       return (
+  //         <>
+  //           <select onChange={evt => setCity(evt.target.value)}>
+  //             <option value="hk0">未設定</option>
+  //             <option value="hk1">道央</option>
+  //             <option value="hk2">道北</option>
+  //             <option value="hk3">道東</option>
+  //             <option value="hk4">道南</option>
+  //           </select><br />
+  //         </>
+  //       )
+  //     case "1":
+  //       return (
+  //         <>
+  //         <select onChange={evt => setCity(evt.target.value)}>
+  //           <option value="0">未設定</option>
+  //           <option value="1">道央</option>
+  //           <option value="2">道北</option>
+  //           <option value="3">道東</option>
+  //           <option value="4">道南</option>
+  //         </select><br />
+  //         </>
+  //       )
+  //     case "2":
+  //       return (
+  //         <>
+  //         <select onChange={evt => setCity(evt.target.value)}>
+  //           <option value="0">未設定</option>
+  //           <option value="1">道央</option>
+  //           <option value="2">道北</option>
+  //           <option value="3">道東</option>
+  //           <option value="4">道南</option>
+  //         </select><br />
+  //         </>
+  //       )
+  //     case "3":
+  //       return (
+  //         <>
+  //         <select onChange={evt => setCity(evt.target.value)}>
+  //           <option value="0">未設定</option>
+  //           <option value="1">道央</option>
+  //           <option value="2">道北</option>
+  //           <option value="3">道東</option>
+  //           <option value="4">道南</option>
+  //         </select><br />
+  //         </>
+  //       )
+  //     case "4":
+  //       return (
+  //         <>
+  //         <select onChange={evt => setCity(evt.target.value)}>
+  //           <option value="0">未設定</option>
+  //           <option value="1">道央</option>
+  //           <option value="2">道北</option>
+  //           <option value="3">道東</option>
+  //           <option value="4">道南</option>
+  //         </select><br />
+  //         </>
+  //       )
+  //     case "5":
+  //       return (
+  //         <>
+  //         <select onChange={evt => setCity(evt.target.value)}>
+  //           <option value="0">未設定</option>
+  //           <option value="1">道央</option>
+  //           <option value="2">道北</option>
+  //           <option value="3">道東</option>
+  //           <option value="4">道南</option>
+  //         </select><br />
+  //         </>
+  //       )
+  //     case "6":
+  //       return (
+  //         <>
+  //           <select onChange={evt => setCity(evt.target.value)}>
+  //             <option value="0">未設定</option>
+  //             <option value="1">道央</option>
+  //             <option value="2">道北</option>
+  //             <option value="3">道東</option>
+  //             <option value="4">道南</option>
+  //           </select><br />
+  //         </>
+  //       )
+  //     default:
+  //       return <></>
+  //   }
+  // }
 
   if (Profile.length !== 0) {
     return (
