@@ -2,7 +2,9 @@
     "Area": {
         "0":{
             "AreaName":"未設定",
-            "DetailArea":""
+            "DetailArea":{
+                "0":"未設定"
+            }
         },
         "1":{
             "AreaName":"北海道",
