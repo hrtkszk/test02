@@ -187,32 +187,21 @@ export function ProfileSetting() {
   }
 
   function AreaDetail({Prefectureslctd}) {
+    
     switch (Prefectureslctd) {
-      case "":
+      case "0":
         return (
           <>
-          <select onChange={evt => setCity(evt.target.value)}>
-            <option value="hk0">未設定</option>
-            <option value="hk1">道央</option>
-            <option value="hk2">道北</option>
-            <option value="hk3">道東</option>
-            <option value="hk4">道南</option>
-          </select><br />
-        </>
+            <select onChange={evt => setCity(evt.target.value)}>
+              <option value="hk0">未設定</option>
+              <option value="hk1">道央</option>
+              <option value="hk2">道北</option>
+              <option value="hk3">道東</option>
+              <option value="hk4">道南</option>
+            </select><br />
+          </>
         )
-      case "hk":
-        return (
-          <>
-          <select onChange={evt => setCity(evt.target.value)}>
-            <option value="hk0">未設定</option>
-            <option value="hk1">道央</option>
-            <option value="hk2">道北</option>
-            <option value="hk3">道東</option>
-            <option value="hk4">道南</option>
-          </select><br />
-        </>
-        )
-      case "th":
+      case "1":
         return (
           <>
           <select onChange={evt => setCity(evt.target.value)}>
@@ -224,7 +213,7 @@ export function ProfileSetting() {
           </select><br />
           </>
         )
-      case "ke":
+      case "2":
         return (
           <>
           <select onChange={evt => setCity(evt.target.value)}>
@@ -236,7 +225,7 @@ export function ProfileSetting() {
           </select><br />
           </>
         )
-      case "kt":
+      case "3":
         return (
           <>
           <select onChange={evt => setCity(evt.target.value)}>
@@ -248,7 +237,7 @@ export function ProfileSetting() {
           </select><br />
           </>
         )
-      case "hr":
+      case "4":
         return (
           <>
           <select onChange={evt => setCity(evt.target.value)}>
@@ -260,7 +249,7 @@ export function ProfileSetting() {
           </select><br />
           </>
         )
-      case "tk":
+      case "5":
         return (
           <>
           <select onChange={evt => setCity(evt.target.value)}>
@@ -272,7 +261,7 @@ export function ProfileSetting() {
           </select><br />
           </>
         )
-      case "ks":
+      case "6":
         return (
           <>
             <select onChange={evt => setCity(evt.target.value)}>
@@ -303,7 +292,12 @@ export function ProfileSetting() {
                 onChange={evt => setPrefecture(evt.target.value)}>
                   {Object.keys(ProfileDB.Area).map(key => <option value={key}>{ProfileDB.Area[key]["AreaName"]}</option>)}
               </select>
-              <AreaDetail Prefectureslctd={Prefecture}/>
+              <select
+                defaultValue={City}
+                onChange={evt => setCity(evt.target.value)}>
+                  {Object.keys(ProfileDB.Area[Prefecture]["DetailArea"]).map(key => <option value={key}>{ProfileDB.Area[Prefecture]["DetailArea"][key]}</option>)}
+              </select>
+              {/* <AreaDetail Prefectureslctd={Prefecture}/> */}
             </span>
             </li>
             <li>
@@ -430,7 +424,7 @@ export function ProfileSetting() {
                 <select
                   defaultValue="0" //defaultの読み込みと設定が必要
                   onChange={evt => setBirthPlace(evt.target.value)}>
-                    {/* {Object.keys(ProfileDB.Area).map(key => <option value={key}>{ProfileDB.Area[key]}</option>)} */}
+                    {Object.keys(ProfileDB.Area).map(key => <option value={key}>{ProfileDB.Area[key]["AreaName"]}</option>)}
                 </select>
               </span>
             </li>
