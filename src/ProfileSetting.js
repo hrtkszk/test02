@@ -61,7 +61,6 @@ export function ProfileSetting() {
 
   let navigate = useNavigate();
 
-  const [ProfileArea, setProfileArea] = useState("0");
   const [Profile, setProfile] = useState([]);
   const [initialized, setinitialized] = useState(false);
 
@@ -79,7 +78,6 @@ export function ProfileSetting() {
       console.log(result)
       console.log(result.result)
       setProfile(result.result[0])
-      setProfileArea(result.result[0].Prefecture)
     })
     setinitialized(true)
   }
@@ -269,7 +267,7 @@ export function ProfileSetting() {
             <span className="dan">エリア</span>
             <span className="dan2">
               <select
-                defaultValue={ProfileArea}//defaultの読み込みと設定が必要
+                defaultValue={Profile.Prefecture}
                 onChange={evt => setPrefecture(evt.target.value)}>
                   {Object.keys(ProfileDB.Area).map(key => <option value={key}>{ProfileDB.Area[key]["AreaName"]}</option>)}
               </select>
@@ -280,7 +278,7 @@ export function ProfileSetting() {
               <span className="dan">身長</span>
               <span className="dan2">
                 <select
-                  defaultValue={Profile.Height} //defaultの読み込みと設定が必要
+                  defaultValue={Profile.Height}
                   onChange={evt => setHeight(evt.target.value)}>
                     {Object.keys(ProfileDB.Height).map(key => <option value={key}>{ProfileDB.Height[key]}</option>)}
                 </select>
