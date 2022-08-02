@@ -19,11 +19,12 @@ export function ProfileDetail() {
     body: JSON.stringify({"UUID":auth.user})
   }
 
-  // ページが読み込まれる時に実行し、Messagesとして登録する。
+  // ページが読み込まれる時に実行し、Profileとして登録する。
   if (initialized===false) {
     fetch("../../get_profile.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{
+      console.log(result.result)
       setProfile(result.result[0])
     })
     setinitialized(true)
@@ -94,7 +95,7 @@ export function ProfileDetail() {
           </li>
           <li>
             <span className="dan">出身地</span>
-            <span className="dan2">{Profile.BirthPrefecture}</span>
+            <span className="dan2">{Profile.BirthPlace}</span>
           </li>
           <li>
             <span className="dan">星座</span>
@@ -133,8 +134,12 @@ export function ProfileDetail() {
             <span className="dan2">{Profile.ProfileMessage}</span>
           </li>
           <li>
-            <span className="dan">希望する年齢</span>
-            <span className="dan2">{Profile.PreferedAge}</span>
+            <span className="dan">希望する年齢1</span>
+            <span className="dan2">{Profile.PreferedAge1}</span>
+          </li>
+          <li>
+            <span className="dan">希望する年齢2</span>
+            <span className="dan2">{Profile.PreferedAge2}</span>
           </li>
           <li>
             <span className="dan">希望する性格</span>
