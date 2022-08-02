@@ -96,7 +96,7 @@ export function ProfileSetting() {
       setAlchole(result.result[0].Alchole)
       setCar(result.result[0].Car)
       setInterest(result.result[0].Interest)
-      useState("");(result.result[0].setProfilePicture)
+      // setProfilePicture(result.result[0].ProfilePicture)
       setProfileMessage(result.result[0].ProfileMessage)
       setPreferedAge1(result.result[0].PreferedAge1)
       setPreferedAge2(result.result[0].PreferedAge2)
