@@ -11,6 +11,7 @@ import ProfileDB from "./Profile.json";
 
 export function ProfileDetail() {
   let auth = useAuth();
+  const [ProfileArea, setProfileArea] = useState("0");
   const [Profile, setProfile] = useState([]);
   const [initialized, setinitialized] = useState(false);
 
@@ -28,6 +29,7 @@ export function ProfileDetail() {
       console.log(result)
       console.log(result.result)
       setProfile(result.result[0])
+      setProfileArea(Profile.Prefecture)
     })
     setinitialized(true)
   }
@@ -47,14 +49,8 @@ export function ProfileDetail() {
   
     //  profileTableにUUIDがあれば、プロフィールを表示＋設定ページボタンの表示
   } else {
-    let ProfileArea=ProfileDB.Area[Profile.Prefecture]
-    let AreaName="AreaName"
-    console.log(ProfileDB.Area[Profile.Prefecture])
-    console.log(ProfileDB.Area["1"])
-    console.log(ProfileDB.Area["1"]["AreaName"])
-    // console.log(ProfileDB.Area[Profile.Prefecture][AreaName])
-    // console.log(ProfileDB.Area[Profile.Prefecture]['AreaName'])
-    console.log(ProfileArea[AreaName])
+    console.log(ProfileDB.Area[ProfileArea])
+    console.log(ProfileDB.Area[ProfileArea]["AreaName"])
     return (
       <div>
         <h1>プロフィール</h1>
