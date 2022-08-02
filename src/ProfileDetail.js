@@ -73,15 +73,15 @@ export function ProfileDetail() {
           </li>
           <li>
             <span className="dan">バスト</span>
-            <span className="dan2">{ProfileDB.BustSize[Profile.BustSize]}</span>
+            <span className="dan2">{Profile.BustSize}</span>
           </li>
           <li>
             <span className="dan">ウエスト</span>
-            <span className="dan2">{ProfileDB.WestSize[Profile.WestSize]}</span>
+            <span className="dan2">{Profile.WestSize}</span>
           </li>
           <li>
             <span className="dan">ヒップ</span>
-            <span className="dan2">{ProfileDB.HipSize[Profile.HipSize]}</span>
+            <span className="dan2">{Profile.HipSize}</span>
           </li>
           <li>
             <span className="dan">血液型</span>
@@ -129,11 +129,11 @@ export function ProfileDetail() {
           </li>
           <li>
             <span className="dan">プロフィール写真</span>
-            <span className="dan2">{ProfileDB.ProfilePicture[Profile.ProfilePicture]}</span>
+            <span className="dan2">{Profile.ProfilePicture}</span>
           </li>
           <li>
             <span className="dan">メッセージ</span>
-            <span className="dan2">{ProfileDB.ProfileMessage[Profile.ProfileMessage]}</span>
+            <span className="dan2">{Profile.ProfileMessage}</span>
           </li>
           <li>
             <span className="dan">希望する年齢</span>
