@@ -63,10 +63,10 @@ if ($_POST['EduBack']=="") {
 } else {
   $EduBack=$_POST['EduBack'];
 }
-if ($_POST['BirthPrefecture']=="") {
-  $BirthPrefecture="未設定";
+if ($_POST['BirthPlace']=="") {
+  $BirthPlace="未設定";
 } else {
-  $BirthPrefecture=$_POST['BirthPrefecture'];
+  $BirthPlace=$_POST['BirthPlace'];
 }
 if ($_POST['Zodiac']=="") {
   $Zodiac="未設定";
@@ -113,10 +113,15 @@ if ($_POST['ProfileMessage']=="") {
 } else {
   $ProfileMessage=$_POST['ProfileMessage'];
 }
-if ($_POST['PreferedAge']=="") {
-  $PreferedAge="未設定";
+if ($_POST['PreferedAge1']=="") {
+  $PreferedAge1="未設定";
 } else {
-  $PreferedAge=$_POST['PreferedAge'];
+  $PreferedAge1=$_POST['PreferedAge1'];
+}
+if ($_POST['PreferedAge2']=="") {
+  $PreferedAge2="未設定";
+} else {
+  $PreferedAge2=$_POST['PreferedAge2'];
 }
 if ($_POST['PreferedPersonality']=="") {
   $PreferedPersonality="未設定";
@@ -182,7 +187,7 @@ $command_post="python3 update_profile.py " //pythonに引数を渡す
 .$BloodType." "
 .$Job." "
 .$EduBack." "
-.$BirthPrefecture." "
+.$BirthPlace." "
 .$Zodiac." "
 .$MarriageStatus." "
 .$Kids." "
@@ -192,7 +197,8 @@ $command_post="python3 update_profile.py " //pythonに引数を渡す
 .$Interest." "
 .$ProfilePicture." "
 .$ProfileMessage." "
-.$PreferedAge." "
+.$PreferedAge1." "
+.$PreferedAge2." "
 .$PreferedPersonality." "
 .$Personality." "
 .$SelfCute." "
