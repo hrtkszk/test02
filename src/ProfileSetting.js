@@ -378,7 +378,7 @@ export function ProfileSetting() {
                 <select
                   defaultValue="0" //defaultの読み込みと設定が必要
                   onChange={evt => setBirthPlace(evt.target.value)}>
-                    {Profile.Area.map(Area => <option value={Area.value}>{Area.name}</option>)}
+                    {/* {Profile.Area.map(Area => <option value={Area.value}>{Area.name}</option>)} */}
                 </select>
               </span>
             </li>
