@@ -23,7 +23,7 @@ export function ProfileDetail() {
   if (initialized===false) {
     fetch("../../get_profile.php",initialRequestOptions)
     .then((response)=> {
-      console.log(response)
+      // console.log(response)
       response.json()
     })
     .then(result =>{
@@ -42,7 +42,7 @@ export function ProfileDetail() {
               プロフィールを設定してください。
           </p>
           <Link to="../ProfileSetting">プロフィール設定</Link><br />
-          <Link to="../">戻る</Link>
+          <Link to="../../">戻る</Link>
       </>
     );
   
@@ -186,7 +186,7 @@ export function ProfileDetail() {
           </li>
         </ul>
         <div>
-          <Link to="../">戻る</Link>
+          <Link to="../../">戻る</Link>
         </div>
       </div>
     );
