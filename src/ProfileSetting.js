@@ -264,6 +264,8 @@ export function ProfileSetting() {
   if (Profile!==[]) {
     return (
       <div>
+        {console.log("displayed")}
+        {console.log(Profile)}
       <h1>プロフィール設定</h1>
         <form onSubmit={e => submit(e)}>
           <ul>
@@ -631,7 +633,10 @@ export function ProfileSetting() {
     );
   } else {
     return (
-      <></>
+      <>
+        {console.log("not display yet")}
+        {console.log(Profile)}
+      </>
     )
   } 
 }
