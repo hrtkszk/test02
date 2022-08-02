@@ -28,7 +28,7 @@ export function ProfileSetting() {
   // 経験・背景情報
   const [Job, setJob] = useState("");
   const [EduBack, setEduBack] = useState("");
-  const [BirthPrefecture, setBirthPrefecture] = useState("");
+  const [BirthPlace, setBirthPlace] = useState("");
   const [Zodiac, setZodiac] = useState("");
   // 交際情報
   const [MarriageStatus, setMarriageStatus] = useState("");
@@ -42,7 +42,8 @@ export function ProfileSetting() {
   // const [ProfilePicture, setProfilePicture] = useState("");
   const [ProfileMessage, setProfileMessage] = useState("");
   // 相手に求めること
-  const [PreferedAge, setPreferedAge] = useState("");
+  const [PreferedAge1, setPreferedAge1] = useState("");
+  const [PreferedAge2, setPreferedAge2] = useState("");
   const [PreferedPersonality, setPreferedPersonality] = useState("");
   // 内面的情報
   const [Personality, setPersonality] = useState("");
@@ -87,7 +88,7 @@ export function ProfileSetting() {
 
         "Job":Job,
         "EduBack":EduBack,
-        "BirthPrefecture":BirthPrefecture,
+        "BirthPlace":BirthPlace,
         "Zodiac":Zodiac,
 
         "MarriageStatus":MarriageStatus,
@@ -101,7 +102,8 @@ export function ProfileSetting() {
         // "ProfilePicture":ProfilePicture,
         "ProfileMessage":ProfileMessage,
 
-        "PreferedAge":PreferedAge,
+        "PreferedAge1":PreferedAge1,
+        "PreferedAge2":PreferedAge2,
         "PreferedPersonality":PreferedPersonality,
 
         "Personality":Personality,
@@ -374,7 +376,7 @@ export function ProfileSetting() {
               <span className="dan2">
                 <select
                   defaultValue="0" //defaultの読み込みと設定が必要
-                  onChange={evt => setBirthPrefecture(evt.target.value)}>
+                  onChange={evt => setBirthPlace(evt.target.value)}>
                     {Profile.Area.map(Area => <option value={Area.value}>{Area.name}</option>)}
                 </select>
               </span>
@@ -480,11 +482,11 @@ export function ProfileSetting() {
               <span className="dan2">
                 <select
                   defaultValue="0" //defaultの読み込みと設定が必要
-                  onChange={evt => setPreferedAge(evt.target.value)}>
+                  onChange={evt => setPreferedAge1(evt.target.value)}>
                     {Profile.PreferedAge.map(PreferedAge => <option value={PreferedAge.value}>{PreferedAge.name}</option>)}
                 </select>〜<select
                   defaultValue="0" //defaultの読み込みと設定が必要
-                  onChange={evt => setPreferedAge(evt.target.value)}>
+                  onChange={evt => setPreferedAge2(evt.target.value)}>
                     {Profile.PreferedAge.map(PreferedAge => <option value={PreferedAge.value}>{PreferedAge.name}</option>)}
                 </select>
               </span>
@@ -512,8 +514,11 @@ export function ProfileSetting() {
               </span>
             </li>
             <li>
+            <span className="dan">自己評価</span>
+            </li>
+            <li>
               {/* 星で表現したい。 */}
-              <span className="dan">自己評価(可愛さ)</span>
+              <span className="dan">可愛さ</span>
               <span className="dan2">
                 <select
                   defaultValue="0" //defaultの読み込みと設定が必要
@@ -523,7 +528,7 @@ export function ProfileSetting() {
               </span>
             </li>
             <li>
-              <span className="dan">自己評価(セクシー)</span>
+              <span className="dan">セクシーさ</span>
               <span className="dan2">
                 <select
                   defaultValue="0" //defaultの読み込みと設定が必要
@@ -533,7 +538,7 @@ export function ProfileSetting() {
               </span>
             </li>
             <li>
-              <span className="dan">自己評価(優しさ)</span>
+              <span className="dan">優しさ</span>
               <span className="dan2">
                 <select
                   defaultValue="0" //defaultの読み込みと設定が必要
@@ -543,7 +548,7 @@ export function ProfileSetting() {
               </span>
             </li>
             <li>
-              <span className="dan">自己評価(賢さ)</span>
+              <span className="dan">賢さ</span>
               <span className="dan2">
                 <select
                   defaultValue="0" //defaultの読み込みと設定が必要
@@ -553,7 +558,7 @@ export function ProfileSetting() {
               </span>
             </li>
             <li>
-              <span className="dan">自己評価(清楚さ)</span>
+              <span className="dan">清楚さ</span>
               <span className="dan2">
                 <select
                   defaultValue="0" //defaultの読み込みと設定が必要
@@ -563,7 +568,7 @@ export function ProfileSetting() {
               </span>
             </li>
             <li>
-              <span className="dan">自己評価(ファッション)</span>
+              <span className="dan">ファッション</span>
               <span className="dan2">
                 <select
                   defaultValue="0" //defaultの読み込みと設定が必要
@@ -573,7 +578,7 @@ export function ProfileSetting() {
               </span>
             </li>
             <li>
-              <span className="dan">自己評価(明るさ)</span>
+              <span className="dan">明るさ</span>
               <span className="dan2">
                 <select
                   defaultValue="0" //defaultの読み込みと設定が必要
