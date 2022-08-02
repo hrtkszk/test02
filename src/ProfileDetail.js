@@ -47,13 +47,14 @@ export function ProfileDetail() {
   
     //  profileTableにUUIDがあれば、プロフィールを表示＋設定ページボタンの表示
   } else {
+    console.log(ProfileDB.Area[Profile.Prefecture])
     return (
       <div>
         <h1>プロフィール</h1>
         <ul>
           <li>
             <span className="dan">エリア</span>
-            <span className="dan2">{ProfileDB.Area[Profile.Prefecture]}</span>
+            <span className="dan2"></span>
           </li>
           <li>
             <span className="dan">身長</span>
