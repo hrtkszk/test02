@@ -269,7 +269,7 @@ export function ProfileSetting() {
                 <select
                 defaultValue={ProfileDB.Area[ProfileArea]}//defaultの読み込みと設定が必要
                 onChange={evt => setPrefecture(evt.target.value)}>
-                  {Object.keys(ProfileDB.Area).map(key => <option value={key}>{ProfileDB.Area[key]}</option>)}
+                  {/* {Object.keys(ProfileDB.Area).map(key => <option value={key}>{ProfileDB.Area[key]}</option>)} */}
                 </select>
                 <AreaDetail Prefecture={Prefecture}/>
             </span>
@@ -398,7 +398,7 @@ export function ProfileSetting() {
                 <select
                   defaultValue="0" //defaultの読み込みと設定が必要
                   onChange={evt => setBirthPlace(evt.target.value)}>
-                    {Object.keys(ProfileDB.Area).map(key => <option value={key}>{ProfileDB.Area[key]}</option>)}
+                    {/* {Object.keys(ProfileDB.Area).map(key => <option value={key}>{ProfileDB.Area[key]}</option>)} */}
                 </select>
               </span>
             </li>
