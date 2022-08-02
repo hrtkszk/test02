@@ -99,7 +99,7 @@ export function ProfileDetail() {
           </li>
           <li>
             <span className="dan">出身地</span>
-            <span className="dan2">{ProfileDB.Area[Profile.BirthPlace]}</span>
+            <span className="dan2"></span>
           </li>
           <li>
             <span className="dan">星座</span>

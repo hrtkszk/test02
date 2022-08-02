@@ -396,7 +396,7 @@ export function ProfileSetting() {
               <span className="dan">出身地</span>
               <span className="dan2">
                 <select
-                  defaultValue={ProfileDB.Area[Profile.BirthPlace]} //defaultの読み込みと設定が必要
+                  defaultValue="0" //defaultの読み込みと設定が必要
                   onChange={evt => setBirthPlace(evt.target.value)}>
                     {Object.keys(ProfileDB.Area).map(key => <option value={key}>{ProfileDB.Area[key]}</option>)}
                 </select>
