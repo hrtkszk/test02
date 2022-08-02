@@ -24,12 +24,12 @@ export function ProfileDetail() {
     fetch("../../get_profile.php",initialRequestOptions)
     .then((response)=> {
       // console.log(response)
-      console.log(response.json())
       response.json()
     })
     .then(result =>{
+      console.log(result)
       console.log(result.result)
-      setProfile(result.result[0])
+      setProfile(result.result)
     })
     setinitialized(true)
   }
