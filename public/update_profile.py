@@ -43,7 +43,7 @@ if checkExist==None:
                 BloodType='{sys.argv[11]}', \
                 Job='{sys.argv[12]}', \
                 EduBack='{sys.argv[13]}', \
-                BirthPrefecture='{sys.argv[14]}', \
+                BirthPlace='{sys.argv[14]}', \
                 Zodiac='{sys.argv[15]}', \
                 MarriageStatus='{sys.argv[16]}', \
                 Kids='{sys.argv[17]}', \
@@ -53,17 +53,18 @@ if checkExist==None:
                 Interest='{sys.argv[21]}', \
                 ProfilePicture='{sys.argv[22]}', \
                 ProfileMessage='{sys.argv[23]}', \
-                PreferedAge='{sys.argv[24]}', \
-                PreferedPersonality='{sys.argv[25]}', \
-                Personality='{sys.argv[26]}', \
-                SelfCute='{sys.argv[27]}', \
-                SelfSexy='{sys.argv[28]}', \
-                SelfKindness='{sys.argv[29]}', \
-                SelfSmartness='{sys.argv[30]}', \
-                SelfNeatness='{sys.argv[31]}', \
-                SelfFashionable='{sys.argv[32]}', \
-                SelfBrightness='{sys.argv[33]}', \
-                SelfElegance='{sys.argv[34]}' \
+                PreferedAge1='{sys.argv[24]}', \
+                PreferedAge2='{sys.argv[25]}', \
+                PreferedPersonality='{sys.argv[26]}', \
+                Personality='{sys.argv[27]}', \
+                SelfCute='{sys.argv[28]}', \
+                SelfSexy='{sys.argv[29]}', \
+                SelfKindness='{sys.argv[30]}', \
+                SelfSmartness='{sys.argv[31]}', \
+                SelfNeatness='{sys.argv[32]}', \
+                SelfFashionable='{sys.argv[33]}', \
+                SelfBrightness='{sys.argv[34]}', \
+                SelfElegance='{sys.argv[35]}' \
         ")
         print("UPS") # Update Profile Success
     except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
@@ -88,7 +89,7 @@ else:
                 BloodType='{sys.argv[11]}', \
                 Job='{sys.argv[12]}', \
                 EduBack='{sys.argv[13]}', \
-                BirthPrefecture='{sys.argv[14]}', \
+                BirthPlace='{sys.argv[14]}', \
                 Zodiac='{sys.argv[15]}', \
                 MarriageStatus='{sys.argv[16]}', \
                 Kids='{sys.argv[17]}', \
@@ -98,17 +99,18 @@ else:
                 Interest='{sys.argv[21]}', \
                 ProfilePicture='{sys.argv[22]}', \
                 ProfileMessage='{sys.argv[23]}', \
-                PreferedAge='{sys.argv[24]}', \
-                PreferedPersonality='{sys.argv[25]}', \
-                Personality='{sys.argv[26]}', \
-                SelfCute='{sys.argv[27]}', \
-                SelfSexy='{sys.argv[28]}', \
-                SelfKindness='{sys.argv[29]}', \
-                SelfSmartness='{sys.argv[30]}', \
-                SelfNeatness='{sys.argv[31]}', \
-                SelfFashionable='{sys.argv[32]}', \
-                SelfBrightness='{sys.argv[33]}', \
-                SelfElegance='{sys.argv[34]}' \
+                PreferedAge1='{sys.argv[24]}', \
+                PreferedAge2='{sys.argv[25]}', \
+                PreferedPersonality='{sys.argv[26]}', \
+                Personality='{sys.argv[27]}', \
+                SelfCute='{sys.argv[28]}', \
+                SelfSexy='{sys.argv[29]}', \
+                SelfKindness='{sys.argv[30]}', \
+                SelfSmartness='{sys.argv[31]}', \
+                SelfNeatness='{sys.argv[32]}', \
+                SelfFashionable='{sys.argv[33]}', \
+                SelfBrightness='{sys.argv[34]}', \
+                SelfElegance='{sys.argv[35]}' \
             WHERE \
                 UUID='{sys.argv[1]}' \
         ")
