@@ -259,7 +259,7 @@ export function ProfileSetting() {
                 <select
                   defaultValue="0" //defaultの読み込みと設定が必要
                   onChange={evt => setHeight(evt.target.value)}>
-                    {Profile.Height.map(Height => <option value={Height.value}>{Height.name}</option>)}
+                  {Object.keys(Profile.Height).map(key => <option value={key}>{Profile.Height[key]}</option>)}
                 </select>
               </span>
             </li>
@@ -377,7 +377,7 @@ export function ProfileSetting() {
                 <select
                   defaultValue="0" //defaultの読み込みと設定が必要
                   onChange={evt => setBirthPlace(evt.target.value)}>
-                    {/* {Profile.Area.map(Area => <option value={Area.key}>{Area.value}</option>)} */}
+                    {Object.keys(Profile.Area).map(key => <option value={key}>{Profile.Area[key]}</option>)}
                 </select>
               </span>
             </li>
