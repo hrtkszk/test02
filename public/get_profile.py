@@ -14,39 +14,40 @@ connection = MySQLdb.connect(
     db=SQLconfig.db)
 
 profileTable="profileTable"
-
-# field name込みの場合はこっちを使う
-# cursor = connection.cursor(MySQLdb.cursors.DictCursor)
-cursor = connection.cursor()
 print("test")
-# 既読処理が必要。
-try:
-    cursor.execute(f"SELECT * FROM {profileTable} WHERE UUID='{sys.argv[1]}'")
 
-    # num_fields = len(cursor.description)
-    field_names = [i[0] for i in cursor.description]
-    print(field_names)
+# # field name込みの場合はこっちを使う
+# # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
+# cursor = connection.cursor()
 
-    print(cursor.fetchone())
-    # for row in cursor:
-    #     row1 = list()
-    #     for item in row:
-    #         if str(type(item)) == "<class 'datetime.datetime'>":
-    #             # 時間を文字列に変換（php側の処理対策）
-    #             row1.append(str(item.strftime("%Y/%m/%d %H:%M:%S")))
-    #         elif str(type(item)) == "<class 'str'>":
-    #             # phpでの文字列から配列への変換時の誤動作防止用前処理
-    #             item = item.replace("'","’")
-    #             row1.append(item.replace(', ', '，'))
-    #         else:
-    #             row1.append(item)
-    #     # printでのpythonからphpへの受け渡し
-    #     print (row1)
-except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
-    print(e)
+# # 既読処理が必要。
+# try:
+#     cursor.execute(f"SELECT * FROM {profileTable} WHERE UUID='{sys.argv[1]}'")
 
-# 保存を実行
-connection.commit()
+#     # num_fields = len(cursor.description)
+#     field_names = [i[0] for i in cursor.description]
+#     print(field_names)
 
-# 接続を閉じる
-connection.close()
+#     print(cursor.fetchone())
+#     # for row in cursor:
+#     #     row1 = list()
+#     #     for item in row:
+#     #         if str(type(item)) == "<class 'datetime.datetime'>":
+#     #             # 時間を文字列に変換（php側の処理対策）
+#     #             row1.append(str(item.strftime("%Y/%m/%d %H:%M:%S")))
+#     #         elif str(type(item)) == "<class 'str'>":
+#     #             # phpでの文字列から配列への変換時の誤動作防止用前処理
+#     #             item = item.replace("'","’")
+#     #             row1.append(item.replace(', ', '，'))
+#     #         else:
+#     #             row1.append(item)
+#     #     # printでのpythonからphpへの受け渡し
+#     #     print (row1)
+# except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
+#     print(e)
+
+# # 保存を実行
+# connection.commit()
+
+# # 接続を閉じる
+# connection.close()

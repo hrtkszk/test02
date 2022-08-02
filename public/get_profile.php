@@ -33,15 +33,13 @@ exec($command,$output); //python実行と、返り数受け取り
 if(empty($_POST['UUID'])) {
     echo json_encode(
         [
-            "result" => "test",
-            // "result" => $output2,
+            "result" => $output,
         ]
     );
 } else {
     echo json_encode(
         [
-            "result" => "test",
-            // "result" => $output2,
+            "result" => $output,
         ]
     );
 }
