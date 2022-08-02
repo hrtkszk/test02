@@ -99,7 +99,7 @@ export function ProfileDetail() {
           </li>
           <li>
             <span className="dan">出身地</span>
-            <span className="dan2"></span>
+            <span className="dan2">{ProfileDB.Area[Profile.BirthPlace]}</span>
           </li>
           <li>
             <span className="dan">星座</span>
@@ -150,8 +150,7 @@ export function ProfileDetail() {
             <span className="dan2">{ProfileDB.Personality[Profile.Personality]}</span>
           </li>
           <li>
-            <span className="dan">自己評価</span>
-            <span className="dan2"></span>
+            自己評価
           </li>
           <li>
             <span className="dan">可愛さ</span>
