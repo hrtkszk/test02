@@ -3,11 +3,11 @@ header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Headers: Content-Type');
 $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
 $_POST = json_decode($rest_json, true); // JSON文字列をデコード
-$command="python3 get_profile.py ".$_POST['UUID']; //pythonに引数を渡す
-exec($command,$output); //python実行と、返り数受け取り
+// $command="python3 get_profile.py ".$_POST['UUID']; //pythonに引数を渡す
+// exec($command,$output); //python実行と、返り数受け取り
 echo json_encode(
     [
-        "result"=>$output,
+        "result"=>"test",
     ]
 );
 
