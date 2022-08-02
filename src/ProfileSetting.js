@@ -259,7 +259,7 @@ export function ProfileSetting() {
     }
   }
 
-  if (Profile !== []) {
+  if (Profile.length !== 0) {
     return (
       <div>
       <h1>プロフィール設定</h1>

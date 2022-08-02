@@ -35,7 +35,7 @@ export function ProfileDetail() {
   }
 
   // profileTableにUUIDがなければ、プロフィール設定を促すページを表示
-  if (Profile===[]) {
+  if (Profile.length !== 0) {
     return (
       <>
           <h3>プロフィール</h3>
