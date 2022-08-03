@@ -264,7 +264,7 @@ export function ProfileSetting() {
   let latestPreferedAgeRange2 = JSON.parse(JSON.stringify(ProfileDB.PreferedAge))
   const [updatedPreferedAgeRange2, setlatestPreferedAgeRange2] = useState(latestPreferedAgeRange2);
 
-  function NicknameInput() {
+  const NicknameInput = () => {
     return (
       <input
         type="text"
