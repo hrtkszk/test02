@@ -242,6 +242,39 @@ export function ProfileSetting() {
       return <></>
     }
   }
+  
+  function PreferedAge1() {
+    return (
+      <select
+      defaultValue={PreferedAge1}
+      onChange={evt => {
+        setPreferedAge1(evt.target.value)
+      }}>
+        {Object.keys(ProfileDB.PreferedAge).map(key => {
+          <option value={key}>
+            {ProfileDB.PreferedAge[key]}
+          </option>
+        })}
+      </select>
+    )
+  }
+
+  function PreferedAge2() {
+    return (
+      <select
+      defaultValue={PreferedAge2}
+      onChange={evt => {
+        setPreferedAge2(evt.target.value)
+      }}>
+        {Object.keys(ProfileDB.PreferedAge).map(key => {
+          <option value={key}>
+            {ProfileDB.PreferedAge[key]}
+          </option>
+        })}      
+      </select>
+    )
+  }
+
 
   function MainSelection() {
     return (
@@ -495,15 +528,7 @@ export function ProfileSetting() {
               {/* 上・下を設けて、範囲設定できるようにする。上が下よりも小さくならないようにロジックが必要 */}
               <span className="dan">希望する年齢</span>
               <span className="dan2">
-                <select
-                  defaultValue={PreferedAge1}
-                  onChange={evt => setPreferedAge1(evt.target.value)}>
-                    {Object.keys(ProfileDB.PreferedAge).map(key => <option value={key}>{ProfileDB.PreferedAge[key]}</option>)}
-                </select>〜<select
-                  defaultValue={PreferedAge2}
-                  onChange={evt => setPreferedAge2(evt.target.value)}>
-                    {Object.keys(ProfileDB.PreferedAge).map(key => <option value={key}>{ProfileDB.PreferedAge[key]}</option>)}
-                </select>
+                {PreferedAge1}〜{PreferedAge2}
               </span>
             </li>
             <li>
