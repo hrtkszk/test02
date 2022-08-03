@@ -246,19 +246,6 @@ export function ProfileSetting() {
   let latestPreferedAgeRange2 = JSON.parse(JSON.stringify(ProfileDB.PreferedAge))
   const [updatedPreferedAgeRange2, setlatestPreferedAgeRange2] = useState(latestPreferedAgeRange2);
 
-  // function changePreferedAgeRange2() {
-  //   console.log(latestPreferedAgeRange2) //リセットされたか確認。
-  //   console.log(PreferedAge1)
-  //   console.log(PreferedAge2)
-  //   for (let i = 0 ; i < Number(PreferedAge1); i++) {
-  //     let j = ""
-  //     j= String(i)
-  //     delete latestPreferedAgeRange2[j]
-  //   }
-  //   console.log(latestPreferedAgeRange2) //レンジ変更後の確認。
-  //   setlatestPreferedAgeRange2(latestPreferedAgeRange2)
-  // }
-
   function MainSelection() {
     return (
       <div>
@@ -521,7 +508,6 @@ export function ProfileSetting() {
                       j= String(i)
                       delete latestPreferedAgeRange2[j]
                     }
-                    console.log(latestPreferedAgeRange2) //レンジ変更後の確認。
                     setlatestPreferedAgeRange2(latestPreferedAgeRange2)
                   }}>
                     {Object.keys(ProfileDB.PreferedAge).map(key => <option value={key}>{ProfileDB.PreferedAge[key]}</option>)}
