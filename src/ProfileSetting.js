@@ -218,8 +218,7 @@ export function ProfileSetting() {
         <select
           defaultValue={City}
           onChange={evt => setCity(evt.target.value)}>
-            {console.log(Prefecture)}
-            {Object.keys(ProfileDB.Area[Area]["Prefecture"]["1"]["City"]).map(key => <option value={key}>{AreaDB.Area[Area]["Prefecture"]["1"]["City"][key]}</option>)}
+            {Object.keys(AreaDB.Area[Area]["Prefecture"][Prefecture]["City"]).map(key => <option value={key}>{AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][key]}</option>)}
         </select>
       )
     } else {
