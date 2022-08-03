@@ -264,12 +264,20 @@ export function ProfileSetting() {
   let latestPreferedAgeRange2 = JSON.parse(JSON.stringify(ProfileDB.PreferedAge))
   const [updatedPreferedAgeRange2, setlatestPreferedAgeRange2] = useState(latestPreferedAgeRange2);
 
-
-
-
-
-
-
+  function NicknameInput() {
+    return (
+      <input
+        type="text"
+        defaultValue={Nickname}
+        onChange={evt => {
+          // 本当は、サーバー側でも入力制限を設けたい。
+          setNickname(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
+        }}
+        placeholder='ニックネーム'
+        required
+      />
+    )    
+  }
   function MainSelection() {
     return (
       <div>
@@ -279,16 +287,7 @@ export function ProfileSetting() {
             <li>
               <span className="dan">ニックネーム</span>
               <span className="dan2">
-                <input
-                  type="text"
-                  defaultValue={Nickname}
-                  onChange={evt => {
-                    // 本当は、サーバー側でも入力制限を設けたい。
-                    setNickname(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
-                  }}
-                  placeholder='ニックネーム'
-                  required
-                />
+                <NicknameInput />
               </span>
             </li>
             <li>
