@@ -246,7 +246,6 @@ export function ProfileSetting() {
   let latestPreferedAgeRange2 = JSON.parse(JSON.stringify(ProfileDB.PreferedAge))
   const [updatedPreferedAgeRange2, setlatestPreferedAgeRange2] = useState(latestPreferedAgeRange2);
 
-
   function changePreferedAgeRange2() {
     console.log(latestPreferedAgeRange2) //リセットされたか確認。
     console.log(PreferedAge1)
@@ -259,33 +258,6 @@ export function ProfileSetting() {
     console.log(latestPreferedAgeRange2) //レンジ変更後の確認。
     setlatestPreferedAgeRange2(latestPreferedAgeRange2)
   }
-
-  function PreferedAgeRange1() {
-    return (
-      <select
-      defaultValue={PreferedAge1}
-      onChange={evt => {
-        setPreferedAge1(evt.target.value)
-        latestPreferedAgeRange2 = JSON.parse(JSON.stringify(ProfileDB.PreferedAge)) // 一度リセットする
-        changePreferedAgeRange2()
-      }}>
-        {Object.keys(ProfileDB.PreferedAge).map(key => <option value={key}>{ProfileDB.PreferedAge[key]}</option>)}
-      </select>
-    )
-  }
-
-  function PreferedAgeRange2() {
-    return (
-      <select
-      defaultValue={PreferedAge2}
-      onChange={evt => {
-        setPreferedAge2(evt.target.value)
-      }}>
-        {Object.keys(updatedPreferedAgeRange2).map(key => <option value={key}>{updatedPreferedAgeRange2[key]}</option>)}
-      </select>
-    )
-  }
-
 
   function MainSelection() {
     return (
@@ -539,7 +511,23 @@ export function ProfileSetting() {
               {/* 上・下を設けて、範囲設定できるようにする。上が下よりも小さくならないようにロジックが必要 */}
               <span className="dan">希望する年齢</span>
               <span className="dan2">
-                <PreferedAgeRange1/>〜<PreferedAgeRange2/>
+                <select
+                  defaultValue={PreferedAge1}
+                  onChange={evt => {
+                    setPreferedAge1(evt.target.value)
+                    latestPreferedAgeRange2 = JSON.parse(JSON.stringify(ProfileDB.PreferedAge)) // 一度リセットする
+                    changePreferedAgeRange2()
+                  }}>
+                    {Object.keys(ProfileDB.PreferedAge).map(key => <option value={key}>{ProfileDB.PreferedAge[key]}</option>)}
+                </select>
+                〜
+                <select
+                  defaultValue={PreferedAge2}
+                  onChange={evt => {
+                    setPreferedAge2(evt.target.value)
+                  }}>
+                    {Object.keys(updatedPreferedAgeRange2).map(key => <option value={key}>{updatedPreferedAgeRange2[key]}</option>)}
+                </select>
               </span>
             </li>
             <li>
