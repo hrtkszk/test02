@@ -57,22 +57,8 @@ export function ProfileDetail() {
       </>
     )
   }
-
-  // profileTableにUUIDがなければ、プロフィール設定を促すページを表示
-  if (Profile.length === 0) {
-    return (
-      <>
-          <h3>プロフィール</h3>
-          <p>
-              プロフィールを設定してください。
-          </p>
-          <Link to="../ProfileSetting">プロフィール設定</Link><br />
-          <Link to="../../">戻る</Link>
-      </>
-    );
-  
-    //  profileTableにUUIDがあれば、プロフィールを表示＋設定ページボタンの表示
-  } else {
+  //  profileTableにUUIDがあれば、プロフィールを表示＋設定ページボタンの表示
+  if (Profile.length !== 0) {
     return (
       <div>
         <h1>プロフィール</h1>
@@ -216,6 +202,20 @@ export function ProfileDetail() {
           <Link to="../../">戻る</Link>
         </div>
       </div>
+    );
+  
+  
+  // profileTableにUUIDがない場合、もしくはそれ以外は、プロフィール設定を促すページを表示
+  } else {
+    return (
+      <>
+          <h3>プロフィール</h3>
+          <p>
+              プロフィールを設定してください。
+          </p>
+          <Link to="../ProfileSetting">プロフィール設定</Link><br />
+          <Link to="../../">戻る</Link>
+      </>
     );
   }
 }
