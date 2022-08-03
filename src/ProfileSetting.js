@@ -63,7 +63,7 @@ export function ProfileSetting() {
 
   let navigate = useNavigate();
 
-  const [Profile, setProfile] = useState([]);
+  // const [Profile, setProfile] = useState([]);
   const [initialized, setinitialized] = useState(false);
 
   const initialRequestOptions ={
@@ -78,7 +78,7 @@ export function ProfileSetting() {
     .then((response) => response.json())
     .then(result => {
       if (result.result !== "PND") {
-        setProfile(result.result[0])
+        // setProfile(result.result[0])
         setArea(result.result[0].Area)
         setPrefecture(result.result[0].Prefecture)
         setCity(result.result[0].City)
@@ -114,9 +114,10 @@ export function ProfileSetting() {
         setSelfFashionable(result.result[0].SelfFashionable)
         setSelfBrightness(result.result[0].SelfBrightness)
         setSelfElegance(result.result[0].SelfElegance)
-      } else {
-        setProfile("")
       }
+      // } else {
+      //   setProfile("")
+      // }
     })
     setinitialized(true)
   }
