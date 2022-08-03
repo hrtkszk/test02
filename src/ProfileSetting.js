@@ -243,7 +243,7 @@ export function ProfileSetting() {
     }
   }
   
-  function PreferedAge1() {
+  function setPreferedAge1() {
     return (
       <select
       defaultValue={PreferedAge1}
@@ -259,7 +259,7 @@ export function ProfileSetting() {
     )
   }
 
-  function PreferedAge2() {
+  function setPreferedAge2() {
     return (
       <select
       defaultValue={PreferedAge2}
@@ -528,7 +528,7 @@ export function ProfileSetting() {
               {/* 上・下を設けて、範囲設定できるようにする。上が下よりも小さくならないようにロジックが必要 */}
               <span className="dan">希望する年齢</span>
               <span className="dan2">
-                {PreferedAge1}〜{PreferedAge2}
+                {setPreferedAge1}〜{setPreferedAge2}
               </span>
             </li>
             <li>
