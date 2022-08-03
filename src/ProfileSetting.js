@@ -63,7 +63,6 @@ export function ProfileSetting() {
 
   let navigate = useNavigate();
 
-  // const [Profile, setProfile] = useState([]);
   const [initialized, setinitialized] = useState(false);
 
   const initialRequestOptions ={
@@ -78,8 +77,7 @@ export function ProfileSetting() {
     .then((response) => response.json())
     .then(result => {
       if (result.result !== "PND") {
-        // setProfile(result.result[0])
-        console.log(result.result[0])
+        // console.log(result.result[0])
         setArea(result.result[0].Area)
         setPrefecture(result.result[0].Prefecture)
         setCity(result.result[0].City)
@@ -116,9 +114,6 @@ export function ProfileSetting() {
         setSelfBrightness(result.result[0].SelfBrightness)
         setSelfElegance(result.result[0].SelfElegance)
       }
-      // } else {
-      //   setProfile("")
-      // }
     })
     setinitialized(true)
   }
@@ -126,10 +121,7 @@ export function ProfileSetting() {
   // 入力値に問題があれば遷移しない。問題なければ遷移する
   const submit = e => {
     e.preventDefault();
-    // SubmitStat = true;
-  // }
 
-  // const setTempRegister = () => {
     const requestOptions1 ={
       method: 'POST',
       headers:{'Content-Type': 'application/json'},
@@ -254,7 +246,6 @@ export function ProfileSetting() {
             <li>
               <span className="dan">身長</span>
               <span className="dan2">
-                {console.log(Height)}
                 <select
                   defaultValue={Height}
                   onChange={evt => setHeight(evt.target.value)}>

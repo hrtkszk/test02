@@ -54,11 +54,13 @@ export function ProfileDetail() {
   }
   
   function ShowCity() {
-    return (
-      <>
-        {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["City"][Profile.City]}
-      </>
-    )
+    if (Profile.Prefecture !== "0") {
+      return (
+        <>
+          {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["City"][Profile.City]}
+        </>
+      )
+    }
   }
 
     // Profileが空か、[]の場合、プロフィール設定を促すページを表示
@@ -83,7 +85,7 @@ export function ProfileDetail() {
           <li>
             <span className="dan">エリア</span>
             <span className="dan2">
-              {AreaDB.Area[Profile.Area]["AreaName"]}
+              {/* {AreaDB.Area[Profile.Area]["AreaName"]} */}
               <ShowPrefecture/>
             </span>
           </li>
