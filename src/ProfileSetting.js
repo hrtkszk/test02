@@ -503,7 +503,7 @@ export function ProfileSetting() {
                   onChange={evt => {
                     setPreferedAge1(evt.target.value)
                     latestPreferedAgeRange2 = JSON.parse(JSON.stringify(ProfileDB.PreferedAge)) // 一度リセットする
-                    for (let i = 0 ; i < Number(evt.target.value); i++) {
+                    for (let i = 1 ; i < Number(evt.target.value); i++) {
                       let j = ""
                       j= String(i)
                       delete latestPreferedAgeRange2[j]
