@@ -150,7 +150,7 @@ export function ProfileDetail() {
           </li>
           <li>
             <span className="dan">年齢確認</span>
-            <span className="dan2">{BasicProfile.ageConfirmation}</span>
+            <span className="dan2">{ProfileDB.Gender[BasicProfile.ageConfirmation]}</span>
           </li>
           <li>
             <span className="dan">エリア</span>

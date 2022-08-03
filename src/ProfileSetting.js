@@ -17,7 +17,6 @@ export function ProfileSetting() {
   const [Nickname, setNickname] = useState("0");
   const [Gender, setGender] = useState("0");
   const [Age, setAge] = useState("0");
-  const [AgeConfirmation, setAgeConfirmation] = useState("0");
   // 地域状況
   const [Area, setArea] = useState("0");
   const [Prefecture, setPrefecture] = useState("0");
@@ -84,7 +83,6 @@ export function ProfileSetting() {
       setNickname(result.result[0].nickname)
       setGender(result.result[0].gender)
       setAge(result.result[0].age)
-      setAgeConfirmation(result.result[0].ageConfirmation)
     })
 
     fetch("../../get_profile.php",initialRequestOptions)
@@ -137,24 +135,15 @@ export function ProfileSetting() {
   const submit = e => {
     e.preventDefault();
 
-    const requestOptions0 ={
-      method: 'POST',
-      headers:{'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        "UUID":auth.user,
-        "nickname":Nickname,
-        "gender":Gender,
-        "age":Age,
-      })
-    }
-    console.log(requestOptions0)
-    console.log(AgeConfirmation)
-
     const requestOptions1 ={
       method: 'POST',
       headers:{'Content-Type': 'application/json'},
       body: JSON.stringify({
         "UUID":auth.user,
+
+        "nickname":Nickname,
+        "gender":Gender,
+        "age":Age,
 
         "Area":Area,
         "Prefecture":Prefecture,

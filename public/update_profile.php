@@ -3,6 +3,21 @@ header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Headers: Content-Type');
 $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
 $_POST = json_decode($rest_json, true); // JSON文字列をデコード
+if ($_POST['nickname']=="") {
+  $nickname="未設定";
+} else {
+  $nickname=$_POST['nickname'];
+}
+if ($_POST['gender']=="") {
+  $gender="未設定";
+} else {
+  $gender=$_POST['gender'];
+}
+if ($_POST['age']=="") {
+  $age="未設定";
+} else {
+  $age=$_POST['age'];
+}
 if ($_POST['Area']=="") {
   $Area="未設定";
 } else {
@@ -185,6 +200,9 @@ if ($_POST['SelfElegance']=="") {
 }
 $command_post="python3 update_profile.py " //pythonに引数を渡す
 .$_POST['UUID']." "
+.$nickname." "
+.$gender." "
+.$age." "
 .$Area." "
 .$Prefecture." "
 .$City." "

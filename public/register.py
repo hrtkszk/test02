@@ -24,7 +24,7 @@ try:
     cursor = connection.cursor()
 
     # 該当するUUIDのRegistrationStatusを1に変更する。
-    cursor.execute(f"INSERT `{SQLconfig.db}`.`{profiletable}` (`UUID`, `nickname`, `gender`, `age`, `RegistrationStatus`, `ageConfirmation`) VALUES ('{sys.argv[1]}', '{sys.argv[2]}', '{sys.argv[3]}', '{sys.argv[4]}', '1', '0')")
+    cursor.execute(f"INSERT `{profiletable}` (`UUID`, `nickname`, `gender`, `age`, `RegistrationStatus`, `ageConfirmation`) VALUES ('{sys.argv[1]}', '{sys.argv[2]}', '{sys.argv[3]}', '{sys.argv[4]}', '1', '0')")
 
     print("RC") # Registration Complete
 
