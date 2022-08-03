@@ -26,6 +26,7 @@ export function ProfileDetail() {
     fetch("../../get_profile.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
+      console.log(result.result)
       if (result.result !== "PND") {
         setProfile(result.result[0])
       } else {
@@ -62,8 +63,8 @@ export function ProfileDetail() {
 
   console.log(Profile)
 
-  //  profileTableにUUIDがあれば、プロフィールを表示＋設定ページボタンの表示
-  if (Profile !== "") {
+  //  Profileが空でない場合、もしくは[]でない場合、プロフィールを表示＋設定ページボタンの表示
+  if (Profile !== "" || Profile !== []) {
     return (
       <div>
         <h1>プロフィール</h1>
@@ -208,9 +209,8 @@ export function ProfileDetail() {
         </div>
       </div>
     );
-  
-  
-  // profileTableにUUIDがない場合、もしくはそれ以外は、プロフィール設定を促すページを表示
+
+  // Profileが空か、[]の場合、プロフィール設定を促すページを表示
   } else {
     return (
       <>
