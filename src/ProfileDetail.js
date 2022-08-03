@@ -36,30 +36,44 @@ export function ProfileDetail() {
     setinitialized(true)
   }
   
-  function ShowPrefecture() {
-    if (Profile.Area !== "0") {
+  function ShowArea() {
+    // Area未設定の場合→「未設定」と表示
+    if (Profile.Area === "0") {
       return (
         <>
-          {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["PrefectureName"]}
-          <ShowCity/>
+          {AreaDB.Area[Profile.Area]["AreaName"]}
         </>
       )
+    
+    // Areaが設定されている場合
     } else {
-      return (
-        <>
-          {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["PrefectureName"]}
-        </>
-      )
-    }
-  }
-  
-  function ShowCity() {
-    if (Profile.Prefecture !== "0") {
-      return (
-        <>
-          {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["City"][Profile.City]}
-        </>
-      )
+      // Prefectureが未設定の場合→「Area」のみを表示
+      if (Profile.Prefecture === "0") {
+        return (
+          <>
+            {AreaDB.Area[Profile.Area]["AreaName"]}
+          </>
+        )
+      
+      // Prefectureが設定されている場合
+      } else {
+        // Cityが未設定の場合→「Area」と「Prefecture」を表示
+        if (Profile.City === "0") {
+          return (
+            <>
+              {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["PrefectureName"]}
+            </>
+          )
+        // Cityが設定されている場合→「Area」「Prefecture」「City」を表示
+        } else {
+          return (
+            <>
+              {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["PrefectureName"]}
+              {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["City"][Profile.City]}
+            </>
+          )
+        }
+      }
     }
   }
 
@@ -85,8 +99,7 @@ export function ProfileDetail() {
           <li>
             <span className="dan">エリア</span>
             <span className="dan2">
-              {/* {AreaDB.Area[Profile.Area]["AreaName"]} */}
-              <ShowPrefecture/>
+              <ShowArea/>
             </span>
           </li>
           <li>
