@@ -61,8 +61,6 @@ export function ProfileDetail() {
     )
   }
 
-  console.log(Profile)
-
     // Profileが空か、[]の場合、プロフィール設定を促すページを表示
   if (Profile.length === 0 || Profile === "") {
     return (
@@ -80,12 +78,13 @@ export function ProfileDetail() {
   } else {
     return (
       <div>
-        {console.log(Profile)}
+        
         <h1>プロフィール</h1>
         <ul>
           <li>
             <span className="dan">エリア</span>
             <span className="dan2">
+              {console.log(Profile.Area)}
               {AreaDB.Area[Profile.Area]["AreaName"]}
               <ShowPrefecture/>
             </span>
