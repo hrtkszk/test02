@@ -8,12 +8,14 @@ import { useState } from 'react';
 import { useAuth } from "./useAuth";
 import "./ProfileDetail.css";
 import ProfileDB from "./Profile.json";
+import AreaDB from "./Area.json";
 
 
 export function ProfileSetting() {
   //  各ステータスのdefaultにすでに設定された値を入れたい。
   // console.log(Profile.Area);
   // 地域状況
+  const [Area, setArea] = useState("");
   const [Prefecture, setPrefecture] = useState("");
   const [City, setCity] = useState("");
   // 身体的情報
@@ -76,6 +78,7 @@ export function ProfileSetting() {
     .then((response) => response.json())
     .then(result => {
       setProfile(result.result[0])
+      setArea(result.result[0].Area)
       setPrefecture(result.result[0].Prefecture)
       setCity(result.result[0].City)
       setHeight(result.result[0].Height)
@@ -127,6 +130,7 @@ export function ProfileSetting() {
       body: JSON.stringify({
         "UUID":auth.user,
 
+        "Area":Area,
         "Prefecture":Prefecture,
         "City":City,
         "Height":Height,
@@ -186,13 +190,30 @@ export function ProfileSetting() {
     })
   }
 
-  function AreaDetail() {
+  function PrefectureSelect() {
+    if (Area !== "0") {
+      return (
+        <>
+          <select
+            defaultValue={Prefecture}
+            onChange={evt => setPrefecture(evt.target.value)}>
+              {Object.keys(AreaDB.Area[Area]["Prefecture"]).map(key => <option value={key}>{AreaDB.Area[Area]["Prefecture"][key]["PrefectureName"]}</option>)}
+          </select>
+          <CitySelect/>
+        </>
+      )
+    } else {
+      return <></>
+    }
+  }
+  
+  function CitySelect() {
     if (Prefecture !== "0") {
       return (
         <select
           defaultValue={City}
           onChange={evt => setCity(evt.target.value)}>
-            {Object.keys(ProfileDB.Area[Prefecture]["DetailArea"]).map(key => <option value={key}>{ProfileDB.Area[Prefecture]["DetailArea"][key]}</option>)}
+            {Object.keys(ProfileDB.Area[Area]["Prefecture"][Prefecture]["City"]).map(key => <option value={key}>{AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][key]}</option>)}
         </select>
       )
     } else {
@@ -210,11 +231,11 @@ export function ProfileSetting() {
             <span className="dan">エリア</span>
             <span className="dan2">
               <select
-                defaultValue={Prefecture}
-                onChange={evt => setPrefecture(evt.target.value)}>
-                  {Object.keys(ProfileDB.Area).map(key => <option value={key}>{ProfileDB.Area[key]["AreaName"]}</option>)}
+                defaultValue={Area}
+                onChange={evt => setArea(evt.target.value)}>
+                  {Object.keys(AreaDB.Area).map(key => <option value={key}>{AreaDB.Area[key]["AreaName"]}</option>)}
               </select>
-              <AreaDetail/>
+              <PrefectureSelect/>
             </span>
             </li>
             <li>
@@ -339,9 +360,10 @@ export function ProfileSetting() {
               <span className="dan">出身地</span>
               <span className="dan2">
                 <select
-                  defaultValue="0" //defaultの読み込みと設定が必要
+                  // エリアの設定から必要
+                  // defaultValue={BirthPlace} //defaultの読み込みと設定が必要
                   onChange={evt => setBirthPlace(evt.target.value)}>
-                    {Object.keys(ProfileDB.Area).map(key => <option value={key}>{ProfileDB.Area[key]["AreaName"]}</option>)}
+                    {/* {Object.keys(AreaDB.Area[Area]["Prefecture"]).map(key => <option value={key}>{AreaDB.Area[Area]["Prefecture"][key]["PrefectureName"]}</option>)} */}
                 </select>
               </span>
             </li>

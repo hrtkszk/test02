@@ -8,10 +8,10 @@ import { useState } from 'react';
 import { useAuth } from "./useAuth";
 import "./ProfileDetail.css";
 import ProfileDB from "./Profile.json";
+import AreaDB from "./Area.json";
 
 export function ProfileDetail() {
   let auth = useAuth();
-  const [ProfileArea, setProfileArea] = useState("0");
   const [Profile, setProfile] = useState([]);
   const [initialized, setinitialized] = useState(false);
 
@@ -29,9 +29,33 @@ export function ProfileDetail() {
       console.log(result)
       console.log(result.result)
       setProfile(result.result[0])
-      setProfileArea(result.result[0].Prefecture)
     })
     setinitialized(true)
+  }
+
+  function ShowPrefecture() {
+    if (Profile.Area !== "0") {
+      return (
+        <>
+          {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["PrefectureName"]}
+          <ShowCity/>
+        </>
+      )
+    } else {
+      return (
+        <>
+          {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["PrefectureName"]}
+        </>
+      )
+    }
+  }
+  
+  function ShowCity() {
+    return (
+      <>
+        {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["City"][Profile.City]}
+      </>
+    )
   }
 
   // profileTableにUUIDがなければ、プロフィール設定を促すページを表示
@@ -55,7 +79,10 @@ export function ProfileDetail() {
         <ul>
           <li>
             <span className="dan">エリア</span>
-            <span className="dan2">{ProfileDB.Area[ProfileArea]["AreaName"]}　{ProfileDB.Area[ProfileArea]["DetailArea"][Profile.City]}</span>
+            <span className="dan2">
+              {AreaDB.Area[Profile.Area]["AreaName"]}
+              <ShowPrefecture/>
+            </span>
           </li>
           <li>
             <span className="dan">身長</span>
