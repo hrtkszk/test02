@@ -292,7 +292,7 @@ export function ProfileSetting() {
               <span className="dan2">
                 <input
                   type="text"
-                  value={Nickname}
+                  defaultValue={Nickname}
                   onChange={evt => {
                     // 本当は、サーバー側でも入力制限を設けたい。
                     setNickname(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
@@ -317,7 +317,7 @@ export function ProfileSetting() {
               <span className="dan2">
               <input
                   type="number"
-                  value={Age}
+                  defaultValue={Age}
                   onChange={evt => {
                     // 本当は、サーバー側でも入力制限を設けたい。
                     setAge(evt.target.value)

@@ -145,8 +145,12 @@ export function ProfileDetail() {
             <span className="dan2">{ProfileDB.Gender[BasicProfile.gender]}</span>
           </li>
           <li>
-            <span className="dan">ニックネーム</span>
+            <span className="dan">年齢</span>
             <span className="dan2">{BasicProfile.age}</span>
+          </li>
+          <li>
+            <span className="dan">年齢確認</span>
+            <span className="dan2">{BasicProfile.ageConfirmation}</span>
           </li>
           <li>
             <span className="dan">エリア</span>
