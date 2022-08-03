@@ -34,13 +34,13 @@ if($output[1]!="None") {
     if(empty($_POST['UUID'])) {
         echo json_encode(
             [
-                "result" => $output,
+                "result" => $output2,
             ]
         );
     } else {
         echo json_encode(
             [
-                "result" => $output,
+                "result" => $output2,
             ]
         );
     }
