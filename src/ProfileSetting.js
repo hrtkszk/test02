@@ -267,7 +267,7 @@ export function ProfileSetting() {
       defaultValue={PreferedAge2}
       onChange={evt => {
         setPreferedAge2(evt.target.value)
-        changePreferedAgeRange1
+        changePreferedAgeRange1()
       }}>
         {Object.keys(ProfileDB.PreferedAge).map(key => <option value={key}>{ProfileDB.PreferedAge[key]}</option>)}
       </select>
