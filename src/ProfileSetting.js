@@ -250,11 +250,7 @@ export function ProfileSetting() {
       onChange={evt => {
         setPreferedAge1(evt.target.value)
       }}>
-        {Object.keys(ProfileDB.PreferedAge).map(key => {
-          <option value={key}>
-            {ProfileDB.PreferedAge[key]}
-          </option>
-        })}
+        {Object.keys(ProfileDB.PreferedAge).map(key => <option value={key}>{ProfileDB.PreferedAge[key]}</option>)}
       </select>
     )
   }
@@ -266,11 +262,7 @@ export function ProfileSetting() {
       onChange={evt => {
         setPreferedAge2(evt.target.value)
       }}>
-        {Object.keys(ProfileDB.PreferedAge).map(key => {
-          <option value={key}>
-            {ProfileDB.PreferedAge[key]}
-          </option>
-        })}      
+        {Object.keys(ProfileDB.PreferedAge).map(key => <option value={key}>{ProfileDB.PreferedAge[key]}</option>)}
       </select>
     )
   }
