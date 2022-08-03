@@ -243,6 +243,9 @@ export function ProfileSetting() {
     }
   }
 
+  let latestPreferedAgeRange1 = JSON.parse(JSON.stringify(ProfileDB.PreferedAge))
+  const [updatedPreferedAgeRange1, setlatestPreferedAgeRange1] = useState(latestPreferedAgeRange1);
+
   let latestPreferedAgeRange2 = JSON.parse(JSON.stringify(ProfileDB.PreferedAge))
   const [updatedPreferedAgeRange2, setlatestPreferedAgeRange2] = useState(latestPreferedAgeRange2);
 
@@ -510,13 +513,20 @@ export function ProfileSetting() {
                     }
                     setlatestPreferedAgeRange2(latestPreferedAgeRange2)
                   }}>
-                    {Object.keys(ProfileDB.PreferedAge).map(key => <option value={key}>{ProfileDB.PreferedAge[key]}</option>)}
+                    {Object.keys(updatedPreferedAgeRange1).map(key => <option value={key}>{updatedPreferedAgeRange1[key]}</option>)}
                 </select>
                 〜
                 <select
                   defaultValue={PreferedAge2}
                   onChange={evt => {
                     setPreferedAge2(evt.target.value)
+                    latestPreferedAgeRange1 = JSON.parse(JSON.stringify(ProfileDB.PreferedAge)) // 一度リセットする
+                    for (let i = Number(evt.target.value) ; i <= 17 ; i++) {
+                      let j = ""
+                      j= String(i)
+                      delete latestPreferedAgeRange1[j]
+                    }
+                    setlatestPreferedAgeRange1(latestPreferedAgeRange1)
                   }}>
                     {Object.keys(updatedPreferedAgeRange2).map(key => <option value={key}>{updatedPreferedAgeRange2[key]}</option>)}
                 </select>
