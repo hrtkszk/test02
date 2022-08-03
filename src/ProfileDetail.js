@@ -60,8 +60,10 @@ export function ProfileDetail() {
     )
   }
 
+  console.log(Profile)
+
   //  profileTableにUUIDがあれば、プロフィールを表示＋設定ページボタンの表示
-  if (Profile.length !== 0) {
+  if (Profile !== "") {
     return (
       <div>
         <h1>プロフィール</h1>
