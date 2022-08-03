@@ -78,13 +78,11 @@ export function ProfileDetail() {
   } else {
     return (
       <div>
-        
         <h1>プロフィール</h1>
         <ul>
           <li>
             <span className="dan">エリア</span>
             <span className="dan2">
-              {console.log(Profile.Area)}
               {AreaDB.Area[Profile.Area]["AreaName"]}
               <ShowPrefecture/>
             </span>
