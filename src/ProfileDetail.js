@@ -64,7 +64,7 @@ export function ProfileDetail() {
   console.log(Profile)
 
     // Profileが空か、[]の場合、プロフィール設定を促すページを表示
-  if (Profile === [] || Profile === "") {
+  if (Profile.length === 0 || Profile === "") {
     return (
       <>
           <h3>プロフィール</h3>
