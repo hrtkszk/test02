@@ -251,7 +251,7 @@ export function ProfileSetting() {
       for (let i = Number(PreferedAge2) + 1; i < 17; i++) {
         let j = ""
         j= String(i)
-        delete latestPreferedAgeRange1.j
+        delete latestPreferedAgeRange1[j]
       }
       console.log(latestPreferedAgeRange1)
       setPreferedAgeRange1(latestPreferedAgeRange1)
