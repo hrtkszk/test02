@@ -266,7 +266,7 @@ export function ProfileSetting() {
       defaultValue={PreferedAge1}
       onChange={evt => {
         setPreferedAge1(evt.target.value)
-        latestPreferedAgeRange2 = JSON.parse(ProfileDB.PreferedAge) // 一度リセットする
+        latestPreferedAgeRange2 = JSON.parse(JSON.stringify(ProfileDB.PreferedAge)) // 一度リセットする
         changePreferedAgeRange2()
       }}>
         {Object.keys(ProfileDB.PreferedAge).map(key => <option value={key}>{ProfileDB.PreferedAge[key]}</option>)}
