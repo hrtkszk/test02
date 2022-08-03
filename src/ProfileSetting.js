@@ -247,10 +247,9 @@ export function ProfileSetting() {
   const [latestPreferedAgeRange2, setPreferedAgeRange2] = useState(ProfileDB.PreferedAge);
 
   function changePreferedAgeRange1() {
-    let j=""
     if (Number(PreferedAge1) > Number(PreferedAge2)) {
       for (let i = Number(PreferedAge2) + 1; i < 17; i++) {
-        j = String(i)
+        let j = String(i)
         delete latestPreferedAgeRange1.j
       }
       console.log(latestPreferedAgeRange1)
