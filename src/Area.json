@@ -9,7 +9,7 @@
             }
         },
         "1":{
-            "AreaName":"北海道",
+            "AreaName":"北海道地方",
             "Prefecture":{
                 "0":{
                     "PrefectureName":"未設定"
@@ -151,7 +151,7 @@
             }
         },
         "2":{
-            "AreaName":"東北",
+            "AreaName":"東北地方",
             "Prefecture":{
                 "0":{
                     "PrefectureName":"未設定"
@@ -310,7 +310,7 @@
             }
         },
         "3":{
-            "AreaName":"甲信越",
+            "AreaName":"甲信越地方",
             "Prefecture":{
                 "0":{
                     "PrefectureName":"未設定"
@@ -409,7 +409,7 @@
             }
         },
         "4":{
-            "AreaName":"関東",
+            "AreaName":"関東地方",
             "Prefecture":{
                 "0":{
                     "PrefectureName":"未設定"
@@ -730,7 +730,7 @@
             }
         },
         "5":{
-            "AreaName":"北陸",
+            "AreaName":"北陸地方",
             "Prefecture":{
                 "0":{
                     "PrefectureName":"未設定"
@@ -786,7 +786,7 @@
             }
         },
         "6":{
-            "AreaName":"東海",
+            "AreaName":"東海地方",
             "Prefecture":{
                 "0":{
                     "PrefectureName":"未設定"
@@ -949,7 +949,7 @@
             }
         },
         "7":{
-            "AreaName":"関西",
+            "AreaName":"関西地方",
             "Prefecture":{
                 "0":{
                     "PrefectureName":"未設定"
@@ -1179,7 +1179,7 @@
             }
         },
         "8":{
-            "AreaName":"四国",
+            "AreaName":"四国地方",
             "Prefecture":{
                 "0":{
                     "PrefectureName":"未設定"
@@ -1257,7 +1257,7 @@
             }
         },
         "9":{
-            "AreaName":"中国",
+            "AreaName":"中国地方",
             "Prefecture":{
                 "0":{
                     "PrefectureName":"未設定"
@@ -1364,7 +1364,7 @@
             }
         },
         "10":{
-            "AreaName":"九州・沖縄",
+            "AreaName":"九州・沖縄地方",
             "Prefecture":{
                 "0":{
                     "PrefectureName":"未設定"
