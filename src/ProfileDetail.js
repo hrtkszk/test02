@@ -26,9 +26,6 @@ export function ProfileDetail() {
     fetch("../../get_profile.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
-      console.log(result)
-      // console.log(result.result1)
-      console.log(result.result)
       if (result.result !== "PND") {
         setProfile(result.result[0])
       } else {
@@ -37,9 +34,6 @@ export function ProfileDetail() {
     })
     setinitialized(true)
   }
-
-
-  console.log(Profile)
   
   function ShowPrefecture() {
     if (Profile.Area !== "0") {
