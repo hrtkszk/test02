@@ -34,6 +34,9 @@ export function ProfileDetail() {
     setinitialized(true)
   }
 
+
+  console.log(Profile)
+  
   function ShowPrefecture() {
     if (Profile.Area !== "0") {
       return (
