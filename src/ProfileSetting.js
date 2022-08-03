@@ -243,10 +243,11 @@ export function ProfileSetting() {
     }
   }
 
-  function setPreferedAgeRange1() {
-    return ProfileDB.PreferedAge
-  }
+  const [PreferedAgeRange1, setPreferedAgeRange1] = useState(ProfileDB.PreferedAge);
 
+  function changePreferedAgeRange1() {
+    setPreferedAgeRange1(ProfileDB.PreferedAge)
+  }
   function PreferedAgeRange1() {
     return (
       <select
@@ -254,7 +255,7 @@ export function ProfileSetting() {
       onChange={evt => {
         setPreferedAge1(evt.target.value)
       }}>
-        {Object.keys(setPreferedAgeRange1).map(key => <option value={key}>{setPreferedAgeRange1[key]}</option>)}
+        {Object.keys(PreferedAgeRange1).map(key => <option value={key}>{PreferedAgeRange1[key]}</option>)}
       </select>
     )
   }
@@ -265,6 +266,7 @@ export function ProfileSetting() {
       defaultValue={PreferedAge2}
       onChange={evt => {
         setPreferedAge2(evt.target.value)
+        changePreferedAgeRange1
       }}>
         {Object.keys(ProfileDB.PreferedAge).map(key => <option value={key}>{ProfileDB.PreferedAge[key]}</option>)}
       </select>
