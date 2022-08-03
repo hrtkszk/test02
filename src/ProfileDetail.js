@@ -29,7 +29,11 @@ export function ProfileDetail() {
       console.log(result)
       // console.log(result.result1)
       console.log(result.result)
-      setProfile(result.result[0])
+      if (result.result !== "PND") {
+        setProfile(result.result[0])
+      } else {
+        setProfile("")
+      }
     })
     setinitialized(true)
   }

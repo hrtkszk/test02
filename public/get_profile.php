@@ -47,7 +47,8 @@ if($output[1]!="None") {
 } else {
     echo json_encode(
         [
-            "result" => "",
+            "result" => "PND", 
+            // Profile Not Defined
         ]
     );
 }
