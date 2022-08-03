@@ -79,6 +79,7 @@ export function ProfileSetting() {
     .then(result => {
       if (result.result !== "PND") {
         // setProfile(result.result[0])
+        console.log(result.result[0])
         setArea(result.result[0].Area)
         setPrefecture(result.result[0].Prefecture)
         setCity(result.result[0].City)
@@ -226,373 +227,382 @@ export function ProfileSetting() {
     }
   }
 
+  function MainSelection() {
+    return (
+      <div>
+      <h1>プロフィール設定</h1>
+        <form onSubmit={e => submit(e)}>
+          <ul>
+            <li>
+            <span className="dan">エリア</span>
+            <span className="dan2">
+              <select
+                defaultValue={Area}
+                onChange={evt => setArea(evt.target.value)}>
+                  {Object.keys(AreaDB.Area).map(key => <option value={key}>{AreaDB.Area[key]["AreaName"]}</option>)}
+              </select>
+              <PrefectureSelect/>
+            </span>
+            </li>
+            <li>
+              <span className="dan">身長</span>
+              <span className="dan2">
+                {console.log(Height)}
+                <select
+                  defaultValue={Height}
+                  onChange={evt => setHeight(evt.target.value)}>
+                    {Object.keys(ProfileDB.Height).map(key => <option value={key}>{ProfileDB.Height[key]}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">スタイル</span>
+              <span className="dan2">
+                <select
+                  defaultValue={Style} //defaultの読み込みと設定が必要
+                  onChange={evt => setStyle(evt.target.value)}>
+                    {Object.keys(ProfileDB.Style).map(key => <option value={key}>{ProfileDB.Style[key]}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">ルックス</span>
+              <span className="dan2">
+                <select
+                  defaultValue={Looks} //defaultの読み込みと設定が必要
+                  onChange={evt => setLooks(evt.target.value)}>
+                    {Object.keys(ProfileDB.Looks).map(key => <option value={key}>{ProfileDB.Looks[key]}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">カップ</span>
+              <span className="dan2">
+                <select
+                  defaultValue={Cup} //defaultの読み込みと設定が必要
+                  onChange={evt => setCup(evt.target.value)}>
+                    {Object.keys(ProfileDB.Cup).map(key => <option value={key}>{ProfileDB.Cup[key]}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">バスト</span>
+              <span className="dan2">
+                <input
+                  // プルダウンでの選択式にしたい
+                  type="number"
+                  // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                  // title="有効なメールアドレスを入力してください"
+                  onChange={evt => {
+                    // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
+                    setBustSize(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
+                  }}
+                  placeholder='バスト'
+                />                
+              </span>
+            </li>
+            <li>
+              <span className="dan">ウエスト</span>
+              <span className="dan2">
+                <input
+                  // プルダウンでの選択式にしたい
+                  type="number"
+                  // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                  // title="有効なメールアドレスを入力してください"
+                  onChange={evt => {
+                    // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
+                    setWestSize(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
+                  }}
+                  placeholder='ウエスト'
+                />                
+              </span>
+            </li>
+            <li>
+              <span className="dan">ヒップ</span>
+              <span className="dan2">
+                <input
+                  // プルダウンでの選択式にしたい
+                  type="number"
+                  // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                  // title="有効なメールアドレスを入力してください"
+                  onChange={evt => {
+                    // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
+                    setHipSize(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
+                  }}
+                  placeholder='ヒップ'
+                />                
+              </span>
+            </li>
+            <li>
+              <span className="dan">血液型</span>
+              <span className="dan2">
+                <select
+                  defaultValue={BloodType} //defaultの読み込みと設定が必要
+                  onChange={evt => setBloodType(evt.target.value)}>
+                    {Object.keys(ProfileDB.BloodType).map(key => <option value={key}>{ProfileDB.BloodType[key]}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">職業</span>
+              <span className="dan2">
+                <select
+                  defaultValue={Job} //defaultの読み込みと設定が必要
+                  onChange={evt => setJob(evt.target.value)}>
+                    {Object.keys(ProfileDB.Job).map(key => <option value={key}>{ProfileDB.Job[key]}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">学歴</span>
+              <span className="dan2">
+                <select
+                  defaultValue={EduBack} //defaultの読み込みと設定が必要
+                  onChange={evt => setEduBack(evt.target.value)}>
+                    {Object.keys(ProfileDB.EduBack).map(key => <option value={key}>{ProfileDB.EduBack[key]}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">出身地</span>
+              <span className="dan2">
+                <select
+                  // エリアの設定から必要
+                  // defaultValue={BirthPlace} //defaultの読み込みと設定が必要
+                  onChange={evt => setBirthPlace(evt.target.value)}>
+                    {/* {Object.keys(AreaDB.Area[Area]["Prefecture"]).map(key => <option value={key}>{AreaDB.Area[Area]["Prefecture"][key]["PrefectureName"]}</option>)} */}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">星座</span>
+              <span className="dan2">
+                <select
+                  defaultValue={Zodiac} //defaultの読み込みと設定が必要
+                  onChange={evt => setZodiac(evt.target.value)}>
+                    {Object.keys(ProfileDB.Zodiac).map(key => <option value={key}>{ProfileDB.Zodiac[key]}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">交際状況</span>
+              <span className="dan2">
+                <select
+                  defaultValue={MarriageStatus} //defaultの読み込みと設定が必要
+                  onChange={evt => setMarriageStatus(evt.target.value)}>
+                    {Object.keys(ProfileDB.MarriageStatus).map(key => <option value={key}>{ProfileDB.MarriageStatus[key]}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">子供</span>
+              <span className="dan2">
+                <select
+                  defaultValue={Kids} //defaultの読み込みと設定が必要
+                  onChange={evt => setKids(evt.target.value)}>
+                    {Object.keys(ProfileDB.Kids).map(key => <option value={key}>{ProfileDB.Kids[key]}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">タバコ</span>
+              <span className="dan2">
+                <select
+                  defaultValue={Tabacco} //defaultの読み込みと設定が必要
+                  onChange={evt => setTabacco(evt.target.value)}>
+                    {Object.keys(ProfileDB.Tabacco).map(key => <option value={key}>{ProfileDB.Tabacco[key]}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">お酒</span>
+              <span className="dan2">
+                <select
+                  defaultValue={Alchole} //defaultの読み込みと設定が必要
+                  onChange={evt => setAlchole(evt.target.value)}>
+                    {Object.keys(ProfileDB.Alchole).map(key => <option value={key}>{ProfileDB.Alchole[key]}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">車</span>
+              <span className="dan2">
+                <select
+                  defaultValue={Car} //defaultの読み込みと設定が必要
+                  onChange={evt => setCar(evt.target.value)}>
+                    {Object.keys(ProfileDB.Car).map(key => <option value={key}>{ProfileDB.Car[key]}</option>)}
+                </select>
+              </span>
+            </li>
+
+            <li>
+              {/* 別のリストにして、複数選択・検索できるようにする */}
+              <span className="dan">興味あること</span>
+              <span className="dan2">
+                <select
+                  defaultValue={Interest} //defaultの読み込みと設定が必要
+                  onChange={evt => setInterest(evt.target.value)}>
+                    {Object.keys(ProfileDB.Interest).map(key => <option value={key}>{ProfileDB.Interest[key]}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">メッセージ</span>
+              <span className="dan2">
+                {/* 複数行での記載ができるように。別にするか？？ */}
+                <input
+                  // プルダウンでの選択式にしたい
+                  type="text"
+                  // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                  // title="有効なメールアドレスを入力してください"
+                  onChange={evt => {
+                    // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
+                    setProfileMessage(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
+                  }}
+                  placeholder='メッセージ'
+                />
+              </span>
+            </li>
+
+            {/* ファイルを選択して、貼り付けれるようにしたい。
+            まずは、画像の読み込みロジック、保存先などが必要
+            placeholder='プロフィール写真'
+            setProfilePicture(evt.target.value) */}
+            
+            <li>
+              {/* 上・下を設けて、範囲設定できるようにする。上が下よりも小さくならないようにロジックが必要 */}
+              <span className="dan">希望する年齢</span>
+              <span className="dan2">
+                <select
+                  defaultValue={PreferedAge1} //defaultの読み込みと設定が必要
+                  onChange={evt => setPreferedAge1(evt.target.value)}>
+                    {Object.keys(ProfileDB.PreferedAge).map(key => <option value={key}>{ProfileDB.PreferedAge[key]}</option>)}
+                </select>〜<select
+                  defaultValue={PreferedAge2} //defaultの読み込みと設定が必要
+                  onChange={evt => setPreferedAge2(evt.target.value)}>
+                    {Object.keys(ProfileDB.PreferedAge).map(key => <option value={key}>{ProfileDB.PreferedAge[key]}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              {/* 別のリストにして、複数選択・検索できるようにする。Personalityと共通 */}
+              <span className="dan">希望する性格</span>
+              <span className="dan2">
+                <select
+                  defaultValue={PreferedPersonality} //defaultの読み込みと設定が必要
+                  onChange={evt => setPreferedPersonality(evt.target.value)}>
+                    {Object.keys(ProfileDB.Personality).map(key => <option value={key}>{ProfileDB.Personality[key]}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              {/* 別のリストにして、複数選択・検索できるようにする。 */}
+              <span className="dan">性格</span>
+              <span className="dan2">
+                <select
+                  defaultValue={Personality} //defaultの読み込みと設定が必要
+                  onChange={evt => setPersonality(evt.target.value)}>
+                    {Object.keys(ProfileDB.Personality).map(key => <option value={key}>{ProfileDB.Personality[key]}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              自己評価<br />
+            </li>
+            <li>
+              {/* 星で表現したい。 */}
+              <span className="dan">可愛さ</span>
+              <span className="dan2">
+                <select
+                  defaultValue={SelfCute} //defaultの読み込みと設定が必要
+                  onChange={evt => setSelfCute(evt.target.value)}>
+                    {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">セクシーさ</span>
+              <span className="dan2">
+                <select
+                  defaultValue={SelfSexy} //defaultの読み込みと設定が必要
+                  onChange={evt => setSelfSexy(evt.target.value)}>
+                    {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">優しさ</span>
+              <span className="dan2">
+                <select
+                  defaultValue={SelfKindness} //defaultの読み込みと設定が必要
+                  onChange={evt => setSelfKindness(evt.target.value)}>
+                    {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">賢さ</span>
+              <span className="dan2">
+                <select
+                  defaultValue={SelfSmartness} //defaultの読み込みと設定が必要
+                  onChange={evt => setSelfSmartness(evt.target.value)}>
+                    {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">清楚さ</span>
+              <span className="dan2">
+                <select
+                  defaultValue={SelfNeatness} //defaultの読み込みと設定が必要
+                  onChange={evt => setSelfNeatness(evt.target.value)}>
+                    {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">ファッション</span>
+              <span className="dan2">
+                <select
+                  defaultValue={SelfFashionable} //defaultの読み込みと設定が必要
+                  onChange={evt => setSelfFashionable(evt.target.value)}>
+                    {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">明るさ</span>
+              <span className="dan2">
+                <select
+                  defaultValue={SelfBrightness} //defaultの読み込みと設定が必要
+                  onChange={evt => setSelfBrightness(evt.target.value)}>
+                    {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">エレガンス</span>
+              <span className="dan2">
+                <select
+                  defaultValue={SelfElegance} //defaultの読み込みと設定が必要
+                  onChange={evt => setSelfElegance(evt.target.value)}>
+                    {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
+                </select>
+              </span>
+            </li>
+          </ul>
+          <button type="submit">保存する</button>
+        </form>
+        <br />
+        <Link to="../">戻る</Link>
+      </div>
+    );
+  }
+
   return (
-    <div>
-    <h1>プロフィール設定</h1>
-      <form onSubmit={e => submit(e)}>
-        <ul>
-          <li>
-          <span className="dan">エリア</span>
-          <span className="dan2">
-            <select
-              defaultValue={Area}
-              onChange={evt => setArea(evt.target.value)}>
-                {Object.keys(AreaDB.Area).map(key => <option value={key}>{AreaDB.Area[key]["AreaName"]}</option>)}
-            </select>
-            <PrefectureSelect/>
-          </span>
-          </li>
-          <li>
-            <span className="dan">身長</span>
-            <span className="dan2">
-              <select
-                defaultValue={Height}
-                onChange={evt => setHeight(evt.target.value)}>
-                  {Object.keys(ProfileDB.Height).map(key => <option value={key}>{ProfileDB.Height[key]}</option>)}
-              </select>
-            </span>
-          </li>
-          <li>
-            <span className="dan">スタイル</span>
-            <span className="dan2">
-              <select
-                defaultValue={Style} //defaultの読み込みと設定が必要
-                onChange={evt => setStyle(evt.target.value)}>
-                  {Object.keys(ProfileDB.Style).map(key => <option value={key}>{ProfileDB.Style[key]}</option>)}
-              </select>
-            </span>
-          </li>
-          <li>
-            <span className="dan">ルックス</span>
-            <span className="dan2">
-              <select
-                defaultValue={Looks} //defaultの読み込みと設定が必要
-                onChange={evt => setLooks(evt.target.value)}>
-                  {Object.keys(ProfileDB.Looks).map(key => <option value={key}>{ProfileDB.Looks[key]}</option>)}
-              </select>
-            </span>
-          </li>
-          <li>
-            <span className="dan">カップ</span>
-            <span className="dan2">
-              <select
-                defaultValue={Cup} //defaultの読み込みと設定が必要
-                onChange={evt => setCup(evt.target.value)}>
-                  {Object.keys(ProfileDB.Cup).map(key => <option value={key}>{ProfileDB.Cup[key]}</option>)}
-              </select>
-            </span>
-          </li>
-          <li>
-            <span className="dan">バスト</span>
-            <span className="dan2">
-              <input
-                // プルダウンでの選択式にしたい
-                type="number"
-                // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                // title="有効なメールアドレスを入力してください"
-                onChange={evt => {
-                  // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-                  setBustSize(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
-                }}
-                placeholder='バスト'
-              />                
-            </span>
-          </li>
-          <li>
-            <span className="dan">ウエスト</span>
-            <span className="dan2">
-              <input
-                // プルダウンでの選択式にしたい
-                type="number"
-                // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                // title="有効なメールアドレスを入力してください"
-                onChange={evt => {
-                  // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-                  setWestSize(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
-                }}
-                placeholder='ウエスト'
-              />                
-            </span>
-          </li>
-          <li>
-            <span className="dan">ヒップ</span>
-            <span className="dan2">
-              <input
-                // プルダウンでの選択式にしたい
-                type="number"
-                // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                // title="有効なメールアドレスを入力してください"
-                onChange={evt => {
-                  // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-                  setHipSize(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
-                }}
-                placeholder='ヒップ'
-              />                
-            </span>
-          </li>
-          <li>
-            <span className="dan">血液型</span>
-            <span className="dan2">
-              <select
-                defaultValue={BloodType} //defaultの読み込みと設定が必要
-                onChange={evt => setBloodType(evt.target.value)}>
-                  {Object.keys(ProfileDB.BloodType).map(key => <option value={key}>{ProfileDB.BloodType[key]}</option>)}
-              </select>
-            </span>
-          </li>
-          <li>
-            <span className="dan">職業</span>
-            <span className="dan2">
-              <select
-                defaultValue={Job} //defaultの読み込みと設定が必要
-                onChange={evt => setJob(evt.target.value)}>
-                  {Object.keys(ProfileDB.Job).map(key => <option value={key}>{ProfileDB.Job[key]}</option>)}
-              </select>
-            </span>
-          </li>
-          <li>
-            <span className="dan">学歴</span>
-            <span className="dan2">
-              <select
-                defaultValue={EduBack} //defaultの読み込みと設定が必要
-                onChange={evt => setEduBack(evt.target.value)}>
-                  {Object.keys(ProfileDB.EduBack).map(key => <option value={key}>{ProfileDB.EduBack[key]}</option>)}
-              </select>
-            </span>
-          </li>
-          <li>
-            <span className="dan">出身地</span>
-            <span className="dan2">
-              <select
-                // エリアの設定から必要
-                // defaultValue={BirthPlace} //defaultの読み込みと設定が必要
-                onChange={evt => setBirthPlace(evt.target.value)}>
-                  {/* {Object.keys(AreaDB.Area[Area]["Prefecture"]).map(key => <option value={key}>{AreaDB.Area[Area]["Prefecture"][key]["PrefectureName"]}</option>)} */}
-              </select>
-            </span>
-          </li>
-          <li>
-            <span className="dan">星座</span>
-            <span className="dan2">
-              <select
-                defaultValue={Zodiac} //defaultの読み込みと設定が必要
-                onChange={evt => setZodiac(evt.target.value)}>
-                  {Object.keys(ProfileDB.Zodiac).map(key => <option value={key}>{ProfileDB.Zodiac[key]}</option>)}
-              </select>
-            </span>
-          </li>
-          <li>
-            <span className="dan">交際状況</span>
-            <span className="dan2">
-              <select
-                defaultValue={MarriageStatus} //defaultの読み込みと設定が必要
-                onChange={evt => setMarriageStatus(evt.target.value)}>
-                  {Object.keys(ProfileDB.MarriageStatus).map(key => <option value={key}>{ProfileDB.MarriageStatus[key]}</option>)}
-              </select>
-            </span>
-          </li>
-          <li>
-            <span className="dan">子供</span>
-            <span className="dan2">
-              <select
-                defaultValue={Kids} //defaultの読み込みと設定が必要
-                onChange={evt => setKids(evt.target.value)}>
-                  {Object.keys(ProfileDB.Kids).map(key => <option value={key}>{ProfileDB.Kids[key]}</option>)}
-              </select>
-            </span>
-          </li>
-          <li>
-            <span className="dan">タバコ</span>
-            <span className="dan2">
-              <select
-                defaultValue={Tabacco} //defaultの読み込みと設定が必要
-                onChange={evt => setTabacco(evt.target.value)}>
-                  {Object.keys(ProfileDB.Tabacco).map(key => <option value={key}>{ProfileDB.Tabacco[key]}</option>)}
-              </select>
-            </span>
-          </li>
-          <li>
-            <span className="dan">お酒</span>
-            <span className="dan2">
-              <select
-                defaultValue={Alchole} //defaultの読み込みと設定が必要
-                onChange={evt => setAlchole(evt.target.value)}>
-                  {Object.keys(ProfileDB.Alchole).map(key => <option value={key}>{ProfileDB.Alchole[key]}</option>)}
-              </select>
-            </span>
-          </li>
-          <li>
-            <span className="dan">車</span>
-            <span className="dan2">
-              <select
-                defaultValue={Car} //defaultの読み込みと設定が必要
-                onChange={evt => setCar(evt.target.value)}>
-                  {Object.keys(ProfileDB.Car).map(key => <option value={key}>{ProfileDB.Car[key]}</option>)}
-              </select>
-            </span>
-          </li>
-
-          <li>
-            {/* 別のリストにして、複数選択・検索できるようにする */}
-            <span className="dan">興味あること</span>
-            <span className="dan2">
-              <select
-                defaultValue={Interest} //defaultの読み込みと設定が必要
-                onChange={evt => setInterest(evt.target.value)}>
-                  {Object.keys(ProfileDB.Interest).map(key => <option value={key}>{ProfileDB.Interest[key]}</option>)}
-              </select>
-            </span>
-          </li>
-          <li>
-            <span className="dan">メッセージ</span>
-            <span className="dan2">
-              {/* 複数行での記載ができるように。別にするか？？ */}
-              <input
-                // プルダウンでの選択式にしたい
-                type="text"
-                // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                // title="有効なメールアドレスを入力してください"
-                onChange={evt => {
-                  // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-                  setProfileMessage(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
-                }}
-                placeholder='メッセージ'
-              />
-            </span>
-          </li>
-
-          {/* ファイルを選択して、貼り付けれるようにしたい。
-          まずは、画像の読み込みロジック、保存先などが必要
-          placeholder='プロフィール写真'
-          setProfilePicture(evt.target.value) */}
-          
-          <li>
-            {/* 上・下を設けて、範囲設定できるようにする。上が下よりも小さくならないようにロジックが必要 */}
-            <span className="dan">希望する年齢</span>
-            <span className="dan2">
-              <select
-                defaultValue={PreferedAge1} //defaultの読み込みと設定が必要
-                onChange={evt => setPreferedAge1(evt.target.value)}>
-                  {Object.keys(ProfileDB.PreferedAge).map(key => <option value={key}>{ProfileDB.PreferedAge[key]}</option>)}
-              </select>〜<select
-                defaultValue={PreferedAge2} //defaultの読み込みと設定が必要
-                onChange={evt => setPreferedAge2(evt.target.value)}>
-                  {Object.keys(ProfileDB.PreferedAge).map(key => <option value={key}>{ProfileDB.PreferedAge[key]}</option>)}
-              </select>
-            </span>
-          </li>
-          <li>
-            {/* 別のリストにして、複数選択・検索できるようにする。Personalityと共通 */}
-            <span className="dan">希望する性格</span>
-            <span className="dan2">
-              <select
-                defaultValue={PreferedPersonality} //defaultの読み込みと設定が必要
-                onChange={evt => setPreferedPersonality(evt.target.value)}>
-                  {Object.keys(ProfileDB.Personality).map(key => <option value={key}>{ProfileDB.Personality[key]}</option>)}
-              </select>
-            </span>
-          </li>
-          <li>
-            {/* 別のリストにして、複数選択・検索できるようにする。 */}
-            <span className="dan">性格</span>
-            <span className="dan2">
-              <select
-                defaultValue={Personality} //defaultの読み込みと設定が必要
-                onChange={evt => setPersonality(evt.target.value)}>
-                  {Object.keys(ProfileDB.Personality).map(key => <option value={key}>{ProfileDB.Personality[key]}</option>)}
-              </select>
-            </span>
-          </li>
-          <li>
-            自己評価<br />
-          </li>
-          <li>
-            {/* 星で表現したい。 */}
-            <span className="dan">可愛さ</span>
-            <span className="dan2">
-              <select
-                defaultValue={SelfCute} //defaultの読み込みと設定が必要
-                onChange={evt => setSelfCute(evt.target.value)}>
-                  {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
-              </select>
-            </span>
-          </li>
-          <li>
-            <span className="dan">セクシーさ</span>
-            <span className="dan2">
-              <select
-                defaultValue={SelfSexy} //defaultの読み込みと設定が必要
-                onChange={evt => setSelfSexy(evt.target.value)}>
-                  {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
-              </select>
-            </span>
-          </li>
-          <li>
-            <span className="dan">優しさ</span>
-            <span className="dan2">
-              <select
-                defaultValue={SelfKindness} //defaultの読み込みと設定が必要
-                onChange={evt => setSelfKindness(evt.target.value)}>
-                  {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
-              </select>
-            </span>
-          </li>
-          <li>
-            <span className="dan">賢さ</span>
-            <span className="dan2">
-              <select
-                defaultValue={SelfSmartness} //defaultの読み込みと設定が必要
-                onChange={evt => setSelfSmartness(evt.target.value)}>
-                  {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
-              </select>
-            </span>
-          </li>
-          <li>
-            <span className="dan">清楚さ</span>
-            <span className="dan2">
-              <select
-                defaultValue={SelfNeatness} //defaultの読み込みと設定が必要
-                onChange={evt => setSelfNeatness(evt.target.value)}>
-                  {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
-              </select>
-            </span>
-          </li>
-          <li>
-            <span className="dan">ファッション</span>
-            <span className="dan2">
-              <select
-                defaultValue={SelfFashionable} //defaultの読み込みと設定が必要
-                onChange={evt => setSelfFashionable(evt.target.value)}>
-                  {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
-              </select>
-            </span>
-          </li>
-          <li>
-            <span className="dan">明るさ</span>
-            <span className="dan2">
-              <select
-                defaultValue={SelfBrightness} //defaultの読み込みと設定が必要
-                onChange={evt => setSelfBrightness(evt.target.value)}>
-                  {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
-              </select>
-            </span>
-          </li>
-          <li>
-            <span className="dan">エレガンス</span>
-            <span className="dan2">
-              <select
-                defaultValue={SelfElegance} //defaultの読み込みと設定が必要
-                onChange={evt => setSelfElegance(evt.target.value)}>
-                  {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
-              </select>
-            </span>
-          </li>
-        </ul>
-        <button type="submit">保存する</button>
-      </form>
-      <br />
-      <Link to="../">戻る</Link>
-    </div>
-  );
+    <>
+      <MainSelection/>
+    </>
+  )
 
 }
