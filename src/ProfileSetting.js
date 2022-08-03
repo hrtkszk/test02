@@ -520,7 +520,7 @@ export function ProfileSetting() {
               {/* 上・下を設けて、範囲設定できるようにする。上が下よりも小さくならないようにロジックが必要 */}
               <span className="dan">希望する年齢</span>
               <span className="dan2">
-                {PreferedAgeRange1}〜{PreferedAgeRange2}
+                <PreferedAgeRange1/>〜<PreferedAgeRange2/>
               </span>
             </li>
             <li>
