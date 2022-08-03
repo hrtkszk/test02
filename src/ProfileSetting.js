@@ -249,7 +249,7 @@ export function ProfileSetting() {
   function changePreferedAgeRange1() {
     if (Number(PreferedAge1) > Number(PreferedAge2)) {
       for (let i = Number(PreferedAge2) + 1; i < 17; i++) {
-        delete latestPreferedAgeRange1.i
+        delete latestPreferedAgeRange1.String(i)
       }
       console.log(latestPreferedAgeRange1)
       setPreferedAgeRange1(latestPreferedAgeRange1)
