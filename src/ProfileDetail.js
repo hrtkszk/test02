@@ -64,9 +64,10 @@ export function ProfileDetail() {
   console.log(Profile)
 
   //  Profileが空でない場合、もしくは[]でない場合、プロフィールを表示＋設定ページボタンの表示
-  if (Profile !== "" || Profile !== []) {
+  if (Profile !== [] || Profile !== "") {
     return (
       <div>
+        {console.log(Profile)}
         <h1>プロフィール</h1>
         <ul>
           <li>
