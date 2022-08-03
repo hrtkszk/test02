@@ -63,8 +63,21 @@ export function ProfileDetail() {
 
   console.log(Profile)
 
+    // Profileが空か、[]の場合、プロフィール設定を促すページを表示
+  if (Profile === [] || Profile === "") {
+    return (
+      <>
+          <h3>プロフィール</h3>
+          <p>
+              プロフィールを設定してください。
+          </p>
+          <Link to="../ProfileSetting">プロフィール設定</Link><br />
+          <Link to="../../">戻る</Link>
+      </>
+    );
+
   //  Profileが空でない場合、もしくは[]でない場合、プロフィールを表示＋設定ページボタンの表示
-  if (Profile !== [] || Profile !== "") {
+  } else {
     return (
       <div>
         {console.log(Profile)}
@@ -209,19 +222,6 @@ export function ProfileDetail() {
           <Link to="../../">戻る</Link>
         </div>
       </div>
-    );
-
-  // Profileが空か、[]の場合、プロフィール設定を促すページを表示
-  } else {
-    return (
-      <>
-          <h3>プロフィール</h3>
-          <p>
-              プロフィールを設定してください。
-          </p>
-          <Link to="../ProfileSetting">プロフィール設定</Link><br />
-          <Link to="../../">戻る</Link>
-      </>
     );
   }
 }
