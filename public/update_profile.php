@@ -68,10 +68,15 @@ if ($_POST['EduBack']=="") {
 } else {
   $EduBack=$_POST['EduBack'];
 }
-if ($_POST['BirthPlace']=="") {
-  $BirthPlace="未設定";
+if ($_POST['BirthArea']=="") {
+  $BirthArea="未設定";
 } else {
-  $BirthPlace=$_POST['BirthPlace'];
+  $BirthArea=$_POST['BirthArea'];
+}
+if ($_POST['BirthPrefecture']=="") {
+  $BirthPrefecture="未設定";
+} else {
+  $BirthPrefecture=$_POST['BirthPrefecture'];
 }
 if ($_POST['Zodiac']=="") {
   $Zodiac="未設定";
@@ -193,7 +198,8 @@ $command_post="python3 update_profile.py " //pythonに引数を渡す
 .$BloodType." "
 .$Job." "
 .$EduBack." "
-.$BirthPlace." "
+.$BirthArea." "
+.$BirthPrefecture." "
 .$Zodiac." "
 .$MarriageStatus." "
 .$Kids." "

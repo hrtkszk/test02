@@ -57,10 +57,11 @@ export function ProfileDetail() {
       
       // Prefectureが設定されている場合
       } else {
-        // Cityが未設定の場合→「Area」と「Prefecture」を表示
+        // Cityが未設定の場合→「Area」「Prefecture」を表示
         if (Profile.City === "0") {
           return (
             <>
+              {AreaDB.Area[Profile.Area]["AreaName"]}　
               {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["PrefectureName"]}
             </>
           )
@@ -68,6 +69,7 @@ export function ProfileDetail() {
         } else {
           return (
             <>
+              {AreaDB.Area[Profile.Area]["AreaName"]}　
               {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["PrefectureName"]}
               {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["City"][Profile.City]}
             </>
@@ -77,6 +79,36 @@ export function ProfileDetail() {
     }
   }
 
+  function ShowBirthArea() {
+    // BirthArea未設定の場合→「未設定」と表示
+    if (Profile.BirthArea === "0") {
+      return (
+        <>
+          {AreaDB.Area[Profile.BirthArea]["AreaName"]}
+        </>
+      )
+    
+    // BirthAreaが設定されている場合
+    } else {
+      // BirthPrefectureが未設定の場合→「BirthArea」のみを表示
+      if (Profile.BirthPrefecture === "0") {
+        return (
+          <>
+            {AreaDB.Area[Profile.BirthArea]["AreaName"]}
+          </>
+        )
+      
+      // BirthPrefectureが設定されている場合→「BirthArea」「BirthPrefecture」を表示
+      } else {
+        return (
+          <>
+            {AreaDB.Area[Profile.BirthArea]["AreaName"]}　
+            {AreaDB.Area[Profile.BirthArea]["Prefecture"][Profile.BirthPrefecture]["PrefectureName"]}
+          </>
+        )
+      }
+    }
+  }
     // Profileが空か、[]の場合、プロフィール設定を促すページを表示
   if (Profile.length === 0 || Profile === "") {
     return (
@@ -144,7 +176,9 @@ export function ProfileDetail() {
           </li>
           <li>
             <span className="dan">出身地</span>
-            <span className="dan2"></span>
+            <span className="dan2">
+              <ShowBirthArea/>
+            </span>
           </li>
           <li>
             <span className="dan">星座</span>
