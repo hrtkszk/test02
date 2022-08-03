@@ -187,7 +187,7 @@ export function ProfileSetting() {
   }
 
   function AreaDetail() {
-    if (Prefecture !== 0) {
+    if (Prefecture !== "0") {
       return (
         <select
           defaultValue={City}
