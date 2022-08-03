@@ -257,6 +257,7 @@ export function ProfileSetting() {
     }
     console.log(latestPreferedAgeRange2) //レンジ変更後の確認。
     setlatestPreferedAgeRange2(latestPreferedAgeRange2)
+    return <></>
   }
 
   function MainSelection() {
@@ -514,9 +515,9 @@ export function ProfileSetting() {
                 <select
                   defaultValue={PreferedAge1}
                   onChange={evt => {
-                    setPreferedAge1(() => evt.target.value)
+                    setPreferedAge1(evt.target.value)
                     latestPreferedAgeRange2 = JSON.parse(JSON.stringify(ProfileDB.PreferedAge)) // 一度リセットする
-                    changePreferedAgeRange2()
+                    {<changePreferedAgeRange2 />}
                   }}>
                     {Object.keys(ProfileDB.PreferedAge).map(key => <option value={key}>{ProfileDB.PreferedAge[key]}</option>)}
                 </select>
