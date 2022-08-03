@@ -243,20 +243,21 @@ export function ProfileSetting() {
     }
   }
 
-  const [latestPreferedAgeRange2, setPreferedAgeRange2] = useState(ProfileDB.PreferedAge);
+  let latestPreferedAgeRange2 = ProfileDB.PreferedAge
+  const [updatedPreferedAgeRange2, setlatestPreferedAgeRange2] = useState(latestPreferedAgeRange2);
+
 
   function changePreferedAgeRange2() {
     console.log(latestPreferedAgeRange2) //リセットされたか確認。
-    if (Number(PreferedAge1) > Number(PreferedAge2)) {
-      console.log(PreferedAge2)
-      for (let i = 0 ; i < Number(PreferedAge1); i++) {
-        let j = ""
-        j= String(i)
-        delete latestPreferedAgeRange2[j]
-      }
-      console.log(latestPreferedAgeRange2) //レンジ変更後の確認。
-      setPreferedAgeRange2(latestPreferedAgeRange2)
+    console.log(PreferedAge1)
+    console.log(Number(PreferedAge1))
+    for (let i = 0 ; i < Number(PreferedAge1); i++) {
+      let j = ""
+      j= String(i)
+      delete latestPreferedAgeRange2[j]
     }
+    console.log(latestPreferedAgeRange2) //レンジ変更後の確認。
+    setlatestPreferedAgeRange2(latestPreferedAgeRange2)
   }
 
   function PreferedAgeRange1() {
@@ -265,7 +266,7 @@ export function ProfileSetting() {
       defaultValue={PreferedAge1}
       onChange={evt => {
         setPreferedAge1(evt.target.value)
-        setPreferedAgeRange2(ProfileDB.PreferedAge) // 一度リセットする
+        latestPreferedAgeRange2 = ProfileDB.PreferedAge // 一度リセットする
         changePreferedAgeRange2()
       }}>
         {Object.keys(ProfileDB.PreferedAge).map(key => <option value={key}>{ProfileDB.PreferedAge[key]}</option>)}
@@ -280,7 +281,7 @@ export function ProfileSetting() {
       onChange={evt => {
         setPreferedAge2(evt.target.value)
       }}>
-        {Object.keys(latestPreferedAgeRange2).map(key => <option value={key}>{latestPreferedAgeRange2[key]}</option>)}
+        {Object.keys(updatedPreferedAgeRange2).map(key => <option value={key}>{updatedPreferedAgeRange2[key]}</option>)}
       </select>
     )
   }
