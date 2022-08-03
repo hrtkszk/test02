@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import { useState } from 'react';
 import { useAuth } from "./useAuth";
+import ProfileDB from "./Profile.json";
 
 export function Registration(){
   const [NickName, setNickName] = useState("");
@@ -50,21 +51,21 @@ export function Registration(){
               placeholder='ニックネーム'
               required
             /><br />
-            <div onChange={evt => {setGender(evt.target.value)}}>
-              <input type="radio" value="1" name="gender" /> 男性
-              <input type="radio" value="0" name="gender" /> 女性
-              <input type="radio" value="2" name="gender" /> LGBTQ
-            </div><br />
+            <select
+              defaultValue={Gender}
+              onChange={evt => setGender(evt.target.value)}>
+                {Object.keys(ProfileDB.Gender).map(key => <option value={key}>{ProfileDB.Gender[key]}</option>)}
+            </select><br />
             <input
-            type='number'
-            // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-            // 特殊文字を弾く必要がある。
-            // title="8文字以上で、数字・小文字アルファベット・大文字アルファベットを含めてください"
-            onChange={evt => {
-              setAge(evt.target.value)
-            }}
-            placeholder='年齢'
-            required
+              type='number'
+              // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              // 特殊文字を弾く必要がある。
+              // title="8文字以上で、数字・小文字アルファベット・大文字アルファベットを含めてください"
+              onChange={evt => {
+                setAge(evt.target.value)
+              }}
+              placeholder='年齢'
+              required
             /><br />
             {/* <button onClick={Register}>登録する</button> */}
             <button type='submit'>登録する</button>

@@ -12,6 +12,7 @@ import AreaDB from "./Area.json";
 
 export function ProfileDetail() {
   let auth = useAuth();
+  const [BasicProfile, setBasicProfile] = useState([]);
   const [Profile, setProfile] = useState([]);
   const [initialized, setinitialized] = useState(false);
 
@@ -23,6 +24,12 @@ export function ProfileDetail() {
 
   // ページが読み込まれる時に実行し、Profileとして登録する。
   if (initialized===false) {
+    fetch("../../get_basicprofile.php",initialRequestOptions)
+    .then((response) => response.json())
+    .then(result => {
+      setBasicProfile(result.result[0])
+    })
+
     fetch("../../get_profile.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
@@ -33,6 +40,7 @@ export function ProfileDetail() {
         setProfile("")
       }
     })
+
     setinitialized(true)
   }
   
@@ -128,6 +136,18 @@ export function ProfileDetail() {
       <div>
         <h1>プロフィール</h1>
         <ul>
+          <li>
+            <span className="dan">ニックネーム</span>
+            <span className="dan2">{BasicProfile.nickname}</span>
+          </li>
+          <li>
+            <span className="dan">性別</span>
+            <span className="dan2">{ProfileDB.Gender[BasicProfile.gender]}</span>
+          </li>
+          <li>
+            <span className="dan">ニックネーム</span>
+            <span className="dan2">{BasicProfile.age}</span>
+          </li>
           <li>
             <span className="dan">エリア</span>
             <span className="dan2">

@@ -13,7 +13,11 @@ import AreaDB from "./Area.json";
 
 export function ProfileSetting() {
   //  各ステータスのdefaultにすでに設定された値を入れたい。
-  // console.log(Profile.Area);
+  // 基本状況
+  const [Nickname, setNickname] = useState("0");
+  const [Gender, setGender] = useState("0");
+  const [Age, setAge] = useState("0");
+  const [AgeConfirmation, setAgeConfirmation] = useState("0");
   // 地域状況
   const [Area, setArea] = useState("0");
   const [Prefecture, setPrefecture] = useState("0");
@@ -74,6 +78,15 @@ export function ProfileSetting() {
   
   // ページが読み込まれる時に実行し、Profileとして登録する。
   if (initialized===false) {
+    fetch("../../get_basicprofile.php",initialRequestOptions)
+    .then((response) => response.json())
+    .then(result => {
+      setNickname(result.result[0].nickname)
+      setGender(result.result[0].gender)
+      setAge(result.result[0].age)
+      setAgeConfirmation(result.result[0].ageConfirmation)
+    })
+
     fetch("../../get_profile.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
@@ -123,6 +136,19 @@ export function ProfileSetting() {
   // 入力値に問題があれば遷移しない。問題なければ遷移する
   const submit = e => {
     e.preventDefault();
+
+    const requestOptions0 ={
+      method: 'POST',
+      headers:{'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        "UUID":auth.user,
+        "nickname":Nickname,
+        "gender":Gender,
+        "age":Age,
+      })
+    }
+    console.log(requestOptions0)
+    console.log(AgeConfirmation)
 
     const requestOptions1 ={
       method: 'POST',
@@ -249,12 +275,58 @@ export function ProfileSetting() {
   let latestPreferedAgeRange2 = JSON.parse(JSON.stringify(ProfileDB.PreferedAge))
   const [updatedPreferedAgeRange2, setlatestPreferedAgeRange2] = useState(latestPreferedAgeRange2);
 
+
+
+
+
+
+
   function MainSelection() {
     return (
       <div>
       <h1>プロフィール設定</h1>
         <form onSubmit={e => submit(e)}>
           <ul>
+            <li>
+              <span className="dan">ニックネーム</span>
+              <span className="dan2">
+                <input
+                  type="text"
+                  value={Nickname}
+                  onChange={evt => {
+                    // 本当は、サーバー側でも入力制限を設けたい。
+                    setNickname(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
+                  }}
+                  placeholder='ニックネーム'
+                  required
+                />
+              </span>
+            </li>
+            <li>
+              <span className="dan">性別</span>
+              <span className="dan2">
+                <select
+                  defaultValue={Gender}
+                  onChange={evt => setGender(evt.target.value)}>
+                    {Object.keys(ProfileDB.Gender).map(key => <option value={key}>{ProfileDB.Gender[key]}</option>)}
+                </select>
+              </span>
+            </li>
+            <li>
+              <span className="dan">年齢</span>
+              <span className="dan2">
+              <input
+                  type="number"
+                  value={Age}
+                  onChange={evt => {
+                    // 本当は、サーバー側でも入力制限を設けたい。
+                    setAge(evt.target.value)
+                  }}
+                  placeholder='年齢'
+                  required
+                />
+              </span>
+            </li>
             <li>
             <span className="dan">エリア</span>
             <span className="dan2">
@@ -314,13 +386,11 @@ export function ProfileSetting() {
               <span className="dan">バスト</span>
               <span className="dan2">
                 <input
-                  // プルダウンでの選択式にしたい
                   type="number"
-                  // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                  // title="有効なメールアドレスを入力してください"
+                  value={BustSize}
                   onChange={evt => {
-                    // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-                    setBustSize(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
+                  // 本当は、サーバー側でも入力制限を設けたい。
+                  setBustSize(evt.target.value)
                   }}
                   placeholder='バスト'
                 />                
@@ -330,13 +400,11 @@ export function ProfileSetting() {
               <span className="dan">ウエスト</span>
               <span className="dan2">
                 <input
-                  // プルダウンでの選択式にしたい
                   type="number"
-                  // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                  // title="有効なメールアドレスを入力してください"
+                  value={WestSize}
                   onChange={evt => {
-                    // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-                    setWestSize(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
+                    // 本当は、サーバー側でも入力制限を設けたい。
+                    setWestSize(evt.target.value)
                   }}
                   placeholder='ウエスト'
                 />                
@@ -346,13 +414,11 @@ export function ProfileSetting() {
               <span className="dan">ヒップ</span>
               <span className="dan2">
                 <input
-                  // プルダウンでの選択式にしたい
                   type="number"
-                  // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                  // title="有効なメールアドレスを入力してください"
+                  value={HipSize}
                   onChange={evt => {
-                    // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-                    setHipSize(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
+                    // 本当は、サーバー側でも入力制限を設けたい。
+                    setHipSize(evt.target.value)
                   }}
                   placeholder='ヒップ'
                 />                
