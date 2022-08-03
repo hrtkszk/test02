@@ -15,49 +15,49 @@ export function ProfileSetting() {
   //  各ステータスのdefaultにすでに設定された値を入れたい。
   // console.log(Profile.Area);
   // 地域状況
-  const [Area, setArea] = useState("");
-  const [Prefecture, setPrefecture] = useState("");
-  const [City, setCity] = useState("");
+  const [Area, setArea] = useState("0");
+  const [Prefecture, setPrefecture] = useState("0");
+  const [City, setCity] = useState("0");
   // 身体的情報
-  const [Height, setHeight] = useState("");
-  const [Style, setStyle] = useState("");
-  const [Looks, setLooks] = useState("");
-  const [Cup, setCup] = useState("");
-  const [BustSize, setBustSize] = useState("");
-  const [WestSize, setWestSize] = useState("");
-  const [HipSize, setHipSize] = useState("");
-  const [BloodType, setBloodType] = useState("");
+  const [Height, setHeight] = useState("0");
+  const [Style, setStyle] = useState("0");
+  const [Looks, setLooks] = useState("0");
+  const [Cup, setCup] = useState("0");
+  const [BustSize, setBustSize] = useState("0");
+  const [WestSize, setWestSize] = useState("0");
+  const [HipSize, setHipSize] = useState("0");
+  const [BloodType, setBloodType] = useState("0");
   // 経験・背景情報
-  const [Job, setJob] = useState("");
-  const [EduBack, setEduBack] = useState("");
-  const [BirthPlace, setBirthPlace] = useState("");
-  const [Zodiac, setZodiac] = useState("");
+  const [Job, setJob] = useState("0");
+  const [EduBack, setEduBack] = useState("0");
+  const [BirthPlace, setBirthPlace] = useState("0");
+  const [Zodiac, setZodiac] = useState("0");
   // 交際情報
-  const [MarriageStatus, setMarriageStatus] = useState("");
-  const [Kids, setKids] = useState("");
+  const [MarriageStatus, setMarriageStatus] = useState("0");
+  const [Kids, setKids] = useState("0");
   // 趣味・嗜好
-  const [Tabacco, setTabacco] = useState("");
-  const [Alchole, setAlchole] = useState("");
-  const [Car, setCar] = useState("");
-  const [Interest, setInterest] = useState("");
+  const [Tabacco, setTabacco] = useState("0");
+  const [Alchole, setAlchole] = useState("0");
+  const [Car, setCar] = useState("0");
+  const [Interest, setInterest] = useState("0");
   // その他
   // const [ProfilePicture, setProfilePicture] = useState("");
   const [ProfileMessage, setProfileMessage] = useState("");
   // 相手に求めること
-  const [PreferedAge1, setPreferedAge1] = useState("");
-  const [PreferedAge2, setPreferedAge2] = useState("");
-  const [PreferedPersonality, setPreferedPersonality] = useState("");
+  const [PreferedAge1, setPreferedAge1] = useState("0");
+  const [PreferedAge2, setPreferedAge2] = useState("0");
+  const [PreferedPersonality, setPreferedPersonality] = useState("0");
   // 内面的情報
-  const [Personality, setPersonality] = useState("");
+  const [Personality, setPersonality] = useState("0");
   // 自己評価
-  const [SelfCute, setSelfCute] = useState("");
-  const [SelfSexy, setSelfSexy] = useState("");
-  const [SelfKindness, setSelfKindness] = useState("");
-  const [SelfSmartness, setSelfSmartness] = useState("");
-  const [SelfNeatness, setSelfNeatness] = useState("");
-  const [SelfFashionable, setSelfFashionable] = useState("");
-  const [SelfBrightness, setSelfBrightness] = useState("");
-  const [SelfElegance, setSelfElegance] = useState("");
+  const [SelfCute, setSelfCute] = useState("0");
+  const [SelfSexy, setSelfSexy] = useState("0");
+  const [SelfKindness, setSelfKindness] = useState("0");
+  const [SelfSmartness, setSelfSmartness] = useState("0");
+  const [SelfNeatness, setSelfNeatness] = useState("0");
+  const [SelfFashionable, setSelfFashionable] = useState("0");
+  const [SelfBrightness, setSelfBrightness] = useState("0");
+  const [SelfElegance, setSelfElegance] = useState("0");
 
   let auth = useAuth();
 
