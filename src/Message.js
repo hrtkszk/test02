@@ -87,8 +87,10 @@ export function Message() {
     })
   }
 
-  if (BasicProfile.length === 0 || Messages.length === 0) {
+  // BasicProfileが空の場合、空ページを表示（読み込みが完了していないため）
+  if (BasicProfile.length === 0) {
     return <></>
+  
   } else if (Messages === []) {
     return (
       <div>

@@ -53,7 +53,7 @@ export function ProfileList() {
                 <Link to="../Detail">
                   {Profile.nickname}
                   {ProfileDB.Gender[Profile.gender]}
-                  <span class="datetime_l">{Profile.age}</span>
+                  {Profile.age}
                 </Link>
               </li>
             })}
