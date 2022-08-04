@@ -53,6 +53,8 @@ export function Registration(){
             /><br />
             <select
               defaultValue="-1"
+              type="number"
+              min="0"
               onChange={evt => setGender(evt.target.value)}>
                 <option value="-1">未選択</option>
                 {Object.keys(ProfileDB.Gender).map(key => <option value={key}>{ProfileDB.Gender[key]}</option>)}

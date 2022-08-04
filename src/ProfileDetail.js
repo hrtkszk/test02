@@ -117,13 +117,32 @@ export function ProfileDetail() {
       }
     }
   }
+
     // Profileが空か、[]の場合、プロフィール設定を促すページを表示
   if (Profile.length === 0 || Profile === "") {
     return (
       <>
           <h3>プロフィール</h3>
+          <ul>
+            <li>
+              <span className="dan">ニックネーム</span>
+              <span className="dan2">{BasicProfile.nickname}</span>
+            </li>
+            <li>
+              <span className="dan">性別</span>
+              <span className="dan2">{ProfileDB.Gender[BasicProfile.gender]}</span>
+            </li>
+            <li>
+              <span className="dan">年齢</span>
+              <span className="dan2">{BasicProfile.age}</span>
+            </li>
+            <li>
+              <span className="dan">年齢確認</span>
+              <span className="dan2">{ProfileDB.AgeConf[BasicProfile.ageConfirmation]}</span>
+            </li>
+          </ul>
           <p>
-              プロフィールを設定してください。
+              詳細プロフィールを設定してください。
           </p>
           <Link to="../ProfileSetting">プロフィール設定</Link><br />
           <Link to="../../">戻る</Link>
