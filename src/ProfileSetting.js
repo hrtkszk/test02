@@ -17,6 +17,7 @@ export function ProfileSetting() {
   const [Profile, setProfile] = useState([]);
   //  各ステータスのdefaultにすでに設定された値を入れたい。
   // 基本状況
+  let tempNickname ="";
   const [Nickname, setNickname] = useState("0");
   const [Gender, setGender] = useState("0");
   const [Age, setAge] = useState("0");
@@ -84,6 +85,7 @@ export function ProfileSetting() {
     .then((response) => response.json())
     .then(result => {
       setBasicProfile(result.result[0])
+      tempNickname = result.result[0].nickname
       setNickname(result.result[0].nickname)
       setGender(result.result[0].gender)
       setAge(result.result[0].age)
@@ -286,7 +288,7 @@ export function ProfileSetting() {
             <li>
               <span className="dan">ニックネーム</span>
               <span className="dan2">
-                <TextInputForm value={BasicProfile.nickname} handler={event => setNickname(event.target.value)} />
+                <TextInputForm value={tempNickname} handler={event => setNickname(event.target.value)} />
               </span>
             </li>
             <li>
