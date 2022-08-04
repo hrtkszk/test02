@@ -31,7 +31,7 @@ export function BoshuDetail() {
     .then(result =>{
       // console.log(result)
       setBoshuDetail(result.result[0])
-      console.log(result.result[0])
+      console.log(result.result)
     })
 
     const initialRequestOptions1 ={

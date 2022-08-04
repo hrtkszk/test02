@@ -4,9 +4,9 @@ header('Access-Control-Allow-Headers: Content-Type');
 $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
 $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 
-// $command="python3 get_boshudetail.py ".$_POST['BoshuID']; //pythonに引数を渡す
-// exec($command,$output); //python実行と、返り数受け取り
-// $test=$output
+$command="python3 get_boshudetail.py ".$_POST['BoshuID']; //pythonに引数を渡す
+exec($command,$output); //python実行と、返り数受け取り
+$test=$output
 // pythonからの返り数のうち、SQLのヘッダーの受け取りと、文字列から配列変換(pythonの出力1行目)
 // $output[0]=trim($output[0],"\"['");
 // $output[0]=trim($output[0],"']\"");
@@ -34,7 +34,7 @@ $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 //     if(empty($_POST['BoshuID'])) {
         echo json_encode(
             [
-                "result" => "test",
+                "result" => $test,
             ]
         );
 //     } else {
