@@ -21,7 +21,7 @@ cursor = connection.cursor()
 
 # 本当は、検索設定に基づいて検索したい。（SQL上で対応。そのときに自分のUUIDのsys.argv[1]を使う）
 # 複数のテーブルに跨るので、テーブルの合体などが必要。
-cursor.execute(f"SELECT UUID, nickname, gender, age FROM {table_name}")
+cursor.execute(f"SELECT UUID, nickname, gender, age FROM {table_name} WHERE UUID != {sys.argv[1]}")
 
 num_fields = len(cursor.description)
 field_names = [i[0] for i in cursor.description]
