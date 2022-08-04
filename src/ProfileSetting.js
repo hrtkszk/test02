@@ -9,7 +9,7 @@ import { useAuth } from "./useAuth";
 import "./ProfileDetail.css";
 import ProfileDB from "./Profile.json";
 import AreaDB from "./Area.json";
-// import TextInputForm from "./TextInputForm";
+import TextInputForm from "./TextInputForm";
 
 
 export function ProfileSetting() {
