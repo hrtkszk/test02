@@ -6,7 +6,7 @@ $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 $command_post="python3 boshu_list.py ".$_POST['UUID']; //pythonに引数を渡す
 exec($command_post, $output); //python実行と、返り数受け取り
 
-pythonからの返り数のうち、SQLのヘッダーの受け取りと、文字列から配列変換(pythonの出力1行目)
+// pythonからの返り数のうち、SQLのヘッダーの受け取りと、文字列から配列変換(pythonの出力1行目)
 $output[0]=trim($output[0],"\"['");
 $output[0]=trim($output[0],"']\"");
 $output0=explode("', '",$output[0]);
