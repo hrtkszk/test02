@@ -27,7 +27,7 @@ try:
     field_names = [i[0] for i in cursor.description]
     print(field_names)
 
-    print(cursor.fetchone())
+    # print(cursor.fetchone())
     for row in cursor:
         row1 = list()
         for item in row:
