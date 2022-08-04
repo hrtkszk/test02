@@ -67,6 +67,7 @@ export function BoshuPost() {
       return (
         <>
           <select
+            defaultValue={BoshuPrefecture}
             onChange={evt => {
               setBoshuPrefecture(evt.target.value)
               setBoshuCity("0")
@@ -85,6 +86,7 @@ export function BoshuPost() {
     if (BoshuPrefecture !== "0") {
       return (
         <select
+          defaultValue={BoshuCity}
           onChange={evt => setBoshuCity(evt.target.value)}>
             {Object.keys(AreaDB.Area[BoshuArea]["Prefecture"][BoshuPrefecture]["City"]).map(key => <option value={key}>{AreaDB.Area[BoshuArea]["Prefecture"][BoshuPrefecture]["City"][key]}</option>)}
         </select>
@@ -116,6 +118,7 @@ export function BoshuPost() {
             <span className="dan">募集エリア</span>
             <span className="dan2">
               <select
+                defaultValue={BoshuArea}
                 onChange={evt => {
                   setBoshuArea(evt.target.value)
                   setBoshuPrefecture("0")
