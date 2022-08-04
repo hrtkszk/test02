@@ -13,11 +13,8 @@ import AreaDB from "./Area.json";
 
 
 export function ProfileSetting() {
-  const [BasicProfile, setBasicProfile] = useState([]);
-  const [Profile, setProfile] = useState([]);
   //  各ステータスのdefaultにすでに設定された値を入れたい。
   // 基本状況
-  let tempNickname ="";
   const [Nickname, setNickname] = useState("0");
   const [Gender, setGender] = useState("0");
   const [Age, setAge] = useState("0");
@@ -84,8 +81,6 @@ export function ProfileSetting() {
     fetch("../../get_basicprofile.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
-      setBasicProfile(result.result[0])
-      tempNickname = result.result[0].nickname
       setNickname(result.result[0].nickname)
       setGender(result.result[0].gender)
       setAge(result.result[0].age)
@@ -95,7 +90,6 @@ export function ProfileSetting() {
     .then((response) => response.json())
     .then(result => {
       if (result.result !== "PND") {
-        setProfile(result.result[0])
         // console.log(result.result[0])
         setArea(result.result[0].Area)
         setPrefecture(result.result[0].Prefecture)
@@ -291,7 +285,8 @@ export function ProfileSetting() {
               <span className="dan2">
                 <input
                   type="text"
-                  onChange={evt => setNickname(evt.target.value)}
+                  defaultValue={Nickname}
+                  onChange={evt = () => setNickname(evt.target.value)}
                   // placeholder='年齢'
                   // required
                 />
@@ -313,7 +308,7 @@ export function ProfileSetting() {
               <span className="dan2">
               <input
                   type="number"
-                  defaultValue={BasicProfile.age}
+                  defaultValue={Age}
                   onChange={evt => {
                     // 本当は、サーバー側でも入力制限を設けたい。
                     setAge(evt.target.value)
@@ -383,7 +378,7 @@ export function ProfileSetting() {
               <span className="dan2">
                 <input
                   type="number"
-                  value={Profile.BustSize}
+                  value={BustSize}
                   onChange={evt => {
                   // 本当は、サーバー側でも入力制限を設けたい。
                   setBustSize(evt.target.value)
@@ -397,7 +392,7 @@ export function ProfileSetting() {
               <span className="dan2">
                 <input
                   type="number"
-                  value={Profile.WestSize}
+                  value={WestSize}
                   onChange={evt => {
                     // 本当は、サーバー側でも入力制限を設けたい。
                     setWestSize(evt.target.value)
@@ -411,7 +406,7 @@ export function ProfileSetting() {
               <span className="dan2">
                 <input
                   type="number"
-                  value={Profile.HipSize}
+                  value={HipSize}
                   onChange={evt => {
                     // 本当は、サーバー側でも入力制限を設けたい。
                     setHipSize(evt.target.value)
