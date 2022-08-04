@@ -266,10 +266,10 @@ export function ProfileSetting() {
   const [updatedPreferedAgeRange2, setlatestPreferedAgeRange2] = useState(latestPreferedAgeRange2);
 
 
-  // const handleInput = (event) => {
-  //   event.preventDefault();
-  //   setNickname(event.target.value);
-  // };
+  const handleInput = (event) => {
+    // event.preventDefault();
+    setNickname(event.target.value);
+  };
 
   function MainSelection() {
     return (
@@ -280,7 +280,7 @@ export function ProfileSetting() {
             <li>
               <span className="dan">ニックネーム</span>
               <span className="dan2">
-                <TextInputForm value={Nickname} handler={event => setNickname(event.target.value)} />
+                <TextInputForm value={Nickname} handler={handleInput} />
               </span>
             </li>
             <li>
