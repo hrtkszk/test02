@@ -2,9 +2,9 @@ const TextInputFrom = (props) => {
     return (
         <input
             type="text"
-            value={props.value}
+            defaultValue={props.value}
             onChange={props.handler}
-            placeholder={props.placeholder}
+            // placeholder={props.placeholder}
             required
         />
     )    

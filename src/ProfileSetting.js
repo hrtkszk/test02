@@ -278,6 +278,8 @@ export function ProfileSetting() {
   function MainSelection() {
     return (
       <div>
+        {console.log(Nickname)}
+        {console.log(Age)}
       <h1>プロフィール設定</h1>
         <form onSubmit={e => submit(e)}>
           <ul>
@@ -302,7 +304,7 @@ export function ProfileSetting() {
               <span className="dan2">
               <input
                   type="number"
-                  value={BasicProfile.age}
+                  defaultValue={BasicProfile.age}
                   onChange={evt => {
                     // 本当は、サーバー側でも入力制限を設けたい。
                     setAge(evt.target.value)
