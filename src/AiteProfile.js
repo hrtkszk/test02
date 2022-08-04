@@ -121,12 +121,12 @@ export function AiteProfile() {
   console.log(Profile)
   console.log(BasicProfile)
 
-  // ProfileとBasicProfileが空の場合、空ページを表示（読み込みが完了していないため）
-  if (Profile.length === 0 || BasicProfile.length === 0) {
+  // BasicProfileが空の場合、空ページを表示（読み込みが完了していないため）
+  if (BasicProfile.length === 0) {
     return <></>
   
   // Profileが""の場合、basicProfileのみを表示
-  } else if (Profile === "") {
+  } else if (Profile.length === 0 || Profile === "") {
     return (
       <div>
         <h1>プロフィール</h1>
