@@ -26,7 +26,7 @@ BoshuID = str(sys.argv[1])+"_"+str(datetime.datetime.now())
 
 try:
     cursor.execute(f" \
-        INSERT INTO '{BoshuDB}' \
+        INSERT INTO `{BoshuDB}` \
         SET \
             UUID='{sys.argv[1]}', \
             BoshuID='{BoshuID}', \
