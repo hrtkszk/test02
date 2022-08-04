@@ -9,6 +9,7 @@ import { useAuth } from "./useAuth";
 import "./ProfileDetail.css";
 import ProfileDB from "./Profile.json";
 import AreaDB from "./Area.json";
+import TextInputForm from "./TextInputForm";
 
 
 export function ProfileSetting() {
@@ -264,20 +265,12 @@ export function ProfileSetting() {
   let latestPreferedAgeRange2 = JSON.parse(JSON.stringify(ProfileDB.PreferedAge))
   const [updatedPreferedAgeRange2, setlatestPreferedAgeRange2] = useState(latestPreferedAgeRange2);
 
-  const NicknameInput = () => {
-    return (
-      <input
-        type="text"
-        defaultValue={Nickname}
-        onChange={evt => {
-          // 本当は、サーバー側でも入力制限を設けたい。
-          setNickname(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
-        }}
-        placeholder='ニックネーム'
-        required
-      />
-    )    
-  }
+
+  // const handleInput = (event) => {
+  //   event.preventDefault();
+  //   setNickname(event.target.value);
+  // };
+
   function MainSelection() {
     return (
       <div>
@@ -287,7 +280,7 @@ export function ProfileSetting() {
             <li>
               <span className="dan">ニックネーム</span>
               <span className="dan2">
-                <NicknameInput />
+                <TextInputForm value={Nickname} handler={event => setNickname(event.target.value)} />
               </span>
             </li>
             <li>
