@@ -38,7 +38,7 @@ if ($_POST['BoshuLimit']=="") {
 } else {
   $BoshuLimit=$_POST['BoshuLimit'];
 }
-$command_post="python3 update_profile.py " //pythonに引数を渡す
+$command_post="python3 post_boshu.py " //pythonに引数を渡す
 .$_POST['UUID']." "
 .$BoshuArea." "
 .$BoshuPrefecture." "
