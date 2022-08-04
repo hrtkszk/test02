@@ -15,7 +15,6 @@ import TextInputForm from "./TextInputForm";
 export function ProfileSetting() {
   //  各ステータスのdefaultにすでに設定された値を入れたい。
   const [BasicProfile, setBasicProfile] = useState([]);
-  const [Profile, setProfile] = useState([]);
   // 基本状況
   const [Nickname, setNickname] = useState("0");
   const [Gender, setGender] = useState("0");
@@ -93,7 +92,6 @@ export function ProfileSetting() {
     .then((response) => response.json())
     .then(result => {
       if (result.result !== "PND") {
-        setProfile(result.result[0])
         // console.log(result.result[0])
         setArea(result.result[0].Area)
         setPrefecture(result.result[0].Prefecture)
@@ -276,7 +274,7 @@ export function ProfileSetting() {
   // };
 
   // function MainSelection() {
-  if (Profile.length === 0 || BasicProfile.length === 0) {
+  if (BasicProfile.length === 0) {
     return <></>
   } else {
     return (
