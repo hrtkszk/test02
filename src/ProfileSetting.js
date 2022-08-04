@@ -281,6 +281,7 @@ export function ProfileSetting() {
     return (
       <div>
         {console.log(Nickname)}
+        {console.log(tempNickname)}
         {console.log(Age)}
       <h1>プロフィール設定</h1>
         <form onSubmit={e => submit(e)}>
