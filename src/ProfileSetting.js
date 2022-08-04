@@ -289,7 +289,7 @@ export function ProfileSetting() {
             <li>
               <span className="dan">ニックネーム</span>
               <span className="dan2">
-                <TextInputForm value={tempNickname} handler={event => setNickname(event.target.value)} />
+                <TextInputForm handler={event => setNickname(event.target.value)} />
               </span>
             </li>
             <li>
