@@ -13,6 +13,8 @@ import TextInputForm from "./TextInputForm";
 
 
 export function ProfileSetting() {
+  const [BasicProfile, setBasicProfile] = useState([]);
+  const [Profile, setProfile] = useState([]);
   //  各ステータスのdefaultにすでに設定された値を入れたい。
   // 基本状況
   const [Nickname, setNickname] = useState("0");
@@ -81,6 +83,7 @@ export function ProfileSetting() {
     fetch("../../get_basicprofile.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
+      setBasicProfile(result.result[0])
       setNickname(result.result[0].nickname)
       setGender(result.result[0].gender)
       setAge(result.result[0].age)
@@ -90,6 +93,7 @@ export function ProfileSetting() {
     .then((response) => response.json())
     .then(result => {
       if (result.result !== "PND") {
+        setProfile(result.result[0])
         // console.log(result.result[0])
         setArea(result.result[0].Area)
         setPrefecture(result.result[0].Prefecture)
@@ -266,10 +270,10 @@ export function ProfileSetting() {
   const [updatedPreferedAgeRange2, setlatestPreferedAgeRange2] = useState(latestPreferedAgeRange2);
 
 
-  const handleInput = (event) => {
-    // event.preventDefault();
-    setNickname(event.target.value);
-  };
+  // const handleInput = (event) => {
+  //   event.preventDefault();
+  //   setNickname(event.target.value);
+  // };
 
   function MainSelection() {
     return (
@@ -280,7 +284,7 @@ export function ProfileSetting() {
             <li>
               <span className="dan">ニックネーム</span>
               <span className="dan2">
-                <TextInputForm value={Nickname} handler={handleInput} />
+                <TextInputForm value={BasicProfile.nickname} handler={event => setNickname(event.target.value)} />
               </span>
             </li>
             <li>
@@ -298,7 +302,7 @@ export function ProfileSetting() {
               <span className="dan2">
               <input
                   type="number"
-                  defaultValue={Age}
+                  defaultValue={BasicProfile.age}
                   onChange={evt => {
                     // 本当は、サーバー側でも入力制限を設けたい。
                     setAge(evt.target.value)
@@ -368,7 +372,7 @@ export function ProfileSetting() {
               <span className="dan2">
                 <input
                   type="number"
-                  value={BustSize}
+                  value={Profile.BustSize}
                   onChange={evt => {
                   // 本当は、サーバー側でも入力制限を設けたい。
                   setBustSize(evt.target.value)
@@ -382,7 +386,7 @@ export function ProfileSetting() {
               <span className="dan2">
                 <input
                   type="number"
-                  value={WestSize}
+                  value={Profile.WestSize}
                   onChange={evt => {
                     // 本当は、サーバー側でも入力制限を設けたい。
                     setWestSize(evt.target.value)
@@ -396,7 +400,7 @@ export function ProfileSetting() {
               <span className="dan2">
                 <input
                   type="number"
-                  value={HipSize}
+                  value={Profile.HipSize}
                   onChange={evt => {
                     // 本当は、サーバー側でも入力制限を設けたい。
                     setHipSize(evt.target.value)
