@@ -41,10 +41,12 @@ export function Message() {
       headers:{'Content-Type': 'application/json'},
       body: JSON.stringify({"UUID":auth.aite})
     }
+    console.log(initialRequestOptions1)
     fetch("../get_basicprofile.php",initialRequestOptions1)
     .then((response) => response.json())
     .then(result => {
       setBasicProfile(result.result[0])
+      console.log(result.result[0])
     })
 
     setinitialized(true)
