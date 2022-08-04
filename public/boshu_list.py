@@ -32,7 +32,7 @@ try:
             SELECT UUID, nickname, gender, age \
             FROM `{basicProfileTable}`) AS t2\
         ON t1.UUID = t2.UUID \
-        WHERE t1.UUID!=`{sys.argv[1]}` \
+        WHERE t1.UUID!='{sys.argv[1]}' \
         ORDER BY t1.PostDateTime DESC\
     ")
 
