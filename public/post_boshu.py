@@ -13,7 +13,7 @@ connection = MySQLdb.connect(
     passwd=SQLconfig.passwd,
     db=SQLconfig.db)
 
-profileTable="profileTable"
+BoshuDB="BoshuDB"
 
 # field name込みの場合はこっちを使う
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
@@ -26,7 +26,7 @@ BoshuID = str(sys.argv[1])+"_"+str(datetime.datetime.now())
 
 try:
     cursor.execute(f" \
-        INSERT INTO '{profileTable}' \
+        INSERT INTO '{BoshuDB}' \
         SET \
             UUID='{sys.argv[1]}', \
             BoshuID='{BoshuID}', \

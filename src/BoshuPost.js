@@ -44,6 +44,7 @@ export function BoshuPost() {
         "BoshuLimit":BoshuLimit
       })
     }
+
     fetch("../post_boshu.php",requestOptions)
     .then((response)=> response.json())
     .then(result =>{
@@ -51,11 +52,11 @@ export function BoshuPost() {
       if (result.result[0]==="PBS") {
         // 募集投稿成功。リダイレクト
         auth.setMessage("新たな募集を投稿しました")
-        navigate("../ProfileDetail")
+        navigate("../Profile")
       } else {
         // 募集投稿失敗。リダイレクト
         auth.setMessage("募集を投稿できませんでした")
-        navigate("../ProfileDetail")
+        navigate("../Profile")
       }
     })
   }
