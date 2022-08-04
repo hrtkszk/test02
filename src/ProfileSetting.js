@@ -289,7 +289,13 @@ export function ProfileSetting() {
             <li>
               <span className="dan">ニックネーム</span>
               <span className="dan2">
-                <TextInputForm handler={event => setNickname(event.target.value)} />
+                <input
+                  type="text"
+                  onChange={evt => setNickname(evt.target.value)}
+                  // placeholder='年齢'
+                  // required
+                />
+                {/* <TextInputForm handler={event => setNickname(event.target.value)} /> */}
               </span>
             </li>
             <li>
