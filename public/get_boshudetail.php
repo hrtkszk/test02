@@ -16,7 +16,7 @@ $test=$output;
 // $it = 0;
 
 // // pythonからの返り数のうち、SQLの受け取りと、文字列から配列変換(pythonの残りの行全て)
-// if($output[1]!="None") {
+if($output[1]!="None") {
 //     foreach ($output as $value) {
 //         $value=trim($value,"\"(");
 //         $value=trim($value,")\"");
