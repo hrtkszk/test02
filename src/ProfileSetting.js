@@ -275,7 +275,6 @@ export function ProfileSetting() {
     return (
       <div>
         {console.log(Nickname)}
-        {console.log(tempNickname)}
         {console.log(Age)}
       <h1>プロフィール設定</h1>
         <form onSubmit={e => submit(e)}>
@@ -286,7 +285,7 @@ export function ProfileSetting() {
                 <input
                   type="text"
                   defaultValue={Nickname}
-                  onChange={evt = () => setNickname(evt.target.value)}
+                  onChange={(evt) => setNickname(evt.target.value)}
                   // placeholder='年齢'
                   // required
                 />
