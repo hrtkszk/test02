@@ -282,14 +282,7 @@ export function ProfileSetting() {
             <li>
               <span className="dan">ニックネーム</span>
               <span className="dan2">
-                <input
-                  type="text"
-                  defaultValue={Nickname}
-                  onChange={(evt) => setNickname(evt.target.value)}
-                  // placeholder='年齢'
-                  // required
-                />
-                {/* <TextInputForm handler={event => setNickname(event.target.value)} /> */}
+                <TextInputForm value={Nickname} handler={event => setNickname(event.target.value)} />
               </span>
             </li>
             <li>
