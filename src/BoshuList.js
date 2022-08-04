@@ -36,6 +36,7 @@ export function BoshuList() {
       // console.log(result)
       setBoshuList(result.result)
       console.log(result.result)
+      console.log(result.result1)
     })
     setinitialized(true)
   }
@@ -87,7 +88,7 @@ export function BoshuList() {
                 <Link to="../BoshuDetail">
                   {Boshu.BoshuTitle}
                 </Link><br />
-                {Boshu.PostDateTime}
+                {Boshu.PostDateTime}<br/>
               </li>
             })}
         </ul>
