@@ -272,6 +272,7 @@ export function ProfileSetting() {
   //   event.preventDefault();
   //   setNickname(event.target.value);
   // };
+  console.log(BasicProfile)
 
   // function MainSelection() {
   if (BasicProfile.length === 0) {
