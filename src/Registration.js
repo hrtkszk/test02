@@ -52,10 +52,11 @@ export function Registration(){
               required
             /><br />
             <select
-              defaultValue="-1"
+              defaultValue=""
               pattern="^[0-9]+$"
+              title="選択してください"
               onChange={evt => setGender(evt.target.value)}>
-                <option value="-1">未選択</option>
+                <option value="">未選択</option>
                 {Object.keys(ProfileDB.Gender).map(key => <option value={key}>{ProfileDB.Gender[key]}</option>)}
             </select><br />
             <input
