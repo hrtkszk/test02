@@ -10,7 +10,7 @@ import "./ProfileDetail.css";
 import ProfileDB from "./Profile.json";
 import AreaDB from "./Area.json";
 
-export function ProfileDetail() {
+export function AiteProfile() {
   let auth = useAuth();
   const [BasicProfile, setBasicProfile] = useState([]);
   const [Profile, setProfile] = useState([]);
