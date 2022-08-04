@@ -36,7 +36,6 @@ export function BoshuList() {
       // console.log(result)
       setBoshuList(result.result)
       console.log(result.result)
-      console.log(result.result1)
     })
     setinitialized(true)
   }
