@@ -61,7 +61,7 @@ export function BoshuPost() {
   }
 
   function PrefectureSelect() {
-    if (Area !== "0") {
+    if (BoshuArea !== "0") {
       return (
         <>
           <select
@@ -80,7 +80,7 @@ export function BoshuPost() {
   }
 
   function CitySelect() {
-    if (Prefecture !== "0") {
+    if (BoshuPrefecture !== "0") {
       return (
         <select
           onChange={evt => setBoshuCity(evt.target.value)}>
