@@ -281,8 +281,6 @@ export function ProfileSetting() {
   } else {
     return (
       <div>
-        {console.log(Nickname)}
-        {console.log(Age)}
       <h1>プロフィール設定</h1>
         <form onSubmit={e => submit(e)}>
           <ul>

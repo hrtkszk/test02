@@ -117,9 +117,37 @@ export function AiteProfile() {
       }
     }
   }
-    // Profileが空か、[]の場合、空ページを表示
-  if (Profile.length === 0 || Profile === "") {
+  // ProfileとBasicProfileが空の場合、空ページを表示（読み込みが完了していないため）
+  if (Profile.length === 0 || BasicProfile.length === 0) {
     return <></>
+  
+  // Profileが""の場合、basicProfileのみを表示
+  } else if (Profile === "") {
+    return (
+      <div>
+        <h1>プロフィール</h1>
+        <ul>
+          <li>
+            <span className="dan">ニックネーム</span>
+            <span className="dan2">{BasicProfile.nickname}</span>
+          </li>
+          <li>
+            <span className="dan">性別</span>
+            <span className="dan2">{ProfileDB.Gender[BasicProfile.gender]}</span>
+          </li>
+          <li>
+            <span className="dan">年齢</span>
+            <span className="dan2">{BasicProfile.age}</span>
+          </li>
+        </ul>
+        この方のプロフィールの詳細は未設定です。
+        <div>
+          <Link to="../Message">メッセージを送る</Link><br />
+
+          <Link to="../">戻る</Link>
+        </div>
+      </div>
+    )
   //  Profileが空でない場合、もしくは[]でない場合、プロフィールを表示＋設定ページボタンの表示
   } else {
     return (
