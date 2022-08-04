@@ -16,6 +16,7 @@ export function Message() {
   const inputRef = useRef();
   const [Messages, setMessages] = useState([]);
   const [SendMessage, setSendMessage] = useState("");
+  const [BasicProfile, setBasicProfile] = useState([]);
   const [initialized, setinitialized] = useState(false);
 
   const initialRequestOptions ={
@@ -34,6 +35,18 @@ export function Message() {
       setMessages(result.pythonout2)
       console.log(result.pythonout2)
     })
+
+    const initialRequestOptions1 ={
+      method: 'POST',
+      headers:{'Content-Type': 'application/json'},
+      body: JSON.stringify({"UUID":auth.aite})
+    }
+    fetch("../get_basicprofile.php",initialRequestOptions1)
+    .then((response) => response.json())
+    .then(result => {
+      setBasicProfile(result.result[0])
+    })
+
     setinitialized(true)
   }
   
@@ -74,10 +87,12 @@ export function Message() {
     })
   }
 
-  if (Messages === []) {
+  if (BasicProfile.length === 0 || Messages.length === 0) {
+    return <></>
+  } else if (Messages === []) {
     return (
       <div>
-        <h1>Welcome {auth.user}</h1>
+        <h1>{BasicProfile.nickname}　{BasicProfile.age}</h1>
         <footer>
           <input
             id="sendMessage"
@@ -92,7 +107,7 @@ export function Message() {
   } else {
     return (
       <div>
-        <h1>Welcome {auth.user}</h1>
+        <h1>{BasicProfile.nickname}　{BasicProfile.age}</h1>
         <div>
         <ul>
           {Messages.map((Message, i) => {

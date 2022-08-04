@@ -118,9 +118,6 @@ export function AiteProfile() {
     }
   }
 
-  console.log(Profile)
-  console.log(BasicProfile)
-
   // BasicProfileが空の場合、空ページを表示（読み込みが完了していないため）
   if (BasicProfile.length === 0) {
     return <></>
