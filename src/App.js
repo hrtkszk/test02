@@ -25,6 +25,7 @@ import { EmailNotExist } from "./EmailNotExist";
 import { NotExist } from "./NotExist";
 import { Registration } from "./Registration";
 import { ResetPwd } from "./ResetPwd";
+import { AiteProfile } from "./AiteProfile";
 
 export default function App() {
   return (
@@ -54,9 +55,10 @@ export default function App() {
           <Route index element={<ProfileList />}/>
           <Route path="page2" element={<Page2 />}/>
           <Route path="ProfileList" element={<ProfileList />}/>
+          <Route path="Detail" element={<AiteProfile />}/>
           <Route path="Message" element={<Message />}/>
           <Route path="MessageList" element={<MessageList />}/>
-          <Route path="profile" element={<Profile />}>
+          <Route path="MyProfile" element={<Profile />}>
             <Route index element={<ProfileDetail />}/>
             <Route path="ProfileDetail" element={<ProfileDetail />}/>
             <Route path="ProfileSetting" element={<ProfileSetting />}/>

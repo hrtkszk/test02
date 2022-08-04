@@ -33,7 +33,7 @@ export function Header() {
               <Link to="MessageList">Show Message List</Link>
             </li>
             <li>
-              <Link to="profile">Profile</Link>
+              <Link to="MyProfile">プロフィール設定</Link>
             </li>
             <li>
               <Link to="logout">Logout Page</Link>

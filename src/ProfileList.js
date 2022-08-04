@@ -7,6 +7,7 @@ import {
 import { useState } from 'react';
 import { useAuth } from "./useAuth";
 import "./Profile.css";
+import ProfileDB from "./Profile.json";
 
 
 export function ProfileList() {
@@ -49,9 +50,9 @@ export function ProfileList() {
         <ul>
             {Profile_List.map((Profile, i) => {
               return <li key={Profile.UUID} onClick={() => auth.setAite(Profile.UUID)}>
-                <Link to="../Message">
+                <Link to="../Detail">
                   {Profile.nickname}
-                  {Profile.gender}
+                  {ProfileDB.Gender[Profile.gender]}
                   {Profile.age}
                   <span class="datetime_l">{Profile.age}</span>
                 </Link>
