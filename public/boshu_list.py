@@ -27,11 +27,11 @@ cursor = connection.cursor()
 try:
     cursor.execute(f" \
         SELECT UUID, BoshuID, BoshuArea, BoshuPrefecture, BoshuCity, BoshuCategory, BoshuTitle, ViewCount, PostDateTime \
-        FROM {BoshuDB} WHERE UUID != '{sys.argv[1]}' AS t1 \
-        INNER JOIN (\
-            SELECT UUID, nickname, gender, age\
-            FROM {basicProfileTable}) AS t2\
-        ON t1.UUID = t2.UUID\
+        FROM {BoshuDB} WHERE UUID!='{sys.argv[1]}' AS t1 \
+        INNER JOIN ( \
+            SELECT UUID, nickname, gender, age \
+            FROM {basicProfileTable}) AS t2 \
+        ON t1.UUID = t2.UUID \
         ORDER BY t1.PostDateTime DESC\
     ")
 
