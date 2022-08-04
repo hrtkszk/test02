@@ -13,6 +13,9 @@ import { ProfileSetting } from "./ProfileSetting";
 import { ChangePwd } from "./ChangePwd";
 import { ChangeEmail } from "./ChangeEmail";
 import { Page2 } from "./page2";
+import { BoshuList } from "./BoshuList";
+import { BoshuDetail } from "./BoshuDetail";
+import { BoshuPost } from "./BoshuPost";
 import { ProfileList } from "./ProfileList";
 import { Message } from "./Message";
 import { MessageList } from "./MessageList";
@@ -54,6 +57,9 @@ export default function App() {
         >
           <Route index element={<ProfileList />}/>
           <Route path="page2" element={<Page2 />}/>
+          <Route path="BoshuList" element={<BoshuList />}/>
+          <Route path="BoshuDetail" element={<BoshuDetail />}/>
+          <Route path="BoshuPost" element={<BoshuPost />}/>
           <Route path="ProfileList" element={<ProfileList />}/>
           <Route path="Detail" element={<AiteProfile />}/>
           <Route path="Message" element={<Message />}/>

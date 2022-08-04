@@ -10,6 +10,7 @@ export function AuthProvider({ children }) {
   let [AuthStatus, setAuthStatus] = React.useState(false);
   let [RegistrationStatus, setRegistrationStatus] = React.useState(false);
   let [Message, setMessage] = React.useState("");
+  let [BoshuID, setBoshuID] = React.useState("");
   let NewRegistry = false;
   let registerResult = "";
   let PwdReset = "";
@@ -168,7 +169,7 @@ export function AuthProvider({ children }) {
     })
   }
 
-  let value = { user, aite, AuthStatus, RegistrationStatus, Message, signin, signout, registration, resetPwd, setAite, setMessage };
+  let value = { user, aite, AuthStatus, RegistrationStatus, Message, BoshuID, signin, signout, registration, resetPwd, setAite, setMessage, setBoshuID};
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

@@ -1,0 +1,169 @@
+import * as React from "react";
+import {
+  Link,
+//   // Outlet
+  useNavigate
+} from "react-router-dom";
+import { useState } from 'react';
+import { useAuth } from "./useAuth";
+import "./ProfileDetail.css";
+import ProfileDB from "./Profile.json";
+import AreaDB from "./Area.json";
+// import TextInputForm from "./TextInputForm";
+
+
+export function BoshuPost() {
+  const [BoshuArea, setBoshuArea] = useState("0");
+  const [BoshuPrefecture, setBoshuPrefecture] = useState("0");
+  const [BoshuCity, setBoshuCity] = useState("0");
+  const [BoshuCategory, setBoshuCategory] = useState("0");
+  const [BoshuTitle, setBoshuTitle] = useState("");
+  const [BoshuMessage, setBoshuMessage] = useState("");
+  const [BoshuLimit, setBoshuLimit] = useState("0");
+
+  let auth = useAuth();
+
+  let navigate = useNavigate();
+
+
+  // 入力値に問題があれば遷移しない。問題なければ遷移する
+  const submit = e => {
+    e.preventDefault();
+
+    const requestOptions ={
+      method: 'POST',
+      headers:{'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        "UUID":auth.user,
+        "BoshuArea":BoshuArea,
+        "BoshuPrefecture":BoshuPrefecture,
+        "BoshuCity":BoshuCity,
+        "BoshuCategory":BoshuCategory,
+        "BoshuTitle":BoshuTitle,
+        "BoshuMessage":BoshuMessage,
+        "BoshuLimit":BoshuLimit
+      })
+    }
+    fetch("../post_boshu.php",requestOptions)
+    .then((response)=> response.json())
+    .then(result =>{
+      console.log(result)
+      if (result.result[0]==="PBS") {
+        // 募集投稿成功。リダイレクト
+        auth.setMessage("新たな募集を投稿しました")
+        navigate("../ProfileDetail")
+      } else {
+        // 募集投稿失敗。リダイレクト
+        auth.setMessage("募集を投稿できませんでした")
+        navigate("../ProfileDetail")
+      }
+    })
+  }
+
+  function PrefectureSelect() {
+    if (Area !== "0") {
+      return (
+        <>
+          <select
+            onChange={evt => {
+              setBoshuPrefecture(evt.target.value)
+              setBoshuCity("0")
+            }}>
+              {Object.keys(AreaDB.Area[BoshuArea]["Prefecture"]).map(key => <option value={key}>{AreaDB.Area[BoshuArea]["Prefecture"][key]["PrefectureName"]}</option>)}
+          </select>
+          <CitySelect/>
+        </>
+      )
+    } else {
+      return <></>
+    }
+  }
+
+  function CitySelect() {
+    if (Prefecture !== "0") {
+      return (
+        <select
+          onChange={evt => setBoshuCity(evt.target.value)}>
+            {Object.keys(AreaDB.Area[BoshuArea]["Prefecture"][BoshuPrefecture]["City"]).map(key => <option value={key}>{AreaDB.Area[BoshuArea]["Prefecture"][BoshuPrefecture]["City"][key]}</option>)}
+        </select>
+      )
+    } else {
+      return <></>
+    }
+  }
+
+  return (
+    <div>
+    <h1>募集投稿設定</h1>
+      <form onSubmit={e => submit(e)}>
+        <ul>
+          <li>
+            <span className="dan">募集カテゴリ</span>
+            <span className="dan2">
+              <select
+                onChange={evt => setBoshuCategory(evt.target.value)}>
+                  {Object.keys(ProfileDB.BoshuCategory).map(key => <option value={key}>{ProfileDB.BoshuCategory[key]}</option>)}
+              </select>
+            </span>
+          </li>
+          <li>
+          <span className="dan">募集エリア</span>
+          <span className="dan2">
+            <select
+              onChange={evt => {
+                setBoshuArea(evt.target.value)
+                setBoshuPrefecture("0")
+                setBoshuCity("0")
+              }}>
+                {Object.keys(AreaDB.Area).map(key => <option value={key}>{AreaDB.Area[key]["AreaName"]}</option>)}
+            </select>
+            <PrefectureSelect/>
+          </span>
+          </li>
+          <li>
+            <span className="dan">募集タイトル</span>
+            <span className="dan2">
+              <input
+                type="text"
+                onChange={evt => {
+                  // 本当は、サーバー側でも入力制限を設けたい。
+                  setBoshuTitle(evt.target.value)
+                }}
+                placeholder='募集タイトル'
+              />    
+            </span>
+          </li>
+          <li>
+            <span className="dan">募集内容</span>
+            <span className="dan2">
+              <input
+                type="text"
+                onChange={evt => {
+                  // 本当は、サーバー側でも入力制限を設けたい。
+                  setBoshuMessage(evt.target.value)
+                }}
+                placeholder='募集内容'
+              />    
+            </span>
+          </li>
+          <li>
+            <span className="dan">募集上限</span>
+            <span className="dan2">
+              <input
+                type="number"
+                onChange={evt => {
+                // 本当は、サーバー側でも入力制限を設けたい。
+                setBoshuLimit(evt.target.value)
+                }}
+                placeholder='募集上限'
+              />          
+            </span>
+          </li>
+        </ul>
+        <button type="submit">投稿</button>
+      </form>
+      <br />
+      <Link to="../">戻る</Link>
+    </div>
+  );
+}

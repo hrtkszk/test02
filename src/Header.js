@@ -24,7 +24,10 @@ export function Header() {
           </button> */}
           <ul>
             <li>
-              <Link to="page2">Show Page 2</Link>
+              <Link to="BoshuList">Boshu List</Link>
+            </li>
+            <li>
+              <Link to="BoshuPost">募集投稿</Link>
             </li>
             <li>
               <Link to="ProfileList">Show Profile List</Link>

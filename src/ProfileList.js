@@ -39,7 +39,7 @@ export function ProfileList() {
   if (Profile_List === []) {
     return (
       <div>
-        <h1>Profile List for {auth.user}</h1>
+        <h1>Profile List</h1>
       </div>
     )
   } else {
