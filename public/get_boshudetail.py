@@ -20,7 +20,7 @@ BoshuDB="BoshuDB"
 cursor = connection.cursor()
 
 try:
-    cursor.execute(f"SELECT * FROM `{BoshuDB}` WHERE BoshuID='{sys.argv[1]}'")
+    cursor.execute(f"SELECT * FROM `{BoshuDB}` WHERE BoshuID='{sys.argv[1:]}'")
 
     # num_fields = len(cursor.description)
     field_names = [i[0] for i in cursor.description]
