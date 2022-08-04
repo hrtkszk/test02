@@ -17,18 +17,18 @@ $it = 0;
 
 // pythonからの返り数のうち、SQLの受け取りと、文字列から配列変換(pythonの残りの行全て)
 if($output[1]!="None") {
-    foreach ($output as $value) {
-        $value=trim($value,"\"(");
-        $value=trim($value,")\"");
-        $value=str_replace("'",'',$value);
-        $value1=explode(", ",$value);
-        $output1 = array_combine($output0,$value1);
-        $output2 = $output2 + array("$it" => $output1);
-        $it = $it + 1;
-    }
-    // 配列1行目の削除と、配列詰め
-    unset($output2[0]);
-    $output2 = array_values($output2);
+    // foreach ($output as $value) {
+    //     $value=trim($value,"\"(");
+    //     $value=trim($value,")\"");
+    //     $value=str_replace("'",'',$value);
+    //     $value1=explode(", ",$value);
+    //     $output1 = array_combine($output0,$value1);
+    //     $output2 = $output2 + array("$it" => $output1);
+    //     $it = $it + 1;
+    // }
+    // // 配列1行目の削除と、配列詰め
+    // unset($output2[0]);
+    // $output2 = array_values($output2);
 
     //配列のJSON変換と、echoでのサーバーサイド出力。
     if(empty($_POST['BoshuID'])) {
@@ -40,7 +40,7 @@ if($output[1]!="None") {
     } else {
         echo json_encode(
             [
-                "result" => $output2,
+                "result" => "test",
             ]
         );
     }
