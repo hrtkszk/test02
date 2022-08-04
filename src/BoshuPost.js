@@ -118,7 +118,7 @@ export function BoshuPost() {
               }}>
                 {Object.keys(AreaDB.Area).map(key => <option value={key}>{AreaDB.Area[key]["AreaName"]}</option>)}
             </select>
-            {BoshuArea === "0" && <PrefectureSelect/>}
+            {BoshuArea !== "0" && <PrefectureSelect/>}
           </span>
           </li>
           <li>
