@@ -29,7 +29,7 @@ try:
         SELECT t1.UUID, BoshuID, BoshuArea, BoshuPrefecture, BoshuCity, BoshuCategory, BoshuTitle, ViewCount, PostDateTime \
         FROM `{BoshuDB}` AS t1\
         INNER JOIN ( \
-            SELECT t2.UUID, nickname, gender, age \
+            SELECT UUID, nickname, gender, age \
             FROM `{basicProfileTable}`) AS t2\
         ON t1.UUID = t2.UUID \
         WHERE t1.UUID!=`{sys.argv[1]}` \
