@@ -62,7 +62,7 @@ export function BoshuPost() {
   }
 
   function PrefectureSelect() {
-    if (BoshuArea !== "0") {
+    // if (BoshuArea !== "0") {
       return (
         <>
           <select
@@ -75,9 +75,9 @@ export function BoshuPost() {
           <CitySelect/>
         </>
       )
-    } else {
-      return <></>
-    }
+    // } else {
+    //   return <></>
+    // }
   }
 
   function CitySelect() {
@@ -118,7 +118,7 @@ export function BoshuPost() {
               }}>
                 {Object.keys(AreaDB.Area).map(key => <option value={key}>{AreaDB.Area[key]["AreaName"]}</option>)}
             </select>
-            <PrefectureSelect/>
+            {BoshuArea === "0" && <PrefectureSelect/>}
           </span>
           </li>
           <li>
