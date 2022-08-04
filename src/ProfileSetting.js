@@ -12,57 +12,106 @@ import AreaDB from "./Area.json";
 // import TextInputForm from "./TextInputForm";
 
 
+const [Nickname, setNickname] = useState("0");
+const [Gender, setGender] = useState("0");
+const [Age, setAge] = useState("0");
+// 地域状況
+const [Area, setArea] = useState("0");
+const [Prefecture, setPrefecture] = useState("0");
+const [City, setCity] = useState("0");
+// 身体的情報
+const [Height, setHeight] = useState("0");
+const [Style, setStyle] = useState("0");
+const [Looks, setLooks] = useState("0");
+const [Cup, setCup] = useState("0");
+const [BustSize, setBustSize] = useState("0");
+const [WestSize, setWestSize] = useState("0");
+const [HipSize, setHipSize] = useState("0");
+const [BloodType, setBloodType] = useState("0");
+// 経験・背景情報
+const [Job, setJob] = useState("0");
+const [EduBack, setEduBack] = useState("0");
+const [BirthArea, setBirthArea] = useState("0");
+const [BirthPrefecture, setBirthPrefecture] = useState("0");
+const [Zodiac, setZodiac] = useState("0");
+// 交際情報
+const [MarriageStatus, setMarriageStatus] = useState("0");
+const [Kids, setKids] = useState("0");
+// 趣味・嗜好
+const [Tabacco, setTabacco] = useState("0");
+const [Alchole, setAlchole] = useState("0");
+const [Car, setCar] = useState("0");
+const [Interest, setInterest] = useState("0");
+// その他
+// const [ProfilePicture, setProfilePicture] = useState("");
+const [ProfileMessage, setProfileMessage] = useState("");
+// 相手に求めること
+const [PreferedAge1, setPreferedAge1] = useState("0");
+const [PreferedAge2, setPreferedAge2] = useState("0");
+const [PreferedPersonality, setPreferedPersonality] = useState("0");
+// 内面的情報
+const [Personality, setPersonality] = useState("0");
+// 自己評価
+const [SelfCute, setSelfCute] = useState("0");
+const [SelfSexy, setSelfSexy] = useState("0");
+const [SelfKindness, setSelfKindness] = useState("0");
+const [SelfSmartness, setSelfSmartness] = useState("0");
+const [SelfNeatness, setSelfNeatness] = useState("0");
+const [SelfFashionable, setSelfFashionable] = useState("0");
+const [SelfBrightness, setSelfBrightness] = useState("0");
+const [SelfElegance, setSelfElegance] = useState("0");
+
 export function ProfileSetting() {
   //  各ステータスのdefaultにすでに設定された値を入れたい。
   // 基本状況
-  const [Nickname, setNickname] = useState("0");
-  const [Gender, setGender] = useState("0");
-  const [Age, setAge] = useState("0");
-  // 地域状況
-  const [Area, setArea] = useState("0");
-  const [Prefecture, setPrefecture] = useState("0");
-  const [City, setCity] = useState("0");
-  // 身体的情報
-  const [Height, setHeight] = useState("0");
-  const [Style, setStyle] = useState("0");
-  const [Looks, setLooks] = useState("0");
-  const [Cup, setCup] = useState("0");
-  const [BustSize, setBustSize] = useState("0");
-  const [WestSize, setWestSize] = useState("0");
-  const [HipSize, setHipSize] = useState("0");
-  const [BloodType, setBloodType] = useState("0");
-  // 経験・背景情報
-  const [Job, setJob] = useState("0");
-  const [EduBack, setEduBack] = useState("0");
-  const [BirthArea, setBirthArea] = useState("0");
-  const [BirthPrefecture, setBirthPrefecture] = useState("0");
-  const [Zodiac, setZodiac] = useState("0");
-  // 交際情報
-  const [MarriageStatus, setMarriageStatus] = useState("0");
-  const [Kids, setKids] = useState("0");
-  // 趣味・嗜好
-  const [Tabacco, setTabacco] = useState("0");
-  const [Alchole, setAlchole] = useState("0");
-  const [Car, setCar] = useState("0");
-  const [Interest, setInterest] = useState("0");
-  // その他
-  // const [ProfilePicture, setProfilePicture] = useState("");
-  const [ProfileMessage, setProfileMessage] = useState("");
-  // 相手に求めること
-  const [PreferedAge1, setPreferedAge1] = useState("0");
-  const [PreferedAge2, setPreferedAge2] = useState("0");
-  const [PreferedPersonality, setPreferedPersonality] = useState("0");
-  // 内面的情報
-  const [Personality, setPersonality] = useState("0");
-  // 自己評価
-  const [SelfCute, setSelfCute] = useState("0");
-  const [SelfSexy, setSelfSexy] = useState("0");
-  const [SelfKindness, setSelfKindness] = useState("0");
-  const [SelfSmartness, setSelfSmartness] = useState("0");
-  const [SelfNeatness, setSelfNeatness] = useState("0");
-  const [SelfFashionable, setSelfFashionable] = useState("0");
-  const [SelfBrightness, setSelfBrightness] = useState("0");
-  const [SelfElegance, setSelfElegance] = useState("0");
+  // const [Nickname, setNickname] = useState("0");
+  // const [Gender, setGender] = useState("0");
+  // const [Age, setAge] = useState("0");
+  // // 地域状況
+  // const [Area, setArea] = useState("0");
+  // const [Prefecture, setPrefecture] = useState("0");
+  // const [City, setCity] = useState("0");
+  // // 身体的情報
+  // const [Height, setHeight] = useState("0");
+  // const [Style, setStyle] = useState("0");
+  // const [Looks, setLooks] = useState("0");
+  // const [Cup, setCup] = useState("0");
+  // const [BustSize, setBustSize] = useState("0");
+  // const [WestSize, setWestSize] = useState("0");
+  // const [HipSize, setHipSize] = useState("0");
+  // const [BloodType, setBloodType] = useState("0");
+  // // 経験・背景情報
+  // const [Job, setJob] = useState("0");
+  // const [EduBack, setEduBack] = useState("0");
+  // const [BirthArea, setBirthArea] = useState("0");
+  // const [BirthPrefecture, setBirthPrefecture] = useState("0");
+  // const [Zodiac, setZodiac] = useState("0");
+  // // 交際情報
+  // const [MarriageStatus, setMarriageStatus] = useState("0");
+  // const [Kids, setKids] = useState("0");
+  // // 趣味・嗜好
+  // const [Tabacco, setTabacco] = useState("0");
+  // const [Alchole, setAlchole] = useState("0");
+  // const [Car, setCar] = useState("0");
+  // const [Interest, setInterest] = useState("0");
+  // // その他
+  // // const [ProfilePicture, setProfilePicture] = useState("");
+  // const [ProfileMessage, setProfileMessage] = useState("");
+  // // 相手に求めること
+  // const [PreferedAge1, setPreferedAge1] = useState("0");
+  // const [PreferedAge2, setPreferedAge2] = useState("0");
+  // const [PreferedPersonality, setPreferedPersonality] = useState("0");
+  // // 内面的情報
+  // const [Personality, setPersonality] = useState("0");
+  // // 自己評価
+  // const [SelfCute, setSelfCute] = useState("0");
+  // const [SelfSexy, setSelfSexy] = useState("0");
+  // const [SelfKindness, setSelfKindness] = useState("0");
+  // const [SelfSmartness, setSelfSmartness] = useState("0");
+  // const [SelfNeatness, setSelfNeatness] = useState("0");
+  // const [SelfFashionable, setSelfFashionable] = useState("0");
+  // const [SelfBrightness, setSelfBrightness] = useState("0");
+  // const [SelfElegance, setSelfElegance] = useState("0");
 
   let auth = useAuth();
 
