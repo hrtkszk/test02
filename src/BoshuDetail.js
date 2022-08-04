@@ -18,7 +18,6 @@ export function BoshuDetail() {
   const [initialized, setinitialized] = useState(false);
 
 
-
   // ページが読み込まれる時に実行し、Messagesとして登録する。
   if (initialized===false) {
     const initialRequestOptions ={
@@ -26,6 +25,7 @@ export function BoshuDetail() {
       headers:{'Content-Type': 'application/json'},
       body: JSON.stringify({"BoshuID":auth.BoshuID})
     }
+    console.log(initialRequestOptions)
     fetch("../get_boshudetail.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{
