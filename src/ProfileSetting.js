@@ -302,7 +302,7 @@ export function ProfileSetting() {
               <span className="dan2">
               <input
                   type="number"
-                  defaultValue={BasicProfile.age}
+                  value={BasicProfile.age}
                   onChange={evt => {
                     // 本当は、サーバー側でも入力制限を設けたい。
                     setAge(evt.target.value)
