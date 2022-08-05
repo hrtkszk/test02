@@ -319,116 +319,90 @@ export function ProfileSetting() {
             </span>
             </li>
             <li>
-              <span className="dan">身長</span>
-              <span className="dan2">
-                <select
-                  defaultValue={Height}
-                  onChange={evt => setHeight(evt.target.value)}>
-                    {Object.keys(ProfileDB.Height).map(key => <option value={key}>{ProfileDB.Height[key]}</option>)}
-                </select>
-              </span>
+              <FormSelect 
+                title="身長"
+                json={ProfileDB.Height}
+                defaultValue={Height}
+                setValue={setHeight}
+              />
             </li>
             <li>
-              <span className="dan">スタイル</span>
-              <span className="dan2">
-                <select
-                  defaultValue={Style}
-                  onChange={evt => setStyle(evt.target.value)}>
-                    {Object.keys(ProfileDB.Style).map(key => <option value={key}>{ProfileDB.Style[key]}</option>)}
-                </select>
-              </span>
+              <FormSelect 
+                title="スタイル"
+                json={ProfileDB.Style}
+                defaultValue={Style}
+                setValue={setStyle}
+              />
             </li>
             <li>
-              <span className="dan">ルックス</span>
-              <span className="dan2">
-                <select
-                  defaultValue={Looks}
-                  onChange={evt => setLooks(evt.target.value)}>
-                    {Object.keys(ProfileDB.Looks).map(key => <option value={key}>{ProfileDB.Looks[key]}</option>)}
-                </select>
-              </span>
+              <FormSelect 
+                title="ルックス"
+                json={ProfileDB.Looks}
+                defaultValue={Looks}
+                setValue={setLooks}
+              />
             </li>
             <li>
-              <span className="dan">カップ</span>
-              <span className="dan2">
-                <select
-                  defaultValue={Cup}
-                  onChange={evt => setCup(evt.target.value)}>
-                    {Object.keys(ProfileDB.Cup).map(key => <option value={key}>{ProfileDB.Cup[key]}</option>)}
-                </select>
-              </span>
+              <FormSelect 
+                title="カップ"
+                json={ProfileDB.Cup}
+                defaultValue={Cup}
+                setValue={setCup}
+              />
             </li>
             <li>
-              <span className="dan">バスト</span>
-              <span className="dan2">
-                <input
-                  type="number"
-                  value={BustSize}
-                  onChange={evt => {
-                  // 本当は、サーバー側でも入力制限を設けたい。
-                  setBustSize(evt.target.value)
-                  }}
-                  placeholder='バスト'
-                />                
-              </span>
+              <FormTextInput 
+                title="バスト"
+                type="number"
+                defaultValue={BustSize}
+                setValue={setBustSize}
+                placeholder="バスト"
+                required="false"
+              />
             </li>
             <li>
-              <span className="dan">ウエスト</span>
-              <span className="dan2">
-                <input
-                  type="number"
-                  value={WestSize}
-                  onChange={evt => {
-                    // 本当は、サーバー側でも入力制限を設けたい。
-                    setWestSize(evt.target.value)
-                  }}
-                  placeholder='ウエスト'
-                />                
-              </span>
+              <FormTextInput 
+                title="ウエスト"
+                type="number"
+                defaultValue={WestSize}
+                setValue={setWestSize}
+                placeholder="ウエスト"
+                required="false"
+              />
             </li>
             <li>
-              <span className="dan">ヒップ</span>
-              <span className="dan2">
-                <input
-                  type="number"
-                  value={HipSize}
-                  onChange={evt => {
-                    // 本当は、サーバー側でも入力制限を設けたい。
-                    setHipSize(evt.target.value)
-                  }}
-                  placeholder='ヒップ'
-                />                
-              </span>
+              <FormTextInput 
+                title="ヒップ"
+                type="number"
+                defaultValue={HipSize}
+                setValue={setHipSize}
+                placeholder="ヒップ"
+                required="false"
+              />
             </li>
             <li>
-              <span className="dan">血液型</span>
-              <span className="dan2">
-                <select
-                  defaultValue={BloodType}
-                  onChange={evt => setBloodType(evt.target.value)}>
-                    {Object.keys(ProfileDB.BloodType).map(key => <option value={key}>{ProfileDB.BloodType[key]}</option>)}
-                </select>
-              </span>
+              <FormSelect 
+                title="血液型"
+                json={ProfileDB.BloodType}
+                defaultValue={BloodType}
+                setValue={setBloodType}
+              />
             </li>
             <li>
-              <span className="dan">職業</span>
-              <span className="dan2">
-                <select
-                  defaultValue={Job}
-                  onChange={evt => setJob(evt.target.value)}>
-                    {Object.keys(ProfileDB.Job).map(key => <option value={key}>{ProfileDB.Job[key]}</option>)}
-                </select>
-              </span>
+              <FormSelect 
+                title="職業"
+                json={ProfileDB.Job}
+                defaultValue={Job}
+                setValue={setJob}
+              />
             </li>
             <li>
-              <span className="dan">学歴</span>
-              <span className="dan2">
-                <select
-                  defaultValue={EduBack}
-                  onChange={evt => setEduBack(evt.target.value)}>
-                    {Object.keys(ProfileDB.EduBack).map(key => <option value={key}>{ProfileDB.EduBack[key]}</option>)}
-                </select>
-              </span>
+              <FormSelect 
+                title="学歴"
+                json={ProfileDB.EduBack}
+                defaultValue={EduBack}
+                setValue={setEduBack}
+              />
             </li>
             <li>
               <span className="dan">出身地</span>
@@ -445,93 +419,71 @@ export function ProfileSetting() {
               </span>
             </li>
             <li>
-              <span className="dan">星座</span>
-              <span className="dan2">
-                <select
-                  defaultValue={Zodiac}
-                  onChange={evt => setZodiac(evt.target.value)}>
-                    {Object.keys(ProfileDB.Zodiac).map(key => <option value={key}>{ProfileDB.Zodiac[key]}</option>)}
-                </select>
-              </span>
+              <FormSelect 
+                title="星座"
+                json={ProfileDB.Zodiac}
+                defaultValue={Zodiac}
+                setValue={setZodiac}
+              />
             </li>
             <li>
-              <span className="dan">交際状況</span>
-              <span className="dan2">
-                <select
-                  defaultValue={MarriageStatus}
-                  onChange={evt => setMarriageStatus(evt.target.value)}>
-                    {Object.keys(ProfileDB.MarriageStatus).map(key => <option value={key}>{ProfileDB.MarriageStatus[key]}</option>)}
-                </select>
-              </span>
+              <FormSelect 
+                title="交際状況"
+                json={ProfileDB.MarriageStatus}
+                defaultValue={MarriageStatus}
+                setValue={setMarriageStatus}
+              />
             </li>
             <li>
-              <span className="dan">子供</span>
-              <span className="dan2">
-                <select
-                  defaultValue={Kids}
-                  onChange={evt => setKids(evt.target.value)}>
-                    {Object.keys(ProfileDB.Kids).map(key => <option value={key}>{ProfileDB.Kids[key]}</option>)}
-                </select>
-              </span>
+              <FormSelect 
+                title="子供"
+                json={ProfileDB.Kids}
+                defaultValue={Kids}
+                setValue={setKids}
+              />
             </li>
             <li>
-              <span className="dan">タバコ</span>
-              <span className="dan2">
-                <select
-                  defaultValue={Tabacco}
-                  onChange={evt => setTabacco(evt.target.value)}>
-                    {Object.keys(ProfileDB.Tabacco).map(key => <option value={key}>{ProfileDB.Tabacco[key]}</option>)}
-                </select>
-              </span>
+              <FormSelect 
+                title="タバコ"
+                json={ProfileDB.Tabacco}
+                defaultValue={Tabacco}
+                setValue={setTabacco}
+              />
             </li>
             <li>
-              <span className="dan">お酒</span>
-              <span className="dan2">
-                <select
-                  defaultValue={Alchole}
-                  onChange={evt => setAlchole(evt.target.value)}>
-                    {Object.keys(ProfileDB.Alchole).map(key => <option value={key}>{ProfileDB.Alchole[key]}</option>)}
-                </select>
-              </span>
+              <FormSelect 
+                title="お酒"
+                json={ProfileDB.Alchole}
+                defaultValue={Alchole}
+                setValue={setAlchole}
+              />
             </li>
             <li>
-              <span className="dan">車</span>
-              <span className="dan2">
-                <select
-                  defaultValue={Car}
-                  onChange={evt => setCar(evt.target.value)}>
-                    {Object.keys(ProfileDB.Car).map(key => <option value={key}>{ProfileDB.Car[key]}</option>)}
-                </select>
-              </span>
+              <FormSelect 
+                title="車"
+                json={ProfileDB.Car}
+                defaultValue={Car}
+                setValue={setCar}
+              />
             </li>
-
             <li>
               {/* 別のリストにして、複数選択・検索できるようにする */}
-              <span className="dan">興味あること</span>
-              <span className="dan2">
-                <select
-                  defaultValue={Interest}
-                  onChange={evt => setInterest(evt.target.value)}>
-                    {Object.keys(ProfileDB.Interest).map(key => <option value={key}>{ProfileDB.Interest[key]}</option>)}
-                </select>
-              </span>
+              <FormSelect 
+                title="興味あること"
+                json={ProfileDB.Interest}
+                defaultValue={Interest}
+                setValue={setInterest}
+              />
             </li>
             <li>
-              <span className="dan">メッセージ</span>
-              <span className="dan2">
-                {/* 複数行での記載ができるように。別にするか？？ */}
-                <input
-                  // プルダウンでの選択式にしたい
-                  type="text"
-                  // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                  // title="有効なメールアドレスを入力してください"
-                  onChange={evt => {
-                    // 本当は、この段階で入力制限を設けたい。ポップアップなどで入力できないことを示す？
-                    setProfileMessage(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
-                  }}
-                  placeholder='メッセージ'
-                />
-              </span>
+              <FormTextInput 
+                title="メッセージ"
+                type="text"
+                defaultValue={ProfileMessage}
+                setValue={setProfileMessage}
+                placeholder="メッセージ"
+                required="false"
+              />
             </li>
 
             {/* ファイルを選択して、貼り付けれるようにしたい。
@@ -551,109 +503,96 @@ export function ProfileSetting() {
             </li>
             <li>
               {/* 別のリストにして、複数選択・検索できるようにする。Personalityと共通 */}
-              <span className="dan">希望する性格</span>
-              <span className="dan2">
-                <select
-                  defaultValue={PreferedPersonality}
-                  onChange={evt => setPreferedPersonality(evt.target.value)}>
-                    {Object.keys(ProfileDB.Personality).map(key => <option value={key}>{ProfileDB.Personality[key]}</option>)}
-                </select>
-              </span>
+              <FormSelect 
+                title="希望する性格"
+                json={ProfileDB.PreferedPersonality}
+                defaultValue={PreferedPersonality}
+                setValue={setPreferedPersonality}
+              />
             </li>
             <li>
               {/* 別のリストにして、複数選択・検索できるようにする。 */}
-              <span className="dan">性格</span>
-              <span className="dan2">
-                <select
-                  defaultValue={Personality}
-                  onChange={evt => setPersonality(evt.target.value)}>
-                    {Object.keys(ProfileDB.Personality).map(key => <option value={key}>{ProfileDB.Personality[key]}</option>)}
-                </select>
-              </span>
+              <FormSelect 
+                title="性格"
+                json={ProfileDB.Personality}
+                defaultValue={Personality}
+                setValue={setPersonality}
+              />
             </li>
             <li>
               自己評価<br />
             </li>
             <li>
               {/* 星で表現したい。 */}
-              <span className="dan">可愛さ</span>
-              <span className="dan2">
-                <select
-                  defaultValue={SelfCute}
-                  onChange={evt => setSelfCute(evt.target.value)}>
-                    {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
-                </select>
-              </span>
+              <FormSelect 
+                title="可愛さ"
+                json={ProfileDB.Self}
+                defaultValue={SelfCute}
+                setValue={setSelfCute}
+              />
             </li>
             <li>
-              <span className="dan">セクシーさ</span>
-              <span className="dan2">
-                <select
-                  defaultValue={SelfSexy}
-                  onChange={evt => setSelfSexy(evt.target.value)}>
-                    {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
-                </select>
-              </span>
+              {/* 星で表現したい。 */}
+              <FormSelect 
+                title="セクシーさ"
+                json={ProfileDB.Self}
+                defaultValue={SelfSexy}
+                setValue={setSelfSexy}
+              />
             </li>
             <li>
-              <span className="dan">優しさ</span>
-              <span className="dan2">
-                <select
-                  defaultValue={SelfKindness}
-                  onChange={evt => setSelfKindness(evt.target.value)}>
-                    {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
-                </select>
-              </span>
+              {/* 星で表現したい。 */}
+              <FormSelect 
+                title="優しさ"
+                json={ProfileDB.Self}
+                defaultValue={SelfKindness}
+                setValue={setSelfKindness}
+              />
             </li>
             <li>
-              <span className="dan">賢さ</span>
-              <span className="dan2">
-                <select
-                  defaultValue={SelfSmartness}
-                  onChange={evt => setSelfSmartness(evt.target.value)}>
-                    {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
-                </select>
-              </span>
+              {/* 星で表現したい。 */}
+              <FormSelect 
+                title="賢さ"
+                json={ProfileDB.Self}
+                defaultValue={SelfSmartness}
+                setValue={setSelfSmartness}
+              />
             </li>
             <li>
-              <span className="dan">清楚さ</span>
-              <span className="dan2">
-                <select
-                  defaultValue={SelfNeatness}
-                  onChange={evt => setSelfNeatness(evt.target.value)}>
-                    {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
-                </select>
-              </span>
+              {/* 星で表現したい。 */}
+              <FormSelect 
+                title="清楚さ"
+                json={ProfileDB.Self}
+                defaultValue={SelfNeatness}
+                setValue={setSelfNeatness}
+              />
             </li>
             <li>
-              <span className="dan">ファッション</span>
-              <span className="dan2">
-                <select
-                  defaultValue={SelfFashionable}
-                  onChange={evt => setSelfFashionable(evt.target.value)}>
-                    {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
-                </select>
-              </span>
+              {/* 星で表現したい。 */}
+              <FormSelect 
+                title="ファッション"
+                json={ProfileDB.Self}
+                defaultValue={SelfFashionable}
+                setValue={setSelfFashionable}
+              />
             </li>
             <li>
-              <span className="dan">明るさ</span>
-              <span className="dan2">
-                <select
-                  defaultValue={SelfBrightness}
-                  onChange={evt => setSelfBrightness(evt.target.value)}>
-                    {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
-                </select>
-              </span>
+              {/* 星で表現したい。 */}
+              <FormSelect 
+                title="明るさ"
+                json={ProfileDB.Self}
+                defaultValue={SelfBrightness}
+                setValue={setSelfBrightness}
+              />
             </li>
             <li>
-              <span className="dan">エレガンス</span>
-              <span className="dan2">
-                <select
-                  defaultValue={SelfElegance}
-                  onChange={evt => setSelfElegance(evt.target.value)}>
-                    {Object.keys(ProfileDB.Self).map(key => <option value={key}>{ProfileDB.Self[key]}</option>)}
-                </select>
-              </span>
+              {/* 星で表現したい。 */}
+              <FormSelect 
+                title="エレガンス"
+                json={ProfileDB.Self}
+                defaultValue={SelfElegance}
+                setValue={setSelfElegance}
+              />
             </li>
           </ul>
           <button type="submit">保存する</button>
