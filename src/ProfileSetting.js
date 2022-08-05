@@ -10,7 +10,7 @@ import "./ProfileDetail.css";
 import ProfileDB from "./Profile.json";
 import AreaDB from "./Area.json";
 import TextInputForm from "./TextInputForm";
-
+import SelectRangeForm from "./SelectRangeForm";
 
 export function ProfileSetting() {
   //  各ステータスのdefaultにすでに設定された値を入れたい。
@@ -261,11 +261,10 @@ export function ProfileSetting() {
     }
   }
 
-  let latestPreferedAgeRange1 = JSON.parse(JSON.stringify(ProfileDB.PreferedAge))
-  const [updatedPreferedAgeRange1, setlatestPreferedAgeRange1] = useState(latestPreferedAgeRange1);
-
-  let latestPreferedAgeRange2 = JSON.parse(JSON.stringify(ProfileDB.PreferedAge))
-  const [updatedPreferedAgeRange2, setlatestPreferedAgeRange2] = useState(latestPreferedAgeRange2);
+  // let latestPreferedAgeRange1 = JSON.parse(JSON.stringify(ProfileDB.PreferedAge))
+  // const [updatedPreferedAgeRange1, setlatestPreferedAgeRange1] = useState(latestPreferedAgeRange1);
+  // let latestPreferedAgeRange2 = JSON.parse(JSON.stringify(ProfileDB.PreferedAge))
+  // const [updatedPreferedAgeRange2, setlatestPreferedAgeRange2] = useState(latestPreferedAgeRange2);
 
 
   // const handleInput = (event) => {
@@ -551,8 +550,16 @@ export function ProfileSetting() {
             setProfilePicture(evt.target.value) */}
             
             <li>
+              <SelectRangeForm
+                title="希望する年齢" 
+                originalRange={ProfileDB.PreferedAge}
+                Range1={PreferedAge1}
+                setRange1={setPreferedAge1}
+                Range2={PreferedAge2}
+                setRange2={setPreferedAge2}
+              />
               {/* 上・下を設けて、範囲設定できるようにする。上が下よりも小さくならないようにロジックが必要 */}
-              <span className="dan">希望する年齢</span>
+              {/* <span className="dan">希望する年齢</span>
               <span className="dan2">
                 <select
                   defaultValue={PreferedAge1}
@@ -581,7 +588,7 @@ export function ProfileSetting() {
                   }}>
                     {Object.keys(updatedPreferedAgeRange2).map(key => <option value={key}>{updatedPreferedAgeRange2[key]}</option>)}
                 </select>
-              </span>
+              </span> */}
             </li>
             <li>
               {/* 別のリストにして、複数選択・検索できるようにする。Personalityと共通 */}
