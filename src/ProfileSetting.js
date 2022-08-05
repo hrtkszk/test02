@@ -279,13 +279,13 @@ export function ProfileSetting() {
         <form onSubmit={e => submit(e)}>
           <ul>
             <li>
-              <FormTextInput 
+              {/* <FormTextInput 
                 title="ニックネーム"
                 type="text"
                 defaultValue={BasicProfile.nickname}
                 setValue={setBasicProfile}
                 required="true"
-              />
+              /> */}
             </li>
             <li>
               <FormSelect2
@@ -298,13 +298,13 @@ export function ProfileSetting() {
               />
             </li>
             <li>
-              <FormTextInput 
+              {/* <FormTextInput 
                 title="年齢"
                 type="number"
                 defaultValue={BasicProfile.age}
                 setValue={setBasicProfile}
                 required="true"
-              />
+              /> */}
             </li>
             <li>
             <span className="dan">エリア</span>
