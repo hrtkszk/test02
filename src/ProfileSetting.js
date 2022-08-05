@@ -11,6 +11,7 @@ import ProfileDB from "./Profile.json";
 import AreaDB from "./Area.json";
 import FormTextInput from "./FormTextInput";
 import FormSelectRange from "./FormSelectRange";
+import FormSelect from "./FormSelect";
 
 export function ProfileSetting() {
   //  各ステータスのdefaultにすでに設定された値を入れたい。
@@ -286,29 +287,21 @@ export function ProfileSetting() {
               />
             </li>
             <li>
-              <span className="dan">性別</span>
-              <span className="dan2">
-                <select
-                  defaultValue={Gender}
-                  onChange={evt => setGender(evt.target.value)}>
-                    {Object.keys(ProfileDB.Gender).map(key => <option value={key}>{ProfileDB.Gender[key]}</option>)}
-                </select>
-              </span>
+              <FormSelect 
+                title="性別"
+                json={ProfileDB.Gender}
+                defaultValue={Gender}
+                setValue={setGender}
+              />
             </li>
             <li>
-              <span className="dan">年齢</span>
-              <span className="dan2">
-              <input
-                  type="number"
-                  defaultValue={Age}
-                  onChange={evt => {
-                    // 本当は、サーバー側でも入力制限を設けたい。
-                    setAge(evt.target.value)
-                  }}
-                  placeholder='年齢'
-                  required
-                />
-              </span>
+              <FormTextInput 
+                title="年齢"
+                type="number"
+                defaultValue={Age}
+                setValue={setAge}
+                required="true"
+              />
             </li>
             <li>
             <span className="dan">エリア</span>
