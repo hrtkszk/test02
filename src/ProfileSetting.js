@@ -17,9 +17,9 @@ export function ProfileSetting() {
   //  各ステータスのdefaultにすでに設定された値を入れたい。
   const [BasicProfile, setBasicProfile] = useState([]);
   // 基本状況
-  const [Nickname, setNickname] = useState("0");
-  const [Gender, setGender] = useState("0");
-  const [Age, setAge] = useState("0");
+  // const [Nickname, setNickname] = useState("0");
+  // const [Gender, setGender] = useState("0");
+  // const [Age, setAge] = useState("0");
   // 地域状況
   const [Area, setArea] = useState("0");
   const [Prefecture, setPrefecture] = useState("0");
@@ -84,9 +84,9 @@ export function ProfileSetting() {
     .then((response) => response.json())
     .then(result => {
       setBasicProfile(result.result[0])
-      setNickname(result.result[0].nickname)
-      setGender(result.result[0].gender)
-      setAge(result.result[0].age)
+      // setNickname(result.result[0].nickname)
+      // setGender(result.result[0].gender)
+      // setAge(result.result[0].age)
     })
 
     fetch("../../get_profile.php",initialRequestOptions)
@@ -145,9 +145,9 @@ export function ProfileSetting() {
       body: JSON.stringify({
         "UUID":auth.user,
 
-        "nickname":Nickname,
-        "gender":Gender,
-        "age":Age,
+        "nickname":BasicProfile.nickname,
+        "gender":BasicProfile.gender,
+        "age":BasicProfile.age,
 
         "Area":Area,
         "Prefecture":Prefecture,
@@ -281,8 +281,8 @@ export function ProfileSetting() {
               <FormTextInput 
                 title="ニックネーム"
                 type="text"
-                defaultValue={Nickname}
-                setValue={setNickname}
+                defaultValue={BasicProfile.nickname}
+                setValue={setBasicProfile.nickname}
                 required="true"
               />
             </li>
@@ -290,16 +290,16 @@ export function ProfileSetting() {
               <FormSelect 
                 title="性別"
                 json={ProfileDB.Gender}
-                defaultValue={Gender}
-                setValue={setGender}
+                defaultValue={BasicProfile.gender}
+                setValue={setBasicProfile.gender}
               />
             </li>
             <li>
               <FormTextInput 
                 title="年齢"
                 type="number"
-                defaultValue={Age}
-                setValue={setAge}
+                defaultValue={BasicProfile.age}
+                setValue={setBasicProfile.age}
                 required="true"
               />
             </li>
