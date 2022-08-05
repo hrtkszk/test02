@@ -292,10 +292,8 @@ export function ProfileSetting() {
               <FormSelect2
                 title="性別"
                 keyValue={ProfileDB.Gender}
-                targetJSON={BasicProfile}
-                targetJSONName="gender"
                 defaultValue={BasicProfile.gender}
-                setValue={setBasicProfile}
+                setValue={event => setBasicProfile({...BasicProfile, gender : event.target.value})}
               />
             </li>
             <li>
