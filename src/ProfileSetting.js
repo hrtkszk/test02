@@ -12,6 +12,7 @@ import AreaDB from "./Area.json";
 import FormTextInput from "./FormTextInput";
 import FormSelectRange from "./FormSelectRange";
 import FormSelect from "./FormSelect";
+import FormSelect2 from "./FormSelect2";
 
 export function ProfileSetting() {
   //  各ステータスのdefaultにすでに設定された値を入れたい。
@@ -282,16 +283,18 @@ export function ProfileSetting() {
                 title="ニックネーム"
                 type="text"
                 defaultValue={BasicProfile.nickname}
-                setValue={setBasicProfile.nickname()}
+                setValue={setBasicProfile}
                 required="true"
               />
             </li>
             <li>
-              <FormSelect 
+              <FormSelect2
                 title="性別"
-                json={ProfileDB.Gender}
+                keyValue={ProfileDB.Gender}
+                targetJSON={BasicProfile}
+                targetJSONName="gender"
                 defaultValue={BasicProfile.gender}
-                setValue={setBasicProfile.gender()}
+                setValue={setBasicProfile}
               />
             </li>
             <li>
@@ -299,7 +302,7 @@ export function ProfileSetting() {
                 title="年齢"
                 type="number"
                 defaultValue={BasicProfile.age}
-                setValue={setBasicProfile.age()}
+                setValue={setBasicProfile}
                 required="true"
               />
             </li>
