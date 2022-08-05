@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 const SelectRangeForm = (props) => {
 
     let latestRange1 = JSON.parse(JSON.stringify(props.originalRange))
