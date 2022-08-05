@@ -195,6 +195,7 @@ export function ProfileSetting() {
         "SelfElegance":SelfElegance
       })
     }
+    console.log(BasicProfile)
     fetch("../../update_profile.php",requestOptions1)
     .then((response)=> response.json())
     .then(result =>{
