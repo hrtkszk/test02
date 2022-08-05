@@ -312,11 +312,11 @@ export function ProfileSetting() {
             <span className="dan">エリア</span>
             <span className="dan2">
               <select
-                defaultValue={Area}
-                onChange={evt => {
-                    setArea(evt.target.value)
-                    setPrefecture("0")
-                    setCity("0")
+                defaultValue={Profile.Area}
+                onChange={event => {
+                  setProfile({...Profile, Area : event.target.value})
+                  setProfile({...Profile, Prefecture : "0"})
+                  setProfile({...Profile, City : "0"})
                 }}>
                   {Object.keys(AreaDB.Area).map(key => <option value={key}>{AreaDB.Area[key]["AreaName"]}</option>)}
               </select>
