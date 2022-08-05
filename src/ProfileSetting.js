@@ -505,7 +505,7 @@ export function ProfileSetting() {
               {/* 別のリストにして、複数選択・検索できるようにする。Personalityと共通 */}
               <FormSelect 
                 title="希望する性格"
-                json={ProfileDB.PreferedPersonality}
+                json={ProfileDB.Personality}
                 defaultValue={PreferedPersonality}
                 setValue={setPreferedPersonality}
               />
