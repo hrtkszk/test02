@@ -9,8 +9,8 @@ import { useAuth } from "./useAuth";
 import "./ProfileDetail.css";
 import ProfileDB from "./Profile.json";
 import AreaDB from "./Area.json";
-import TextInputForm from "./TextInputForm";
-import SelectRangeForm from "./SelectRangeForm";
+import FormTextInput from "./FormTextInput";
+import FormSelectRange from "./FormSelectRange";
 
 export function ProfileSetting() {
   //  各ステータスのdefaultにすでに設定された値を入れたい。
@@ -261,12 +261,6 @@ export function ProfileSetting() {
     }
   }
 
-  // let latestPreferedAgeRange1 = JSON.parse(JSON.stringify(ProfileDB.PreferedAge))
-  // const [updatedPreferedAgeRange1, setlatestPreferedAgeRange1] = useState(latestPreferedAgeRange1);
-  // let latestPreferedAgeRange2 = JSON.parse(JSON.stringify(ProfileDB.PreferedAge))
-  // const [updatedPreferedAgeRange2, setlatestPreferedAgeRange2] = useState(latestPreferedAgeRange2);
-
-
   // const handleInput = (event) => {
   //   event.preventDefault();
   //   setNickname(event.target.value);
@@ -283,10 +277,13 @@ export function ProfileSetting() {
         <form onSubmit={e => submit(e)}>
           <ul>
             <li>
-              <span className="dan">ニックネーム</span>
-              <span className="dan2">
-                <TextInputForm value={Nickname} handler={event => setNickname(event.target.value)} />
-              </span>
+              <FormTextInput 
+                title="ニックネーム"
+                type="text"
+                defaultValue={Nickname}
+                setValue={setNickname}
+                required="true"
+              />
             </li>
             <li>
               <span className="dan">性別</span>
@@ -550,7 +547,7 @@ export function ProfileSetting() {
             setProfilePicture(evt.target.value) */}
             
             <li>
-              <SelectRangeForm
+              <FormSelectRange
                 title="希望する年齢" 
                 originalRange={ProfileDB.PreferedAge}
                 Range1={PreferedAge1}
@@ -558,37 +555,6 @@ export function ProfileSetting() {
                 Range2={PreferedAge2}
                 setRange2={setPreferedAge2}
               />
-              {/* 上・下を設けて、範囲設定できるようにする。上が下よりも小さくならないようにロジックが必要 */}
-              {/* <span className="dan">希望する年齢</span>
-              <span className="dan2">
-                <select
-                  defaultValue={PreferedAge1}
-                  onChange={evt => {
-                    setPreferedAge1(evt.target.value)
-                    latestPreferedAgeRange2 = JSON.parse(JSON.stringify(ProfileDB.PreferedAge)) // 一度リセットする
-                    for (let i = 1 ; i < Number(evt.target.value); i++) {
-                      delete latestPreferedAgeRange2[String(i)]
-                    }
-                    setlatestPreferedAgeRange2(latestPreferedAgeRange2)
-                  }}>
-                    {Object.keys(updatedPreferedAgeRange1).map(key => <option value={key}>{updatedPreferedAgeRange1[key]}</option>)}
-                </select>
-                〜
-                <select
-                  defaultValue={PreferedAge2}
-                  onChange={evt => {
-                    setPreferedAge2(evt.target.value)
-                    if (Number(evt.target.value) !== 0) {
-                      latestPreferedAgeRange1 = JSON.parse(JSON.stringify(ProfileDB.PreferedAge)) // 一度リセットする
-                      for (let i = Number(evt.target.value) + 1 ; i <= 17 ; i++) {
-                        delete latestPreferedAgeRange1[String(i)]
-                      }
-                      setlatestPreferedAgeRange1(latestPreferedAgeRange1)
-                    }
-                  }}>
-                    {Object.keys(updatedPreferedAgeRange2).map(key => <option value={key}>{updatedPreferedAgeRange2[key]}</option>)}
-                </select>
-              </span> */}
             </li>
             <li>
               {/* 別のリストにして、複数選択・検索できるようにする。Personalityと共通 */}

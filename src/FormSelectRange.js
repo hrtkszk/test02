@@ -1,6 +1,9 @@
 import { useState } from 'react';
 
-const SelectRangeForm = (props) => {
+// 上・下を設けて、範囲設定できるようにする。
+// 上が下よりも小さくならないようにしている
+
+const FormSelectRange = (props) => {
 
     let latestRange1 = JSON.parse(JSON.stringify(props.originalRange))
     const [updatedRange1, setlatestRange1] = useState(latestRange1);
@@ -42,4 +45,4 @@ const SelectRangeForm = (props) => {
         </>
     )    
 }
-export default SelectRangeForm;
+export default FormSelectRange;
