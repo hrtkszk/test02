@@ -282,7 +282,7 @@ export function ProfileSetting() {
                 title="ニックネーム"
                 type="text"
                 defaultValue={BasicProfile.nickname}
-                setValue={setBasicProfile.nickname}
+                setValue={setBasicProfile.nickname()}
                 required="true"
               />
             </li>
@@ -291,7 +291,7 @@ export function ProfileSetting() {
                 title="性別"
                 json={ProfileDB.Gender}
                 defaultValue={BasicProfile.gender}
-                setValue={setBasicProfile.gender}
+                setValue={setBasicProfile.gender()}
               />
             </li>
             <li>
@@ -299,7 +299,7 @@ export function ProfileSetting() {
                 title="年齢"
                 type="number"
                 defaultValue={BasicProfile.age}
-                setValue={setBasicProfile.age}
+                setValue={setBasicProfile.age()}
                 required="true"
               />
             </li>
