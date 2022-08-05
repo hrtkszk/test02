@@ -1,7 +1,5 @@
 const FormSelect2 = (props) => {
     let TempValue =""
-
-
     return (
         <>
             <span className="dan">{props.title}</span>
@@ -9,7 +7,7 @@ const FormSelect2 = (props) => {
                     <select
                         defaultValue = {props.defaultValue}
                         onChange={event => {
-                            TempValue = JSON.parse(JSON.stringify("\"" + props.targetJSONName + "\" : \"" + event.target.value + "\""))
+                            TempValue = JSON.parse("{\"" + props.targetJSONName + "\":\"" + event.target.value + "\"}")
                             console.log(props.targetJSON)
                             console.log(props.defaultValue)
                             console.log(TempValue)
