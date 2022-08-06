@@ -84,7 +84,7 @@ export function ProfileSetting() {
     fetch("../../get_basicprofile.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
-      // setBasicProfile(result.result[0])
+      setBasicProfile(result.result[0])
       setNickname(result.result[0].nickname)
       setGender(result.result[0].gender)
       setAge(result.result[0].age)
