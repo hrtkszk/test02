@@ -5,7 +5,7 @@ const FormSelect = (props) => {
                 <span className="dan2">
                     <select
                         defaultValue = {props.defaultValue}
-                        onChange = {props.setValue}>
+                        onChange = {event => {props.setValue(event.target.value)}}>
                             {Object.keys(props.keyValue).map(key => <option value={key}>{props.keyValue[key]}</option>)}
                     </select>
             </span>

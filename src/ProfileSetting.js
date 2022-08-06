@@ -16,56 +16,56 @@ import FormSelect from "./FormSelect";
 export function ProfileSetting() {
   //  各ステータスのdefaultにすでに設定された値を入れたい。
   const [BasicProfile, setBasicProfile] = useState([]);
-  const [Profile, setProfile] = useState([]);
+  // const [Profile, setProfile] = useState([]);
   // 基本状況
-  // const [Nickname, setNickname] = useState("0");
-  // const [Gender, setGender] = useState("0");
-  // const [Age, setAge] = useState("0");
+  const [Nickname, setNickname] = useState("0");
+  const [Gender, setGender] = useState("0");
+  const [Age, setAge] = useState("0");
   // // 地域状況
-  // const [Area, setArea] = useState("0");
-  // const [Prefecture, setPrefecture] = useState("0");
-  // const [City, setCity] = useState("0");
+  const [Area, setArea] = useState("0");
+  const [Prefecture, setPrefecture] = useState("0");
+  const [City, setCity] = useState("0");
   // // 身体的情報
-  // const [Height, setHeight] = useState("0");
-  // const [Style, setStyle] = useState("0");
-  // const [Looks, setLooks] = useState("0");
-  // const [Cup, setCup] = useState("0");
-  // const [BustSize, setBustSize] = useState("0");
-  // const [WestSize, setWestSize] = useState("0");
-  // const [HipSize, setHipSize] = useState("0");
-  // const [BloodType, setBloodType] = useState("0");
+  const [Height, setHeight] = useState("0");
+  const [Style, setStyle] = useState("0");
+  const [Looks, setLooks] = useState("0");
+  const [Cup, setCup] = useState("0");
+  const [BustSize, setBustSize] = useState("0");
+  const [WestSize, setWestSize] = useState("0");
+  const [HipSize, setHipSize] = useState("0");
+  const [BloodType, setBloodType] = useState("0");
   // // 経験・背景情報
-  // const [Job, setJob] = useState("0");
-  // const [EduBack, setEduBack] = useState("0");
-  // const [BirthArea, setBirthArea] = useState("0");
-  // const [BirthPrefecture, setBirthPrefecture] = useState("0");
-  // const [Zodiac, setZodiac] = useState("0");
+  const [Job, setJob] = useState("0");
+  const [EduBack, setEduBack] = useState("0");
+  const [BirthArea, setBirthArea] = useState("0");
+  const [BirthPrefecture, setBirthPrefecture] = useState("0");
+  const [Zodiac, setZodiac] = useState("0");
   // // 交際情報
-  // const [MarriageStatus, setMarriageStatus] = useState("0");
-  // const [Kids, setKids] = useState("0");
+  const [MarriageStatus, setMarriageStatus] = useState("0");
+  const [Kids, setKids] = useState("0");
   // // 趣味・嗜好
-  // const [Tabacco, setTabacco] = useState("0");
-  // const [Alchole, setAlchole] = useState("0");
-  // const [Car, setCar] = useState("0");
-  // const [Interest, setInterest] = useState("0");
+  const [Tabacco, setTabacco] = useState("0");
+  const [Alchole, setAlchole] = useState("0");
+  const [Car, setCar] = useState("0");
+  const [Interest, setInterest] = useState("0");
   // // その他
   // // const [ProfilePicture, setProfilePicture] = useState("");
-  // const [ProfileMessage, setProfileMessage] = useState("");
+  const [ProfileMessage, setProfileMessage] = useState("");
   // // 相手に求めること
-  // const [PreferedAge1, setPreferedAge1] = useState("0");
-  // const [PreferedAge2, setPreferedAge2] = useState("0");
-  // const [PreferedPersonality, setPreferedPersonality] = useState("0");
+  const [PreferedAge1, setPreferedAge1] = useState("0");
+  const [PreferedAge2, setPreferedAge2] = useState("0");
+  const [PreferedPersonality, setPreferedPersonality] = useState("0");
   // // 内面的情報
-  // const [Personality, setPersonality] = useState("0");
+  const [Personality, setPersonality] = useState("0");
   // // 自己評価
-  // const [SelfCute, setSelfCute] = useState("0");
-  // const [SelfSexy, setSelfSexy] = useState("0");
-  // const [SelfKindness, setSelfKindness] = useState("0");
-  // const [SelfSmartness, setSelfSmartness] = useState("0");
-  // const [SelfNeatness, setSelfNeatness] = useState("0");
-  // const [SelfFashionable, setSelfFashionable] = useState("0");
-  // const [SelfBrightness, setSelfBrightness] = useState("0");
-  // const [SelfElegance, setSelfElegance] = useState("0");
+  const [SelfCute, setSelfCute] = useState("0");
+  const [SelfSexy, setSelfSexy] = useState("0");
+  const [SelfKindness, setSelfKindness] = useState("0");
+  const [SelfSmartness, setSelfSmartness] = useState("0");
+  const [SelfNeatness, setSelfNeatness] = useState("0");
+  const [SelfFashionable, setSelfFashionable] = useState("0");
+  const [SelfBrightness, setSelfBrightness] = useState("0");
+  const [SelfElegance, setSelfElegance] = useState("0");
 
   let auth = useAuth();
 
@@ -84,54 +84,54 @@ export function ProfileSetting() {
     fetch("../../get_basicprofile.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
-      setBasicProfile(result.result[0])
-      // setNickname(result.result[0].nickname)
-      // setGender(result.result[0].gender)
-      // setAge(result.result[0].age)
+      // setBasicProfile(result.result[0])
+      setNickname(result.result[0].nickname)
+      setGender(result.result[0].gender)
+      setAge(result.result[0].age)
     })
 
     fetch("../../get_profile.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
       if (result.result !== "PND") {
-        setProfile(result.result[0])
+        // setProfile(result.result[0])
         // console.log(result.result[0])
-        // setArea(result.result[0].Area)
-        // setPrefecture(result.result[0].Prefecture)
-        // setCity(result.result[0].City)
-        // setHeight(result.result[0].Height)
-        // setStyle(result.result[0].Style)
-        // setLooks(result.result[0].Looks)
-        // setCup(result.result[0].Cup)
-        // setBustSize(result.result[0].BustSize)
-        // setWestSize(result.result[0].WestSize)
-        // setHipSize(result.result[0].HipSize)
-        // setBloodType(result.result[0].BloodType)
-        // setJob(result.result[0].Job)
-        // setEduBack(result.result[0].EduBack)
-        // setBirthArea(result.result[0].BirthArea)
-        // setBirthPrefecture(result.result[0].BirthPrefecture)
-        // setZodiac(result.result[0].Zodiac)
-        // setMarriageStatus(result.result[0].MarriageStatus)
-        // setKids(result.result[0].Kids)
-        // setTabacco(result.result[0].Tabacco)
-        // setAlchole(result.result[0].Alchole)
-        // setCar(result.result[0].Car)
-        // setInterest(result.result[0].Interest)
-        // // setProfilePicture(result.result[0].ProfilePicture)
-        // setProfileMessage(result.result[0].ProfileMessage)
-        // setPreferedAge1(result.result[0].PreferedAge1)
-        // setPreferedAge2(result.result[0].PreferedAge2)
-        // setPreferedPersonality(result.result[0].PreferedPersonality)
-        // setPersonality(result.result[0].Personality)
-        // setSelfCute(result.result[0].SelfCute)
-        // setSelfSexy(result.result[0].SelfSexy)
-        // setSelfKindness(result.result[0].SelfKindness)
-        // setSelfSmartness(result.result[0].SelfSmartness)
-        // setSelfNeatness(result.result[0].SelfNeatness)
-        // setSelfFashionable(result.result[0].SelfFashionable)
-        // setSelfBrightness(result.result[0].SelfBrightness)
-        // setSelfElegance(result.result[0].SelfElegance)
+        setArea(result.result[0].Area)
+        setPrefecture(result.result[0].Prefecture)
+        setCity(result.result[0].City)
+        setHeight(result.result[0].Height)
+        setStyle(result.result[0].Style)
+        setLooks(result.result[0].Looks)
+        setCup(result.result[0].Cup)
+        setBustSize(result.result[0].BustSize)
+        setWestSize(result.result[0].WestSize)
+        setHipSize(result.result[0].HipSize)
+        setBloodType(result.result[0].BloodType)
+        setJob(result.result[0].Job)
+        setEduBack(result.result[0].EduBack)
+        setBirthArea(result.result[0].BirthArea)
+        setBirthPrefecture(result.result[0].BirthPrefecture)
+        setZodiac(result.result[0].Zodiac)
+        setMarriageStatus(result.result[0].MarriageStatus)
+        setKids(result.result[0].Kids)
+        setTabacco(result.result[0].Tabacco)
+        setAlchole(result.result[0].Alchole)
+        setCar(result.result[0].Car)
+        setInterest(result.result[0].Interest)
+        // setProfilePicture(result.result[0].ProfilePicture)
+        setProfileMessage(result.result[0].ProfileMessage)
+        setPreferedAge1(result.result[0].PreferedAge1)
+        setPreferedAge2(result.result[0].PreferedAge2)
+        setPreferedPersonality(result.result[0].PreferedPersonality)
+        setPersonality(result.result[0].Personality)
+        setSelfCute(result.result[0].SelfCute)
+        setSelfSexy(result.result[0].SelfSexy)
+        setSelfKindness(result.result[0].SelfKindness)
+        setSelfSmartness(result.result[0].SelfSmartness)
+        setSelfNeatness(result.result[0].SelfNeatness)
+        setSelfFashionable(result.result[0].SelfFashionable)
+        setSelfBrightness(result.result[0].SelfBrightness)
+        setSelfElegance(result.result[0].SelfElegance)
       }
     })
     setinitialized(true)
@@ -147,53 +147,53 @@ export function ProfileSetting() {
       body: JSON.stringify({
         "UUID":auth.user,
 
-        "nickname":BasicProfile.nickname,
-        "gender":BasicProfile.gender,
-        "age":BasicProfile.age,
+        "nickname":Nickname,
+        "gender":Gender,
+        "age":Age,
 
-        "Area":Profile.Area,
-        "Prefecture":Profile.Prefecture,
-        "City":Profile.City,
-        "Height":Profile.Height,
-        "Style":Profile.Style,
-        "Looks":Profile.Looks,
-        "Cup":Profile.Cup,
-        "BustSize":Profile.BustSize,
-        "WestSize":Profile.WestSize,
-        "HipSize":Profile.HipSize,
-        "BloodType":Profile.BloodType,
+        "Area":Area,
+        "Prefecture":Prefecture,
+        "City":City,
+        "Height":Height,
+        "Style":Style,
+        "Looks":Looks,
+        "Cup":Cup,
+        "BustSize":BustSize,
+        "WestSize":WestSize,
+        "HipSize":HipSize,
+        "BloodType":BloodType,
 
-        "Job":Profile.Job,
-        "EduBack":Profile.EduBack,
-        "BirthArea":Profile.BirthArea,
-        "BirthPrefecture":Profile.BirthPrefecture,
-        "Zodiac":Profile.Zodiac,
+        "Job":Job,
+        "EduBack":EduBack,
+        "BirthArea":BirthArea,
+        "BirthPrefecture":BirthPrefecture,
+        "Zodiac":Zodiac,
 
-        "MarriageStatus":Profile.MarriageStatus,
-        "Kids":Profile.Kids,
+        "MarriageStatus":MarriageStatus,
+        "Kids":Kids,
 
-        "Tabacco":Profile.Tabacco,
-        "Alchole":Profile.Alchole,
-        "Car":Profile.Car,
-        "Interest":Profile.Interest,
+        "Tabacco":Tabacco,
+        "Alchole":Alchole,
+        "Car":Car,
+        "Interest":Interest,
 
         // "ProfilePicture":ProfilePicture,
-        "ProfileMessage":Profile.ProfileMessage,
+        "ProfileMessage":ProfileMessage,
 
-        "PreferedAge1":Profile.PreferedAge1,
-        "PreferedAge2":Profile.PreferedAge2,
-        "PreferedPersonality":Profile.PreferedPersonality,
+        "PreferedAge1":PreferedAge1,
+        "PreferedAge2":PreferedAge2,
+        "PreferedPersonality":PreferedPersonality,
 
-        "Personality":Profile.Personality,
+        "Personality":Personality,
 
-        "SelfCute":Profile.SelfCute,
-        "SelfSexy":Profile.SelfSexy,
-        "SelfKindness":Profile.SelfKindness,
-        "SelfSmartness":Profile.SelfSmartness,
-        "SelfNeatness":Profile.SelfNeatness,
-        "SelfFashionable":Profile.SelfFashionable,
-        "SelfBrightness":Profile.SelfBrightness,
-        "SelfElegance":Profile.SelfElegance
+        "SelfCute":SelfCute,
+        "SelfSexy":SelfSexy,
+        "SelfKindness":SelfKindness,
+        "SelfSmartness":SelfSmartness,
+        "SelfNeatness":SelfNeatness,
+        "SelfFashionable":SelfFashionable,
+        "SelfBrightness":SelfBrightness,
+        "SelfElegance":SelfElegance
       })
     }
 
@@ -214,16 +214,16 @@ export function ProfileSetting() {
   }
 
   function PrefectureSelect() {
-    if (Profile.Area !== "0") {
+    if (Area !== "0") {
       return (
         <>
           <select
-            defaultValue={Profile.Prefecture}
+            defaultValue={Prefecture}
             onChange={event => {
-              setProfile({...Profile, Prefecture : event.target.value})
-              setProfile({...Profile, City : "0"})
+              setPrefecture(event.target.value)
+              setCity("0")
             }}>
-              {Object.keys(AreaDB.Area[Profile.Area]["Prefecture"]).map(key => <option value={key}>{AreaDB.Area[Profile.Area]["Prefecture"][key]["PrefectureName"]}</option>)}
+              {Object.keys(AreaDB.Area[Area]["Prefecture"]).map(key => <option value={key}>{AreaDB.Area[Area]["Prefecture"][key]["PrefectureName"]}</option>)}
           </select>
           <CitySelect/>
         </>
@@ -234,14 +234,14 @@ export function ProfileSetting() {
   }
 
   function CitySelect() {
-    if (Profile.Prefecture !== "0") {
+    if (Prefecture !== "0") {
       return (
         <select
-          defaultValue={Profile.City}
+          defaultValue={City}
           onChange={event => {
-            setProfile({...Profile, City : event.target.value})
+            setCity(event.target.value)
           }}>
-            {Object.keys(AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["City"]).map(key => <option value={key}>{AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["City"][key]}</option>)}
+            {Object.keys(AreaDB.Area[Area]["Prefecture"][Prefecture]["City"]).map(key => <option value={key}>{AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][key]}</option>)}
         </select>
       )
     } else {
@@ -250,15 +250,15 @@ export function ProfileSetting() {
   }
 
   function BirthPrefectureSelect() {
-    if (Profile.BirthArea !== "0") {
+    if (BirthArea !== "0") {
       return (
         <>
           <select
-            defaultValue={Profile.BirthPrefecture}
+            defaultValue={BirthPrefecture}
             onChange={event => {
-              setProfile({...Profile, BirthPrefecture : event.target.value})
+              setBirthPrefecture(event.target.value)
             }}>
-              {Object.keys(AreaDB.Area[Profile.BirthArea]["Prefecture"]).map(key => <option value={key}>{AreaDB.Area[Profile.BirthArea]["Prefecture"][key]["PrefectureName"]}</option>)}
+              {Object.keys(AreaDB.Area[BirthArea]["Prefecture"]).map(key => <option value={key}>{AreaDB.Area[BirthArea]["Prefecture"][key]["PrefectureName"]}</option>)}
           </select>
         </>
       )
@@ -286,8 +286,8 @@ export function ProfileSetting() {
               <FormTextInput 
                 title="ニックネーム"
                 type="text"
-                defaultValue={BasicProfile.nickname}
-                setValue={event => setBasicProfile({...BasicProfile, nickname : event.target.value})}
+                defaultValue={Nickname}
+                setValue={setNickname}
                 required="true"
               />
             </li>
@@ -295,16 +295,16 @@ export function ProfileSetting() {
               <FormSelect
                 title="性別"
                 keyValue={ProfileDB.Gender}
-                defaultValue={BasicProfile.gender}
-                setValue={event => setBasicProfile({...BasicProfile, gender : event.target.value})}
+                defaultValue={Gender}
+                setValue={setGender}
               />
             </li>
             <li>
               <FormTextInput 
                 title="年齢"
                 type="number"
-                defaultValue={BasicProfile.age}
-                setValue={event => setBasicProfile({...BasicProfile, age : event.target.value})}
+                defaultValue={Age}
+                setValue={setAge}
                 required="true"
               />
             </li>
@@ -312,11 +312,11 @@ export function ProfileSetting() {
             <span className="dan">エリア</span>
             <span className="dan2">
               <select
-                defaultValue={Profile.Area}
+                defaultValue={Area}
                 onChange={event => {
-                  setProfile({...Profile, Area : event.target.value})
-                  setProfile({...Profile, Prefecture : "0"})
-                  setProfile({...Profile, City : "0"})
+                  setArea(event.target.value)
+                  setPrefecture("0")
+                  setCity("0")
                 }}>
                   {Object.keys(AreaDB.Area).map(key => <option value={key}>{AreaDB.Area[key]["AreaName"]}</option>)}
               </select>
@@ -327,41 +327,40 @@ export function ProfileSetting() {
               <FormSelect
                 title="身長"
                 keyValue={ProfileDB.Height}
-                defaultValue={Profile.Height}
-                setValue={event => setProfile({...Profile, Height : event.target.value})}
+                defaultValue={Height}
+                setValue={setHeight}
               />
             </li>
             <li>
               <FormSelect
                 title="スタイル"
                 keyValue={ProfileDB.Style}
-                defaultValue={Profile.Style}
-                setValue={event => setProfile({...Profile, Style : event.target.value})}
+                defaultValue={Style}
+                setValue={setStyle}
               />
             </li>
             <li>
               <FormSelect
                 title="ルックス"
                 keyValue={ProfileDB.Looks}
-                defaultValue={Profile.Looks}
-                setValue={event => setProfile({...Profile, Looks : event.target.value})}
+                defaultValue={Looks}
+                setValue={setLooks}
               />
             </li>
             <li>
               <FormSelect
                 title="カップ"
                 keyValue={ProfileDB.Cup}
-                defaultValue={Profile.Cup}
-                setValue={event => setProfile({...Profile, Cup : event.target.value})}
+                defaultValue={Cup}
+                setValue={setCup}
               />
             </li>
             <li>
               <FormTextInput 
                 title="バスト"
                 type="number"
-                defaultValue={Profile.BustSize}
-                setValue={event => setProfile({...Profile, BustSize : event.target.value})}
-                placeholder="バスト"
+                defaultValue={BustSize}
+                setValue={setBustSize}
                 required="false"
               />
             </li>
@@ -369,9 +368,8 @@ export function ProfileSetting() {
               <FormTextInput 
                 title="ウエスト"
                 type="number"
-                defaultValue={Profile.WestSize}
-                setValue={event => setProfile({...Profile, WestSize : event.target.value})}
-                placeholder="ウエスト"
+                defaultValue={WestSize}
+                setValue={setWestSize}
                 required="false"
               />
             </li>
@@ -379,9 +377,8 @@ export function ProfileSetting() {
               <FormTextInput 
                 title="ヒップ"
                 type="number"
-                defaultValue={Profile.HipSize}
-                setValue={event => setProfile({...Profile, HipSize : event.target.value})}
-                placeholder="ヒップ"
+                defaultValue={HipSize}
+                setValue={setHipSize}
                 required="false"
               />
             </li>
@@ -389,34 +386,34 @@ export function ProfileSetting() {
               <FormSelect
                 title="血液型"
                 keyValue={ProfileDB.BloodType}
-                defaultValue={Profile.BloodType}
-                setValue={event => setProfile({...Profile, BloodType : event.target.value})}
+                defaultValue={BloodType}
+                setValue={setBloodType}
               />
             </li>
             <li>
               <FormSelect
                 title="職業"
                 keyValue={ProfileDB.Job}
-                defaultValue={Profile.Job}
-                setValue={event => setProfile({...Profile, Job : event.target.value})}
+                defaultValue={Job}
+                setValue={setJob}
               />
             </li>
             <li>
               <FormSelect
                 title="学歴"
                 keyValue={ProfileDB.EduBack}
-                defaultValue={Profile.EduBack}
-                setValue={event => setProfile({...Profile, EduBack : event.target.value})}
+                defaultValue={EduBack}
+                setValue={setEduBack}
               />
             </li>
             <li>
               <span className="dan">出身地</span>
               <span className="dan2">
                 <select
-                  defaultValue={Profile.BirthArea}
+                  defaultValue={BirthArea}
                   onChange={event => {
-                      setProfile({...Profile, BirthArea : event.target.value})
-                      setProfile({...Profile, BirthPrefecture : "0"})
+                      setBirthArea(event.target.value)
+                      setBirthPrefecture("0")
                   }}>
                     {Object.keys(AreaDB.Area).map(key => <option value={key}>{AreaDB.Area[key]["AreaName"]}</option>)}
                 </select>
@@ -427,48 +424,48 @@ export function ProfileSetting() {
               <FormSelect
                 title="星座"
                 keyValue={ProfileDB.Zodiac}
-                defaultValue={Profile.Zodiac}
-                setValue={event => setProfile({...Profile, Zodiac : event.target.value})}
+                defaultValue={Zodiac}
+                setValue={setZodiac}
               />
             </li>
             <li>
               <FormSelect
                 title="交際状況"
                 keyValue={ProfileDB.MarriageStatus}
-                defaultValue={Profile.MarriageStatus}
-                setValue={event => setProfile({...Profile, MarriageStatus : event.target.value})}
+                defaultValue={MarriageStatus}
+                setValue={setMarriageStatus}
               />
             </li>
             <li>
               <FormSelect
                 title="子供"
                 keyValue={ProfileDB.Kids}
-                defaultValue={Profile.Kids}
-                setValue={event => setProfile({...Profile, Kids : event.target.value})}
+                defaultValue={Kids}
+                setValue={setKids}
               />
             </li>
             <li>
               <FormSelect
                 title="タバコ"
                 keyValue={ProfileDB.Tabacco}
-                defaultValue={Profile.Tabacco}
-                setValue={event => setProfile({...Profile, Tabacco : event.target.value})}
+                defaultValue={Tabacco}
+                setValue={setTabacco}
               />
             </li>
             <li>
               <FormSelect
                 title="お酒"
                 keyValue={ProfileDB.Alchole}
-                defaultValue={Profile.Alchole}
-                setValue={event => setProfile({...Profile, Alchole : event.target.value})}
+                defaultValue={Alchole}
+                setValue={setAlchole}
               />
             </li>
             <li>
               <FormSelect
                 title="車"
                 keyValue={ProfileDB.Car}
-                defaultValue={Profile.Car}
-                setValue={event => setProfile({...Profile, Car : event.target.value})}
+                defaultValue={Car}
+                setValue={setCar}
               />
             </li>
             <li>
@@ -476,16 +473,16 @@ export function ProfileSetting() {
               <FormSelect
                 title="興味あること"
                 keyValue={ProfileDB.Interest}
-                defaultValue={Profile.Interest}
-                setValue={event => setProfile({...Profile, Interest : event.target.value})}
+                defaultValue={Interest}
+                setValue={setInterest}
               />
             </li>
             <li>
               <FormTextInput 
                 title="メッセージ"
                 type="text"
-                defaultValue={Profile.ProfileMessage}
-                setValue={event => setProfile({...Profile, ProfileMessage : event.target.value})}
+                defaultValue={ProfileMessage}
+                setValue={setProfileMessage}
                 placeholder="メッセージ"
                 required="false"
               />
@@ -500,10 +497,10 @@ export function ProfileSetting() {
               <FormSelectRange
                 title="希望する年齢" 
                 originalRange={ProfileDB.PreferedAge}
-                Range1={Profile.PreferedAge1}
-                setRange1={event => setProfile({...Profile, PreferedAge1 : event.target.value})}
-                Range2={Profile.PreferedAge2}
-                setRange2={event => setProfile({...Profile, PreferedAge2 : event.target.value})}
+                Range1={PreferedAge1}
+                setRange1={setPreferedAge1}
+                Range2={PreferedAge2}
+                setRange2={setPreferedAge2}
               />
             </li>
             <li>
@@ -511,17 +508,17 @@ export function ProfileSetting() {
               <FormSelect 
                 title="希望する性格"
                 keyValue={ProfileDB.Personality}
-                defaultValue={Profile.PreferedPersonality}
-                setValue={event => setProfile({...Profile, PreferedPersonality : event.target.value})}
+                defaultValue={PreferedPersonality}
+                setValue={setPreferedPersonality}
               />
             </li>
             <li>
               {/* 別のリストにして、複数選択・検索できるようにする。 */}
               <FormSelect 
-                title="車"
+                title="性格"
                 keyValue={ProfileDB.Personality}
-                defaultValue={Profile.Personality}
-                setValue={event => setProfile({...Profile, Personality : event.target.value})}
+                defaultValue={Personality}
+                setValue={setPersonality}
               />
             </li>
             <li>
@@ -532,8 +529,8 @@ export function ProfileSetting() {
               <FormSelect 
                 title="可愛さ"
                 keyValue={ProfileDB.Self}
-                defaultValue={Profile.SelfCute}
-                setValue={event => setProfile({...Profile, SelfCute : event.target.value})}
+                defaultValue={SelfCute}
+                setValue={setSelfCute}
               />
             </li>
             <li>
@@ -541,8 +538,8 @@ export function ProfileSetting() {
               <FormSelect 
                 title="セクシーさ"
                 keyValue={ProfileDB.Self}
-                defaultValue={Profile.SelfSexy}
-                setValue={event => setProfile({...Profile, SelfSexy : event.target.value})}
+                defaultValue={SelfSexy}
+                setValue={setSelfSexy}
               />
             </li>
             <li>
@@ -550,8 +547,8 @@ export function ProfileSetting() {
               <FormSelect 
                 title="優しさ"
                 keyValue={ProfileDB.Self}
-                defaultValue={Profile.SelfKindness}
-                setValue={event => setProfile({...Profile, SelfKindness : event.target.value})}
+                defaultValue={SelfKindness}
+                setValue={setSelfKindness}
               />
             </li>
             <li>
@@ -559,8 +556,8 @@ export function ProfileSetting() {
               <FormSelect 
                 title="賢さ"
                 keyValue={ProfileDB.Self}
-                defaultValue={Profile.SelfSmartness}
-                setValue={event => setProfile({...Profile, SelfSmartness : event.target.value})}
+                defaultValue={SelfSmartness}
+                setValue={setSelfSmartness}
               />
             </li>
             <li>
@@ -568,8 +565,8 @@ export function ProfileSetting() {
               <FormSelect 
                 title="清楚さ"
                 keyValue={ProfileDB.Self}
-                defaultValue={Profile.SelfNeatness}
-                setValue={event => setProfile({...Profile, SelfNeatness : event.target.value})}
+                defaultValue={SelfNeatness}
+                setValue={setSelfNeatness}
               />
             </li>
             <li>
@@ -577,8 +574,8 @@ export function ProfileSetting() {
               <FormSelect 
                 title="ファッション"
                 keyValue={ProfileDB.Self}
-                defaultValue={Profile.SelfFashionable}
-                setValue={event => setProfile({...Profile, SelfFashionable : event.target.value})}
+                defaultValue={SelfFashionable}
+                setValue={setSelfFashionable}
               />
             </li>
             <li>
@@ -586,8 +583,8 @@ export function ProfileSetting() {
               <FormSelect 
                 title="明るさ"
                 keyValue={ProfileDB.Self}
-                defaultValue={Profile.SelfBrightness}
-                setValue={event => setProfile({...Profile, SelfBrightness : event.target.value})}
+                defaultValue={SelfBrightness}
+                setValue={setSelfBrightness}
               />
             </li>
             <li>
@@ -595,8 +592,8 @@ export function ProfileSetting() {
               <FormSelect 
                 title="エレガンス"
                 keyValue={ProfileDB.Self}
-                defaultValue={Profile.SelfElegance}
-                setValue={event => setProfile({...Profile, SelfElegance : event.target.value})}
+                defaultValue={SelfElegance}
+                setValue={setSelfElegance}
               />
             </li>
           </ul>

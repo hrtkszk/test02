@@ -6,9 +6,9 @@ const FormTextInput = (props) => {
                 <input
                     type={props.type}
                     defaultValue={props.defaultValue}
-                    onChange={props.setValue}
+                    onChange={event => props.setValue(event.target.value)}
                     // setProfileMessage(evt.target.value.replace(/"/g, '”').replace(/#/g, '＃').replace(/\$/g, '＄').replace(/&/g, '＆').replace(/'/g, '’').replace(/\(/g,'（').replace(/\)/g,'）').replace(/\\/g, '＼').replace(/</g, '＜').replace(/>/g, '＞').replace(/\*/g, '＊').replace(/`/g, '｀').replace(/\|/g, '｜'))
-                    placeholder={props.placeholder}
+                    placeholder={props.title}
                     required={props.required}
                 />
             </span>
