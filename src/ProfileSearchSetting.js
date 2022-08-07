@@ -168,6 +168,7 @@ export function ProfileSearchSetting() {
   // // 入力値に問題があれば遷移しない。問題なければ遷移する
   const submit = e => {
     e.preventDefault();
+    console.log(PSGender)
 
   //   const requestOptions1 ={
   //     method: 'POST',
