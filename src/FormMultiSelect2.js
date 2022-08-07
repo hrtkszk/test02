@@ -16,7 +16,7 @@ const FormMultiSelect = (props) => {
                         }}>
                     {Object.keys(props.keyValue).map(key => <option value={key} disabled={props.keyValue[key]==="未設定"&& true}>{props.keyValue[key]}</option>)}
                 </select> */}
-                {Object.keys(props.keyValue).map(key => <input type="checkbox" value={key} name="test" onChange={handleOnChange}>{props.keyValue[key]}</input>)}
+                {Object.keys(props.keyValue).map(key => <input value={key} type="checkbox" name="test" onChange={handleOnChange}>{props.keyValue[key]}</input>)}
                 {/* checked={checkedItems[item.id]} */}
             </span>
         </>
