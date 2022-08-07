@@ -1,7 +1,7 @@
 const FormMultiSelect = (props) => {
-    // const handleOnChange = (event) => {
-    //     console.log(event.target.value)
-    // }
+    const handleOnChange = (event) => {
+        console.log(event.target.value)
+    }
 
     return (
         <>
@@ -18,7 +18,7 @@ const FormMultiSelect = (props) => {
                 </select> */}
                 {Object.keys(props.keyValue).map(key => (
                     <>
-                        <input value={key} type="checkbox" name="test" />{props.keyValue[key]}
+                        <input value={key} type="checkbox" name="test" onChange={handleOnChange}/>{props.keyValue[key]}<br />
                     </>
                 ))}
                 {/* checked={checkedItems[item.id]} */}
