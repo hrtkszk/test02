@@ -30,6 +30,9 @@ export function Header() {
               <Link to="BoshuPost">募集投稿</Link>
             </li>
             <li>
+              <Link to="ProfileSearchSetting">Set Profile Search</Link>
+            </li>
+            <li>
               <Link to="ProfileList">Show Profile List</Link>
             </li>
             <li>

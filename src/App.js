@@ -17,6 +17,7 @@ import { BoshuList } from "./BoshuList";
 import { BoshuDetail } from "./BoshuDetail";
 import { BoshuPost } from "./BoshuPost";
 import { ProfileList } from "./ProfileList";
+import { ProfileSearchSetting } from "./ProfileSearchSetting";
 import { Message } from "./Message";
 import { MessageList } from "./MessageList";
 import { LogOutPage } from "./logoutPage";
@@ -61,6 +62,7 @@ export default function App() {
           <Route path="BoshuDetail" element={<BoshuDetail />}/>
           <Route path="BoshuPost" element={<BoshuPost />}/>
           <Route path="ProfileList" element={<ProfileList />}/>
+          <Route path="ProfileSearchSetting" element={<ProfileSearchSetting />}/>
           <Route path="Detail" element={<AiteProfile />}/>
           <Route path="Message" element={<Message />}/>
           <Route path="MessageList" element={<MessageList />}/>
