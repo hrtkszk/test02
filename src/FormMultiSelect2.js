@@ -1,9 +1,9 @@
 const FormMultiSelect = (props) => {
     const handleOnChange = (event) => {
-        if (props.defaultValue[event.target.value] === 0) {
-            props.setValue({...props.defaultValue, [event.target.value] : 1})
+        if (props.defaultValue[event.target.value] === 1) {
+            props.setValue({...props.defaultValue, [event.target.value] : ""})
         } else {
-            props.setValue({...props.defaultValue, [event.target.value] : 0})
+            props.setValue({...props.defaultValue, [event.target.value] : 1})
         }
         console.log(event.target.value, ":", props.defaultValue)
     }
