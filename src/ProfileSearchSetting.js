@@ -380,7 +380,7 @@ export function ProfileSearchSetting() {
           <li>
             <FormSelectRange
               title="バスト" 
-              originalRange={ProfileDB.BustSize}
+              originalRange={[]}
               Range1={PSBust1}
               setRange1={setPSBust1}
               Range2={PSBust2}
@@ -390,7 +390,7 @@ export function ProfileSearchSetting() {
           <li>
             <FormSelectRange
               title="ウエスト" 
-              originalRange={ProfileDB.WestSize}
+              originalRange={[]}
               Range1={PSWest1}
               setRange1={setPSWest1}
               Range2={PSWest2}
@@ -400,7 +400,7 @@ export function ProfileSearchSetting() {
           <li>
             <FormSelectRange
               title="ヒップ" 
-              originalRange={ProfileDB.HipSize}
+              originalRange={[]}
               Range1={PSHip1}
               setRange1={setPSHip1}
               Range2={PSHip2}
