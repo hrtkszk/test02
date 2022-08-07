@@ -4,8 +4,10 @@ import { useState } from 'react';
 // 上が下よりも小さくならないようにしている
 
 const FormSelectRange = (props) => {
-    console.log(props.originalRange)
-
+    console.log(props.title, ":", props.originalRange)
+    console.log(props.title, ":", JSON.stringify(props.originalRange))
+    console.log(props.title, ":", JSON.parse(JSON.stringify(props.originalRange)))
+    console.log(props.title, ": END")
     let latestRange1 = JSON.parse(JSON.stringify(props.originalRange))
     const [updatedRange1, setlatestRange1] = useState(latestRange1);
     let latestRange2 = JSON.parse(JSON.stringify(props.originalRange))
