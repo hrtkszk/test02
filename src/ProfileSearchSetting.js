@@ -11,6 +11,7 @@ import ProfileDB from "./Profile.json";
 import AreaDB from "./Area.json";
 import FormSelectRange from "./FormSelectRange";
 import FormMultiSelect from "./FormMultiSelect";
+import FormMultiSelect2 from "./FormMultiSelect2";
 // import FormSelect from "./FormSelect";
 
 export function ProfileSearchSetting() {
@@ -309,11 +310,11 @@ export function ProfileSearchSetting() {
       <form onSubmit={e => submit(e)}>
         <ul>
           <li>
-            <FormMultiSelect
+            <FormMultiSelect2
               title="性別"
               keyValue={ProfileDB.Gender}
-              defaultValue={PSGender}
-              setValue={setPSGender}
+              // defaultValue={PSGender}
+              // setValue={setPSGender}
             />
           </li>
           <li>
