@@ -17,7 +17,7 @@ export function ProfileSearchSetting() {
   //  各ステータスのdefaultにすでに設定された値を入れたい。
   // 基本状況
     // ProfileSearchDBの1つのUUID内で、配列かjsonで作成する
-  const [PSGender, setPSGender] = useState({});
+  const [PSGender, setPSGender] = useState([]);
   const [PSAge1, setPSAge1] = useState("0");
   const [PSAge2, setPSAge2] = useState("0");
   // 地域状況
@@ -28,9 +28,9 @@ export function ProfileSearchSetting() {
   const [PSHeight1, setPSHeight1] = useState("0");
   const [PSHeight2, setPSHeight2] = useState("0");
     // ProfileSearchDBの1つのUUID内で、配列かjsonで作成する
-  const [PSStyle, setPSStyle] = useState({});
+  const [PSStyle, setPSStyle] = useState([]);
     // ProfileSearchDBの1つのUUID内で、配列かjsonで作成する
-  const [PSLooks, setPSLooks] = useState({});
+  const [PSLooks, setPSLooks] = useState([]);
   const [PSCup1, setPSCup1] = useState("0");
   const [PSCup2, setPSCup2] = useState("0");
   const [PSBust1, setPSBust1] = useState("0");
@@ -40,32 +40,32 @@ export function ProfileSearchSetting() {
   const [PSHip1, setPSHip1] = useState("0");
   const [PSHip2, setPSHip2] = useState("0");
     // ProfileSearchDBの1つのUUID内で、配列かjsonで作成する
-  const [PSBloodType, setPSBloodType] = useState({});
+  const [PSBloodType, setPSBloodType] = useState([]);
   // 経験・背景情報
     // ProfileSearchDBの1つのUUID内で、配列かjsonで作成する
-  const [PSJob, setPSJob] = useState({});
+  const [PSJob, setPSJob] = useState([]);
     // ProfileSearchDBの1つのUUID内で、配列かjsonで作成する
-  const [PSEduBack, setPSEduBack] = useState({});
+  const [PSEduBack, setPSEduBack] = useState([]);
     // ProfileSearchDBの1つのUUID内で、配列かjsonで作成する
     // 配列かjsonの1行にArea, Prefectureを記載する。
-  const [PSBirthArea, setPSBirthArea] = useState({});
+  const [PSBirthArea, setPSBirthArea] = useState([]);
     // ProfileSearchDBの1つのUUID内で、配列かjsonで作成する
-  const [PSZodiac, setPSZodiac] = useState({});
+  const [PSZodiac, setPSZodiac] = useState([]);
   // 交際情報
     // ProfileSearchDBの1つのUUID内で、配列かjsonで作成する
-  const [PSMarriageStatus, setPSMarriageStatus] = useState({});
+  const [PSMarriageStatus, setPSMarriageStatus] = useState([]);
     // ProfileSearchDBの1つのUUID内で、配列かjsonで作成する
-  const [PSKids, setPSKids] = useState({});
+  const [PSKids, setPSKids] = useState([]);
   // 趣味・嗜好
     // ProfileSearchDBの1つのUUID内で、配列かjsonで作成する
-  const [PSTabacco, setPSTabacco] = useState({});
+  const [PSTabacco, setPSTabacco] = useState([]);
     // ProfileSearchDBの1つのUUID内で、配列かjsonで作成する
-  const [PSAlchole, setPSAlchole] = useState({});
+  const [PSAlchole, setPSAlchole] = useState([]);
     // ProfileSearchDBの1つのUUID内で、配列かjsonで作成する
-  const [PSCar, setPSCar] = useState({});
+  const [PSCar, setPSCar] = useState([]);
     // 複数設定　対　複数選択となる。
     // ProfileSearch用として別のTable、設定方法が必要。UUIDも当然記載。
-  const [PSInterest, setPSInterest] = useState({});
+  const [PSInterest, setPSInterest] = useState([]);
   // その他
     // プロフィール画像のあり・なしだけの判定
   const [PSProfilePicture, setPSProfilePicture] = useState("0");
@@ -73,7 +73,7 @@ export function ProfileSearchSetting() {
   const [PSProfileMessage, setPSProfileMessage] = useState("0");
     // 複数設定　対　複数選択となる。
     // ProfileSearch用として別のTable、設定方法が必要。UUIDも当然記載。
-  const [PSPersonality, setPSPersonality] = useState({});
+  const [PSPersonality, setPSPersonality] = useState([]);
   // 自己評価
   const [PSCute1, setPSCute1] = useState("0");
   const [PSCute2, setPSCute2] = useState("0");
