@@ -23,7 +23,7 @@ export function ProfileSearchSetting() {
   // 地域状況
     // ProfileSearchDBの1つのUUID内で、配列かjsonで作成する
     // 配列かjsonの1行にArea, Prefecture, Cityを記載する。
-  const [PSArea, setPSArea] = useState([]);
+  // const [PSArea, setPSArea] = useState([]);
   // 身体的情報
   const [PSHeight1, setPSHeight1] = useState("0");
   const [PSHeight2, setPSHeight2] = useState("0");
@@ -165,8 +165,8 @@ export function ProfileSearchSetting() {
   // }
 
   // // 入力値に問題があれば遷移しない。問題なければ遷移する
-  // const submit = e => {
-  //   e.preventDefault();
+  const submit = e => {
+    e.preventDefault();
 
   //   const requestOptions1 ={
   //     method: 'POST',
@@ -242,7 +242,7 @@ export function ProfileSearchSetting() {
   //       navigate("../ProfileDetail")
   //     }
   //   })
-  // }
+  }
 
   // function PrefectureSelect() {
   //   if (Area !== "0") {
