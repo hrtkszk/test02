@@ -9,7 +9,7 @@ import { useState } from 'react';
 import "./ProfileDetail.css";
 import ProfileDB from "./Profile.json";
 import AreaDB from "./Area.json";
-import SelectRangeForm from "./SelectRangeForm";
+import FormSelectRange from "./FormSelectRange";
 import FormMultiSelect from "./FormMultiSelect";
 import FormSelect from "./FormSelect";
 
@@ -317,7 +317,7 @@ export function ProfileSearchSetting() {
             />
           </li>
           <li>
-            <SelectRangeForm
+            <FormSelectRange
               title="年齢" 
               originalRange={ProfileDB.PreferedAge}
               Range1={PSAge1}
@@ -342,7 +342,7 @@ export function ProfileSearchSetting() {
           </span>
           </li>
           <li>
-            <SelectRangeForm
+            <FormSelectRange
               title="身長" 
               originalRange={ProfileDB.Height}
               Range1={PSHeight1}
@@ -368,7 +368,7 @@ export function ProfileSearchSetting() {
             />
           </li>
           <li>
-            <SelectRangeForm
+            <FormSelectRange
               title="カップ" 
               originalRange={ProfileDB.Cup}
               Range1={PSCup1}
@@ -378,7 +378,7 @@ export function ProfileSearchSetting() {
             />
           </li>
           <li>
-            <SelectRangeForm
+            <FormSelectRange
               title="バスト" 
               originalRange={ProfileDB.BustSize}
               Range1={PSBust1}
@@ -388,7 +388,7 @@ export function ProfileSearchSetting() {
             />
           </li>
           <li>
-            <SelectRangeForm
+            <FormSelectRange
               title="ウエスト" 
               originalRange={ProfileDB.WestSize}
               Range1={PSWest1}
@@ -398,7 +398,7 @@ export function ProfileSearchSetting() {
             />
           </li>
           <li>
-            <SelectRangeForm
+            <FormSelectRange
               title="ヒップ" 
               originalRange={ProfileDB.HipSize}
               Range1={PSHip1}
@@ -535,7 +535,7 @@ export function ProfileSearchSetting() {
           </li>
           <li>
             {/* 星で表現したい。 */}
-            <SelectRangeForm
+            <FormSelectRange
               title="可愛さ" 
               originalRange={ProfileDB.Self}
               Range1={PSCute1}
@@ -546,7 +546,7 @@ export function ProfileSearchSetting() {
           </li>
           <li>
             {/* 星で表現したい。 */}
-            <SelectRangeForm
+            <FormSelectRange
               title="セクシーさ" 
               originalRange={ProfileDB.Self}
               Range1={PSSexy1}
@@ -557,7 +557,7 @@ export function ProfileSearchSetting() {
           </li>
           <li>
             {/* 星で表現したい。 */}
-            <SelectRangeForm
+            <FormSelectRange
               title="優しさ" 
               originalRange={ProfileDB.Self}
               Range1={PSKindness1}
@@ -568,7 +568,7 @@ export function ProfileSearchSetting() {
           </li>
           <li>
             {/* 星で表現したい。 */}
-            <SelectRangeForm
+            <FormSelectRange
               title="賢さ" 
               originalRange={ProfileDB.Self}
               Range1={PSSmartness1}
@@ -579,7 +579,7 @@ export function ProfileSearchSetting() {
           </li>
           <li>
             {/* 星で表現したい。 */}
-            <SelectRangeForm
+            <FormSelectRange
               title="清楚さ" 
               originalRange={ProfileDB.Self}
               Range1={PSNeatness1}
@@ -590,7 +590,7 @@ export function ProfileSearchSetting() {
           </li>
           <li>
             {/* 星で表現したい。 */}
-            <SelectRangeForm
+            <FormSelectRange
               title="ファッション" 
               originalRange={ProfileDB.Self}
               Range1={PSFashionable1}
@@ -601,7 +601,7 @@ export function ProfileSearchSetting() {
           </li>
           <li>
             {/* 星で表現したい。 */}
-            <SelectRangeForm
+            <FormSelectRange
               title="明るさ" 
               originalRange={ProfileDB.Self}
               Range1={PSBrightness1}
@@ -612,7 +612,7 @@ export function ProfileSearchSetting() {
           </li>
           <li>
             {/* 星で表現したい。 */}
-            <SelectRangeForm
+            <FormSelectRange
               title="エレガンス" 
               originalRange={ProfileDB.Self}
               Range1={PSElegance1}
