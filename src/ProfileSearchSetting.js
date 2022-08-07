@@ -504,20 +504,20 @@ export function ProfileSearchSetting() {
             </span>
           </li>
           <li>
-              <FormSelect
-                title="プロフィール写真"
-                keyValue={ProfileDB.Car} // プロフィール写真あり／なしだけの判断
-                defaultValue={PSProfilePicture}
-                setValue={setPSProfilePicture}
-              />
+            <FormMultiSelect
+              title="プロフィール写真"
+              keyValue={ProfileDB.Car} // プロフィール写真あり／なしだけの判断
+              defaultValue={PSProfilePicture}
+              setValue={setPSProfilePicture}
+            />
           </li>
           <li>
-              <FormSelect
-                title="メッセージ"
-                keyValue={ProfileDB.Car} // メッセージあり／なしだけの判断
-                defaultValue={PSProfileMessage}
-                setValue={setPSProfileMessage}
-              />
+            <FormMultiSelect
+              title="メッセージ"
+              keyValue={ProfileDB.Car} // メッセージあり／なしだけの判断
+              defaultValue={PSProfileMessage}
+              setValue={setPSProfileMessage}
+            />
           </li>
           <li>
             {/* 別のリストにして、複数選択・検索できるようにする。 */}
