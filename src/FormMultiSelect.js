@@ -10,7 +10,15 @@ const FormMultiSelect = (props) => {
                             props.setValue(event.target.value)
                             console.log(event.target.value)
                             }}>
-                            {Object.keys(props.keyValue).map(key => <option value={key}>{props.keyValue[key]}</option>)}
+                            {Object.keys(props.keyValue).map(key => {
+                                if (props.keyValue[key]!=="未設定") {
+                                    <option value={key}>{props.keyValue[key]}</option>
+                                } else if (key==="0") {
+                                    <option value={key} disabled>{props.keyValue[key]}</option>
+                                } else {
+                                    <option value={key}>{props.keyValue[key]}</option>
+                                }
+                            })}
                     </select>
             </span>
         </>
