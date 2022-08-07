@@ -1,11 +1,11 @@
 const FormMultiSelect = (props) => {
     const handleOnChange = (event) => {
-        if (PSGender[event.target.value] === 0) {
-            props.setValue({PSGender, [event.target.value] : 1})
+        if (props.defaultValue[event.target.value] === 0) {
+            props.setValue({...props.defaultValue, [event.target.value] : 1})
         } else {
-            props.setValue({PSGender, [event.target.value] : 0})
+            props.setValue({...props.defaultValue, [event.target.value] : 0})
         }
-        console.log(event.target.value, ":", PSGender)
+        console.log(event.target.value, ":", props.defaultValue)
     }
 
     return (
