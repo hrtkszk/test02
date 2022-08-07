@@ -11,7 +11,7 @@ import ProfileDB from "./Profile.json";
 import AreaDB from "./Area.json";
 import FormSelectRange from "./FormSelectRange";
 import FormMultiSelect from "./FormMultiSelect";
-import FormSelect from "./FormSelect";
+// import FormSelect from "./FormSelect";
 
 export function ProfileSearchSetting() {
   //  各ステータスのdefaultにすでに設定された値を入れたい。
