@@ -20,7 +20,17 @@ const FormMultiSelect = (props) => {
                             value={key}
                             type="checkbox"
                             onChange={handleOnChange}
-                            checked={key === 0 ? (Object.keys(props.defaultValue).length === 0 ? true: false) : false}
+                            checked={
+                                props.defaultValue[key] === 1 ? (
+                                    true
+                                ) : (
+                                    Object.keys(props.defaultValue[key]).length === 0 ? (
+                                        key === 0 ? (
+                                            true
+                                        ) : false
+                                     ) : false
+                                )
+                            }
                         />
                             {props.keyValue[key]}<br />
                         {/* </input> */}
