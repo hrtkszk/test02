@@ -9,8 +9,8 @@ const FormMultiSelect = (props) => {
         }
     }
 
-    const resetAll = () => {
-            props.setValue({})
+    const resetAll = (event) => {
+            props.setValue({[event.target.value] : 1})
     }
 
     return (
