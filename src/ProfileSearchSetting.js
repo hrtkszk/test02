@@ -23,7 +23,7 @@ export function ProfileSearchSetting() {
   // 地域状況
     // ProfileSearchDBの1つのUUID内で、配列かjsonで作成する
     // 配列かjsonの1行にArea, Prefecture, Cityを記載する。
-  // const [PSArea, setPSArea] = useState([]);
+  // const [PSArea, setPSArea] = useState({});
   // 身体的情報
   const [PSHeight1, setPSHeight1] = useState("0");
   const [PSHeight2, setPSHeight2] = useState("0");
@@ -169,66 +169,67 @@ export function ProfileSearchSetting() {
     e.preventDefault();
     console.log(PSGender)
 
-  //   const requestOptions1 ={
-  //     method: 'POST',
-  //     headers:{'Content-Type': 'application/json'},
-  //     body: JSON.stringify({
-  //       "UUID":auth.user,
+    const requestOptions1 ={
+      method: 'POST',
+      headers:{'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        "UUID":auth.user,
 
-  //       "PSGender":PSGender,
-  //       "PSAge1":PSAge1,
-  //       "PSAge2":PSAge2,
+        "PSGender":PSGender,
+        "PSAge1":PSAge1,
+        "PSAge2":PSAge2,
 
-  //       "PSArea":PSArea,
-  //       "PSHeight1":PSHeight1,
-  //       "PSHeight2":PSHeight2,
-  //       "PSStyle":PSStyle,
-  //       "PSLooks":PSLooks,
-  //       "PSCup1":PSCup1,
-  //       "PSCup2":PSCup2,
-  //       "PSBust1":PSBust1,
-  //       "PSBust2":PSBust2,
-  //       "PSWest1":PSWest1,
-  //       "PSWest2":PSWest2,
-  //       "PSHip1":PSHip1,
-  //       "PSHip2":PSHip2,
-  //       "PSBloodType":PSBloodType,
-  //       "PSJob":PSJob,
-  //       "PSEduBack":PSEduBack,
-  //       "PSBirthArea":PSBirthArea,
+        "PSArea":PSArea,
+        "PSHeight1":PSHeight1,
+        "PSHeight2":PSHeight2,
+        "PSStyle":PSStyle,
+        "PSLooks":PSLooks,
+        "PSCup1":PSCup1,
+        "PSCup2":PSCup2,
+        "PSBust1":PSBust1,
+        "PSBust2":PSBust2,
+        "PSWest1":PSWest1,
+        "PSWest2":PSWest2,
+        "PSHip1":PSHip1,
+        "PSHip2":PSHip2,
+        "PSBloodType":PSBloodType,
+        "PSJob":PSJob,
+        "PSEduBack":PSEduBack,
+        "PSBirthArea":PSBirthArea,
 
-  //       "PSZodiac":PSZodiac,
-  //       "PSMarriageStatus":PSMarriageStatus,
-  //       "PSKids":PSKids,
-  //       "PSTabacco":PSTabacco,
-  //       "PSAlchole":PSAlchole,
+        "PSZodiac":PSZodiac,
+        "PSMarriageStatus":PSMarriageStatus,
+        "PSKids":PSKids,
+        "PSTabacco":PSTabacco,
+        "PSAlchole":PSAlchole,
 
-  //       "PSCar":PSCar,
+        "PSCar":PSCar,
 
-  //       "PSProfilePicture":PSProfilePicture,
-  //       "PSProfileMessage":PSProfileMessage,
+        "PSProfilePicture":PSProfilePicture,
+        "PSProfileMessage":PSProfileMessage,
 
-  //       "PSCute1":PSCute1,
-  //       "PSCute2":PSCute2,
-  //       "PSSexy1":PSSexy1,
-  //       "PSSexy2":PSSexy2,
-  //       "PSKindness1":PSKindness1,
-  //       "PSKindness2":PSKindness2,
-  //       "PSSmartness1":PSSmartness1,
-  //       "PSSmartness2":PSSmartness2,
-  //       "PSNeatness1":PSNeatness1,
-  //       "PSNeatness2":PSNeatness2,
-  //       "PSFashionable1":PSFashionable1,
-  //       "PSFashionable2":PSFashionable2,
-  //       "PSBrightness1":PSBrightness1,
-  //       "PSBrightness2":PSBrightness2,
-  //       "PSElegance1":PSElegance1,
-  //       "PSElegance2":PSElegance2,
+        "PSCute1":PSCute1,
+        "PSCute2":PSCute2,
+        "PSSexy1":PSSexy1,
+        "PSSexy2":PSSexy2,
+        "PSKindness1":PSKindness1,
+        "PSKindness2":PSKindness2,
+        "PSSmartness1":PSSmartness1,
+        "PSSmartness2":PSSmartness2,
+        "PSNeatness1":PSNeatness1,
+        "PSNeatness2":PSNeatness2,
+        "PSFashionable1":PSFashionable1,
+        "PSFashionable2":PSFashionable2,
+        "PSBrightness1":PSBrightness1,
+        "PSBrightness2":PSBrightness2,
+        "PSElegance1":PSElegance1,
+        "PSElegance2":PSElegance2,
 
-  //       "PSInterest":PSInterest,
-  //       "PSPersonality":PSPersonality
-  //     })
-  //   }
+        "PSInterest":PSInterest,
+        "PSPersonality":PSPersonality
+      })
+    }
+    console.log(requestOptions1)
   //   fetch("../../set_profilesearchsetting.php",requestOptions1)
   //   .then((response)=> response.json())
   //   .then(result =>{

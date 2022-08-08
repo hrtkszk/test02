@@ -16,7 +16,14 @@ const FormMultiSelect = (props) => {
             <span className="dan2">
                 {Object.keys(props.keyValue).map(key => (
                     <>
-                        <input value={key} type="checkbox" name="test" onChange={handleOnChange}/>{props.keyValue[key]}<br />
+                        <input
+                            value={key}
+                            type="checkbox"
+                            name="test"
+                            onChange={handleOnChange}
+                            checked={key === "0" ? (empty(props.keyValue) ? "checked": "") : ""}
+                        />
+                            {props.keyValue[key]}<br />
                     </>
                 ))}
                 {/* checked={checkedItems[item.id]} */}
