@@ -16,26 +16,26 @@ const FormMultiSelect = (props) => {
             <span className="dan2">
                 {Object.keys(props.keyValue).map(key => (
                     <>
-                        <input
-                            value={key}
-                            type="checkbox"
-                            onChange={handleOnChange}
-                            checked={
-                                props.defaultValue[key] === 1 ? (
-                                    true
-                                ) : (
-                                    false,
-                                    console.log(props.defaultValue[key].length)
-                                    // props.defaultValue[key].length === 0 ? (
-                                    //     key === 0 ? (
-                                    //         true
-                                    //     ) : false
-                                    //  ) : false
-                                )
-                            }
-                        />
+                        <label for="integrate">
+                            <input
+                                value={key}
+                                type="checkbox"
+                                onChange={handleOnChange}
+                                id="integrate"
+                                checked={
+                                    props.defaultValue[key] === 1 ? (
+                                        true
+                                    ) : (
+                                        props.defaultValue[key] === undefined ? (
+                                            key === 0 ? (
+                                                true
+                                            ) : false
+                                         ) : false
+                                    )
+                                }
+                            />
                             {props.keyValue[key]}<br />
-                        {/* </input> */}
+                        </label>
                     </>
                 ))}
                 {console.log(props.title, ":", Object.keys(props.defaultValue).length, ":", props.defaultValue)}
