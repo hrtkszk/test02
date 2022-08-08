@@ -9,7 +9,7 @@ const FormMultiSelect = (props) => {
         }
     }
 
-    const resetAll = (event) => {
+    const resetAll = () => {
             props.setValue({})
     }
 
@@ -24,7 +24,7 @@ const FormMultiSelect = (props) => {
                                 value={key}
                                 type="checkbox"
                                 onChange={
-                                    props.keyValue[key] === "未設定" ?
+                                    props.keyValue[key] === "未設定" ? 
                                     resetAll : handleOnChange1
                                 }
                                 id={props.title+key}
