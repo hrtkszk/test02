@@ -18,7 +18,7 @@ const FormMultiSelect = (props) => {
                     <div value={key}>
                         <label for={props.title+key}>
                             <input
-                                value={key}
+                                // value={key}
                                 type="checkbox"
                                 onClick={handleOnChange}
                                 id={props.title+key}
