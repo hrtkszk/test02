@@ -24,6 +24,7 @@ const FormMultiSelect = (props) => {
                                 props.defaultValue[key] === 1 ? (
                                     true
                                 ) : (
+                                    false,
                                     console.log(props.defaultValue[key])
                                     // props.defaultValue[key].length === 0 ? (
                                     //     key === 0 ? (
