@@ -24,26 +24,25 @@ const FormMultiSelect = (props) => {
                                 id={props.title+key}
                                 checked={
                                     props.defaultValue[key] === 1 ? (
-                                        // true,
-                                        console.log(props.title, ":", key, ":", props.defaultValue[key]),
+                                        // console.log(props.title, ":", key, ":", props.defaultValue[key]),
                                         true
                                     ) : (
                                         props.defaultValue[key] === undefined && key === "0" ? (
-                                            // true,
-                                            console.log(props.title, ":", key, "=0 :",props.defaultValue[key], "=undefined"),
+                                            // console.log(props.title, ":", key, "=0 :",props.defaultValue[key], "=undefined"),
                                             true
                                             // "checked",
                                             // false,
                                             // console.log(props.title, ":", key, "!=0 :",props.defaultValue[key], "=undefined")
                                         ) : (
-                                            false,
-                                            console.log(props.title, ":", key, "!=0 or ", props.defaultValue[key], "!=undefined")
+                                            false
+                                            // console.log(props.title, ":", key, "!=0 or ", props.defaultValue[key], "!=undefined")
                                         )
                                     )
                                 }
                             />
                             {props.keyValue[key]}<br />
                         </label>
+                        {console.log(props.title, ":", key, ":", props.defaultValue[key])}
                     </>
                 ))}
                 {/* {console.log(props.title, ":", Object.keys(props.defaultValue).length, ":", props.defaultValue)} */}
