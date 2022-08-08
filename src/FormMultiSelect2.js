@@ -22,7 +22,7 @@ const FormMultiSelect = (props) => {
                                 type="checkbox"
                                 onChange={handleOnChange}
                                 id={props.title+key}
-                                checked={
+                                defaultChecked={
                                     props.defaultValue[key] === 1 ? (
                                         // console.log(props.title, ":", key, ":", props.defaultValue[key]),
                                         true
