@@ -1,14 +1,14 @@
 const FormMultiSelect = (props) => {
-    // const handleOnChange = (event) => {
-    //     if (props.defaultValue[event.target.value] === 1) {
-    //         const copyDefaultValue = {...props.defaultValue}
-    //         delete copyDefaultValue[event.target.value]
-    //         props.setValue(copyDefaultValue)
-    //     } else {
-    //         props.setValue({...props.defaultValue, [event.target.value] : 1})
-    //     }
-    //     // console.log(event.target.value, ":", props.defaultValue)
-    // }
+    const handleOnChange = (event) => {
+        if (props.defaultValue[event.target.value] === 1) {
+            const copyDefaultValue = {...props.defaultValue}
+            delete copyDefaultValue[event.target.value]
+            props.setValue(copyDefaultValue)
+        } else {
+            props.setValue({...props.defaultValue, [event.target.value] : 1})
+        }
+        // console.log(event.target.value, ":", props.defaultValue)
+    }
 
     return (
         <>
@@ -38,18 +38,7 @@ const FormMultiSelect = (props) => {
                                         )
                                     )
                                 }
-                                onChange={
-                                    event => {
-                                        if (props.defaultValue[event.target.value] === 1) {
-                                            const copyDefaultValue = {...props.defaultValue}
-                                            delete copyDefaultValue[event.target.value]
-                                            props.setValue(copyDefaultValue)
-                                        } else {
-                                            props.setValue({...props.defaultValue, [event.target.value] : 1})
-                                        }
-                                        // console.log(event.target.value, ":", props.defaultValue)
-                                    }
-                                }
+                                onChange={handleOnChange}
                             />
                             {props.keyValue[key]}<br />
                         </label>
