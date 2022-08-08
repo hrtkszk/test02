@@ -10,7 +10,24 @@ const FormMultiSelect = (props) => {
     }
 
     const resetAll = (event) => {
+        if (props.defaultValue[event.target.value] === 1) {
+            props.setValue({})
+        } else {
             props.setValue({[event.target.value] : 1})
+        }
+    }
+
+    const defaultCheck = () => {
+        if (props.defaultValue[key] === 1) {
+            return true
+        } else {
+            if (props.defaultValue[key] === undefined && key === "0") {
+                props.setValue({...props.defaultValue, "0": 1})
+                return true
+            } else {
+                return false
+            }
+        }
     }
 
     return (
@@ -28,17 +45,17 @@ const FormMultiSelect = (props) => {
                                     resetAll : handleOnChange1
                                 }
                                 id={props.title+key}
-                                defaultChecked={
-                                    props.defaultValue[key] === 1 ? (
-                                        true
-                                    ) : (
-                                        props.defaultValue[key] === undefined && key === "0" ? (
-                                            true
-                                        ) : (
-                                            false
-                                        )
-                                    )
-                                }
+                                defaultChecked={defaultCheck}
+                                //     props.defaultValue[key] === 1 ? (
+                                //         true
+                                //     ) : (
+                                //         props.defaultValue[key] === undefined && key === "0" ? (
+                                //             true
+                                //         ) : (
+                                //             false
+                                //         )
+                                //     )
+                                // }
                             />
                             {props.keyValue[key]}<br />
                         </label>
