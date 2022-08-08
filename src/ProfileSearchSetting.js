@@ -10,7 +10,6 @@ import "./ProfileDetail.css";
 import ProfileDB from "./Profile.json";
 import AreaDB from "./Area.json";
 import FormSelectRange from "./FormSelectRange";
-import FormMultiSelect from "./FormMultiSelect";
 import FormMultiSelect2 from "./FormMultiSelect2";
 // import FormSelect from "./FormSelect";
 
@@ -354,7 +353,7 @@ export function ProfileSearchSetting() {
             />
           </li>
           <li>
-            <FormMultiSelect
+            <FormMultiSelect2
               title="スタイル"
               keyValue={ProfileDB.Style}
               defaultValue={PSStyle}
@@ -362,7 +361,7 @@ export function ProfileSearchSetting() {
             />
           </li>
           <li>
-            <FormMultiSelect
+            <FormMultiSelect2
               title="ルックス"
               keyValue={ProfileDB.Looks}
               defaultValue={PSLooks}
@@ -410,7 +409,7 @@ export function ProfileSearchSetting() {
             />
           </li>
           <li>
-            <FormMultiSelect
+            <FormMultiSelect2
               title="血液型"
               keyValue={ProfileDB.BloodType}
               defaultValue={PSBloodType}
@@ -418,7 +417,7 @@ export function ProfileSearchSetting() {
             />
           </li>
           <li>
-            <FormMultiSelect
+            <FormMultiSelect2
               title="職業"
               keyValue={ProfileDB.Job}
               defaultValue={PSJob}
@@ -426,7 +425,7 @@ export function ProfileSearchSetting() {
             />
           </li>
           <li>
-            <FormMultiSelect
+            <FormMultiSelect2
               title="学歴"
               keyValue={ProfileDB.EduBack}
               defaultValue={PSEduBack}
@@ -446,7 +445,7 @@ export function ProfileSearchSetting() {
             </span>
           </li>
           <li>
-            <FormMultiSelect
+            <FormMultiSelect2
               title="星座"
               keyValue={ProfileDB.Zodiac}
               defaultValue={PSZodiac}
@@ -454,7 +453,7 @@ export function ProfileSearchSetting() {
             />
           </li>
           <li>
-            <FormMultiSelect
+            <FormMultiSelect2
               title="交際状況"
               keyValue={ProfileDB.MarriageStatus}
               defaultValue={PSMarriageStatus}
@@ -462,7 +461,7 @@ export function ProfileSearchSetting() {
             />
           </li>
           <li>
-            <FormMultiSelect
+            <FormMultiSelect2
               title="子供"
               keyValue={ProfileDB.Kids}
               defaultValue={PSKids}
@@ -470,7 +469,7 @@ export function ProfileSearchSetting() {
             />
           </li>
           <li>
-            <FormMultiSelect
+            <FormMultiSelect2
               title="タバコ"
               keyValue={ProfileDB.Tabacco}
               defaultValue={PSTabacco}
@@ -478,7 +477,7 @@ export function ProfileSearchSetting() {
             />
           </li>
           <li>
-            <FormMultiSelect
+            <FormMultiSelect2
               title="お酒"
               keyValue={ProfileDB.Alchole}
               defaultValue={PSAlchole}
@@ -486,7 +485,7 @@ export function ProfileSearchSetting() {
             />
           </li>
           <li>
-            <FormMultiSelect
+            <FormMultiSelect2
               title="車"
               keyValue={ProfileDB.Car}
               defaultValue={PSCar}
@@ -506,7 +505,7 @@ export function ProfileSearchSetting() {
             </span>
           </li>
           <li>
-            <FormMultiSelect
+            <FormMultiSelect2
               title="プロフィール写真"
               keyValue={ProfileDB.Car} // プロフィール写真あり／なしだけの判断
               defaultValue={PSProfilePicture}
@@ -514,7 +513,7 @@ export function ProfileSearchSetting() {
             />
           </li>
           <li>
-            <FormMultiSelect
+            <FormMultiSelect2
               title="メッセージ"
               keyValue={ProfileDB.Car} // メッセージあり／なしだけの判断
               defaultValue={PSProfileMessage}
