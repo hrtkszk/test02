@@ -29,7 +29,8 @@ const FormMultiSelect = (props) => {
                                     ) : (
                                         props.defaultValue[key] === undefined && key === "0" ? (
                                             // console.log(props.title, ":", key, "=0 :",props.defaultValue[key], "=undefined"),
-                                            true
+                                            true,
+                                            handleOnChange
                                             // "checked",
                                             // false,
                                             // console.log(props.title, ":", key, "!=0 :",props.defaultValue[key], "=undefined")
