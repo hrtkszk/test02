@@ -22,9 +22,9 @@ const FormMultiSelect = (props) => {
                             name="test"
                             onChange={handleOnChange}
                             checked={key === "0" ? (Object.keys(props.defaultValue).length === "0" ? "true": "false") : "false"}
-                        >
+                        />
                             {props.keyValue[key]}
-                        </input>
+                        {/* </input> */}
                     </>
                 ))}
                 {/* checked={checkedItems[item.id]} */}
