@@ -5,7 +5,7 @@ import {
   // useNavigate
 } from "react-router-dom";
 import { useState } from 'react';
-// import { useAuth } from "./useAuth";
+import { useAuth } from "./useAuth";
 import "./ProfileDetail.css";
 import ProfileDB from "./Profile.json";
 import AreaDB from "./Area.json";
@@ -23,7 +23,7 @@ export function ProfileSearchSetting() {
   // 地域状況
     // ProfileSearchDBの1つのUUID内で、配列かjsonで作成する
     // 配列かjsonの1行にArea, Prefecture, Cityを記載する。
-  // const [PSArea, setPSArea] = useState({});
+  const [PSArea, setPSArea] = useState({});
   // 身体的情報
   const [PSHeight1, setPSHeight1] = useState("0");
   const [PSHeight2, setPSHeight2] = useState("0");
@@ -92,7 +92,7 @@ export function ProfileSearchSetting() {
   const [PSElegance1, setPSElegance1] = useState("0");
   const [PSElegance2, setPSElegance2] = useState("0");
 
-  // let auth = useAuth();
+  let auth = useAuth();
 
   // let navigate = useNavigate();
 
@@ -328,20 +328,24 @@ export function ProfileSearchSetting() {
               setRange2={setPSAge2}
             />
           </li>
+          {/* <li>
+            <FormMultiSelect2
+              title="エリア"
+              keyValue={AreaDB}
+              defaultValue={PSArea}
+              setValue={setPSArea}
+            /> */}
           <li>
-          <span className="dan">エリア</span>
-          <span className="dan2">
-            {/* <select
-              defaultValue={Area}
-              onChange={evt => {
-                  setArea(evt.target.value)
-                  setPrefecture("0")
-                  setCity("0")
-              }}>
-                {Object.keys(AreaDB.Area).map(key => <option value={key}>{AreaDB.Area[key]["AreaName"]}</option>)}
-            </select>
-            <PrefectureSelect/> */}
-          </span>
+            <span className="dan">エリア</span>
+            <span className="dan2">
+              <select
+                defaultValue={PSArea}
+                onChange={evt => {
+                    setPSArea(evt.target.value)
+                }}>
+                  {Object.keys(AreaDB.Area).map(key => <option value={key}>{AreaDB.Area[key]["AreaName"]}</option>)}
+              </select>
+            </span>
           </li>
           <li>
             <FormSelectRange
