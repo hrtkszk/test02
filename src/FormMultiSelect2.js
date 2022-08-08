@@ -15,7 +15,7 @@ const FormMultiSelect = (props) => {
             <span className="dan">{props.title}</span>
             <span className="dan2">
                 {Object.keys(props.keyValue).map(key => (
-                    <>
+                    <div value={key}>
                         <label for={props.title+key}>
                             <input
                                 value={key}
@@ -43,7 +43,7 @@ const FormMultiSelect = (props) => {
                             {props.keyValue[key]}<br />
                         </label>
                         {console.log(props.title, ":", key, ":", props.defaultValue[key])}
-                    </>
+                    </div>
                 ))}
                 {/* {console.log(props.title, ":", Object.keys(props.defaultValue).length, ":", props.defaultValue)} */}
                 {/* checked={checkedItems[item.id]} */}
