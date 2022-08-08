@@ -17,7 +17,7 @@ const FormMultiSelect = (props) => {
         }
     }
 
-    const defaultCheck = () => {
+    const defaultCheck = (key) => {
         if (props.defaultValue[key] === 1) {
             return true
         } else {
@@ -45,7 +45,7 @@ const FormMultiSelect = (props) => {
                                     resetAll : handleOnChange1
                                 }
                                 id={props.title+key}
-                                defaultChecked={defaultCheck}
+                                defaultChecked={defaultCheck(key)}
                                 //     props.defaultValue[key] === 1 ? (
                                 //         true
                                 //     ) : (
