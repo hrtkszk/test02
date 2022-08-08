@@ -16,21 +16,21 @@ const FormMultiSelect = (props) => {
             <span className="dan2">
                 {Object.keys(props.keyValue).map(key => (
                     <>
-                        <label for={props.title}>
+                        <label for={props.title+key}>
                             <input
                                 value={key}
                                 type="checkbox"
                                 onChange={handleOnChange}
-                                id={props.title}
+                                id={props.title+key}
                                 checked={
                                     props.defaultValue[key] === 1 ? (
                                         true
                                         // console.log(props.title, ":", key, ":", props.defaultValue[key])
                                     ) : (
                                         props.defaultValue[key] === undefined && key === "0" ? (
-                                            true,
+                                            true
+                                            // console.log(props.title, ":", key, "=0 :",props.defaultValue[key], "=undefined")
                                             // "checked",
-                                            console.log(props.title, ":", key, "=0 :",props.defaultValue[key], "=undefined")
                                             // false,
                                             // console.log(props.title, ":", key, "!=0 :",props.defaultValue[key], "=undefined")
                                         ) : (
