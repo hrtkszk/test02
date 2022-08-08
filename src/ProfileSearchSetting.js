@@ -68,9 +68,9 @@ export function ProfileSearchSetting() {
   const [PSInterest, setPSInterest] = useState({});
   // その他
     // プロフィール画像のあり・なしだけの判定
-  const [PSProfilePicture, setPSProfilePicture] = useState("0");
+  const [PSProfilePicture, setPSProfilePicture] = useState({});
     // メッセージのあり・なしだけの判定
-  const [PSProfileMessage, setPSProfileMessage] = useState("0");
+  const [PSProfileMessage, setPSProfileMessage] = useState({});
     // 複数設定　対　複数選択となる。
     // ProfileSearch用として別のTable、設定方法が必要。UUIDも当然記載。
   const [PSPersonality, setPSPersonality] = useState({});
