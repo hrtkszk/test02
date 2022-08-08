@@ -7,7 +7,7 @@ const FormMultiSelect = (props) => {
         } else {
             props.setValue({...props.defaultValue, [event.target.value] : 1})
         }
-        console.log(event.target.value, ":", props.defaultValue)
+        // console.log(event.target.value, ":", props.defaultValue)
     }
 
     return (
@@ -22,11 +22,11 @@ const FormMultiSelect = (props) => {
                             onChange={handleOnChange}
                             checked={key === 0 ? (Object.keys(props.defaultValue).length === 0 ? true: false) : false}
                         />
-                        {console.log(key, ":", Object.keys(props.defaultValue).length)}
                             {props.keyValue[key]}<br />
                         {/* </input> */}
                     </>
                 ))}
+                {console.log(props.title, ":", Object.keys(props.defaultValue).length, ":", props.defaultValue)}
                 {/* checked={checkedItems[item.id]} */}
             </span>
         </>
