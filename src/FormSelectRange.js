@@ -34,7 +34,7 @@ const FormSelectRange = (props) => {
                         props.setRange2(evt.target.value)
                         latestRange1 = JSON.parse(JSON.stringify(props.originalRange)) // 一度リセットする
                         if (Number(evt.target.value) !== 0) {
-                            for (let i = Number(evt.target.value) + 1 ; i <= 17 ; i++) {
+                            for (let i = Number(evt.target.value) + 1 ; i <= Object.keys(props.originalRange).length ; i++) {
                                 delete latestRange1[String(i)]
                             }
                         }
