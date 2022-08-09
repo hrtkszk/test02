@@ -85,7 +85,7 @@ const FormMultiSelect = (props) => {
                                 id={props.title+key}
                                 defaultChecked={defaultCheck(key)}
                                 checked={
-                                    CheckJson(key) === undefined ? (
+                                    CheckJson(key) === "undefined" ? (
                                         false
                                     ) : (
                                         CheckJson(key)
