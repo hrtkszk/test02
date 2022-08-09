@@ -51,7 +51,7 @@ const FormMultiSelect = (props) => {
     }
 
     const defaultCheck = (key) => {
-        // console.log("Value=", props.defaultValue, " ,key=", key)
+        console.log("Value.length=", props.defaultValue.length, " ,key=", key)
         if (props.defaultValue.length === 0) {
             if (key === "0") {
                 props.setValue({...props.defaultValue, "0": 1})
