@@ -18,8 +18,10 @@ const FormSelectRange = (props) => {
                     onChange={evt => {
                         props.setRange1(evt.target.value)
                         latestRange2 = JSON.parse(JSON.stringify(props.originalRange)) // 一度リセットする
-                        for (let i = 1 ; i < Number(evt.target.value); i++) {
-                            delete latestRange2[String(i)]
+                        if (Number(evt.target.value) !== 0) {
+                            for (let i = 1 ; i < Number(evt.target.value); i++) {
+                                delete latestRange2[String(i)]
+                            }
                         }
                         setlatestRange2(latestRange2)
                     }}>
@@ -30,13 +32,13 @@ const FormSelectRange = (props) => {
                     defaultValue={props.Range2}
                     onChange={evt => {
                         props.setRange2(evt.target.value)
+                        latestRange1 = JSON.parse(JSON.stringify(props.originalRange)) // 一度リセットする
                         if (Number(evt.target.value) !== 0) {
-                            latestRange1 = JSON.parse(JSON.stringify(props.originalRange)) // 一度リセットする
                             for (let i = Number(evt.target.value) + 1 ; i <= 17 ; i++) {
-                            delete latestRange1[String(i)]
+                                delete latestRange1[String(i)]
                             }
-                            setlatestRange1(latestRange1)
                         }
+                        setlatestRange1(latestRange1)
                     }}>
                     {Object.keys(updatedRange2).map(key => <option value={key}>{updatedRange2[key]}</option>)}
                 </select>
