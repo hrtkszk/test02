@@ -38,6 +38,7 @@ const FormMultiSelect = (props) => {
                 // setCheckJson({...copyCheckJson, [event.target.value] : true})
             }
         }
+        console.log("typeofValue=", Object.keys(props.defaultValue).length, " ,key=", key)
     }
 
     const withOutUnsetSelectionHandle = (event) => {
@@ -53,6 +54,7 @@ const FormMultiSelect = (props) => {
             props.setValue({...props.defaultValue, [event.target.value] : true})
             // setCheckJson({...CheckJson, [event.target.value] : true})
         }
+        console.log("typeofValue=", Object.keys(props.defaultValue).length, " ,key=", key)
     }
 
     // const defaultCheck = (key) => {
@@ -89,19 +91,20 @@ const FormMultiSelect = (props) => {
                                     withUnsetSelectionHandle : withOutUnsetSelectionHandle
                                 }
                                 id={props.title+key}
+                                defaultChecked={props.defaultValue[key]}
                                 // defaultChecked={defaultCheck(key)}
-                                checked={
-                                    props.defaultValue[key] === "undefined" ? (
-                                        false
-                                    ) : (
-                                        props.defaultValue[key]
-                                    )
-                                    // CheckJson[key] === "undefined" ? (
-                                    //     false
-                                    // ) : (
-                                    //     CheckJson[key]
-                                    // )
-                                }
+                                // checked={
+                                //     props.defaultValue[key] === "undefined" ? (
+                                //         false
+                                //     ) : (
+                                //         props.defaultValue[key]
+                                //     )
+                                //     // CheckJson[key] === "undefined" ? (
+                                //     //     false
+                                //     // ) : (
+                                //     //     CheckJson[key]
+                                //     // )
+                                // }
                             />
                             {props.keyValue[key]}<br />
                         </label>
