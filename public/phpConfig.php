@@ -1,2 +1,2 @@
 <?php
-$URL="https://red-usa-4966.verse.jp";
+$URL="http://long-aso-0514.flier.jp/";
