@@ -1,73 +1,78 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 
 const FormMultiSelect = (props) => {
-    const [CheckJson, setCheckJson] = useState({});
+
+    if (Object.keys(props.defaultValue).length === 0) {
+        props.setValue({"0" : true})
+    }
+
+    // const [CheckJson, setCheckJson] = useState({});
 
     const withUnsetSelectionHandle = (event) => {
         // valueは内部的にはチェックが外れている(undefinedになる)が、見た目はチェックされたまま。
         // 見た目も変えるようにする必要がある。
         if (event.target.value === "0") {
-            if (props.defaultValue[event.target.value] === 1) {
+            if (props.defaultValue[event.target.value] === true) {
                 props.setValue({})
-                setCheckJson({})
+                // setCheckJson({})
             } else {
                 props.setValue({[event.target.value] : 1})
-                setCheckJson({[event.target.value] : true})
+                // setCheckJson({[event.target.value] : true})
             }
         } else {
-            if (props.defaultValue[event.target.value] === 1) {
+            if (props.defaultValue[event.target.value] === true) {
                 const copyDefaultValue = {...props.defaultValue}
                 delete copyDefaultValue[event.target.value]
                 props.setValue(copyDefaultValue)
-                const copyCheckJson = {...CheckJson}
-                delete copyCheckJson[event.target.value]
-                setCheckJson(copyCheckJson)
+                // const copyCheckJson = {...CheckJson}
+                // delete copyCheckJson[event.target.value]
+                // setCheckJson(copyCheckJson)
             } else {
                 const copyDefaultValue = {...props.defaultValue}
-                const copyCheckJson = {...CheckJson}
+                // const copyCheckJson = {...CheckJson}
                 if (props.defaultValue["0"] === 1) {
                     delete copyDefaultValue["0"]
-                    delete copyCheckJson["0"]
+                    // delete copyCheckJson["0"]
                 }
-                props.setValue({...copyDefaultValue, [event.target.value] : 1})
-                setCheckJson({...copyCheckJson, [event.target.value] : true})
+                props.setValue({...copyDefaultValue, [event.target.value] : true})
+                // setCheckJson({...copyCheckJson, [event.target.value] : true})
             }
         }
     }
 
     const withOutUnsetSelectionHandle = (event) => {
-        if (props.defaultValue[event.target.value] === 1) {
+        if (props.defaultValue[event.target.value] === true) {
             const copyDefaultValue = {...props.defaultValue}
             delete copyDefaultValue[event.target.value]
             props.setValue(copyDefaultValue)
-            // checkmark用
-            const copyCheckJson = {...CheckJson}
-            delete copyCheckJson[event.target.value]
-            setCheckJson(copyCheckJson)
+            // // checkmark用
+            // const copyCheckJson = {...CheckJson}
+            // delete copyCheckJson[event.target.value]
+            // setCheckJson(copyCheckJson)
         } else {
-            props.setValue({...props.defaultValue, [event.target.value] : 1})
-            setCheckJson({...CheckJson, [event.target.value] : true})
+            props.setValue({...props.defaultValue, [event.target.value] : true})
+            // setCheckJson({...CheckJson, [event.target.value] : true})
         }
     }
 
-    const defaultCheck = (key) => {
-        console.log("typeofValue=", Object.keys(props.defaultValue).length, " ,key=", key)
-        if (Object.keys(props.defaultValue).length === 0) {
-            if (key === "0") {
-                // props.setValue({...props.defaultValue, "0": 1})
-                // setCheckJson({"0" : true})
-                return true
-            } else {
-                return false
-            }
-        } else {
-            if (props.defaultValue[key] === 1) {
-                return true
-            } else {
-                return false
-            }
-        }
-    }
+    // const defaultCheck = (key) => {
+        // console.log("typeofValue=", Object.keys(props.defaultValue).length, " ,key=", key)
+    //     if (Object.keys(props.defaultValue).length === 0) {
+    //         if (key === "0") {
+    //             // props.setValue({...props.defaultValue, "0": 1})
+    //             // setCheckJson({"0" : true})
+    //             return true
+    //         } else {
+    //             return false
+    //         }
+    //     } else {
+    //         if (props.defaultValue[key] === 1) {
+    //             return true
+    //         } else {
+    //             return false
+    //         }
+    //     }
+    // }
 
     return (
         <>
@@ -84,13 +89,18 @@ const FormMultiSelect = (props) => {
                                     withUnsetSelectionHandle : withOutUnsetSelectionHandle
                                 }
                                 id={props.title+key}
-                                defaultChecked={defaultCheck(key)}
+                                // defaultChecked={defaultCheck(key)}
                                 checked={
-                                    CheckJson[key] === "undefined" ? (
+                                    props.defaultValue[key] === "undefined" ? (
                                         false
                                     ) : (
-                                        CheckJson[key]
+                                        props.defaultValue[key]
                                     )
+                                    // CheckJson[key] === "undefined" ? (
+                                    //     false
+                                    // ) : (
+                                    //     CheckJson[key]
+                                    // )
                                 }
                             />
                             {props.keyValue[key]}<br />
