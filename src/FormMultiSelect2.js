@@ -38,7 +38,7 @@ const FormMultiSelect = (props) => {
                 // setCheckJson({...copyCheckJson, [event.target.value] : true})
             }
         }
-        console.log("typeofValue=", Object.keys(props.defaultValue).length, " ,key=", key)
+        console.log(props.defaultValue)
     }
 
     const withOutUnsetSelectionHandle = (event) => {
@@ -54,7 +54,7 @@ const FormMultiSelect = (props) => {
             props.setValue({...props.defaultValue, [event.target.value] : true})
             // setCheckJson({...CheckJson, [event.target.value] : true})
         }
-        console.log("typeofValue=", Object.keys(props.defaultValue).length, " ,key=", key)
+        console.log(props.defaultValue)
     }
 
     // const defaultCheck = (key) => {
