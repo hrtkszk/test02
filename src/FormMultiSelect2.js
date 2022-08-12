@@ -1,6 +1,10 @@
 const FormMultiSelect = (props) => {
 
-    let secondRead = false
+    let secondRead = none
+    let secondReadSwitch = false
+    if (secondReadSwitch === false) {
+        secondRead = false
+    }
     console.log(props.title, ":", props.defaultValue)
 
     if (secondRead === true) {
@@ -74,6 +78,7 @@ const FormMultiSelect = (props) => {
                                     ) : (
                                         false,
                                         secondRead = true,
+                                        secondReadSwitch = true,
                                         console.log(props.title, ":", props.defaultValue)
                                         // props.setValue({...props.defaultValue, "secondRead" : true})
                                     )
