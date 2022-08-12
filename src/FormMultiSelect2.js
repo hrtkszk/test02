@@ -4,6 +4,7 @@ const FormMultiSelect = (props) => {
 
     if (Object.keys(props.defaultValue).length === 0) {
         props.setValue({"0" : true})
+        {console.log(props.title, "initial:", props.defaultValue)}
     }
 
     // const [CheckJson, setCheckJson] = useState({});
@@ -122,7 +123,7 @@ const FormMultiSelect = (props) => {
                             />
                             {props.keyValue[key]}<br />
                         </label>
-                        
+                        {console.log(props.title, ":", key, ":", props.defaultValue[key])}
                     </>
                 ))}
                 {console.log(props.title, ":", props.defaultValue)}
