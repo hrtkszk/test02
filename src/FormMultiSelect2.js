@@ -105,7 +105,7 @@ const FormMultiSelect = (props) => {
                                         )
                                     ) : (
                                         false,
-                                        props.setValue({...props.defaultValue, ["secondRead"] : true})
+                                        props.setValue({...props.defaultValue, "secondRead" : true})
                                     )
                                 }
                                 //     props.defaultValue[key] === "undefined" ? (
