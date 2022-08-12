@@ -2,10 +2,11 @@
 
 const FormMultiSelect = (props) => {
 
-    console.log(Object.keys(props.defaultValue).length)
-    if (Object.keys(props.defaultValue).length === 0) {
-        props.setValue({"0" : true})
-        console.log(props.title, "initial:", props.defaultValue)
+    if (props.defaultValue["secondRead"] === true) {
+        if (Object.keys(props.defaultValue).length === 1) {
+            props.setValue({...props.defaultValue, "0" : true})
+            console.log(props.title, "initial:", props.defaultValue)
+        }
     }
 
     // const [CheckJson, setCheckJson] = useState({});
@@ -95,7 +96,7 @@ const FormMultiSelect = (props) => {
                                     withUnsetSelectionHandle : withOutUnsetSelectionHandle
                                 }
                                 id={props.title+key}
-                                defaultChecked={props.defaultValue[key]}
+                                // defaultChecked={props.defaultValue[key]}
                                 // defaultChecked={defaultCheck(key)}
                                 checked={
                                     props.defaultValue["secondRead"] === true ?
