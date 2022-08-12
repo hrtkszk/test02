@@ -8,15 +8,16 @@ const FormMultiSelect = (props) => {
 
     // const [CheckJson, setCheckJson] = useState({});
 
+    // 未設定がある場合
     const withUnsetSelectionHandle = (event) => {
         // valueは内部的にはチェックが外れている(undefinedになる)が、見た目はチェックされたまま。
         // 見た目も変えるようにする必要がある。
         if (event.target.value === "0") {
             if (props.defaultValue[event.target.value] === true) {
-                props.setValue({})
+                // props.setValue({"0" : true})
                 // setCheckJson({})
             } else {
-                props.setValue({[event.target.value] : 1})
+                props.setValue({"0" : true})
                 // setCheckJson({[event.target.value] : true})
             }
         } else {
@@ -30,7 +31,7 @@ const FormMultiSelect = (props) => {
             } else {
                 const copyDefaultValue = {...props.defaultValue}
                 // const copyCheckJson = {...CheckJson}
-                if (props.defaultValue["0"] === 1) {
+                if (props.defaultValue["0"] === true) {
                     delete copyDefaultValue["0"]
                     // delete copyCheckJson["0"]
                 }
@@ -41,6 +42,7 @@ const FormMultiSelect = (props) => {
         console.log(props.defaultValue)
     }
 
+    // 未設定がない場合
     const withOutUnsetSelectionHandle = (event) => {
         if (props.defaultValue[event.target.value] === true) {
             const copyDefaultValue = {...props.defaultValue}
@@ -93,7 +95,19 @@ const FormMultiSelect = (props) => {
                                 id={props.title+key}
                                 defaultChecked={props.defaultValue[key]}
                                 // defaultChecked={defaultCheck(key)}
-                                // checked={
+                                checked={
+                                    props.defaultValue["secondRead"] === true ?
+                                    (
+                                        props.defaultValue[key] === "undefined" ? (
+                                            false
+                                        ) : (
+                                            props.defaultValue[key]
+                                        )
+                                    ) : (
+                                        false,
+                                        props.setValue({...props.defaultValue, ["secondRead"] : true})
+                                    )
+                                }
                                 //     props.defaultValue[key] === "undefined" ? (
                                 //         false
                                 //     ) : (
@@ -108,9 +122,10 @@ const FormMultiSelect = (props) => {
                             />
                             {props.keyValue[key]}<br />
                         </label>
-                        {console.log(props.title, ":", key, ":", props.defaultValue[key])}
+                        
                     </>
                 ))}
+                {console.log(props.title, ":", props.defaultValue)}
             </span>
         </>
     )    
