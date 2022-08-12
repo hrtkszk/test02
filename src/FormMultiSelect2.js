@@ -1,6 +1,9 @@
 const FormMultiSelect = (props) => {
 
-    if (props.defaultValue["secondRead"] === true) {
+    let secondRead = false
+
+    if (secondRead === true) {
+    // if (props.defaultValue["secondRead"] === true) {
         if (Object.keys(props.defaultValue).length === 1) {
             props.setValue({...props.defaultValue, "0" : true})
             console.log(props.title, "initial:", props.defaultValue)
@@ -58,7 +61,8 @@ const FormMultiSelect = (props) => {
                                 }
                                 id={props.title+key}
                                 checked={
-                                    props.defaultValue["secondRead"] === true ?
+                                    secondRead === true ?
+                                    // props.defaultValue["secondRead"] === true ?
                                     (
                                         props.defaultValue[key] === "undefined" ? (
                                             false
@@ -67,7 +71,8 @@ const FormMultiSelect = (props) => {
                                         )
                                     ) : (
                                         false,
-                                        props.setValue({...props.defaultValue, "secondRead" : true})
+                                        secondRead = true
+                                        // props.setValue({...props.defaultValue, "secondRead" : true})
                                     )
                                 }
                             />
