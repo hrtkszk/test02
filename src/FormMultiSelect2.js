@@ -1,6 +1,6 @@
 const FormMultiSelect = (props) => {
 
-    let secondRead = none
+    let secondRead
     let secondReadSwitch = false
     if (secondReadSwitch === false) {
         secondRead = false
