@@ -2,6 +2,7 @@
 
 const FormMultiSelect = (props) => {
 
+    console.log(Object.keys(props.defaultValue).length)
     if (Object.keys(props.defaultValue).length === 0) {
         props.setValue({"0" : true})
         console.log(props.title, "initial:", props.defaultValue)
