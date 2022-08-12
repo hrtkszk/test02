@@ -3,6 +3,7 @@ const FormMultiSelect = (props) => {
     let secondRead = false
 
     if (secondRead === true) {
+    // props.defaultValue["secondRead"]はどこかでfalseにするか、削除が必要。
     // if (props.defaultValue["secondRead"] === true) {
         if (Object.keys(props.defaultValue).length === 1) {
             props.setValue({...props.defaultValue, "0" : true})
@@ -78,9 +79,11 @@ const FormMultiSelect = (props) => {
                             />
                             {props.keyValue[key]}<br />
                         </label>
+                        {console.log(props.title, ":", key, ":", props.defaultValue[key])}
                     </>
                 ))}
             </span>
+            {console.log(props.title, ":", props.defaultValue)}
         </>
     )    
 }
