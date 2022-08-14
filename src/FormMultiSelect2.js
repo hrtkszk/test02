@@ -1,10 +1,10 @@
 const FormMultiSelect = (props) => {
 
-    // if (props.defaultValue["secondRead"] === true) {
-    //     if (Object.keys(props.defaultValue).length === 1) {
-    //         props.setValue({...props.defaultValue, "0" : true})
-    //     }
-    // }
+    if (props.defaultValue["secondRead"] === true) {
+        if (Object.keys(props.defaultValue).length === 1) {
+            props.setValue({...props.defaultValue, "0" : true})
+        }
+    }
 
     // 未設定がある場合
     const withUnsetSelectionHandle = (event) => {
@@ -26,6 +26,10 @@ const FormMultiSelect = (props) => {
                 props.setValue({...copyDefaultValue, [event.target.value] : true})
             }
         }
+        props.setValue({...props.defaultValue, "continueFlag" : true})
+        const copyDefaultValue = {...props.defaultValue}
+        delete copyDefaultValue["secondRead"]
+        props.setValue(copyDefaultValue)
         console.log(props.defaultValue)
     }
 
@@ -38,6 +42,10 @@ const FormMultiSelect = (props) => {
         } else {
             props.setValue({...props.defaultValue, [event.target.value] : true})
         }
+        props.setValue({...props.defaultValue, "continueFlag" : true})
+        const copyDefaultValue = {...props.defaultValue}
+        delete copyDefaultValue["secondRead"]
+        props.setValue(copyDefaultValue)
         console.log(props.defaultValue)
     }
 
@@ -56,27 +64,34 @@ const FormMultiSelect = (props) => {
                                     withUnsetSelectionHandle : withOutUnsetSelectionHandle
                                 }
                                 id={props.title+key}
-                                defaultChecked={
-                                    Object.keys(props.defaultValue).length === 0 ?
-                                    (
-                                        key === "0" ? 
-                                        true : false
-                                    ) : props.defaultValue[key]
-                                }
-                                // defaultChecked={props.defaultValue["secondRead"] !== true ? props.defaultValue[key]:false}
-                                // checked={
-                                //     props.defaultValue["secondRead"] === true ?
+                                // defaultChecked={
+                                //     Object.keys(props.defaultValue).length === 0 ?
                                 //     (
-                                //         props.defaultValue[key] === "undefined" ? (
-                                //             false
-                                //         ) : (
-                                //             props.defaultValue[key]
-                                //         )
-                                //     ) : (
-                                //         false,
-                                //         props.setValue({...props.defaultValue, "secondRead" : true})
-                                //     )
+                                //         key === "0" ? 
+                                //         (
+                                //             true,
+                                //             props.setValue({"0" : true})
+                                //         ) : false
+                                //     ) : props.defaultValue[key]
                                 // }
+                                // defaultChecked={props.defaultValue["secondRead"] !== true ? props.defaultValue[key]:false}
+                                checked={
+                                    props.defaultValue["continueFlag"] === true ?
+                                    (
+                                        props.defaultValue[key]
+                                    ) : (
+                                        props.defaultValue["secondRead"] === true ?
+                                        (
+                                            props.defaultValue[key] === "undefined" ? (
+                                                false
+                                            ) : (
+                                                props.defaultValue[key]
+                                            )
+                                        ) : (
+                                            false
+                                        )
+                                    )
+                                }
                             />
                             {props.keyValue[key]}<br />
                         </label>
@@ -84,6 +99,8 @@ const FormMultiSelect = (props) => {
                     </>
                 ))}
             </span>
+            {props.setValue({...props.defaultValue, "continueFlag" : false})}
+            {props.setValue({...props.defaultValue, "secondRead" : true})}
             {console.log(props.title, ":", props.defaultValue)}
         </>
     )    
