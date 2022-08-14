@@ -167,7 +167,61 @@ export function ProfileSearchSetting() {
   // // 入力値に問題があれば遷移しない。問題なければ遷移する
   const submit = e => {
     e.preventDefault();
-    console.log(PSGender)
+    
+    const copyPSGender = {...PSGender}
+    delete copyPSGender["secondRead"]
+    setPSGender(copyPSGender)
+    const copyPSArea = {...PSArea}
+    delete copyPSArea["secondRead"]
+    setPSArea(copyPSArea)
+    const copyPSStyle = {...PSStyle}
+    delete copyPSStyle["secondRead"]
+    setPSStyle(copyPSStyle)
+    const copyPSLooks = {...PSLooks}
+    delete copyPSLooks["secondRead"]
+    setPSLooks(copyPSLooks)
+    const copyPSBloodType = {...PSBloodType}
+    delete copyPSBloodType["secondRead"]
+    setPSBloodType(copyPSBloodType)
+    const copyPSJob = {...PSJob}
+    delete copyPSJob["secondRead"]
+    setPSJob(copyPSJob)
+    const copyPSEduBack = {...PSEduBack}
+    delete copyPSEduBack["secondRead"]
+    setPSEduBack(copyPSEduBack)
+    const copyPSBirthArea = {...PSBirthArea}
+    delete copyPSBirthArea["secondRead"]
+    setPSBirthArea(copyPSBirthArea)
+    const copyPSZodiac = {...PSZodiac}
+    delete copyPSZodiac["secondRead"]
+    setPSZodiac(copyPSZodiac)
+    const copyPSMarriageStatus = {...PSMarriageStatus}
+    delete copyPSMarriageStatus["secondRead"]
+    setPSMarriageStatus(copyPSMarriageStatus)
+    const copyPSKids = {...PSKids}
+    delete copyPSKids["secondRead"]
+    setPSKids(copyPSKids)
+    const copyPSTabacco = {...PSTabacco}
+    delete copyPSTabacco["secondRead"]
+    setPSTabacco(copyPSTabacco)
+    const copyPSAlchole = {...PSAlchole}
+    delete copyPSAlchole["secondRead"]
+    setPSAlchole(copyPSAlchole)
+    const copyPSCar = {...PSCar}
+    delete copyPSCar["secondRead"]
+    setPSCar(copyPSCar)
+    const copyPSInterest = {...PSPSInterestar}
+    delete copyPSInterest["secondRead"]
+    setPSInterest(copyPSInterest)
+    const copyPSProfilePicture = {...PSProfilePicture}
+    delete copyPSProfilePicture["secondRead"]
+    setPSProfilePicture(copyPSProfilePicture)
+    const copyPSProfileMessage = {...PSProfileMessage}
+    delete copyPSProfileMessage["secondRead"]
+    setPSProfileMessage(copyPSProfileMessage)
+    const copyPSPersonality = {...PSPersonality}
+    delete copyPSPersonality["secondRead"]
+    setPSPersonality(copyPSPersonality)
 
     const requestOptions1 ={
       method: 'POST',
