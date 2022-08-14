@@ -1,18 +1,8 @@
 const FormMultiSelect = (props) => {
 
-    let secondRead
-    let secondReadSwitch = false
-    if (secondReadSwitch === false) {
-        secondRead = false
-    }
-    console.log(props.title, ":", props.defaultValue)
-
-    if (secondRead === true) {
-    // props.defaultValue["secondRead"]はどこかでfalseにするか、削除が必要。
-    // if (props.defaultValue["secondRead"] === true) {
+    if (props.defaultValue["secondRead"] === true) {
         if (Object.keys(props.defaultValue).length === 1) {
             props.setValue({...props.defaultValue, "0" : true})
-            console.log(props.title, "initial:", props.defaultValue)
         }
     }
 
@@ -66,9 +56,9 @@ const FormMultiSelect = (props) => {
                                     withUnsetSelectionHandle : withOutUnsetSelectionHandle
                                 }
                                 id={props.title+key}
+                                defaultChecked={props.defaultValue["secondRead"] !== true ? props.defaultValue[key]:false}
                                 checked={
-                                    secondRead === true ?
-                                    // props.defaultValue["secondRead"] === true ?
+                                    props.defaultValue["secondRead"] === true ?
                                     (
                                         props.defaultValue[key] === "undefined" ? (
                                             false
@@ -77,10 +67,7 @@ const FormMultiSelect = (props) => {
                                         )
                                     ) : (
                                         false,
-                                        secondRead = true,
-                                        secondReadSwitch = true,
-                                        console.log(props.title, ":", props.defaultValue)
-                                        // props.setValue({...props.defaultValue, "secondRead" : true})
+                                        props.setValue({...props.defaultValue, "secondRead" : true})
                                     )
                                 }
                             />
