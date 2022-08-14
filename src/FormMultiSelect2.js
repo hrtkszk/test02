@@ -88,7 +88,8 @@ const FormMultiSelect = (props) => {
                                                 props.defaultValue[key]
                                             )
                                         ) : (
-                                            false
+                                            false,
+                                            props.setValue({...props.defaultValue, "secondRead" : true})
                                         )
                                     )
                                 }
@@ -100,7 +101,7 @@ const FormMultiSelect = (props) => {
                 ))}
             </span>
             {props.setValue({...props.defaultValue, "continueFlag" : false})}
-            {props.setValue({...props.defaultValue, "secondRead" : true})}
+            
             {console.log(props.title, ":", props.defaultValue)}
         </>
     )    
