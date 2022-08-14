@@ -96,73 +96,73 @@ export function ProfileSearchSetting() {
 
   // let navigate = useNavigate();
 
-  // const [initialized, setinitialized] = useState(false);
+  const [initialized, setinitialized] = useState(false);
 
-  // const initialRequestOptions ={
-  //   method: 'POST',
-  //   headers:{'Content-Type': 'application/json'},
-  //   body: JSON.stringify({"UUID":auth.user})
-  // }
+  const initialRequestOptions ={
+    method: 'POST',
+    headers:{'Content-Type': 'application/json'},
+    body: JSON.stringify({"UUID":auth.user})
+  }
   
-  // // ページが読み込まれる時に実行し、ProfileSearchSettingとして登録する。
-  // if (initialized===false) {
-  //   fetch("../../get_profilesearchsetting.php",initialRequestOptions)
-  //   .then((response) => response.json())
-  //   .then(result => {
-  //     if (result.result !== "PND") {
-  //       // console.log(result.result[0])
-  //       setPSGender(result.result[0].PSGender)
-  //       setPSAge1(result.result[0].PSAge1)
-  //       setPSAge2(result.result[0].PSAge2)
-  //       setPSArea(result.result[0].PSArea)
-  //       setPSHeight1(result.result[0].PSHeight1)
-  //       setPSHeight2(result.result[0].PSHeight2)
-  //       setPSStyle(result.result[0].PSStyle)
-  //       setPSLooks(result.result[0].PSLooks)
-  //       setPSCup1(result.result[0].PSCup1)
-  //       setPSCup2(result.result[0].PSCup2)
-  //       setPSBust1(result.result[0].PSBust1)
-  //       setPSBust2(result.result[0].PSBust2)
-  //       setPSWest1(result.result[0].PSWest1)
-  //       setPSWest2(result.result[0].PSWest2)
-  //       setPSHip1(result.result[0].PSHip1)
-  //       setPSHip2(result.result[0].PSHip2)
-  //       setPSBloodType(result.result[0].PSBloodType)
-  //       setPSJob(result.result[0].PSJob)
-  //       setPSEduBack(result.result[0].PSEduBack)
-  //       setPSBirthArea(result.result[0].PSBirthArea)
-  //       setPSZodiac(result.result[0].PSZodiac)
-  //       setPSMarriageStatus(result.result[0].PSMarriageStatus)
-  //       setPSKids(result.result[0].PSKids)
-  //       setPSTabacco(result.result[0].PSTabacco)
-  //       setPSAlchole(result.result[0].Zodiac)
-  //       setPSCar(result.result[0].PSCar)
-  //       setPSProfilePicture(result.result[0].PSProfilePicture)
-  //       setPSProfileMessage(result.result[0].PSProfileMessage)
-  //       setPSCute1(result.result[0].PSCute1)
-  //       setPSCute2(result.result[0].PSCute2)
-  //       setPSSexy1(result.result[0].PSSexy1)
-  //       setPSSexy2(result.result[0].PSSexy2)
-  //       setPSKindness1(result.result[0].PSKindness1)
-  //       setPSKindness2(result.result[0].PSKindness2)
-  //       setPSSmartness1(result.result[0].PSSmartness1)
-  //       setPSSmartness2(result.result[0].PSSmartness2)
-  //       setPSNeatness1(result.result[0].PSNeatness1)
-  //       setPSNeatness2(result.result[0].PSNeatness2)
-  //       setPSFashionable1(result.result[0].PSFashionable1)
-  //       setPSFashionable2(result.result[0].PSFashionable2)
-  //       setPSBrightness1(result.result[0].PSBrightness1)
-  //       setPSBrightness2(result.result[0].PSBrightness2)
-  //       setPSElegance1(result.result[0].PSElegance1)
-  //       setPSElegance2(result.result[0].PSElegance2)
+  // ページが読み込まれる時に実行し、ProfileSearchSettingとして登録する。
+  if (initialized===false) {
+    fetch("../../get_profilesearchsetting.php",initialRequestOptions)
+    .then((response) => response.json())
+    .then(result => {
+      if (result.result !== "PSSND") {
+        // console.log(result.result[0])
+        setPSGender(result.result[0].PSGender)
+        setPSAge1(result.result[0].PSAge1)
+        setPSAge2(result.result[0].PSAge2)
+        setPSArea(result.result[0].PSArea)
+        setPSHeight1(result.result[0].PSHeight1)
+        setPSHeight2(result.result[0].PSHeight2)
+        setPSStyle(result.result[0].PSStyle)
+        setPSLooks(result.result[0].PSLooks)
+        setPSCup1(result.result[0].PSCup1)
+        setPSCup2(result.result[0].PSCup2)
+        setPSBust1(result.result[0].PSBust1)
+        setPSBust2(result.result[0].PSBust2)
+        setPSWest1(result.result[0].PSWest1)
+        setPSWest2(result.result[0].PSWest2)
+        setPSHip1(result.result[0].PSHip1)
+        setPSHip2(result.result[0].PSHip2)
+        setPSBloodType(result.result[0].PSBloodType)
+        setPSJob(result.result[0].PSJob)
+        setPSEduBack(result.result[0].PSEduBack)
+        setPSBirthArea(result.result[0].PSBirthArea)
+        setPSZodiac(result.result[0].PSZodiac)
+        setPSMarriageStatus(result.result[0].PSMarriageStatus)
+        setPSKids(result.result[0].PSKids)
+        setPSTabacco(result.result[0].PSTabacco)
+        setPSAlchole(result.result[0].Zodiac)
+        setPSCar(result.result[0].PSCar)
+        setPSProfilePicture(result.result[0].PSProfilePicture)
+        setPSProfileMessage(result.result[0].PSProfileMessage)
+        setPSCute1(result.result[0].PSCute1)
+        setPSCute2(result.result[0].PSCute2)
+        setPSSexy1(result.result[0].PSSexy1)
+        setPSSexy2(result.result[0].PSSexy2)
+        setPSKindness1(result.result[0].PSKindness1)
+        setPSKindness2(result.result[0].PSKindness2)
+        setPSSmartness1(result.result[0].PSSmartness1)
+        setPSSmartness2(result.result[0].PSSmartness2)
+        setPSNeatness1(result.result[0].PSNeatness1)
+        setPSNeatness2(result.result[0].PSNeatness2)
+        setPSFashionable1(result.result[0].PSFashionable1)
+        setPSFashionable2(result.result[0].PSFashionable2)
+        setPSBrightness1(result.result[0].PSBrightness1)
+        setPSBrightness2(result.result[0].PSBrightness2)
+        setPSElegance1(result.result[0].PSElegance1)
+        setPSElegance2(result.result[0].PSElegance2)
 
-  //       //下の2つはそれぞれ別Tableなのでresult[0]とするかは要検討
-  //       setPSInterest(result.result[0].PSInterest)
-  //       setPSPersonality(result.result[0].PSPersonality)
-  //     }
-  //   })
-  //   setinitialized(true)
-  // }
+        //下の2つはそれぞれ別Tableなのでresult[0]とするかは要検討
+        setPSInterest(result.result[0].PSInterest)
+        setPSPersonality(result.result[0].PSPersonality)
+      }
+    })
+    setinitialized(true)
+  }
 
   // // 入力値に問題があれば遷移しない。問題なければ遷移する
   const submit = e => {
