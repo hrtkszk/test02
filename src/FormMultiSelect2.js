@@ -1,10 +1,10 @@
 const FormMultiSelect = (props) => {
 
-    if (props.defaultValue["secondRead"] === true) {
-        if (Object.keys(props.defaultValue).length === 1) {
-            props.setValue({...props.defaultValue, "0" : true})
-        }
-    }
+    // if (props.defaultValue["secondRead"] === true) {
+    //     if (Object.keys(props.defaultValue).length === 1) {
+    //         props.setValue({...props.defaultValue, "0" : true})
+    //     }
+    // }
 
     // 未設定がある場合
     const withUnsetSelectionHandle = (event) => {
@@ -56,20 +56,27 @@ const FormMultiSelect = (props) => {
                                     withUnsetSelectionHandle : withOutUnsetSelectionHandle
                                 }
                                 id={props.title+key}
-                                defaultChecked={props.defaultValue["secondRead"] !== true ? props.defaultValue[key]:false}
-                                checked={
-                                    props.defaultValue["secondRead"] === true ?
+                                defaultChecked={
+                                    Object.keys(props.defaultValue).length === 0 ?
                                     (
-                                        props.defaultValue[key] === "undefined" ? (
-                                            false
-                                        ) : (
-                                            props.defaultValue[key]
-                                        )
-                                    ) : (
-                                        false,
-                                        props.setValue({...props.defaultValue, "secondRead" : true})
-                                    )
+                                        key === "0" ? 
+                                        true : false
+                                    ) : props.defaultValue[key]
                                 }
+                                // defaultChecked={props.defaultValue["secondRead"] !== true ? props.defaultValue[key]:false}
+                                // checked={
+                                //     props.defaultValue["secondRead"] === true ?
+                                //     (
+                                //         props.defaultValue[key] === "undefined" ? (
+                                //             false
+                                //         ) : (
+                                //             props.defaultValue[key]
+                                //         )
+                                //     ) : (
+                                //         false,
+                                //         props.setValue({...props.defaultValue, "secondRead" : true})
+                                //     )
+                                // }
                             />
                             {props.keyValue[key]}<br />
                         </label>
