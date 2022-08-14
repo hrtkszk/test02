@@ -210,7 +210,7 @@ export function ProfileSearchSetting() {
     const copyPSCar = {...PSCar}
     delete copyPSCar["secondRead"]
     setPSCar(copyPSCar)
-    const copyPSInterest = {...PSPSInterestar}
+    const copyPSInterest = {...PSInterest}
     delete copyPSInterest["secondRead"]
     setPSInterest(copyPSInterest)
     const copyPSProfilePicture = {...PSProfilePicture}
