@@ -253,7 +253,7 @@ echo json_encode(
   [
     "PSGender" => $_POST['PSGender'],
     "json_enc_PSGender" => json_encode($_POST['PSGender']),
-    // "json_enc_PSGender_array" => json_encode(["PSGender" => $_POST['PSGender']]),
+    "json_enc_PSGender_array" => json_encode(array($_POST['PSGender'])),
     // "json_enc_dec_PSGender" => json_encode(array(json_decode($_POST['PSGender'], true))),
     // "json_dec_PSGender" => json_decode($_POST['PSGender'], true),
     // "json_enc_dec_PSGender" => json_encode(json_decode($_POST['PSGender'], true)),
