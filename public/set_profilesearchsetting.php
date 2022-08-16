@@ -253,12 +253,13 @@ echo json_encode(
   [
     "PSGender" => $_POST['PSGender'],
     // "json_enc_dec_PSGender" => json_encode(array(json_decode($_POST['PSGender'], true))),
-    "json_dec_PSGender" => json_decode($_POST['PSGender'], true),
+    // "json_dec_PSGender" => json_decode($_POST['PSGender'], true),
     // "json_enc_dec_PSGender" => json_encode(json_decode($_POST['PSGender'], true)),
-    "result" => $output,
+    // "result" => $output,
     // "result" => $_POST['PSProfileMessage'],
   ]
 );
+echo json_decode($_POST['PSGender'], true);
 
 // // pythonからの返り数のうち、SQLのヘッダーの受け取りと、文字列から配列変換(pythonの出力1行目)
 // $output[0]=trim($output[0],"\"['");
