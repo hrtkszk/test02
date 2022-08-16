@@ -251,6 +251,7 @@ exec($command_post, $output); //python実行と、返り数受け取り
 
 echo json_encode(
   [
+    "PSGender" => $_POST['PSGender'],
     "result" => $output,
     // "result" => $_POST['PSProfileMessage'],
   ]
