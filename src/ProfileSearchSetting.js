@@ -291,11 +291,11 @@ export function ProfileSearchSetting() {
       if (result.result[0]==="SPSSS") {
         // プロフィール検索設定設定成功。リダイレクト
         auth.setMessage("プロフィール検索設定を変更しました")
-        navigate("../ProfileDetail") // 検索結果に飛びたい
+        navigate("../") // 検索結果に飛びたい
       } else {
         // プロフィール検索設定設定失敗。(UUIDが合致しない)再表示。
         auth.setMessage("プロフィール検索設定を変更できませんでした")
-        navigate("../ProfileDetail") // 検索結果に飛びたい
+        navigate("../") // 検索結果に飛びたい
       }
     })
   }

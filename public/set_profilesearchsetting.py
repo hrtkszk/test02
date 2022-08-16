@@ -159,5 +159,5 @@ try:
         PSAge2='{sys.argv[4]}'\
         PSArea='{PSArea}' \
     ")
-except json.Error as e:
+except (json.Error, json.Warning, IndexError, TypeError) as e:
     print(e)
