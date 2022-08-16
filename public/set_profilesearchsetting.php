@@ -249,19 +249,20 @@ $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 // .$_POST['PSPersonality'];
 // exec($command_post, $output); //python実行と、返り数受け取り
 
-echo json_encode(
-  [
-    "PSGender" => $_POST['PSGender'],
-    // "json_enc_PSGender" => json_encode($_POST['PSGender']),
-    // "json_enc_PSGender_array" => json_encode(array($_POST['PSGender'])),
-    // "json_enc_dec_PSGender" => json_encode(array(json_decode($_POST['PSGender'], true))),
-    "json_dec_PSGender" => json_decode($_POST['PSGender'], true),
-    // "json_enc_dec_PSGender" => json_encode(json_decode($_POST['PSGender'], true)),
-    // "result" => $output,
-    "result" => "test",
-    // "result" => $_POST['PSProfileMessage'],
-  ]
-);
+print_r(json_decode($_POST['PSGender'], true))
+// echo json_encode(
+//   [
+//     "PSGender" => $_POST['PSGender'],
+//     // "json_enc_PSGender" => json_encode($_POST['PSGender']),
+//     // "json_enc_PSGender_array" => json_encode(array($_POST['PSGender'])),
+//     // "json_enc_dec_PSGender" => json_encode(array(json_decode($_POST['PSGender'], true))),
+//     "json_dec_PSGender" => json_decode($_POST['PSGender'], true),
+//     // "json_enc_dec_PSGender" => json_encode(json_decode($_POST['PSGender'], true)),
+//     // "result" => $output,
+//     "result" => "test",
+//     // "result" => $_POST['PSProfileMessage'],
+//   ]
+// );
 
 // // pythonからの返り数のうち、SQLのヘッダーの受け取りと、文字列から配列変換(pythonの出力1行目)
 // $output[0]=trim($output[0],"\"['");
