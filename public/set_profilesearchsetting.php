@@ -252,7 +252,8 @@ $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 echo json_encode(
   [
     "PSGender" => $_POST['PSGender'],
-    "json_dec_PSGender" => json_decode($_POST['PSGender'], true),
+    "json_enc_dec_PSGender" => json_decode(json_encode($_POST['PSGender']), true),
+    // "json_dec_PSGender" => json_decode($_POST['PSGender'], true),
     // "json_enc_dec_PSGender" => json_encode(json_decode($_POST['PSGender'], true)),
     // "result" => $output,
     // "result" => $_POST['PSProfileMessage'],
