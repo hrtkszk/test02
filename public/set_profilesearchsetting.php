@@ -201,7 +201,7 @@ $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 
 $command_post="python3 set_profilesearchsetting.py " //pythonに引数を渡す
 .$_POST['UUID']." "
-.json_encode(["PSGender" => $_POST['PSGender']])." "
+.json_encode($_POST['PSGender'])." "
 .$_POST['PSAge1']." "
 .$_POST['PSAge2']." "
 .$_POST['PSArea']." "
@@ -253,7 +253,7 @@ echo json_encode(
   [
     "PSGender" => $_POST['PSGender'],
     "json_enc_PSGender" => json_encode($_POST['PSGender']),
-    "json_enc_PSGender_array" => json_encode(["PSGender" => $_POST['PSGender']]),
+    // "json_enc_PSGender_array" => json_encode(["PSGender" => $_POST['PSGender']]),
     // "json_enc_dec_PSGender" => json_encode(array(json_decode($_POST['PSGender'], true))),
     // "json_dec_PSGender" => json_decode($_POST['PSGender'], true),
     // "json_enc_dec_PSGender" => json_encode(json_decode($_POST['PSGender'], true)),
