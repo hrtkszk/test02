@@ -2,7 +2,7 @@
 # coding:utf-8
 # MySQLdbのインポート
 import MySQLdb
-import sys
+import sys, json
 import datetime
 import SQLconfig
 
@@ -149,10 +149,13 @@ import SQLconfig
 # # 接続を閉じる
 # connection.close()
 
+PSGender=json.loads(sys.argv[2])
+PSArea=json.loads(sys.argv[5])
+
 print(f" \
     UUID='{sys.argv[1]}', \
-    PSGender=json.loads('{sys.argv[2]}'), \
+    PSGender='{PSGender}', \
     PSAge1='{sys.argv[3]}', \
     PSAge2='{sys.argv[4]}'\
-    PSArea=json.loads('{sys.argv[5]}')\
+    PSArea='{PSArea}' \
 ")
