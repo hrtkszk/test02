@@ -282,6 +282,7 @@ echo json_encode(
     "test1" => $json,
     // "test2" => $data,
     "json_enc_PSGender" => json_encode($_POST['PSGender']),
+    "_POST" => $_POST,
     "PSGender0" => $_POST['PSGender0'],
     "PSGender1" => $_POST['PSGender1'],
     "PSGender2" => $_POST['PSGender2'],
