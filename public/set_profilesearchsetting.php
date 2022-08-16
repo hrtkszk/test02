@@ -280,7 +280,7 @@ exec($command_post, $output); //python実行と、返り数受け取り
 echo json_encode(
   [
     "test1" => $json,
-    "test2" => $data,
+    // "test2" => $data,
     "json_enc_PSGender" => json_encode($_POST['PSGender']),
     // "test" => json_decode($data, true),
     "result" => $output,
