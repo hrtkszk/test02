@@ -148,7 +148,7 @@ import SQLconfig
 
 # # 接続を閉じる
 # connection.close()
-data=json.load(sys.argv[2])
+# data=json.load(sys.argv[2])
 print(sys.argv[2])
 print(sys.argv[3])
 print(sys.argv[4])
