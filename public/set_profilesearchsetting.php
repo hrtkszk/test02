@@ -249,7 +249,12 @@ $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 // .$_POST['PSPersonality'];
 // exec($command_post, $output); //python実行と、返り数受け取り
 
-print_r(json_decode($_POST['PSGender'], true))
+json_decode($_POST['PSGender'], true)
+echo json_encode(
+  [
+    "result" => "OK",
+  ]
+)
 // echo json_encode(
 //   [
 //     "PSGender" => $_POST['PSGender'],
