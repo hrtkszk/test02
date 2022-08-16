@@ -267,13 +267,13 @@ $original = [
 // 		"str3": "I'm fine"
 // 	}
 // };
-$json = print_r(json_encode($original), true);
+$json = json_encode($original);
 // json_decode($data, true);
 $data = json_decode($json, true);
 
 $command_post="python3 set_profilesearchsetting.py " //pythonに引数を渡す
 .$_POST['UUID']." "
-.$json;
+."$json";
 exec($command_post, $output); //python実行と、返り数受け取り
 
 echo json_encode(
