@@ -149,6 +149,9 @@ import SQLconfig
 # # 接続を閉じる
 # connection.close()
 print(sys.argv[2])
+print(sys.argv[3])
+print(sys.argv[4])
+print(sys.argv[5])
 # print(json.loads(sys.argv[2]))
 # try:
 #     PSGender=json.loads(sys.argv[2])
