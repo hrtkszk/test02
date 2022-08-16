@@ -226,10 +226,15 @@ export function ProfileSearchSetting() {
     const requestOptions1 ={
       method: 'POST',
       headers:{'Content-Type': 'application/json'},
-      body: JSON.stringify({
+      body: JSON.stringify(
+        Object.keys(PSGender).map(key =>
+          console.log(PSGender.id, ":", PSGender.name, ":", {key}, ":", PSGender[key])
+        ),
+        {
         "UUID":auth.user,
 
         "PSGender":PSGender,
+
         "PSAge1":PSAge1,
         "PSAge2":PSAge2,
 
