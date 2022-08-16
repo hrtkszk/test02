@@ -33,7 +33,7 @@ if checkExist==None:
             INSERT INTO `{ProfileSearchSetting}` \
             SET \
                 UUID='{sys.argv[1]}', \
-                PSGender='{data}' \
+                PSGender='{data.json()}' \
         ")
         #         PSGender=('{sys.argv[2]}'), \
         #         PSAge1='{sys.argv[3]}', \
@@ -95,7 +95,7 @@ else:
         cursor.execute(f" \
             UPDATE `{ProfileSearchSetting}` \
             SET \
-                PSGender='{data}' \
+                PSGender='{data.json()}' \
             WHERE \
                 UUID='{sys.argv[1]}' \
         ")
