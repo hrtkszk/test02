@@ -31,14 +31,14 @@ if checkExist==None:
             INSERT INTO `{ProfileSearchSetting}` \
             SET \
                 UUID='{sys.argv[1]}', \
-                PSGender='{sys.argv[2]}', \
+                PSGender=JSON_OBJECT('{sys.argv[2]}'), \
                 PSAge1='{sys.argv[3]}', \
                 PSAge2='{sys.argv[4]}'\
-                PSArea='{sys.argv[5]}', \
+                PSArea=JSON_OBJECT('{sys.argv[5]}'), \
                 PSHeight1='{sys.argv[6]}', \
                 PSHeight2='{sys.argv[7]}', \
-                PSStyle='{sys.argv[8]}', \
-                PSLooks='{sys.argv[9]}', \
+                PSStyle=JSON_OBJECT('{sys.argv[8]}'), \
+                PSLooks=JSON_OBJECT('{sys.argv[9]}'), \
                 PSCup1='{sys.argv[10]}', \
                 PSCup2='{sys.argv[11]}', \
                 PSBust1='{sys.argv[12]}', \
@@ -47,18 +47,18 @@ if checkExist==None:
                 PSWest2='{sys.argv[15]}', \
                 PSHip1='{sys.argv[16]}', \
                 PSHip2='{sys.argv[17]}', \
-                PSBloodType='{sys.argv[18]}', \
-                PSJob='{sys.argv[19]}', \
-                PSEduBack='{sys.argv[20]}', \
-                PSBirthArea='{sys.argv[21]}', \
-                PSZodiac='{sys.argv[22]}', \
-                PSMarriageStatus='{sys.argv[23]}', \
-                PSKids='{sys.argv[24]}', \
-                PSTabacco='{sys.argv[25]}', \
-                PSAlchole='{sys.argv[26]}', \
-                PSCar='{sys.argv[27]}', \
-                PSProfilePicture='{sys.argv[28]}', \
-                PSProfileMessage='{sys.argv[29]}', \
+                PSBloodType=JSON_OBJECT('{sys.argv[18]}'), \
+                PSJob=JSON_OBJECT('{sys.argv[19]}'), \
+                PSEduBack=JSON_OBJECT('{sys.argv[20]}'), \
+                PSBirthArea=JSON_OBJECT('{sys.argv[21]}'), \
+                PSZodiac=JSON_OBJECT('{sys.argv[22]}'), \
+                PSMarriageStatus=JSON_OBJECT('{sys.argv[23]}'), \
+                PSKids=JSON_OBJECT('{sys.argv[24]}'), \
+                PSTabacco=JSON_OBJECT('{sys.argv[25]}'), \
+                PSAlchole=JSON_OBJECT('{sys.argv[26]}'), \
+                PSCar=JSON_OBJECT('{sys.argv[27]}'), \
+                PSProfilePicture=JSON_OBJECT('{sys.argv[28]}'), \
+                PSProfileMessage=JSON_OBJECT('{sys.argv[29]}'), \
                 PSCute1='{sys.argv[30]}', \
                 PSCute2='{sys.argv[31]}', \
                 PSSexy1='{sys.argv[32]}', \
@@ -75,8 +75,8 @@ if checkExist==None:
                 PSBrightness2='{sys.argv[33]}', \
                 PSElegance1='{sys.argv[34]}', \
                 PSElegance2='{sys.argv[35]}', \
-                PSInterest='{sys.argv[36]}', \
-                PSPersonality='{sys.argv[37]}'\
+                PSInterest=JSON_OBJECT('{sys.argv[36]}'), \
+                PSPersonality=JSON_OBJECT('{sys.argv[37]})'\
         ")
         print("SPSSS") # Set Profile Search Setting Success
     except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
@@ -89,14 +89,14 @@ else:
         cursor.execute(f" \
             UPDATE `{ProfileSearchSetting}` \
             SET \
-                PSGender='{sys.argv[2]}', \
+                PSGender=JSON_OBJECT('{sys.argv[2]}'), \
                 PSAge1='{sys.argv[3]}', \
                 PSAge2='{sys.argv[4]}'\
-                PSArea='{sys.argv[5]}', \
+                PSArea=JSON_OBJECT('{sys.argv[5]}'), \
                 PSHeight1='{sys.argv[6]}', \
                 PSHeight2='{sys.argv[7]}', \
-                PSStyle='{sys.argv[8]}', \
-                PSLooks='{sys.argv[9]}', \
+                PSStyle=JSON_OBJECT('{sys.argv[8]}'), \
+                PSLooks=JSON_OBJECT('{sys.argv[9]}'), \
                 PSCup1='{sys.argv[10]}', \
                 PSCup2='{sys.argv[11]}', \
                 PSBust1='{sys.argv[12]}', \
@@ -105,18 +105,18 @@ else:
                 PSWest2='{sys.argv[15]}', \
                 PSHip1='{sys.argv[16]}', \
                 PSHip2='{sys.argv[17]}', \
-                PSBloodType='{sys.argv[18]}', \
-                PSJob='{sys.argv[19]}', \
-                PSEduBack='{sys.argv[20]}', \
-                PSBirthArea='{sys.argv[21]}', \
-                PSZodiac='{sys.argv[22]}', \
-                PSMarriageStatus='{sys.argv[23]}', \
-                PSKids='{sys.argv[24]}', \
-                PSTabacco='{sys.argv[25]}', \
-                PSAlchole='{sys.argv[26]}', \
-                PSCar='{sys.argv[27]}', \
-                PSProfilePicture='{sys.argv[28]}', \
-                PSProfileMessage='{sys.argv[29]}', \
+                PSBloodType=JSON_OBJECT('{sys.argv[18]}'), \
+                PSJob=JSON_OBJECT('{sys.argv[19]}'), \
+                PSEduBack=JSON_OBJECT('{sys.argv[20]}'), \
+                PSBirthArea=JSON_OBJECT('{sys.argv[21]}'), \
+                PSZodiac=JSON_OBJECT('{sys.argv[22]}'), \
+                PSMarriageStatus=JSON_OBJECT('{sys.argv[23]}'), \
+                PSKids=JSON_OBJECT('{sys.argv[24]}'), \
+                PSTabacco=JSON_OBJECT('{sys.argv[25]}'), \
+                PSAlchole=JSON_OBJECT('{sys.argv[26]}'), \
+                PSCar=JSON_OBJECT('{sys.argv[27]}'), \
+                PSProfilePicture=JSON_OBJECT('{sys.argv[28]}'), \
+                PSProfileMessage=JSON_OBJECT('{sys.argv[29]}'), \
                 PSCute1='{sys.argv[30]}', \
                 PSCute2='{sys.argv[31]}', \
                 PSSexy1='{sys.argv[32]}', \
@@ -133,8 +133,8 @@ else:
                 PSBrightness2='{sys.argv[33]}', \
                 PSElegance1='{sys.argv[34]}', \
                 PSElegance2='{sys.argv[35]}', \
-                PSInterest='{sys.argv[36]}', \
-                PSPersonality='{sys.argv[37]}'\
+                PSInterest=JSON_OBJECT('{sys.argv[36]}'), \
+                PSPersonality=JSON_OBJECT('{sys.argv[37]})'\
             WHERE \
                 UUID='{sys.argv[1]}' \
         ")
