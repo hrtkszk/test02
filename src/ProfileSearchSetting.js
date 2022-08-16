@@ -228,7 +228,7 @@ export function ProfileSearchSetting() {
       headers:{'Content-Type': 'application/json'},
       body: JSON.stringify(
         Object.keys(PSGender).map(key =>
-          console.log("PSGender" + key + ":", PSGender[key])
+          "PSGender" + key + ":", PSGender[key], ","
         ),
         {
         "UUID":auth.user,
