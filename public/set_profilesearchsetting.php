@@ -273,12 +273,12 @@ $data = json_decode($json, true);
 
 $command_post="python3 set_profilesearchsetting.py " //pythonに引数を渡す
 .$_POST['UUID']." "
-."\'".$json."test\'";
+.(string)$json;
 exec($command_post, $output); //python実行と、返り数受け取り
 
 echo json_encode(
   [
-    "test1" => $json,
+    "test1" => (string)$json,
     "test2" => $data,
     "json_enc_PSGender" => json_encode($_POST['PSGender']),
     // "test" => json_decode($data, true),
