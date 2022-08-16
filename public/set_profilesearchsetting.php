@@ -267,7 +267,7 @@ $original = [
 // 		"str3": "I'm fine"
 // 	}
 // };
-$json = (string)json_encode($original);
+$json = print_r(json_encode($original), true);
 // json_decode($data, true);
 $data = json_decode($json, true);
 
