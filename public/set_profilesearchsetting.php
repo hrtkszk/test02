@@ -269,7 +269,7 @@ $original = [
 // };
 $json = json_encode($original);
 // json_decode($data, true);
-$data = json_decode($json, true);
+$data = json_decode($json, false);
 
 $command_post="python3 set_profilesearchsetting.py " //pythonに引数を渡す
 .$_POST['UUID']." "
