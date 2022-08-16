@@ -258,20 +258,22 @@ $original = [
       'str3' => "I'm fine"
   ]
 ];
-$data = {
-	"num1": 1,
-	"num2": 2,
-	"strings": {
-		"str1": "hello",
-		"str2": "world",
-		"str3": "I'm fine"
-	}
-};
-json_decode($data, true);
+// $data = {
+// 	"num1": 1,
+// 	"num2": 2,
+// 	"strings": {
+// 		"str1": "hello",
+// 		"str2": "world",
+// 		"str3": "I'm fine"
+// 	}
+// };
+$json = json_encode($original);
+// json_decode($data, true);
 echo json_encode(
   [
     "result" => "OK",
-    "test" => json_decode($data, true),
+    "test1" => $json,
+    // "test" => json_decode($data, true),
   ]
   );
 // echo json_encode(
