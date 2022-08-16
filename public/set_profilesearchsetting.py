@@ -149,7 +149,7 @@ import SQLconfig
 # # 接続を閉じる
 # connection.close()
 print(sys.argv[2])
-print(json.loads(sys.argv[2]))
+# print(json.loads(sys.argv[2]))
 # try:
 #     PSGender=json.loads(sys.argv[2])
 #     PSArea=json.loads(sys.argv[5])
