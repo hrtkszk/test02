@@ -149,17 +149,16 @@ import SQLconfig
 # # 接続を閉じる
 # connection.close()
 print(sys.argv[2])
-print(type(sys.argv[2]))
-# try:
-#     PSGender=json.loads(sys.argv[2])
-#     PSArea=json.loads(sys.argv[5])
+try:
+    PSGender=json.loads(sys.argv[2])
+    PSArea=json.loads(sys.argv[5])
 
-#     print(f" \
-#         UUID='{sys.argv[1]}', \
-#         PSGender='{PSGender}', \
-#         PSAge1='{sys.argv[3]}', \
-#         PSAge2='{sys.argv[4]}'\
-#         PSArea='{PSArea}' \
-#     ")
-# except (json.Error, json.Warning, IndexError, TypeError) as e:
-#     print(e)
+    print(f" \
+        UUID='{sys.argv[1]}', \
+        PSGender='{PSGender}', \
+        PSAge1='{sys.argv[3]}', \
+        PSAge2='{sys.argv[4]}'\
+        PSArea='{PSArea}' \
+    ")
+except (json.Error, json.Warning, IndexError, TypeError) as e:
+    print(e)
