@@ -199,65 +199,66 @@ $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 //   $SelfElegance=$_POST['SelfElegance'];
 // }
 
-$command_post="python3 set_profilesearchsetting.py " //pythonに引数を渡す
-.$_POST['UUID']." "
-.json_encode(["PSGender" => array($_POST['PSGender'])])." "
-.$_POST['PSAge1']." "
-.$_POST['PSAge2']." "
-.$_POST['PSArea']." "
-.$_POST['PSHeight1']." "
-.$_POST['PSHeight2']." "
-.$_POST['PSStyle']." "
-.$_POST['PSLooks']." "
-.$_POST['PSCup1']." "
-.$_POST['PSCup2']." "
-.$_POST['PSBust1']." "
-.$_POST['PSBust2']." "
-.$_POST['PSWest1']." "
-.$_POST['PSWest2']." "
-.$_POST['PSHip1']." "
-.$_POST['PSHip2']." "
-.$_POST['PSBloodType']." "
-.$_POST['PSJob']." "
-.$_POST['PSEduBack']." "
-.$_POST['PSBirthArea']." "
-.$_POST['PSZodiac']." "
-.$_POST['PSMarriageStatus']." "
-.$_POST['PSKids']." "
-.$_POST['PSTabacco']." "
-.$_POST['PSAlchole']." "
-.$_POST['PSCar']." "
-.$_POST['PSProfilePicture']." "
-.$_POST['PSProfileMessage']." "
-.$_POST['PSCute1']." "
-.$_POST['PSCute2']." "
-.$_POST['PSSexy1']." "
-.$_POST['PSSexy2']." "
-.$_POST['PSKindness1']." "
-.$_POST['PSKindness2']." "
-.$_POST['PSSmartness1']." "
-.$_POST['PSSmartness2']." "
-.$_POST['PSNeatness1']." "
-.$_POST['PSNeatness2']." "
-.$_POST['PSFashionable1']." "
-.$_POST['PSFashionable2']." "
-.$_POST['PSBrightness1']." "
-.$_POST['PSBrightness2']." "
-.$_POST['PSElegance1']." "
-.$_POST['PSElegance2']." "
-.$_POST['PSInterest']." "
-.$_POST['PSPersonality'];
-exec($command_post, $output); //python実行と、返り数受け取り
+// $command_post="python3 set_profilesearchsetting.py " //pythonに引数を渡す
+// .$_POST['UUID']." "
+// .json_encode(["PSGender" => array($_POST['PSGender'])])." "
+// .$_POST['PSAge1']." "
+// .$_POST['PSAge2']." "
+// .$_POST['PSArea']." "
+// .$_POST['PSHeight1']." "
+// .$_POST['PSHeight2']." "
+// .$_POST['PSStyle']." "
+// .$_POST['PSLooks']." "
+// .$_POST['PSCup1']." "
+// .$_POST['PSCup2']." "
+// .$_POST['PSBust1']." "
+// .$_POST['PSBust2']." "
+// .$_POST['PSWest1']." "
+// .$_POST['PSWest2']." "
+// .$_POST['PSHip1']." "
+// .$_POST['PSHip2']." "
+// .$_POST['PSBloodType']." "
+// .$_POST['PSJob']." "
+// .$_POST['PSEduBack']." "
+// .$_POST['PSBirthArea']." "
+// .$_POST['PSZodiac']." "
+// .$_POST['PSMarriageStatus']." "
+// .$_POST['PSKids']." "
+// .$_POST['PSTabacco']." "
+// .$_POST['PSAlchole']." "
+// .$_POST['PSCar']." "
+// .$_POST['PSProfilePicture']." "
+// .$_POST['PSProfileMessage']." "
+// .$_POST['PSCute1']." "
+// .$_POST['PSCute2']." "
+// .$_POST['PSSexy1']." "
+// .$_POST['PSSexy2']." "
+// .$_POST['PSKindness1']." "
+// .$_POST['PSKindness2']." "
+// .$_POST['PSSmartness1']." "
+// .$_POST['PSSmartness2']." "
+// .$_POST['PSNeatness1']." "
+// .$_POST['PSNeatness2']." "
+// .$_POST['PSFashionable1']." "
+// .$_POST['PSFashionable2']." "
+// .$_POST['PSBrightness1']." "
+// .$_POST['PSBrightness2']." "
+// .$_POST['PSElegance1']." "
+// .$_POST['PSElegance2']." "
+// .$_POST['PSInterest']." "
+// .$_POST['PSPersonality'];
+// exec($command_post, $output); //python実行と、返り数受け取り
 
 echo json_encode(
   [
     "PSGender" => $_POST['PSGender'],
-    "json_enc_PSGender" => json_encode($_POST['PSGender']),
-    "json_enc_PSGender_array" => json_encode(array($_POST['PSGender'])),
+    // "json_enc_PSGender" => json_encode($_POST['PSGender']),
+    // "json_enc_PSGender_array" => json_encode(array($_POST['PSGender'])),
     // "json_enc_dec_PSGender" => json_encode(array(json_decode($_POST['PSGender'], true))),
-    // "json_dec_PSGender" => json_decode($_POST['PSGender'], true),
+    "json_dec_PSGender" => json_decode($_POST['PSGender'], true),
     // "json_enc_dec_PSGender" => json_encode(json_decode($_POST['PSGender'], true)),
-    "result" => $output,
+    // "result" => $output,
+    "result" => "test",
     // "result" => $_POST['PSProfileMessage'],
   ]
 );
