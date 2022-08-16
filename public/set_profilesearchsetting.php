@@ -249,10 +249,20 @@ $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 // .$_POST['PSPersonality'];
 // exec($command_post, $output); //python実行と、返り数受け取り
 
-json_decode($_POST['PSGender'], true)
+$data = {
+	"num1": 1,
+	"num2": 2,
+	"strings": {
+		"str1": "hello",
+		"str2": "world",
+		"str3": "I'm fine"
+	}
+}
+json_decode($data, true)
 echo json_encode(
   [
     "result" => "OK",
+    "test" => json_decode($data, true),
   ]
 )
 // echo json_encode(
