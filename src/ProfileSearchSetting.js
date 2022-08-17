@@ -223,19 +223,17 @@ export function ProfileSearchSetting() {
     delete copyPSPersonality["secondRead"]
     setPSPersonality(copyPSPersonality)
 
+    let s ={}
+
     const requestOptions1 ={
       method: 'POST',
       headers:{'Content-Type': 'application/json'},
       body: JSON.stringify(
         Object.keys(PSGender).map(key =>
-          {
-            let s ={}
             // d = JSON.parse(s)
-            let keyname = ""
-            keyname = "PSGender" + key
-            s[keyname] = PSGender[key]
-            return s
-          }
+            // let keyname = ""
+            // keyname = "PSGender" + key
+            s["PSGender" + key] = PSGender[key]
         ),
         {
         "UUID":auth.user,
