@@ -225,7 +225,7 @@ export function ProfileSearchSetting() {
 
     let s ={}
     Object.keys(PSGender).map(key =>
-      key !== "secondRead" ? s["PSGender" + key] = PSGender[key] : none
+      key !== "secondRead" ? s["PSGender" + key] = PSGender[key] : null
     )
     console.log(s)
 
