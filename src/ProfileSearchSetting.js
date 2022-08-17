@@ -234,6 +234,7 @@ export function ProfileSearchSetting() {
             let keyname = ""
             keyname = "PSGender" + key
             s[keyname] = PSGender[key]
+            return null
           }
         ),
         {
