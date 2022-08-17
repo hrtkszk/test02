@@ -229,7 +229,8 @@ export function ProfileSearchSetting() {
       body: JSON.stringify(
         Object.keys(PSGender).map(key =>
           {
-            s ={}
+            let s ={}
+            let keyname = ""
             keyname = "PSGender" + key
             s.keyname = PSGender[key]
           }
