@@ -224,17 +224,19 @@ export function ProfileSearchSetting() {
     setPSPersonality(copyPSPersonality)
 
     let s ={}
+    Object.keys(PSGender).map(key =>
+      // d = JSON.parse(s)
+      // let keyname = ""
+      // keyname = "PSGender" + key
+      s["PSGender" + key] = PSGender[key]
+    )
+    console.log(s)
 
     const requestOptions1 ={
       method: 'POST',
       headers:{'Content-Type': 'application/json'},
       body: JSON.stringify(
-        Object.keys(PSGender).map(key =>
-            // d = JSON.parse(s)
-            // let keyname = ""
-            // keyname = "PSGender" + key
-            s["PSGender" + key] = PSGender[key]
-        ),
+        s,
         {
         "UUID":auth.user,
 
