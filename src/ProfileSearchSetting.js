@@ -225,10 +225,7 @@ export function ProfileSearchSetting() {
 
     let s ={}
     Object.keys(PSGender).map(key =>
-      // d = JSON.parse(s)
-      // let keyname = ""
-      // keyname = "PSGender" + key
-      s["PSGender" + key] = PSGender[key]
+      key !== "secondRead" ? s["PSGender" + key] = PSGender[key] : none
     )
     console.log(s)
 
