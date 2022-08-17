@@ -168,101 +168,64 @@ export function ProfileSearchSetting() {
   const submit = e => {
     e.preventDefault();
 
-    let s ={}
-    Object.keys(PSGender).map(key =>
-      key !== "secondRead" ? s["PSGender" + key] = PSGender[key] : null
-    )
-    Object.keys(PSArea).map(key =>
-      key !== "secondRead" ? s["PSArea" + key] = PSArea[key] : null
-    )
-    Object.keys(PSStyle).map(key =>
-      key !== "secondRead" ? s["PSStyle" + key] = PSStyle[key] : null
-    )
-    Object.keys(PSLooks).map(key =>
-      key !== "secondRead" ? s["PSLooks" + key] = PSLooks[key] : null
-    )
-    Object.keys(PSBloodType).map(key =>
-      key !== "secondRead" ? s["PSBloodType" + key] = PSBloodType[key] : null
-    )
-    Object.keys(PSJob).map(key =>
-      key !== "secondRead" ? s["PSJob" + key] = PSJob[key] : null
-    )
-    Object.keys(PSEduBack).map(key =>
-      key !== "secondRead" ? s["PSEduBack" + key] = PSEduBack[key] : null
-    )
-    Object.keys(PSBirthArea).map(key =>
-      key !== "secondRead" ? s["PSBirthArea" + key] = PSBirthArea[key] : null
-    )
-    Object.keys(PSZodiac).map(key =>
-      key !== "secondRead" ? s["PSZodiac" + key] = PSZodiac[key] : null
-    )
-    Object.keys(PSMarriageStatus).map(key =>
-      key !== "secondRead" ? s["PSMarriageStatus" + key] = PSMarriageStatus[key] : null
-    )
-    Object.keys(PSKids).map(key =>
-      key !== "secondRead" ? s["PSKids" + key] = PSKids[key] : null
-    )
-    Object.keys(PSTabacco).map(key =>
-      key !== "secondRead" ? s["PSTabacco" + key] = PSTabacco[key] : null
-    )
-    Object.keys(PSAlchole).map(key =>
-      key !== "secondRead" ? s["PSAlchole" + key] = PSAlchole[key] : null
-    )
-    Object.keys(PSCar).map(key =>
-      key !== "secondRead" ? s["PSCar" + key] = PSCar[key] : null
-    )
-    Object.keys(PSInterest).map(key =>
-      key !== "secondRead" ? s["PSInterest" + key] = PSInterest[key] : null
-    )
-    Object.keys(PSProfilePicture).map(key =>
-      key !== "secondRead" ? s["PSProfilePicture" + key] = PSProfilePicture[key] : null
-    )
-    Object.keys(PSProfileMessage).map(key =>
-      key !== "secondRead" ? s["PSProfileMessage" + key] = PSProfileMessage[key] : null
-    )
-    Object.keys(PSPersonality).map(key =>
-      key !== "secondRead" ? s["PSPersonality" + key] = PSPersonality[key] : null
-    )
+    let s = {
+      "UUID":auth.user,
+
+      "PSAge1":PSAge1,
+      "PSAge2":PSAge2,
+
+      "PSHeight1":PSHeight1,
+      "PSHeight2":PSHeight2,
+      "PSCup1":PSCup1,
+      "PSCup2":PSCup2,
+      "PSBust1":PSBust1,
+      "PSBust2":PSBust2,
+      "PSWest1":PSWest1,
+      "PSWest2":PSWest2,
+      "PSHip1":PSHip1,
+      "PSHip2":PSHip2,
+
+      "PSCute1":PSCute1,
+      "PSCute2":PSCute2,
+      "PSSexy1":PSSexy1,
+      "PSSexy2":PSSexy2,
+      "PSKindness1":PSKindness1,
+      "PSKindness2":PSKindness2,
+      "PSSmartness1":PSSmartness1,
+      "PSSmartness2":PSSmartness2,
+      "PSNeatness1":PSNeatness1,
+      "PSNeatness2":PSNeatness2,
+      "PSFashionable1":PSFashionable1,
+      "PSFashionable2":PSFashionable2,
+      "PSBrightness1":PSBrightness1,
+      "PSBrightness2":PSBrightness2,
+      "PSElegance1":PSElegance1,
+      "PSElegance2":PSElegance2
+    }
+    
+    Object.keys(PSGender).map(key => key !== "secondRead" ? s["PSGender" + key] = PSGender[key] : null)
+    Object.keys(PSArea).map(key => key !== "secondRead" ? s["PSArea" + key] = PSArea[key] : null)
+    Object.keys(PSStyle).map(key => key !== "secondRead" ? s["PSStyle" + key] = PSStyle[key] : null)
+    Object.keys(PSLooks).map(key => key !== "secondRead" ? s["PSLooks" + key] = PSLooks[key] : null)
+    Object.keys(PSBloodType).map(key => key !== "secondRead" ? s["PSBloodType" + key] = PSBloodType[key] : null)
+    Object.keys(PSJob).map(key => key !== "secondRead" ? s["PSJob" + key] = PSJob[key] : null)
+    Object.keys(PSEduBack).map(key => key !== "secondRead" ? s["PSEduBack" + key] = PSEduBack[key] : null)
+    Object.keys(PSBirthArea).map(key => key !== "secondRead" ? s["PSBirthArea" + key] = PSBirthArea[key] : null)
+    Object.keys(PSZodiac).map(key => key !== "secondRead" ? s["PSZodiac" + key] = PSZodiac[key] : null)
+    Object.keys(PSMarriageStatus).map(key => key !== "secondRead" ? s["PSMarriageStatus" + key] = PSMarriageStatus[key] : null)
+    Object.keys(PSKids).map(key => key !== "secondRead" ? s["PSKids" + key] = PSKids[key] : null)
+    Object.keys(PSTabacco).map(key => key !== "secondRead" ? s["PSTabacco" + key] = PSTabacco[key] : null)
+    Object.keys(PSAlchole).map(key => key !== "secondRead" ? s["PSAlchole" + key] = PSAlchole[key] : null)
+    Object.keys(PSCar).map(key => key !== "secondRead" ? s["PSCar" + key] = PSCar[key] : null)
+    Object.keys(PSInterest).map(key => key !== "secondRead" ? s["PSInterest" + key] = PSInterest[key] : null)
+    Object.keys(PSProfilePicture).map(key => key !== "secondRead" ? s["PSProfilePicture" + key] = PSProfilePicture[key] : null)
+    Object.keys(PSProfileMessage).map(key => key !== "secondRead" ? s["PSProfileMessage" + key] = PSProfileMessage[key] : null)
+    Object.keys(PSPersonality).map(key => key !== "secondRead" ? s["PSPersonality" + key] = PSPersonality[key] : null)
 
     const requestOptions1 ={
       method: 'POST',
       headers:{'Content-Type': 'application/json'},
-      body: JSON.stringify(
-        s + {
-          "UUID":auth.user,
-
-          "PSAge1":PSAge1,
-          "PSAge2":PSAge2,
-
-          "PSHeight1":PSHeight1,
-          "PSHeight2":PSHeight2,
-          "PSCup1":PSCup1,
-          "PSCup2":PSCup2,
-          "PSBust1":PSBust1,
-          "PSBust2":PSBust2,
-          "PSWest1":PSWest1,
-          "PSWest2":PSWest2,
-          "PSHip1":PSHip1,
-          "PSHip2":PSHip2,
-
-          "PSCute1":PSCute1,
-          "PSCute2":PSCute2,
-          "PSSexy1":PSSexy1,
-          "PSSexy2":PSSexy2,
-          "PSKindness1":PSKindness1,
-          "PSKindness2":PSKindness2,
-          "PSSmartness1":PSSmartness1,
-          "PSSmartness2":PSSmartness2,
-          "PSNeatness1":PSNeatness1,
-          "PSNeatness2":PSNeatness2,
-          "PSFashionable1":PSFashionable1,
-          "PSFashionable2":PSFashionable2,
-          "PSBrightness1":PSBrightness1,
-          "PSBrightness2":PSBrightness2,
-          "PSElegance1":PSElegance1,
-          "PSElegance2":PSElegance2
-        }
-      )
+      body: JSON.stringify(s)
     }
     console.log(requestOptions1)
     fetch("../../set_profilesearchsetting.php",requestOptions1)
