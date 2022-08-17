@@ -167,67 +167,62 @@ export function ProfileSearchSetting() {
   // // 入力値に問題があれば遷移しない。問題なければ遷移する
   const submit = e => {
     e.preventDefault();
-    
-    const copyPSGender = {...PSGender}
-    delete copyPSGender["secondRead"]
-    setPSGender(copyPSGender)
-    const copyPSArea = {...PSArea}
-    delete copyPSArea["secondRead"]
-    setPSArea(copyPSArea)
-    const copyPSStyle = {...PSStyle}
-    delete copyPSStyle["secondRead"]
-    setPSStyle(copyPSStyle)
-    const copyPSLooks = {...PSLooks}
-    delete copyPSLooks["secondRead"]
-    setPSLooks(copyPSLooks)
-    const copyPSBloodType = {...PSBloodType}
-    delete copyPSBloodType["secondRead"]
-    setPSBloodType(copyPSBloodType)
-    const copyPSJob = {...PSJob}
-    delete copyPSJob["secondRead"]
-    setPSJob(copyPSJob)
-    const copyPSEduBack = {...PSEduBack}
-    delete copyPSEduBack["secondRead"]
-    setPSEduBack(copyPSEduBack)
-    const copyPSBirthArea = {...PSBirthArea}
-    delete copyPSBirthArea["secondRead"]
-    setPSBirthArea(copyPSBirthArea)
-    const copyPSZodiac = {...PSZodiac}
-    delete copyPSZodiac["secondRead"]
-    setPSZodiac(copyPSZodiac)
-    const copyPSMarriageStatus = {...PSMarriageStatus}
-    delete copyPSMarriageStatus["secondRead"]
-    setPSMarriageStatus(copyPSMarriageStatus)
-    const copyPSKids = {...PSKids}
-    delete copyPSKids["secondRead"]
-    setPSKids(copyPSKids)
-    const copyPSTabacco = {...PSTabacco}
-    delete copyPSTabacco["secondRead"]
-    setPSTabacco(copyPSTabacco)
-    const copyPSAlchole = {...PSAlchole}
-    delete copyPSAlchole["secondRead"]
-    setPSAlchole(copyPSAlchole)
-    const copyPSCar = {...PSCar}
-    delete copyPSCar["secondRead"]
-    setPSCar(copyPSCar)
-    const copyPSInterest = {...PSInterest}
-    delete copyPSInterest["secondRead"]
-    setPSInterest(copyPSInterest)
-    const copyPSProfilePicture = {...PSProfilePicture}
-    delete copyPSProfilePicture["secondRead"]
-    setPSProfilePicture(copyPSProfilePicture)
-    const copyPSProfileMessage = {...PSProfileMessage}
-    delete copyPSProfileMessage["secondRead"]
-    setPSProfileMessage(copyPSProfileMessage)
-    const copyPSPersonality = {...PSPersonality}
-    delete copyPSPersonality["secondRead"]
-    setPSPersonality(copyPSPersonality)
 
     let s ={}
     Object.keys(PSGender).map(key =>
       key !== "secondRead" ? s["PSGender" + key] = PSGender[key] : null
     )
-    console.log(s)
+    Object.keys(PSArea).map(key =>
+      key !== "secondRead" ? s["PSArea" + key] = PSArea[key] : null
+    )
+    Object.keys(PSStyle).map(key =>
+      key !== "secondRead" ? s["PSStyle" + key] = PSStyle[key] : null
+    )
+    Object.keys(PSLooks).map(key =>
+      key !== "secondRead" ? s["PSLooks" + key] = PSLooks[key] : null
+    )
+    Object.keys(PSBloodType).map(key =>
+      key !== "secondRead" ? s["PSBloodType" + key] = PSBloodType[key] : null
+    )
+    Object.keys(PSJob).map(key =>
+      key !== "secondRead" ? s["PSJob" + key] = PSJob[key] : null
+    )
+    Object.keys(PSEduBack).map(key =>
+      key !== "secondRead" ? s["PSEduBack" + key] = PSEduBack[key] : null
+    )
+    Object.keys(PSBirthArea).map(key =>
+      key !== "secondRead" ? s["PSBirthArea" + key] = PSBirthArea[key] : null
+    )
+    Object.keys(PSZodiac).map(key =>
+      key !== "secondRead" ? s["PSZodiac" + key] = PSZodiac[key] : null
+    )
+    Object.keys(PSMarriageStatus).map(key =>
+      key !== "secondRead" ? s["PSMarriageStatus" + key] = PSMarriageStatus[key] : null
+    )
+    Object.keys(PSKids).map(key =>
+      key !== "secondRead" ? s["PSKids" + key] = PSKids[key] : null
+    )
+    Object.keys(PSTabacco).map(key =>
+      key !== "secondRead" ? s["PSTabacco" + key] = PSTabacco[key] : null
+    )
+    Object.keys(PSAlchole).map(key =>
+      key !== "secondRead" ? s["PSAlchole" + key] = PSAlchole[key] : null
+    )
+    Object.keys(PSCar).map(key =>
+      key !== "secondRead" ? s["PSCar" + key] = PSCar[key] : null
+    )
+    Object.keys(PSInterest).map(key =>
+      key !== "secondRead" ? s["PSInterest" + key] = PSInterest[key] : null
+    )
+    Object.keys(PSProfilePicture).map(key =>
+      key !== "secondRead" ? s["PSProfilePicture" + key] = PSProfilePicture[key] : null
+    )
+    Object.keys(PSProfileMessage).map(key =>
+      key !== "secondRead" ? s["PSProfileMessage" + key] = PSProfileMessage[key] : null
+    )
+    Object.keys(PSPersonality).map(key =>
+      key !== "secondRead" ? s["PSPersonality" + key] = PSPersonality[key] : null
+    )
 
     const requestOptions1 ={
       method: 'POST',
@@ -235,62 +230,40 @@ export function ProfileSearchSetting() {
       body: JSON.stringify(
         s,
         {
-        "UUID":auth.user,
+          "UUID":auth.user,
 
-        "PSGender":PSGender,
+          "PSAge1":PSAge1,
+          "PSAge2":PSAge2,
 
-        "PSAge1":PSAge1,
-        "PSAge2":PSAge2,
+          "PSHeight1":PSHeight1,
+          "PSHeight2":PSHeight2,
+          "PSCup1":PSCup1,
+          "PSCup2":PSCup2,
+          "PSBust1":PSBust1,
+          "PSBust2":PSBust2,
+          "PSWest1":PSWest1,
+          "PSWest2":PSWest2,
+          "PSHip1":PSHip1,
+          "PSHip2":PSHip2,
 
-        "PSArea":PSArea,
-        "PSHeight1":PSHeight1,
-        "PSHeight2":PSHeight2,
-        "PSStyle":PSStyle,
-        "PSLooks":PSLooks,
-        "PSCup1":PSCup1,
-        "PSCup2":PSCup2,
-        "PSBust1":PSBust1,
-        "PSBust2":PSBust2,
-        "PSWest1":PSWest1,
-        "PSWest2":PSWest2,
-        "PSHip1":PSHip1,
-        "PSHip2":PSHip2,
-        "PSBloodType":PSBloodType,
-        "PSJob":PSJob,
-        "PSEduBack":PSEduBack,
-        "PSBirthArea":PSBirthArea,
-
-        "PSZodiac":PSZodiac,
-        "PSMarriageStatus":PSMarriageStatus,
-        "PSKids":PSKids,
-        "PSTabacco":PSTabacco,
-        "PSAlchole":PSAlchole,
-
-        "PSCar":PSCar,
-
-        "PSProfilePicture":PSProfilePicture,
-        "PSProfileMessage":PSProfileMessage,
-
-        "PSCute1":PSCute1,
-        "PSCute2":PSCute2,
-        "PSSexy1":PSSexy1,
-        "PSSexy2":PSSexy2,
-        "PSKindness1":PSKindness1,
-        "PSKindness2":PSKindness2,
-        "PSSmartness1":PSSmartness1,
-        "PSSmartness2":PSSmartness2,
-        "PSNeatness1":PSNeatness1,
-        "PSNeatness2":PSNeatness2,
-        "PSFashionable1":PSFashionable1,
-        "PSFashionable2":PSFashionable2,
-        "PSBrightness1":PSBrightness1,
-        "PSBrightness2":PSBrightness2,
-        "PSElegance1":PSElegance1,
-        "PSElegance2":PSElegance2,
-
-        "PSInterest":PSInterest,
-        "PSPersonality":PSPersonality
-      })
+          "PSCute1":PSCute1,
+          "PSCute2":PSCute2,
+          "PSSexy1":PSSexy1,
+          "PSSexy2":PSSexy2,
+          "PSKindness1":PSKindness1,
+          "PSKindness2":PSKindness2,
+          "PSSmartness1":PSSmartness1,
+          "PSSmartness2":PSSmartness2,
+          "PSNeatness1":PSNeatness1,
+          "PSNeatness2":PSNeatness2,
+          "PSFashionable1":PSFashionable1,
+          "PSFashionable2":PSFashionable2,
+          "PSBrightness1":PSBrightness1,
+          "PSBrightness2":PSBrightness2,
+          "PSElegance1":PSElegance1,
+          "PSElegance2":PSElegance2
+        }
+      )
     }
     console.log(requestOptions1)
     fetch("../../set_profilesearchsetting.php",requestOptions1)

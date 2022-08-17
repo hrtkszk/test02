@@ -249,50 +249,16 @@ $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 // .$_POST['PSPersonality'];
 // exec($command_post, $output); //python実行と、返り数受け取り
 
-$original = [
-  'num1' => 1,
-  'num2' => 2,
-  'strings' => [
-      'str1' => 'hello',
-      'str2' => 'world',
-      'str3' => "I'm fine"
-  ]
-];
-// $data = {
-// 	"num1": 1,
-// 	"num2": 2,
-// 	"strings": {
-// 		"str1": "hello",
-// 		"str2": "world",
-// 		"str3": "I'm fine"
-// 	}
-// };
-$json = json_encode($original);
-// $json1 = "$json";
-// json_decode($data, true);
-$data = json_decode($json, true);
 
-$command_post="python3 set_profilesearchsetting.py " //pythonに引数を渡す
-.$_POST['UUID']." "
-.$json;
-exec($command_post, $output); //python実行と、返り数受け取り
+// $command_post="python3 set_profilesearchsetting.py " //pythonに引数を渡す
+// .$_POST['UUID'];
+// exec($command_post, $output); //python実行と、返り数受け取り
 
 echo json_encode(
   [
-    "test1" => $json,
-    // "test2" => $data,
-    "json_enc_PSGender" => json_encode($_POST['PSGender']),
     "_POST" => $_POST,
-    "PSGender0" => $_POST['PSGender0'],
-    "PSGender1" => $_POST['PSGender1'],
-    "PSGender2" => $_POST['PSGender2'],
-    "PSGender3" => $_POST['PSGender3'],
-    "PSGender4" => $_POST['PSGender4'],
-    "PSGender5" => $_POST['PSGender5'],
-    "PSGender6" => $_POST['PSGender6'],
-    "PSGender7" => $_POST['PSGender7'],
-    // "test" => json_decode($data, true),
-    "result" => $output,
+    // "result" => $output,
+    "result" => "SPSSS",
   ]
 );
 // echo json_encode(
