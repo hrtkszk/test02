@@ -228,8 +228,7 @@ export function ProfileSearchSetting() {
       method: 'POST',
       headers:{'Content-Type': 'application/json'},
       body: JSON.stringify(
-        {
-          s,
+        s + {
           "UUID":auth.user,
 
           "PSAge1":PSAge1,
