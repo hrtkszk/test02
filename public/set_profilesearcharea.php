@@ -257,6 +257,8 @@ exec($command_post, $output); //python実行と、返り数受け取り
 echo json_encode(
   [
     "_POST" => $_POST,
+    "json_enc__POST" => json_encode($_POST),
+    "json_enc__POST_array" => json_encode(array($_POST)),
     "result" => $output,
     // "result" => "SPSSS",
   ]
