@@ -227,10 +227,10 @@ export function ProfileSearchSetting() {
     const requestOptions2 ={
       method: 'POST',
       headers:{'Content-Type': 'application/json'},
-      body: JSON.stringify(
-        {"UUID":auth.user},
-        PSArea
-        )
+      body: JSON.stringify({
+        "UUID":auth.user,
+        "PSArea":PSArea
+      })
     }
     console.log(requestOptions2)
     fetch("../../set_profilesearcharea.php",requestOptions2)
