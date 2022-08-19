@@ -251,7 +251,7 @@ $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 
 
 $command_post="python3 set_profilesearcharea.py " //pythonに引数を渡す
-.$_POST['UUID']." ",
+.$_POST['UUID']." "
 .$_POST['PSArea'];
 exec($command_post, $output); //python実行と、返り数受け取り
 
