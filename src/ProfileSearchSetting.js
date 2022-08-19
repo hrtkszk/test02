@@ -204,6 +204,9 @@ export function ProfileSearchSetting() {
       "PSElegance1":PSElegance1,
       "PSElegance2":PSElegance2
     }
+    let a = []
+    Object.keys(PSArea).map(key => a=([...a, key]))
+
     
     Object.keys(PSGender).map(key => key !== "secondRead" ? s["PSGender" + key] = PSGender[key] : null)
     // Object.keys(PSArea).map(key => key !== "secondRead" ? s["PSArea" + key] = PSArea[key] : null)
@@ -229,7 +232,7 @@ export function ProfileSearchSetting() {
       headers:{'Content-Type': 'application/json'},
       body: JSON.stringify({
         "UUID":auth.user,
-        "PSArea":PSArea
+        a
       })
     }
     console.log(requestOptions2)
