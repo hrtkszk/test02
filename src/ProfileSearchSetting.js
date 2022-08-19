@@ -385,13 +385,12 @@ export function ProfileSearchSetting() {
                           {key2 !== "0" ? (
                             <>
                               <details><summary>
-                              <label for={key2}>
+                              <label for={key2} className="prefecture">
                                 <input
                                   value={key2}
                                   // defaultValue={PSArea}
                                   type="checkbox"
                                   id={key2}
-                                  className="prefecture"
                                   // onChange={evt => {
                                   //     setPSArea(evt.target.value)
                                   // }}
@@ -402,13 +401,12 @@ export function ProfileSearchSetting() {
                                 <>
                                   {key3 !== "0" ? (
                                     <>
-                                      <label for={key3}>
+                                      <label for={key3} className="city">
                                         <input
                                           value={key3}
                                           // defaultValue={PSArea}
                                           type="checkbox"
                                           id={key3}
-                                          className="city"
                                           // onChange={evt => {
                                           //     setPSArea(evt.target.value)
                                           // }}
