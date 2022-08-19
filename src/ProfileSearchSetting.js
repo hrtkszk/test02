@@ -377,27 +377,47 @@ export function ProfileSearchSetting() {
                         // }}
                       />
                       {AreaDB.Area[key1]["AreaName"]}
-                    </label></summary><br />
+                    </label></summary>
                     {/* {setTempArea(key)}
                     <PrefectureSelect /> */}
                       {Object.keys(AreaDB.Area[key1]["Prefecture"]).map(key2 => 
                         <>
                           {key2 !== "0" ? (
                             <>
-                            <label for={key2}>
-                              <input
-                                value={key2}
-                                // defaultValue={PSArea}
-                                type="checkbox"
-                                id={key2}
-                                // onChange={evt => {
-                                //     setPSArea(evt.target.value)
-                                // }}
-                              />
-                              {AreaDB.Area[key1]["Prefecture"][key2]["PrefectureName"]}
-                            </label><br />
-                            {/* {setTempPrefecture(key)}
-                            <CitySelect/> */}
+                              <details><summary>
+                              <label for={key2}>
+                                <input
+                                  value={key2}
+                                  // defaultValue={PSArea}
+                                  type="checkbox"
+                                  id={key2}
+                                  // onChange={evt => {
+                                  //     setPSArea(evt.target.value)
+                                  // }}
+                                />
+                                {AreaDB.Area[key1]["Prefecture"][key2]["PrefectureName"]}
+                              </label></summary>
+                              {Object.keys(AreaDB.Area[key1]["Prefecture"][key2]["City"]).map(key3 => 
+                                <>
+                                  {key3 !== "0" ? (
+                                    <>
+                                      <label for={key3}>
+                                        <input
+                                          value={key3}
+                                          // defaultValue={PSArea}
+                                          type="checkbox"
+                                          id={key3}
+                                          // onChange={evt => {
+                                          //     setPSArea(evt.target.value)
+                                          // }}
+                                        />
+                                        {AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]}
+                                      </label><br />
+                                    </>
+                                  ): (<></>)}
+                                </>
+                              )}
+                              </details>
                             </>
                           ): (<></>)}
                         </>
