@@ -14,6 +14,8 @@ import FormMultiSelect2 from "./FormMultiSelect2";
 // import FormSelect from "./FormSelect";
 
 export function ProfileSearchSetting() {
+  const [TempArea, setTempArea] = useState("0");
+  const [TempPrefecture, setTempPrefecture] = useState("0");
   //  各ステータスのdefaultにすでに設定された値を入れたい。
   // 基本状況
     // ProfileSearchDBの1つのUUID内で、配列かjsonで作成する
@@ -244,10 +246,10 @@ export function ProfileSearchSetting() {
     })
   }
 
-  function PrefectureSelect(area) {
+  function PrefectureSelect() {
     return (
       <>
-        {Object.keys(AreaDB.Area[area]["Prefecture"]).map(key => 
+        {Object.keys(AreaDB.Area[TempArea]["Prefecture"]).map(key => 
           <>
             {key !== "0" ? (
               <>
@@ -261,8 +263,9 @@ export function ProfileSearchSetting() {
                   //     setPSArea(evt.target.value)
                   // }}
                 />
-                {AreaDB.Area[area]["Prefecture"][key]["PrefectureName"]}
+                {AreaDB.Area[TempArea]["Prefecture"][key]["PrefectureName"]}
               </label><br />
+              {setTempPrefecture(key)}
               <CitySelect area prefecture={key}/>
               </>
             ): (<></>)}
@@ -272,10 +275,10 @@ export function ProfileSearchSetting() {
     )
   }
 
-  function CitySelect(area, prefecture) {
+  function CitySelect() {
     return (
       <>
-        {Object.keys(AreaDB.Area[area]["Prefecture"][prefecture]["City"]).map(key => 
+        {Object.keys(AreaDB.Area[TempArea]["Prefecture"][TempPrefecture]["City"]).map(key => 
           <>
             {key !== "0" ? (
               <>
@@ -289,7 +292,7 @@ export function ProfileSearchSetting() {
                   //     setPSArea(evt.target.value)
                   // }}
                 />
-                {AreaDB.Area[area]["Prefecture"][prefecture]["City"][key]}
+                {AreaDB.Area[TempArea]["Prefecture"][TempPrefecture]["City"][key]}
               </label><br />
               </>
             ): (<></>)}
@@ -374,7 +377,8 @@ export function ProfileSearchSetting() {
                     />
                     {AreaDB.Area[key]["AreaName"]}
                   </label><br />
-                  <PrefectureSelect area={key}/>
+                  {setTempArea(key)}
+                  <PrefectureSelect />
                   </>
                 ): (<></>)}
               </>
