@@ -230,7 +230,7 @@ export function ProfileSearchSetting() {
       body: JSON.stringify(PSArea)
     }
     console.log(requestOptions2)
-    fetch("../../set_profilesearcharea.php",requestOptions1)
+    fetch("../../set_profilesearcharea.php",requestOptions2)
     .then((response)=> response.json())
     .then(result =>{
       console.log(result)
