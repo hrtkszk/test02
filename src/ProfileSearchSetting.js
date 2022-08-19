@@ -357,7 +357,7 @@ export function ProfileSearchSetting() {
               defaultValue={PSArea}
               setValue={setPSArea}
             /> */}
-          {/* <li>
+          <li>
             <span className="dan">エリア</span>
             <span className="dan2">
 
@@ -377,14 +377,14 @@ export function ProfileSearchSetting() {
                     />
                     {AreaDB.Area[key]["AreaName"]}
                   </label><br />
-                  {setTempArea(key)}
-                  <PrefectureSelect />
+                  {/* {setTempArea(key)}
+                  <PrefectureSelect /> */}
                   </>
                 ): (<></>)}
               </>
             )}
             </span>
-          </li> */}
+          </li>
           <li>
             <FormSelectRange
               title="身長" 
