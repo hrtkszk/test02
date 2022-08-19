@@ -348,7 +348,7 @@ export function ProfileSearchSetting() {
                                   {console.log(AreaDB.Area[key1]["Prefecture"][key2]["City"][key3])}
                                   {console.log(AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["CityName"])}
                                   {key3 !== "0" ? (
-                                    AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["CityName"] === "" ? (
+                                    AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["CityName"] === "undefined" ? (
                                       <>
                                         <label for={key3} className="area2">
                                           <input
