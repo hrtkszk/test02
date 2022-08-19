@@ -206,7 +206,7 @@ export function ProfileSearchSetting() {
     }
     
     Object.keys(PSGender).map(key => key !== "secondRead" ? s["PSGender" + key] = PSGender[key] : null)
-    Object.keys(PSArea).map(key => key !== "secondRead" ? s["PSArea" + key] = PSArea[key] : null)
+    // Object.keys(PSArea).map(key => key !== "secondRead" ? s["PSArea" + key] = PSArea[key] : null)
     Object.keys(PSStyle).map(key => key !== "secondRead" ? s["PSStyle" + key] = PSStyle[key] : null)
     Object.keys(PSLooks).map(key => key !== "secondRead" ? s["PSLooks" + key] = PSLooks[key] : null)
     Object.keys(PSBloodType).map(key => key !== "secondRead" ? s["PSBloodType" + key] = PSBloodType[key] : null)
@@ -223,6 +223,18 @@ export function ProfileSearchSetting() {
     Object.keys(PSProfilePicture).map(key => key !== "secondRead" ? s["PSProfilePicture" + key] = PSProfilePicture[key] : null)
     Object.keys(PSProfileMessage).map(key => key !== "secondRead" ? s["PSProfileMessage" + key] = PSProfileMessage[key] : null)
     Object.keys(PSPersonality).map(key => key !== "secondRead" ? s["PSPersonality" + key] = PSPersonality[key] : null)
+
+    const requestOptions2 ={
+      method: 'POST',
+      headers:{'Content-Type': 'application/json'},
+      body: JSON.stringify(PSArea)
+    }
+    console.log(requestOptions2)
+    fetch("../../set_profilesearcharea.php",requestOptions1)
+    .then((response)=> response.json())
+    .then(result =>{
+      console.log(result)
+    })
 
     const requestOptions1 ={
       method: 'POST',
@@ -295,13 +307,6 @@ export function ProfileSearchSetting() {
               setRange2={setPSAge2}
             />
           </li>
-          {/* <li>
-            <FormMultiSelect2
-              title="エリア"
-              keyValue={AreaDB}
-              defaultValue={PSArea}
-              setValue={setPSArea}
-            /> */}
           <li>
             <span className="dan">エリア</span>
             <span className="dan2">
@@ -317,15 +322,18 @@ export function ProfileSearchSetting() {
                         // defaultValue={PSArea}
                         type="checkbox"
                         id={key1}
-                        
-                        // onChange={evt => {
-                        //     setPSArea(evt.target.value)
-                        // }}
+                        onChange={evt => {
+                          if (PSArea[evt.target.value] === true ) {
+                            const copyPSArea = {...PSArea}
+                            delete copyPSArea[evt.target.value]
+                            setPSArea(copyPSArea)
+                          } else {
+                            setPSArea({...PSArea, [evt.target.value]:true})
+                          }
+                        }}
                       />
                       {AreaDB.Area[key1]["AreaName"]}
                     </label></summary>
-                    {/* {setTempArea(key)}
-                    <PrefectureSelect /> */}
                       {Object.keys(AreaDB.Area[key1]["Prefecture"]).map(key2 => 
                         <>
                           {key2 !== "0" ? (
@@ -337,9 +345,15 @@ export function ProfileSearchSetting() {
                                   // defaultValue={PSArea}
                                   type="checkbox"
                                   id={key2}
-                                  // onChange={evt => {
-                                  //     setPSArea(evt.target.value)
-                                  // }}
+                                  onChange={evt => {
+                                    if (PSArea[evt.target.value] === true ) {
+                                      const copyPSArea = {...PSArea}
+                                      delete copyPSArea[evt.target.value]
+                                      setPSArea(copyPSArea)
+                                    } else {
+                                      setPSArea({...PSArea, [evt.target.value]:true})
+                                    }
+                                  }}
                                 />
                                 {AreaDB.Area[key1]["Prefecture"][key2]["PrefectureName"]}
                               </label></summary>
@@ -354,9 +368,15 @@ export function ProfileSearchSetting() {
                                             // defaultValue={PSArea}
                                             type="checkbox"
                                             id={key3}
-                                            // onChange={evt => {
-                                            //     setPSArea(evt.target.value)
-                                            // }}
+                                            onChange={evt => {
+                                              if (PSArea[evt.target.value] === true ) {
+                                                const copyPSArea = {...PSArea}
+                                                delete copyPSArea[evt.target.value]
+                                                setPSArea(copyPSArea)
+                                              } else {
+                                                setPSArea({...PSArea, [evt.target.value]:true})
+                                              }
+                                            }}
                                           />
                                           {AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]}
                                         </label><br />
@@ -370,9 +390,15 @@ export function ProfileSearchSetting() {
                                               // defaultValue={PSArea}
                                               type="checkbox"
                                               id={key3}
-                                              // onChange={evt => {
-                                              //     setPSArea(evt.target.value)
-                                              // }}
+                                              onChange={evt => {
+                                                if (PSArea[evt.target.value] === true ) {
+                                                  const copyPSArea = {...PSArea}
+                                                  delete copyPSArea[evt.target.value]
+                                                  setPSArea(copyPSArea)
+                                                } else {
+                                                  setPSArea({...PSArea, [evt.target.value]:true})
+                                                }
+                                              }}
                                             />
                                             {AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["CityName"]}
                                           </label></summary>
@@ -386,9 +412,15 @@ export function ProfileSearchSetting() {
                                                       // defaultValue={PSArea}
                                                       type="checkbox"
                                                       id={key4}
-                                                      // onChange={evt => {
-                                                      //     setPSArea(evt.target.value)
-                                                      // }}
+                                                      onChange={evt => {
+                                                        if (PSArea[evt.target.value] === true ) {
+                                                          const copyPSArea = {...PSArea}
+                                                          delete copyPSArea[evt.target.value]
+                                                          setPSArea(copyPSArea)
+                                                        } else {
+                                                          setPSArea({...PSArea, [evt.target.value]:true})
+                                                        }
+                                                      }}
                                                     />
                                                     {AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["Ward"][key4]}
                                                   </label><br />
