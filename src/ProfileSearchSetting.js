@@ -14,7 +14,7 @@ import FormMultiSelect2 from "./FormMultiSelect2";
 // import FormSelect from "./FormSelect";
 
 export function ProfileSearchSetting() {
-  const [TempArea, setTempArea] = useState("0");
+  // const [TempArea, setTempArea] = useState("0");
   // const [TempPrefecture, setTempPrefecture] = useState("0");
   //  各ステータスのdefaultにすでに設定された値を入れたい。
   // 基本状況
@@ -246,34 +246,34 @@ export function ProfileSearchSetting() {
     })
   }
 
-  function PrefectureSelect() {
-    return (
-      <>
-        {Object.keys(AreaDB.Area[TempArea]["Prefecture"]).map(key => 
-          <>
-            {key !== "0" ? (
-              <>
-              <label for={key}>
-                <input
-                  value={key}
-                  // defaultValue={PSArea}
-                  type="checkbox"
-                  id={key}
-                  // onChange={evt => {
-                  //     setPSArea(evt.target.value)
-                  // }}
-                />
-                {AreaDB.Area[TempArea]["Prefecture"][key]["PrefectureName"]}
-              </label><br />
-              {/* {setTempPrefecture(key)}
-              <CitySelect area prefecture={key}/> */}
-              </>
-            ): (<></>)}
-          </>
-        )}
-      </>
-    )
-  }
+  // function PrefectureSelect() {
+  //   return (
+  //     <>
+  //       {Object.keys(AreaDB.Area[TempArea]["Prefecture"]).map(key => 
+  //         <>
+  //           {key !== "0" ? (
+  //             <>
+  //             <label for={key}>
+  //               <input
+  //                 value={key}
+  //                 // defaultValue={PSArea}
+  //                 type="checkbox"
+  //                 id={key}
+  //                 // onChange={evt => {
+  //                 //     setPSArea(evt.target.value)
+  //                 // }}
+  //               />
+  //               {AreaDB.Area[TempArea]["Prefecture"][key]["PrefectureName"]}
+  //             </label><br />
+  //             {/* {setTempPrefecture(key)}
+  //             <CitySelect/> */}
+  //             </>
+  //           ): (<></>)}
+  //         </>
+  //       )}
+  //     </>
+  //   )
+  // }
 
   // function CitySelect() {
   //   return (
@@ -361,24 +361,46 @@ export function ProfileSearchSetting() {
             <span className="dan">エリア</span>
             <span className="dan2">
 
-            {Object.keys(AreaDB.Area).map(key => 
+            {Object.keys(AreaDB.Area).map(key1 => 
               <>
-                {key !== "0" ? (
+                {key1 !== "0" ? (
                   <>
-                  <label for={key}>
+                  <label for={key1}>
                     <input
-                      value={key}
+                      value={key1}
                       // defaultValue={PSArea}
                       type="checkbox"
-                      id={key}
+                      id={key1}
                       // onChange={evt => {
                       //     setPSArea(evt.target.value)
                       // }}
                     />
-                    {AreaDB.Area[key]["AreaName"]}
+                    {AreaDB.Area[key1]["AreaName"]}
                   </label><br />
-                  {setTempArea(key)}
-                  <PrefectureSelect />
+                  {/* {setTempArea(key)}
+                  <PrefectureSelect /> */}
+                  {Object.keys(AreaDB.Area[key1]["Prefecture"]).map(key2 => 
+                    <>
+                      {key2 !== "0" ? (
+                        <>
+                        <label for={key2}>
+                          <input
+                            value={key2}
+                            // defaultValue={PSArea}
+                            type="checkbox"
+                            id={key2}
+                            // onChange={evt => {
+                            //     setPSArea(evt.target.value)
+                            // }}
+                          />
+                          {AreaDB.Area[key1]["Prefecture"][key2]["PrefectureName"]}
+                        </label><br />
+                        {/* {setTempPrefecture(key)}
+                        <CitySelect/> */}
+                        </>
+                      ): (<></>)}
+                    </>
+                  )}
                   </>
                 ): (<></>)}
               </>
