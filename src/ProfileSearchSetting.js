@@ -384,8 +384,8 @@ export function ProfileSearchSetting() {
                         <>
                           {key2 !== "0" ? (
                             <>
-                              <details><summary>
-                              <label for={key2} className="prefecture">
+                              <details  className="prefecture"><summary>
+                              <label for={key2}>
                                 <input
                                   value={key2}
                                   // defaultValue={PSArea}

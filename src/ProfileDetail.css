@@ -19,9 +19,9 @@ span.dan2 {
   line-height: 24px;
 }
 
-label.prefecture {
-  text-indent: 20px;
+details.prefecture {
+  margin-left: 1rem;
 }
 label.city {
-  text-indent: 20px;
+  margin-left: 1rem;
 }
