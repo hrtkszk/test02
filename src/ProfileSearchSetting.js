@@ -263,7 +263,7 @@ export function ProfileSearchSetting() {
                 />
                 {AreaDB.Area[area]["Prefecture"][key]["PrefectureName"]}
               </label><br />
-              <CitySelect prefecture={key}/>
+              <CitySelect area prefecture={key}/>
               </>
             ): (<></>)}
           </>
@@ -272,7 +272,7 @@ export function ProfileSearchSetting() {
     )
   }
 
-  function CitySelect(prefecture) {
+  function CitySelect(area, prefecture) {
     return (
       <>
         {Object.keys(AreaDB.Area[area]["Prefecture"][prefecture]["City"]).map(key => 
