@@ -346,6 +346,7 @@ export function ProfileSearchSetting() {
                               {Object.keys(AreaDB.Area[key1]["Prefecture"][key2]["City"]).map(key3 => 
                                 <>
                                   {key3 !== "0" ? (
+                                    console.log(AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["CityName"]),
                                     AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["CityName"] === undefined ? (
                                       <>
                                         <label for={key3} className="area2">
