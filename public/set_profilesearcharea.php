@@ -250,15 +250,16 @@ $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 // exec($command_post, $output); //python実行と、返り数受け取り
 
 
-// $command_post="python3 set_profilesearchsetting.py " //pythonに引数を渡す
-// .$_POST['UUID'];
-// exec($command_post, $output); //python実行と、返り数受け取り
+$command_post="python3 set_profilesearcharea.py " //pythonに引数を渡す
+.$_POST['UUID']." ",
+.$_POST;
+exec($command_post, $output); //python実行と、返り数受け取り
 
 echo json_encode(
   [
     "_POST" => $_POST,
-    // "result" => $output,
-    "result" => "SPSSS",
+    "result" => $output,
+    // "result" => "SPSSS",
   ]
 );
 // echo json_encode(
