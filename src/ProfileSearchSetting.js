@@ -14,7 +14,7 @@ import FormMultiSelect2 from "./FormMultiSelect2";
 // import FormSelect from "./FormSelect";
 
 export function ProfileSearchSetting() {
-  // const [TempArea, setTempArea] = useState("0");
+  const [TempArea, setTempArea] = useState("0");
   // const [TempPrefecture, setTempPrefecture] = useState("0");
   //  各ステータスのdefaultにすでに設定された値を入れたい。
   // 基本状況
@@ -246,34 +246,34 @@ export function ProfileSearchSetting() {
     })
   }
 
-  // function PrefectureSelect() {
-  //   return (
-  //     <>
-  //       {Object.keys(AreaDB.Area[TempArea]["Prefecture"]).map(key => 
-  //         <>
-  //           {key !== "0" ? (
-  //             <>
-  //             <label for={key}>
-  //               <input
-  //                 value={key}
-  //                 // defaultValue={PSArea}
-  //                 type="checkbox"
-  //                 id={key}
-  //                 // onChange={evt => {
-  //                 //     setPSArea(evt.target.value)
-  //                 // }}
-  //               />
-  //               {AreaDB.Area[TempArea]["Prefecture"][key]["PrefectureName"]}
-  //             </label><br />
-  //             {setTempPrefecture(key)}
-  //             <CitySelect area prefecture={key}/>
-  //             </>
-  //           ): (<></>)}
-  //         </>
-  //       )}
-  //     </>
-  //   )
-  // }
+  function PrefectureSelect() {
+    return (
+      <>
+        {Object.keys(AreaDB.Area[TempArea]["Prefecture"]).map(key => 
+          <>
+            {key !== "0" ? (
+              <>
+              <label for={key}>
+                <input
+                  value={key}
+                  // defaultValue={PSArea}
+                  type="checkbox"
+                  id={key}
+                  // onChange={evt => {
+                  //     setPSArea(evt.target.value)
+                  // }}
+                />
+                {AreaDB.Area[TempArea]["Prefecture"][key]["PrefectureName"]}
+              </label><br />
+              {/* {setTempPrefecture(key)}
+              <CitySelect area prefecture={key}/> */}
+              </>
+            ): (<></>)}
+          </>
+        )}
+      </>
+    )
+  }
 
   // function CitySelect() {
   //   return (
@@ -377,8 +377,8 @@ export function ProfileSearchSetting() {
                     />
                     {AreaDB.Area[key]["AreaName"]}
                   </label><br />
-                  {/* {setTempArea(key)}
-                  <PrefectureSelect /> */}
+                  {setTempArea(key)}
+                  <PrefectureSelect />
                   </>
                 ): (<></>)}
               </>
