@@ -259,9 +259,9 @@ exec($command_post, $output2); //python実行と、返り数受け取り
 $command_post="python3 set_profilesearcharea.py " //pythonに引数を渡す
 .json_encode(array($_POST));
 exec($command_post, $output3); //python実行と、返り数受け取り
-$command_post="python3 set_profilesearcharea.py " //pythonに引数を渡す
-.json_encode(json_decode($_POST, true));
-exec($command_post, $output4); //python実行と、返り数受け取り
+// $command_post="python3 set_profilesearcharea.py " //pythonに引数を渡す
+// .json_encode(json_decode($_POST, true));
+// exec($command_post, $output4); //python実行と、返り数受け取り
 
 echo json_encode(
   [
