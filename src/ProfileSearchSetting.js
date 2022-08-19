@@ -345,6 +345,7 @@ export function ProfileSearchSetting() {
                               </label></summary>
                               {Object.keys(AreaDB.Area[key1]["Prefecture"][key2]["City"]).map(key3 => 
                                 <>
+                                  {console.log(AreaDB.Area[key1]["Prefecture"][key2]["City"])}
                                   {console.log(AreaDB.Area[key1]["Prefecture"][key2]["City"][key3])}
                                   {console.log(AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["CityName"])}
                                   {key3 !== "0" ? (
