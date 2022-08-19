@@ -349,8 +349,9 @@ export function ProfileSearchSetting() {
                                   {console.log(AreaDB.Area[key1]["Prefecture"][key2]["City"][key3])}
                                   {console.log(AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["CityName"])}
                                   {key3 !== "0" ? (
-                                    AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["CityName"] === "undefined" ? (
+                                    AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["CityName"] === undefined ? (
                                       <>
+                                        {console.log(AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["CityName"])}
                                         <label for={key3} className="area2">
                                           <input
                                             value={key3}
@@ -379,6 +380,7 @@ export function ProfileSearchSetting() {
                                             />
                                             {AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["CityName"]}
                                           </label></summary>
+                                          {console.log(AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["CityName"])}
                                           {Object.keys(AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["Ward"]).map(key4 => 
                                             <>
                                               {key4 !== "0" ? (
