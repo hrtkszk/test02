@@ -391,6 +391,7 @@ export function ProfileSearchSetting() {
                                   // defaultValue={PSArea}
                                   type="checkbox"
                                   id={key2}
+                                  className="prefecture"
                                   // onChange={evt => {
                                   //     setPSArea(evt.target.value)
                                   // }}
@@ -407,6 +408,7 @@ export function ProfileSearchSetting() {
                                           // defaultValue={PSArea}
                                           type="checkbox"
                                           id={key3}
+                                          className="city"
                                           // onChange={evt => {
                                           //     setPSArea(evt.target.value)
                                           // }}

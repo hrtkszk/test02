@@ -18,3 +18,10 @@ span.dan2 {
   margin-left: 200px;
   line-height: 24px;
 }
+
+input.prefecture {
+  text-indent: 1rem;
+}
+input.city {
+  text-indent: 1rem;
+}
