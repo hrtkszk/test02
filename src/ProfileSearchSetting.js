@@ -345,9 +345,10 @@ export function ProfileSearchSetting() {
                               </label></summary>
                               {Object.keys(AreaDB.Area[key1]["Prefecture"][key2]["City"]).map(key3 => 
                                 <>
+                                  {console.log(AreaDB.Area[key1]["Prefecture"][key2]["City"][key3])}
+                                  {console.log(AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["CityName"])}
                                   {key3 !== "0" ? (
-                                    console.log(AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["CityName"]),
-                                    AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["CityName"] === undefined ? (
+                                    AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["CityName"] === "" ? (
                                       <>
                                         <label for={key3} className="area2">
                                           <input
@@ -361,44 +362,44 @@ export function ProfileSearchSetting() {
                                           />
                                           {AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]}
                                         </label><br />
-                                    </>
+                                      </>
                                     ):(
                                       <>
-                                      <details className="area1"><summary>
-                                        <label for={key3}>
-                                          <input
-                                            value={key3}
-                                            // defaultValue={PSArea}
-                                            type="checkbox"
-                                            id={key3}
-                                            // onChange={evt => {
-                                            //     setPSArea(evt.target.value)
-                                            // }}
-                                          />
-                                          {AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["CityName"]}
-                                        </label></summary>
-                                        {Object.keys(AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["Ward"]).map(key4 => 
-                                          <>
-                                            {key4 !== "0" ? (
-                                              <>
-                                                <label for={key4} className="area2">
-                                                  <input
-                                                    value={key4}
-                                                    // defaultValue={PSArea}
-                                                    type="checkbox"
-                                                    id={key4}
-                                                    // onChange={evt => {
-                                                    //     setPSArea(evt.target.value)
-                                                    // }}
-                                                  />
-                                                  {AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["Ward"][key4]}
-                                                </label><br />
-                                              </>
-                                            ): (<></>)}
-                                          </>
-                                        )}
-                                      </details>
-                                    </>
+                                        <details className="area1"><summary>
+                                          <label for={key3}>
+                                            <input
+                                              value={key3}
+                                              // defaultValue={PSArea}
+                                              type="checkbox"
+                                              id={key3}
+                                              // onChange={evt => {
+                                              //     setPSArea(evt.target.value)
+                                              // }}
+                                            />
+                                            {AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["CityName"]}
+                                          </label></summary>
+                                          {Object.keys(AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["Ward"]).map(key4 => 
+                                            <>
+                                              {key4 !== "0" ? (
+                                                <>
+                                                  <label for={key4} className="area2">
+                                                    <input
+                                                      value={key4}
+                                                      // defaultValue={PSArea}
+                                                      type="checkbox"
+                                                      id={key4}
+                                                      // onChange={evt => {
+                                                      //     setPSArea(evt.target.value)
+                                                      // }}
+                                                    />
+                                                    {AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["Ward"][key4]}
+                                                  </label><br />
+                                                </>
+                                              ) : (<></>)}
+                                            </>
+                                          )}
+                                        </details>
+                                      </>
                                     )
                                   ): (<></>)}
                                 </>
