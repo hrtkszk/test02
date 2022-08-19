@@ -244,39 +244,60 @@ export function ProfileSearchSetting() {
     })
   }
 
-  // function PrefectureSelect() {
-  //   if (Area !== "0") {
-  //     return (
-  //       <>
-  //         <select
-  //           defaultValue={Prefecture}
-  //           onChange={evt => {
-  //             setPrefecture(evt.target.value)
-  //             setCity("0")
-  //           }}>
-  //             {Object.keys(AreaDB.Area[Area]["Prefecture"]).map(key => <option value={key}>{AreaDB.Area[Area]["Prefecture"][key]["PrefectureName"]}</option>)}
-  //         </select>
-  //         <CitySelect/>
-  //       </>
-  //     )
-  //   } else {
-  //     return <></>
-  //   }
-  // }
+  function PrefectureSelect(area) {
+    return (
+      <>
+        {Object.keys(AreaDB.Area[area]["Prefecture"]).map(key => 
+          <>
+            {key !== "0" ? (
+              <>
+              <label for={key}>
+                <input
+                  value={key}
+                  // defaultValue={PSArea}
+                  type="checkbox"
+                  id={key}
+                  // onChange={evt => {
+                  //     setPSArea(evt.target.value)
+                  // }}
+                />
+                {AreaDB.Area[area]["Prefecture"][key]["PrefectureName"]}
+              </label><br />
+              <CitySelect prefecture={key}/>
+              </>
+            ): (<></>)}
+          </>
+        )}
+      </>
+    )
+  }
 
-  // function CitySelect() {
-  //   if (Prefecture !== "0") {
-  //     return (
-  //       <select
-  //         defaultValue={City}
-  //         onChange={evt => setCity(evt.target.value)}>
-  //           {Object.keys(AreaDB.Area[Area]["Prefecture"][Prefecture]["City"]).map(key => <option value={key}>{AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][key]}</option>)}
-  //       </select>
-  //     )
-  //   } else {
-  //     return <></>
-  //   }
-  // }
+  function CitySelect(prefecture) {
+    return (
+      <>
+        {Object.keys(AreaDB.Area[area]["Prefecture"][prefecture]["City"]).map(key => 
+          <>
+            {key !== "0" ? (
+              <>
+              <label for={key}>
+                <input
+                  value={key}
+                  // defaultValue={PSArea}
+                  type="checkbox"
+                  id={key}
+                  // onChange={evt => {
+                  //     setPSArea(evt.target.value)
+                  // }}
+                />
+                {AreaDB.Area[area]["Prefecture"][prefecture]["City"][key]}
+              </label><br />
+              </>
+            ): (<></>)}
+          </>
+        )}
+      </>
+    )
+  }
 
   // function BirthPrefectureSelect() {
   //   if (BirthArea !== "0") {
@@ -336,13 +357,28 @@ export function ProfileSearchSetting() {
           <li>
             <span className="dan">エリア</span>
             <span className="dan2">
-              <select
-                defaultValue={PSArea}
-                onChange={evt => {
-                    setPSArea(evt.target.value)
-                }}>
-                  {Object.keys(AreaDB.Area).map(key => <option value={key}>{AreaDB.Area[key]["AreaName"]}</option>)}
-              </select>
+
+            {Object.keys(AreaDB.Area).map(key => 
+              <>
+                {key !== "0" ? (
+                  <>
+                  <label for={key}>
+                    <input
+                      value={key}
+                      // defaultValue={PSArea}
+                      type="checkbox"
+                      id={key}
+                      // onChange={evt => {
+                      //     setPSArea(evt.target.value)
+                      // }}
+                    />
+                    {AreaDB.Area[key]["AreaName"]}
+                  </label><br />
+                  <PrefectureSelect area={key}/>
+                  </>
+                ): (<></>)}
+              </>
+            )}
             </span>
           </li>
           <li>
