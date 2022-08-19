@@ -268,7 +268,7 @@ echo json_encode(
     "_POST" => $_POST,
     "json_enc__POST" => json_encode($_POST),
     "json_enc__POST_array" => json_encode(array($_POST)),
-    "json_enc_dec_PSGender" => json_encode(json_decode($_POST, true)),
+    // "json_enc_dec_PSGender" => json_encode(json_decode($_POST, true)),
     "result1" => $output1,
     "result2" => $output2,
     "result3" => $output3,
