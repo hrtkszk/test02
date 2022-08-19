@@ -252,14 +252,27 @@ $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 
 $command_post="python3 set_profilesearcharea.py " //pythonに引数を渡す
 .$_POST;
-exec($command_post, $output); //python実行と、返り数受け取り
+exec($command_post, $output1); //python実行と、返り数受け取り
+$command_post="python3 set_profilesearcharea.py " //pythonに引数を渡す
+.json_encode($_POST);
+exec($command_post, $output2); //python実行と、返り数受け取り
+$command_post="python3 set_profilesearcharea.py " //pythonに引数を渡す
+.json_encode(array($_POST));
+exec($command_post, $output3); //python実行と、返り数受け取り
+$command_post="python3 set_profilesearcharea.py " //pythonに引数を渡す
+.json_encode(json_decode($_POST, true));
+exec($command_post, $output4); //python実行と、返り数受け取り
 
 echo json_encode(
   [
     "_POST" => $_POST,
     "json_enc__POST" => json_encode($_POST),
     "json_enc__POST_array" => json_encode(array($_POST)),
-    "result" => $output,
+    "json_enc_dec_PSGender" => json_encode(json_decode($_POST, true)),
+    "result1" => $output1,
+    "result2" => $output2,
+    "result3" => $output3,
+    "result4" => $output4,
     // "result" => "SPSSS",
   ]
 );
