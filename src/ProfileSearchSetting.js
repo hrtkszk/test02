@@ -14,8 +14,8 @@ import FormMultiSelect2 from "./FormMultiSelect2";
 // import FormSelect from "./FormSelect";
 
 export function ProfileSearchSetting() {
-  const [TempArea, setTempArea] = useState("0");
-  const [TempPrefecture, setTempPrefecture] = useState("0");
+  // const [TempArea, setTempArea] = useState("0");
+  // const [TempPrefecture, setTempPrefecture] = useState("0");
   //  各ステータスのdefaultにすでに設定された値を入れたい。
   // 基本状況
     // ProfileSearchDBの1つのUUID内で、配列かjsonで作成する
@@ -246,61 +246,61 @@ export function ProfileSearchSetting() {
     })
   }
 
-  function PrefectureSelect() {
-    return (
-      <>
-        {Object.keys(AreaDB.Area[TempArea]["Prefecture"]).map(key => 
-          <>
-            {key !== "0" ? (
-              <>
-              <label for={key}>
-                <input
-                  value={key}
-                  // defaultValue={PSArea}
-                  type="checkbox"
-                  id={key}
-                  // onChange={evt => {
-                  //     setPSArea(evt.target.value)
-                  // }}
-                />
-                {AreaDB.Area[TempArea]["Prefecture"][key]["PrefectureName"]}
-              </label><br />
-              {setTempPrefecture(key)}
-              <CitySelect area prefecture={key}/>
-              </>
-            ): (<></>)}
-          </>
-        )}
-      </>
-    )
-  }
+  // function PrefectureSelect() {
+  //   return (
+  //     <>
+  //       {Object.keys(AreaDB.Area[TempArea]["Prefecture"]).map(key => 
+  //         <>
+  //           {key !== "0" ? (
+  //             <>
+  //             <label for={key}>
+  //               <input
+  //                 value={key}
+  //                 // defaultValue={PSArea}
+  //                 type="checkbox"
+  //                 id={key}
+  //                 // onChange={evt => {
+  //                 //     setPSArea(evt.target.value)
+  //                 // }}
+  //               />
+  //               {AreaDB.Area[TempArea]["Prefecture"][key]["PrefectureName"]}
+  //             </label><br />
+  //             {setTempPrefecture(key)}
+  //             <CitySelect area prefecture={key}/>
+  //             </>
+  //           ): (<></>)}
+  //         </>
+  //       )}
+  //     </>
+  //   )
+  // }
 
-  function CitySelect() {
-    return (
-      <>
-        {Object.keys(AreaDB.Area[TempArea]["Prefecture"][TempPrefecture]["City"]).map(key => 
-          <>
-            {key !== "0" ? (
-              <>
-              <label for={key}>
-                <input
-                  value={key}
-                  // defaultValue={PSArea}
-                  type="checkbox"
-                  id={key}
-                  // onChange={evt => {
-                  //     setPSArea(evt.target.value)
-                  // }}
-                />
-                {AreaDB.Area[TempArea]["Prefecture"][TempPrefecture]["City"][key]}
-              </label><br />
-              </>
-            ): (<></>)}
-          </>
-        )}
-      </>
-    )
-  }
+  // function CitySelect() {
+  //   return (
+  //     <>
+  //       {Object.keys(AreaDB.Area[TempArea]["Prefecture"][TempPrefecture]["City"]).map(key => 
+  //         <>
+  //           {key !== "0" ? (
+  //             <>
+  //             <label for={key}>
+  //               <input
+  //                 value={key}
+  //                 // defaultValue={PSArea}
+  //                 type="checkbox"
+  //                 id={key}
+  //                 // onChange={evt => {
+  //                 //     setPSArea(evt.target.value)
+  //                 // }}
+  //               />
+  //               {AreaDB.Area[TempArea]["Prefecture"][TempPrefecture]["City"][key]}
+  //             </label><br />
+  //             </>
+  //           ): (<></>)}
+  //         </>
+  //       )}
+  //     </>
+  //   )
+  // }
 
   // function BirthPrefectureSelect() {
   //   if (BirthArea !== "0") {
@@ -357,7 +357,7 @@ export function ProfileSearchSetting() {
               defaultValue={PSArea}
               setValue={setPSArea}
             /> */}
-          <li>
+          {/* <li>
             <span className="dan">エリア</span>
             <span className="dan2">
 
@@ -384,7 +384,7 @@ export function ProfileSearchSetting() {
               </>
             )}
             </span>
-          </li>
+          </li> */}
           <li>
             <FormSelectRange
               title="身長" 
