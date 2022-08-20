@@ -14,8 +14,8 @@ exec($command,$output); //python実行と、返り数受け取り
 // );
 
 // pythonからの返り数のうち、SQLのヘッダーの受け取りと、文字列から配列変換(pythonの出力1行目)
-$output[0]=trim($output[0],"\"['");
-$output[0]=trim($output[0],"']\"");
+// $output[0]=trim($output[0],"\"['");
+// $output[0]=trim($output[0],"']\"");
 // $output0=explode("', '",$output[0]);
 
 $output2=array();
@@ -34,8 +34,8 @@ if($output[1]!="None") {
         $it = $it + 1;
     }
     // 配列1行目の削除と、配列詰め
-    unset($output2[0]);
-    $output2 = array_values($output2);
+    // unset($output2[0]);
+    // $output2 = array_values($output2);
 
     //配列のJSON変換と、echoでのサーバーサイド出力。
     if(empty($_POST['UUID'])) {
