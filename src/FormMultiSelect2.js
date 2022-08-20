@@ -26,7 +26,7 @@ const FormMultiSelect = (props) => {
                 props.setValue({...copyDefaultValue, [event.target.value] : true})
             }
         }
-        console.log(props.defaultValue)
+        // console.log(props.defaultValue)
     }
 
     // 未設定がない場合
@@ -38,7 +38,7 @@ const FormMultiSelect = (props) => {
         } else {
             props.setValue({...props.defaultValue, [event.target.value] : true})
         }
-        console.log(props.defaultValue)
+        // console.log(props.defaultValue)
     }
 
     return (
@@ -72,11 +72,11 @@ const FormMultiSelect = (props) => {
                             />
                             {props.keyValue[key]}<br />
                         </label>
-                        {console.log(props.title, ":", key, ":", props.defaultValue[key])}
+                        {/* {console.log(props.title, ":", key, ":", props.defaultValue[key])} */}
                     </>
                 ))}
             </span>
-            {console.log(props.title, ":", props.defaultValue)}
+            {/* {console.log(props.title, ":", props.defaultValue)} */}
         </>
     )    
 }
