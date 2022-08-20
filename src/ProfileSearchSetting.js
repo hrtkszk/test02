@@ -324,7 +324,7 @@ export function ProfileSearchSetting() {
           <li>
             <span className="dan">エリア</span>
             <span className="dan2">
-
+            {console.log("read:PSArea: ",PSArea)}
             {Object.keys(AreaDB.Area).map(key1 => 
               <>
                 {key1 !== "0" ? (
@@ -341,15 +341,17 @@ export function ProfileSearchSetting() {
                             const copyPSArea = {...PSArea}
                             delete copyPSArea[evt.target.value]
                             setPSArea(copyPSArea)
+                            console.log("uncheck:copyPSArea: ",copyPSArea)
                           } else {
                             setPSArea({...PSArea, [evt.target.value]:true})
+                            console.log("check:PSArea: ",PSArea)
                           }
                         }}
                         checked={
                           PSArea["secondRead"] === true ?
                           (
                             PSArea[key1] === "undefined" ? (
-                                  false
+                                false
                               ) : (
                                 PSArea[key1]
                               )
