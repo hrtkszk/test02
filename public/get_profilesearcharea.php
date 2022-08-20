@@ -15,7 +15,7 @@ if($output[1]!="None") {
         $value=trim($value,"\"[");
         $value=trim($value,"]\"");
         $value=str_replace("'",'',$value);
-        $output2 = $output2 + array("$value" => "true");
+        $output2 = $output2 + array("$value" => true);
     }
 
     //配列のJSON変換と、echoでのサーバーサイド出力。
