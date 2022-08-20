@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { useAuth } from "./useAuth";
 import "./ProfileDetail.css";
 import ProfileDB from "./Profile.json";
-import AreaDB from "./Area.json";
+// import AreaDB from "./Area.json";
 
 export function ProfileDetail() {
   let auth = useAuth();
@@ -44,79 +44,79 @@ export function ProfileDetail() {
     setinitialized(true)
   }
   
-  function ShowArea() {
-    // Area未設定の場合→「未設定」と表示
-    if (Profile.Area === "0") {
-      return (
-        <>
-          {AreaDB.Area[Profile.Area]["AreaName"]}
-        </>
-      )
+  // function ShowArea() {
+  //   // Area未設定の場合→「未設定」と表示
+  //   if (Profile.Area === "0") {
+  //     return (
+  //       <>
+  //         {AreaDB.Area[Profile.Area]["AreaName"]}
+  //       </>
+  //     )
     
-    // Areaが設定されている場合
-    } else {
-      // Prefectureが未設定の場合→「Area」のみを表示
-      if (Profile.Prefecture === "0") {
-        return (
-          <>
-            {AreaDB.Area[Profile.Area]["AreaName"]}
-          </>
-        )
+  //   // Areaが設定されている場合
+  //   } else {
+  //     // Prefectureが未設定の場合→「Area」のみを表示
+  //     if (Profile.Prefecture === "0") {
+  //       return (
+  //         <>
+  //           {AreaDB.Area[Profile.Area]["AreaName"]}
+  //         </>
+  //       )
       
-      // Prefectureが設定されている場合
-      } else {
-        // Cityが未設定の場合→「Area」「Prefecture」を表示
-        if (Profile.City === "0") {
-          return (
-            <>
-              {AreaDB.Area[Profile.Area]["AreaName"]}　
-              {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["PrefectureName"]}
-            </>
-          )
-        // Cityが設定されている場合→「Area」「Prefecture」「City」を表示
-        } else {
-          return (
-            <>
-              {AreaDB.Area[Profile.Area]["AreaName"]}　
-              {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["PrefectureName"]}
-              {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["City"][Profile.City]}
-            </>
-          )
-        }
-      }
-    }
-  }
+  //     // Prefectureが設定されている場合
+  //     } else {
+  //       // Cityが未設定の場合→「Area」「Prefecture」を表示
+  //       if (Profile.City === "0") {
+  //         return (
+  //           <>
+  //             {AreaDB.Area[Profile.Area]["AreaName"]}　
+  //             {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["PrefectureName"]}
+  //           </>
+  //         )
+  //       // Cityが設定されている場合→「Area」「Prefecture」「City」を表示
+  //       } else {
+  //         return (
+  //           <>
+  //             {AreaDB.Area[Profile.Area]["AreaName"]}　
+  //             {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["PrefectureName"]}
+  //             {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["City"][Profile.City]}
+  //           </>
+  //         )
+  //       }
+  //     }
+  //   }
+  // }
 
-  function ShowBirthArea() {
-    // BirthArea未設定の場合→「未設定」と表示
-    if (Profile.BirthArea === "0") {
-      return (
-        <>
-          {AreaDB.Area[Profile.BirthArea]["AreaName"]}
-        </>
-      )
+  // function ShowBirthArea() {
+  //   // BirthArea未設定の場合→「未設定」と表示
+  //   if (Profile.BirthArea === "0") {
+  //     return (
+  //       <>
+  //         {AreaDB.Area[Profile.BirthArea]["AreaName"]}
+  //       </>
+  //     )
     
-    // BirthAreaが設定されている場合
-    } else {
-      // BirthPrefectureが未設定の場合→「BirthArea」のみを表示
-      if (Profile.BirthPrefecture === "0") {
-        return (
-          <>
-            {AreaDB.Area[Profile.BirthArea]["AreaName"]}
-          </>
-        )
+  //   // BirthAreaが設定されている場合
+  //   } else {
+  //     // BirthPrefectureが未設定の場合→「BirthArea」のみを表示
+  //     if (Profile.BirthPrefecture === "0") {
+  //       return (
+  //         <>
+  //           {AreaDB.Area[Profile.BirthArea]["AreaName"]}
+  //         </>
+  //       )
       
-      // BirthPrefectureが設定されている場合→「BirthArea」「BirthPrefecture」を表示
-      } else {
-        return (
-          <>
-            {AreaDB.Area[Profile.BirthArea]["AreaName"]}　
-            {AreaDB.Area[Profile.BirthArea]["Prefecture"][Profile.BirthPrefecture]["PrefectureName"]}
-          </>
-        )
-      }
-    }
-  }
+  //     // BirthPrefectureが設定されている場合→「BirthArea」「BirthPrefecture」を表示
+  //     } else {
+  //       return (
+  //         <>
+  //           {AreaDB.Area[Profile.BirthArea]["AreaName"]}　
+  //           {AreaDB.Area[Profile.BirthArea]["Prefecture"][Profile.BirthPrefecture]["PrefectureName"]}
+  //         </>
+  //       )
+  //     }
+  //   }
+  // }
 
     // Profileが空か、[]の場合、プロフィール設定を促すページを表示
   if (Profile.length === 0 || Profile === "") {
@@ -174,7 +174,8 @@ export function ProfileDetail() {
           <li>
             <span className="dan">エリア</span>
             <span className="dan2">
-              <ShowArea/>
+              要調整
+              {/* <ShowArea/> */}
             </span>
           </li>
           <li>
@@ -220,7 +221,8 @@ export function ProfileDetail() {
           <li>
             <span className="dan">出身地</span>
             <span className="dan2">
-              <ShowBirthArea/>
+              要調整
+              {/* <ShowBirthArea/> */}
             </span>
           </li>
           <li>

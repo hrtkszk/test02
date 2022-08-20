@@ -77,7 +77,8 @@ export function BoshuList() {
                   auth.setAite(Boshu.UUID)
               }}>
                 {ProfileDB.BoshuCategory[Boshu.BoshuCategory]}<br />
-                {AreaDB.Area[Boshu.BoshuArea]["AreaName"]}
+                エリア表示はロジックを考える必要あり。
+                {/* {AreaDB.Area[Boshu.BoshuArea]["AreaName"]} */}
                 {/* {AreaDB.Area[Boshu.BoshuPrefecture]}
                 {AreaDB.Area[Boshu.BoshuCity]} */}
                 {/* 詳細エリアの表示にはロジックが必要 */}

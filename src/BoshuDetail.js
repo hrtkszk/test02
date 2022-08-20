@@ -60,35 +60,36 @@ export function BoshuDetail() {
     
     // Areaが設定されている場合
     } else {
+      return <>8桁から場所を見い出す方法を考える必要あり</>
       // Prefectureが未設定の場合→「Area」のみを表示
-      if (BoshuDetail.BoshuPrefecture === "0") {
-        return (
-          <>
-            {AreaDB.Area[BoshuDetail.BoshuArea]["AreaName"]}
-          </>
-        )
+      // if (BoshuDetail.BoshuPrefecture === "0") {
+      //   return (
+      //     <>
+      //       {AreaDB.Area[BoshuDetail.BoshuArea]["AreaName"]}
+      //     </>
+      //   )
       
-      // Prefectureが設定されている場合
-      } else {
-        // Cityが未設定の場合→「Area」「Prefecture」を表示
-        if (BoshuDetail.BoshuCity === "0") {
-          return (
-            <>
-              {AreaDB.Area[BoshuDetail.BoshuArea]["AreaName"]}　
-              {AreaDB.Area[BoshuDetail.BoshuArea]["Prefecture"][BoshuDetail.BoshuPrefecture]["PrefectureName"]}
-            </>
-          )
-        // Cityが設定されている場合→「Area」「Prefecture」「City」を表示
-        } else {
-          return (
-            <>
-              {AreaDB.Area[BoshuDetail.BoshuArea]["AreaName"]}　
-              {AreaDB.Area[BoshuDetail.BoshuArea]["Prefecture"][BoshuDetail.BoshuPrefecture]["PrefectureName"]}
-              {AreaDB.Area[BoshuDetail.BoshuArea]["Prefecture"][BoshuDetail.BoshuPrefecture]["City"][BoshuDetail.BoshuCity]}
-            </>
-          )
-        }
-      }
+      // // Prefectureが設定されている場合
+      // } else {
+      //   // Cityが未設定の場合→「Area」「Prefecture」を表示
+      //   if (BoshuDetail.BoshuCity === "0") {
+      //     return (
+      //       <>
+      //         {AreaDB.Area[BoshuDetail.BoshuArea]["AreaName"]}　
+      //         {AreaDB.Area[BoshuDetail.BoshuArea]["Prefecture"][BoshuDetail.BoshuPrefecture]["PrefectureName"]}
+      //       </>
+      //     )
+      //   // Cityが設定されている場合→「Area」「Prefecture」「City」を表示
+      //   } else {
+      //     return (
+      //       <>
+      //         {AreaDB.Area[BoshuDetail.BoshuArea]["AreaName"]}　
+      //         {AreaDB.Area[BoshuDetail.BoshuArea]["Prefecture"][BoshuDetail.BoshuPrefecture]["PrefectureName"]}
+      //         {AreaDB.Area[BoshuDetail.BoshuArea]["Prefecture"][BoshuDetail.BoshuPrefecture]["City"][BoshuDetail.BoshuCity]}
+      //       </>
+      //     )
+      //   }
+      // }
     }
   }
 

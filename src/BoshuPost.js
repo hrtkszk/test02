@@ -13,6 +13,7 @@ import AreaDB from "./Area.json";
 
 
 export function BoshuPost() {
+  const [BoshuSettingArea, setBoshuSettingArea] = useState("0");
   const [BoshuArea, setBoshuArea] = useState("0");
   const [BoshuPrefecture, setBoshuPrefecture] = useState("0");
   const [BoshuCity, setBoshuCity] = useState("0");
@@ -35,6 +36,7 @@ export function BoshuPost() {
       headers:{'Content-Type': 'application/json'},
       body: JSON.stringify({
         "UUID":auth.user,
+        "BoshuSettingArea":BoshuSettingArea,
         "BoshuArea":BoshuArea,
         "BoshuPrefecture":BoshuPrefecture,
         "BoshuCity":BoshuCity,
@@ -68,6 +70,7 @@ export function BoshuPost() {
           <select
             defaultValue={BoshuPrefecture}
             onChange={evt => {
+              setBoshuSettingArea(evt.target.value)
               setBoshuPrefecture(evt.target.value)
               setBoshuCity("0")
             }}>
@@ -86,7 +89,10 @@ export function BoshuPost() {
       return (
         <select
           defaultValue={BoshuCity}
-          onChange={evt => setBoshuCity(evt.target.value)}>
+          onChange={evt => {
+            setBoshuSettingArea(evt.target.value)
+            setBoshuCity(evt.target.value)
+          }}>
             {Object.keys(AreaDB.Area[BoshuArea]["Prefecture"][BoshuPrefecture]["City"]).map(key => <option value={key}>{AreaDB.Area[BoshuArea]["Prefecture"][BoshuPrefecture]["City"][key]}</option>)}
         </select>
       )
@@ -115,6 +121,7 @@ export function BoshuPost() {
             <select
               defaultValue={BoshuArea}
               onChange={evt => {
+                setBoshuSettingArea(evt.target.value)
                 setBoshuArea(evt.target.value)
                 setBoshuPrefecture("0")
                 setBoshuCity("0")

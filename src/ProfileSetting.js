@@ -22,6 +22,7 @@ export function ProfileSetting() {
   const [Gender, setGender] = useState("0");
   const [Age, setAge] = useState("0");
   // // 地域状況
+  const [SettingArea, setSettingArea] = useState("0");
   const [Area, setArea] = useState("0");
   const [Prefecture, setPrefecture] = useState("0");
   const [City, setCity] = useState("0");
@@ -37,6 +38,7 @@ export function ProfileSetting() {
   // // 経験・背景情報
   const [Job, setJob] = useState("0");
   const [EduBack, setEduBack] = useState("0");
+  const [SettingBirthArea, setSettingBirthArea] = useState("0");
   const [BirthArea, setBirthArea] = useState("0");
   const [BirthPrefecture, setBirthPrefecture] = useState("0");
   const [Zodiac, setZodiac] = useState("0");
@@ -96,6 +98,7 @@ export function ProfileSetting() {
       if (result.result !== "PND") {
         // setProfile(result.result[0])
         // console.log(result.result[0])
+        setSettingArea(result.result[0].SettingArea)
         setArea(result.result[0].Area)
         setPrefecture(result.result[0].Prefecture)
         setCity(result.result[0].City)
@@ -109,6 +112,7 @@ export function ProfileSetting() {
         setBloodType(result.result[0].BloodType)
         setJob(result.result[0].Job)
         setEduBack(result.result[0].EduBack)
+        setSettingBirthArea(result.result[0].SettingBirthArea)
         setBirthArea(result.result[0].BirthArea)
         setBirthPrefecture(result.result[0].BirthPrefecture)
         setZodiac(result.result[0].Zodiac)
@@ -151,6 +155,7 @@ export function ProfileSetting() {
         "gender":Gender,
         "age":Age,
 
+        "SettingArea":SettingArea,
         "Area":Area,
         "Prefecture":Prefecture,
         "City":City,
@@ -165,6 +170,7 @@ export function ProfileSetting() {
 
         "Job":Job,
         "EduBack":EduBack,
+        "SettingBirthArea":SettingBirthArea,
         "BirthArea":BirthArea,
         "BirthPrefecture":BirthPrefecture,
         "Zodiac":Zodiac,
@@ -220,6 +226,7 @@ export function ProfileSetting() {
           <select
             defaultValue={Prefecture}
             onChange={event => {
+              setSettingArea(event.target.value)
               setPrefecture(event.target.value)
               setCity("0")
             }}>
@@ -239,6 +246,7 @@ export function ProfileSetting() {
         <select
           defaultValue={City}
           onChange={event => {
+            setSettingArea(event.target.value)
             setCity(event.target.value)
           }}>
             {Object.keys(AreaDB.Area[Area]["Prefecture"][Prefecture]["City"]).map(key => <option value={key}>{AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][key]}</option>)}
@@ -256,6 +264,7 @@ export function ProfileSetting() {
           <select
             defaultValue={BirthPrefecture}
             onChange={event => {
+              setSettingBirthArea(event.target.value)
               setBirthPrefecture(event.target.value)
             }}>
               {Object.keys(AreaDB.Area[BirthArea]["Prefecture"]).map(key => <option value={key}>{AreaDB.Area[BirthArea]["Prefecture"][key]["PrefectureName"]}</option>)}
@@ -314,6 +323,7 @@ export function ProfileSetting() {
               <select
                 defaultValue={Area}
                 onChange={event => {
+                  setSettingArea(event.target.value)
                   setArea(event.target.value)
                   setPrefecture("0")
                   setCity("0")
@@ -412,6 +422,7 @@ export function ProfileSetting() {
                 <select
                   defaultValue={BirthArea}
                   onChange={event => {
+                      setSettingBirthArea(event.target.value)
                       setBirthArea(event.target.value)
                       setBirthPrefecture("0")
                   }}>
