@@ -111,9 +111,9 @@ export function ProfileSearchSetting() {
     fetch("../../get_profilesearcharea.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
-      console.log(result)
+      console.log(result.result)
       if (result.result !== "PSAND") {
-        setPSArea(result.result[0].PSArea)
+        setPSArea(result.result)
       }
     })
     fetch("../../get_profilesearchsetting.php",initialRequestOptions)
@@ -213,6 +213,7 @@ export function ProfileSearchSetting() {
       "PSElegance2":PSElegance2
     }
     let PSAreaArray = []
+    console.log(PSArea)
     Object.keys(PSArea).map(key => PSAreaArray=([...PSAreaArray, key]))
     
     Object.keys(PSGender).map(key => key !== "secondRead" ? s["PSGender" + key] = PSGender[key] : null)
