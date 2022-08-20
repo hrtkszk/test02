@@ -204,8 +204,8 @@ export function ProfileSearchSetting() {
       "PSElegance1":PSElegance1,
       "PSElegance2":PSElegance2
     }
-    let a = []
-    Object.keys(PSArea).map(key => a=([...a, key]))
+    // let a = []
+    // Object.keys(PSArea).map(key => a=([...a, key]))
 
     
     Object.keys(PSGender).map(key => key !== "secondRead" ? s["PSGender" + key] = PSGender[key] : null)
@@ -230,10 +230,10 @@ export function ProfileSearchSetting() {
     const requestOptions2 ={
       method: 'POST',
       headers:{'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        "UUID":auth.user,
-        a
-      })
+      body: JSON.stringify(
+        {"UUID":auth.user},
+        Object.keys(PSArea).map(key => key)
+      )
     }
     console.log(requestOptions2)
     fetch("../../set_profilesearcharea.php",requestOptions2)
