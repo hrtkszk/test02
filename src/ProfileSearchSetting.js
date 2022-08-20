@@ -232,7 +232,7 @@ export function ProfileSearchSetting() {
       headers:{'Content-Type': 'application/json'},
       body: JSON.stringify({
         "UUID":auth.user,
-        PSArea,
+        a
       })
     }
     console.log(requestOptions2)
