@@ -124,7 +124,7 @@ export function ProfileSearchSetting() {
         setPSGender(result.result[0].PSGender)
         setPSAge1(result.result[0].PSAge1)
         setPSAge2(result.result[0].PSAge2)
-        setPSArea(result.result[0].PSArea)
+        // setPSArea(result.result[0].PSArea)
         setPSHeight1(result.result[0].PSHeight1)
         setPSHeight2(result.result[0].PSHeight2)
         setPSStyle(result.result[0].PSStyle)
