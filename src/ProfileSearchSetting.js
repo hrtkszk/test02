@@ -108,6 +108,14 @@ export function ProfileSearchSetting() {
   
   // ページが読み込まれる時に実行し、ProfileSearchSettingとして登録する。
   if (initialized===false) {
+    fetch("../../get_profilesearcharea.php",initialRequestOptions)
+    .then((response) => response.json())
+    .then(result => {
+      console.log(result.result[0])
+      if (result.result !== "PSAND") {
+        setPSArea(result.result[0].PSArea)
+      }
+    })
     fetch("../../get_profilesearchsetting.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
