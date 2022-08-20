@@ -21,6 +21,11 @@ PSArea="PSArea"
 cursor = connection.cursor()
 
 try:
+    cursor.execute(f" \
+        DELETE FROM `{PSArea}` \
+        WHERE UUID='{sys.argv[1]}' \
+    ")
+    
     UUID_Area = ""
     for Area in sys.argv[2:]:
         cursor.execute(f" \
@@ -29,10 +34,10 @@ try:
                 UUID='{sys.argv[1]}', \
                 Area='{Area}' \
         ")
-    print("SPSSS") # Set Profile Search Setting Success
+    print("SPSASS") # Set Profile Search Area Setting Success
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
     print(e)
-    print("SPSSNS") # Set Profile Search Setting Not Success
+    print("SPSASNS") # Set Profile Search Area Setting Not Success
 
 
 
