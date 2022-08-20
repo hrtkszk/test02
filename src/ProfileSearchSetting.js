@@ -111,7 +111,7 @@ export function ProfileSearchSetting() {
     fetch("../../get_profilesearcharea.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
-      console.log(result.result[0])
+      console.log(result)
       if (result.result !== "PSAND") {
         setPSArea(result.result[0].PSArea)
       }
