@@ -214,7 +214,7 @@ export function ProfileSearchSetting() {
     }
     let PSAreaArray = []
     console.log(PSArea)
-    Object.keys(PSArea).map(key => PSAreaArray=([...PSAreaArray, key]))
+    Object.keys(PSArea).map(key => key !== "secondRead" ? PSAreaArray=([...PSAreaArray, key]) : null)
     
     Object.keys(PSGender).map(key => key !== "secondRead" ? s["PSGender" + key] = PSGender[key] : null)
     // Object.keys(PSArea).map(key => key !== "secondRead" ? s["PSArea" + key] = PSArea[key] : null)
@@ -345,6 +345,19 @@ export function ProfileSearchSetting() {
                             setPSArea({...PSArea, [evt.target.value]:true})
                           }
                         }}
+                        checked={
+                          PSArea["secondRead"] === true ?
+                          (
+                            PSArea[key1] === "undefined" ? (
+                                  false
+                              ) : (
+                                PSArea[key1]
+                              )
+                          ) : (
+                              false,
+                              setPSArea({...PSArea, "secondRead" : true})
+                          )
+                        }
                       />
                       {AreaDB.Area[key1]["AreaName"]}
                     </label></summary>
@@ -368,6 +381,19 @@ export function ProfileSearchSetting() {
                                       setPSArea({...PSArea, [evt.target.value]:true})
                                     }
                                   }}
+                                  checked={
+                                    PSArea["secondRead"] === true ?
+                                    (
+                                      PSArea[key2] === "undefined" ? (
+                                            false
+                                        ) : (
+                                          PSArea[key2]
+                                        )
+                                    ) : (
+                                        false,
+                                        setPSArea({...PSArea, "secondRead" : true})
+                                    )
+                                  }
                                 />
                                 {AreaDB.Area[key1]["Prefecture"][key2]["PrefectureName"]}
                               </label></summary>
@@ -391,6 +417,19 @@ export function ProfileSearchSetting() {
                                                 setPSArea({...PSArea, [evt.target.value]:true})
                                               }
                                             }}
+                                            checked={
+                                              PSArea["secondRead"] === true ?
+                                              (
+                                                PSArea[key3] === "undefined" ? (
+                                                      false
+                                                  ) : (
+                                                    PSArea[key3]
+                                                  )
+                                              ) : (
+                                                  false,
+                                                  setPSArea({...PSArea, "secondRead" : true})
+                                              )
+                                            }
                                           />
                                           {AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]}
                                         </label><br />
@@ -413,6 +452,19 @@ export function ProfileSearchSetting() {
                                                   setPSArea({...PSArea, [evt.target.value]:true})
                                                 }
                                               }}
+                                              checked={
+                                                PSArea["secondRead"] === true ?
+                                                (
+                                                  PSArea[key3] === "undefined" ? (
+                                                        false
+                                                    ) : (
+                                                      PSArea[key3]
+                                                    )
+                                                ) : (
+                                                    false,
+                                                    setPSArea({...PSArea, "secondRead" : true})
+                                                )
+                                              }
                                             />
                                             {AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["CityName"]}
                                           </label></summary>
@@ -435,6 +487,19 @@ export function ProfileSearchSetting() {
                                                           setPSArea({...PSArea, [evt.target.value]:true})
                                                         }
                                                       }}
+                                                      checked={
+                                                        PSArea["secondRead"] === true ?
+                                                        (
+                                                          PSArea[key4] === "undefined" ? (
+                                                                false
+                                                            ) : (
+                                                              PSArea[key4]
+                                                            )
+                                                        ) : (
+                                                            false,
+                                                            setPSArea({...PSArea, "secondRead" : true})
+                                                        )
+                                                      }
                                                     />
                                                     {AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["Ward"][key4]}
                                                   </label><br />
