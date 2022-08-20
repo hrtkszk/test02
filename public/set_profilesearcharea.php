@@ -249,9 +249,9 @@ $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 // .$_POST['PSPersonality'];
 // exec($command_post, $output); //python実行と、返り数受け取り
 
-$PSArea = array();
+$PSArea = "";
 foreach($_POST['a'] as $value){
-  array_push($PSArea, $value." ");
+  $PSArea .=  $value." ";
 };
 
 $command_post="python3 set_profilesearcharea.py " //pythonに引数を渡す
@@ -264,7 +264,7 @@ echo json_encode(
     "_POST" => $_POST,
     "_POST_UUID" => $_POST['UUID'],
     "_POST_a" => $_POST['a'],
-    "PSArea_array" => $PSArea,
+    "PSArea_string" => $PSArea,
     "json_enc__POST_a" => json_encode($_POST['a']),
     // "json_enc__POST_UUID" => json_encode($_POST)['UUID'],
     // "json_enc__POST_a" => json_encode($_POST)['a'],
