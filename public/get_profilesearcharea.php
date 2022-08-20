@@ -11,7 +11,7 @@ echo json_encode(
     [
         "result" => $output,
     ]
-)
+);
 
 // // pythonからの返り数のうち、SQLのヘッダーの受け取りと、文字列から配列変換(pythonの出力1行目)
 // $output[0]=trim($output[0],"\"['");
