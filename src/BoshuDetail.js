@@ -93,7 +93,7 @@ export function BoshuDetail() {
           // Wardが存在するCityが設定されている場合
           } else { 
             // Wardが未設定の場合→「Area」「Prefecture」「City」を表示
-            if (Profile.Ward === "0") {
+            if (BoshuDetail.BoshuWard === "0") {
               return (
                 <>
                   {AreaDB.Area[BoshuDetail.BoshuArea]["AreaName"]}　
