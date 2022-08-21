@@ -126,14 +126,16 @@ export function BoshuList() {
         <div>
         <ul>
             {BoshuList.map((Boshu, i) => {
-              setArea(Boshu.BoshuArea)
-              setPrefecture(Boshu.BoshuPrefecture)
-              setCity(Boshu.BoshuCity)
-              setWard(Boshu.BoshuWard)
+              
+
               return <li key={i} onClick={() => {
                   auth.setBoshuID(Boshu.BoshuID)
                   auth.setAite(Boshu.UUID)
               }}>
+                {setArea(Boshu.BoshuArea)}
+                {setPrefecture(Boshu.BoshuPrefecture)}
+                {setCity(Boshu.BoshuCity)}
+                {setWard(Boshu.BoshuWard)}
                 {ProfileDB.BoshuCategory[Boshu.BoshuCategory]}<br />
                 <ShowArea />
                 {/* エリア表示はロジックを考える必要あり。 */}
