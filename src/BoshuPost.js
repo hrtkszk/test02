@@ -76,7 +76,7 @@ export function BoshuPost() {
             }}>
               {Object.keys(AreaDB.Area[BoshuArea]["Prefecture"]).map(key => <option value={key}>{AreaDB.Area[BoshuArea]["Prefecture"][key]["PrefectureName"]}</option>)}
           </select>
-          {/* <CitySelect/> */}
+          <CitySelect/>
         </>
       )
     } else {
@@ -84,22 +84,23 @@ export function BoshuPost() {
     }
   }
 
-  // function CitySelect() {
-  //   if (BoshuPrefecture !== "0") {
-  //     return (
-  //       <select
-  //         defaultValue={BoshuCity}
-  //         onChange={evt => {
-  //           setBoshuSettingArea(evt.target.value)
-  //           setBoshuCity(evt.target.value)
-  //         }}>
-  //           {Object.keys(AreaDB.Area[BoshuArea]["Prefecture"][BoshuPrefecture]["City"]).map(key => <option value={key}>{AreaDB.Area[BoshuArea]["Prefecture"][BoshuPrefecture]["City"][key]}</option>)}
-  //       </select>
-  //     )
-  //   } else {
-  //     return <></>
-  //   }
-  // }
+  function CitySelect() {
+    if (BoshuPrefecture !== "0") {
+      return (
+        // <select
+        //   defaultValue={BoshuCity}
+        //   onChange={evt => {
+        //     setBoshuSettingArea(evt.target.value)
+        //     setBoshuCity(evt.target.value)
+        //   }}>
+        //     {Object.keys(AreaDB.Area[BoshuArea]["Prefecture"][BoshuPrefecture]["City"]).map(key => <option value={key}>{AreaDB.Area[BoshuArea]["Prefecture"][BoshuPrefecture]["City"][key]}</option>)}
+        // </select>
+        <></>
+      )
+    } else {
+      return <></>
+    }
+  }
 
   return (
     <div>
