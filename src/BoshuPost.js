@@ -100,7 +100,7 @@ export function BoshuPost() {
             }}>
               {Object.keys(AreaDB.Area[BoshuArea]["Prefecture"][BoshuPrefecture]["City"]).map(key => 
                 <option value={key}>
-                  {AreaDB.Area[BoshuArea]["Prefecture"][BoshuPrefecture]["City"][BoshuCity]["CityName"] === undefined ? (
+                  {AreaDB.Area[BoshuArea]["Prefecture"][BoshuPrefecture]["City"][key]["CityName"] === undefined ? (
                     AreaDB.Area[BoshuArea]["Prefecture"][BoshuPrefecture]["City"][key]
                   ):(
                     AreaDB.Area[BoshuArea]["Prefecture"][BoshuPrefecture]["City"][key]["CityName"]

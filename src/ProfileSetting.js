@@ -256,7 +256,7 @@ export function ProfileSetting() {
             }}>
               {Object.keys(AreaDB.Area[Area]["Prefecture"][Prefecture]["City"]).map(key => 
                 <option value={key}>
-                  {AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][City]["CityName"] === undefined ? (
+                  {AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][key]["CityName"] === undefined ? (
                     AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][key]
                   ) : (
                     AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][key]["CityName"]
