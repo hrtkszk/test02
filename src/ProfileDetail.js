@@ -44,48 +44,72 @@ export function ProfileDetail() {
     setinitialized(true)
   }
   
-  // function ShowArea() {
-  //   // Area未設定の場合→「未設定」と表示
-  //   if (Profile.Area === "0") {
-  //     return (
-  //       <>
-  //         {AreaDB.Area[Profile.Area]["AreaName"]}
-  //       </>
-  //     )
+  function ShowArea() {
+    // Area未設定の場合→「未設定」と表示
+    if (Profile.Area === "0") {
+      return (
+        <>
+          {AreaDB.Area[Profile.Area]["AreaName"]}
+        </>
+      )
     
-  //   // Areaが設定されている場合
-  //   } else {
-  //     // Prefectureが未設定の場合→「Area」のみを表示
-  //     if (Profile.Prefecture === "0") {
-  //       return (
-  //         <>
-  //           {AreaDB.Area[Profile.Area]["AreaName"]}
-  //         </>
-  //       )
+    // Areaが設定されている場合
+    } else {
+      // Prefectureが未設定の場合→「Area」のみを表示
+      if (Profile.Prefecture === "0") {
+        return (
+          <>
+            {AreaDB.Area[Profile.Area]["AreaName"]}
+          </>
+        )
       
-  //     // Prefectureが設定されている場合
-  //     } else {
-  //       // Cityが未設定の場合→「Area」「Prefecture」を表示
-  //       if (Profile.City === "0") {
-  //         return (
-  //           <>
-  //             {AreaDB.Area[Profile.Area]["AreaName"]}　
-  //             {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["PrefectureName"]}
-  //           </>
-  //         )
-  //       // Cityが設定されている場合→「Area」「Prefecture」「City」を表示
-  //       } else {
-  //         return (
-  //           <>
-  //             {AreaDB.Area[Profile.Area]["AreaName"]}　
-  //             {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["PrefectureName"]}
-  //             {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["City"][Profile.City]}
-  //           </>
-  //         )
-  //       }
-  //     }
-  //   }
-  // }
+      // Prefectureが設定されている場合
+      } else {
+        // Cityが未設定の場合→「Area」「Prefecture」を表示
+        if (Profile.City === "0") {
+          return (
+            <>
+              {AreaDB.Area[Profile.Area]["AreaName"]}　
+              {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["PrefectureName"]}
+            </>
+          )
+        // Cityが設定されている場合→「Area」「Prefecture」「City」を表示
+        } else {
+          // Wardが存在しないCityが設定されている場合
+          if (AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["City"][Profile.City]["CityName"] === undefined) {
+            return (
+              <>
+                {AreaDB.Area[Profile.Area]["AreaName"]}　
+                {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["PrefectureName"]}
+                {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["City"][Profile.City]}
+              </>
+            )
+          // Wardが存在するCityが設定されている場合
+          } else { 
+            // Wardが未設定の場合→「Area」「Prefecture」「City」を表示
+            if (Profile.Ward === "0") {
+              return (
+                <>
+                  {AreaDB.Area[Profile.Area]["AreaName"]}　
+                  {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["PrefectureName"]}
+                  {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["City"][Profile.City]["CityName"]}
+                </>
+              )
+            // Wardが設定されている場合→「Area」「Prefecture」「Ward」を表示
+            } else {
+              return (
+                <>
+                  {AreaDB.Area[Profile.Area]["AreaName"]}　
+                  {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["PrefectureName"]}
+                  {AreaDB.Area[Profile.Area]["Prefecture"][Profile.Prefecture]["City"][Profile.City]["Ward"][Profile.Ward]}
+                </>
+              )
+            }
+          }
+        }
+      }
+    }
+  }
 
   // function ShowBirthArea() {
   //   // BirthArea未設定の場合→「未設定」と表示
@@ -174,8 +198,7 @@ export function ProfileDetail() {
           <li>
             <span className="dan">エリア</span>
             <span className="dan2">
-              要調整
-              {/* <ShowArea/> */}
+              <ShowArea/>
             </span>
           </li>
           <li>
