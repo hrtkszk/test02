@@ -11,7 +11,7 @@ import {
 import { useAuth } from "./useAuth";
 import "./Profile.css";
 import ProfileDB from "./Profile.json";
-// import AreaDB from "./Area.json";
+import AreaDB from "./Area.json";
 
 
 export function BoshuList() {
@@ -20,6 +20,10 @@ export function BoshuList() {
 
   const [BoshuList, setBoshuList] = useState([]);
   const [initialized, setinitialized] = useState(false);
+  const [Area, setArea] = useState("0");
+  const [Prefecture, setPrefecture] = useState("0");
+  const [City, setCity] = useState("0");
+  const [Ward, setWard] = useState("0");
 
   const initialRequestOptions ={
     method: 'POST',
@@ -39,25 +43,75 @@ export function BoshuList() {
     })
     setinitialized(true)
   }
-  
-  // if (intervalRef.current === null) {
-  //   intervalRef.current = setInterval(() =>{
-  //     fetch("../boshu_list.php",initialRequestOptions)
-  //       .then((response)=> response.json())
-  //       .then(result =>{
-  //         console.log("result.pythonout2: ", result.pythonout2)
-  //         setBoshuList(result.pythonout2)
-  //       })
-  //   }, 10000);
-  // }
 
-  // useEffect(() => {
-  //   // componentDidMount のタイミングで実行したい処理を記述
-  //   return () => {
-  //     // componentWillUnmount のタイミングで実行したい処理を記述
-  //     clearInterval(intervalRef.current)
-  //   }
-  // }, []);
+
+  function ShowArea() {
+    // Area未設定の場合→「未設定」と表示
+    if (Area === "0") {
+      return (
+        <>
+          {AreaDB.Area[Area]["AreaName"]}
+        </>
+      )
+    
+    // Areaが設定されている場合
+    } else {
+      // Prefectureが未設定の場合→「Area」のみを表示
+      if (Prefecture === "0") {
+        return (
+          <>
+            {AreaDB.Area[Area]["AreaName"]}
+          </>
+        )
+      
+      // Prefectureが設定されている場合
+      } else {
+        // Cityが未設定の場合→「Area」「Prefecture」を表示
+        if (City === "0") {
+          return (
+            <>
+              {AreaDB.Area[Area]["AreaName"]}　
+              {AreaDB.Area[Area]["Prefecture"][Prefecture]["PrefectureName"]}
+            </>
+          )
+        // Cityが設定されている場合→「Area」「Prefecture」「City」を表示
+        } else {
+
+          // Wardが存在しないCityが設定されている場合
+          if (AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][City]["CityName"] === undefined) {
+            return (
+              <>
+                {AreaDB.Area[Area]["AreaName"]}　
+                {AreaDB.Area[Area]["Prefecture"][Prefecture]["PrefectureName"]}
+                {AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][City]}
+              </>
+            )
+          // Wardが存在するCityが設定されている場合
+          } else { 
+            // Wardが未設定の場合→「Area」「Prefecture」「City」を表示
+            if (Ward === "0") {
+              return (
+                <>
+                  {AreaDB.Area[Area]["AreaName"]}　
+                  {AreaDB.Area[Area]["Prefecture"][Prefecture]["PrefectureName"]}
+                  {AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][City]["CityName"]}
+                </>
+              )
+            // Wardが設定されている場合→「Area」「Prefecture」「Ward」を表示
+            } else {
+              return (
+                <>
+                  {AreaDB.Area[Area]["AreaName"]}　
+                  {AreaDB.Area[Area]["Prefecture"][Prefecture]["PrefectureName"]}
+                  {AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][City]["Ward"][Ward]}
+                </>
+              )
+            }
+          }
+        }
+      }
+    }
+  }
 
   if (BoshuList === []) {
     return (
@@ -72,12 +126,17 @@ export function BoshuList() {
         <div>
         <ul>
             {BoshuList.map((Boshu, i) => {
+              setArea(Boshu.BoshuArea)
+              setPrefecture(Boshu.BoshuPrefecture)
+              setCity(Boshu.BoshuCity)
+              setWard(Boshu.BoshuWard)
               return <li key={i} onClick={() => {
                   auth.setBoshuID(Boshu.BoshuID)
                   auth.setAite(Boshu.UUID)
               }}>
                 {ProfileDB.BoshuCategory[Boshu.BoshuCategory]}<br />
-                エリア表示はロジックを考える必要あり。
+                <ShowArea />
+                {/* エリア表示はロジックを考える必要あり。 */}
                 {/* {AreaDB.Area[Boshu.BoshuArea]["AreaName"]} */}
                 {/* {AreaDB.Area[Boshu.BoshuPrefecture]}
                 {AreaDB.Area[Boshu.BoshuCity]} */}
@@ -85,7 +144,7 @@ export function BoshuList() {
                 <br />
                 {Boshu.nickname}　{ProfileDB.Gender[Boshu.gender]}　{Boshu.age}
                 <br />
-                <Link to="../BoshuDetail">
+                <Link to="../BoshuList">
                   {Boshu.BoshuTitle}
                 </Link><br />
                 {Boshu.PostDateTime}<br/>
