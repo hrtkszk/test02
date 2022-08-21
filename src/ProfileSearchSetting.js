@@ -350,6 +350,7 @@ export function ProfileSearchSetting() {
                                 delete copyPSArea[key]
                                 setPSArea(copyPSArea)
                               }
+                              return <></>
                             })
                             console.log("check:PSArea: ",PSArea)
                           }
