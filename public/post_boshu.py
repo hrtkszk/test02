@@ -30,13 +30,15 @@ try:
         SET \
             UUID='{sys.argv[1]}', \
             BoshuID='{BoshuID}', \
-            BoshuArea='{sys.argv[2]}', \
-            BoshuPrefecture='{sys.argv[3]}', \
-            BoshuCity='{sys.argv[4]}', \
-            BoshuCategory='{sys.argv[5]}', \
-            BoshuTitle='{sys.argv[6]}', \
-            BoshuMessage='{sys.argv[7]}', \
-            BoshuLimit='{sys.argv[8]}', \
+            BoshuSettingArea='{sys.argv[2]}', \
+            BoshuArea='{sys.argv[3]}', \
+            BoshuPrefecture='{sys.argv[4]}', \
+            BoshuCity='{sys.argv[5]}', \
+            BoshuWard='{sys.argv[6]}', \
+            BoshuCategory='{sys.argv[7]}', \
+            BoshuTitle='{sys.argv[8]}', \
+            BoshuMessage='{sys.argv[9]}', \
+            BoshuLimit='{sys.argv[10]}', \
             EntryCount='0', \
             ViewCount='0', \
             PostDateTime=CURRENT_TIMESTAMP \

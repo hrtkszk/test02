@@ -3,6 +3,11 @@ header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Headers: Content-Type');
 $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
 $_POST = json_decode($rest_json, true); // JSON文字列をデコード
+if ($_POST['BoshuSettingArea']=="") {
+  $BoshuSettingArea="未設定";
+} else {
+  $BoshuSettingArea=$_POST['BoshuSettingArea'];
+}
 if ($_POST['BoshuArea']=="") {
   $BoshuArea="未設定";
 } else {
@@ -17,6 +22,11 @@ if ($_POST['BoshuCity']=="") {
   $BoshuCity="未設定";
 } else {
   $BoshuCity=$_POST['BoshuCity'];
+}
+if ($_POST['BoshuWard']=="") {
+  $BoshuWard="未設定";
+} else {
+  $BoshuWard=$_POST['BoshuWard'];
 }
 if ($_POST['BoshuCategory']=="") {
   $BoshuCategory="未設定";
@@ -40,9 +50,11 @@ if ($_POST['BoshuLimit']=="") {
 }
 $command_post="python3 post_boshu.py " //pythonに引数を渡す
 .$_POST['UUID']." "
+.$BoshuSettingArea." "
 .$BoshuArea." "
 .$BoshuPrefecture." "
 .$BoshuCity." "
+.$BoshuWard." "
 .$BoshuCategory." "
 .$BoshuTitle." "
 .$BoshuMessage." "

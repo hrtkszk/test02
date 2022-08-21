@@ -18,6 +18,11 @@ if ($_POST['age']=="") {
 } else {
   $age=$_POST['age'];
 }
+if ($_POST['SettingArea']=="") {
+  $SettingArea="未設定";
+} else {
+  $SettingArea=$_POST['SettingArea'];
+}
 if ($_POST['Area']=="") {
   $Area="未設定";
 } else {
@@ -32,6 +37,11 @@ if ($_POST['City']=="") {
   $City="未設定";
 } else {
   $City=$_POST['City'];
+}
+if ($_POST['Ward']=="") {
+  $Ward="未設定";
+} else {
+  $Ward=$_POST['Ward'];
 }
 if ($_POST['Height']=="") {
   $Height="未設定";
@@ -203,9 +213,11 @@ $command_post="python3 update_profile.py " //pythonに引数を渡す
 .$nickname." "
 .$gender." "
 .$age." "
+.$SettingArea." "
 .$Area." "
 .$Prefecture." "
 .$City." "
+.$Ward." "
 .$Height." "
 .$Style." "
 .$Looks." "
