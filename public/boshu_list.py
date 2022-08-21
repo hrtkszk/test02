@@ -27,7 +27,7 @@ cursor = connection.cursor()
 try:
     # SELECT t1.UUID, BoshuID, BoshuArea, BoshuPrefecture, BoshuCity, BoshuCategory, BoshuTitle, ViewCount, PostDateTime
     cursor.execute(f" \
-        SELECT t1.UUID, BoshuID, BoshuArea, BoshuPrefecture, BoshuCity, BoshuCategory, BoshuTitle, ViewCount, PostDateTime, nickname, gender, age \
+        SELECT t1.UUID, BoshuID, BoshuArea, BoshuPrefecture, BoshuCity, BoshuWard, BoshuCategory, BoshuTitle, ViewCount, PostDateTime, nickname, gender, age \
         FROM `{BoshuDB}` AS t1\
         INNER JOIN ( \
             SELECT UUID, nickname, gender, age \
