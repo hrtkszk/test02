@@ -351,6 +351,7 @@ export function ProfileSearchSetting() {
                                 setPSArea(copyPSArea)
                                 console.log("delete subsequents : ",PSArea)
                               }
+                              return <></>
                             })
                             console.log("check:PSArea: ",PSArea)
                           }
