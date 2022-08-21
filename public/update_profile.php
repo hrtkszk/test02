@@ -93,6 +93,11 @@ if ($_POST['EduBack']=="") {
 } else {
   $EduBack=$_POST['EduBack'];
 }
+if ($_POST['SettingBirthArea']=="") {
+  $SettingBirthArea="未設定";
+} else {
+  $SettingBirthArea=$_POST['SettingBirthArea'];
+}
 if ($_POST['BirthArea']=="") {
   $BirthArea="未設定";
 } else {
@@ -228,6 +233,7 @@ $command_post="python3 update_profile.py " //pythonに引数を渡す
 .$BloodType." "
 .$Job." "
 .$EduBack." "
+.$SettingBirthArea." "
 .$BirthArea." "
 .$BirthPrefecture." "
 .$Zodiac." "
