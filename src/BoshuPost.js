@@ -72,10 +72,17 @@ export function BoshuPost() {
           <select
             defaultValue={BoshuPrefecture}
             onChange={evt => {
-              setBoshuSettingArea(evt.target.value)
-              setBoshuPrefecture(evt.target.value)
-              setBoshuCity("0")
-              setBoshuWard("0")
+              if (evt.target.value === "0") {
+                setBoshuSettingArea(BoshuArea)
+                setBoshuPrefecture("0")
+                setBoshuCity("0")
+                setBoshuWard("0")
+              } else {
+                setBoshuSettingArea(evt.target.value)
+                setBoshuPrefecture(evt.target.value)
+                setBoshuCity("0")
+                setBoshuWard("0")
+              }
             }}>
               {Object.keys(AreaDB.Area[BoshuArea]["Prefecture"]).map(key => <option value={key}>{AreaDB.Area[BoshuArea]["Prefecture"][key]["PrefectureName"]}</option>)}
           </select>
@@ -94,9 +101,15 @@ export function BoshuPost() {
           <select
             defaultValue={BoshuCity}
             onChange={evt => {
-              setBoshuSettingArea(evt.target.value)
-              setBoshuCity(evt.target.value)
-              setBoshuWard("0")
+              if (evt.target.value === "0") {
+                setBoshuSettingArea(BoshuPrefecture)
+                setBoshuCity("0")
+                setBoshuWard("0")
+              } else {
+                setBoshuSettingArea(evt.target.value)
+                setBoshuCity(evt.target.value)
+                setBoshuWard("0")
+              }
             }}>
               {Object.keys(AreaDB.Area[BoshuArea]["Prefecture"][BoshuPrefecture]["City"]).map(key => 
                 <option value={key}>
@@ -125,8 +138,13 @@ export function BoshuPost() {
           <select
             defaultValue={BoshuWard}
             onChange={evt => {
-              setBoshuSettingArea(evt.target.value)
-              setBoshuWard(evt.target.value)
+              if (evt.target.value === "0") {
+                setBoshuSettingArea(BoshuCity)
+                setBoshuWard("0")
+              } else {
+                setBoshuSettingArea(evt.target.value)
+                setBoshuWard(evt.target.value)
+              }
             }}>
               {Object.keys(AreaDB.Area[BoshuArea]["Prefecture"][BoshuPrefecture]["City"][BoshuCity]["Ward"]).map(key => <option value={key}>{AreaDB.Area[BoshuArea]["Prefecture"][BoshuPrefecture]["City"][BoshuCity]["Ward"][key]}</option>)}
           </select>

@@ -229,10 +229,17 @@ export function ProfileSetting() {
           <select
             defaultValue={Prefecture}
             onChange={event => {
-              setSettingArea(event.target.value)
-              setPrefecture(event.target.value)
-              setCity("0")
-              setWard("0")
+              if (evt.target.value === "0") {
+                setSettingArea(Area)
+                setPrefecture("0")
+                setCity("0")
+                setWard("0")
+              } else {
+                setSettingArea(event.target.value)
+                setPrefecture(event.target.value)
+                setCity("0")
+                setWard("0")
+              }
             }}>
               {Object.keys(AreaDB.Area[Area]["Prefecture"]).map(key => <option value={key}>{AreaDB.Area[Area]["Prefecture"][key]["PrefectureName"]}</option>)}
           </select>
@@ -251,9 +258,15 @@ export function ProfileSetting() {
           <select
             defaultValue={City}
             onChange={event => {
-              setSettingArea(event.target.value)
-              setCity(event.target.value)
-              setWard("0")
+              if (evt.target.value === "0") {
+                setSettingArea(Prefecture)
+                setCity("0")
+                setWard("0")
+              } else {
+                setSettingArea(event.target.value)
+                setCity(event.target.value)
+                setWard("0")
+              }
             }}>
               {Object.keys(AreaDB.Area[Area]["Prefecture"][Prefecture]["City"]).map(key => 
                 <option value={key}>
@@ -282,8 +295,13 @@ export function ProfileSetting() {
           <select
             defaultValue={Ward}
             onChange={evt => {
-              setSettingArea(evt.target.value)
-              setWard(evt.target.value)
+              if (evt.target.value === "0") {
+                setSettingArea(City)
+                setWard("0")
+              } else {
+                setSettingArea(evt.target.value)
+                setWard(evt.target.value)
+              }
             }}>
               {Object.keys(AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][City]["Ward"]).map(key => <option value={key}>{AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][City]["Ward"][key]}</option>)}
           </select>
