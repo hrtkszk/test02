@@ -111,36 +111,36 @@ export function ProfileDetail() {
     }
   }
 
-  // function ShowBirthArea() {
-  //   // BirthArea未設定の場合→「未設定」と表示
-  //   if (Profile.BirthArea === "0") {
-  //     return (
-  //       <>
-  //         {AreaDB.Area[Profile.BirthArea]["AreaName"]}
-  //       </>
-  //     )
+  function ShowBirthArea() {
+    // BirthArea未設定の場合→「未設定」と表示
+    if (Profile.BirthArea === "0") {
+      return (
+        <>
+          {AreaDB.Area[Profile.BirthArea]["AreaName"]}
+        </>
+      )
     
-  //   // BirthAreaが設定されている場合
-  //   } else {
-  //     // BirthPrefectureが未設定の場合→「BirthArea」のみを表示
-  //     if (Profile.BirthPrefecture === "0") {
-  //       return (
-  //         <>
-  //           {AreaDB.Area[Profile.BirthArea]["AreaName"]}
-  //         </>
-  //       )
+    // BirthAreaが設定されている場合
+    } else {
+      // BirthPrefectureが未設定の場合→「BirthArea」のみを表示
+      if (Profile.BirthPrefecture === "0") {
+        return (
+          <>
+            {AreaDB.Area[Profile.BirthArea]["AreaName"]}
+          </>
+        )
       
-  //     // BirthPrefectureが設定されている場合→「BirthArea」「BirthPrefecture」を表示
-  //     } else {
-  //       return (
-  //         <>
-  //           {AreaDB.Area[Profile.BirthArea]["AreaName"]}　
-  //           {AreaDB.Area[Profile.BirthArea]["Prefecture"][Profile.BirthPrefecture]["PrefectureName"]}
-  //         </>
-  //       )
-  //     }
-  //   }
-  // }
+      // BirthPrefectureが設定されている場合→「BirthArea」「BirthPrefecture」を表示
+      } else {
+        return (
+          <>
+            {AreaDB.Area[Profile.BirthArea]["AreaName"]}　
+            {AreaDB.Area[Profile.BirthArea]["Prefecture"][Profile.BirthPrefecture]["PrefectureName"]}
+          </>
+        )
+      }
+    }
+  }
 
     // Profileが空か、[]の場合、プロフィール設定を促すページを表示
   if (Profile.length === 0 || Profile === "") {
@@ -244,8 +244,7 @@ export function ProfileDetail() {
           <li>
             <span className="dan">出身地</span>
             <span className="dan2">
-              要調整
-              {/* <ShowBirthArea/> */}
+              <ShowBirthArea/>
             </span>
           </li>
           <li>

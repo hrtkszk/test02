@@ -319,8 +319,13 @@ export function ProfileSetting() {
           <select
             defaultValue={BirthPrefecture}
             onChange={event => {
-              setSettingBirthArea(event.target.value)
-              setBirthPrefecture(event.target.value)
+              if (event.target.value === "0") {
+                setSettingBirthArea(BirthArea)
+                setBirthPrefecture("0")
+              } else {
+                setSettingBirthArea(event.target.value)
+                setBirthPrefecture(event.target.value)
+              }
             }}>
               {Object.keys(AreaDB.Area[BirthArea]["Prefecture"]).map(key => <option value={key}>{AreaDB.Area[BirthArea]["Prefecture"][key]["PrefectureName"]}</option>)}
           </select>
