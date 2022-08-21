@@ -103,6 +103,7 @@ export function ProfileSetting() {
         setArea(result.result[0].Area)
         setPrefecture(result.result[0].Prefecture)
         setCity(result.result[0].City)
+        setWard(result.result[0].Ward)
         setHeight(result.result[0].Height)
         setStyle(result.result[0].Style)
         setLooks(result.result[0].Looks)
