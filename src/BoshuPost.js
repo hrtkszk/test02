@@ -98,7 +98,15 @@ export function BoshuPost() {
               setBoshuCity(evt.target.value)
               setBoshuWard("0")
             }}>
-              {Object.keys(AreaDB.Area[BoshuArea]["Prefecture"][BoshuPrefecture]["City"]).map(key => <option value={key}>{AreaDB.Area[BoshuArea]["Prefecture"][BoshuPrefecture]["City"][key]}</option>)}
+              {Object.keys(AreaDB.Area[BoshuArea]["Prefecture"][BoshuPrefecture]["City"]).map(key => 
+                <option value={key}>
+                  {AreaDB.Area[BoshuArea]["Prefecture"][BoshuPrefecture]["City"][BoshuCity]["CityName"] === undefined ? (
+                    AreaDB.Area[BoshuArea]["Prefecture"][BoshuPrefecture]["City"][key]
+                  ):(
+                    AreaDB.Area[BoshuArea]["Prefecture"][BoshuPrefecture]["City"][key]["CityName"]
+                  )}
+                </option>
+              )}
           </select>
           <WardSelect />
         </>
@@ -109,7 +117,7 @@ export function BoshuPost() {
   }
 
   function WardSelect() {
-    if (BoshuPrefecture !== "0") {
+    if (BoshuCity !== "0") {
       if (AreaDB.Area[BoshuArea]["Prefecture"][BoshuPrefecture]["City"][BoshuCity]["CityName"] === undefined) {
         return <></>
       } else {

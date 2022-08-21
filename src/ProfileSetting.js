@@ -254,7 +254,15 @@ export function ProfileSetting() {
               setCity(event.target.value)
               setWard("0")
             }}>
-              {Object.keys(AreaDB.Area[Area]["Prefecture"][Prefecture]["City"]).map(key => <option value={key}>{AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][key]}</option>)}
+              {Object.keys(AreaDB.Area[Area]["Prefecture"][Prefecture]["City"]).map(key => 
+                <option value={key}>
+                  {AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][City]["CityName"] === undefined ? (
+                    AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][key]
+                  ) : (
+                    AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][key]["CityName"]
+                  )}
+                </option>
+              )}
           </select>
           <WardSelect />
         </>
@@ -265,7 +273,7 @@ export function ProfileSetting() {
   }
 
   function WardSelect() {
-    if (Prefecture !== "0") {
+    if (City !== "0") {
       if (AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][City]["CityName"] === undefined) {
         return <></>
       } else {
