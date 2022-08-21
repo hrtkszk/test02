@@ -229,7 +229,7 @@ export function ProfileSetting() {
           <select
             defaultValue={Prefecture}
             onChange={event => {
-              if (evt.target.value === "0") {
+              if (event.target.value === "0") {
                 setSettingArea(Area)
                 setPrefecture("0")
                 setCity("0")
@@ -258,7 +258,7 @@ export function ProfileSetting() {
           <select
             defaultValue={City}
             onChange={event => {
-              if (evt.target.value === "0") {
+              if (event.target.value === "0") {
                 setSettingArea(Prefecture)
                 setCity("0")
                 setWard("0")
