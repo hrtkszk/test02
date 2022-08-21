@@ -344,9 +344,9 @@ export function ProfileSearchSetting() {
                             console.log("uncheck:copyPSArea: ",copyPSArea)
                           } else {
                             setPSArea({...PSArea, [evt.target.value]:true})
+                            const copyPSArea = {...PSArea}
                             Object.keys(PSArea).map(key => {
                               if (parseInt(evt.target.value) < parseInt(key) &&  parseInt(key) < parseInt(evt.target.value) + 1000000) {
-                                const copyPSArea = {...PSArea}
                                 delete copyPSArea[key]
                                 setPSArea(copyPSArea)
                                 console.log("delete subsequents : ",PSArea)
