@@ -388,8 +388,18 @@ export function ProfileSearchSetting() {
                                       const copyPSArea = {...PSArea}
                                       delete copyPSArea[evt.target.value]
                                       setPSArea(copyPSArea)
+                                      console.log("Round:", Math.round(parseInt(key2)/1000000)*1000000)
                                     } else {
                                       setPSArea({...PSArea, [evt.target.value]:true})
+                                      const copyPSArea = {...PSArea}
+                                      Object.keys(PSArea).map(key => {
+                                        if (parseInt(evt.target.value) < parseInt(key) &&  parseInt(key) < parseInt(evt.target.value) + 10000) {
+                                          delete copyPSArea[key]
+                                          setPSArea(copyPSArea)
+                                          console.log("delete subsequents : ",PSArea)
+                                        }
+                                        return <></>
+                                      })
                                     }
                                   }}
                                   checked={
