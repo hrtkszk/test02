@@ -356,6 +356,19 @@ export function ProfileSearchSetting() {
                             console.log("Add:key1: ", evt.target.value, ": ", key1)
                           }
                         }}
+                        indeterminate={
+                          PSArea["secondRead"] === true ?
+                          (
+                            Object.keys(PSArea).map(key => {
+                              if (parseInt(evt.target.value) < parseInt(key) &&  parseInt(key) < parseInt(evt.target.value) + 1000000) {
+                                return true
+                              }
+                            })
+                          ) : (
+                              false,
+                              setPSArea({...PSArea, "secondRead" : true})
+                          )
+                        }
                         checked={
                           PSArea["secondRead"] === true ?
                           (
