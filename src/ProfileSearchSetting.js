@@ -390,18 +390,19 @@ export function ProfileSearchSetting() {
                                       console.log("Delete:key2: ", evt.target.value, ": ", key2)
                                       
                                     } else {
-                                      setPSArea({...PSArea, [evt.target.value]:true})
+                                      // setPSArea({...PSArea, [evt.target.value]:true})
                                       const copyPSArea = {...PSArea}
                                       const UpperArea = Math.floor(parseInt(evt.target.value)/1000000)*1000000
                                       delete copyPSArea[UpperArea]
-                                      setPSArea(copyPSArea)
+                                      // setPSArea(copyPSArea)
                                       Object.keys(PSArea).map(key => {
                                         if (parseInt(evt.target.value) < parseInt(key) &&  parseInt(key) < parseInt(evt.target.value) + 10000) {
                                           delete copyPSArea[key]
-                                          setPSArea(copyPSArea)
+                                          // setPSArea(copyPSArea)
                                         }
                                         return <></>
                                       })
+                                      setPSArea({...copyPSArea, [evt.target.value]:true})
                                       console.log("Add:key2: ", evt.target.value, ": ", key2)
                                     }
                                   }}
