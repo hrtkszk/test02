@@ -349,7 +349,6 @@ export function ProfileSearchSetting() {
                               if (parseInt(evt.target.value) < parseInt(key) &&  parseInt(key) < parseInt(evt.target.value) + 1000000) {
                                 delete copyPSArea[key]
                                 setPSArea(copyPSArea)
-                                console.log("delete subsequents : ",PSArea)
                               }
                               return <></>
                             })
@@ -394,11 +393,11 @@ export function ProfileSearchSetting() {
                                       const copyPSArea = {...PSArea}
                                       const UpperArea = Math.floor(parseInt(evt.target.value)/1000000)*1000000
                                       delete copyPSArea[UpperArea]
+                                      setPSArea(copyPSArea)
                                       Object.keys(PSArea).map(key => {
                                         if (parseInt(evt.target.value) < parseInt(key) &&  parseInt(key) < parseInt(evt.target.value) + 10000) {
                                           delete copyPSArea[key]
                                           setPSArea(copyPSArea)
-                                          console.log("delete subsequents : ",PSArea)
                                         }
                                         return <></>
                                       })
