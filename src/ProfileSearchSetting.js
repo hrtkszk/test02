@@ -343,15 +343,16 @@ export function ProfileSearchSetting() {
                             setPSArea(copyPSArea)
                             console.log("Delete:key1: ", evt.target.value, ": ", key1)
                           } else {
-                            setPSArea({...PSArea, [evt.target.value]:true})
+                            // setPSArea({...PSArea, [evt.target.value]:true})
                             const copyPSArea = {...PSArea}
                             Object.keys(PSArea).map(key => {
                               if (parseInt(evt.target.value) < parseInt(key) &&  parseInt(key) < parseInt(evt.target.value) + 1000000) {
                                 delete copyPSArea[key]
-                                setPSArea(copyPSArea)
+                                // setPSArea(copyPSArea)
                               }
                               return <></>
                             })
+                            setPSArea({copyPSArea, [evt.target.value]:true})
                             console.log("Add:key1: ", evt.target.value, ": ", key1)
                           }
                         }}
@@ -440,7 +441,21 @@ export function ProfileSearchSetting() {
                                                 setPSArea(copyPSArea)
                                                 console.log("Delete:key3: ", evt.target.value, ": ", key3)
                                               } else {
-                                                setPSArea({...PSArea, [evt.target.value]:true})
+                                                // setPSArea({...PSArea, [evt.target.value]:true})
+                                                const copyPSArea = {...PSArea}
+                                                const UpperArea = Math.floor(parseInt(evt.target.value)/1000000)*1000000
+                                                delete copyPSArea[UpperArea]
+                                                const UpperPrefecture = Math.floor(parseInt(evt.target.value)/10000)*10000
+                                                delete copyPSArea[UpperPrefecture]
+                                                // setPSArea(copyPSArea)
+                                                Object.keys(PSArea).map(key => {
+                                                  if (parseInt(evt.target.value) < parseInt(key) &&  parseInt(key) < parseInt(evt.target.value) + 100) {
+                                                    delete copyPSArea[key]
+                                                    // setPSArea(copyPSArea)
+                                                  }
+                                                  return <></>
+                                                })
+                                                setPSArea({...copyPSArea, [evt.target.value]:true})
                                                 console.log("Add:key3: ", evt.target.value, ": ", key3)
                                               }
                                             }}
@@ -477,7 +492,21 @@ export function ProfileSearchSetting() {
                                                   setPSArea(copyPSArea)
                                                   console.log("Delete:key3: ", evt.target.value, ": ", key3)
                                                 } else {
-                                                  setPSArea({...PSArea, [evt.target.value]:true})
+                                                  // setPSArea({...PSArea, [evt.target.value]:true})
+                                                  const copyPSArea = {...PSArea}
+                                                  const UpperArea = Math.floor(parseInt(evt.target.value)/1000000)*1000000
+                                                  delete copyPSArea[UpperArea]
+                                                  const UpperPrefecture = Math.floor(parseInt(evt.target.value)/10000)*10000
+                                                  delete copyPSArea[UpperPrefecture]
+                                                  // setPSArea(copyPSArea)
+                                                  Object.keys(PSArea).map(key => {
+                                                    if (parseInt(evt.target.value) < parseInt(key) &&  parseInt(key) < parseInt(evt.target.value) + 100) {
+                                                      delete copyPSArea[key]
+                                                      // setPSArea(copyPSArea)
+                                                    }
+                                                    return <></>
+                                                  })
+                                                  setPSArea({...copyPSArea, [evt.target.value]:true})
                                                   console.log("Add:key3: ", evt.target.value, ": ", key3)
                                                 }
                                               }}
@@ -513,7 +542,15 @@ export function ProfileSearchSetting() {
                                                           delete copyPSArea[evt.target.value]
                                                           setPSArea(copyPSArea)
                                                         } else {
-                                                          setPSArea({...PSArea, [evt.target.value]:true})
+                                                          // setPSArea({...PSArea, [evt.target.value]:true})
+                                                          const copyPSArea = {...PSArea}
+                                                          const UpperArea = Math.floor(parseInt(evt.target.value)/1000000)*1000000
+                                                          delete copyPSArea[UpperArea]
+                                                          const UpperPrefecture = Math.floor(parseInt(evt.target.value)/10000)*10000
+                                                          delete copyPSArea[UpperPrefecture]
+                                                          const UpperCity = Math.floor(parseInt(evt.target.value)/100)*100
+                                                          delete copyPSArea[UpperCity]
+                                                          setPSArea({...copyPSArea, [evt.target.value]:true})
                                                         }
                                                       }}
                                                       checked={
