@@ -360,7 +360,7 @@ export function ProfileSearchSetting() {
                           PSArea["secondRead"] === true ?
                           (
                             Object.keys(PSArea).map(key => {
-                              if (parseInt(evt.target.value) < parseInt(key) &&  parseInt(key) < parseInt(evt.target.value) + 1000000) {
+                              if (parseInt(key1) < parseInt(key) &&  parseInt(key) < parseInt(key1) + 1000000) {
                                 return true
                               }
                             })
