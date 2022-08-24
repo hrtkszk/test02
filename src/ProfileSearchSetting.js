@@ -341,7 +341,7 @@ export function ProfileSearchSetting() {
                             const copyPSArea = {...PSArea}
                             delete copyPSArea[evt.target.value]
                             setPSArea(copyPSArea)
-                            console.log("uncheck:copyPSArea: ",copyPSArea)
+                            console.log("Delete:key1: ", evt.target.value, ": ", key1)
                           } else {
                             setPSArea({...PSArea, [evt.target.value]:true})
                             const copyPSArea = {...PSArea}
@@ -352,7 +352,7 @@ export function ProfileSearchSetting() {
                               }
                               return <></>
                             })
-                            console.log("check:PSArea: ",PSArea)
+                            console.log("Add:key1: ", evt.target.value, ": ", key1)
                           }
                         }}
                         checked={
@@ -387,6 +387,7 @@ export function ProfileSearchSetting() {
                                       const copyPSArea = {...PSArea}
                                       delete copyPSArea[evt.target.value]
                                       setPSArea(copyPSArea)
+                                      console.log("Delete:key2: ", evt.target.value, ": ", key2)
                                       
                                     } else {
                                       setPSArea({...PSArea, [evt.target.value]:true})
@@ -401,6 +402,7 @@ export function ProfileSearchSetting() {
                                         }
                                         return <></>
                                       })
+                                      console.log("Add:key2: ", evt.target.value, ": ", key2)
                                     }
                                   }}
                                   checked={
@@ -435,8 +437,10 @@ export function ProfileSearchSetting() {
                                                 const copyPSArea = {...PSArea}
                                                 delete copyPSArea[evt.target.value]
                                                 setPSArea(copyPSArea)
+                                                console.log("Delete:key3: ", evt.target.value, ": ", key3)
                                               } else {
                                                 setPSArea({...PSArea, [evt.target.value]:true})
+                                                console.log("Add:key3: ", evt.target.value, ": ", key3)
                                               }
                                             }}
                                             checked={
@@ -470,8 +474,10 @@ export function ProfileSearchSetting() {
                                                   const copyPSArea = {...PSArea}
                                                   delete copyPSArea[evt.target.value]
                                                   setPSArea(copyPSArea)
+                                                  console.log("Delete:key3: ", evt.target.value, ": ", key3)
                                                 } else {
                                                   setPSArea({...PSArea, [evt.target.value]:true})
+                                                  console.log("Add:key3: ", evt.target.value, ": ", key3)
                                                 }
                                               }}
                                               checked={
