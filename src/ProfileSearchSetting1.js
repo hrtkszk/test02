@@ -544,10 +544,8 @@ export function ProfileSearchSetting1() {
             <FormSelectRange
               title="年齢" 
               originalRange={ProfileDB.PreferedAge}
-              Range1={PSAge1}
-              setRange1={setPSAge1}
-              Range2={PSAge2}
-              setRange2={setPSAge2}
+              Range={PSAge}
+              setRange={setPSAge}
             />
           </li>
           <li>
@@ -849,10 +847,8 @@ export function ProfileSearchSetting1() {
             <FormSelectRange
               title="身長" 
               originalRange={ProfileDB.Height}
-              Range1={PSHeight1}
-              setRange1={setPSHeight1}
-              Range2={PSHeight2}
-              setRange2={setPSHeight2}
+              Range={PSHeight}
+              setRange={setPSHeight}
             />
           </li>
           <li>
@@ -875,10 +871,8 @@ export function ProfileSearchSetting1() {
             <FormSelectRange
               title="カップ" 
               originalRange={ProfileDB.Cup}
-              Range1={PSCup1}
-              setRange1={setPSCup1}
-              Range2={PSCup2}
-              setRange2={setPSCup2}
+              Range={PSCup}
+              setRange={setPSCup}
             />
           </li>
           {/* <li>
@@ -1042,10 +1036,8 @@ export function ProfileSearchSetting1() {
             <FormSelectRange
               title="可愛さ" 
               originalRange={ProfileDB.Self}
-              Range1={PSCute1}
-              setRange1={setPSCute1}
-              Range2={PSCute2}
-              setRange2={setPSCute2}
+              Range={PSCute}
+              setRange={setPSCute}
             />
           </li>
           <li>
@@ -1053,10 +1045,8 @@ export function ProfileSearchSetting1() {
             <FormSelectRange
               title="セクシーさ" 
               originalRange={ProfileDB.Self}
-              Range1={PSSexy1}
-              setRange1={setPSSexy1}
-              Range2={PSSexy2}
-              setRange2={setPSSexy2}
+              Range={PSSexy}
+              setRange={setPSSexy}
             />
           </li>
           <li>
@@ -1064,10 +1054,8 @@ export function ProfileSearchSetting1() {
             <FormSelectRange
               title="優しさ" 
               originalRange={ProfileDB.Self}
-              Range1={PSKindness1}
-              setRange1={setPSKindness1}
-              Range2={PSKindness2}
-              setRange2={setPSKindness2}
+              Range={PSKindness}
+              setRange={setPSKindness}
             />
           </li>
           <li>
@@ -1075,10 +1063,8 @@ export function ProfileSearchSetting1() {
             <FormSelectRange
               title="賢さ" 
               originalRange={ProfileDB.Self}
-              Range1={PSSmartness1}
-              setRange1={setPSSmartness1}
-              Range2={PSSmartness2}
-              setRange2={setPSSmartness2}
+              Range={PSSmartness}
+              setRange={setPSSmartness}
             />
           </li>
           <li>
@@ -1086,10 +1072,8 @@ export function ProfileSearchSetting1() {
             <FormSelectRange
               title="清楚さ" 
               originalRange={ProfileDB.Self}
-              Range1={PSNeatness1}
-              setRange1={setPSNeatness1}
-              Range2={PSNeatness2}
-              setRange2={setPSNeatness2}
+              Range={PSNeatness}
+              setRange={setPSNeatness}
             />
           </li>
           <li>
@@ -1097,10 +1081,8 @@ export function ProfileSearchSetting1() {
             <FormSelectRange
               title="ファッション" 
               originalRange={ProfileDB.Self}
-              Range1={PSFashionable1}
-              setRange1={setPSFashionable1}
-              Range2={PSFashionable2}
-              setRange2={setPSFashionable2}
+              Range={PSFashionable}
+              setRange={setPSFashionable}
             />
           </li>
           <li>
@@ -1108,10 +1090,8 @@ export function ProfileSearchSetting1() {
             <FormSelectRange
               title="明るさ" 
               originalRange={ProfileDB.Self}
-              Range1={PSBrightness1}
-              setRange1={setPSBrightness1}
-              Range2={PSBrightness2}
-              setRange2={setPSBrightness2}
+              Range={PSBrightness}
+              setRange={setPSBrightness}
             />
           </li>
           <li>
@@ -1119,10 +1099,8 @@ export function ProfileSearchSetting1() {
             <FormSelectRange
               title="エレガンス" 
               originalRange={ProfileDB.Self}
-              Range1={PSElegance1}
-              setRange1={setPSElegance1}
-              Range2={PSElegance2}
-              setRange2={setPSElegance2}
+              Range={PSElegance}
+              setRange={setPSElegance}
             />
           </li>
         </ul>
