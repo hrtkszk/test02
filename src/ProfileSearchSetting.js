@@ -356,39 +356,39 @@ export function ProfileSearchSetting() {
                             console.log("Add:key1: ", evt.target.value, ": ", key1)
                           }
                         }}
-                        indeterminate={
-                          true
-                          // PSArea["secondRead"] === true ?
-                          // (
-                          //   // Object.keys(PSArea).map(key => {
-                          //     PSArea[key1] === "undefined" ? (
-                          //       false
-                          //     ) : (
-                          //       PSArea[key1]
-                          //     )
-                          //     // if (parseInt(key1) < parseInt(key) &&  parseInt(key) < parseInt(key1) + 1000000) {
-                          //     //   return true
-                          //     // }
-                          //     // return <></>
-                          //     // })
-                          // ) : (
-                          //     false,
-                          //     setPSArea({...PSArea, "secondRead" : true})
-                          // )
-                        }
-                        // checked={
-                        //   PSArea["secondRead"] === true ?
-                        //   (
-                        //     PSArea[key1] === "undefined" ? (
-                        //         false
-                        //       ) : (
-                        //         PSArea[key1]
-                        //       )
-                        //   ) : (
-                        //       false,
-                        //       setPSArea({...PSArea, "secondRead" : true})
-                        //   )
+                        // indeterminate={
+                        //   true
+                        //   // PSArea["secondRead"] === true ?
+                        //   // (
+                        //   //   // Object.keys(PSArea).map(key => {
+                        //   //     PSArea[key1] === "undefined" ? (
+                        //   //       false
+                        //   //     ) : (
+                        //   //       PSArea[key1]
+                        //   //     )
+                        //   //     // if (parseInt(key1) < parseInt(key) &&  parseInt(key) < parseInt(key1) + 1000000) {
+                        //   //     //   return true
+                        //   //     // }
+                        //   //     // return <></>
+                        //   //     // })
+                        //   // ) : (
+                        //   //     false,
+                        //   //     setPSArea({...PSArea, "secondRead" : true})
+                        //   // )
                         // }
+                        checked={
+                          PSArea["secondRead"] === true ?
+                          (
+                            PSArea[key1] === "undefined" ? (
+                                false
+                              ) : (
+                                PSArea[key1]
+                              )
+                          ) : (
+                              false,
+                              setPSArea({...PSArea, "secondRead" : true})
+                          )
+                        }
                       />
                       {AreaDB.Area[key1]["AreaName"]}
                     </label></summary>
