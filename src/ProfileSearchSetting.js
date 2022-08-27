@@ -357,23 +357,24 @@ export function ProfileSearchSetting() {
                           }
                         }}
                         indeterminate={
-                          PSArea["secondRead"] === true ?
-                          (
-                            // Object.keys(PSArea).map(key => {
-                              PSArea[key1] === "undefined" ? (
-                                false
-                              ) : (
-                                PSArea[key1]
-                              )
-                              // if (parseInt(key1) < parseInt(key) &&  parseInt(key) < parseInt(key1) + 1000000) {
-                              //   return true
-                              // }
-                              // return <></>
-                              // })
-                          ) : (
-                              false,
-                              setPSArea({...PSArea, "secondRead" : true})
-                          )
+                          true
+                          // PSArea["secondRead"] === true ?
+                          // (
+                          //   // Object.keys(PSArea).map(key => {
+                          //     PSArea[key1] === "undefined" ? (
+                          //       false
+                          //     ) : (
+                          //       PSArea[key1]
+                          //     )
+                          //     // if (parseInt(key1) < parseInt(key) &&  parseInt(key) < parseInt(key1) + 1000000) {
+                          //     //   return true
+                          //     // }
+                          //     // return <></>
+                          //     // })
+                          // ) : (
+                          //     false,
+                          //     setPSArea({...PSArea, "secondRead" : true})
+                          // )
                         }
                         // checked={
                         //   PSArea["secondRead"] === true ?
