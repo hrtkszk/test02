@@ -13,7 +13,7 @@ import FormSelectRange from "./FormSelectRange";
 import FormMultiSelect2 from "./FormMultiSelect2";
 // import FormSelect from "./FormSelect";
 
-export function ProfileSearchSetting() {
+export function ProfileSearchSetting1() {
   // const [TempArea, setTempArea] = useState("0");
   // const [TempPrefecture, setTempPrefecture] = useState("0");
   //  各ステータスのdefaultにすでに設定された値を入れたい。
