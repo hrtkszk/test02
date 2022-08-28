@@ -324,14 +324,14 @@ else:
         cursor.execute(f" \
             UPDATE `{ProfileSearchSetting1}` \
             SET \
-                PSGender0=('{sys.argv[2]}'), \
-                PSGender1=('{sys.argv[3]}'), \
-                PSGender2=('{sys.argv[4]}'), \
-                PSGender3=('{sys.argv[5]}'), \
-                PSGender4=('{sys.argv[6]}'), \
-                PSGender5=('{sys.argv[7]}'), \
-                PSGender6=('{sys.argv[8]}'), \
-                PSGender7=('{sys.argv[9]}'), \
+                PSGender0=({sys.argv[2]}), \
+                PSGender1=({sys.argv[3]}), \
+                PSGender2=({sys.argv[4]}), \
+                PSGender3=({sys.argv[5]}), \
+                PSGender4=({sys.argv[6]}), \
+                PSGender5=({sys.argv[7]}), \
+                PSGender6=({sys.argv[8]}), \
+                PSGender7=({sys.argv[9]}), \
                 PSAge0=('{sys.argv[10]}'), \
                 PSAge1=('{sys.argv[11]}'), \
                 PSAge2=('{sys.argv[12]}'), \
