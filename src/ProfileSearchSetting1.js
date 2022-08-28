@@ -125,303 +125,334 @@ export function ProfileSearchSetting1() {
           6 : parseInt(result.result[0].PSGender6),
           7 : parseInt(result.result[0].PSGender7)
         })
-
         setPSAge({
-          PSAge0 : parseInt(result.result[0].PSAge0),
-          PSAge1 : parseInt(result.result[0].PSAge1),
-          PSAge2 : parseInt(result.result[0].PSAge2),
-          PSAge3 : parseInt(result.result[0].PSAge3),
-          PSAge4 : parseInt(result.result[0].PSAge4),
-          PSAge5 : parseInt(result.result[0].PSAge5),
-          PSAge6 : parseInt(result.result[0].PSAge6),
-          PSAge7 : parseInt(result.result[0].PSAge7),
-          PSAge8 : parseInt(result.result[0].PSAge8),
-          PSAge9 : parseInt(result.result[0].PSAge9),
-          PSAge10 : parseInt(result.result[0].PSAge10),
-          PSAge11 : parseInt(result.result[0].PSAge11),
-          PSAge12 : parseInt(result.result[0].PSAge12),
-          PSAge13 : parseInt(result.result[0].PSAge13),
-          PSAge14 : parseInt(result.result[0].PSAge14),
-          PSAge15 : parseInt(result.result[0].PSAge15),
-          PSAge16 : parseInt(result.result[0].PSAge16),
-          PSAge17 : parseInt(result.result[0].PSAge17)
+          0 : parseInt(result.result[0].PSAge0),
+          1 : parseInt(result.result[0].PSAge1),
+          2 : parseInt(result.result[0].PSAge2),
+          3 : parseInt(result.result[0].PSAge3),
+          4 : parseInt(result.result[0].PSAge4),
+          5 : parseInt(result.result[0].PSAge5),
+          6 : parseInt(result.result[0].PSAge6),
+          7 : parseInt(result.result[0].PSAge7),
+          8 : parseInt(result.result[0].PSAge8),
+          9 : parseInt(result.result[0].PSAge9),
+          10 : parseInt(result.result[0].PSAge10),
+          11 : parseInt(result.result[0].PSAge11),
+          12 : parseInt(result.result[0].PSAge12),
+          13 : parseInt(result.result[0].PSAge13),
+          14 : parseInt(result.result[0].PSAge14),
+          15 : parseInt(result.result[0].PSAge15),
+          16 : parseInt(result.result[0].PSAge16),
+          17 : parseInt(result.result[0].PSAge17)
+        })
+        setPSProfilePicture({
+          0 : parseInt(result.result[0].PSProfilePicture0),
+          1 : parseInt(result.result[0].PSProfilePicture1),
+          2 : parseInt(result.result[0].PSProfilePicture2)
+        })
+        setPSProfileMessage({
+          0 : parseInt(result.result[0].PSProfileMessage0),
+          1 : parseInt(result.result[0].PSProfileMessage1),
+          2 : parseInt(result.result[0].PSProfileMessage2)
+        })
+        setPSHeight({
+          0 : parseInt(result.result[0].PSHeight0),
+          1 : parseInt(result.result[0].PSHeight1),
+          2 : parseInt(result.result[0].PSHeight2),
+          3 : parseInt(result.result[0].PSHeight3),
+          4 : parseInt(result.result[0].PSHeight4),
+          5 : parseInt(result.result[0].PSHeight5),
+          6 : parseInt(result.result[0].PSHeight6),
+          7 : parseInt(result.result[0].PSHeight7),
+          8 : parseInt(result.result[0].PSHeight8),
+          9 : parseInt(result.result[0].PSHeight9)
+        })
+        setPSStyle({
+          0 : parseInt(result.result[0].PSStyle0),
+          1 : parseInt(result.result[0].PSStyle1),
+          2 : parseInt(result.result[0].PSStyle2),
+          3 : parseInt(result.result[0].PSStyle3),
+          4 : parseInt(result.result[0].PSStyle4),
+          5 : parseInt(result.result[0].PSStyle5),
+          6 : parseInt(result.result[0].PSStyle6),
+          7 : parseInt(result.result[0].PSStyle7),
+          8 : parseInt(result.result[0].PSStyle8),
+          9 : parseInt(result.result[0].PSStyle9)
+        })
+        setPSLooks({
+          0 : parseInt(result.result[0].PSLooks0),
+          1 : parseInt(result.result[0].PSLooks1),
+          2 : parseInt(result.result[0].PSLooks2),
+          3 : parseInt(result.result[0].PSLooks3),
+          4 : parseInt(result.result[0].PSLooks4),
+          5 : parseInt(result.result[0].PSLooks5),
+          6 : parseInt(result.result[0].PSLooks6),
+          7 : parseInt(result.result[0].PSLooks7),
+          8 : parseInt(result.result[0].PSLooks8),
+          9 : parseInt(result.result[0].PSLooks9)
+        })
+        setPSCup({
+          0 : parseInt(result.result[0].PSCup0),
+          1 : parseInt(result.result[0].PSCup1),
+          2 : parseInt(result.result[0].PSCup2),
+          3 : parseInt(result.result[0].PSCup3),
+          4 : parseInt(result.result[0].PSCup4),
+          5 : parseInt(result.result[0].PSCup5),
+          6 : parseInt(result.result[0].PSCup6),
+          7 : parseInt(result.result[0].PSCup7),
+          8 : parseInt(result.result[0].PSCup8),
+          9 : parseInt(result.result[0].PSCup9)
+        })
+        setPSBloodType({
+          0 : parseInt(result.result[0].PSBloodType0),
+          1 : parseInt(result.result[0].PSBloodType1),
+          2 : parseInt(result.result[0].PSBloodType2),
+          3 : parseInt(result.result[0].PSBloodType3),
+          4 : parseInt(result.result[0].PSBloodType4)
         })
 
-        setPSProfilePicture({...PSProfilePicture, PSProfilePicture0 : parseInt(result.result[0].PSProfilePicture0)})
-        setPSProfilePicture({...PSProfilePicture, PSProfilePicture1 : parseInt(result.result[0].PSProfilePicture1)})
-        setPSProfilePicture({...PSProfilePicture, PSProfilePicture2 : parseInt(result.result[0].PSProfilePicture2)})
-
-        setPSProfileMessage({...PSProfileMessage, PSProfileMessage0 : parseInt(result.result[0].PSProfileMessage0)})
-        setPSProfileMessage({...PSProfileMessage, PSProfileMessage1 : parseInt(result.result[0].PSProfileMessage1)})
-        setPSProfileMessage({...PSProfileMessage, PSProfileMessage2 : parseInt(result.result[0].PSProfileMessage2)})
-
-        setPSHeight({...PSHeight, PSHeight0 : parseInt(result.result[0].PSHeight0)})
-        setPSHeight({...PSHeight, PSHeight1 : parseInt(result.result[0].PSHeight1)})
-        setPSHeight({...PSHeight, PSHeight2 : parseInt(result.result[0].PSHeight2)})
-        setPSHeight({...PSHeight, PSHeight3 : parseInt(result.result[0].PSHeight3)})
-        setPSHeight({...PSHeight, PSHeight4 : parseInt(result.result[0].PSHeight4)})
-        setPSHeight({...PSHeight, PSHeight5 : parseInt(result.result[0].PSHeight5)})
-        setPSHeight({...PSHeight, PSHeight6 : parseInt(result.result[0].PSHeight6)})
-        setPSHeight({...PSHeight, PSHeight7 : parseInt(result.result[0].PSHeight7)})
-        setPSHeight({...PSHeight, PSHeight8 : parseInt(result.result[0].PSHeight8)})
-        setPSHeight({...PSHeight, PSHeight9 : parseInt(result.result[0].PSHeight9)})
-
-        setPSStyle({...PSStyle, PSStyle0 : parseInt(result.result[0].PSStyle0)})
-        setPSStyle({...PSStyle, PSStyle1 : parseInt(result.result[0].PSStyle1)})
-        setPSStyle({...PSStyle, PSStyle2 : parseInt(result.result[0].PSStyle2)})
-        setPSStyle({...PSStyle, PSStyle3 : parseInt(result.result[0].PSStyle3)})
-        setPSStyle({...PSStyle, PSStyle4 : parseInt(result.result[0].PSStyle4)})
-        setPSStyle({...PSStyle, PSStyle5 : parseInt(result.result[0].PSStyle5)})
-        setPSStyle({...PSStyle, PSStyle6 : parseInt(result.result[0].PSStyle6)})
-        setPSStyle({...PSStyle, PSStyle7 : parseInt(result.result[0].PSStyle7)})
-        setPSStyle({...PSStyle, PSStyle8 : parseInt(result.result[0].PSStyle8)})
-        setPSStyle({...PSStyle, PSStyle9 : parseInt(result.result[0].PSStyle9)})
-
-        setPSLooks({...PSLooks, PSLooks0 : parseInt(result.result[0].PSLooks0)})
-        setPSLooks({...PSLooks, PSLooks1 : parseInt(result.result[0].PSLooks1)})
-        setPSLooks({...PSLooks, PSLooks2 : parseInt(result.result[0].PSLooks2)})
-        setPSLooks({...PSLooks, PSLooks3 : parseInt(result.result[0].PSLooks3)})
-        setPSLooks({...PSLooks, PSLooks4 : parseInt(result.result[0].PSLooks4)})
-        setPSLooks({...PSLooks, PSLooks5 : parseInt(result.result[0].PSLooks5)})
-        setPSLooks({...PSLooks, PSLooks6 : parseInt(result.result[0].PSLooks6)})
-        setPSLooks({...PSLooks, PSLooks7 : parseInt(result.result[0].PSLooks7)})
-        setPSLooks({...PSLooks, PSLooks8 : parseInt(result.result[0].PSLooks8)})
-        setPSLooks({...PSLooks, PSLooks9 : parseInt(result.result[0].PSLooks9)})
-
-        setPSCup({...PSCup, PSCup0 : parseInt(result.result[0].PSCup0)})
-        setPSCup({...PSCup, PSCup1 : parseInt(result.result[0].PSCup1)})
-        setPSCup({...PSCup, PSCup2 : parseInt(result.result[0].PSCup2)})
-        setPSCup({...PSCup, PSCup3 : parseInt(result.result[0].PSCup3)})
-        setPSCup({...PSCup, PSCup4 : parseInt(result.result[0].PSCup4)})
-        setPSCup({...PSCup, PSCup5 : parseInt(result.result[0].PSCup5)})
-        setPSCup({...PSCup, PSCup6 : parseInt(result.result[0].PSCup6)})
-        setPSCup({...PSCup, PSCup7 : parseInt(result.result[0].PSCup7)})
-        setPSCup({...PSCup, PSCup8 : parseInt(result.result[0].PSCup8)})
-        setPSCup({...PSCup, PSCup9 : parseInt(result.result[0].PSCup9)})
-
-        setPSBloodType({...PSBloodType, PSBloodType0 : parseInt(result.result[0].PSBloodType0)})
-        setPSBloodType({...PSBloodType, PSBloodType1 : parseInt(result.result[0].PSBloodType1)})
-        setPSBloodType({...PSBloodType, PSBloodType2 : parseInt(result.result[0].PSBloodType2)})
-        setPSBloodType({...PSBloodType, PSBloodType3 : parseInt(result.result[0].PSBloodType3)})
-        setPSBloodType({...PSBloodType, PSBloodType4 : parseInt(result.result[0].PSBloodType4)})
-
-        setPSJob({...PSJob, PSJob0 : parseInt(result.result[0].PSJob0)})
-        setPSJob({...PSJob, PSJob1 : parseInt(result.result[0].PSJob1)})
-        setPSJob({...PSJob, PSJob2 : parseInt(result.result[0].PSJob2)})
-        setPSJob({...PSJob, PSJob3 : parseInt(result.result[0].PSJob3)})
-        setPSJob({...PSJob, PSJob4 : parseInt(result.result[0].PSJob4)})
-        setPSJob({...PSJob, PSJob5 : parseInt(result.result[0].PSJob5)})
-        setPSJob({...PSJob, PSJob6 : parseInt(result.result[0].PSJob6)})
-        setPSJob({...PSJob, PSJob7 : parseInt(result.result[0].PSJob7)})
-        setPSJob({...PSJob, PSJob8 : parseInt(result.result[0].PSJob8)})
-        setPSJob({...PSJob, PSJob9 : parseInt(result.result[0].PSJob9)})
-        setPSJob({...PSJob, PSJob10 : parseInt(result.result[0].PSJob10)})
-        setPSJob({...PSJob, PSJob11 : parseInt(result.result[0].PSJob11)})
-        setPSJob({...PSJob, PSJob12 : parseInt(result.result[0].PSJob12)})
-        setPSJob({...PSJob, PSJob13 : parseInt(result.result[0].PSJob13)})
-        setPSJob({...PSJob, PSJob14 : parseInt(result.result[0].PSJob14)})
-        setPSJob({...PSJob, PSJob15 : parseInt(result.result[0].PSJob15)})
-        setPSJob({...PSJob, PSJob16 : parseInt(result.result[0].PSJob16)})
-        setPSJob({...PSJob, PSJob17 : parseInt(result.result[0].PSJob17)})
-        setPSJob({...PSJob, PSJob18 : parseInt(result.result[0].PSJob18)})
-        setPSJob({...PSJob, PSJob19 : parseInt(result.result[0].PSJob19)})
-        setPSJob({...PSJob, PSJob20 : parseInt(result.result[0].PSJob20)})
-        setPSJob({...PSJob, PSJob21 : parseInt(result.result[0].PSJob21)})
-        setPSJob({...PSJob, PSJob22 : parseInt(result.result[0].PSJob22)})
-        setPSJob({...PSJob, PSJob23 : parseInt(result.result[0].PSJob23)})
-        setPSJob({...PSJob, PSJob24 : parseInt(result.result[0].PSJob24)})
-        setPSJob({...PSJob, PSJob25 : parseInt(result.result[0].PSJob25)})
-        setPSJob({...PSJob, PSJob26 : parseInt(result.result[0].PSJob26)})
-
-        setPSEduBack({...PSEduBack, PSEduBack0 : parseInt(result.result[0].PSEduBack0)})
-        setPSEduBack({...PSEduBack, PSEduBack1 : parseInt(result.result[0].PSEduBack1)})
-        setPSEduBack({...PSEduBack, PSEduBack2 : parseInt(result.result[0].PSEduBack2)})
-        setPSEduBack({...PSEduBack, PSEduBack3 : parseInt(result.result[0].PSEduBack3)})
-        setPSEduBack({...PSEduBack, PSEduBack4 : parseInt(result.result[0].PSEduBack4)})
-        setPSEduBack({...PSEduBack, PSEduBack5 : parseInt(result.result[0].PSEduBack5)})
-
-        setPSZodiac({...PSZodiac, PSZodiac0 : parseInt(result.result[0].PSZodiac0)})
-        setPSZodiac({...PSZodiac, PSZodiac1 : parseInt(result.result[0].PSZodiac1)})
-        setPSZodiac({...PSZodiac, PSZodiac2 : parseInt(result.result[0].PSZodiac2)})
-        setPSZodiac({...PSZodiac, PSZodiac3 : parseInt(result.result[0].PSZodiac3)})
-        setPSZodiac({...PSZodiac, PSZodiac4 : parseInt(result.result[0].PSZodiac4)})
-        setPSZodiac({...PSZodiac, PSZodiac5 : parseInt(result.result[0].PSZodiac5)})
-        setPSZodiac({...PSZodiac, PSZodiac6 : parseInt(result.result[0].PSZodiac6)})
-        setPSZodiac({...PSZodiac, PSZodiac7 : parseInt(result.result[0].PSZodiac7)})
-        setPSZodiac({...PSZodiac, PSZodiac8 : parseInt(result.result[0].PSZodiac8)})
-        setPSZodiac({...PSZodiac, PSZodiac9 : parseInt(result.result[0].PSZodiac9)})
-        setPSZodiac({...PSZodiac, PSZodiac10 : parseInt(result.result[0].PSZodiac10)})
-        setPSZodiac({...PSZodiac, PSZodiac11 : parseInt(result.result[0].PSZodiac11)})
-        setPSZodiac({...PSZodiac, PSZodiac12 : parseInt(result.result[0].PSZodiac12)})
-
-        setPSMarriageStatus({...PSMarriageStatus, PSMarriageStatus0 : parseInt(result.result[0].PSMarriageStatus0)})
-        setPSMarriageStatus({...PSMarriageStatus, PSMarriageStatus1 : parseInt(result.result[0].PSMarriageStatus1)})
-        setPSMarriageStatus({...PSMarriageStatus, PSMarriageStatus2 : parseInt(result.result[0].PSMarriageStatus2)})
-        setPSMarriageStatus({...PSMarriageStatus, PSMarriageStatus3 : parseInt(result.result[0].PSMarriageStatus3)})
-        setPSMarriageStatus({...PSMarriageStatus, PSMarriageStatus4 : parseInt(result.result[0].PSMarriageStatus4)})
-        setPSMarriageStatus({...PSMarriageStatus, PSMarriageStatus5 : parseInt(result.result[0].PSMarriageStatus5)})
-        setPSMarriageStatus({...PSMarriageStatus, PSMarriageStatus6 : parseInt(result.result[0].PSMarriageStatus6)})
-
-        setPSKids({...PSKids, PSKids0 : parseInt(result.result[0].PSKids0)})
-        setPSKids({...PSKids, PSKids1 : parseInt(result.result[0].PSKids1)})
-        setPSKids({...PSKids, PSKids2 : parseInt(result.result[0].PSKids2)})
-        setPSKids({...PSKids, PSKids3 : parseInt(result.result[0].PSKids3)})
-
-        setPSTabacco({...PSTabacco, PSTabacco0 : parseInt(result.result[0].PSTabacco0)})
-        setPSTabacco({...PSTabacco, PSTabacco1 : parseInt(result.result[0].PSTabacco1)})
-        setPSTabacco({...PSTabacco, PSTabacco2 : parseInt(result.result[0].PSTabacco2)})
-        setPSTabacco({...PSTabacco, PSTabacco3 : parseInt(result.result[0].PSTabacco3)})
-        setPSTabacco({...PSTabacco, PSTabacco4 : parseInt(result.result[0].PSTabacco4)})
-
-        setPSAlchole({...PSAlchole, PSAlchole0 : parseInt(result.result[0].PSAlchole0)})
-        setPSAlchole({...PSAlchole, PSAlchole1 : parseInt(result.result[0].PSAlchole1)})
-        setPSAlchole({...PSAlchole, PSAlchole2 : parseInt(result.result[0].PSAlchole2)})
-        setPSAlchole({...PSAlchole, PSAlchole3 : parseInt(result.result[0].PSAlchole3)})
-
-        setPSCar({...PSCar, PSCar0 : parseInt(result.result[0].PSCar0)})
-        setPSCar({...PSCar, PSCar1 : parseInt(result.result[0].PSCar1)})
-        setPSCar({...PSCar, PSCar2 : parseInt(result.result[0].PSCar2)})
-
-        setPSInterest({...PSInterest, PSInterest0 : parseInt(result.result[0].PSInterest0)})
-        setPSInterest({...PSInterest, PSInterest1 : parseInt(result.result[0].PSInterest1)})
-        setPSInterest({...PSInterest, PSInterest2 : parseInt(result.result[0].PSInterest2)})
-        setPSInterest({...PSInterest, PSInterest3 : parseInt(result.result[0].PSInterest3)})
-        setPSInterest({...PSInterest, PSInterest4 : parseInt(result.result[0].PSInterest4)})
-        setPSInterest({...PSInterest, PSInterest5 : parseInt(result.result[0].PSInterest5)})
-        setPSInterest({...PSInterest, PSInterest6 : parseInt(result.result[0].PSInterest6)})
-        setPSInterest({...PSInterest, PSInterest7 : parseInt(result.result[0].PSInterest7)})
-        setPSInterest({...PSInterest, PSInterest8 : parseInt(result.result[0].PSInterest8)})
-        setPSInterest({...PSInterest, PSInterest9 : parseInt(result.result[0].PSInterest9)})
-        setPSInterest({...PSInterest, PSInterest10 : parseInt(result.result[0].PSInterest10)})
-        setPSInterest({...PSInterest, PSInterest11 : parseInt(result.result[0].PSInterest11)})
-        setPSInterest({...PSInterest, PSInterest12 : parseInt(result.result[0].PSInterest12)})
-        setPSInterest({...PSInterest, PSInterest13 : parseInt(result.result[0].PSInterest13)})
-        setPSInterest({...PSInterest, PSInterest14 : parseInt(result.result[0].PSInterest14)})
-        setPSInterest({...PSInterest, PSInterest15 : parseInt(result.result[0].PSInterest15)})
-        setPSInterest({...PSInterest, PSInterest16 : parseInt(result.result[0].PSInterest16)})
-        setPSInterest({...PSInterest, PSInterest17 : parseInt(result.result[0].PSInterest17)})
-        setPSInterest({...PSInterest, PSInterest18 : parseInt(result.result[0].PSInterest18)})
-        setPSInterest({...PSInterest, PSInterest19 : parseInt(result.result[0].PSInterest19)})
-        setPSInterest({...PSInterest, PSInterest20 : parseInt(result.result[0].PSInterest20)})
-        setPSInterest({...PSInterest, PSInterest21 : parseInt(result.result[0].PSInterest21)})
-        setPSInterest({...PSInterest, PSInterest22 : parseInt(result.result[0].PSInterest22)})
-        setPSInterest({...PSInterest, PSInterest23 : parseInt(result.result[0].PSInterest23)})
-        setPSInterest({...PSInterest, PSInterest24 : parseInt(result.result[0].PSInterest24)})
-        setPSInterest({...PSInterest, PSInterest25 : parseInt(result.result[0].PSInterest25)})
-        setPSInterest({...PSInterest, PSInterest26 : parseInt(result.result[0].PSInterest26)})
-        setPSInterest({...PSInterest, PSInterest27 : parseInt(result.result[0].PSInterest27)})
-        setPSInterest({...PSInterest, PSInterest28 : parseInt(result.result[0].PSInterest28)})
-
-        setPSPersonality({...PSPersonality, PSPersonality0 : parseInt(result.result[0].PSPersonality0)})
-        setPSPersonality({...PSPersonality, PSPersonality1 : parseInt(result.result[0].PSPersonality1)})
-        setPSPersonality({...PSPersonality, PSPersonality2 : parseInt(result.result[0].PSPersonality2)})
-        setPSPersonality({...PSPersonality, PSPersonality3 : parseInt(result.result[0].PSPersonality3)})
-        setPSPersonality({...PSPersonality, PSPersonality4 : parseInt(result.result[0].PSPersonality4)})
-        setPSPersonality({...PSPersonality, PSPersonality5 : parseInt(result.result[0].PSPersonality5)})
-        setPSPersonality({...PSPersonality, PSPersonality6 : parseInt(result.result[0].PSPersonality6)})
-        setPSPersonality({...PSPersonality, PSPersonality7 : parseInt(result.result[0].PSPersonality7)})
-        setPSPersonality({...PSPersonality, PSPersonality8 : parseInt(result.result[0].PSPersonality8)})
-        setPSPersonality({...PSPersonality, PSPersonality9 : parseInt(result.result[0].PSPersonality9)})
-        setPSPersonality({...PSPersonality, PSPersonality10 : parseInt(result.result[0].PSPersonality10)})
-        setPSPersonality({...PSPersonality, PSPersonality11 : parseInt(result.result[0].PSPersonality11)})
-        setPSPersonality({...PSPersonality, PSPersonality12 : parseInt(result.result[0].PSPersonality12)})
-        setPSPersonality({...PSPersonality, PSPersonality13 : parseInt(result.result[0].PSPersonality13)})
-        setPSPersonality({...PSPersonality, PSPersonality14 : parseInt(result.result[0].PSPersonality14)})
-        setPSPersonality({...PSPersonality, PSPersonality15 : parseInt(result.result[0].PSPersonality15)})
-        setPSPersonality({...PSPersonality, PSPersonality16 : parseInt(result.result[0].PSPersonality16)})
-        setPSPersonality({...PSPersonality, PSPersonality17 : parseInt(result.result[0].PSPersonality17)})
-        setPSPersonality({...PSPersonality, PSPersonality18 : parseInt(result.result[0].PSPersonality18)})
-        setPSPersonality({...PSPersonality, PSPersonality19 : parseInt(result.result[0].PSPersonality19)})
-        setPSPersonality({...PSPersonality, PSPersonality20 : parseInt(result.result[0].PSPersonality20)})
-        setPSPersonality({...PSPersonality, PSPersonality21 : parseInt(result.result[0].PSPersonality21)})
-        setPSPersonality({...PSPersonality, PSPersonality22 : parseInt(result.result[0].PSPersonality22)})
-        setPSPersonality({...PSPersonality, PSPersonality23 : parseInt(result.result[0].PSPersonality23)})
-        setPSPersonality({...PSPersonality, PSPersonality24 : parseInt(result.result[0].PSPersonality24)})
-        setPSPersonality({...PSPersonality, PSPersonality25 : parseInt(result.result[0].PSPersonality25)})
-        setPSPersonality({...PSPersonality, PSPersonality26 : parseInt(result.result[0].PSPersonality26)})
-        setPSPersonality({...PSPersonality, PSPersonality27 : parseInt(result.result[0].PSPersonality27)})
-        setPSPersonality({...PSPersonality, PSPersonality28 : parseInt(result.result[0].PSPersonality28)})
-        setPSPersonality({...PSPersonality, PSPersonality29 : parseInt(result.result[0].PSPersonality29)})
-        setPSPersonality({...PSPersonality, PSPersonality30 : parseInt(result.result[0].PSPersonality30)})
-        setPSPersonality({...PSPersonality, PSPersonality31 : parseInt(result.result[0].PSPersonality31)})
-        setPSPersonality({...PSPersonality, PSPersonality32 : parseInt(result.result[0].PSPersonality32)})
-        setPSPersonality({...PSPersonality, PSPersonality33 : parseInt(result.result[0].PSPersonality33)})
-        setPSPersonality({...PSPersonality, PSPersonality34 : parseInt(result.result[0].PSPersonality34)})
-        setPSPersonality({...PSPersonality, PSPersonality35 : parseInt(result.result[0].PSPersonality35)})
-        setPSPersonality({...PSPersonality, PSPersonality36 : parseInt(result.result[0].PSPersonality36)})
-        setPSPersonality({...PSPersonality, PSPersonality37 : parseInt(result.result[0].PSPersonality37)})
-        setPSPersonality({...PSPersonality, PSPersonality38 : parseInt(result.result[0].PSPersonality38)})
-        setPSPersonality({...PSPersonality, PSPersonality39 : parseInt(result.result[0].PSPersonality39)})
-        setPSPersonality({...PSPersonality, PSPersonality40 : parseInt(result.result[0].PSPersonality40)})
-        setPSPersonality({...PSPersonality, PSPersonality41 : parseInt(result.result[0].PSPersonality41)})
-        setPSPersonality({...PSPersonality, PSPersonality42 : parseInt(result.result[0].PSPersonality42)})
-        setPSPersonality({...PSPersonality, PSPersonality43 : parseInt(result.result[0].PSPersonality43)})
-        setPSPersonality({...PSPersonality, PSPersonality44 : parseInt(result.result[0].PSPersonality44)})
-        setPSPersonality({...PSPersonality, PSPersonality45 : parseInt(result.result[0].PSPersonality45)})
-        setPSPersonality({...PSPersonality, PSPersonality46 : parseInt(result.result[0].PSPersonality46)})
-
-        setPSAnnuIncome({...PSAnnuIncome, PSAnnuIncome0 : parseInt(result.result[0].PSAnnuIncome0)})
-        setPSAnnuIncome({...PSAnnuIncome, PSAnnuIncome1 : parseInt(result.result[0].PSAnnuIncome1)})
-        setPSAnnuIncome({...PSAnnuIncome, PSAnnuIncome2 : parseInt(result.result[0].PSAnnuIncome2)})
-        setPSAnnuIncome({...PSAnnuIncome, PSAnnuIncome3 : parseInt(result.result[0].PSAnnuIncome3)})
-        setPSAnnuIncome({...PSAnnuIncome, PSAnnuIncome4 : parseInt(result.result[0].PSAnnuIncome4)})
-        setPSAnnuIncome({...PSAnnuIncome, PSAnnuIncome5 : parseInt(result.result[0].PSAnnuIncome5)})
-        setPSAnnuIncome({...PSAnnuIncome, PSAnnuIncome6 : parseInt(result.result[0].PSAnnuIncome6)})
-        setPSAnnuIncome({...PSAnnuIncome, PSAnnuIncome7 : parseInt(result.result[0].PSAnnuIncome7)})
-        setPSAnnuIncome({...PSAnnuIncome, PSAnnuIncome8 : parseInt(result.result[0].PSAnnuIncome8)})
-        setPSAnnuIncome({...PSAnnuIncome, PSAnnuIncome9 : parseInt(result.result[0].PSAnnuIncome9)})
-        setPSAnnuIncome({...PSAnnuIncome, PSAnnuIncome10 : parseInt(result.result[0].PSAnnuIncome10)})
-
-        setPSCute({...PSCute, PSCute0 : parseInt(result.result[0].PSCute0)})
-        setPSCute({...PSCute, PSCute1 : parseInt(result.result[0].PSCute1)})
-        setPSCute({...PSCute, PSCute2 : parseInt(result.result[0].PSCute2)})
-        setPSCute({...PSCute, PSCute3 : parseInt(result.result[0].PSCute3)})
-        setPSCute({...PSCute, PSCute4 : parseInt(result.result[0].PSCute4)})
-        setPSCute({...PSCute, PSCute5 : parseInt(result.result[0].PSCute5)})
-        setPSSexy({...PSSexy, PSSexy0 : parseInt(result.result[0].PSSexy0)})
-        setPSSexy({...PSSexy, PSSexy1 : parseInt(result.result[0].PSSexy1)})
-        setPSSexy({...PSSexy, PSSexy2 : parseInt(result.result[0].PSSexy2)})
-        setPSSexy({...PSSexy, PSSexy3 : parseInt(result.result[0].PSSexy3)})
-        setPSSexy({...PSSexy, PSSexy4 : parseInt(result.result[0].PSSexy4)})
-        setPSSexy({...PSSexy, PSSexy5 : parseInt(result.result[0].PSSexy5)})
-        setPSKindness({...PSKindness, PSKindness0 : parseInt(result.result[0].PSKindness0)})
-        setPSKindness({...PSKindness, PSKindness1 : parseInt(result.result[0].PSKindness1)})
-        setPSKindness({...PSKindness, PSKindness2 : parseInt(result.result[0].PSKindness2)})
-        setPSKindness({...PSKindness, PSKindness3 : parseInt(result.result[0].PSKindness3)})
-        setPSKindness({...PSKindness, PSKindness4 : parseInt(result.result[0].PSKindness4)})
-        setPSKindness({...PSKindness, PSKindness5 : parseInt(result.result[0].PSKindness5)})
-        setPSSmartness({...PSSmartness, PSSmartness0 : parseInt(result.result[0].PSSmartness1)})
-        setPSSmartness({...PSSmartness, PSSmartness1 : parseInt(result.result[0].PSSmartness2)})
-        setPSSmartness({...PSSmartness, PSSmartness2 : parseInt(result.result[0].PSSmartness2)})
-        setPSSmartness({...PSSmartness, PSSmartness3 : parseInt(result.result[0].PSSmartness2)})
-        setPSSmartness({...PSSmartness, PSSmartness4 : parseInt(result.result[0].PSSmartness2)})
-        setPSSmartness({...PSSmartness, PSSmartness5 : parseInt(result.result[0].PSSmartness2)})
-        setPSNeatness({...PSNeatness, PSNeatness0 : parseInt(result.result[0].PSNeatness0)})
-        setPSNeatness({...PSNeatness, PSNeatness1 : parseInt(result.result[0].PSNeatness1)})
-        setPSNeatness({...PSNeatness, PSNeatness2 : parseInt(result.result[0].PSNeatness2)})
-        setPSNeatness({...PSNeatness, PSNeatness3 : parseInt(result.result[0].PSNeatness3)})
-        setPSNeatness({...PSNeatness, PSNeatness4 : parseInt(result.result[0].PSNeatness4)})
-        setPSNeatness({...PSNeatness, PSNeatness5 : parseInt(result.result[0].PSNeatness5)})
-        setPSFashionable({...PSFashionable, PSFashionable0 : parseInt(result.result[0].PSFashionable0)})
-        setPSFashionable({...PSFashionable, PSFashionable1 : parseInt(result.result[0].PSFashionable1)})
-        setPSFashionable({...PSFashionable, PSFashionable2 : parseInt(result.result[0].PSFashionable2)})
-        setPSFashionable({...PSFashionable, PSFashionable3 : parseInt(result.result[0].PSFashionable3)})
-        setPSFashionable({...PSFashionable, PSFashionable4 : parseInt(result.result[0].PSFashionable4)})
-        setPSFashionable({...PSFashionable, PSFashionable5 : parseInt(result.result[0].PSFashionable5)})
-        setPSBrightness({...PSBrightness, PSBrightness0 : parseInt(result.result[0].PSBrightness0)})
-        setPSBrightness({...PSBrightness, PSBrightness1 : parseInt(result.result[0].PSBrightness1)})
-        setPSBrightness({...PSBrightness, PSBrightness2 : parseInt(result.result[0].PSBrightness2)})
-        setPSBrightness({...PSBrightness, PSBrightness3 : parseInt(result.result[0].PSBrightness3)})
-        setPSBrightness({...PSBrightness, PSBrightness4 : parseInt(result.result[0].PSBrightness4)})
-        setPSBrightness({...PSBrightness, PSBrightness5 : parseInt(result.result[0].PSBrightness5)})
-        setPSElegance({...PSElegance, PSElegance0 : parseInt(result.result[0].PSElegance0)})
-        setPSElegance({...PSElegance, PSElegance1 : parseInt(result.result[0].PSElegance1)})
-        setPSElegance({...PSElegance, PSElegance2 : parseInt(result.result[0].PSElegance2)})
-        setPSElegance({...PSElegance, PSElegance3 : parseInt(result.result[0].PSElegance3)})
-        setPSElegance({...PSElegance, PSElegance4 : parseInt(result.result[0].PSElegance4)})
-        setPSElegance({...PSElegance, PSElegance5 : parseInt(result.result[0].PSElegance5)})
-
-
+        setPSJob({
+          0 : parseInt(result.result[0].PSJob0),
+          1 : parseInt(result.result[0].PSJob1),
+          2 : parseInt(result.result[0].PSJob2),
+          3 : parseInt(result.result[0].PSJob3),
+          4 : parseInt(result.result[0].PSJob4),
+          5 : parseInt(result.result[0].PSJob5),
+          6 : parseInt(result.result[0].PSJob6),
+          7 : parseInt(result.result[0].PSJob7),
+          8 : parseInt(result.result[0].PSJob8),
+          9 : parseInt(result.result[0].PSJob9),
+          10 : parseInt(result.result[0].PSJob10),
+          11 : parseInt(result.result[0].PSJob11),
+          12 : parseInt(result.result[0].PSJob12),
+          13 : parseInt(result.result[0].PSJob13),
+          14 : parseInt(result.result[0].PSJob14),
+          15 : parseInt(result.result[0].PSJob15),
+          16 : parseInt(result.result[0].PSJob16),
+          17 : parseInt(result.result[0].PSJob17),
+          18 : parseInt(result.result[0].PSJob18),
+          19 : parseInt(result.result[0].PSJob19),
+          20 : parseInt(result.result[0].PSJob20),
+          21 : parseInt(result.result[0].PSJob21),
+          22 : parseInt(result.result[0].PSJob22),
+          23 : parseInt(result.result[0].PSJob23),
+          24 : parseInt(result.result[0].PSJob24),
+          25 : parseInt(result.result[0].PSJob25),
+          26 : parseInt(result.result[0].PSJob26)
+        })
+        setPSEduBack({
+          0 : parseInt(result.result[0].PSEduBack0),
+          1 : parseInt(result.result[0].PSEduBack1),
+          2 : parseInt(result.result[0].PSEduBack2),
+          3 : parseInt(result.result[0].PSEduBack3),
+          4 : parseInt(result.result[0].PSEduBack4),
+          5 : parseInt(result.result[0].PSEduBack5)
+        })
+        setPSZodiac({
+          0 : parseInt(result.result[0].PSZodiac0),
+          1 : parseInt(result.result[0].PSZodiac1),
+          2 : parseInt(result.result[0].PSZodiac2),
+          3 : parseInt(result.result[0].PSZodiac3),
+          4 : parseInt(result.result[0].PSZodiac4),
+          5 : parseInt(result.result[0].PSZodiac5),
+          6 : parseInt(result.result[0].PSZodiac6),
+          7 : parseInt(result.result[0].PSZodiac7),
+          8 : parseInt(result.result[0].PSZodiac8),
+          9 : parseInt(result.result[0].PSZodiac9),
+          10 : parseInt(result.result[0].PSZodiac10),
+          11 : parseInt(result.result[0].PSZodiac11),
+          12 : parseInt(result.result[0].PSZodiac12)
+        })
+        setPSMarriageStatus({
+          0 : parseInt(result.result[0].PSMarriageStatus0),
+          1 : parseInt(result.result[0].PSMarriageStatus1),
+          2 : parseInt(result.result[0].PSMarriageStatus2),
+          3 : parseInt(result.result[0].PSMarriageStatus3),
+          4 : parseInt(result.result[0].PSMarriageStatus4),
+          5 : parseInt(result.result[0].PSMarriageStatus5),
+          6 : parseInt(result.result[0].PSMarriageStatus6)
+        })
+        setPSKids({
+          0 : parseInt(result.result[0].PSKids0),
+          1 : parseInt(result.result[0].PSKids1),
+          2 : parseInt(result.result[0].PSKids2),
+          3 : parseInt(result.result[0].PSKids3)
+        })
+        setPSTabacco({
+          0 : parseInt(result.result[0].PSTabacco0),
+          1 : parseInt(result.result[0].PSTabacco1),
+          2 : parseInt(result.result[0].PSTabacco2),
+          3 : parseInt(result.result[0].PSTabacco3),
+          4 : parseInt(result.result[0].PSTabacco4)
+        })
+        setPSAlchole({
+          0 : parseInt(result.result[0].PSAlchole0),
+          1 : parseInt(result.result[0].PSAlchole1),
+          2 : parseInt(result.result[0].PSAlchole2),
+          3 : parseInt(result.result[0].PSAlchole3)
+        })
+        setPSCar({
+          0 : parseInt(result.result[0].PSCar0),
+          1 : parseInt(result.result[0].PSCar1),
+          2 : parseInt(result.result[0].PSCar2)
+        })
+        setPSInterest({
+          0 : parseInt(result.result[0].PSInterest0),
+          1 : parseInt(result.result[0].PSInterest1),
+          2 : parseInt(result.result[0].PSInterest2),
+          3 : parseInt(result.result[0].PSInterest3),
+          4 : parseInt(result.result[0].PSInterest4),
+          5 : parseInt(result.result[0].PSInterest5),
+          6 : parseInt(result.result[0].PSInterest6),
+          7 : parseInt(result.result[0].PSInterest7),
+          8 : parseInt(result.result[0].PSInterest8),
+          9 : parseInt(result.result[0].PSInterest9),
+          10 : parseInt(result.result[0].PSInterest10),
+          11 : parseInt(result.result[0].PSInterest11),
+          12 : parseInt(result.result[0].PSInterest12),
+          13 : parseInt(result.result[0].PSInterest13),
+          14 : parseInt(result.result[0].PSInterest14),
+          15 : parseInt(result.result[0].PSInterest15),
+          16 : parseInt(result.result[0].PSInterest16),
+          17 : parseInt(result.result[0].PSInterest17),
+          18 : parseInt(result.result[0].PSInterest18),
+          19 : parseInt(result.result[0].PSInterest19),
+          20 : parseInt(result.result[0].PSInterest20),
+          21 : parseInt(result.result[0].PSInterest21),
+          22 : parseInt(result.result[0].PSInterest22),
+          23 : parseInt(result.result[0].PSInterest23),
+          24 : parseInt(result.result[0].PSInterest24),
+          25 : parseInt(result.result[0].PSInterest25),
+          26 : parseInt(result.result[0].PSInterest26),
+          27 : parseInt(result.result[0].PSInterest27),
+          28 : parseInt(result.result[0].PSInterest28)
+        })
+        setPSPersonality({
+          0 : parseInt(result.result[0].PSPersonality0),
+          1 : parseInt(result.result[0].PSPersonality1),
+          2 : parseInt(result.result[0].PSPersonality2),
+          3 : parseInt(result.result[0].PSPersonality3),
+          4 : parseInt(result.result[0].PSPersonality4),
+          5 : parseInt(result.result[0].PSPersonality5),
+          6 : parseInt(result.result[0].PSPersonality6),
+          7 : parseInt(result.result[0].PSPersonality7),
+          8 : parseInt(result.result[0].PSPersonality8),
+          9 : parseInt(result.result[0].PSPersonality9),
+          10 : parseInt(result.result[0].PSPersonality10),
+          11 : parseInt(result.result[0].PSPersonality11),
+          12 : parseInt(result.result[0].PSPersonality12),
+          13 : parseInt(result.result[0].PSPersonality13),
+          14 : parseInt(result.result[0].PSPersonality14),
+          15 : parseInt(result.result[0].PSPersonality15),
+          16 : parseInt(result.result[0].PSPersonality16),
+          17 : parseInt(result.result[0].PSPersonality17),
+          18 : parseInt(result.result[0].PSPersonality18),
+          19 : parseInt(result.result[0].PSPersonality19),
+          20 : parseInt(result.result[0].PSPersonality20),
+          21 : parseInt(result.result[0].PSPersonality21),
+          22 : parseInt(result.result[0].PSPersonality22),
+          23 : parseInt(result.result[0].PSPersonality23),
+          24 : parseInt(result.result[0].PSPersonality24),
+          25 : parseInt(result.result[0].PSPersonality25),
+          26 : parseInt(result.result[0].PSPersonality26),
+          27 : parseInt(result.result[0].PSPersonality27),
+          28 : parseInt(result.result[0].PSPersonality28),
+          29 : parseInt(result.result[0].PSPersonality29),
+          30 : parseInt(result.result[0].PSPersonality30),
+          31 : parseInt(result.result[0].PSPersonality31),
+          32 : parseInt(result.result[0].PSPersonality32),
+          33 : parseInt(result.result[0].PSPersonality33),
+          34 : parseInt(result.result[0].PSPersonality34),
+          35 : parseInt(result.result[0].PSPersonality35),
+          36 : parseInt(result.result[0].PSPersonality36),
+          37 : parseInt(result.result[0].PSPersonality37),
+          38 : parseInt(result.result[0].PSPersonality38),
+          39 : parseInt(result.result[0].PSPersonality39),
+          40 : parseInt(result.result[0].PSPersonality40),
+          41 : parseInt(result.result[0].PSPersonality41),
+          42 : parseInt(result.result[0].PSPersonality42),
+          43 : parseInt(result.result[0].PSPersonality43),
+          44 : parseInt(result.result[0].PSPersonality44),
+          45 : parseInt(result.result[0].PSPersonality45),
+          46 : parseInt(result.result[0].PSPersonality46)
+        })
+        setPSAnnuIncome({
+          0 : parseInt(result.result[0].PSAnnuIncome0),
+          1 : parseInt(result.result[0].PSAnnuIncome1),
+          2 : parseInt(result.result[0].PSAnnuIncome2),
+          3 : parseInt(result.result[0].PSAnnuIncome3),
+          4 : parseInt(result.result[0].PSAnnuIncome4),
+          5 : parseInt(result.result[0].PSAnnuIncome5),
+          6 : parseInt(result.result[0].PSAnnuIncome6),
+          7 : parseInt(result.result[0].PSAnnuIncome7),
+          8 : parseInt(result.result[0].PSAnnuIncome8),
+          9 : parseInt(result.result[0].PSAnnuIncome9),
+          10 : parseInt(result.result[0].PSAnnuIncome10)
+        })
+        setPSCute({
+          0 : parseInt(result.result[0].PSCute0),
+          1 : parseInt(result.result[0].PSCute1),
+          2 : parseInt(result.result[0].PSCute2),
+          3 : parseInt(result.result[0].PSCute3),
+          4 : parseInt(result.result[0].PSCute4),
+          5 : parseInt(result.result[0].PSCute5)
+        })
+        setPSSexy({
+          0 : parseInt(result.result[0].PSSexy0),
+          1 : parseInt(result.result[0].PSSexy1),
+          2 : parseInt(result.result[0].PSSexy2),
+          3 : parseInt(result.result[0].PSSexy3),
+          4 : parseInt(result.result[0].PSSexy4),
+          5 : parseInt(result.result[0].PSSexy5)
+        })
+        setPSKindness({
+          0 : parseInt(result.result[0].PSKindness0),
+          1 : parseInt(result.result[0].PSKindness1),
+          2 : parseInt(result.result[0].PSKindness2),
+          3 : parseInt(result.result[0].PSKindness3),
+          4 : parseInt(result.result[0].PSKindness4),
+          5 : parseInt(result.result[0].PSKindness5)
+        })
+        setPSSmartness({
+          0 : parseInt(result.result[0].PSSmartness0),
+          1 : parseInt(result.result[0].PSSmartness1),
+          2 : parseInt(result.result[0].PSSmartness2),
+          3 : parseInt(result.result[0].PSSmartness3),
+          4 : parseInt(result.result[0].PSSmartness4),
+          5 : parseInt(result.result[0].PSSmartness5)
+        })
+        setPSNeatness({
+          0 : parseInt(result.result[0].PSNeatness0),
+          1 : parseInt(result.result[0].PSNeatness1),
+          2 : parseInt(result.result[0].PSNeatness2),
+          3 : parseInt(result.result[0].PSNeatness3),
+          4 : parseInt(result.result[0].PSNeatness4),
+          5 : parseInt(result.result[0].PSNeatness5)
+        })
+        setPSFashionable({
+          0 : parseInt(result.result[0].PSFashionable0),
+          1 : parseInt(result.result[0].PSFashionable1),
+          2 : parseInt(result.result[0].PSFashionable2),
+          3 : parseInt(result.result[0].PSFashionable3),
+          4 : parseInt(result.result[0].PSFashionable4),
+          5 : parseInt(result.result[0].PSFashionable5)
+        })
+        setPSBrightness({
+          0 : parseInt(result.result[0].PSBrightness0),
+          1 : parseInt(result.result[0].PSBrightness1),
+          2 : parseInt(result.result[0].PSBrightness2),
+          3 : parseInt(result.result[0].PSBrightness3),
+          4 : parseInt(result.result[0].PSBrightness4),
+          5 : parseInt(result.result[0].PSBrightness5)
+        })
+        setPSElegance({
+          0 : parseInt(result.result[0].PSElegance0),
+          1 : parseInt(result.result[0].PSElegance1),
+          2 : parseInt(result.result[0].PSElegance2),
+          3 : parseInt(result.result[0].PSElegance3),
+          4 : parseInt(result.result[0].PSElegance4),
+          5 : parseInt(result.result[0].PSElegance5)
+        })
       }
     })
     setinitialized(true)
