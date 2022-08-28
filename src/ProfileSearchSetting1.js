@@ -116,14 +116,14 @@ export function ProfileSearchSetting1() {
       if (result.result !== "PSSND") {
         console.log("result:",result.result)
         setPSGender({
-          PSGender0 : parseInt(result.result[0].PSGender0),
-          PSGender1 : parseInt(result.result[0].PSGender1),
-          PSGender2 : parseInt(result.result[0].PSGender2),
-          PSGender3 : parseInt(result.result[0].PSGender3),
-          PSGender4 : parseInt(result.result[0].PSGender4),
-          PSGender5 : parseInt(result.result[0].PSGender5),
-          PSGender6 : parseInt(result.result[0].PSGender6),
-          PSGender7 : parseInt(result.result[0].PSGender7)
+          0 : parseInt(result.result[0].PSGender0),
+          1 : parseInt(result.result[0].PSGender1),
+          2 : parseInt(result.result[0].PSGender2),
+          3 : parseInt(result.result[0].PSGender3),
+          4 : parseInt(result.result[0].PSGender4),
+          5 : parseInt(result.result[0].PSGender5),
+          6 : parseInt(result.result[0].PSGender6),
+          7 : parseInt(result.result[0].PSGender7)
         })
 
         setPSAge({
