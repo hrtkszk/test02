@@ -115,33 +115,37 @@ export function ProfileSearchSetting1() {
     .then(result => {
       if (result.result !== "PSSND") {
         console.log("result:",result.result)
-        setPSGender({...PSGender, PSGender0 : parseInt(result.result[0].PSGender0)})
-        setPSGender({...PSGender, PSGender1 : parseInt(result.result[0].PSGender1)})
-        setPSGender({...PSGender, PSGender2 : parseInt(result.result[0].PSGender2)})
-        setPSGender({...PSGender, PSGender3 : parseInt(result.result[0].PSGender3)})
-        setPSGender({...PSGender, PSGender4 : parseInt(result.result[0].PSGender4)})
-        setPSGender({...PSGender, PSGender5 : parseInt(result.result[0].PSGender5)})
-        setPSGender({...PSGender, PSGender6 : parseInt(result.result[0].PSGender6)})
-        setPSGender({...PSGender, PSGender7 : parseInt(result.result[0].PSGender7)})
+        setPSGender({
+          PSGender0 : parseInt(result.result[0].PSGender0),
+          PSGender1 : parseInt(result.result[0].PSGender1),
+          PSGender2 : parseInt(result.result[0].PSGender2),
+          PSGender3 : parseInt(result.result[0].PSGender3),
+          PSGender4 : parseInt(result.result[0].PSGender4),
+          PSGender5 : parseInt(result.result[0].PSGender5),
+          PSGender6 : parseInt(result.result[0].PSGender6),
+          PSGender7 : parseInt(result.result[0].PSGender7)
+        })
 
-        setPSAge({...PSAge, PSAge0 : parseInt(result.result[0].PSAge0)})
-        setPSAge({...PSAge, PSAge1 : parseInt(result.result[0].PSAge1)})
-        setPSAge({...PSAge, PSAge2 : parseInt(result.result[0].PSAge2)})
-        setPSAge({...PSAge, PSAge3 : parseInt(result.result[0].PSAge3)})
-        setPSAge({...PSAge, PSAge4 : parseInt(result.result[0].PSAge4)})
-        setPSAge({...PSAge, PSAge5 : parseInt(result.result[0].PSAge5)})
-        setPSAge({...PSAge, PSAge6 : parseInt(result.result[0].PSAge6)})
-        setPSAge({...PSAge, PSAge7 : parseInt(result.result[0].PSAge7)})
-        setPSAge({...PSAge, PSAge8 : parseInt(result.result[0].PSAge8)})
-        setPSAge({...PSAge, PSAge9 : parseInt(result.result[0].PSAge9)})
-        setPSAge({...PSAge, PSAge10 : parseInt(result.result[0].PSAge10)})
-        setPSAge({...PSAge, PSAge11 : parseInt(result.result[0].PSAge11)})
-        setPSAge({...PSAge, PSAge12 : parseInt(result.result[0].PSAge12)})
-        setPSAge({...PSAge, PSAge13 : parseInt(result.result[0].PSAge13)})
-        setPSAge({...PSAge, PSAge14 : parseInt(result.result[0].PSAge14)})
-        setPSAge({...PSAge, PSAge15 : parseInt(result.result[0].PSAge15)})
-        setPSAge({...PSAge, PSAge16 : parseInt(result.result[0].PSAge16)})
-        setPSAge({...PSAge, PSAge17 : parseInt(result.result[0].PSAge17)})
+        setPSAge({
+          PSAge0 : parseInt(result.result[0].PSAge0),
+          PSAge1 : parseInt(result.result[0].PSAge1),
+          PSAge2 : parseInt(result.result[0].PSAge2),
+          PSAge3 : parseInt(result.result[0].PSAge3),
+          PSAge4 : parseInt(result.result[0].PSAge4),
+          PSAge5 : parseInt(result.result[0].PSAge5),
+          PSAge6 : parseInt(result.result[0].PSAge6),
+          PSAge7 : parseInt(result.result[0].PSAge7),
+          PSAge8 : parseInt(result.result[0].PSAge8),
+          PSAge9 : parseInt(result.result[0].PSAge9),
+          PSAge10 : parseInt(result.result[0].PSAge10),
+          PSAge11 : parseInt(result.result[0].PSAge11),
+          PSAge12 : parseInt(result.result[0].PSAge12),
+          PSAge13 : parseInt(result.result[0].PSAge13),
+          PSAge14 : parseInt(result.result[0].PSAge14),
+          PSAge15 : parseInt(result.result[0].PSAge15),
+          PSAge16 : parseInt(result.result[0].PSAge16),
+          PSAge17 : parseInt(result.result[0].PSAge17)
+        })
 
         setPSProfilePicture({...PSProfilePicture, PSProfilePicture0 : parseInt(result.result[0].PSProfilePicture0)})
         setPSProfilePicture({...PSProfilePicture, PSProfilePicture1 : parseInt(result.result[0].PSProfilePicture1)})
