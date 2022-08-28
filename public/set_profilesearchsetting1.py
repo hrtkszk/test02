@@ -30,7 +30,7 @@ if checkExist==None:
         cursor.execute(f" \
             INSERT INTO `{ProfileSearchSetting1}` \
             SET \
-                UUID={sys.argv[1]}, \
+                UUID='{sys.argv[1]}', \
                 PSGender0={sys.argv[2]}, \
                 PSGender1={sys.argv[3]}, \
                 PSGender2={sys.argv[4]}, \
@@ -606,7 +606,7 @@ else:
                 PSElegance4={sys.argv[281]}, \
                 PSElegance5={sys.argv[282]} \
             WHERE \
-                UUID={sys.argv[1]} \
+                UUID='{sys.argv[1]}' \
         ")
         print("SPSSS") # Set Profile Search Setting Success
     except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
