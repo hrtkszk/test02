@@ -72,11 +72,11 @@ const FormMultiSelect = (props) => {
                             />
                             {props.keyValue[key]}<br />
                         </label>
-                        {/* {console.log(props.title, ":", key, ":", props.defaultValue[key])} */}
+                        {console.log(props.title, ":", key, ":", props.defaultValue[key])}
                     </>
                 ))}
             </span>
-            {/* {console.log(props.title, ":", props.defaultValue)} */}
+            {console.log(props.title, ":", props.defaultValue)}
         </>
     )    
 }
