@@ -110,7 +110,7 @@ export function ProfileSearchSetting1() {
         setPSArea(result.result)
       }
     })
-    fetch("../../get_profilesearchsetting.php",initialRequestOptions)
+    fetch("../../get_profilesearchsetting1.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
       if (result.result !== "PSSND") {
