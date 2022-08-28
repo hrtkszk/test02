@@ -21,6 +21,7 @@ if($output[1]!="None") {
         $value=trim($value,"\"(");
         $value=trim($value,")\"");
         $value=str_replace("'",'',$value);
+        $value=str_replace("b'\\x0",'',$value);
         $value1=explode(", ",$value);
         $output1 = array_combine($output0,$value1);
         $output2 = $output2 + array("$it" => $output1);
