@@ -606,7 +606,7 @@ else:
                 PSElegance4={sys.argv[281]}, \
                 PSElegance5={sys.argv[282]} \
             WHERE \
-                UUID='{sys.argv[1]}' \
+                UUID={sys.argv[1]} \
         ")
         print("SPSSS") # Set Profile Search Setting Success
     except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
