@@ -114,6 +114,7 @@ export function ProfileSearchSetting1() {
     .then((response) => response.json())
     .then(result => {
       if (result.result !== "PSSND") {
+        console.log(result.result[0])
         setPSGender({...PSGender, PSGender0 : result.result[0].PSGender0})
         setPSGender({...PSGender, PSGender1 : result.result[0].PSGender1})
         setPSGender({...PSGender, PSGender2 : result.result[0].PSGender2})
