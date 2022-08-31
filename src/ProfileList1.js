@@ -1,13 +1,13 @@
 import * as React from "react";
-import {
-  Link,
-  // Outlet
-  // useNavigate
-} from "react-router-dom";
+// import {
+//   Link,
+//   // Outlet
+//   // useNavigate
+// } from "react-router-dom";
 import { useState } from 'react';
 import { useAuth } from "./useAuth";
 import "./Profile.css";
-import ProfileDB from "./Profile.json";
+// import ProfileDB from "./Profile.json";
 
 
 export function ProfileList1() {
@@ -30,8 +30,8 @@ export function ProfileList1() {
     .then((response)=> response.json())
     .then(result =>{
       // console.log(result)
-      setProfileList(result.pythonout2)
-      console.log(result.pythonout2)
+      setProfileList(result.result)
+      console.log(result.result)
     })
     setinitialized(true)
   }
@@ -47,7 +47,7 @@ export function ProfileList1() {
       <div>
         <h1>Profile List for {auth.user}</h1>
         <div>
-        <ul>
+        {/* <ul>
             {Profile_List.map((Profile, i) => {
               return <li key={Profile.UUID} onClick={() => auth.setAite(Profile.UUID)}>
                 <Link to="../Detail">
@@ -57,7 +57,7 @@ export function ProfileList1() {
                 </Link>
               </li>
             })}
-        </ul>
+        </ul> */}
         </div>
 
       </div>
