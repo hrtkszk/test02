@@ -27,13 +27,19 @@ try:
     profileSearchSetting = cursor.fetchone()
     DictPSS = dict(zip(field_names, profileSearchSetting))
     print(DictPSS)
+    print(DictPSS['PSGender1'])
     
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
     print(e)
 
 # 検索設定に基づいたProfileTable1の検索
 try:
-    cursor.execute(f"SELECT * FROM {ProfileTable1} WHERE UUID != '{sys.argv[1]}'")
+    cursor.execute(f" \
+        SELECT * \
+        FROM {ProfileTable1} \
+        WHERE \
+            UUID != '{sys.argv[1]}' \
+    ")
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
     print(e)
 
