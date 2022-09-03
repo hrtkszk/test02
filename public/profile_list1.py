@@ -25,13 +25,21 @@ try:
     cursor.execute(f"SELECT * FROM {ProfileSearchSetting1} WHERE UUID='{sys.argv[1]}'")
     field_names = [i[0] for i in cursor.description]
     print(field_names)
-    profileSearchSetting = [(int.from_bytes(i, "big"), print("true:",type(i))) if type(i) == "<class 'bytes'>" else (i, print("false:",type(i))) for i in cursor.fetchone()]
-    # profileSearchSetting = cursor.fetchone()
-    print(profileSearchSetting)
-    DictPSS = dict(zip(field_names, profileSearchSetting))
-    print(DictPSS)
-    print(DictPSS['PSGender1'])
-    print(type(DictPSS['PSGender1']))
+    # profileSearchSetting = [(int.from_bytes(i, "big"), print("true:",type(i))) if type(i) == "<class 'bytes'>" else (i, print("false:",type(i))) for i in cursor.fetchone()]
+    profileSearchSetting = cursor.fetchone()
+    L = []
+    for i in profileSearchSetting:
+        if type(i) == "<class 'bytes'>":
+            L.append(int.from_bytes(i, "big"))
+            print("true:", type(i))
+        else:
+            L.append(i)
+            print("false:", type(i))
+    print(L)
+    # DictPSS = dict(zip(field_names, profileSearchSetting))
+    # print(DictPSS)
+    # print(DictPSS['PSGender1'])
+    # print(type(DictPSS['PSGender1']))
     # print(int.from_bytes(DictPSS['PSGender1'], "big"))
     # ここでforである程度SQL分を作ってしまうのが良さそう。(Gender0=1などの形に)
     
