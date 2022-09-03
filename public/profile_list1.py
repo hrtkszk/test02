@@ -29,8 +29,9 @@ try:
     print(DictPSS)
     DictPSS1 = {}
     for k, v in DictPSS.items():
-        if v != 0:
-            DictPSS1[k[2:]] = v
+        if k[:1] == "PS":
+            if v != 0:
+                DictPSS1[k[1:]] = v
     print(DictPSS1)
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError) as e:
     print(e)
