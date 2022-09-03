@@ -285,7 +285,6 @@ try:
                     AgeFlag += 1
                     continue
         if ("ProfilePicture" in k): 
-            ProfilePictureNo += 1
             if ProfilePictureFlag == 1:
                 if ProfilePictureNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
@@ -466,7 +465,6 @@ try:
                     ZodiacFlag += 1
                     continue
         if ("MarriageStatus" in k): 
-            MarriageStatusNo += 1
             if MarriageStatusFlag == 1:
                 if MarriageStatusNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
