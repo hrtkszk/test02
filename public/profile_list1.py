@@ -27,11 +27,12 @@ try:
     profileSearchSetting = [int.from_bytes(i, "big") if isinstance(i, bytes) else i for i in cursor.fetchone()]
     DictPSS = dict(zip(field_names, profileSearchSetting))
     print(DictPSS)
+    DictPSS1 = {}
     for k, v in DictPSS.items():
         print(k, ":", v)
-        if v == 0:
-            del DictPSS[k]
-    print(DictPSS)
+        if v != 0:
+            DictPSS1[k] = v
+    print(DictPSS1)
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError) as e:
     print(e)
 
