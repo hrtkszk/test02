@@ -29,7 +29,7 @@ try:
     profileSearchSetting = cursor.fetchone()
     L = []
     for i in profileSearchSetting:
-        if type(i) == "<class 'bytes'>":
+        if type(i) == "class 'bytes'":
             L.append(int.from_bytes(i, "big"))
             print("true:", type(i))
         else:
