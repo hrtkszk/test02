@@ -214,525 +214,525 @@ try:
         if ("AgeConf" in k): 
             if AgeConfFlag == 1:
                 if AgeConfNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     AgeConfFlag += 1
                     continue
                 elif AgeConfNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     AgeConfFlag += 1
                     continue
             else:
                 if AgeConfFlag == AgeConfNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     AgeConfFlag += 1
                     continue
         if ("Order" in k): 
             if OrderFlag == 1:
                 if OrderNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     OrderFlag += 1
                     continue
                 elif OrderNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     OrderFlag += 1
                     continue
             else:
                 if OrderFlag == OrderNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     OrderFlag += 1
                     continue
         if ("Gender" in k): 
             if GenderFlag == 1:
                 if GenderNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     GenderFlag += 1
                     continue
                 elif GenderNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     GenderFlag += 1
                     continue
             else:
                 if GenderFlag == GenderNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     GenderFlag += 1
                     continue
         if ("Age" in k): 
             if AgeFlag == 1:
                 if AgeNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     AgeFlag += 1
                     continue
                 elif AgeNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     AgeFlag += 1
                     continue
             else:
                 if AgeFlag == AgeNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     AgeFlag += 1
                     continue
         if ("ProfilePicture" in k): 
             ProfilePictureNo += 1
             if ProfilePictureFlag == 1:
                 if ProfilePictureNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     ProfilePictureFlag += 1
                     continue
                 elif ProfilePictureNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     ProfilePictureFlag += 1
                     continue
             else:
                 if ProfilePictureFlag == ProfilePictureNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     ProfilePictureFlag += 1
                     continue
         if ("ProfileMessage" in k): 
             if ProfileMessageFlag == 1:
                 if ProfileMessageNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     ProfileMessageFlag += 1
                     continue
                 elif ProfileMessageNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     ProfileMessageFlag += 1
                     continue
             else:
                 if ProfileMessageFlag == ProfileMessageNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     ProfileMessageFlag += 1
                     continue
         if ("Height" in k): 
             if HeightFlag == 1:
                 if HeightNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     HeightFlag += 1
                     continue
                 elif HeightNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     HeightFlag += 1
                     continue
             else:
                 if HeightFlag == HeightNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     HeightFlag += 1
                     continue
         if ("Style" in k): 
             if StyleFlag == 1:
                 if StyleNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     StyleFlag += 1
                     continue
                 elif StyleNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     StyleFlag += 1
                     continue
             else:
                 if StyleFlag == StyleNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     StyleFlag += 1
                     continue
         if ("Looks" in k): 
             if LooksFlag == 1:
                 if LooksNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     LooksFlag += 1
                     continue
                 elif LooksNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     LooksFlag += 1
                     continue
             else:
                 if LooksFlag == LooksNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     LooksFlag += 1
                     continue
         if ("Cup" in k): 
             if CupFlag == 1:
                 if CupNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     CupFlag += 1
                     continue
                 elif CupNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     CupFlag += 1
                     continue
             else:
                 if CupFlag == CupNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     CupFlag += 1
                     continue
         if ("BloodType" in k): 
             if BloodTypeFlag == 1:
                 if BloodTypeNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     BloodTypeFlag += 1
                     continue
                 elif BloodTypeNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     BloodTypeFlag += 1
                     continue
             else:
                 if BloodTypeFlag == BloodTypeNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     BloodTypeFlag += 1
                     continue
         if ("Job" in k): 
             if JobFlag == 1:
                 if JobNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     JobFlag += 1
                     continue
                 elif JobNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     JobFlag += 1
                     continue
             else:
                 if JobFlag == JobNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     JobFlag += 1
                     continue
         if ("EduBack" in k): 
             if EduBackFlag == 1:
                 if EduBackNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     EduBackFlag += 1
                     continue
                 elif EduBackNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     EduBackFlag += 1
                     continue
             else:
                 if EduBackFlag == EduBackNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     EduBackFlag += 1
                     continue
         if ("Zodiac" in k): 
             if ZodiacFlag == 1:
                 if ZodiacNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     ZodiacFlag += 1
                     continue
                 elif ZodiacNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     ZodiacFlag += 1
                     continue
             else:
                 if ZodiacFlag == ZodiacNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     ZodiacFlag += 1
                     continue
         if ("MarriageStatus" in k): 
             MarriageStatusNo += 1
             if MarriageStatusFlag == 1:
                 if MarriageStatusNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     MarriageStatusFlag += 1
                     continue
                 elif MarriageStatusNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     MarriageStatusFlag += 1
                     continue
             else:
                 if MarriageStatusFlag == MarriageStatusNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     MarriageStatusFlag += 1
                     continue
         if ("Kids" in k): 
             if KidsFlag == 1:
                 if KidsNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     KidsFlag += 1
                     continue
                 elif KidsNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     KidsFlag += 1
                     continue
             else:
                 if KidsFlag == KidsNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     KidsFlag += 1
                     continue
         if ("Tabacco" in k): 
             if TabaccoFlag == 1:
                 if TabaccoNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     TabaccoFlag += 1
                     continue
                 elif TabaccoNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     TabaccoFlag += 1
                     continue
             else:
                 if TabaccoFlag == TabaccoNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     TabaccoFlag += 1
                     continue
         if ("Car" in k): 
             if CarFlag == 1:
                 if CarNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     CarFlag += 1
                     continue
                 elif CarNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     CarFlag += 1
                     continue
             else:
                 if CarFlag == CarNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     CarFlag += 1
                     continue
         if ("Interest" in k): 
             if InterestFlag == 1:
                 if InterestNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     InterestFlag += 1
                     continue
                 elif InterestNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     InterestFlag += 1
                     continue
             else:
                 if InterestFlag == InterestNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     InterestFlag += 1
                     continue
         if ("Personality" in k): 
             if PersonalityFlag == 1:
                 if PersonalityNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     PersonalityFlag += 1
                     continue
                 elif PersonalityNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     PersonalityFlag += 1
                     continue
             else:
                 if PersonalityFlag == PersonalityNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     PersonalityFlag += 1
                     continue
         if ("AnnuIncome" in k): 
             if AnnuIncomeFlag == 1:
                 if AnnuIncomeNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     AnnuIncomeFlag += 1
                     continue
                 elif AnnuIncomeNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     AnnuIncomeFlag += 1
                     continue
             else:
                 if AnnuIncomeFlag == AnnuIncomeNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     AnnuIncomeFlag += 1
                     continue
         if ("Cute" in k): 
             if CuteFlag == 1:
                 if CuteNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     CuteFlag += 1
                     continue
                 elif CuteNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     CuteFlag += 1
                     continue
             else:
                 if CuteFlag == CuteNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     CuteFlag += 1
                     continue
         if ("Sexy" in k): 
             if SexyFlag == 1:
                 if SexyNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     SexyFlag += 1
                     continue
                 elif SexyNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     SexyFlag += 1
                     continue
             else:
                 if SexyFlag == SexyNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     SexyFlag += 1
                     continue
         if ("Kindness" in k): 
             if KindnessFlag == 1:
                 if KindnessNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     KindnessFlag += 1
                     continue
                 elif KindnessNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     KindnessFlag += 1
                     continue
             else:
                 if KindnessFlag == KindnessNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     KindnessFlag += 1
                     continue
         if ("Smartness" in k): 
             if SmartnessFlag == 1:
                 if SmartnessNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     SmartnessFlag += 1
                     continue
                 elif SmartnessNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     SmartnessFlag += 1
                     continue
             else:
                 if SmartnessFlag == SmartnessNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     SmartnessFlag += 1
                     continue
         if ("Neatness" in k): 
             if NeatnessFlag == 1:
                 if NeatnessNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     NeatnessFlag += 1
                     continue
                 elif NeatnessNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     NeatnessFlag += 1
                     continue
             else:
                 if NeatnessFlag == NeatnessNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     NeatnessFlag += 1
                     continue
         if ("Fashionable" in k): 
             if FashionableFlag == 1:
                 if FashionableNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     FashionableFlag += 1
                     continue
                 elif FashionableNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     FashionableFlag += 1
                     continue
             else:
                 if FashionableFlag == FashionableNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     FashionableFlag += 1
                     continue
         if ("Brightness" in k): 
             if BrightnessFlag == 1:
                 if BrightnessNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     BrightnessFlag += 1
                     continue
                 elif BrightnessNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     BrightnessFlag += 1
                     continue
             else:
                 if BrightnessFlag == BrightnessNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     BrightnessFlag += 1
                     continue
         if ("Elegance" in k): 
             if EleganceFlag == 1:
                 if EleganceNo == 1:
-                    PSS_SQL += " AND {k} = 1"
+                    PSS_SQL += " AND ", k, " = 1"
                     EleganceFlag += 1
                     continue
                 elif EleganceNo >= 2:
-                    PSS_SQL += " AND ({k} = 1"
+                    PSS_SQL += " AND (", k, " = 1"
                     EleganceFlag += 1
                     continue
             else:
                 if EleganceFlag == EleganceNo:
-                    PSS_SQL += " OR {k} = 1)"
+                    PSS_SQL += " OR ", k, " = 1)"
                     continue
                 else:
-                    PSS_SQL += " OR {k} = 1"
+                    PSS_SQL += " OR ", k, " = 1"
                     EleganceFlag += 1
                     continue
     print(PSS_SQL)
