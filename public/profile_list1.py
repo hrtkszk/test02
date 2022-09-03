@@ -291,42 +291,42 @@ try:
                     PSS_SQL += " OR " + k + " = 1"
                     AgeFlag += 1
                     continue
-        if ("ProfilePicture" in k): 
-            if ProfilePictureFlag == 1:
-                if ProfilePictureNo == 1:
-                    PSS_SQL += " AND " + k + " = 1"
-                    ProfilePictureFlag += 1
-                    continue
-                elif ProfilePictureNo >= 2:
-                    PSS_SQL += " AND (" + k + " = 1"
-                    ProfilePictureFlag += 1
-                    continue
-            else:
-                if ProfilePictureFlag == ProfilePictureNo:
-                    PSS_SQL += " OR " + k + " = 1)"
-                    continue
-                else:
-                    PSS_SQL += " OR " + k + " = 1"
-                    ProfilePictureFlag += 1
-                    continue
-        if ("ProfileMessage" in k): 
-            if ProfileMessageFlag == 1:
-                if ProfileMessageNo == 1:
-                    PSS_SQL += " AND " + k + " = 1"
-                    ProfileMessageFlag += 1
-                    continue
-                elif ProfileMessageNo >= 2:
-                    PSS_SQL += " AND (" + k + " = 1"
-                    ProfileMessageFlag += 1
-                    continue
-            else:
-                if ProfileMessageFlag == ProfileMessageNo:
-                    PSS_SQL += " OR " + k + " = 1)"
-                    continue
-                else:
-                    PSS_SQL += " OR " + k + " = 1"
-                    ProfileMessageFlag += 1
-                    continue
+        # if ("ProfilePicture" in k): 
+        #     if ProfilePictureFlag == 1:
+        #         if ProfilePictureNo == 1:
+        #             PSS_SQL += " AND " + k + " = 1"
+        #             ProfilePictureFlag += 1
+        #             continue
+        #         elif ProfilePictureNo >= 2:
+        #             PSS_SQL += " AND (" + k + " = 1"
+        #             ProfilePictureFlag += 1
+        #             continue
+        #     else:
+        #         if ProfilePictureFlag == ProfilePictureNo:
+        #             PSS_SQL += " OR " + k + " = 1)"
+        #             continue
+        #         else:
+        #             PSS_SQL += " OR " + k + " = 1"
+        #             ProfilePictureFlag += 1
+        #             continue
+        # if ("ProfileMessage" in k): 
+        #     if ProfileMessageFlag == 1:
+        #         if ProfileMessageNo == 1:
+        #             PSS_SQL += " AND " + k + " = 1"
+        #             ProfileMessageFlag += 1
+        #             continue
+        #         elif ProfileMessageNo >= 2:
+        #             PSS_SQL += " AND (" + k + " = 1"
+        #             ProfileMessageFlag += 1
+        #             continue
+        #     else:
+        #         if ProfileMessageFlag == ProfileMessageNo:
+        #             PSS_SQL += " OR " + k + " = 1)"
+        #             continue
+        #         else:
+        #             PSS_SQL += " OR " + k + " = 1"
+        #             ProfileMessageFlag += 1
+        #             continue
         if ("Height" in k): 
             if HeightFlag == 1:
                 if HeightNo == 1:
