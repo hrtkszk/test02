@@ -26,7 +26,8 @@ try:
     field_names = [i[0] for i in cursor.description]
     print(field_names)
     profileSearchSetting = [int.from_bytes(i, "big") if isinstance(i, bytes) else i for i in cursor.fetchone()]
-    profileSearchSetting = cursor.fetchone()
+    # profileSearchSetting = cursor.fetchone()
+    print(profileSearchSetting)
     DictPSS = dict(zip(field_names, profileSearchSetting))
     print(DictPSS)
     print(DictPSS['PSGender1'])
