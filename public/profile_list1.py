@@ -32,7 +32,7 @@ try:
         if v == 0:
             del DictPSS[k]
     print(DictPSS)
-except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
+except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError) as e:
     print(e)
 
 # 検索設定に基づいたProfileTable1の検索
