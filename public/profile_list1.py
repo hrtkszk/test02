@@ -26,7 +26,6 @@ try:
     field_names = [i[0] for i in cursor.description]
     profileSearchSetting = [int.from_bytes(i, "big") if isinstance(i, bytes) else i for i in cursor.fetchone()]
     DictPSS = dict(zip(field_names, profileSearchSetting))
-    print(DictPSS)
     DictPSS1 = {}
     for k, v in DictPSS.items():
         if k[:2] == "PS":
@@ -34,7 +33,153 @@ try:
                 DictPSS1[k[2:]] = v
         else:
             DictPSS1[k] = v
-    print(DictPSS1)
+    AgeConfNo = 0
+    OrderNo = 0
+    GenderNo = 0
+    AgeNo = 0
+    ProfilePictureNo = 0
+    ProfileMessageNo = 0
+    HeightNo = 0
+    StyleNo = 0
+    LooksNo = 0
+    CupNo = 0
+    BloodTypeNo = 0
+    JobNo = 0
+    EduBackNo = 0
+    ZodiacNo = 0
+    MarriageStatusNo = 0
+    KidsNo = 0
+    TabaccoNo = 0
+    CarNo = 0
+    InterestNo = 0
+    PersonalityNo = 0
+    AnnuIncomeNo = 0
+    CuteNo = 0
+    SexyNo = 0
+    KindnessNo = 0
+    SmartnessNo = 0
+    NeatnessNo = 0
+    FashionableNo = 0
+    BrightnessNo = 0
+    EleganceNo = 0
+    for k in DictPSS1.keys():
+        if ("AgeConf" in k): 
+            AgeConfNo += 1
+            continue
+        if ("Order" in k): 
+            OrderNo += 1
+            continue
+        if ("Gender" in k): 
+            GenderNo += 1
+            continue
+        if ("Age" in k): 
+            AgeNo += 1
+            continue
+        if ("ProfilePicture" in k): 
+            ProfilePictureNo += 1
+            continue
+        if ("ProfileMessage" in k): 
+            ProfileMessageNo += 1
+            continue
+        if ("Height" in k): 
+            HeightNo += 1
+            continue
+        if ("Style" in k): 
+            StyleNo += 1
+            continue
+        if ("Looks" in k): 
+            LooksNo += 1
+            continue
+        if ("Cup" in k): 
+            CupNo += 1
+            continue
+        if ("BloodType" in k): 
+            BloodTypeNo += 1
+            continue
+        if ("Job" in k): 
+            JobNo += 1
+            continue
+        if ("EduBack" in k): 
+            EduBackNo += 1
+            continue
+        if ("Zodiac" in k): 
+            ZodiacNo += 1
+            continue
+        if ("MarriageStatus" in k): 
+            MarriageStatusNo += 1
+            continue
+        if ("Kids" in k): 
+            KidsNo += 1
+            continue
+        if ("Tabacco" in k): 
+            TabaccoNo += 1
+            continue
+        if ("Car" in k): 
+            CarNo += 1
+            continue
+        if ("Interest" in k): 
+            InterestNo += 1
+            continue
+        if ("Personality" in k): 
+            PersonalityNo += 1
+            continue
+        if ("AnnuIncome" in k): 
+            AnnuIncomeNo += 1
+            continue
+        if ("Cute" in k): 
+            CuteNo += 1
+            continue
+        if ("Sexy" in k): 
+            SexyNo += 1
+            continue
+        if ("Kindness" in k): 
+            KindnessNo += 1
+            continue
+        if ("Smartness" in k): 
+            SmartnessNo += 1
+            continue
+        if ("Neatness" in k): 
+            NeatnessNo += 1
+            continue
+        if ("Fashionable" in k): 
+            FashionableNo += 1
+            continue
+        if ("Brightness" in k): 
+            BrightnessNo += 1
+            continue
+        if ("Elegance" in k): 
+            EleganceNo += 1
+            continue
+    print("AgeConfNo:" ,AgeConfNo)
+    print("OrderNo:" ,OrderNo)
+    print("GenderNo:" ,GenderNo)
+    print("AgeNo:" ,AgeNo)
+    print("ProfilePictureNo:" ,ProfilePictureNo)
+    print("ProfileMessageNo:" ,ProfileMessageNo)
+    print("HeightNo:" ,HeightNo)
+    print("StyleNo:" ,StyleNo)
+    print("LooksNo:" ,LooksNo)
+    print("CupNo:" ,CupNo)
+    print("BloodTypeNo:" ,BloodTypeNo)
+    print("JobNo:" ,JobNo)
+    print("EduBackNo:" ,EduBackNo)
+    print("ZodiacNo:" ,ZodiacNo)
+    print("MarriageStatusNo:" ,MarriageStatusNo)
+    print("KidsNo:" ,KidsNo)
+    print("TabaccoNo:" ,TabaccoNo)
+    print("CarNo:" ,CarNo)
+    print("InterestNo:" ,InterestNo)
+    print("PersonalityNo:" ,PersonalityNo)
+    print("AnnuIncomeNo:" ,AnnuIncomeNo)
+    print("CuteNo:" ,CuteNo)
+    print("SexyNo:" ,SexyNo)
+    print("KindnessNo:" ,KindnessNo)
+    print("SmartnessNo:" ,SmartnessNo)
+    print("NeatnessNo:" ,NeatnessNo)
+    print("FashionableNo:" ,FashionableNo)
+    print("BrightnessNo:" ,BrightnessNo)
+    print("EleganceNo:" ,EleganceNo)
+
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError) as e:
     print(e)
 
