@@ -25,7 +25,7 @@ try:
     cursor.execute(f"SELECT * FROM {ProfileSearchSetting1} WHERE UUID='{sys.argv[1]}'")
     field_names = [i[0] for i in cursor.description]
     print(field_names)
-    profileSearchSetting = [int.from_bytes(i, "big") if type(i) == 'bytes' else i for i in cursor.fetchone()]
+    profileSearchSetting = [(int.from_bytes(i, "big"), print("true:",type(i))) if type(i) == "<class 'bytes'>" else (i, print("false:",type(i))) for i in cursor.fetchone()]
     # profileSearchSetting = cursor.fetchone()
     print(profileSearchSetting)
     DictPSS = dict(zip(field_names, profileSearchSetting))
