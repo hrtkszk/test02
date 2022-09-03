@@ -28,10 +28,10 @@ try:
     profileSearchSetting = [int.from_bytes(i, "big") if type(i) == "<class 'bytes'>" else i for i in cursor.fetchone()]
     # profileSearchSetting = cursor.fetchone()
     print(profileSearchSetting)
-    # DictPSS = dict(zip(field_names, profileSearchSetting))
-    # print(DictPSS)
-    # print(DictPSS['PSGender1'])
-    # print(type(DictPSS['PSGender1']))
+    DictPSS = dict(zip(field_names, profileSearchSetting))
+    print(DictPSS)
+    print(DictPSS['PSGender1'])
+    print(type(DictPSS['PSGender1']))
     # print(int.from_bytes(DictPSS['PSGender1'], "big"))
     # ここでforである程度SQL分を作ってしまうのが良さそう。(Gender0=1などの形に)
     
