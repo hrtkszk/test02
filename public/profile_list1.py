@@ -237,24 +237,24 @@ try:
                     PSS_SQL += " OR " + k + " = 1"
                     AgeConfFlag += 1
                     continue
-        if ("Order" in k): 
-            if OrderFlag == 1:
-                if OrderNo == 1:
-                    PSS_SQL += " AND " + k + " = 1"
-                    OrderFlag += 1
-                    continue
-                elif OrderNo >= 2:
-                    PSS_SQL += " AND (" + k + " = 1"
-                    OrderFlag += 1
-                    continue
-            else:
-                if OrderFlag == OrderNo:
-                    PSS_SQL += " OR " + k + " = 1)"
-                    continue
-                else:
-                    PSS_SQL += " OR " + k + " = 1"
-                    OrderFlag += 1
-                    continue
+        # if ("Order" in k): 
+        #     if OrderFlag == 1:
+        #         if OrderNo == 1:
+        #             PSS_SQL += " AND " + k + " = 1"
+        #             OrderFlag += 1
+        #             continue
+        #         elif OrderNo >= 2:
+        #             PSS_SQL += " AND (" + k + " = 1"
+        #             OrderFlag += 1
+        #             continue
+        #     else:
+        #         if OrderFlag == OrderNo:
+        #             PSS_SQL += " OR " + k + " = 1)"
+        #             continue
+        #         else:
+        #             PSS_SQL += " OR " + k + " = 1"
+        #             OrderFlag += 1
+        #             continue
         if ("Gender" in k): 
             if GenderFlag == 1:
                 if GenderNo == 1:
