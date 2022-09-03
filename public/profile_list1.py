@@ -29,7 +29,6 @@ try:
     print(DictPSS)
     DictPSS1 = {}
     for k, v in DictPSS.items():
-        print(k, ":", v)
         if v != 0:
             DictPSS1[k] = v
     print(DictPSS1)
