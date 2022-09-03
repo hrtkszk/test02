@@ -213,11 +213,11 @@ try:
     PSS_SQL = ""
     for k, v in DictPSS1.items():
         if k == "UUID":
-            PSS_SQL += k + " != " + v
+            PSS_SQL += k + " != '" + v + "'"
             continue
         if k == "NickName":
             if v != None:
-                PSS_SQL += " AND " + k + " = " + v
+                PSS_SQL += " AND " + k + " = '" + v + "'"
                 continue
         if ("AgeConf" in k): 
             if AgeConfFlag == 1:
