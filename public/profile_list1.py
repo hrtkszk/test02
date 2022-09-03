@@ -24,12 +24,15 @@ cursor = connection.cursor()
 try:
     cursor.execute(f"SELECT * FROM {ProfileSearchSetting1} WHERE UUID='{sys.argv[1]}'")
     field_names = [i[0] for i in cursor.description]
-    profileSearchSetting = cursor.fetchone()
-    DictPSS = dict(zip(field_names, profileSearchSetting))
-    print(DictPSS)
-    print(DictPSS['PSGender1'])
-    print(type(DictPSS['PSGender1']))
-    print(int.from_bytes(DictPSS['PSGender1'], "little"))
+    print(field_names)
+    profileSearchSetting = [int.from_bytes(i) for i in cursor.fetchone()]
+    # profileSearchSetting = cursor.fetchone()
+    print(profileSearchSetting)
+    # DictPSS = dict(zip(field_names, profileSearchSetting))
+    # print(DictPSS)
+    # print(DictPSS['PSGender1'])
+    # print(type(DictPSS['PSGender1']))
+    # print(int.from_bytes(DictPSS['PSGender1'], "big"))
     # ここでforである程度SQL分を作ってしまうのが良さそう。(Gender0=1などの形に)
     
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
