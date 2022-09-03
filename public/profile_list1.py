@@ -28,6 +28,8 @@ try:
     DictPSS = dict(zip(field_names, profileSearchSetting))
     print(DictPSS)
     print(DictPSS['PSGender1'])
+    print(type(DictPSS['PSGender1']))
+    # ここでforである程度SQL分を作ってしまうのが良さそう。(Gender0=1などの形に)
     
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
     print(e)
