@@ -150,35 +150,35 @@ try:
         if ("Elegance" in k): 
             EleganceNo += 1
             continue
-    print("AgeConfNo:" ,AgeConfNo)
-    print("OrderNo:" ,OrderNo)
-    print("GenderNo:" ,GenderNo)
-    print("AgeNo:" ,AgeNo)
-    print("ProfilePictureNo:" ,ProfilePictureNo)
-    print("ProfileMessageNo:" ,ProfileMessageNo)
-    print("HeightNo:" ,HeightNo)
-    print("StyleNo:" ,StyleNo)
-    print("LooksNo:" ,LooksNo)
-    print("CupNo:" ,CupNo)
-    print("BloodTypeNo:" ,BloodTypeNo)
-    print("JobNo:" ,JobNo)
-    print("EduBackNo:" ,EduBackNo)
-    print("ZodiacNo:" ,ZodiacNo)
-    print("MarriageStatusNo:" ,MarriageStatusNo)
-    print("KidsNo:" ,KidsNo)
-    print("TabaccoNo:" ,TabaccoNo)
-    print("CarNo:" ,CarNo)
-    print("InterestNo:" ,InterestNo)
-    print("PersonalityNo:" ,PersonalityNo)
-    print("AnnuIncomeNo:" ,AnnuIncomeNo)
-    print("CuteNo:" ,CuteNo)
-    print("SexyNo:" ,SexyNo)
-    print("KindnessNo:" ,KindnessNo)
-    print("SmartnessNo:" ,SmartnessNo)
-    print("NeatnessNo:" ,NeatnessNo)
-    print("FashionableNo:" ,FashionableNo)
-    print("BrightnessNo:" ,BrightnessNo)
-    print("EleganceNo:" ,EleganceNo)
+    # print("AgeConfNo:" ,AgeConfNo)
+    # print("OrderNo:" ,OrderNo)
+    # print("GenderNo:" ,GenderNo)
+    # print("AgeNo:" ,AgeNo)
+    # print("ProfilePictureNo:" ,ProfilePictureNo)
+    # print("ProfileMessageNo:" ,ProfileMessageNo)
+    # print("HeightNo:" ,HeightNo)
+    # print("StyleNo:" ,StyleNo)
+    # print("LooksNo:" ,LooksNo)
+    # print("CupNo:" ,CupNo)
+    # print("BloodTypeNo:" ,BloodTypeNo)
+    # print("JobNo:" ,JobNo)
+    # print("EduBackNo:" ,EduBackNo)
+    # print("ZodiacNo:" ,ZodiacNo)
+    # print("MarriageStatusNo:" ,MarriageStatusNo)
+    # print("KidsNo:" ,KidsNo)
+    # print("TabaccoNo:" ,TabaccoNo)
+    # print("CarNo:" ,CarNo)
+    # print("InterestNo:" ,InterestNo)
+    # print("PersonalityNo:" ,PersonalityNo)
+    # print("AnnuIncomeNo:" ,AnnuIncomeNo)
+    # print("CuteNo:" ,CuteNo)
+    # print("SexyNo:" ,SexyNo)
+    # print("KindnessNo:" ,KindnessNo)
+    # print("SmartnessNo:" ,SmartnessNo)
+    # print("NeatnessNo:" ,NeatnessNo)
+    # print("FashionableNo:" ,FashionableNo)
+    # print("BrightnessNo:" ,BrightnessNo)
+    # print("EleganceNo:" ,EleganceNo)
 
     AgeConfFlag = 1
     OrderFlag = 1
@@ -211,7 +211,14 @@ try:
     EleganceFlag = 1
 
     PSS_SQL = ""
-    for k in DictPSS1.keys():
+    for k, v in DictPSS1.items():
+        if k == "UUID":
+            PSS_SQL += k + " != " + v
+            continue
+        if k == "NickName":
+            if v != None:
+                PSS_SQL += " AND " + k + " = " + v
+                continue
         if ("AgeConf" in k): 
             if AgeConfFlag == 1:
                 if AgeConfNo == 1:
@@ -744,7 +751,7 @@ try:
         SELECT * \
         FROM {ProfileTable1} \
         WHERE \
-            UUID != '{sys.argv[1]}' \
+            {PSS_SQL} \
     ")
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
     print(e)
