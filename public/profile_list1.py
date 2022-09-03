@@ -32,6 +32,8 @@ try:
         if k[:2] == "PS":
             if v != 0:
                 DictPSS1[k[2:]] = v
+        else:
+            DictPSS1[k] = v
     print(DictPSS1)
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError) as e:
     print(e)
