@@ -33,6 +33,8 @@ try:
                 DictPSS1[k[2:]] = v
         else:
             DictPSS1[k] = v
+    print(DictPSS1)
+    
     AgeConfNo = 0
     OrderNo = 0
     GenderNo = 0
