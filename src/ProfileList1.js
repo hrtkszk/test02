@@ -25,6 +25,7 @@ export function ProfileList1() {
 
   // ページが読み込まれる時に実行し、Profile_Listとして登録する。
   if (initialized===false) {
+    let test = {}
     console.log(initialRequestOptions)
     fetch("../profile_list1.php",initialRequestOptions)
     .then((response)=> response.json())
