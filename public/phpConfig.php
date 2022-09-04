@@ -1,2 +1,2 @@
 <?php
-$URL="http://wispy-akune-5593.girly.jp/";
+$URL="http://holy-usa-1998.fem.jp/";
