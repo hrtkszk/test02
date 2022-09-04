@@ -33,8 +33,8 @@ export function ProfileList1() {
       setProfileList(result.result)
       console.log(result.result)
       console.log(result.result[1])
-      console.log(typeof(result.result[1]))
-      console.log(result.result[1].UUID)
+      test=JSON.parse(result.result[1])
+      console.log(test.UUID)
     })
     setinitialized(true)
   }
