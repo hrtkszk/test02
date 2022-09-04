@@ -14,7 +14,7 @@ export function ProfileList1() {
   let auth = useAuth();
   // const intervalRef = useRef(null);
 
-  const [Profile_List, setProfileList] = useState([]);
+  const [ProfileList, setProfileList] = useState([]);
   const [initialized, setinitialized] = useState(false);
 
   const initialRequestOptions ={
@@ -32,11 +32,14 @@ export function ProfileList1() {
       // console.log(result)
       setProfileList(result.result)
       console.log(result.result)
+      console.log(result.result[1])
+      console.log(typeof(result.result[1]))
+      console.log(result.result[1].UUID)
     })
     setinitialized(true)
   }
   
-  if (Profile_List === []) {
+  if (ProfileList === []) {
     return (
       <div>
         <h1>Profile List</h1>

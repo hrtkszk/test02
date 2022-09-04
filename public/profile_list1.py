@@ -34,8 +34,8 @@ try:
                 DictPSS1[k[2:]] = v
         else:
             DictPSS1[k] = v
-    print("DictPSS1: ",DictPSS1)
-    print("DictPSS1_Json:", json.dumps(DictPSS1))
+    print(DictPSS1)
+    print(json.dumps(DictPSS1))
 
     AgeConfNo = 0
     OrderNo = 0
