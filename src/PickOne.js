@@ -1,9 +1,11 @@
 const PickOne = (props) => {
     let str = ""
-    Object.keys(props.keyValue).map(key => (
-        str = props.keyName.concat(key),
-        console.log(props.DBValue[str])
-    ))
+    Object.keys(props.keyValue).map(key => 
+        <>
+            {str = props.keyName.concat(key)}
+            {console.log(props.DBValue[str])}
+        </>
+    )
 
     return (
         <>
