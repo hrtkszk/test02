@@ -29,9 +29,10 @@ export function ProfileList1() {
     fetch("../profile_list1.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{
+      console.log(result)
+      console.log(JSON.parse(result))
+      setProfileList(JSON.parse(result))
       // console.log(result)
-      setProfileList(JSON.parse(result.result[0]))
-      console.log(result.result)
     })
     setinitialized(true)
   }

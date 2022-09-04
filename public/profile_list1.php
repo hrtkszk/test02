@@ -5,7 +5,14 @@ $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータ�
 $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 $command_post="python3 profile_list1.py ".$_POST['id']; //pythonに引数を渡す
 exec($command_post, $output); //python実行と、返り数受け取り
-$test = $output;
+echo json_encode($output);
+//     [
+//     //    "error" => true,
+//     //    "pythonout2" => $output2,
+//         "result" => $test,
+//     ]
+// ); 
+// $test = $output;
 // pythonからの返り数のうち、SQLのヘッダーの受け取りと、文字列から配列変換(pythonの出力1行目)
 // $output[0]=trim($output[0],"\"['");
 // $output[0]=trim($output[0],"']\"");
@@ -29,20 +36,20 @@ $test = $output;
 // $output2 = array_values($output2);
 
 //配列のJSON変換と、echoでのサーバーサイド出力。
-if(empty($_POST['id'])) {
-    echo json_encode(
-        [
-        //    "error" => true,
-        //    "pythonout2" => $output2,
-            "result" => $test,
-        ]
-    ); 
-} else {
-    echo json_encode(
-        [
-        //    "error" => false,
-        //    "pythonout2" => $output2,
-            "result" => $test,
-        ]
-    ); 
-}
+// if(empty($_POST['id'])) {
+//     echo json_encode(
+//         [
+//         //    "error" => true,
+//         //    "pythonout2" => $output2,
+//             "result" => $test,
+//         ]
+//     ); 
+// } else {
+//     echo json_encode(
+//         [
+//         //    "error" => false,
+//         //    "pythonout2" => $output2,
+//             "result" => $test,
+//         ]
+//     ); 
+// }
