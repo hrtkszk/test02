@@ -22,11 +22,11 @@ export function ProfileSetting() {
   const [Gender, setGender] = useState("0");
   const [Age, setAge] = useState("0");
   // // 地域状況
-  const [SettingArea, setSettingArea] = useState("0");
-  const [Area, setArea] = useState("0");
-  const [Prefecture, setPrefecture] = useState("0");
-  const [City, setCity] = useState("0");
-  const [Ward, setWard] = useState("0");
+  // const [SettingArea, setSettingArea] = useState("0");
+  // const [Area, setArea] = useState("0");
+  // const [Prefecture, setPrefecture] = useState("0");
+  // const [City, setCity] = useState("0");
+  // const [Ward, setWard] = useState("0");
   // // 身体的情報
   const [Height, setHeight] = useState("0");
   const [Style, setStyle] = useState("0");
@@ -39,9 +39,9 @@ export function ProfileSetting() {
   // // 経験・背景情報
   const [Job, setJob] = useState("0");
   const [EduBack, setEduBack] = useState("0");
-  const [SettingBirthArea, setSettingBirthArea] = useState("0");
-  const [BirthArea, setBirthArea] = useState("0");
-  const [BirthPrefecture, setBirthPrefecture] = useState("0");
+  // const [SettingBirthArea, setSettingBirthArea] = useState("0");
+  // const [BirthArea, setBirthArea] = useState("0");
+  // const [BirthPrefecture, setBirthPrefecture] = useState("0");
   const [Zodiac, setZodiac] = useState("0");
   // // 交際情報
   const [MarriageStatus, setMarriageStatus] = useState("0");
@@ -55,20 +55,20 @@ export function ProfileSetting() {
   // // const [ProfilePicture, setProfilePicture] = useState("");
   const [ProfileMessage, setProfileMessage] = useState("");
   // // 相手に求めること
-  const [PreferedAge1, setPreferedAge1] = useState("0");
-  const [PreferedAge2, setPreferedAge2] = useState("0");
-  const [PreferedPersonality, setPreferedPersonality] = useState("0");
+  // const [PreferedAge1, setPreferedAge1] = useState("0");
+  // const [PreferedAge2, setPreferedAge2] = useState("0");
+  // const [PreferedPersonality, setPreferedPersonality] = useState("0");
   // // 内面的情報
   const [Personality, setPersonality] = useState("0");
   // // 自己評価
-  const [SelfCute, setSelfCute] = useState("0");
-  const [SelfSexy, setSelfSexy] = useState("0");
-  const [SelfKindness, setSelfKindness] = useState("0");
-  const [SelfSmartness, setSelfSmartness] = useState("0");
-  const [SelfNeatness, setSelfNeatness] = useState("0");
-  const [SelfFashionable, setSelfFashionable] = useState("0");
-  const [SelfBrightness, setSelfBrightness] = useState("0");
-  const [SelfElegance, setSelfElegance] = useState("0");
+  const [Cute, setCute] = useState("0");
+  const [Sexy, setSexy] = useState("0");
+  const [Kindness, setKindness] = useState("0");
+  const [Smartness, setSmartness] = useState("0");
+  const [Neatness, setNeatness] = useState("0");
+  const [Fashionable, setFashionable] = useState("0");
+  const [Brightness, setBrightness] = useState("0");
+  const [Elegance, setElegance] = useState("0");
 
   let auth = useAuth();
 
@@ -82,64 +82,116 @@ export function ProfileSetting() {
     body: JSON.stringify({"UUID":auth.user})
   }
   
+  const SelectProfileValue = (keyName, keyValue, DBValue) => {
+    let str = ""
+    let selection = ""
+    Object.keys(keyValue).map(key => 
+        <>
+            {str = keyName.concat(key)}
+            {console.log(DBValue[str])}
+            {DBValue[str] === 1 ? (
+                selection=key
+            ) : null}
+        </>
+    )
+    return selection
+  }
+
   // ページが読み込まれる時に実行し、Profileとして登録する。
   if (initialized===false) {
     fetch("../../get_basicprofile.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
-      setBasicProfile(result.result[0])
-      setNickname(result.result[0].nickname)
-      setGender(result.result[0].gender)
-      setAge(result.result[0].age)
+      setBasicProfile(result[0])
     })
 
-    fetch("../../get_profile.php",initialRequestOptions)
-    .then((response) => response.json())
-    .then(result => {
-      if (result.result !== "PND") {
-        // setProfile(result.result[0])
-        // console.log(result.result[0])
-        setSettingArea(result.result[0].SettingArea)
-        setArea(result.result[0].Area)
-        setPrefecture(result.result[0].Prefecture)
-        setCity(result.result[0].City)
-        setWard(result.result[0].Ward)
-        setHeight(result.result[0].Height)
-        setStyle(result.result[0].Style)
-        setLooks(result.result[0].Looks)
-        setCup(result.result[0].Cup)
-        setBustSize(result.result[0].BustSize)
-        setWestSize(result.result[0].WestSize)
-        setHipSize(result.result[0].HipSize)
-        setBloodType(result.result[0].BloodType)
-        setJob(result.result[0].Job)
-        setEduBack(result.result[0].EduBack)
-        setSettingBirthArea(result.result[0].SettingBirthArea)
-        setBirthArea(result.result[0].BirthArea)
-        setBirthPrefecture(result.result[0].BirthPrefecture)
-        setZodiac(result.result[0].Zodiac)
-        setMarriageStatus(result.result[0].MarriageStatus)
-        setKids(result.result[0].Kids)
-        setTabacco(result.result[0].Tabacco)
-        setAlchole(result.result[0].Alchole)
-        setCar(result.result[0].Car)
-        setInterest(result.result[0].Interest)
-        // setProfilePicture(result.result[0].ProfilePicture)
-        setProfileMessage(result.result[0].ProfileMessage)
-        setPreferedAge1(result.result[0].PreferedAge1)
-        setPreferedAge2(result.result[0].PreferedAge2)
-        setPreferedPersonality(result.result[0].PreferedPersonality)
-        setPersonality(result.result[0].Personality)
-        setSelfCute(result.result[0].SelfCute)
-        setSelfSexy(result.result[0].SelfSexy)
-        setSelfKindness(result.result[0].SelfKindness)
-        setSelfSmartness(result.result[0].SelfSmartness)
-        setSelfNeatness(result.result[0].SelfNeatness)
-        setSelfFashionable(result.result[0].SelfFashionable)
-        setSelfBrightness(result.result[0].SelfBrightness)
-        setSelfElegance(result.result[0].SelfElegance)
-      }
-    })
+    setNickname(BasicProfile.NickName)
+    setGender(SelectProfileValue("Gender", ProfileDB.Gender, BasicProfile))
+    setAge(BasicProfile.Age)
+    setHeight(SelectProfileValue("Height", ProfileDB.Height, BasicProfile))
+    setStyle(SelectProfileValue("Style", ProfileDB.Style, BasicProfile))
+    setLooks(SelectProfileValue("Looks", ProfileDB.Looks, BasicProfile))
+    setCup(SelectProfileValue("Cup", ProfileDB.Cup, BasicProfile))
+    setBustSize(BasicProfile.BustSize)
+    setWestSize(BasicProfile.WestSize)
+    setHipSize(BasicProfile.HipSize)
+    setBloodType(SelectProfileValue("BloodType", ProfileDB.BloodType, BasicProfile))
+    setJob(SelectProfileValue("Job", ProfileDB.Job, BasicProfile))
+    setEduBack(SelectProfileValue("EduBack", ProfileDB.EduBack, BasicProfile))
+    setZodiac(SelectProfileValue("Zodiac", ProfileDB.Zodiac, BasicProfile))
+    setMarriageStatus(SelectProfileValue("MarriageStatus", ProfileDB.MarriageStatus, BasicProfile))
+    setKids(SelectProfileValue("Kids", ProfileDB.Kids, BasicProfile))
+    setTabacco(SelectProfileValue("Tabacco", ProfileDB.Tabacco, BasicProfile))
+    setAlchole(SelectProfileValue("Alchole", ProfileDB.Alchole, BasicProfile))
+    setCar(SelectProfileValue("Car", ProfileDB.Car, BasicProfile))
+    setInterest(SelectProfileValue("Interest", ProfileDB.Interest, BasicProfile))
+    setProfileMessage(BasicProfile.ProfileMessage)
+    setPersonality(SelectProfileValue("Personality", ProfileDB.Personality, BasicProfile))
+    setAnnuIncome(SelectProfileValue("AnnuIncome", ProfileDB.AnnuIncome, BasicProfile))
+    setCute(SelectProfileValue("Cute", ProfileDB.Cute, BasicProfile))
+    setSexy(SelectProfileValue("Sexy", ProfileDB.Sexy, BasicProfile))
+    setKindness(SelectProfileValue("Kindness", ProfileDB.Kindness, BasicProfile))
+    setSmartness(SelectProfileValue("Smartness", ProfileDB.Smartness, BasicProfile))
+    setNeatness(SelectProfileValue("Neatness", ProfileDB.Neatness, BasicProfile))
+    setFashionable(SelectProfileValue("Fashionable", ProfileDB.Fashionable, BasicProfile))
+    setBrightness(SelectProfileValue("Brightness", ProfileDB.Brightness, BasicProfile))
+    setElegance(SelectProfileValue("Elegance", ProfileDB.Elegance, BasicProfile))
+    // fetch("../../get_basicprofile.php",initialRequestOptions)
+    // .then((response) => response.json())
+    // .then(result => {
+    //   setBasicProfile(result.result[0])
+    //   setNickname(result.result[0].nickname)
+    //   setGender(result.result[0].gender)
+    //   setAge(result.result[0].age)
+    // })
+
+    // fetch("../../get_profile.php",initialRequestOptions)
+    // .then((response) => response.json())
+    // .then(result => {
+    //   if (result.result !== "PND") {
+    //     // setProfile(result.result[0])
+    //     // console.log(result.result[0])
+    //     setSettingArea(result.result[0].SettingArea)
+    //     setArea(result.result[0].Area)
+    //     setPrefecture(result.result[0].Prefecture)
+    //     setCity(result.result[0].City)
+    //     setWard(result.result[0].Ward)
+    //     setHeight(result.result[0].Height)
+    //     setStyle(result.result[0].Style)
+    //     setLooks(result.result[0].Looks)
+    //     setCup(result.result[0].Cup)
+    //     setBustSize(result.result[0].BustSize)
+    //     setWestSize(result.result[0].WestSize)
+    //     setHipSize(result.result[0].HipSize)
+    //     setBloodType(result.result[0].BloodType)
+    //     setJob(result.result[0].Job)
+    //     setEduBack(result.result[0].EduBack)
+    //     setSettingBirthArea(result.result[0].SettingBirthArea)
+    //     setBirthArea(result.result[0].BirthArea)
+    //     setBirthPrefecture(result.result[0].BirthPrefecture)
+    //     setZodiac(result.result[0].Zodiac)
+    //     setMarriageStatus(result.result[0].MarriageStatus)
+    //     setKids(result.result[0].Kids)
+    //     setTabacco(result.result[0].Tabacco)
+    //     setAlchole(result.result[0].Alchole)
+    //     setCar(result.result[0].Car)
+    //     setInterest(result.result[0].Interest)
+    //     // setProfilePicture(result.result[0].ProfilePicture)
+    //     setProfileMessage(result.result[0].ProfileMessage)
+    //     setPreferedAge1(result.result[0].PreferedAge1)
+    //     setPreferedAge2(result.result[0].PreferedAge2)
+    //     setPreferedPersonality(result.result[0].PreferedPersonality)
+    //     setPersonality(result.result[0].Personality)
+    //     setSelfCute(result.result[0].SelfCute)
+    //     setSelfSexy(result.result[0].SelfSexy)
+    //     setSelfKindness(result.result[0].SelfKindness)
+    //     setSelfSmartness(result.result[0].SelfSmartness)
+    //     setSelfNeatness(result.result[0].SelfNeatness)
+    //     setSelfFashionable(result.result[0].SelfFashionable)
+    //     setSelfBrightness(result.result[0].SelfBrightness)
+    //     setSelfElegance(result.result[0].SelfElegance)
+    //   }
+    // })
     setinitialized(true)
   }
 
@@ -157,11 +209,11 @@ export function ProfileSetting() {
         "gender":Gender,
         "age":Age,
 
-        "SettingArea":SettingArea,
-        "Area":Area,
-        "Prefecture":Prefecture,
-        "City":City,
-        "Ward":Ward,
+        // "SettingArea":SettingArea,
+        // "Area":Area,
+        // "Prefecture":Prefecture,
+        // "City":City,
+        // "Ward":Ward,
         "Height":Height,
         "Style":Style,
         "Looks":Looks,
@@ -173,9 +225,9 @@ export function ProfileSetting() {
 
         "Job":Job,
         "EduBack":EduBack,
-        "SettingBirthArea":SettingBirthArea,
-        "BirthArea":BirthArea,
-        "BirthPrefecture":BirthPrefecture,
+        // "SettingBirthArea":SettingBirthArea,
+        // "BirthArea":BirthArea,
+        // "BirthPrefecture":BirthPrefecture,
         "Zodiac":Zodiac,
 
         "MarriageStatus":MarriageStatus,
@@ -189,20 +241,20 @@ export function ProfileSetting() {
         // "ProfilePicture":ProfilePicture,
         "ProfileMessage":ProfileMessage,
 
-        "PreferedAge1":PreferedAge1,
-        "PreferedAge2":PreferedAge2,
-        "PreferedPersonality":PreferedPersonality,
+        // "PreferedAge1":PreferedAge1,
+        // "PreferedAge2":PreferedAge2,
+        // "PreferedPersonality":PreferedPersonality,
 
         "Personality":Personality,
 
-        "SelfCute":SelfCute,
-        "SelfSexy":SelfSexy,
-        "SelfKindness":SelfKindness,
-        "SelfSmartness":SelfSmartness,
-        "SelfNeatness":SelfNeatness,
-        "SelfFashionable":SelfFashionable,
-        "SelfBrightness":SelfBrightness,
-        "SelfElegance":SelfElegance
+        "SelfCute":Cute,
+        "SelfSexy":Sexy,
+        "SelfKindness":Kindness,
+        "SelfSmartness":Smartness,
+        "SelfNeatness":Neatness,
+        "SelfFashionable":Fashionable,
+        "SelfBrightness":Brightness,
+        "SelfElegance":Elegance
       })
     }
 
@@ -222,119 +274,119 @@ export function ProfileSetting() {
     })
   }
 
-  function PrefectureSelect() {
-    if (Area !== "0") {
-      return (
-        <>
-          <select
-            defaultValue={Prefecture}
-            onChange={event => {
-              if (event.target.value === "0") {
-                setSettingArea(Area)
-                setPrefecture("0")
-                setCity("0")
-                setWard("0")
-              } else {
-                setSettingArea(event.target.value)
-                setPrefecture(event.target.value)
-                setCity("0")
-                setWard("0")
-              }
-            }}>
-              {Object.keys(AreaDB.Area[Area]["Prefecture"]).map(key => <option value={key}>{AreaDB.Area[Area]["Prefecture"][key]["PrefectureName"]}</option>)}
-          </select>
-          <CitySelect/>
-        </>
-      )
-    } else {
-      return <></>
-    }
-  }
+  // function PrefectureSelect() {
+  //   if (Area !== "0") {
+  //     return (
+  //       <>
+  //         <select
+  //           defaultValue={Prefecture}
+  //           onChange={event => {
+  //             if (event.target.value === "0") {
+  //               setSettingArea(Area)
+  //               setPrefecture("0")
+  //               setCity("0")
+  //               setWard("0")
+  //             } else {
+  //               setSettingArea(event.target.value)
+  //               setPrefecture(event.target.value)
+  //               setCity("0")
+  //               setWard("0")
+  //             }
+  //           }}>
+  //             {Object.keys(AreaDB.Area[Area]["Prefecture"]).map(key => <option value={key}>{AreaDB.Area[Area]["Prefecture"][key]["PrefectureName"]}</option>)}
+  //         </select>
+  //         <CitySelect/>
+  //       </>
+  //     )
+  //   } else {
+  //     return <></>
+  //   }
+  // }
 
-  function CitySelect() {
-    if (Prefecture !== "0") {
-      return (
-        <>
-          <select
-            defaultValue={City}
-            onChange={event => {
-              if (event.target.value === "0") {
-                setSettingArea(Prefecture)
-                setCity("0")
-                setWard("0")
-              } else {
-                setSettingArea(event.target.value)
-                setCity(event.target.value)
-                setWard("0")
-              }
-            }}>
-              {Object.keys(AreaDB.Area[Area]["Prefecture"][Prefecture]["City"]).map(key => 
-                <option value={key}>
-                  {AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][key]["CityName"] === undefined ? (
-                    AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][key]
-                  ) : (
-                    AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][key]["CityName"]
-                  )}
-                </option>
-              )}
-          </select>
-          <WardSelect />
-        </>
-      )
-    } else {
-      return <></>
-    }
-  }
+  // function CitySelect() {
+  //   if (Prefecture !== "0") {
+  //     return (
+  //       <>
+  //         <select
+  //           defaultValue={City}
+  //           onChange={event => {
+  //             if (event.target.value === "0") {
+  //               setSettingArea(Prefecture)
+  //               setCity("0")
+  //               setWard("0")
+  //             } else {
+  //               setSettingArea(event.target.value)
+  //               setCity(event.target.value)
+  //               setWard("0")
+  //             }
+  //           }}>
+  //             {Object.keys(AreaDB.Area[Area]["Prefecture"][Prefecture]["City"]).map(key => 
+  //               <option value={key}>
+  //                 {AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][key]["CityName"] === undefined ? (
+  //                   AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][key]
+  //                 ) : (
+  //                   AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][key]["CityName"]
+  //                 )}
+  //               </option>
+  //             )}
+  //         </select>
+  //         <WardSelect />
+  //       </>
+  //     )
+  //   } else {
+  //     return <></>
+  //   }
+  // }
 
-  function WardSelect() {
-    if (City !== "0") {
-      if (AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][City]["CityName"] === undefined) {
-        return <></>
-      } else {
-        return (
-          <select
-            defaultValue={Ward}
-            onChange={evt => {
-              if (evt.target.value === "0") {
-                setSettingArea(City)
-                setWard("0")
-              } else {
-                setSettingArea(evt.target.value)
-                setWard(evt.target.value)
-              }
-            }}>
-              {Object.keys(AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][City]["Ward"]).map(key => <option value={key}>{AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][City]["Ward"][key]}</option>)}
-          </select>
-        )
-      }
-    } else {
-      return <></>
-    }
-  }
+  // function WardSelect() {
+  //   if (City !== "0") {
+  //     if (AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][City]["CityName"] === undefined) {
+  //       return <></>
+  //     } else {
+  //       return (
+  //         <select
+  //           defaultValue={Ward}
+  //           onChange={evt => {
+  //             if (evt.target.value === "0") {
+  //               setSettingArea(City)
+  //               setWard("0")
+  //             } else {
+  //               setSettingArea(evt.target.value)
+  //               setWard(evt.target.value)
+  //             }
+  //           }}>
+  //             {Object.keys(AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][City]["Ward"]).map(key => <option value={key}>{AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][City]["Ward"][key]}</option>)}
+  //         </select>
+  //       )
+  //     }
+  //   } else {
+  //     return <></>
+  //   }
+  // }
 
-  function BirthPrefectureSelect() {
-    if (BirthArea !== "0") {
-      return (
-        <>
-          <select
-            defaultValue={BirthPrefecture}
-            onChange={event => {
-              if (event.target.value === "0") {
-                setSettingBirthArea(BirthArea)
-                setBirthPrefecture("0")
-              } else {
-                setSettingBirthArea(event.target.value)
-                setBirthPrefecture(event.target.value)
-              }
-            }}>
-              {Object.keys(AreaDB.Area[BirthArea]["Prefecture"]).map(key => <option value={key}>{AreaDB.Area[BirthArea]["Prefecture"][key]["PrefectureName"]}</option>)}
-          </select>
-        </>
-      )
-    } else {
-      return <></>
-    }
-  }
+  // function BirthPrefectureSelect() {
+  //   if (BirthArea !== "0") {
+  //     return (
+  //       <>
+  //         <select
+  //           defaultValue={BirthPrefecture}
+  //           onChange={event => {
+  //             if (event.target.value === "0") {
+  //               setSettingBirthArea(BirthArea)
+  //               setBirthPrefecture("0")
+  //             } else {
+  //               setSettingBirthArea(event.target.value)
+  //               setBirthPrefecture(event.target.value)
+  //             }
+  //           }}>
+  //             {Object.keys(AreaDB.Area[BirthArea]["Prefecture"]).map(key => <option value={key}>{AreaDB.Area[BirthArea]["Prefecture"][key]["PrefectureName"]}</option>)}
+  //         </select>
+  //       </>
+  //     )
+  //   } else {
+  //     return <></>
+  //   }
+  // }
 
   // const handleInput = (event) => {
   //   event.preventDefault();
@@ -343,9 +395,11 @@ export function ProfileSetting() {
   // console.log(BasicProfile)
 
   // function MainSelection() {
-  if (BasicProfile.length === 0) {
-    return <></>
-  } else {
+
+
+  // if (BasicProfile.length === 0) {
+  //   return <></>
+  // } else {
     return (
       <div>
       <h1>プロフィール設定</h1>
@@ -377,7 +431,7 @@ export function ProfileSetting() {
                 required="true"
               />
             </li>
-            <li>
+            {/* <li>
             <span className="dan">エリア</span>
             <span className="dan2">
               <select
@@ -393,7 +447,7 @@ export function ProfileSetting() {
               </select>
               <PrefectureSelect/>
             </span>
-            </li>
+            </li> */}
             <li>
               <FormSelect
                 title="身長"
@@ -477,7 +531,7 @@ export function ProfileSetting() {
                 setValue={setEduBack}
               />
             </li>
-            <li>
+            {/* <li>
               <span className="dan">出身地</span>
               <span className="dan2">
                 <select
@@ -491,7 +545,7 @@ export function ProfileSetting() {
                 </select>
                 <BirthPrefectureSelect/>
               </span>
-            </li>
+            </li> */}
             <li>
               <FormSelect
                 title="星座"
@@ -565,7 +619,7 @@ export function ProfileSetting() {
             placeholder='プロフィール写真'
             setProfilePicture(evt.target.value) */}
             
-            <li>
+            {/* <li>
               <FormSelectRange
                 title="希望する年齢" 
                 originalRange={ProfileDB.PreferedAge}
@@ -574,16 +628,16 @@ export function ProfileSetting() {
                 Range2={PreferedAge2}
                 setRange2={setPreferedAge2}
               />
-            </li>
-            <li>
+            </li> */}
+            {/* <li> */}
               {/* 別のリストにして、複数選択・検索できるようにする。Personalityと共通 */}
-              <FormSelect 
+              {/* <FormSelect 
                 title="希望する性格"
                 keyValue={ProfileDB.Personality}
                 defaultValue={PreferedPersonality}
                 setValue={setPreferedPersonality}
-              />
-            </li>
+              /> */}
+            {/* </li> */}
             <li>
               {/* 別のリストにして、複数選択・検索できるようにする。 */}
               <FormSelect 
@@ -601,8 +655,8 @@ export function ProfileSetting() {
               <FormSelect 
                 title="可愛さ"
                 keyValue={ProfileDB.Self}
-                defaultValue={SelfCute}
-                setValue={setSelfCute}
+                defaultValue={Cute}
+                setValue={setCute}
               />
             </li>
             <li>
@@ -610,8 +664,8 @@ export function ProfileSetting() {
               <FormSelect 
                 title="セクシーさ"
                 keyValue={ProfileDB.Self}
-                defaultValue={SelfSexy}
-                setValue={setSelfSexy}
+                defaultValue={Sexy}
+                setValue={setSexy}
               />
             </li>
             <li>
@@ -619,8 +673,8 @@ export function ProfileSetting() {
               <FormSelect 
                 title="優しさ"
                 keyValue={ProfileDB.Self}
-                defaultValue={SelfKindness}
-                setValue={setSelfKindness}
+                defaultValue={Kindness}
+                setValue={setKindness}
               />
             </li>
             <li>
@@ -628,8 +682,8 @@ export function ProfileSetting() {
               <FormSelect 
                 title="賢さ"
                 keyValue={ProfileDB.Self}
-                defaultValue={SelfSmartness}
-                setValue={setSelfSmartness}
+                defaultValue={Smartness}
+                setValue={setSmartness}
               />
             </li>
             <li>
@@ -637,8 +691,8 @@ export function ProfileSetting() {
               <FormSelect 
                 title="清楚さ"
                 keyValue={ProfileDB.Self}
-                defaultValue={SelfNeatness}
-                setValue={setSelfNeatness}
+                defaultValue={Neatness}
+                setValue={setNeatness}
               />
             </li>
             <li>
@@ -646,8 +700,8 @@ export function ProfileSetting() {
               <FormSelect 
                 title="ファッション"
                 keyValue={ProfileDB.Self}
-                defaultValue={SelfFashionable}
-                setValue={setSelfFashionable}
+                defaultValue={Fashionable}
+                setValue={setFashionable}
               />
             </li>
             <li>
@@ -655,8 +709,8 @@ export function ProfileSetting() {
               <FormSelect 
                 title="明るさ"
                 keyValue={ProfileDB.Self}
-                defaultValue={SelfBrightness}
-                setValue={setSelfBrightness}
+                defaultValue={Brightness}
+                setValue={setBrightness}
               />
             </li>
             <li>
@@ -664,8 +718,8 @@ export function ProfileSetting() {
               <FormSelect 
                 title="エレガンス"
                 keyValue={ProfileDB.Self}
-                defaultValue={SelfElegance}
-                setValue={setSelfElegance}
+                defaultValue={Elegance}
+                setValue={setElegance}
               />
             </li>
           </ul>
@@ -683,4 +737,4 @@ export function ProfileSetting() {
   //   </>
   // )
   }
-}
+// }
