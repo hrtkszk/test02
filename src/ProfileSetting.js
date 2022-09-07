@@ -127,6 +127,7 @@ export function ProfileSetting() {
     setCar(SelectProfileValue("Car", ProfileDB.Car, BasicProfile))
     setInterest(SelectProfileValue("Interest", ProfileDB.Interest, BasicProfile))
     setProfileMessage(BasicProfile.ProfileMessage)
+    //どうやって複数選択するか？表示が問題
     setPersonality(SelectProfileValue("Personality", ProfileDB.Personality, BasicProfile))
     setAnnuIncome(SelectProfileValue("AnnuIncome", ProfileDB.AnnuIncome, BasicProfile))
     setCute(SelectProfileValue("Cute", ProfileDB.Self, BasicProfile))
@@ -200,63 +201,98 @@ export function ProfileSetting() {
   const submit = e => {
     e.preventDefault();
 
+    let s = {
+      "UUID":auth.user
+    }
+    s["NickName"] = Nickname
+    s["Gender" + Gender] = 1
+    s["Age"] = Age
+    s["Height" + Height] = 1
+    s["Style" + Style] = 1
+    s["Looks" + Looks] = 1
+    s["Cup" + Cup] = 1
+    s["BustSize"] = BustSize
+    s["WestSize"] = WestSize
+    s["HipSize"] = HipSize
+    s["BloodType" + BloodType] = 1
+    s["Job" + Job] = 1
+    s["EduBack" + EduBack] = 1
+    s["Zodiac" + Zodiac] = 1
+    s["MarriageStatus" + MarriageStatus] = 1
+    s["Kids" + Kids] = 1
+    s["Tabacco" + Tabacco] = 1
+    s["Alchole" + Alchole] = 1
+    s["Car" + Car] = 1
+    // s["Interest" + Interest] = 1
+    s["ProfileMessage"] = ProfileMessage
+    // s["Personality" + Personality] = 1
+    s["Cute" + Cute] = 1
+    s["Sexy" + Sexy] = 1
+    s["Kindness" + Kindness] = 1
+    s["Smartness" + Smartness] = 1
+    s["Neatness" + Neatness] = 1
+    s["Fashionable" + Fashionable] = 1
+    s["Brightness" + Brightness] = 1
+    s["Elegance" + Elegance] = 1
+
     const requestOptions1 ={
       method: 'POST',
       headers:{'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        "UUID":auth.user,
+      body: JSON.stringify(s)
+      // body: JSON.stringify({
+      //   "UUID":auth.user,
 
-        "NickName":Nickname,
-        "gender":Gender,
-        "Age":Age,
+      //   "NickName":Nickname,
+      //   "Gender":Gender,
+      //   "Age":Age,
 
-        // "SettingArea":SettingArea,
-        // "Area":Area,
-        // "Prefecture":Prefecture,
-        // "City":City,
-        // "Ward":Ward,
-        "Height":Height,
-        "Style":Style,
-        "Looks":Looks,
-        "Cup":Cup,
-        "BustSize":BustSize,
-        "WestSize":WestSize,
-        "HipSize":HipSize,
-        "BloodType":BloodType,
+      //   // "SettingArea":SettingArea,
+      //   // "Area":Area,
+      //   // "Prefecture":Prefecture,
+      //   // "City":City,
+      //   // "Ward":Ward,
+      //   "Height":Height,
+      //   "Style":Style,
+      //   "Looks":Looks,
+      //   "Cup":Cup,
+      //   "BustSize":BustSize,
+      //   "WestSize":WestSize,
+      //   "HipSize":HipSize,
+      //   "BloodType":BloodType,
 
-        "Job":Job,
-        "EduBack":EduBack,
-        // "SettingBirthArea":SettingBirthArea,
-        // "BirthArea":BirthArea,
-        // "BirthPrefecture":BirthPrefecture,
-        "Zodiac":Zodiac,
+      //   "Job":Job,
+      //   "EduBack":EduBack,
+      //   // "SettingBirthArea":SettingBirthArea,
+      //   // "BirthArea":BirthArea,
+      //   // "BirthPrefecture":BirthPrefecture,
+      //   "Zodiac":Zodiac,
 
-        "MarriageStatus":MarriageStatus,
-        "Kids":Kids,
+      //   "MarriageStatus":MarriageStatus,
+      //   "Kids":Kids,
 
-        "Tabacco":Tabacco,
-        "Alchole":Alchole,
-        "Car":Car,
-        "Interest":Interest,
+      //   "Tabacco":Tabacco,
+      //   "Alchole":Alchole,
+      //   "Car":Car,
+      //   "Interest":Interest,
 
-        // "ProfilePicture":ProfilePicture,
-        "ProfileMessage":ProfileMessage,
+      //   // "ProfilePicture":ProfilePicture,
+      //   "ProfileMessage":ProfileMessage,
 
-        // "PreferedAge1":PreferedAge1,
-        // "PreferedAge2":PreferedAge2,
-        // "PreferedPersonality":PreferedPersonality,
+      //   // "PreferedAge1":PreferedAge1,
+      //   // "PreferedAge2":PreferedAge2,
+      //   // "PreferedPersonality":PreferedPersonality,
 
-        "Personality":Personality,
+      //   "Personality":Personality,
 
-        "SelfCute":Cute,
-        "SelfSexy":Sexy,
-        "SelfKindness":Kindness,
-        "SelfSmartness":Smartness,
-        "SelfNeatness":Neatness,
-        "SelfFashionable":Fashionable,
-        "SelfBrightness":Brightness,
-        "SelfElegance":Elegance
-      })
+      //   "SelfCute":Cute,
+      //   "SelfSexy":Sexy,
+      //   "SelfKindness":Kindness,
+      //   "SelfSmartness":Smartness,
+      //   "SelfNeatness":Neatness,
+      //   "SelfFashionable":Fashionable,
+      //   "SelfBrightness":Brightness,
+      //   "SelfElegance":Elegance
+      // })
     }
 
     fetch("../../update_profile.php",requestOptions1)
