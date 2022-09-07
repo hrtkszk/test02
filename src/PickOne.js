@@ -8,7 +8,7 @@ const PickOne = (props) => {
             {props.DBValue[str] === 1 ? (
                 display=props.keyValue[key]
                 
-            ) : None}
+            ) : null}
         </>
     )
 
