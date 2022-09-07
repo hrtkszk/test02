@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { useAuth } from "./useAuth";
 import "./ProfileDetail.css";
 import ProfileDB from "./Profile.json";
-import PickOne from "./PickOne";
+import SelectProfileItem from "./SelectProfileItem";
 // import AreaDB from "./Area.json";
 
 export function ProfileDetail() {
@@ -197,7 +197,7 @@ export function ProfileDetail() {
           {/* <span className="dan">性別</span>
           <span className="dan2">          </span>
             {ProfileDB.Gender[GenderNum]} */}
-          <PickOne
+          <SelectProfileItem
             title="性別"
             keyName="Gender"
             keyValue={ProfileDB.Gender}

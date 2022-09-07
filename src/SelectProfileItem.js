@@ -1,4 +1,4 @@
-const PickOne = (props) => {
+const SelectProfileItem = (props) => {
     let str = ""
     let display = ""
     Object.keys(props.keyValue).map(key => 
@@ -19,4 +19,4 @@ const PickOne = (props) => {
         </>
     )    
 }
-export default PickOne;
+export default SelectProfileItem;
