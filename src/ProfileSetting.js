@@ -8,9 +8,9 @@ import { useState } from 'react';
 import { useAuth } from "./useAuth";
 import "./ProfileDetail.css";
 import ProfileDB from "./Profile.json";
-import AreaDB from "./Area.json";
+// import AreaDB from "./Area.json";
 import FormTextInput from "./FormTextInput";
-import FormSelectRange from "./FormSelectRange";
+// import FormSelectRange from "./FormSelectRange";
 import FormSelect from "./FormSelect";
 
 export function ProfileSetting() {
@@ -206,9 +206,9 @@ export function ProfileSetting() {
       body: JSON.stringify({
         "UUID":auth.user,
 
-        "nickname":Nickname,
+        "NickName":Nickname,
         "gender":Gender,
-        "age":Age,
+        "Age":Age,
 
         // "SettingArea":SettingArea,
         // "Area":Area,
