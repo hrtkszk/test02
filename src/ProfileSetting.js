@@ -60,6 +60,7 @@ export function ProfileSetting() {
   // const [PreferedPersonality, setPreferedPersonality] = useState("0");
   // // 内面的情報
   const [Personality, setPersonality] = useState("0");
+  const [AnnuIncome, setAnnuIncome] = useState("0");
   // // 自己評価
   const [Cute, setCute] = useState("0");
   const [Sexy, setSexy] = useState("0");
@@ -645,6 +646,14 @@ export function ProfileSetting() {
                 keyValue={ProfileDB.Personality}
                 defaultValue={Personality}
                 setValue={setPersonality}
+              />
+            </li>
+            <li>
+              <FormSelect 
+                title="年収"
+                keyValue={ProfileDB.AnnuIncome}
+                defaultValue={AnnuIncome}
+                setValue={setAnnuIncome}
               />
             </li>
             <li>
