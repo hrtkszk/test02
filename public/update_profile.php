@@ -213,8 +213,8 @@ $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 // } else {
 //   $SelfElegance=$_POST['SelfElegance'];
 // }
-
-$command_post="python3 update_profile.py ".escapeshellarg($_POST); //pythonに引数を渡す
+$command_post='python3 update_profile.py "'.$_POST.'"';
+// $command_post="python3 update_profile.py ".escapeshellarg($_POST); //pythonに引数を渡す
 // .$_POST['UUID']." "
 // .$nickname." "
 // .$gender." "
