@@ -299,15 +299,15 @@ export function ProfileSetting() {
     .then((response)=> response.json())
     .then(result =>{
       console.log(result)
-      if (result.result[0]==="UPS") {
-        // プロフィール変更成功。リダイレクト
-        auth.setMessage("プロフィールを変更しました")
-        navigate("../ProfileDetail")
-      } else {
-        // プロフィール変更失敗。(UUIDが合致しない)再表示。
-        auth.setMessage("プロフィールを変更できませんでした")
-        navigate("../ProfileDetail")
-      }
+      // if (result.result[0]==="UPS") {
+      //   // プロフィール変更成功。リダイレクト
+      //   auth.setMessage("プロフィールを変更しました")
+      //   navigate("../ProfileDetail")
+      // } else {
+      //   // プロフィール変更失敗。(UUIDが合致しない)再表示。
+      //   auth.setMessage("プロフィールを変更できませんでした")
+      //   navigate("../ProfileDetail")
+      // }
     })
   }
 

@@ -214,7 +214,7 @@ $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 //   $SelfElegance=$_POST['SelfElegance'];
 // }
 
-// $command_post="python3 update_profile.py " //pythonに引数を渡す
+$command_post="python3 update_profile.py ".escapeshellarg($_POST); //pythonに引数を渡す
 // .$_POST['UUID']." "
 // .$nickname." "
 // .$gender." "
@@ -258,9 +258,9 @@ $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 // .$SelfFashionable." "
 // .$SelfBrightness." "
 // .$SelfElegance;
-// exec($command_post, $output); //python実行と、返り数受け取り
+exec($command_post, $output); //python実行と、返り数受け取り
 
-echo json_encode($_POST);
+echo json_encode($output);
 
 // // pythonからの返り数のうち、SQLのヘッダーの受け取りと、文字列から配列変換(pythonの出力1行目)
 // $output[0]=trim($output[0],"\"['");
