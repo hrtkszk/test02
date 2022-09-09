@@ -85,7 +85,7 @@ export function ProfileSetting() {
   
   const SelectProfileValue = (keyName, keyValue, DBValue) => {
     let str = ""
-    let selection = ""
+    let selection = "0"
     Object.keys(keyValue).map(key => 
         <>
             {str = keyName.concat(key)}
