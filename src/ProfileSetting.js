@@ -110,6 +110,7 @@ export function ProfileSetting() {
     fetch("../../get_basicprofile.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
+      console.log(result[0])
       setNickname(result[0].NickName)
       setGender(SelectProfileValue("Gender", ProfileDB.Gender, result[0]))
       setAge(result[0].Age)
