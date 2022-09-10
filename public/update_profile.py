@@ -7,9 +7,12 @@ import datetime
 import SQLconfig
 import json
 
-test=json.loads(sys.argv[1])
-
-print(test)
+print(sys.argv[1])
+try:
+    test=json.loads(sys.argv[1])
+    print(test)
+except (IndexError, TypeError, ValueError) as e:
+    print(e)
 
 # # データベースへの接続とカーソルの生成
 # connection = MySQLdb.connect(
