@@ -104,14 +104,15 @@ export function ProfileSetting() {
     }
     return s
   }
-
+  let test = {}
   // ページが読み込まれる時に実行し、Profileとして登録する。
   if (initialized===false) {
     fetch("../../get_basicprofile.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
       console.log(result[0])
-      console.log(result[0].NickName)
+      test =JSON.parse(result[0])
+      console.log(test.NickName)
       setNickname(result[0].NickName)
       setGender(SelectProfileValue("Gender", ProfileDB.Gender, result[0]))
       setAge(result[0].Age)
