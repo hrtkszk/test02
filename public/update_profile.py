@@ -38,14 +38,14 @@ try:
     cursor.execute(f" \
         DELETE FROM `{ProfileTable}` \
         WHERE \
-            UUID={RecieveData['UUID']} \
+            UUID='{RecieveData['UUID']}' \
     ")
     cursor.execute(f" \
         INSERT `{ProfileTable}` \
         SET \
             {SettingValue} \
         WHERE \
-            UUID={RecieveData['UUID']} \
+            UUID='{RecieveData['UUID']}' \
     ")
 
             # NickName={RecieveData['NickName']}, \
