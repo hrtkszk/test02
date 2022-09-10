@@ -14,8 +14,7 @@ except (IndexError, TypeError, ValueError) as e:
 
 SettingValue = ""
 for k,v in RecieveData.items():
-    if k != "UUID":
-        SettingValue += k + "='" + v + "', "
+    SettingValue += k + "='" + v + "', "
 
 # データベースへの接続とカーソルの生成
 connection = MySQLdb.connect(
@@ -34,15 +33,13 @@ ProfileTable="ProfileTable1"
 cursor = connection.cursor()
 
 try:
-    # cursor.execute(f" \
-    #     DELETE FROM `{ProfileTable}` \
-    #     WHERE UUID='{RecieveData['UUID']}' \
-    # ")
     cursor.execute(f" \
-        INSERT `{ProfileTable}` \
-        SET \
-            {SettingValue[:-2]} \
+        DELETE FROM `{ProfileTable}` \
         WHERE UUID='{RecieveData['UUID']}' \
+    ")
+    cursor.execute(f" \
+        INSERT INTO `{ProfileTable}` \
+        SET {SettingValue[:-2]} \
     ")
 
             # NickName={RecieveData['NickName']}, \
