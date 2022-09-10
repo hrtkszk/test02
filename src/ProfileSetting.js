@@ -201,9 +201,8 @@ export function ProfileSetting() {
   const submit = e => {
     e.preventDefault();
 
-    let s = {
-      "UUID":auth.user
-    }
+    let s = {}
+    s["\"UUID\""] = "\"" + auth.user + "\""
     s["\"NickName\""] = "\"" + Nickname + "\""
     s["Gender" + Gender] = 1
     s["Age"] = Age
