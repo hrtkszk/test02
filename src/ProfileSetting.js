@@ -89,14 +89,12 @@ export function ProfileSetting() {
     Object.keys(keyValue).map(key => 
         <>
             {str = keyName.concat(key)}
-            {console.log(str, ":", DBValue[str])}
             {DBValue[str] === 1 ? (
                 selection=key
             ) : null}
         </>
     )
-    console.log(selection)
-    return String(selection)
+    return selection
   }
   const AppendRequestBody = (s, keyName, keyState) => {
     if (keyState !== "0") {
