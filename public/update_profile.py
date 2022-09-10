@@ -14,7 +14,7 @@ except (IndexError, TypeError, ValueError) as e:
 
 SettingValue = ""
 for k,v in RecieveData.items():
-    if k == "UUID":
+    if k == "UUID" or k == "NickName" or k == "ProfileMessage":
         SettingValue += k + "='" + v + "', "
     else:
         SettingValue += k + "=" + v + ", "
