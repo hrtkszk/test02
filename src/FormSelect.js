@@ -9,6 +9,7 @@ const FormSelect = (props) => {
                             {Object.keys(props.keyValue).map(key => <option value={key}>{props.keyValue[key]}</option>)}
                     </select>
                     {console.log(props.title, ": ", props.defaultValue)}
+                    {console.log(props.title, ": ", typeof(props.defaultValue))}
             </span>
         </>
     )    
