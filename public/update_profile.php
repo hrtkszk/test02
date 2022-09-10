@@ -2,7 +2,7 @@
 header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Headers: Content-Type');
 $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
-$_POST = json_decode($rest_json, true); // JSON文字列をデコード
+// $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 // if ($_POST['nickname']=="") {
 //   $nickname="未設定";
 // } else {
@@ -213,8 +213,7 @@ $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 // } else {
 //   $SelfElegance=$_POST['SelfElegance'];
 // }
-echo json_encode('python3 update_profile.py "'.$rest_json.'"');
-// $command_post='python3 update_profile.py "'.$_POST.'"';
+$command_post='python3 update_profile.py "'.$rest_json.'"';
 // // $command_post="python3 update_profile.py ".escapeshellarg($_POST); //pythonに引数を渡す
 // // .$_POST['UUID']." "
 // // .$nickname." "
@@ -259,9 +258,9 @@ echo json_encode('python3 update_profile.py "'.$rest_json.'"');
 // // .$SelfFashionable." "
 // // .$SelfBrightness." "
 // // .$SelfElegance;
-// exec($command_post, $output); //python実行と、返り数受け取り
+exec($command_post, $output); //python実行と、返り数受け取り
 
-// echo json_encode($output);
+echo json_encode($output);
 
 // // pythonからの返り数のうち、SQLのヘッダーの受け取りと、文字列から配列変換(pythonの出力1行目)
 // $output[0]=trim($output[0],"\"['");
