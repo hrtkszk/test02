@@ -15,7 +15,7 @@ import FormSelect from "./FormSelect";
 
 export function ProfileSetting() {
   //  各ステータスのdefaultにすでに設定された値を入れたい。
-  const [BasicProfile, setBasicProfile] = useState([]);
+  // const [BasicProfile, setBasicProfile] = useState([]);
   // const [Profile, setProfile] = useState([]);
   // 基本状況
   const [Nickname, setNickname] = useState("0");
@@ -110,43 +110,42 @@ export function ProfileSetting() {
     fetch("../../get_basicprofile.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
-      setBasicProfile(result[0])
-      console.log(result[0])
+      setNickname(result[0].NickName)
+      setGender(SelectProfileValue("Gender", ProfileDB.Gender, result[0]))
+      setAge(result[0].Age)
+      setHeight(SelectProfileValue("Height", ProfileDB.Height, result[0]))
+      setStyle(SelectProfileValue("Style", ProfileDB.Style, result[0]))
+      setLooks(SelectProfileValue("Looks", ProfileDB.Looks, result[0]))
+      setCup(SelectProfileValue("Cup", ProfileDB.Cup, result[0]))
+      setBustSize(result[0].BustSize)
+      setWestSize(result[0].WestSize)
+      setHipSize(result[0].HipSize)
+      setBloodType(SelectProfileValue("BloodType", ProfileDB.BloodType, result[0]))
+      setJob(SelectProfileValue("Job", ProfileDB.Job, result[0]))
+      setEduBack(SelectProfileValue("EduBack", ProfileDB.EduBack, result[0]))
+      setZodiac(SelectProfileValue("Zodiac", ProfileDB.Zodiac, result[0]))
+      setMarriageStatus(SelectProfileValue("MarriageStatus", ProfileDB.MarriageStatus, result[0]))
+      setKids(SelectProfileValue("Kids", ProfileDB.Kids, result[0]))
+      setTabacco(SelectProfileValue("Tabacco", ProfileDB.Tabacco, result[0]))
+      setAlchole(SelectProfileValue("Alchole", ProfileDB.Alchole, result[0]))
+      setCar(SelectProfileValue("Car", ProfileDB.Car, result[0]))
+      setInterest(SelectProfileValue("Interest", ProfileDB.Interest, result[0]))
+      setProfileMessage(result[0].ProfileMessage)
+      //どうやって複数選択するか？表示が問題
+      setPersonality(SelectProfileValue("Personality", ProfileDB.Personality, result[0]))
+      setAnnuIncome(SelectProfileValue("AnnuIncome", ProfileDB.AnnuIncome, result[0]))
+      setCute(SelectProfileValue("Cute", ProfileDB.Self, result[0]))
+      setSexy(SelectProfileValue("Sexy", ProfileDB.Self, result[0]))
+      setKindness(SelectProfileValue("Kindness", ProfileDB.Self, result[0]))
+      setSmartness(SelectProfileValue("Smartness", ProfileDB.Self, result[0]))
+      setNeatness(SelectProfileValue("Neatness", ProfileDB.Self, result[0]))
+      setFashionable(SelectProfileValue("Fashionable", ProfileDB.Self, result[0]))
+      setBrightness(SelectProfileValue("Brightness", ProfileDB.Self, result[0]))
+      setElegance(SelectProfileValue("Elegance", ProfileDB.Self, result[0]))
     })
 
 
-    setNickname(BasicProfile.NickName)
-    setGender(SelectProfileValue("Gender", ProfileDB.Gender, BasicProfile))
-    setAge(BasicProfile.Age)
-    setHeight(SelectProfileValue("Height", ProfileDB.Height, BasicProfile))
-    setStyle(SelectProfileValue("Style", ProfileDB.Style, BasicProfile))
-    setLooks(SelectProfileValue("Looks", ProfileDB.Looks, BasicProfile))
-    setCup(SelectProfileValue("Cup", ProfileDB.Cup, BasicProfile))
-    setBustSize(BasicProfile.BustSize)
-    setWestSize(BasicProfile.WestSize)
-    setHipSize(BasicProfile.HipSize)
-    setBloodType(SelectProfileValue("BloodType", ProfileDB.BloodType, BasicProfile))
-    setJob(SelectProfileValue("Job", ProfileDB.Job, BasicProfile))
-    setEduBack(SelectProfileValue("EduBack", ProfileDB.EduBack, BasicProfile))
-    setZodiac(SelectProfileValue("Zodiac", ProfileDB.Zodiac, BasicProfile))
-    setMarriageStatus(SelectProfileValue("MarriageStatus", ProfileDB.MarriageStatus, BasicProfile))
-    setKids(SelectProfileValue("Kids", ProfileDB.Kids, BasicProfile))
-    setTabacco(SelectProfileValue("Tabacco", ProfileDB.Tabacco, BasicProfile))
-    setAlchole(SelectProfileValue("Alchole", ProfileDB.Alchole, BasicProfile))
-    setCar(SelectProfileValue("Car", ProfileDB.Car, BasicProfile))
-    setInterest(SelectProfileValue("Interest", ProfileDB.Interest, BasicProfile))
-    setProfileMessage(BasicProfile.ProfileMessage)
-    //どうやって複数選択するか？表示が問題
-    setPersonality(SelectProfileValue("Personality", ProfileDB.Personality, BasicProfile))
-    setAnnuIncome(SelectProfileValue("AnnuIncome", ProfileDB.AnnuIncome, BasicProfile))
-    setCute(SelectProfileValue("Cute", ProfileDB.Self, BasicProfile))
-    setSexy(SelectProfileValue("Sexy", ProfileDB.Self, BasicProfile))
-    setKindness(SelectProfileValue("Kindness", ProfileDB.Self, BasicProfile))
-    setSmartness(SelectProfileValue("Smartness", ProfileDB.Self, BasicProfile))
-    setNeatness(SelectProfileValue("Neatness", ProfileDB.Self, BasicProfile))
-    setFashionable(SelectProfileValue("Fashionable", ProfileDB.Self, BasicProfile))
-    setBrightness(SelectProfileValue("Brightness", ProfileDB.Self, BasicProfile))
-    setElegance(SelectProfileValue("Elegance", ProfileDB.Self, BasicProfile))
+
     // fetch("../../get_basicprofile.php",initialRequestOptions)
     // .then((response) => response.json())
     // .then(result => {
