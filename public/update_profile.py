@@ -8,8 +8,10 @@ import SQLconfig
 import json
 
 print(sys.argv[1])
+teststr0=print(sys.argv[1])
+teststr1 = teststr0.replace("\'", "\"")
 try:
-    test=json.loads(sys.argv[1])
+    test=json.loads(teststr1)
     print(test)
 except (IndexError, TypeError, ValueError) as e:
     print(e)
