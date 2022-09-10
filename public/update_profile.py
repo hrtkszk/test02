@@ -37,16 +37,15 @@ cursor = connection.cursor()
 try:
     cursor.execute(f" \
         DELETE FROM `{ProfileTable}` \
-        WHERE \
-            UUID='{RecieveData['UUID']}' \
+        WHERE UUID='{RecieveData['UUID']}' \
     ")
-    cursor.execute(f" \
-        INSERT `{ProfileTable}` \
-        SET \
-            {SettingValue} \
-        WHERE \
-            UUID='{RecieveData['UUID']}' \
-    ")
+    # cursor.execute(f" \
+    #     INSERT `{ProfileTable}` \
+    #     SET \
+    #         {SettingValue} \
+    #     WHERE \
+    #         UUID='{RecieveData['UUID']}' \
+    # ")
 
             # NickName={RecieveData['NickName']}, \
             # gender='{sys.argv[3]}', \
