@@ -13,14 +13,18 @@ connection = MySQLdb.connect(
     passwd=SQLconfig.passwd,
     db=SQLconfig.db)
 
-profileTable="profileTable"
+ProfileTable="ProfileTable1"
 
 # field name込みの場合はこっちを使う
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
 cursor = connection.cursor()
 
 try:
-    cursor.execute(f"SELECT * FROM {profileTable} WHERE UUID='{sys.argv[1]}'")
+    cursor.execute(f" \
+        SELECT * \
+        FROM {ProfileTable} \
+        WHERE UUID='{sys.argv[1]}' \
+    ")
 
     # num_fields = len(cursor.description)
     field_names = [i[0] for i in cursor.description]

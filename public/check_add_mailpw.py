@@ -28,11 +28,11 @@ checkExist = cursor.fetchone()
 if checkExist==None:
     # UUID、メールアドレス登録→パスワード登録
     # UUID、メールアドレス登録
-    cursor.execute(f"INSERT `{SQLconfig.db}`.`{emailtable}` (`UUID`, `email`, `datetime`) VALUES (UUID(), '{sys.argv[1]}', CURRENT_TIME)")
+    cursor.execute(f"INSERT `{emailtable}` (`UUID`, `email`, `datetime`) VALUES (UUID(), '{sys.argv[1]}', CURRENT_TIME)")
     cursor.execute(f"SELECT UUID FROM {emailtable} WHERE email='{sys.argv[1]}'")
     UUID = cursor.fetchone()[0]
     # パスワード登録
-    cursor.execute(f"INSERT `{SQLconfig.db}`.`{pwdtable}` (`UUID`, `password`, `datetime`) VALUES ('{UUID}', '{sys.argv[2]}', CURRENT_TIME)")
+    cursor.execute(f"INSERT `{pwdtable}` (`UUID`, `password`, `datetime`) VALUES ('{UUID}', '{sys.argv[2]}', CURRENT_TIME)")
 
     print("TRC") # Temp Registration Complete
     print(UUID)

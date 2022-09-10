@@ -14,7 +14,8 @@ try:
         passwd=SQLconfig.passwd,
         db=SQLconfig.db)
 
-    profiletable="basicProfileTable"
+    # profiletable="basicProfileTable"
+    ProfileTable="ProfileTable1"
 
     #先に、UUIDが存在するか確認する。存在しない場合は、エラーを返す。
 
@@ -23,7 +24,11 @@ try:
     cursor = connection.cursor()
 
     # 該当するUUIDのRegistrationStatusを1に変更する。
-    cursor.execute(f"SELECT UUID, RegistrationStatus FROM {profiletable} WHERE UUID='{sys.argv[1]}'")
+    cursor.execute(f" \
+        SELECT UUID, RegistrationStatus1 \
+        FROM {ProfileTable} \
+        WHERE \
+            UUID='{sys.argv[1]}'")
     # checkExist = cursor.fetchall()
     # print(type(len(checkExist)))
     # print(len(checkExist))

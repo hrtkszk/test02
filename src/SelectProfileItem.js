@@ -4,7 +4,6 @@ const SelectProfileItem = (props) => {
     Object.keys(props.keyValue).map(key => 
         <>
             {str = props.keyName.concat(key)}
-            {console.log(str, ": ", props.DBValue[str])}
             {props.DBValue[str] === 1 ? (
                 display=props.keyValue[key]
                 
