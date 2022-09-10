@@ -34,10 +34,10 @@ ProfileTable="ProfileTable1"
 cursor = connection.cursor()
 
 try:
-    cursor.execute(f" \
-        DELETE FROM `{ProfileTable}` \
-        WHERE UUID='{RecieveData['UUID']}' \
-    ")
+    # cursor.execute(f" \
+    #     DELETE FROM `{ProfileTable}` \
+    #     WHERE UUID='{RecieveData['UUID']}' \
+    # ")
     cursor.execute(f" \
         INSERT `{ProfileTable}` \
         SET \
