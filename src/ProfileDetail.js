@@ -29,7 +29,7 @@ export function ProfileDetail() {
     fetch("../../get_basicprofile.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
-      setBasicProfile(result[0])
+      setBasicProfile(JSON.parse(result[0]))
     })
     // if (BasicProfile.Gender0 === 1) {GenderNum=0} else {None}
     // if (BasicProfile.Gender1 === 1) {GenderNum=1} else {None}

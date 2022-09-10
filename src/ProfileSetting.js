@@ -12,6 +12,7 @@ import ProfileDB from "./Profile.json";
 import FormTextInput from "./FormTextInput";
 // import FormSelectRange from "./FormSelectRange";
 import FormSelect from "./FormSelect";
+import SelectProfileValue from "./SelectProfileValue";
 
 export function ProfileSetting() {
   //  各ステータスのdefaultにすでに設定された値を入れたい。
@@ -83,19 +84,6 @@ export function ProfileSetting() {
     body: JSON.stringify({"UUID":auth.user})
   }
   
-  const SelectProfileValue = (keyName, keyValue, DBValue) => {
-    let str = ""
-    let selection = "0"
-    Object.keys(keyValue).map(key => 
-        <>
-            {str = keyName.concat(key)}
-            {DBValue[str] === 1 ? (
-                selection=key
-            ) : null}
-        </>
-    )
-    return selection
-  }
   const AppendRequestBody = (s, keyName, keyState) => {
     if (keyState !== "0") {
       s["\"" + keyName + "0\""] = "\"" + 0 + "\""
