@@ -95,6 +95,7 @@ export function ProfileSetting() {
             ) : null}
         </>
     )
+    console.log(selection)
     return selection
   }
   const AppendRequestBody = (s, keyName, keyState) => {
