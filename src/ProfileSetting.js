@@ -111,7 +111,7 @@ export function ProfileSetting() {
     .then(result => {
       setBasicProfile(JSON.parse(result[0]))
     })
-    setNickname(JsonData.NickName)
+    setNickname(BasicProfile.NickName)
     setGender(SelectProfileValue("Gender", ProfileDB.Gender, BasicProfile))
     setAge(BasicProfile.Age)
     setHeight(SelectProfileValue("Height", ProfileDB.Height, BasicProfile))
