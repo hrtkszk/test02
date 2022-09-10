@@ -94,8 +94,8 @@ export function ProfileSetting() {
             ) : null}
         </>
     )
-    console.log(typeof(+selection))
-    return +selection
+    console.log(typeof(selection))
+    return selection
   }
   const AppendRequestBody = (s, keyName, keyState) => {
     if (keyState !== "0") {
