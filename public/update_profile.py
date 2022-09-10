@@ -8,7 +8,7 @@ import SQLconfig
 import json
 
 print(sys.argv[1])
-teststr0=print(sys.argv[1])
+teststr0=sys.argv[1]
 teststr1 = teststr0.replace("\'", "\"")
 try:
     test=json.loads(teststr1)
