@@ -14,7 +14,10 @@ except (IndexError, TypeError, ValueError) as e:
 
 SettingValue = ""
 for k,v in RecieveData.items():
-    SettingValue += k + "=" + v + ", "
+    if k == "UUID":
+        SettingValue += k + "='" + v + "', "
+    else:
+        SettingValue += k + "=" + v + ", "
 print(SettingValue)
 
 # データベースへの接続とカーソルの生成
