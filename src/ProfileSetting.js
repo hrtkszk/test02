@@ -15,7 +15,7 @@ import FormSelect from "./FormSelect";
 
 export function ProfileSetting() {
   //  各ステータスのdefaultにすでに設定された値を入れたい。
-  // const [BasicProfile, setBasicProfile] = useState([]);
+  const [BasicProfile, setBasicProfile] = useState([]);
   // const [Profile, setProfile] = useState([]);
   // 基本状況
   const [Nickname, setNickname] = useState("0");
@@ -112,6 +112,7 @@ export function ProfileSetting() {
     .then(result => {
       console.log(result[0])
       JsonData =JSON.parse(result[0])
+      setBasicProfile(JsonData)
       console.log(JsonData.NickName)
       setNickname(JsonData.NickName)
       setGender(SelectProfileValue("Gender", ProfileDB.Gender, JsonData))
@@ -461,9 +462,9 @@ export function ProfileSetting() {
   // function MainSelection() {
 
 
-  // if (BasicProfile.length === 0) {
-  //   return <></>
-  // } else {
+  if (BasicProfile.length === 0) {
+    return <></>
+  } else {
     return (
       <div>
       <h1>プロフィール設定</h1>
@@ -809,4 +810,4 @@ export function ProfileSetting() {
   //   </>
   // )
   }
-// }
+}
