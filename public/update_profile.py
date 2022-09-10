@@ -7,13 +7,9 @@ import datetime
 import SQLconfig
 import json
 
-print(sys.argv[1])
-teststr0=sys.argv[1]
-teststr1 = teststr0.replace("\'", "\"")
-print(teststr1)
 try:
-    test=json.loads(teststr1)
-    print(test)
+    test=json.loads(sys.argv[1])
+    print(test['UUID'])
 except (IndexError, TypeError, ValueError) as e:
     print(e)
 
