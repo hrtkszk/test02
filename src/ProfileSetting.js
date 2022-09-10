@@ -97,6 +97,15 @@ export function ProfileSetting() {
     )
     return selection
   }
+  const test = (s, keyName, keyState) => {
+    if (keyState !== "0") {
+      s["\"" + keyName + "0\""] = "\"" + 0 + "\""
+      s["\"" + keyName + keyState + "\""] = "\"" + 1 + "\""
+    } else {
+      s["\"" + keyName + "0\""] = "\"" + 1 + "\""
+    }
+    return s
+  }
 
   // ページが読み込まれる時に実行し、Profileとして登録する。
   if (initialized===false) {
@@ -204,12 +213,42 @@ export function ProfileSetting() {
     let s = {}
     s["\"UUID\""] = "\"" + auth.user + "\""
     s["\"NickName\""] = "\"" + Nickname + "\""
-    s["\"Gender" + Gender + "\""] = "\"" + 1 + "\""
-    s["\"Age\""] = "\"" + Age + "\""
-    s["\"Height" + Height + "\""] ="\"" +  1 + "\""
-    s["\"Style" + Style + "\""] = "\"" + 1 + "\""
-    s["\"Looks" + Looks + "\""] = "\"" + 1 + "\""
-    s["\"Cup" + Cup + "\""] = "\"" + 1 + "\""
+    test(s, "Gender", Gender)
+    test(s, "Age", Age)
+    test(s, "Style", Style)
+    test(s, "Looks", Looks)
+    test(s, "Cup", Cup)
+    // if (Gender !== "0") {
+    //   s["\"Gender0\""] = "\"" + 0 + "\""
+    //   s["\"Gender" + Gender + "\""] = "\"" + 1 + "\""
+    // } else {
+    //   s["\"Gender0\""] = "\"" + 1 + "\""
+    // }
+    // s["\"Age\""] = "\"" + Age + "\""
+    // if (Height !== "0") {
+    //   s["\"Height0\""] = "\"" + 0 + "\""
+    //   s["\"Height" + Height + "\""] = "\"" + 1 + "\""
+    // } else {
+    //   s["\"Height0\""] = "\"" + 1 + "\""
+    // }
+    // if (Style !== "0") {
+    //   s["\"Style0\""] = "\"" + 0 + "\""
+    //   s["\"Style" + Style + "\""] = "\"" + 1 + "\""
+    // } else {
+    //   s["\"Style0\""] = "\"" + 1 + "\""
+    // }
+    // if (Looks !== "0") {
+    //   s["\"Looks0\""] = "\"" + 0 + "\""
+    //   s["\"Looks" + Looks + "\""] = "\"" + 1 + "\""
+    // } else {
+    //   s["\"Looks0\""] = "\"" + 1 + "\""
+    // }
+    // if (Cup !== "0") {
+    //   s["\"Cup0\""] = "\"" + 0 + "\""
+    //   s["\"Cup" + Cup + "\""] = "\"" + 1 + "\""
+    // } else {
+    //   s["\"Cup0\""] = "\"" + 1 + "\""
+    // }
     s["\"BustSize\""] = "\"" + BustSize + "\""
     s["\"WestSize\""] = "\"" + WestSize + "\""
     s["\"HipSize\""] = "\"" + HipSize + "\""
