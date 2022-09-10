@@ -89,8 +89,8 @@ export function ProfileSetting() {
     Object.keys(keyValue).map(key => 
         <>
             {str = keyName.concat(key)}
-            {console.log(DBValue[str])}
-            {DBValue[str] === 1 ? (
+            {console.log(DBValue.str)}
+            {DBValue.str === 1 ? (
                 selection=key
             ) : null}
         </>
@@ -111,6 +111,7 @@ export function ProfileSetting() {
     .then((response) => response.json())
     .then(result => {
       console.log(result[0])
+      console.log(result[0].NickName)
       setNickname(result[0].NickName)
       setGender(SelectProfileValue("Gender", ProfileDB.Gender, result[0]))
       setAge(result[0].Age)
