@@ -94,7 +94,6 @@ export function ProfileSetting() {
             ) : null}
         </>
     )
-    console.log(typeof(selection))
     return selection
   }
   const AppendRequestBody = (s, keyName, keyState) => {
@@ -104,108 +103,47 @@ export function ProfileSetting() {
     }
     return s
   }
-  let JsonData = {}
+  
   // ページが読み込まれる時に実行し、Profileとして登録する。
   if (initialized===false) {
     fetch("../../get_basicprofile.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
-      console.log(result[0])
-      JsonData =JSON.parse(result[0])
-      setBasicProfile(JsonData)
-      console.log(JsonData.NickName)
-      setNickname(JsonData.NickName)
-      setGender(SelectProfileValue("Gender", ProfileDB.Gender, JsonData))
-      setAge(JsonData.Age)
-      setHeight(SelectProfileValue("Height", ProfileDB.Height, JsonData))
-      setStyle(SelectProfileValue("Style", ProfileDB.Style, JsonData))
-      setLooks(SelectProfileValue("Looks", ProfileDB.Looks, JsonData))
-      setCup(SelectProfileValue("Cup", ProfileDB.Cup, JsonData))
-      setBustSize(JsonData.BustSize)
-      setWestSize(JsonData.WestSize)
-      setHipSize(JsonData.HipSize)
-      setBloodType(SelectProfileValue("BloodType", ProfileDB.BloodType, JsonData))
-      setJob(SelectProfileValue("Job", ProfileDB.Job, JsonData))
-      setEduBack(SelectProfileValue("EduBack", ProfileDB.EduBack, JsonData))
-      setZodiac(SelectProfileValue("Zodiac", ProfileDB.Zodiac, JsonData))
-      setMarriageStatus(SelectProfileValue("MarriageStatus", ProfileDB.MarriageStatus, JsonData))
-      setKids(SelectProfileValue("Kids", ProfileDB.Kids, JsonData))
-      setTabacco(SelectProfileValue("Tabacco", ProfileDB.Tabacco, JsonData))
-      setAlchole(SelectProfileValue("Alchole", ProfileDB.Alchole, JsonData))
-      setCar(SelectProfileValue("Car", ProfileDB.Car, JsonData))
-      setInterest(SelectProfileValue("Interest", ProfileDB.Interest, JsonData))
-      setProfileMessage(JsonData.ProfileMessage)
-      //どうやって複数選択するか？表示が問題
-      setPersonality(SelectProfileValue("Personality", ProfileDB.Personality, JsonData))
-      setAnnuIncome(SelectProfileValue("AnnuIncome", ProfileDB.AnnuIncome, JsonData))
-      setCute(SelectProfileValue("Cute", ProfileDB.Self, JsonData))
-      setSexy(SelectProfileValue("Sexy", ProfileDB.Self, JsonData))
-      setKindness(SelectProfileValue("Kindness", ProfileDB.Self, JsonData))
-      setSmartness(SelectProfileValue("Smartness", ProfileDB.Self, JsonData))
-      setNeatness(SelectProfileValue("Neatness", ProfileDB.Self, JsonData))
-      setFashionable(SelectProfileValue("Fashionable", ProfileDB.Self, JsonData))
-      setBrightness(SelectProfileValue("Brightness", ProfileDB.Self, JsonData))
-      setElegance(SelectProfileValue("Elegance", ProfileDB.Self, JsonData))
+      setBasicProfile(JSON.parse(result[0]))
     })
+    setNickname(JsonData.NickName)
+    setGender(SelectProfileValue("Gender", ProfileDB.Gender, BasicProfile))
+    setAge(BasicProfile.Age)
+    setHeight(SelectProfileValue("Height", ProfileDB.Height, BasicProfile))
+    setStyle(SelectProfileValue("Style", ProfileDB.Style, BasicProfile))
+    setLooks(SelectProfileValue("Looks", ProfileDB.Looks, BasicProfile))
+    setCup(SelectProfileValue("Cup", ProfileDB.Cup, BasicProfile))
+    setBustSize(BasicProfile.BustSize)
+    setWestSize(BasicProfile.WestSize)
+    setHipSize(BasicProfile.HipSize)
+    setBloodType(SelectProfileValue("BloodType", ProfileDB.BloodType, BasicProfile))
+    setJob(SelectProfileValue("Job", ProfileDB.Job, BasicProfile))
+    setEduBack(SelectProfileValue("EduBack", ProfileDB.EduBack, BasicProfile))
+    setZodiac(SelectProfileValue("Zodiac", ProfileDB.Zodiac, BasicProfile))
+    setMarriageStatus(SelectProfileValue("MarriageStatus", ProfileDB.MarriageStatus, BasicProfile))
+    setKids(SelectProfileValue("Kids", ProfileDB.Kids, BasicProfile))
+    setTabacco(SelectProfileValue("Tabacco", ProfileDB.Tabacco, BasicProfile))
+    setAlchole(SelectProfileValue("Alchole", ProfileDB.Alchole, BasicProfile))
+    setCar(SelectProfileValue("Car", ProfileDB.Car, BasicProfile))
+    setInterest(SelectProfileValue("Interest", ProfileDB.Interest, BasicProfile))
+    setProfileMessage(BasicProfile.ProfileMessage)
+    //どうやって複数選択するか？表示が問題
+    setPersonality(SelectProfileValue("Personality", ProfileDB.Personality, BasicProfile))
+    setAnnuIncome(SelectProfileValue("AnnuIncome", ProfileDB.AnnuIncome, BasicProfile))
+    setCute(SelectProfileValue("Cute", ProfileDB.Self, BasicProfile))
+    setSexy(SelectProfileValue("Sexy", ProfileDB.Self, BasicProfile))
+    setKindness(SelectProfileValue("Kindness", ProfileDB.Self, BasicProfile))
+    setSmartness(SelectProfileValue("Smartness", ProfileDB.Self, BasicProfile))
+    setNeatness(SelectProfileValue("Neatness", ProfileDB.Self, BasicProfile))
+    setFashionable(SelectProfileValue("Fashionable", ProfileDB.Self, BasicProfile))
+    setBrightness(SelectProfileValue("Brightness", ProfileDB.Self, BasicProfile))
+    setElegance(SelectProfileValue("Elegance", ProfileDB.Self, BasicProfile))
 
-
-
-    // fetch("../../get_basicprofile.php",initialRequestOptions)
-    // .then((response) => response.json())
-    // .then(result => {
-    //   setBasicProfile(result.result[0])
-    //   setNickname(result.result[0].nickname)
-    //   setGender(result.result[0].gender)
-    //   setAge(result.result[0].age)
-    // })
-
-    // fetch("../../get_profile.php",initialRequestOptions)
-    // .then((response) => response.json())
-    // .then(result => {
-    //   if (result.result !== "PND") {
-    //     // setProfile(result.result[0])
-    //     // console.log(result.result[0])
-    //     setSettingArea(result.result[0].SettingArea)
-    //     setArea(result.result[0].Area)
-    //     setPrefecture(result.result[0].Prefecture)
-    //     setCity(result.result[0].City)
-    //     setWard(result.result[0].Ward)
-    //     setHeight(result.result[0].Height)
-    //     setStyle(result.result[0].Style)
-    //     setLooks(result.result[0].Looks)
-    //     setCup(result.result[0].Cup)
-    //     setBustSize(result.result[0].BustSize)
-    //     setWestSize(result.result[0].WestSize)
-    //     setHipSize(result.result[0].HipSize)
-    //     setBloodType(result.result[0].BloodType)
-    //     setJob(result.result[0].Job)
-    //     setEduBack(result.result[0].EduBack)
-    //     setSettingBirthArea(result.result[0].SettingBirthArea)
-    //     setBirthArea(result.result[0].BirthArea)
-    //     setBirthPrefecture(result.result[0].BirthPrefecture)
-    //     setZodiac(result.result[0].Zodiac)
-    //     setMarriageStatus(result.result[0].MarriageStatus)
-    //     setKids(result.result[0].Kids)
-    //     setTabacco(result.result[0].Tabacco)
-    //     setAlchole(result.result[0].Alchole)
-    //     setCar(result.result[0].Car)
-    //     setInterest(result.result[0].Interest)
-    //     // setProfilePicture(result.result[0].ProfilePicture)
-    //     setProfileMessage(result.result[0].ProfileMessage)
-    //     setPreferedAge1(result.result[0].PreferedAge1)
-    //     setPreferedAge2(result.result[0].PreferedAge2)
-    //     setPreferedPersonality(result.result[0].PreferedPersonality)
-    //     setPersonality(result.result[0].Personality)
-    //     setSelfCute(result.result[0].SelfCute)
-    //     setSelfSexy(result.result[0].SelfSexy)
-    //     setSelfKindness(result.result[0].SelfKindness)
-    //     setSelfSmartness(result.result[0].SelfSmartness)
-    //     setSelfNeatness(result.result[0].SelfNeatness)
-    //     setSelfFashionable(result.result[0].SelfFashionable)
-    //     setSelfBrightness(result.result[0].SelfBrightness)
-    //     setSelfElegance(result.result[0].SelfElegance)
-    //   }
-    // })
     setinitialized(true)
   }
 
@@ -234,15 +172,6 @@ export function ProfileSetting() {
     AppendRequestBody(s, "Tabacco", Tabacco)
     AppendRequestBody(s, "Alchole", Alchole)
     AppendRequestBody(s, "Car", Car)
-    // s["\"BloodType" + BloodType + "\""] = "\"" + 1 + "\""
-    // s["\"Job" + Job + "\""] = "\"" + 1 + "\""
-    // s["\"EduBack" + EduBack + "\""] = "\"" + 1 + "\""
-    // s["\"Zodiac" + Zodiac + "\""] = "\"" + 1 + "\""
-    // s["\"MarriageStatus" + MarriageStatus + "\""] = "\"" + 1 + "\""
-    // s["\"Kids" + Kids + "\""] = "\"" + 1 + "\""
-    // s["\"Tabacco" + Tabacco + "\""] = "\"" + 1 + "\""
-    // s["\"Alchole" + Alchole + "\""] = "\"" + 1 + "\""
-    // s["\"Car" + Car + "\""] = "\"" + 1 + "\""
     // s["\"Interest" + Interest + "\""] = "\"" + 1 + "\""
     s["\"ProfileMessage\""] = "\"" + ProfileMessage + "\""
     // s["\"Personality" + Personality + "\""] = "\"" + 1 + "\""
@@ -254,73 +183,11 @@ export function ProfileSetting() {
     AppendRequestBody(s, "Fashionable", Fashionable)
     AppendRequestBody(s, "Brightness", Brightness)
     AppendRequestBody(s, "Elegance", Elegance)
-    // s["\"Cute" + Cute + "\""] = "\"" + 1 + "\""
-    // s["\"Sexy" + Sexy + "\""] = "\"" + 1 + "\""
-    // s["\"Kindness" + Kindness + "\""] = "\"" + 1 + "\""
-    // s["\"Smartness" + Smartness + "\""] = "\"" + 1 + "\""
-    // s["\"Neatness" + Neatness + "\""] = "\"" + 1 + "\""
-    // s["\"Fashionable" + Fashionable + "\""] = "\"" + 1 + "\""
-    // s["\"Brightness" + Brightness + "\""] = "\"" + 1 + "\""
-    // s["\"Elegance" + Elegance + "\""] = "\"" + 1 + "\""
 
     const requestOptions1 ={
       method: 'POST',
       headers:{'Content-Type': 'application/json'},
       body: JSON.stringify(s)
-      // body: JSON.stringify({
-      //   "UUID":auth.user,
-
-      //   "NickName":Nickname,
-      //   "Gender":Gender,
-      //   "Age":Age,
-
-      //   // "SettingArea":SettingArea,
-      //   // "Area":Area,
-      //   // "Prefecture":Prefecture,
-      //   // "City":City,
-      //   // "Ward":Ward,
-      //   "Height":Height,
-      //   "Style":Style,
-      //   "Looks":Looks,
-      //   "Cup":Cup,
-      //   "BustSize":BustSize,
-      //   "WestSize":WestSize,
-      //   "HipSize":HipSize,
-      //   "BloodType":BloodType,
-
-      //   "Job":Job,
-      //   "EduBack":EduBack,
-      //   // "SettingBirthArea":SettingBirthArea,
-      //   // "BirthArea":BirthArea,
-      //   // "BirthPrefecture":BirthPrefecture,
-      //   "Zodiac":Zodiac,
-
-      //   "MarriageStatus":MarriageStatus,
-      //   "Kids":Kids,
-
-      //   "Tabacco":Tabacco,
-      //   "Alchole":Alchole,
-      //   "Car":Car,
-      //   "Interest":Interest,
-
-      //   // "ProfilePicture":ProfilePicture,
-      //   "ProfileMessage":ProfileMessage,
-
-      //   // "PreferedAge1":PreferedAge1,
-      //   // "PreferedAge2":PreferedAge2,
-      //   // "PreferedPersonality":PreferedPersonality,
-
-      //   "Personality":Personality,
-
-      //   "SelfCute":Cute,
-      //   "SelfSexy":Sexy,
-      //   "SelfKindness":Kindness,
-      //   "SelfSmartness":Smartness,
-      //   "SelfNeatness":Neatness,
-      //   "SelfFashionable":Fashionable,
-      //   "SelfBrightness":Brightness,
-      //   "SelfElegance":Elegance
-      // })
     }
 
     fetch("../../update_profile.php",requestOptions1)
