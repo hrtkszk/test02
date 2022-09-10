@@ -8,10 +8,13 @@ import SQLconfig
 import json
 
 try:
-    test=json.loads(sys.argv[1])
-    print(test['UUID'])
+    RecieveData=json.loads(sys.argv[1])
 except (IndexError, TypeError, ValueError) as e:
     print(e)
+
+for item in RecieveData:
+    print(item)
+
 
 # # データベースへの接続とカーソルの生成
 # connection = MySQLdb.connect(
@@ -33,7 +36,7 @@ except (IndexError, TypeError, ValueError) as e:
 #     cursor.execute(f" \
 #         UPDATE `{ProfileTable}` \
 #         SET \
-#             NickName='{sys.argv[2]}', \
+#             NickName={RecieveData['NickName']}, \
 #             gender='{sys.argv[3]}', \
 #             age='{sys.argv[4]}'\
 #             UUID='{sys.argv[1]}', \
@@ -77,7 +80,7 @@ except (IndexError, TypeError, ValueError) as e:
 #             SelfBrightness='{sys.argv[42]}', \
 #             SelfElegance='{sys.argv[43]}' \
 #         WHERE \
-#             UUID='{sys.argv[1]}' \
+#             UUID={RecieveData['UUID']} \
 #     ")
 #     print("UPS") # Update Profile Success
 # except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
