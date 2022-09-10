@@ -97,6 +97,13 @@ export function ProfileSetting() {
     )
     return selection
   }
+  const test = (s, keyName, keyState) => {
+    if (keyState !== "0") {
+      s["\"" + keyName + "0\""] = "\"" + 0 + "\""
+      s["\"" + keyName + keyState + "\""] = "\"" + 1 + "\""
+    }
+    return s
+  }
 
   // ページが読み込まれる時に実行し、Profileとして登録する。
   if (initialized===false) {
@@ -204,35 +211,52 @@ export function ProfileSetting() {
     let s = {}
     s["\"UUID\""] = "\"" + auth.user + "\""
     s["\"NickName\""] = "\"" + Nickname + "\""
-    s["\"Gender" + Gender + "\""] = "\"" + 1 + "\""
+    test(s, "Gender", Gender)
     s["\"Age\""] = "\"" + Age + "\""
-    s["\"Height" + Height + "\""] = "\"" + 1 + "\""
-    s["\"Style" + Style + "\""] = "\"" + 1 + "\""
-    s["\"Looks" + Looks + "\""] = "\"" + 1 + "\""
-    s["\"Cup" + Cup + "\""] = "\"" + 1 + "\""
+    test(s, "Height", Height)
+    test(s, "Style", Style)
+    test(s, "Looks", Looks)
+    test(s, "Cup", Cup)
     s["\"BustSize\""] = "\"" + BustSize + "\""
     s["\"WestSize\""] = "\"" + WestSize + "\""
     s["\"HipSize\""] = "\"" + HipSize + "\""
-    s["\"BloodType" + BloodType + "\""] = "\"" + 1 + "\""
-    s["\"Job" + Job + "\""] = "\"" + 1 + "\""
-    s["\"EduBack" + EduBack + "\""] = "\"" + 1 + "\""
-    s["\"Zodiac" + Zodiac + "\""] = "\"" + 1 + "\""
-    s["\"MarriageStatus" + MarriageStatus + "\""] = "\"" + 1 + "\""
-    s["\"Kids" + Kids + "\""] = "\"" + 1 + "\""
-    s["\"Tabacco" + Tabacco + "\""] = "\"" + 1 + "\""
-    s["\"Alchole" + Alchole + "\""] = "\"" + 1 + "\""
-    s["\"Car" + Car + "\""] = "\"" + 1 + "\""
+    test(s, "BloodType", BloodType)
+    test(s, "Job", Job)
+    test(s, "EduBack", EduBack)
+    test(s, "Zodiac", Zodiac)
+    test(s, "MarriageStatus", MarriageStatus)
+    test(s, "Kids", Kids)
+    test(s, "Tabacco", Tabacco)
+    test(s, "Alchole", Alchole)
+    test(s, "Car", Car)
+    // s["\"BloodType" + BloodType + "\""] = "\"" + 1 + "\""
+    // s["\"Job" + Job + "\""] = "\"" + 1 + "\""
+    // s["\"EduBack" + EduBack + "\""] = "\"" + 1 + "\""
+    // s["\"Zodiac" + Zodiac + "\""] = "\"" + 1 + "\""
+    // s["\"MarriageStatus" + MarriageStatus + "\""] = "\"" + 1 + "\""
+    // s["\"Kids" + Kids + "\""] = "\"" + 1 + "\""
+    // s["\"Tabacco" + Tabacco + "\""] = "\"" + 1 + "\""
+    // s["\"Alchole" + Alchole + "\""] = "\"" + 1 + "\""
+    // s["\"Car" + Car + "\""] = "\"" + 1 + "\""
     // s["\"Interest" + Interest + "\""] = "\"" + 1 + "\""
     s["\"ProfileMessage\""] = "\"" + ProfileMessage + "\""
     // s["\"Personality" + Personality + "\""] = "\"" + 1 + "\""
-    s["\"Cute" + Cute + "\""] = "\"" + 1 + "\""
-    s["\"Sexy" + Sexy + "\""] = "\"" + 1 + "\""
-    s["\"Kindness" + Kindness + "\""] = "\"" + 1 + "\""
-    s["\"Smartness" + Smartness + "\""] = "\"" + 1 + "\""
-    s["\"Neatness" + Neatness + "\""] = "\"" + 1 + "\""
-    s["\"Fashionable" + Fashionable + "\""] = "\"" + 1 + "\""
-    s["\"Brightness" + Brightness + "\""] = "\"" + 1 + "\""
-    s["\"Elegance" + Elegance + "\""] = "\"" + 1 + "\""
+    test(s, "Cute", Cute)
+    test(s, "Sexy", Sexy)
+    test(s, "Kindness", Kindness)
+    test(s, "Smartness", Smartness)
+    test(s, "Neatness", Neatness)
+    test(s, "Fashionable", Fashionable)
+    test(s, "Brightness", Brightness)
+    test(s, "Elegance", Elegance)
+    // s["\"Cute" + Cute + "\""] = "\"" + 1 + "\""
+    // s["\"Sexy" + Sexy + "\""] = "\"" + 1 + "\""
+    // s["\"Kindness" + Kindness + "\""] = "\"" + 1 + "\""
+    // s["\"Smartness" + Smartness + "\""] = "\"" + 1 + "\""
+    // s["\"Neatness" + Neatness + "\""] = "\"" + 1 + "\""
+    // s["\"Fashionable" + Fashionable + "\""] = "\"" + 1 + "\""
+    // s["\"Brightness" + Brightness + "\""] = "\"" + 1 + "\""
+    // s["\"Elegance" + Elegance + "\""] = "\"" + 1 + "\""
 
     const requestOptions1 ={
       method: 'POST',
