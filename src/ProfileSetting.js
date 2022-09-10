@@ -204,7 +204,7 @@ export function ProfileSetting() {
     let s = {
       "UUID":auth.user
     }
-    s["NickName"] = Nickname
+    s["\"NickName\""] = "\"" + Nickname + "\""
     s["Gender" + Gender] = 1
     s["Age"] = Age
     s["Height" + Height] = 1
