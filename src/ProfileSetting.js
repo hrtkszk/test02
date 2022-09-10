@@ -89,7 +89,7 @@ export function ProfileSetting() {
     Object.keys(keyValue).map(key => 
         <>
             {str = keyName.concat(key)}
-            {console.log(DBValue[str])}
+            {console.log(str, ":", DBValue[str])}
             {DBValue[str] === 1 ? (
                 selection=key
             ) : null}
