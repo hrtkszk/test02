@@ -7,15 +7,14 @@ import datetime
 import SQLconfig
 import json
 
-print(sys.argv[1])
-# try:
-#     RecieveData=json.loads(sys.argv[1])
-# except (IndexError, TypeError, ValueError) as e:
-#     print(e)
+try:
+    RecieveData=json.loads(sys.argv[1])
+except (IndexError, TypeError, ValueError) as e:
+    print(e)
 
-# SettingValue = ""
-# for k,v in RecieveData.items():
-#     SettingValue += k + "=" + v
+SettingValue = ""
+for k,v in RecieveData.items():
+    SettingValue += k + "=" + v + ", "
 
 
 # # データベースへの接続とカーソルの生成
