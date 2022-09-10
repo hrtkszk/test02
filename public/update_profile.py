@@ -16,7 +16,7 @@ SettingValue = ""
 for k,v in RecieveData.items():
     if k != "UUID":
         SettingValue += k + "=" + v + ", "
-print(SettingValue)
+print(SettingValue[:-2])
 
 # データベースへの接続とカーソルの生成
 connection = MySQLdb.connect(
