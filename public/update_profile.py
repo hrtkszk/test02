@@ -16,7 +16,6 @@ SettingValue = ""
 for k,v in RecieveData.items():
     if k != "UUID":
         SettingValue += k + "=" + v + ", "
-print(SettingValue[:-2])
 
 # データベースへの接続とカーソルの生成
 connection = MySQLdb.connect(
@@ -39,13 +38,13 @@ try:
         DELETE FROM `{ProfileTable}` \
         WHERE UUID='{RecieveData['UUID']}' \
     ")
-    # cursor.execute(f" \
-    #     INSERT `{ProfileTable}` \
-    #     SET \
-    #         {SettingValue} \
-    #     WHERE \
-    #         UUID='{RecieveData['UUID']}' \
-    # ")
+    cursor.execute(f" \
+        INSERT `{ProfileTable}` \
+        SET \
+            {SettingValue[:-2]} \
+        WHERE \
+            UUID='{RecieveData['UUID']}' \
+    ")
 
             # NickName={RecieveData['NickName']}, \
             # gender='{sys.argv[3]}', \
