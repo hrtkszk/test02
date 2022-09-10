@@ -97,7 +97,7 @@ export function ProfileSetting() {
     )
     return selection
   }
-  const test = (s, keyName, keyState) => {
+  const AppendRequestBody = (s, keyName, keyState) => {
     if (keyState !== "0") {
       s["\"" + keyName + "0\""] = "\"" + 0 + "\""
       s["\"" + keyName + keyState + "\""] = "\"" + 1 + "\""
@@ -111,7 +111,9 @@ export function ProfileSetting() {
     .then((response) => response.json())
     .then(result => {
       setBasicProfile(result[0])
+      console.log(result[0])
     })
+
 
     setNickname(BasicProfile.NickName)
     setGender(SelectProfileValue("Gender", ProfileDB.Gender, BasicProfile))
@@ -211,24 +213,24 @@ export function ProfileSetting() {
     let s = {}
     s["\"UUID\""] = "\"" + auth.user + "\""
     s["\"NickName\""] = "\"" + Nickname + "\""
-    test(s, "Gender", Gender)
+    AppendRequestBody(s, "Gender", Gender)
     s["\"Age\""] = "\"" + Age + "\""
-    test(s, "Height", Height)
-    test(s, "Style", Style)
-    test(s, "Looks", Looks)
-    test(s, "Cup", Cup)
+    AppendRequestBody(s, "Height", Height)
+    AppendRequestBody(s, "Style", Style)
+    AppendRequestBody(s, "Looks", Looks)
+    AppendRequestBody(s, "Cup", Cup)
     s["\"BustSize\""] = "\"" + BustSize + "\""
     s["\"WestSize\""] = "\"" + WestSize + "\""
     s["\"HipSize\""] = "\"" + HipSize + "\""
-    test(s, "BloodType", BloodType)
-    test(s, "Job", Job)
-    test(s, "EduBack", EduBack)
-    test(s, "Zodiac", Zodiac)
-    test(s, "MarriageStatus", MarriageStatus)
-    test(s, "Kids", Kids)
-    test(s, "Tabacco", Tabacco)
-    test(s, "Alchole", Alchole)
-    test(s, "Car", Car)
+    AppendRequestBody(s, "BloodType", BloodType)
+    AppendRequestBody(s, "Job", Job)
+    AppendRequestBody(s, "EduBack", EduBack)
+    AppendRequestBody(s, "Zodiac", Zodiac)
+    AppendRequestBody(s, "MarriageStatus", MarriageStatus)
+    AppendRequestBody(s, "Kids", Kids)
+    AppendRequestBody(s, "Tabacco", Tabacco)
+    AppendRequestBody(s, "Alchole", Alchole)
+    AppendRequestBody(s, "Car", Car)
     // s["\"BloodType" + BloodType + "\""] = "\"" + 1 + "\""
     // s["\"Job" + Job + "\""] = "\"" + 1 + "\""
     // s["\"EduBack" + EduBack + "\""] = "\"" + 1 + "\""
@@ -241,14 +243,14 @@ export function ProfileSetting() {
     // s["\"Interest" + Interest + "\""] = "\"" + 1 + "\""
     s["\"ProfileMessage\""] = "\"" + ProfileMessage + "\""
     // s["\"Personality" + Personality + "\""] = "\"" + 1 + "\""
-    test(s, "Cute", Cute)
-    test(s, "Sexy", Sexy)
-    test(s, "Kindness", Kindness)
-    test(s, "Smartness", Smartness)
-    test(s, "Neatness", Neatness)
-    test(s, "Fashionable", Fashionable)
-    test(s, "Brightness", Brightness)
-    test(s, "Elegance", Elegance)
+    AppendRequestBody(s, "Cute", Cute)
+    AppendRequestBody(s, "Sexy", Sexy)
+    AppendRequestBody(s, "Kindness", Kindness)
+    AppendRequestBody(s, "Smartness", Smartness)
+    AppendRequestBody(s, "Neatness", Neatness)
+    AppendRequestBody(s, "Fashionable", Fashionable)
+    AppendRequestBody(s, "Brightness", Brightness)
+    AppendRequestBody(s, "Elegance", Elegance)
     // s["\"Cute" + Cute + "\""] = "\"" + 1 + "\""
     // s["\"Sexy" + Sexy + "\""] = "\"" + 1 + "\""
     // s["\"Kindness" + Kindness + "\""] = "\"" + 1 + "\""
