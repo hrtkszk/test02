@@ -1,9 +1,9 @@
 import * as React from "react";
-// import {
-//   Link,
-//   // Outlet
-//   // useNavigate
-// } from "react-router-dom";
+import {
+  Link,
+  // Outlet
+  // useNavigate
+} from "react-router-dom";
 import { useState } from 'react';
 import { useAuth } from "./useAuth";
 import "./Message.css";
@@ -65,17 +65,17 @@ export function MessageList() {
       <div>
         <h1>Message List for {auth.user}</h1>
         <div>
-        {/* <ul>
+        <ul>
             {MessageList.map((Message, i) => {
               return <li key={Message.aiteID} onClick={() => auth.setAite(Message.aiteID)}>
                 <Link to="../Message">
-                  {Message.nickname}<br />
+                  {Message.NickName}<br />
                   {Message.message}
                   <span class="datetime_l">{Message.messagedDateTime}</span>
                 </Link>
               </li>
             })}
-        </ul> */}
+        </ul>
         </div>
 
       </div>
