@@ -20,7 +20,7 @@ export function ProfileList1() {
   const initialRequestOptions ={
     method: 'POST',
     headers:{'Content-Type': 'application/json'},
-    body: JSON.stringify({"id":auth.user})
+    body: JSON.stringify({"UUID":auth.user})
   }
 
   // ページが読み込まれる時に実行し、Profile_Listとして登録する。

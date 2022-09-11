@@ -31,6 +31,7 @@ try:
     for k, v in DictPSS.items():
         if k[:2] == "PS":
             if v != 0:
+                # PSを削除
                 DictPSS1[k[2:]] = v
         else:
             DictPSS1[k] = v
@@ -65,6 +66,7 @@ try:
     FashionableNo = 0
     BrightnessNo = 0
     EleganceNo = 0
+    # いくつ検索する必要があるかカウント
     for k in DictPSS1.keys():
         if ("AgeConf" in k): 
             AgeConfNo += 1
@@ -212,7 +214,7 @@ try:
     FashionableFlag = 1
     BrightnessFlag = 1
     EleganceFlag = 1
-
+    # SQL文の作成
     PSS_SQL = ""
     for k, v in DictPSS1.items():
         if k == "UUID":
@@ -223,19 +225,25 @@ try:
                 PSS_SQL += " AND " + k + " = '" + v + "'"
                 continue
         if ("AgeConf" in k): 
+            # 一番最初(ANDが必要)か判断
             if AgeConfFlag == 1:
+                # 同じアイテムの検索数で、カッコが必要か判断
                 if AgeConfNo == 1:
+                    # 一個だけのアイテムの場合
                     PSS_SQL += " AND " + k + " = 1"
                     AgeConfFlag += 1
                     continue
                 elif AgeConfNo >= 2:
+                    # 2個以上のアイテムの場合
                     PSS_SQL += " AND (" + k + " = 1"
                     AgeConfFlag += 1
                     continue
             else:
+                # 最後のアイテムかで、カッコが必要か判断
                 if AgeConfFlag == AgeConfNo:
                     PSS_SQL += " OR " + k + " = 1)"
                     continue
+                # 最後でなく、まだ続く場合はカッコなし
                 else:
                     PSS_SQL += " OR " + k + " = 1"
                     AgeConfFlag += 1
@@ -744,7 +752,7 @@ try:
                     PSS_SQL += " OR " + k + " = 1"
                     EleganceFlag += 1
                     continue
-    print(PSS_SQL)
+    # print(PSS_SQL)
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError) as e:
     print(e)
 
@@ -756,6 +764,10 @@ try:
         WHERE \
             {PSS_SQL} \
     ")
+    field_names = [i[0] for i in cursor.description]
+    ProfileSearchResult = [int.from_bytes(i, "big") if isinstance(i, bytes) else i for i in cursor.fetchone()]
+    DictPSS = dict(zip(field_names, ProfileSearchResult))
+    print(DictPSS)
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
     print(e)
 
