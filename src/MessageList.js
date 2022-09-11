@@ -66,12 +66,14 @@ export function MessageList() {
         <h1>Message List for {auth.user}</h1>
         <div>
         <ul>
-            {MessageList.map((Message, i) => {
-              return <li key={Message.aiteID} onClick={() => auth.setAite(Message.aiteID)}>
+            {MessageList.map((Message) => {
+              let MessageJson = {}
+              MessageJson = JSON.parse(Message)
+              return <li key={MessageJson.aiteID} onClick={() => auth.setAite(MessageJson.aiteID)}>
                 <Link to="../Message">
-                  {Message.NickName}<br />
-                  {Message.message}
-                  <span class="datetime_l">{Message.messagedDateTime}</span>
+                  {MessageJson.NickName}<br />
+                  {MessageJson.message}
+                  <span class="datetime_l">{MessageJson.messagedDateTime}</span>
                 </Link>
               </li>
             })}
