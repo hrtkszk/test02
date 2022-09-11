@@ -16,7 +16,7 @@ export function Message() {
   const inputRef = useRef();
   const [Messages, setMessages] = useState([]);
   const [SendMessage, setSendMessage] = useState("");
-  const [BasicProfile, setBasicProfile] = useState([]);
+  const [BasicProfile, setBasicProfile] = useState({});
   const [initialized, setinitialized] = useState(false);
 
   const initialRequestOptions ={
@@ -45,8 +45,8 @@ export function Message() {
     fetch("../get_basicprofile.php",initialRequestOptions1)
     .then((response) => response.json())
     .then(result => {
-      setBasicProfile(result.result[0])
-      console.log(result.result[0])
+      console.log(result[0])
+      setBasicProfile(JSON.parse(result[0]))
     })
 
     setinitialized(true)
@@ -96,7 +96,7 @@ export function Message() {
   } else if (Messages === []) {
     return (
       <div>
-        <h1>{BasicProfile.nickname}　{BasicProfile.age}</h1>
+        <h1>{BasicProfile.NickName}　{BasicProfile.Age}</h1>
         <footer>
           <input
             id="sendMessage"
@@ -111,7 +111,7 @@ export function Message() {
   } else {
     return (
       <div>
-        <h1>{BasicProfile.nickname}　{BasicProfile.age}</h1>
+        <h1>{BasicProfile.NickName}　{BasicProfile.Age}</h1>
         <div>
         <ul>
           {Messages.map((Message, i) => {
