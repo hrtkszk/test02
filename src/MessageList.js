@@ -28,9 +28,9 @@ export function MessageList() {
     fetch("../message_list.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{
-      // console.log(result)
-      setMessageList(result.pythonout2)
-      console.log(result.pythonout2)
+      console.log(result)
+      setMessageList(result)
+      // console.log(result.pythonout2)
     })
     setinitialized(true)
   }
@@ -65,7 +65,7 @@ export function MessageList() {
       <div>
         <h1>Message List for {auth.user}</h1>
         <div>
-        <ul>
+        {/* <ul>
             {MessageList.map((Message, i) => {
               return <li key={Message.aiteID} onClick={() => auth.setAite(Message.aiteID)}>
                 <Link to="../Message">
@@ -75,7 +75,7 @@ export function MessageList() {
                 </Link>
               </li>
             })}
-        </ul>
+        </ul> */}
         </div>
 
       </div>
