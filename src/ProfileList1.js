@@ -1,20 +1,21 @@
 import * as React from "react";
-// import {
-//   Link,
-//   // Outlet
-//   // useNavigate
-// } from "react-router-dom";
+import {
+  Link,
+  // Outlet
+  // useNavigate
+} from "react-router-dom";
 import { useState } from 'react';
 import { useAuth } from "./useAuth";
 import "./Profile.css";
-// import ProfileDB from "./Profile.json";
+import ProfileDB from "./Profile.json";
+import SelectProfileItem from "./SelectProfileItem";
 
 
 export function ProfileList1() {
   let auth = useAuth();
   // const intervalRef = useRef(null);
 
-  const [ProfileList, setProfileList] = useState({});
+  const [ProfileList, setProfileList] = useState([]);
   const [initialized, setinitialized] = useState(false);
 
   const initialRequestOptions ={
@@ -30,34 +31,37 @@ export function ProfileList1() {
     .then((response)=> response.json())
     .then(result =>{
       console.log(result)
-      setProfileList(JSON.parse(result[0]))
+      setProfileList(result)
       // console.log(result)
     })
     setinitialized(true)
   }
   
   if (ProfileList === []) {
-    return (
-      <div>
-        <h1>Profile List</h1>
-      </div>
-    )
+    return <></>
   } else {
     return (
       <div>
         <h1>Profile List for {auth.user}</h1>
         <div>
-        {/* <ul>
-            {Profile_List.map((Profile, i) => {
-              return <li key={Profile.UUID} onClick={() => auth.setAite(Profile.UUID)}>
+        <ul>
+            {ProfileList.map((Profile) => {
+              let ProfileJson = {}
+              ProfileJson = JSON.parse(Profile)
+              return <li key={ProfileJson.UUID} onClick={() => auth.setAite(ProfileJson.UUID)}>
                 <Link to="../Detail">
-                  {Profile.nickname}
-                  {ProfileDB.Gender[Profile.gender]}
-                  {Profile.age}
+                  {ProfileJson.NickName}
+                  <SelectProfileItem
+                    title="性別"
+                    keyName="Gender"
+                    keyValue={ProfileDB.Gender}
+                    DBValue={ProfileJson}
+                  />
+                  {ProfileJson.Age}
                 </Link>
               </li>
             })}
-        </ul> */}
+        </ul>
         </div>
 
       </div>

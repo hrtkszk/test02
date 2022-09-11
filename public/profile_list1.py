@@ -35,7 +35,7 @@ try:
                 DictPSS1[k[2:]] = v
         else:
             DictPSS1[k] = v
-    print(json.dumps(DictPSS1))
+    # print(json.dumps(DictPSS1))
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
     print("Obtain Profile Search Setting:", e)
 
@@ -811,8 +811,8 @@ try:
                     PSS_SQL += " OR " + k + " = 1"
                     EleganceFlag += 1
                     continue
-    print(PSS_SQL)
-except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError) as e:
+    # print(PSS_SQL)
+except (IndexError, TypeError, KeyError, ValueError) as e:
     print("Create SQL statement:", e)
 
 # 検索設定に基づいたProfileTable1の検索
