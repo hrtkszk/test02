@@ -11,7 +11,7 @@ import {
 import { useAuth } from "./useAuth";
 import "./Profile.css";
 import ProfileDB from "./Profile.json";
-import AreaDB from "./Area.json";
+// import AreaDB from "./Area.json";
 
 
 export function BoshuList() {
