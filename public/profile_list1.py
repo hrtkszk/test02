@@ -231,6 +231,9 @@ try:
                 PSS_SQL += " AND " + k + " = '" + v + "'"
                 continue
         if ("AgeConf" in k): 
+            # 0がある場合はスキップ（どんな選択でも検索する設定にする）
+            if k == "AgeConf0":
+                continue
             # 一番最初(ANDが必要)か判断
             if AgeConfFlag == 1:
                 # 同じアイテムの検索数で、カッコが必要か判断
@@ -273,6 +276,8 @@ try:
         #             OrderFlag += 1
         #             continue
         if ("Gender" in k): 
+            if k == "Gender0":
+                continue
             if GenderFlag == 1:
                 if GenderNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
@@ -291,6 +296,8 @@ try:
                     GenderFlag += 1
                     continue
         if ("Age" in k): 
+            if k == "Age0":
+                continue
             if AgeFlag == 1:
                 if AgeNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
@@ -345,6 +352,8 @@ try:
         #             ProfileMessageFlag += 1
         #             continue
         if ("Height" in k): 
+            if k == "Height0":
+                continue
             if HeightFlag == 1:
                 if HeightNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
@@ -363,6 +372,8 @@ try:
                     HeightFlag += 1
                     continue
         if ("Style" in k): 
+            if k == "Style0":
+                continue
             if StyleFlag == 1:
                 if StyleNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
@@ -381,6 +392,8 @@ try:
                     StyleFlag += 1
                     continue
         if ("Looks" in k): 
+            if k == "Looks0":
+                continue
             if LooksFlag == 1:
                 if LooksNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
@@ -399,6 +412,8 @@ try:
                     LooksFlag += 1
                     continue
         if ("Cup" in k): 
+            if k == "Cup0":
+                continue
             if CupFlag == 1:
                 if CupNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
@@ -417,6 +432,8 @@ try:
                     CupFlag += 1
                     continue
         if ("BloodType" in k): 
+            if k == "BloodType0":
+                continue
             if BloodTypeFlag == 1:
                 if BloodTypeNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
@@ -435,6 +452,8 @@ try:
                     BloodTypeFlag += 1
                     continue
         if ("Job" in k): 
+            if k == "Job0":
+                continue
             if JobFlag == 1:
                 if JobNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
@@ -453,6 +472,8 @@ try:
                     JobFlag += 1
                     continue
         if ("EduBack" in k): 
+            if k == "EduBack0":
+                continue
             if EduBackFlag == 1:
                 if EduBackNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
@@ -471,6 +492,8 @@ try:
                     EduBackFlag += 1
                     continue
         if ("Zodiac" in k): 
+            if k == "Zodiac0":
+                continue
             if ZodiacFlag == 1:
                 if ZodiacNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
@@ -489,6 +512,8 @@ try:
                     ZodiacFlag += 1
                     continue
         if ("MarriageStatus" in k): 
+            if k == "MarriageStatus0":
+                continue
             if MarriageStatusFlag == 1:
                 if MarriageStatusNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
@@ -507,6 +532,8 @@ try:
                     MarriageStatusFlag += 1
                     continue
         if ("Kids" in k): 
+            if k == "Kids0":
+                continue
             if KidsFlag == 1:
                 if KidsNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
@@ -525,6 +552,8 @@ try:
                     KidsFlag += 1
                     continue
         if ("Tabacco" in k): 
+            if k == "Tabacco0":
+                continue
             if TabaccoFlag == 1:
                 if TabaccoNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
@@ -543,6 +572,8 @@ try:
                     TabaccoFlag += 1
                     continue
         if ("Car" in k): 
+            if k == "Car0":
+                continue
             if CarFlag == 1:
                 if CarNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
@@ -561,6 +592,8 @@ try:
                     CarFlag += 1
                     continue
         if ("Interest" in k): 
+            if k == "Interest0":
+                continue
             if InterestFlag == 1:
                 if InterestNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
@@ -579,6 +612,8 @@ try:
                     InterestFlag += 1
                     continue
         if ("Personality" in k): 
+            if k == "Personality0":
+                continue
             if PersonalityFlag == 1:
                 if PersonalityNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
@@ -597,6 +632,8 @@ try:
                     PersonalityFlag += 1
                     continue
         if ("AnnuIncome" in k): 
+            if k == "AnnuIncome0":
+                continue
             if AnnuIncomeFlag == 1:
                 if AnnuIncomeNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
@@ -615,6 +652,8 @@ try:
                     AnnuIncomeFlag += 1
                     continue
         if ("Cute" in k): 
+            if k == "Cute0":
+                continue
             if CuteFlag == 1:
                 if CuteNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
@@ -633,6 +672,8 @@ try:
                     CuteFlag += 1
                     continue
         if ("Sexy" in k): 
+            if k == "Sexy0":
+                continue
             if SexyFlag == 1:
                 if SexyNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
@@ -651,6 +692,8 @@ try:
                     SexyFlag += 1
                     continue
         if ("Kindness" in k): 
+            if k == "Kindness0":
+                continue
             if KindnessFlag == 1:
                 if KindnessNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
@@ -669,6 +712,8 @@ try:
                     KindnessFlag += 1
                     continue
         if ("Smartness" in k): 
+            if k == "Smartness0":
+                continue
             if SmartnessFlag == 1:
                 if SmartnessNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
@@ -687,6 +732,8 @@ try:
                     SmartnessFlag += 1
                     continue
         if ("Neatness" in k): 
+            if k == "Neatness0":
+                continue
             if NeatnessFlag == 1:
                 if NeatnessNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
@@ -705,6 +752,8 @@ try:
                     NeatnessFlag += 1
                     continue
         if ("Fashionable" in k): 
+            if k == "Fashionable0":
+                continue
             if FashionableFlag == 1:
                 if FashionableNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
@@ -723,6 +772,8 @@ try:
                     FashionableFlag += 1
                     continue
         if ("Brightness" in k): 
+            if k == "Brightness0":
+                continue
             if BrightnessFlag == 1:
                 if BrightnessNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
@@ -741,6 +792,8 @@ try:
                     BrightnessFlag += 1
                     continue
         if ("Elegance" in k): 
+            if k == "Elegance0":
+                continue
             if EleganceFlag == 1:
                 if EleganceNo == 1:
                     PSS_SQL += " AND " + k + " = 1"
