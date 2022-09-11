@@ -56,7 +56,7 @@ export default function App() {
             </RequireAuth>
           }
         >
-          <Route index element={<ProfileList />}/>
+          <Route index element={<ProfileList1 />}/>
           <Route path="page2" element={<Page2 />}/>
           <Route path="BoshuList" element={<BoshuList />}/>
           <Route path="BoshuDetail" element={<BoshuDetail />}/>
