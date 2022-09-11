@@ -109,7 +109,7 @@ export function BoshuList() {
                     )
                   )
                 } */}
-                <br />
+                {/* <br /> */}
                 {BoshuJson.NickName}　
                 {/* {ProfileDB.Gender[BoshuJson.gender]}　 */}
                 {BoshuJson.Age}
