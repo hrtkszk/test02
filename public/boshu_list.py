@@ -5,6 +5,7 @@ import MySQLdb
 import sys
 import datetime
 import SQLconfig
+import json
 
 # データベースへの接続とカーソルの生成
 connection = MySQLdb.connect(
@@ -14,7 +15,7 @@ connection = MySQLdb.connect(
     db=SQLconfig.db)
 
 BoshuDB="BoshuDB"
-basicProfileTable="basicProfileTable"
+ProfileTable="ProfileTable1"
 
 # field name込みの場合はこっちを使う
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
@@ -30,16 +31,21 @@ try:
         SELECT t1.UUID, BoshuID, BoshuArea, BoshuPrefecture, BoshuCity, BoshuWard, BoshuCategory, BoshuTitle, ViewCount, PostDateTime, nickname, gender, age \
         FROM `{BoshuDB}` AS t1\
         INNER JOIN ( \
-            SELECT UUID, nickname, gender, age \
-            FROM `{basicProfileTable}`) AS t2\
+            SELECT UUID, NickName, Age, \
+            Gender0, Gender1, Gender2, Gender3, Gender4, Gender5, Gender6, Gender7, \
+            Age0, Age1, Age2, Age3, Age4, Age5, Age6, Age7, Age8, Age9, Age10, Age11, Age12, Age13, Age14, Age15, Age16, Age17 \
+            FROM `{ProfileTable}`) AS t2\
         ON t1.UUID = t2.UUID \
         WHERE t1.UUID!='{sys.argv[1]}' \
         ORDER BY t1.PostDateTime DESC\
     ")
+except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
+    print("SQL Execution:", e)
 
-    num_fields = len(cursor.description)
+try:
+    # num_fields = len(cursor.description)
     field_names = [i[0] for i in cursor.description]
-    print(field_names)
+    # print(field_names)
 
     for row in cursor:
         row1 = list()
@@ -51,12 +57,20 @@ try:
                 # phpでの文字列から配列への変換時の誤動作防止用前処理
                 item = item.replace("'","’")
                 row1.append(item.replace(', ', '，'))
+            elif isinstance(item, bytes):
+                row1.append(int.from_bytes(item, "big"))
             else:
                 row1.append(item)
+        DictProfile=dict(zip(field_names, row1))
+        DictProfile1 = {}
+        for k, v in DictProfile.items():
+            if v != 0:
+                DictProfile1[k] = v
+        print(json.dumps(DictProfile1))
         # printでのpythonからphpへの受け渡し
-        print (row1)
-except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
-    print(e)
+        # print (row1)
+except (IndexError, TypeError, ValueError) as e:
+    print("Create List:", e)
 
 # 保存を実行
 connection.commit()

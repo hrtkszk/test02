@@ -34,18 +34,14 @@ export function BoshuList() {
     .then((response)=> response.json())
     .then(result =>{
       // console.log(result)
-      setBoshuList(result.result)
-      console.log(result.result)
+      setBoshuList(result)
+      console.log(result)
     })
     setinitialized(true)
   }
 
   if (BoshuList === []) {
-    return (
-      <div>
-        <h1>Boshu List</h1>
-      </div>
-    )
+    return <></>
   } else {
     return (
       <div>
@@ -53,12 +49,14 @@ export function BoshuList() {
         <div>
         <ul>
             {BoshuList.map((Boshu, i) => {
+              let BoshuJson = {}
+              BoshuJson = JSON.parse(Boshu)
               return <li key={i} onClick={() => {
-                  auth.setBoshuID(Boshu.BoshuID)
-                  auth.setAite(Boshu.UUID)
+                  auth.setBoshuID(BoshuJson.BoshuID)
+                  auth.setAite(BoshuJson.UUID)
               }}>
-                {ProfileDB.BoshuCategory[Boshu.BoshuCategory]}<br />
-                {
+                {ProfileDB.BoshuCategory[BoshuJson.BoshuCategory]}<br />
+                {/* {
                 // Area未設定の場合→「未設定」と表示
                   Boshu.BoshuArea === "0" ? (
                       <>
@@ -110,14 +108,16 @@ export function BoshuList() {
                       )
                     )
                   )
-                }
+                } */}
                 <br />
-                {Boshu.nickname}　{ProfileDB.Gender[Boshu.gender]}　{Boshu.age}
+                {BoshuJson.NickName}　
+                {/* {ProfileDB.Gender[BoshuJson.gender]}　 */}
+                {BoshuJson.Age}
                 <br />
                 <Link to="../BoshuList">
-                  {Boshu.BoshuTitle}
+                  {BoshuJson.BoshuTitle}
                 </Link><br />
-                {Boshu.PostDateTime}<br/>
+                {BoshuJson.PostDateTime}<br/>
               </li>
             })}
         </ul>

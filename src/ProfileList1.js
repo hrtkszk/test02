@@ -42,7 +42,7 @@ export function ProfileList1() {
   } else {
     return (
       <div>
-        <h1>Profile List for {auth.user}</h1>
+        <h1>Profile List</h1>
         <div>
         <ul>
             {ProfileList.map((Profile) => {
