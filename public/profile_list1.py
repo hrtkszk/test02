@@ -824,10 +824,10 @@ try:
             {PSS_SQL} \
     ")
     field_names = [i[0] for i in cursor.description]
-    print(cursor.fetchone())
-    # ProfileSearchResult = [int.from_bytes(i, "big") if isinstance(i, bytes) else i for i in cursor.fetchone()]
-    # DictPSS = dict(zip(field_names, ProfileSearchResult))
-    # print(DictPSS)
+    # print(cursor.fetchall())
+    ProfileSearchResult = [int.from_bytes(i, "big") if isinstance(i, bytes) else i for i in cursor.fetchone()]
+    DictPSS = dict(zip(field_names, ProfileSearchResult))
+    print(DictPSS)
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
     print("Profile Search and Result:", e)
 
