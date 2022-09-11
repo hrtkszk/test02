@@ -36,7 +36,10 @@ try:
         else:
             DictPSS1[k] = v
     print(json.dumps(DictPSS1))
+except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
+    print("Obtain Profile Search Setting:", e)
 
+try:
     AgeConfNo = 0
     OrderNo = 0
     GenderNo = 0
@@ -184,7 +187,10 @@ try:
     # print("FashionableNo:" ,FashionableNo)
     # print("BrightnessNo:" ,BrightnessNo)
     # print("EleganceNo:" ,EleganceNo)
+except (IndexError, TypeError, KeyError, ValueError) as e:
+    print("Count Profile Search Setting:", e)
 
+try:
     AgeConfFlag = 1
     OrderFlag = 1
     GenderFlag = 1
@@ -752,9 +758,9 @@ try:
                     PSS_SQL += " OR " + k + " = 1"
                     EleganceFlag += 1
                     continue
-    # print(PSS_SQL)
+    print(PSS_SQL)
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError) as e:
-    print(e)
+    print("Create SQL statement:", e)
 
 # 検索設定に基づいたProfileTable1の検索
 try:
@@ -769,7 +775,7 @@ try:
     DictPSS = dict(zip(field_names, ProfileSearchResult))
     print(DictPSS)
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
-    print(e)
+    print("Profile Search and Result:", e)
 
 # 本当は、検索設定に基づいて検索したい。（SQL上で対応。そのときに自分のUUIDのsys.argv[1]を使う）
 # 複数のテーブルに跨るので、テーブルの合体などが必要。
