@@ -832,7 +832,7 @@ try:
                 row1.append(int.from_bytes(item, "big"))
             else:
                 row1.append(item)
-        print(dict(zip(field_names, row1)))
+        print(json.dumps(dict(zip(field_names, row1))))
     # ProfileSearchResult = [int.from_bytes(i, "big") if isinstance(i, bytes) else i for i in cursor.fetchall()]
     # DictPSS = dict(zip(field_names, ProfileSearchResult))
     # print(DictPSS)
