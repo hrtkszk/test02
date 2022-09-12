@@ -5,6 +5,23 @@ import MySQLdb
 import sys
 import datetime
 import SQLconfig
+import json
+
+try:
+    RecieveData=json.loads(sys.argv[1])
+except (IndexError, TypeError, ValueError) as e:
+    print(e)
+
+SettingValue = ""
+UUID = ""
+for k,v in RecieveData.items():
+    if k == "UUID" or k == "BoshuTitle" or k == "BoshuMessage":
+        SettingValue += k + "='" + v + "', "
+        if k == "UUID":
+            UUID = v
+    else:
+        SettingValue += k + "=" + v + ", "
+print(SettingValue)
 
 # データベースへの接続とカーソルの生成
 connection = MySQLdb.connect(
@@ -27,18 +44,8 @@ BoshuID = str(sys.argv[1])+"_"+str(datetime.datetime.now())
 try:
     cursor.execute(f" \
         INSERT INTO `{BoshuDB}` \
-        SET \
-            UUID='{sys.argv[1]}', \
-            BoshuID='{BoshuID}', \
-            BoshuSettingArea='{sys.argv[2]}', \
-            BoshuArea='{sys.argv[3]}', \
-            BoshuPrefecture='{sys.argv[4]}', \
-            BoshuCity='{sys.argv[5]}', \
-            BoshuWard='{sys.argv[6]}', \
-            BoshuCategory='{sys.argv[7]}', \
-            BoshuTitle='{sys.argv[8]}', \
-            BoshuMessage='{sys.argv[9]}', \
-            BoshuLimit='{sys.argv[10]}', \
+        SET {SettingValue} \
+            BoshuID='{UUID}', \
             EntryCount='0', \
             ViewCount='0', \
             PostDateTime=CURRENT_TIMESTAMP \
