@@ -18,7 +18,7 @@ for k,v in RecieveData.items():
     if k == "UUID" or k == "BoshuTitle" or k == "BoshuMessage":
         SettingValue += k + "='" + v + "', "
         if k == "UUID":
-            UUID = "'" + v + "'"
+            UUID = v
     else:
         SettingValue += k + "=" + v + ", "
 print(SettingValue)
@@ -37,7 +37,7 @@ BoshuDB="BoshuDB"
 
 cursor = connection.cursor()
 
-BoshuID = str(sys.argv[1])+"_"+str(datetime.datetime.now())
+BoshuID = str(UUID)+"_"+str(datetime.datetime.now())
 
 # profileTableのUUIDのチェック（外部からの変更防止？）
 
@@ -45,7 +45,7 @@ try:
     cursor.execute(f" \
         INSERT INTO `{BoshuDB}` \
         SET {SettingValue} \
-            BoshuID='{UUID}', \
+            BoshuID='{BoshuID}', \
             EntryCount='0', \
             ViewCount='0', \
             PostDateTime=CURRENT_TIMESTAMP \

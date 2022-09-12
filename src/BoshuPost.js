@@ -61,7 +61,7 @@ export function BoshuPost() {
     .then((response)=> response.json())
     .then(result =>{
       console.log(result)
-      if (result.result[0]==="PBS") {
+      if (result[1]==="PBS") {
         // 募集投稿成功。リダイレクト
         auth.setMessage("新たな募集を投稿しました")
         navigate("../")
