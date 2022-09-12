@@ -18,7 +18,7 @@ for k,v in RecieveData.items():
     if k == "UUID" or k == "BoshuTitle" or k == "BoshuMessage":
         SettingValue += k + "='" + v + "', "
         if k == "UUID":
-            UUID = v
+            UUID = "'" + v + "'"
     else:
         SettingValue += k + "=" + v + ", "
 print(SettingValue)
