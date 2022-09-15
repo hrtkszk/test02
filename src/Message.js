@@ -32,8 +32,8 @@ export function Message() {
     .then((response)=> response.json())
     .then(result =>{
       // console.log(result)
-      setMessages(result.pythonout2)
-      console.log(result.pythonout2)
+      setMessages(result)
+      console.log(result)
     })
 
     const initialRequestOptions1 ={
@@ -115,25 +115,27 @@ export function Message() {
         <div>
         <ul>
           {Messages.map((Message, i) => {
-            if (Message.sender!==auth.user) {
-              return <li key={Message.message}> 
+            let MessageJson = {}
+            MessageJson = JSON.parse(Message)
+            if (MessageJson.sender!==auth.user) {
+              return <li key={MessageJson.message}> 
               <div class="balloon_l">
                 <div class="faceicon">
-                  {Message.aiteID}
+                  {MessageJson.aiteID}
                 </div>
-                <div class="says">{Message.message}</div>
+                <div class="says">{MessageJson.message}</div>
               </div>
-              <span class="datetime_l">{Message.messagedDateTime}</span>
+              <span class="datetime_l">{MessageJson.messagedDateTime}</span>
               </li>
             } else {
-              return <li key={Message.message}> 
+              return <li key={MessageJson.message}> 
               <div class="balloon_r">
                 <div class="faceicon">
-                  {Message.UUID}
+                  {MessageJson.UUID}
                 </div>
-                <div class="says">{Message.message}</div>
+                <div class="says">{MessageJson.message}</div>
               </div>
-              <span class="datetime_r">{Message.messagedDateTime}</span>
+              <span class="datetime_r">{MessageJson.messagedDateTime}</span>
               </li>
             }
           })}
