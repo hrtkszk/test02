@@ -83,6 +83,7 @@ if checkExist!=None:
                 print(UUID)
                 if RegistrationStatus!=1:
                     print("RIC") # Registration InComplete
+                    print(RegistrationStatus)
                 else:
                     print(RegistrationStatus)
             else:
