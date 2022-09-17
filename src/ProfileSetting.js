@@ -233,9 +233,7 @@ export function ProfileSetting() {
   }
 
   function CitySelect() {
-    console.log(SettingArea)
-    console.log(SettingArea.slice(2,7))
-    if (SettingArea.slice(2,7) !== "000000") {
+    if (SettingArea.slice(2,8) !== "000000") {
       return (
         <>
           <select
@@ -271,7 +269,7 @@ export function ProfileSetting() {
   }
 
   function WardSelect() {
-    if (SettingArea.slice(4,7) !== "0000") {
+    if (SettingArea.slice(4,8) !== "0000") {
       if (AreaDB.Area[SettingArea.slice(0,2)+"000000"]["Prefecture"][SettingArea.slice(0,4)+"0000"]["City"][SettingArea.slice(0,6)+"00"]["CityName"] === undefined) {
         return <></>
       } else {
