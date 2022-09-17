@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { useAuth } from "./useAuth";
 import "./ProfileDetail.css";
 import ProfileDB from "./Profile.json";
-// import AreaDB from "./Area.json";
+import AreaDB from "./Area.json";
 import FormTextInput from "./FormTextInput";
 // import FormSelectRange from "./FormSelectRange";
 import FormSelect from "./FormSelect";
@@ -23,7 +23,7 @@ export function ProfileSetting() {
   const [Gender, setGender] = useState("0");
   const [Age, setAge] = useState("0");
   // // 地域状況
-  // const [SettingArea, setSettingArea] = useState("0");
+  const [SettingArea, setSettingArea] = useState("00000000");
   // const [Area, setArea] = useState("0");
   // const [Prefecture, setPrefecture] = useState("0");
   // const [City, setCity] = useState("0");
@@ -103,6 +103,7 @@ export function ProfileSetting() {
       setNickname(JsonData.NickName)
       setGender(SelectProfileValue("Gender", ProfileDB.Gender, JsonData))
       setAge(JsonData.Age)
+      setSettingArea(JsonData.Area)
       setHeight(SelectProfileValue("Height", ProfileDB.Height, JsonData))
       setStyle(SelectProfileValue("Style", ProfileDB.Style, JsonData))
       setLooks(SelectProfileValue("Looks", ProfileDB.Looks, JsonData))
@@ -146,6 +147,7 @@ export function ProfileSetting() {
     s["\"NickName\""] = "\"" + Nickname + "\""
     AppendRequestBody(s, "Gender", Gender)
     s["\"Age\""] = "\"" + Age + "\""
+    s["\"Area\""] = "\"" + SettingArea + "\""
     AppendRequestBody(s, "Height", Height)
     AppendRequestBody(s, "Style", Style)
     AppendRequestBody(s, "Looks", Looks)
@@ -196,95 +198,106 @@ export function ProfileSetting() {
     })
   }
 
-  // function PrefectureSelect() {
-  //   if (Area !== "0") {
-  //     return (
-  //       <>
-  //         <select
-  //           defaultValue={Prefecture}
-  //           onChange={event => {
-  //             if (event.target.value === "0") {
-  //               setSettingArea(Area)
-  //               setPrefecture("0")
-  //               setCity("0")
-  //               setWard("0")
-  //             } else {
-  //               setSettingArea(event.target.value)
-  //               setPrefecture(event.target.value)
-  //               setCity("0")
-  //               setWard("0")
-  //             }
-  //           }}>
-  //             {Object.keys(AreaDB.Area[Area]["Prefecture"]).map(key => <option value={key}>{AreaDB.Area[Area]["Prefecture"][key]["PrefectureName"]}</option>)}
-  //         </select>
-  //         <CitySelect/>
-  //       </>
-  //     )
-  //   } else {
-  //     return <></>
-  //   }
-  // }
+  function PrefectureSelect() {
+    if (SettingArea !== "00000000") {
+      return (
+        <>
+          <select
+            defaultValue={SettingArea.slice(0,3)+"0000"}
+            onChange={event => {
+              setSettingArea(event.target.value)
+              // if (event.target.value.slice(2,7) === "000000") {
+              //   setSettingArea(Area)
+              //   setPrefecture(Area)
+              //   setCity("0")
+              //   setWard("0")
+              // } else {
+              //   setSettingArea(event.target.value)
+              //   setPrefecture(event.target.value)
+              //   setCity("0")
+              //   setWard("0")
+              // }
+            }}>
+              {Object.keys(AreaDB.Area[SettingArea.slice(0,1)+"000000"]["Prefecture"]).map(key => 
+                <option value={key}>
+                  {AreaDB.Area[SettingArea.slice(0,1)+"000000"]["Prefecture"][key]["PrefectureName"]}
+                </option>
+              )}
+          </select>
+          <CitySelect/>
+        </>
+      )
+    } else {
+      return <></>
+    }
+  }
 
-  // function CitySelect() {
-  //   if (Prefecture !== "0") {
-  //     return (
-  //       <>
-  //         <select
-  //           defaultValue={City}
-  //           onChange={event => {
-  //             if (event.target.value === "0") {
-  //               setSettingArea(Prefecture)
-  //               setCity("0")
-  //               setWard("0")
-  //             } else {
-  //               setSettingArea(event.target.value)
-  //               setCity(event.target.value)
-  //               setWard("0")
-  //             }
-  //           }}>
-  //             {Object.keys(AreaDB.Area[Area]["Prefecture"][Prefecture]["City"]).map(key => 
-  //               <option value={key}>
-  //                 {AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][key]["CityName"] === undefined ? (
-  //                   AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][key]
-  //                 ) : (
-  //                   AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][key]["CityName"]
-  //                 )}
-  //               </option>
-  //             )}
-  //         </select>
-  //         <WardSelect />
-  //       </>
-  //     )
-  //   } else {
-  //     return <></>
-  //   }
-  // }
+  function CitySelect() {
+    if (SettingArea.slice(2,7) !== "000000") {
+      return (
+        <>
+          <select
+            defaultValue={SettingArea.slice(0,5)+"00"}
+            onChange={event => {
+              setSettingArea(event.target.value)
+              // if (event.target.value === "0") {
+              //   setSettingArea(Prefecture)
+              //   setCity("0")
+              //   setWard("0")
+              // } else {
+              //   setSettingArea(event.target.value)
+              //   setCity(event.target.value)
+              //   setWard("0")
+              // }
+            }}>
+              {Object.keys(AreaDB.Area[SettingArea.slice(0,1)+"000000"]["Prefecture"][SettingArea.slice(0,3)+"0000"]["City"]).map(key => 
+                <option value={key}>
+                  {AreaDB.Area[SettingArea.slice(0,1)+"000000"]["Prefecture"][SettingArea.slice(0,3)+"0000"]["City"][key]["CityName"] === undefined ? (
+                    AreaDB.Area[SettingArea.slice(0,1)+"000000"]["Prefecture"][SettingArea.slice(0,3)+"0000"]["City"][key]
+                  ) : (
+                    AreaDB.Area[SettingArea.slice(0,1)+"000000"]["Prefecture"][SettingArea.slice(0,3)+"0000"]["City"][key]["CityName"]
+                  )}
+                </option>
+              )}
+          </select>
+          <WardSelect />
+        </>
+      )
+    } else {
+      return <></>
+    }
+  }
 
-  // function WardSelect() {
-  //   if (City !== "0") {
-  //     if (AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][City]["CityName"] === undefined) {
-  //       return <></>
-  //     } else {
-  //       return (
-  //         <select
-  //           defaultValue={Ward}
-  //           onChange={evt => {
-  //             if (evt.target.value === "0") {
-  //               setSettingArea(City)
-  //               setWard("0")
-  //             } else {
-  //               setSettingArea(evt.target.value)
-  //               setWard(evt.target.value)
-  //             }
-  //           }}>
-  //             {Object.keys(AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][City]["Ward"]).map(key => <option value={key}>{AreaDB.Area[Area]["Prefecture"][Prefecture]["City"][City]["Ward"][key]}</option>)}
-  //         </select>
-  //       )
-  //     }
-  //   } else {
-  //     return <></>
-  //   }
-  // }
+  function WardSelect() {
+    if (SettingArea.slice(4,7) !== "0000") {
+      if (AreaDB.Area[SettingArea.slice(0,1)+"000000"]["Prefecture"][SettingArea.slice(0,3)+"0000"]["City"][City]["CityName"] === undefined) {
+        return <></>
+      } else {
+        return (
+          <select
+            defaultValue={SettingArea}
+            onChange={event => {
+              setSettingArea(event.target.value)
+              // if (evt.target.value === "0") {
+              //   setSettingArea(City)
+              //   setWard("0")
+              // } else {
+              //   setSettingArea(evt.target.value)
+              //   setWard(evt.target.value)
+              // }
+            }}>
+              {Object.keys(AreaDB.Area[SettingArea.slice(0,1)+"000000"]["Prefecture"][SettingArea.slice(0,3)+"0000"]["City"][SettingArea.slice(0,5)+"00"]["Ward"]).map(key => 
+                <option value={key}>
+                  {AreaDB.Area[SettingArea.slice(0,1)+"000000"]["Prefecture"][SettingArea.slice(0,3)+"0000"]["City"][SettingArea.slice(0,5)+"00"]["Ward"][key]}
+                </option>
+              )}
+          </select>
+        )
+      }
+    } else {
+      return <></>
+    }
+  }
 
   // function BirthPrefectureSelect() {
   //   if (BirthArea !== "0") {
@@ -353,23 +366,19 @@ export function ProfileSetting() {
                 required="true"
               />
             </li>
-            {/* <li>
+            <li>
             <span className="dan">エリア</span>
             <span className="dan2">
               <select
-                defaultValue={Area}
+                defaultValue={SettingArea.slice(0,1)+"000000"}
                 onChange={event => {
                   setSettingArea(event.target.value)
-                  setArea(event.target.value)
-                  setPrefecture("0")
-                  setCity("0")
-                  setWard("0")
                 }}>
                   {Object.keys(AreaDB.Area).map(key => <option value={key}>{AreaDB.Area[key]["AreaName"]}</option>)}
               </select>
               <PrefectureSelect/>
             </span>
-            </li> */}
+            </li>
             <li>
               <FormSelect
                 title="身長"
