@@ -203,7 +203,7 @@ export function ProfileSetting() {
       return (
         <>
           <select
-            defaultValue={SettingArea.slice(0,3)+"0000"}
+            defaultValue={SettingArea.slice(0,4)+"0000"}
             onChange={event => {
               setSettingArea(event.target.value)
               // if (event.target.value.slice(2,7) === "000000") {
@@ -218,10 +218,9 @@ export function ProfileSetting() {
               //   setWard("0")
               // }
             }}>
-              {console.log(SettingArea.slice(0,1)+"000000")}
-              {Object.keys(AreaDB.Area[SettingArea.slice(0,1)+"000000"]["Prefecture"]).map(key => 
+              {Object.keys(AreaDB.Area[SettingArea.slice(0,2)+"000000"]["Prefecture"]).map(key => 
                 <option value={key}>
-                  {AreaDB.Area[SettingArea.slice(0,1)+"000000"]["Prefecture"][key]["PrefectureName"]}
+                  {AreaDB.Area[SettingArea.slice(0,2)+"000000"]["Prefecture"][key]["PrefectureName"]}
                 </option>
               )}
           </select>
@@ -238,7 +237,7 @@ export function ProfileSetting() {
       return (
         <>
           <select
-            defaultValue={SettingArea.slice(0,5)+"00"}
+            defaultValue={SettingArea.slice(0,6)+"00"}
             onChange={event => {
               setSettingArea(event.target.value)
               // if (event.target.value === "0") {
@@ -251,12 +250,12 @@ export function ProfileSetting() {
               //   setWard("0")
               // }
             }}>
-              {Object.keys(AreaDB.Area[SettingArea.slice(0,1)+"000000"]["Prefecture"][SettingArea.slice(0,3)+"0000"]["City"]).map(key => 
+              {Object.keys(AreaDB.Area[SettingArea.slice(0,2)+"000000"]["Prefecture"][SettingArea.slice(0,4)+"0000"]["City"]).map(key => 
                 <option value={key}>
-                  {AreaDB.Area[SettingArea.slice(0,1)+"000000"]["Prefecture"][SettingArea.slice(0,3)+"0000"]["City"][key]["CityName"] === undefined ? (
-                    AreaDB.Area[SettingArea.slice(0,1)+"000000"]["Prefecture"][SettingArea.slice(0,3)+"0000"]["City"][key]
+                  {AreaDB.Area[SettingArea.slice(0,2)+"000000"]["Prefecture"][SettingArea.slice(0,4)+"0000"]["City"][key]["CityName"] === undefined ? (
+                    AreaDB.Area[SettingArea.slice(0,2)+"000000"]["Prefecture"][SettingArea.slice(0,4)+"0000"]["City"][key]
                   ) : (
-                    AreaDB.Area[SettingArea.slice(0,1)+"000000"]["Prefecture"][SettingArea.slice(0,3)+"0000"]["City"][key]["CityName"]
+                    AreaDB.Area[SettingArea.slice(0,2)+"000000"]["Prefecture"][SettingArea.slice(0,4)+"0000"]["City"][key]["CityName"]
                   )}
                 </option>
               )}
@@ -271,7 +270,7 @@ export function ProfileSetting() {
 
   function WardSelect() {
     if (SettingArea.slice(4,7) !== "0000") {
-      if (AreaDB.Area[SettingArea.slice(0,1)+"000000"]["Prefecture"][SettingArea.slice(0,3)+"0000"]["City"][SettingArea.slice(0,5)+"00"]["CityName"] === undefined) {
+      if (AreaDB.Area[SettingArea.slice(0,2)+"000000"]["Prefecture"][SettingArea.slice(0,4)+"0000"]["City"][SettingArea.slice(0,6)+"00"]["CityName"] === undefined) {
         return <></>
       } else {
         return (
@@ -287,9 +286,9 @@ export function ProfileSetting() {
               //   setWard(evt.target.value)
               // }
             }}>
-              {Object.keys(AreaDB.Area[SettingArea.slice(0,1)+"000000"]["Prefecture"][SettingArea.slice(0,3)+"0000"]["City"][SettingArea.slice(0,5)+"00"]["Ward"]).map(key => 
+              {Object.keys(AreaDB.Area[SettingArea.slice(0,2)+"000000"]["Prefecture"][SettingArea.slice(0,4)+"0000"]["City"][SettingArea.slice(0,6)+"00"]["Ward"]).map(key => 
                 <option value={key}>
-                  {AreaDB.Area[SettingArea.slice(0,1)+"000000"]["Prefecture"][SettingArea.slice(0,3)+"0000"]["City"][SettingArea.slice(0,5)+"00"]["Ward"][key]}
+                  {AreaDB.Area[SettingArea.slice(0,2)+"000000"]["Prefecture"][SettingArea.slice(0,4)+"0000"]["City"][SettingArea.slice(0,6)+"00"]["Ward"][key]}
                 </option>
               )}
           </select>
@@ -371,7 +370,7 @@ export function ProfileSetting() {
             <span className="dan">エリア</span>
             <span className="dan2">
               <select
-                defaultValue={SettingArea.slice(0,1)+"000000"}
+                defaultValue={SettingArea.slice(0,2)+"000000"}
                 onChange={event => {
                   setSettingArea(event.target.value)
                 }}>
