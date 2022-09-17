@@ -69,7 +69,7 @@ if checkExist!=None:
 
         try:
             cursor.execute(f"SELECT RegistrationStatus1 FROM {profiletable} WHERE UUID='{UUID}'")
-            RegistrationStatus = cursor.fetchone()[0]
+            RegistrationStatus = int.from_bytes(cursor.fetchone()[0], "big")
         except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
             RegistrationStatus = e
         # if checkExist!=None:
