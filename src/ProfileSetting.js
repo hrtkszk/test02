@@ -218,6 +218,7 @@ export function ProfileSetting() {
               //   setWard("0")
               // }
             }}>
+              {console.log(SettingArea.slice(0,1)+"000000")}
               {Object.keys(AreaDB.Area[SettingArea.slice(0,1)+"000000"]["Prefecture"]).map(key => 
                 <option value={key}>
                   {AreaDB.Area[SettingArea.slice(0,1)+"000000"]["Prefecture"][key]["PrefectureName"]}
