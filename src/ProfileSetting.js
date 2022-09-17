@@ -186,7 +186,7 @@ export function ProfileSetting() {
     .then((response)=> response.json())
     .then(result =>{
       console.log(result)
-      if (result.result[0]==="UPS") {
+      if (result[0]==="UPS") {
         // プロフィール変更成功。リダイレクト
         auth.setMessage("プロフィールを変更しました")
         navigate("../ProfileDetail")
