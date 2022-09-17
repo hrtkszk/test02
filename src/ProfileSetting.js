@@ -199,7 +199,7 @@ export function ProfileSetting() {
   }
 
   function PrefectureSelect() {
-    if (SettingArea !== "00000000") {
+    if (SettingArea !== "10000000") {
       return (
         <>
           <select
