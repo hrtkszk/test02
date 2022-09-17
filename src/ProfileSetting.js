@@ -270,7 +270,7 @@ export function ProfileSetting() {
 
   function WardSelect() {
     if (SettingArea.slice(4,7) !== "0000") {
-      if (AreaDB.Area[SettingArea.slice(0,1)+"000000"]["Prefecture"][SettingArea.slice(0,3)+"0000"]["City"][City]["CityName"] === undefined) {
+      if (AreaDB.Area[SettingArea.slice(0,1)+"000000"]["Prefecture"][SettingArea.slice(0,3)+"0000"]["City"][SettingArea.slice(0,5)+"00"]["CityName"] === undefined) {
         return <></>
       } else {
         return (
