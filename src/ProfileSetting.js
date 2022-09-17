@@ -233,6 +233,7 @@ export function ProfileSetting() {
   }
 
   function CitySelect() {
+    console.log(SettingArea)
     console.log(SettingArea.slice(2,7))
     if (SettingArea.slice(2,7) !== "000000") {
       return (
