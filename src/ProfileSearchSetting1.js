@@ -1041,7 +1041,7 @@ export function ProfileSearchSetting1() {
                         <>
                           {key2.slice(2,8) !== "000000" ? (
                             <>
-                              <div  className="area1">
+                              <div  className="area3">
                               <label for={key2}>
                                 <input
                                   value={key2}
