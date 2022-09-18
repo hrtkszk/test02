@@ -5,7 +5,7 @@ $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータ�
 $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 
 $PSArea = "";
-foreach($_POST['PSAreaArray'] as $value){
+foreach($_POST['PSBirthAreaArray'] as $value){
   $PSArea .=  $value." ";
 };
 
