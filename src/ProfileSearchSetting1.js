@@ -110,6 +110,14 @@ export function ProfileSearchSetting1() {
         setPSArea(result.result)
       }
     })
+    fetch("../../get_profilesearchbirtharea.php",initialRequestOptions)
+    .then((response) => response.json())
+    .then(result => {
+      console.log(result.result)
+      if (result.result !== "PSAND") {
+        setPSBirthArea(result.result)
+      }
+    })
     fetch("../../get_profilesearchsetting1.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
@@ -511,6 +519,20 @@ export function ProfileSearchSetting1() {
     }
     console.log(requestOptions2)
     fetch("../../set_profilesearcharea.php",requestOptions2)
+    .then((response)=> response.json())
+    .then(result =>{
+      console.log(result)
+    })
+    const requestOptions3 ={
+      method: 'POST',
+      headers:{'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        "UUID":auth.user,
+        PSBirthAreaArray
+      })
+    }
+    console.log(requestOptions2)
+    fetch("../../set_profilesearchbirtharea.php",requestOptions3)
     .then((response)=> response.json())
     .then(result =>{
       console.log(result)
