@@ -590,7 +590,7 @@ export function ProfileSearchSetting1() {
             {console.log("read:PSArea: ",PSArea)}
             {Object.keys(AreaDB.Area).map(key1 => 
               <>
-                {key1 !== "0" ? (
+                {key1 !== "10000000" ? (
                   <>
                     <details><summary>
                     <label for={key1}>
@@ -657,7 +657,7 @@ export function ProfileSearchSetting1() {
                     </label></summary>
                       {Object.keys(AreaDB.Area[key1]["Prefecture"]).map(key2 => 
                         <>
-                          {key2 !== "0" ? (
+                          {key2.slice(2,8) !== "000000" ? (
                             <>
                               <details  className="area1"><summary>
                               <label for={key2}>
@@ -708,7 +708,7 @@ export function ProfileSearchSetting1() {
                               </label></summary>
                               {Object.keys(AreaDB.Area[key1]["Prefecture"][key2]["City"]).map(key3 => 
                                 <>
-                                  {key3 !== "0" ? (
+                                  {key3.slice(4,8) !== "0000" ? (
                                     AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["CityName"] === undefined ? (
                                       <>
                                         <label for={key3} className="area2">
@@ -816,7 +816,7 @@ export function ProfileSearchSetting1() {
                                           </label></summary>
                                           {Object.keys(AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["Ward"]).map(key4 => 
                                             <>
-                                              {key4 !== "0" ? (
+                                              {key4.slice(6,8) !== "00" ? (
                                                 <>
                                                   <label for={key4} className="area2">
                                                     <input
