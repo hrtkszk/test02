@@ -145,8 +145,9 @@ export function ProfileSetting() {
     let s = {}
     s["\"UUID\""] = "\"" + auth.user + "\""
     s["\"NickName\""] = "\"" + Nickname + "\""
-    AppendRequestBody(s, "Gender", Gender)
     s["\"Age\""] = "\"" + Age + "\""
+    s["\"RegistrationStatus1\""] = "\"" + 1 + "\""
+    AppendRequestBody(s, "Gender", Gender)
     s["\"Area\""] = "\"" + SettingArea + "\""
     AppendRequestBody(s, "Height", Height)
     AppendRequestBody(s, "Style", Style)
@@ -206,17 +207,6 @@ export function ProfileSetting() {
             defaultValue={SettingArea.slice(0,4)+"0000"}
             onChange={event => {
               setSettingArea(event.target.value)
-              // if (event.target.value.slice(2,7) === "000000") {
-              //   setSettingArea(Area)
-              //   setPrefecture(Area)
-              //   setCity("0")
-              //   setWard("0")
-              // } else {
-              //   setSettingArea(event.target.value)
-              //   setPrefecture(event.target.value)
-              //   setCity("0")
-              //   setWard("0")
-              // }
             }}>
               {Object.keys(AreaDB.Area[SettingArea.slice(0,2)+"000000"]["Prefecture"]).map(key => 
                 <option value={key}>
@@ -240,15 +230,6 @@ export function ProfileSetting() {
             defaultValue={SettingArea.slice(0,6)+"00"}
             onChange={event => {
               setSettingArea(event.target.value)
-              // if (event.target.value === "0") {
-              //   setSettingArea(Prefecture)
-              //   setCity("0")
-              //   setWard("0")
-              // } else {
-              //   setSettingArea(event.target.value)
-              //   setCity(event.target.value)
-              //   setWard("0")
-              // }
             }}>
               {Object.keys(AreaDB.Area[SettingArea.slice(0,2)+"000000"]["Prefecture"][SettingArea.slice(0,4)+"0000"]["City"]).map(key => 
                 <option value={key}>
@@ -278,13 +259,6 @@ export function ProfileSetting() {
             defaultValue={SettingArea}
             onChange={event => {
               setSettingArea(event.target.value)
-              // if (evt.target.value === "0") {
-              //   setSettingArea(City)
-              //   setWard("0")
-              // } else {
-              //   setSettingArea(evt.target.value)
-              //   setWard(evt.target.value)
-              // }
             }}>
               {Object.keys(AreaDB.Area[SettingArea.slice(0,2)+"000000"]["Prefecture"][SettingArea.slice(0,4)+"0000"]["City"][SettingArea.slice(0,6)+"00"]["Ward"]).map(key => 
                 <option value={key}>
