@@ -20,7 +20,7 @@ PSArea="PSBirthArea"
 cursor = connection.cursor()
 
 try:
-    cursor.execute(f"SELECT Area FROM {PSArea} WHERE UUID='{sys.argv[1]}'")
+    cursor.execute(f"SELECT BirthArea FROM {PSArea} WHERE UUID='{sys.argv[1]}'")
 
     # num_fields = len(cursor.description)
     # field_names = [i[0] for i in cursor.description]

@@ -32,7 +32,7 @@ try:
             INSERT INTO `{PSArea}` \
             SET \
                 UUID='{sys.argv[1]}', \
-                Area='{Area}' \
+                BirthArea='{Area}' \
         ")
     print("SPSASS") # Set Profile Search Area Setting Success
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
