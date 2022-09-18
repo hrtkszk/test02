@@ -49,7 +49,6 @@ export function ProfileDetail() {
   }
   
   function ShowArea() {
-    console.log(BasicProfile.Area)
     if (BasicProfile.Area !== undefined) {
       // Area未設定の場合→「未設定」と表示
       if (BasicProfile.Area === "10000000") {
@@ -118,36 +117,38 @@ export function ProfileDetail() {
     }
   }
 
-  // function ShowBirthArea() {
-  //   // BirthArea未設定の場合→「未設定」と表示
-  //   if (Profile.BirthArea === "0") {
-  //     return (
-  //       <>
-  //         {AreaDB.Area[Profile.BirthArea]["AreaName"]}
-  //       </>
-  //     )
-    
-  //   // BirthAreaが設定されている場合
-  //   } else {
-  //     // BirthPrefectureが未設定の場合→「BirthArea」のみを表示
-  //     if (Profile.BirthPrefecture === "0") {
-  //       return (
-  //         <>
-  //           {AreaDB.Area[Profile.BirthArea]["AreaName"]}
-  //         </>
-  //       )
+  function ShowBirthArea() {
+    if (BasicProfile.BirthArea !== undefined) {
+      // BirthArea未設定の場合→「未設定」と表示
+      if (BasicProfile.BirthArea === "10000000") {
+        return (
+          <>
+            {AreaDB.Area[BasicProfile.BirthArea.slice(0,2)+"000000"]["AreaName"]}
+          </>
+        )
       
-  //     // BirthPrefectureが設定されている場合→「BirthArea」「BirthPrefecture」を表示
-  //     } else {
-  //       return (
-  //         <>
-  //           {AreaDB.Area[Profile.BirthArea]["AreaName"]}　
-  //           {AreaDB.Area[Profile.BirthArea]["Prefecture"][Profile.BirthPrefecture]["PrefectureName"]}
-  //         </>
-  //       )
-  //     }
-  //   }
-  // }
+      // BirthAreaが設定されている場合
+      } else {
+        // BirthPrefectureが未設定の場合→「BirthArea」のみを表示
+        if (BasicProfile.BirthArea.slice(2,8) === "000000") {
+          return (
+            <>
+              {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["AreaName"]}
+            </>
+          )
+        
+        // BirthPrefectureが設定されている場合→「BirthArea」「BirthPrefecture」を表示
+        } else {
+          return (
+            <>
+              {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["AreaName"]}　
+              {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][PBasicProfile.Area.slice(0,4)+"0000"]["PrefectureName"]}
+            </>
+          )
+        }
+      }
+    }
+  }
 
     // Profileが空か、[]の場合、プロフィール設定を促すページを表示
   // if (Profile.length === 0 || Profile === "") {
@@ -283,12 +284,12 @@ export function ProfileDetail() {
           />
         </li>
 
-        {/* <li>
+        <li>
           <span className="dan">出身地</span>
           <span className="dan2">
             <ShowBirthArea/>
           </span>
-        </li> */}
+        </li>
         <li>
           <SelectProfileItem
             title="星座"
