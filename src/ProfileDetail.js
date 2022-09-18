@@ -142,7 +142,7 @@ export function ProfileDetail() {
           return (
             <>
               {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["AreaName"]}　
-              {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][PBasicProfile.Area.slice(0,4)+"0000"]["PrefectureName"]}
+              {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][BasicProfile.Area.slice(0,4)+"0000"]["PrefectureName"]}
             </>
           )
         }
