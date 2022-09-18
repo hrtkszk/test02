@@ -48,6 +48,7 @@ export function ProfileDetail() {
   }
   
   function ShowArea() {
+    console.log(BasicProfile.Area)
     // Area未設定の場合→「未設定」と表示
     if (BasicProfile.Area === "10000000") {
       return (
