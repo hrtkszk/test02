@@ -1037,7 +1037,7 @@ export function ProfileSearchSetting1() {
                       />
                       {AreaDB.Area[key1]["AreaName"]}
                     </label></summary>
-                      {/* {Object.keys(AreaDB.Area[key1]["Prefecture"]).map(key2 => 
+                      {Object.keys(AreaDB.Area[key1]["Prefecture"]).map(key2 => 
                         <>
                           {key2.slice(2,8) !== "000000" ? (
                             <>
@@ -1088,7 +1088,7 @@ export function ProfileSearchSetting1() {
                                 />
                                 {AreaDB.Area[key1]["Prefecture"][key2]["PrefectureName"]}
                               </label></summary>
-                              {Object.keys(AreaDB.Area[key1]["Prefecture"][key2]["City"]).map(key3 => 
+                              {/* {Object.keys(AreaDB.Area[key1]["Prefecture"][key2]["City"]).map(key3 => 
                                 <>
                                   {key3.slice(4,8) !== "0000" ? (
                                     AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["CityName"] === undefined ? (
@@ -1248,12 +1248,12 @@ export function ProfileSearchSetting1() {
                                     )
                                   ): (<></>)}
                                 </>
-                              )}
+                              )} */}
                               </details>
                             </>
                           ): (<></>)}
                         </>
-                      )} */}
+                      )}
                     </details>
                   </>
                 ): (<></>)}
