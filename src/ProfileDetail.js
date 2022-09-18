@@ -30,6 +30,7 @@ export function ProfileDetail() {
     .then((response) => response.json())
     .then(result => {
       setBasicProfile(JSON.parse(result[0]))
+      console.log(JSON.parse(result[0]))
     })
 
 
