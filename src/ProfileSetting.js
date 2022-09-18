@@ -23,11 +23,8 @@ export function ProfileSetting() {
   const [Gender, setGender] = useState("0");
   const [Age, setAge] = useState("0");
   // // 地域状況
-  const [SettingArea, setSettingArea] = useState("00000000");
-  // const [Area, setArea] = useState("0");
-  // const [Prefecture, setPrefecture] = useState("0");
-  // const [City, setCity] = useState("0");
-  // const [Ward, setWard] = useState("0");
+  const [SettingArea, setSettingArea] = useState("10000000");
+  const [SettingBirthArea, setSettingBirthArea] = useState("10000000");
   // // 身体的情報
   const [Height, setHeight] = useState("0");
   const [Style, setStyle] = useState("0");
@@ -40,9 +37,6 @@ export function ProfileSetting() {
   // // 経験・背景情報
   const [Job, setJob] = useState("0");
   const [EduBack, setEduBack] = useState("0");
-  // const [SettingBirthArea, setSettingBirthArea] = useState("0");
-  // const [BirthArea, setBirthArea] = useState("0");
-  // const [BirthPrefecture, setBirthPrefecture] = useState("0");
   const [Zodiac, setZodiac] = useState("0");
   // // 交際情報
   const [MarriageStatus, setMarriageStatus] = useState("0");
@@ -104,6 +98,7 @@ export function ProfileSetting() {
       setGender(SelectProfileValue("Gender", ProfileDB.Gender, JsonData))
       setAge(JsonData.Age)
       setSettingArea(JsonData.Area)
+      setSettingBirthArea(JsonData.BirthArea)
       setHeight(SelectProfileValue("Height", ProfileDB.Height, JsonData))
       setStyle(SelectProfileValue("Style", ProfileDB.Style, JsonData))
       setLooks(SelectProfileValue("Looks", ProfileDB.Looks, JsonData))
@@ -273,29 +268,27 @@ export function ProfileSetting() {
     }
   }
 
-  // function BirthPrefectureSelect() {
-  //   if (BirthArea !== "0") {
-  //     return (
-  //       <>
-  //         <select
-  //           defaultValue={BirthPrefecture}
-  //           onChange={event => {
-  //             if (event.target.value === "0") {
-  //               setSettingBirthArea(BirthArea)
-  //               setBirthPrefecture("0")
-  //             } else {
-  //               setSettingBirthArea(event.target.value)
-  //               setBirthPrefecture(event.target.value)
-  //             }
-  //           }}>
-  //             {Object.keys(AreaDB.Area[BirthArea]["Prefecture"]).map(key => <option value={key}>{AreaDB.Area[BirthArea]["Prefecture"][key]["PrefectureName"]}</option>)}
-  //         </select>
-  //       </>
-  //     )
-  //   } else {
-  //     return <></>
-  //   }
-  // }
+  function BirthPrefectureSelect() {
+    if (SettingBirthArea !== "10000000") {
+      return (
+        <>
+          <select
+            defaultValue={SettingBirthArea.slice(0,4)+"0000"}
+            onChange={event => {
+              setSettingBirthArea(event.target.value)
+            }}>
+              {Object.keys(AreaDB.Area[SettingBirthArea.slice(0,2)+"000000"]["Prefecture"]).map(key => 
+                <option value={key}>
+                  {AreaDB.Area[SettingBirthArea.slice(0,2)+"000000"]["Prefecture"][key]["PrefectureName"]}
+                </option>
+              )}
+          </select>
+        </>
+      )
+    } else {
+      return <></>
+    }
+  }
 
   // const handleInput = (event) => {
   //   event.preventDefault();
@@ -436,21 +429,19 @@ export function ProfileSetting() {
                 setValue={setEduBack}
               />
             </li>
-            {/* <li>
+            <li>
               <span className="dan">出身地</span>
               <span className="dan2">
                 <select
-                  defaultValue={BirthArea}
+                  defaultValue={SettingBirthArea.slice(0,2)+"000000"}
                   onChange={event => {
                       setSettingBirthArea(event.target.value)
-                      setBirthArea(event.target.value)
-                      setBirthPrefecture("0")
                   }}>
                     {Object.keys(AreaDB.Area).map(key => <option value={key}>{AreaDB.Area[key]["AreaName"]}</option>)}
                 </select>
                 <BirthPrefectureSelect/>
               </span>
-            </li> */}
+            </li>
             <li>
               <FormSelect
                 title="星座"
