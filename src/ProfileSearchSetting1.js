@@ -466,9 +466,10 @@ export function ProfileSearchSetting1() {
       "UUID":auth.user
     }
     let PSAreaArray = []
-    console.log(PSArea)
+    let PSBirthAreaArray = []
     Object.keys(PSArea).map(key => key !== "secondRead" ? PSAreaArray=([...PSAreaArray, key]) : null)
-    
+    Object.keys(PSBirthArea).map(key => key !== "secondRead" ? PSBirthAreaArray=([...PSBirthAreaArray, key]) : null)
+
     Object.keys(PSGender).map(key => key !== "secondRead" ? s["PSGender" + key] = PSGender[key] : null)
     Object.keys(PSAge).map(key => key !== "secondRead" ? s["PSAge" + key] = PSAge[key] : null)
     Object.keys(PSProfilePicture).map(key => key !== "secondRead" ? s["PSProfilePicture" + key] = PSProfilePicture[key] : null)
@@ -968,13 +969,296 @@ export function ProfileSearchSetting1() {
           <li>
             <span className="dan">出身地</span>
             <span className="dan2">
-              <select
-                defaultValue={PSBirthArea}
-                onChange={evt => {
-                    setPSBirthArea(evt.target.value)
-                }}>
-                  {Object.keys(AreaDB.Area).map(key => <option value={key}>{AreaDB.Area[key]["AreaName"]}</option>)}
-              </select>
+            {console.log("read:PSBirthArea: ",PSBirthArea)}
+            {Object.keys(AreaDB.Area).map(key1 => 
+              <>
+                {key1 !== "10000000" ? (
+                  <>
+                    <details><summary>
+                    <label for={key1}>
+                      <input
+                        value={key1}
+                        // defaultValue={PSBirthArea}
+                        type="checkbox"
+                        id={key1}
+                        onChange={evt => {
+                          if (PSBirthArea[evt.target.value] === true ) {
+                            const copyPSBirthArea = {...PSBirthArea}
+                            delete copyPSBirthArea[evt.target.value]
+                            setPSBirthArea(copyPSBirthArea)
+                            console.log("Delete:key1: ", evt.target.value, ": ", key1)
+                          } else {
+                            // setPSArea({...PSArea, [evt.target.value]:true})
+                            const copyPSBirthArea = {...PSBirthArea}
+                            Object.keys(PSBirthArea).map(key => {
+                              if (parseInt(evt.target.value) < parseInt(key) &&  parseInt(key) < parseInt(evt.target.value) + 1000000) {
+                                delete copyPSBirthArea[key]
+                                // setPSArea(copyPSArea)
+                              }
+                              return <></>
+                            })
+                            setPSBirthArea({...copyPSBirthArea, [evt.target.value]:true})
+                            console.log("Add:key1: ", evt.target.value, ": ", key1)
+                          }
+                        }}
+                        // indeterminate={
+                        //   true
+                        //   // PSArea["secondRead"] === true ?
+                        //   // (
+                        //   //   // Object.keys(PSArea).map(key => {
+                        //   //     PSArea[key1] === "undefined" ? (
+                        //   //       false
+                        //   //     ) : (
+                        //   //       PSArea[key1]
+                        //   //     )
+                        //   //     // if (parseInt(key1) < parseInt(key) &&  parseInt(key) < parseInt(key1) + 1000000) {
+                        //   //     //   return true
+                        //   //     // }
+                        //   //     // return <></>
+                        //   //     // })
+                        //   // ) : (
+                        //   //     false,
+                        //   //     setPSArea({...PSArea, "secondRead" : true})
+                        //   // )
+                        // }
+                        checked={
+                          PSBirthArea["secondRead"] === true ?
+                          (
+                            PSBirthArea[key1] === "undefined" ? (
+                                false
+                              ) : (
+                                PSBirthArea[key1]
+                              )
+                          ) : (
+                              false,
+                              setPSBirthArea({...PSBirthArea, "secondRead" : true})
+                          )
+                        }
+                      />
+                      {AreaDB.Area[key1]["AreaName"]}
+                    </label></summary>
+                      {/* {Object.keys(AreaDB.Area[key1]["Prefecture"]).map(key2 => 
+                        <>
+                          {key2.slice(2,8) !== "000000" ? (
+                            <>
+                              <details  className="area1"><summary>
+                              <label for={key2}>
+                                <input
+                                  value={key2}
+                                  // defaultValue={PSArea}
+                                  type="checkbox"
+                                  id={key2}
+                                  onChange={evt => {
+                                    if (PSBirthArea[evt.target.value] === true ) {
+                                      const copyPSBirthArea = {...PSBirthArea}
+                                      delete copyPSBirthArea[evt.target.value]
+                                      setPSBirthArea(copyPSBirthArea)
+                                      console.log("Delete:key2: ", evt.target.value, ": ", key2)
+                                      
+                                    } else {
+                                      // setPSArea({...PSArea, [evt.target.value]:true})
+                                      const copyPSBirthArea = {...PSBirthArea}
+                                      const UpperArea = Math.floor(parseInt(evt.target.value)/1000000)*1000000
+                                      delete copyPSBirthArea[UpperArea]
+                                      // setPSArea(copyPSArea)
+                                      Object.keys(PSBirthArea).map(key => {
+                                        if (parseInt(evt.target.value) < parseInt(key) &&  parseInt(key) < parseInt(evt.target.value) + 10000) {
+                                          delete copyPSBirthArea[key]
+                                          // setPSArea(copyPSArea)
+                                        }
+                                        return <></>
+                                      })
+                                      setPSBirthArea({...copyPSBirthArea, [evt.target.value]:true})
+                                      console.log("Add:key2: ", evt.target.value, ": ", key2)
+                                    }
+                                  }}
+                                  checked={
+                                    PSBirthArea["secondRead"] === true ?
+                                    (
+                                      PSBirthArea[key2] === "undefined" ? (
+                                            false
+                                        ) : (
+                                          PSBirthArea[key2]
+                                        )
+                                    ) : (
+                                        false,
+                                        setPSBirthArea({...PSBirthArea, "secondRead" : true})
+                                    )
+                                  }
+                                />
+                                {AreaDB.Area[key1]["Prefecture"][key2]["PrefectureName"]}
+                              </label></summary>
+                              {Object.keys(AreaDB.Area[key1]["Prefecture"][key2]["City"]).map(key3 => 
+                                <>
+                                  {key3.slice(4,8) !== "0000" ? (
+                                    AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["CityName"] === undefined ? (
+                                      <>
+                                        <label for={key3} className="area2">
+                                          <input
+                                            value={key3}
+                                            // defaultValue={PSArea}
+                                            type="checkbox"
+                                            id={key3}
+                                            onChange={evt => {
+                                              if (PSArea[evt.target.value] === true ) {
+                                                const copyPSArea = {...PSArea}
+                                                delete copyPSArea[evt.target.value]
+                                                setPSArea(copyPSArea)
+                                                console.log("Delete:key3: ", evt.target.value, ": ", key3)
+                                              } else {
+                                                // setPSArea({...PSArea, [evt.target.value]:true})
+                                                const copyPSArea = {...PSArea}
+                                                const UpperArea = Math.floor(parseInt(evt.target.value)/1000000)*1000000
+                                                delete copyPSArea[UpperArea]
+                                                const UpperPrefecture = Math.floor(parseInt(evt.target.value)/10000)*10000
+                                                delete copyPSArea[UpperPrefecture]
+                                                // setPSArea(copyPSArea)
+                                                Object.keys(PSArea).map(key => {
+                                                  if (parseInt(evt.target.value) < parseInt(key) &&  parseInt(key) < parseInt(evt.target.value) + 100) {
+                                                    delete copyPSArea[key]
+                                                    // setPSArea(copyPSArea)
+                                                  }
+                                                  return <></>
+                                                })
+                                                setPSArea({...copyPSArea, [evt.target.value]:true})
+                                                console.log("Add:key3: ", evt.target.value, ": ", key3)
+                                              }
+                                            }}
+                                            checked={
+                                              PSArea["secondRead"] === true ?
+                                              (
+                                                PSArea[key3] === "undefined" ? (
+                                                      false
+                                                  ) : (
+                                                    PSArea[key3]
+                                                  )
+                                              ) : (
+                                                  false,
+                                                  setPSArea({...PSArea, "secondRead" : true})
+                                              )
+                                            }
+                                          />
+                                          {AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]}
+                                        </label><br />
+                                      </>
+                                    ):(
+                                      <>
+                                        <details className="area1"><summary>
+                                          <label for={key3}>
+                                            <input
+                                              value={key3}
+                                              // defaultValue={PSArea}
+                                              type="checkbox"
+                                              id={key3}
+                                              onChange={evt => {
+                                                if (PSArea[evt.target.value] === true ) {
+                                                  const copyPSArea = {...PSArea}
+                                                  delete copyPSArea[evt.target.value]
+                                                  setPSArea(copyPSArea)
+                                                  console.log("Delete:key3: ", evt.target.value, ": ", key3)
+                                                } else {
+                                                  // setPSArea({...PSArea, [evt.target.value]:true})
+                                                  // console.log("Add:key3: ", evt.target.value, ": ", key3)
+                                                  const copyPSArea = {...PSArea}
+                                                  const UpperArea = Math.floor(parseInt(evt.target.value)/1000000)*1000000
+                                                  delete copyPSArea[UpperArea]
+                                                  // console.log("Delete:key3:UpperArea: ", UpperArea)
+                                                  // console.log("Delete:key3:copyPSArea[UpperArea]: ", copyPSArea)
+                                                  const UpperPrefecture = Math.floor(parseInt(evt.target.value)/10000)*10000
+                                                  delete copyPSArea[UpperPrefecture]
+                                                  // console.log("Delete:key3:UpperPrefecture: ", UpperPrefecture)
+                                                  // console.log("Delete:key3:copyPSArea[UpperPrefecture]: ", copyPSArea)
+                                                  // setPSArea(copyPSArea)
+                                                  Object.keys(PSArea).map(key => {
+                                                    if (parseInt(evt.target.value) < parseInt(key) &&  parseInt(key) < parseInt(evt.target.value) + 100) {
+                                                      delete copyPSArea[key]
+                                                      // setPSArea(copyPSArea)
+                                                    }
+                                                    return <></>
+                                                  })
+                                                  setPSArea({...copyPSArea, [evt.target.value]:true})
+                                                  
+                                                }
+                                              }}
+                                              checked={
+                                                PSArea["secondRead"] === true ?
+                                                (
+                                                  PSArea[key3] === "undefined" ? (
+                                                        false
+                                                    ) : (
+                                                      PSArea[key3]
+                                                    )
+                                                ) : (
+                                                    false,
+                                                    setPSArea({...PSArea, "secondRead" : true})
+                                                )
+                                              }
+                                            />
+                                            {AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["CityName"]}
+                                          </label></summary>
+                                          {Object.keys(AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["Ward"]).map(key4 => 
+                                            <>
+                                              {key4.slice(6,8) !== "00" ? (
+                                                <>
+                                                  <label for={key4} className="area2">
+                                                    <input
+                                                      value={key4}
+                                                      // defaultValue={PSArea}
+                                                      type="checkbox"
+                                                      id={key4}
+                                                      onChange={evt => {
+                                                        if (PSArea[evt.target.value] === true ) {
+                                                          const copyPSArea = {...PSArea}
+                                                          delete copyPSArea[evt.target.value]
+                                                          setPSArea(copyPSArea)
+                                                        } else {
+                                                          // setPSArea({...PSArea, [evt.target.value]:true})
+                                                          const copyPSArea = {...PSArea}
+                                                          const UpperArea = Math.floor(parseInt(evt.target.value)/1000000)*1000000
+                                                          delete copyPSArea[UpperArea]
+                                                          const UpperPrefecture = Math.floor(parseInt(evt.target.value)/10000)*10000
+                                                          delete copyPSArea[UpperPrefecture]
+                                                          const UpperCity = Math.floor(parseInt(evt.target.value)/100)*100
+                                                          delete copyPSArea[UpperCity]
+                                                          setPSArea({...copyPSArea, [evt.target.value]:true})
+                                                        }
+                                                      }}
+                                                      checked={
+                                                        PSArea["secondRead"] === true ?
+                                                        (
+                                                          PSArea[key4] === "undefined" ? (
+                                                                false
+                                                            ) : (
+                                                              PSArea[key4]
+                                                            )
+                                                        ) : (
+                                                            false,
+                                                            setPSArea({...PSArea, "secondRead" : true})
+                                                        )
+                                                      }
+                                                    />
+                                                    {AreaDB.Area[key1]["Prefecture"][key2]["City"][key3]["Ward"][key4]}
+                                                  </label><br />
+                                                </>
+                                              ) : (<></>)}
+                                            </>
+                                          )}
+                                        </details>
+                                      </>
+                                    )
+                                  ): (<></>)}
+                                </>
+                              )}
+                              </details>
+                            </>
+                          ): (<></>)}
+                        </>
+                      )} */}
+                    </details>
+                  </>
+                ): (<></>)}
+              </>
+            )}
             </span>
           </li>
           <li>
