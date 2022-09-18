@@ -133,7 +133,7 @@ export function ProfileDetail() {
         if (BasicProfile.BirthArea.slice(2,8) === "000000") {
           return (
             <>
-              {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["AreaName"]}
+              {AreaDB.Area[BasicProfile.BirthArea.slice(0,2)+"000000"]["AreaName"]}
             </>
           )
         
@@ -141,8 +141,8 @@ export function ProfileDetail() {
         } else {
           return (
             <>
-              {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["AreaName"]}　
-              {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][BasicProfile.Area.slice(0,4)+"0000"]["PrefectureName"]}
+              {AreaDB.Area[BasicProfile.BirthArea.slice(0,2)+"000000"]["AreaName"]}　
+              {AreaDB.Area[BasicProfile.BirthArea.slice(0,2)+"000000"]["Prefecture"][BasicProfile.BirthArea.slice(0,4)+"0000"]["PrefectureName"]}
             </>
           )
         }
