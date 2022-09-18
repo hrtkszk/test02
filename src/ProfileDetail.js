@@ -50,65 +50,67 @@ export function ProfileDetail() {
   
   function ShowArea() {
     console.log(BasicProfile.Area)
-    // Area未設定の場合→「未設定」と表示
-    if (BasicProfile.Area === "10000000") {
-      return (
-        <>
-          {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["AreaName"]}
-        </>
-      )
-    
-    // Areaが設定されている場合
-    } else {
-      // Prefectureが未設定の場合→「Area」のみを表示
-      if (BasicProfile.Area.slice(2,8) === "000000") {
+    if (BasicProfile.Area !== undefined) {
+      // Area未設定の場合→「未設定」と表示
+      if (BasicProfile.Area === "10000000") {
         return (
           <>
             {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["AreaName"]}
           </>
         )
       
-      // Prefectureが設定されている場合
+      // Areaが設定されている場合
       } else {
-        // Cityが未設定の場合→「Area」「Prefecture」を表示
-        if (BasicProfile.Area.slice(4,8) === "0000") {
+        // Prefectureが未設定の場合→「Area」のみを表示
+        if (BasicProfile.Area.slice(2,8) === "000000") {
           return (
             <>
-              {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["AreaName"]}　
-              {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][BasicProfile.Area.slice(0,4)+"0000"]["PrefectureName"]}
+              {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["AreaName"]}
             </>
           )
-        // Cityが設定されている場合→「Area」「Prefecture」「City」を表示
+        
+        // Prefectureが設定されている場合
         } else {
-          // Wardが存在しないCityが設定されている場合
-          if (AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][BasicProfile.Area.slice(0,4)+"0000"]["City"][BasicProfile.Area.slice(0,6)+"00"]["CityName"] === undefined) {
+          // Cityが未設定の場合→「Area」「Prefecture」を表示
+          if (BasicProfile.Area.slice(4,8) === "0000") {
             return (
               <>
                 {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["AreaName"]}　
                 {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][BasicProfile.Area.slice(0,4)+"0000"]["PrefectureName"]}
-                {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][BasicProfile.Area.slice(0,4)+"0000"]["City"][BasicProfile.Area.slice(0,6)+"00"]}
               </>
             )
-          // Wardが存在するCityが設定されている場合
-          } else { 
-            // Wardが未設定の場合→「Area」「Prefecture」「City」を表示
-            if (BasicProfile.Area.slice(6,8) === "00") {
+          // Cityが設定されている場合→「Area」「Prefecture」「City」を表示
+          } else {
+            // Wardが存在しないCityが設定されている場合
+            if (AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][BasicProfile.Area.slice(0,4)+"0000"]["City"][BasicProfile.Area.slice(0,6)+"00"]["CityName"] === undefined) {
               return (
                 <>
                   {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["AreaName"]}　
                   {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][BasicProfile.Area.slice(0,4)+"0000"]["PrefectureName"]}
-                  {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][BasicProfile.Area.slice(0,4)+"0000"]["City"][BasicProfile.Area.slice(0,6)+"00"]["CityName"]}
+                  {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][BasicProfile.Area.slice(0,4)+"0000"]["City"][BasicProfile.Area.slice(0,6)+"00"]}
                 </>
               )
-            // Wardが設定されている場合→「Area」「Prefecture」「Ward」を表示
-            } else {
-              return (
-                <>
-                  {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["AreaName"]}　
-                  {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][BasicProfile.Area.slice(0,4)+"0000"]["PrefectureName"]}
-                  {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][BasicProfile.Area.slice(0,4)+"0000"]["City"][BasicProfile.Area.slice(0,6)+"00"]["Ward"][BasicProfile.Area]}
-                </>
-              )
+            // Wardが存在するCityが設定されている場合
+            } else { 
+              // Wardが未設定の場合→「Area」「Prefecture」「City」を表示
+              if (BasicProfile.Area.slice(6,8) === "00") {
+                return (
+                  <>
+                    {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["AreaName"]}　
+                    {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][BasicProfile.Area.slice(0,4)+"0000"]["PrefectureName"]}
+                    {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][BasicProfile.Area.slice(0,4)+"0000"]["City"][BasicProfile.Area.slice(0,6)+"00"]["CityName"]}
+                  </>
+                )
+              // Wardが設定されている場合→「Area」「Prefecture」「Ward」を表示
+              } else {
+                return (
+                  <>
+                    {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["AreaName"]}　
+                    {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][BasicProfile.Area.slice(0,4)+"0000"]["PrefectureName"]}
+                    {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][BasicProfile.Area.slice(0,4)+"0000"]["City"][BasicProfile.Area.slice(0,6)+"00"]["Ward"][BasicProfile.Area]}
+                  </>
+                )
+              }
             }
           }
         }
@@ -179,9 +181,9 @@ export function ProfileDetail() {
   //   );
 
   // //  Profileが空でない場合、もしくは[]でない場合、プロフィールを表示＋設定ページボタンの表示
-if (BasicProfile === []) {
-  return <></>
-} else {
+// if (BasicProfile === []) {
+//   return <></>
+// } else {
   return (
     <div>
       <h1>プロフィール</h1>
@@ -441,4 +443,4 @@ if (BasicProfile === []) {
     </div>
   )
 }
-}
+// }
