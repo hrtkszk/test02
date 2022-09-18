@@ -179,7 +179,9 @@ export function ProfileDetail() {
   //   );
 
   // //  Profileが空でない場合、もしくは[]でない場合、プロフィールを表示＋設定ページボタンの表示
-  // } else {
+if (BasicProfile === []) {
+  return <></>
+} else {
   return (
     <div>
       <h1>プロフィール</h1>
@@ -437,5 +439,6 @@ export function ProfileDetail() {
         <Link to="../../">戻る</Link>
       </div>
     </div>
-  );
+  )
+}
 }
