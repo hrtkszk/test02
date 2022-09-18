@@ -144,6 +144,7 @@ export function ProfileSetting() {
     s["\"RegistrationStatus1\""] = "\"" + 1 + "\""
     AppendRequestBody(s, "Gender", Gender)
     s["\"Area\""] = "\"" + SettingArea + "\""
+    s["\"BirthArea\""] = "\"" + SettingBirthArea + "\""
     AppendRequestBody(s, "Height", Height)
     AppendRequestBody(s, "Style", Style)
     AppendRequestBody(s, "Looks", Looks)
