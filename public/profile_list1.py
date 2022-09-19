@@ -823,7 +823,14 @@ try:
     if len(AreaList) == 0:
         None
     elif len(AreaList) ==1:
-        PSS_SQL += " AND Area = '" + str(AreaList[0][0]) + "'"
+        if str(AreaList[0][0])[2:] == "000000":
+            PSS_SQL += " AND (Area >= '" + str(AreaList[0][0]) + "' AND Area < '" + str(AreaList[0][0]+1000000) + "')"
+        elif str(AreaList[0][0])[4:] == "0000":
+            PSS_SQL += " AND (Area >= '" + str(AreaList[0][0]) + "' AND Area < '" + str(AreaList[0][0]+10000) + "')"
+        elif str(AreaList[0][0])[6:] == "00": 
+            PSS_SQL += " AND (Area >= '" + str(AreaList[0][0]) + "' AND Area < '" + str(AreaList[0][0]+100) + "')"
+        else:
+            PSS_SQL += " AND Area = '" + str(AreaList[0][0]) + "'"
     else:
         count = 1
         for Area in AreaList:
