@@ -823,7 +823,6 @@ try:
     if len(AreaList) == 0:
         None
     elif len(AreaList) ==1:
-
         PSS_SQL += " AND Area = '" + str(AreaList[0][0]) + "'"
     else:
         count = 1
