@@ -16,6 +16,8 @@ connection = MySQLdb.connect(
 
 ProfileSearchSetting1="ProfileSearchSetting1"
 ProfileTable1="ProfileTable1"
+PSArea="PSArea"
+PSBirthArea="PSBirthArea"
 
 # field name込みの場合はこっちを使う
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
@@ -814,6 +816,29 @@ try:
     # print(PSS_SQL)
 except (IndexError, TypeError, KeyError, ValueError) as e:
     print("Create SQL statement:", e)
+
+try:
+    cursor.execute(f"SELECT Area FROM {PSArea} WHERE UUID='{sys.argv[1]}'")
+    AreaList = cursor.fetchall()
+    if AreaList.length == 0:
+        None
+    elif AreaList.length ==1:
+        PSS_SQL += " AND Area = '" + AreaList[0] + "'"
+    else:
+        # 場合分けが必要
+        count = 1
+        for Area in AreaList:
+            if count == 1:
+                PSS_SQL += " AND (Area = '" + Area + "'"
+                count += 1
+            elif count == AreaList.length:
+                PSS_SQL += " OR Area = '" + Area + "')"
+            else:
+                PSS_SQL += " OR Area = '" + Area + "'"
+                count += 1
+    print(PSS_SQL)
+except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
+    print("Obtain PSArea:", e)
 
 # 検索設定に基づいたProfileTable1の検索
 try:
