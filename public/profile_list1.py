@@ -821,6 +821,7 @@ try:
     PSS_SQL1 = ""
     cursor.execute(f"SELECT Area FROM {PSArea} WHERE UUID='{sys.argv[1]}'")
     AreaList = cursor.fetchall()
+    print(len(AreaList))
     if len(AreaList) == 0:
         None
     elif len(AreaList) ==1:
@@ -832,7 +833,7 @@ try:
             if count == 1:
                 PSS_SQL1 += " AND (Area = '" + Area[0] + "'"
                 count += 1
-            elif count == AreaList.length:
+            elif count == len(AreaList):
                 PSS_SQL1 += " OR Area = '" + Area[0] + "')"
             else:
                 PSS_SQL1 += " OR Area = '" + Area[0] + "'"
