@@ -51,62 +51,62 @@ export function ProfileDetail() {
   function ShowArea() {
     if (BasicProfile.Area !== undefined) {
       // Area未設定の場合→「未設定」と表示
-      if (BasicProfile.Area === "10000000") {
+      if (BasicProfile.Area === 10000000) {
         return (
           <>
-            {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["AreaName"]}
+            {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["AreaName"]}
           </>
         )
       
       // Areaが設定されている場合
       } else {
         // Prefectureが未設定の場合→「Area」のみを表示
-        if (BasicProfile.Area.slice(2,8) === "000000") {
+        if (String(BasicProfile.Area).slice(2,8) === "000000") {
           return (
             <>
-              {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["AreaName"]}
+              {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["AreaName"]}
             </>
           )
         
         // Prefectureが設定されている場合
         } else {
           // Cityが未設定の場合→「Area」「Prefecture」を表示
-          if (BasicProfile.Area.slice(4,8) === "0000") {
+          if (String(BasicProfile.Area).slice(4,8) === "0000") {
             return (
               <>
-                {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["AreaName"]}　
-                {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][BasicProfile.Area.slice(0,4)+"0000"]["PrefectureName"]}
+                {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["AreaName"]}　
+                {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["Prefecture"][String(BasicProfile.Area).slice(0,4)+"0000"]["PrefectureName"]}
               </>
             )
           // Cityが設定されている場合→「Area」「Prefecture」「City」を表示
           } else {
             // Wardが存在しないCityが設定されている場合
-            if (AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][BasicProfile.Area.slice(0,4)+"0000"]["City"][BasicProfile.Area.slice(0,6)+"00"]["CityName"] === undefined) {
+            if (AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["Prefecture"][String(BasicProfile.Area).slice(0,4)+"0000"]["City"][String(BasicProfile.Area).slice(0,6)+"00"]["CityName"] === undefined) {
               return (
                 <>
-                  {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["AreaName"]}　
-                  {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][BasicProfile.Area.slice(0,4)+"0000"]["PrefectureName"]}
-                  {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][BasicProfile.Area.slice(0,4)+"0000"]["City"][BasicProfile.Area.slice(0,6)+"00"]}
+                  {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["AreaName"]}　
+                  {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["Prefecture"][String(BasicProfile.Area).slice(0,4)+"0000"]["PrefectureName"]}
+                  {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["Prefecture"][String(BasicProfile.Area).slice(0,4)+"0000"]["City"][String(BasicProfile.Area).slice(0,6)+"00"]}
                 </>
               )
             // Wardが存在するCityが設定されている場合
             } else { 
               // Wardが未設定の場合→「Area」「Prefecture」「City」を表示
-              if (BasicProfile.Area.slice(6,8) === "00") {
+              if (String(BasicProfile.Area).slice(6,8) === "00") {
                 return (
                   <>
-                    {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["AreaName"]}　
-                    {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][BasicProfile.Area.slice(0,4)+"0000"]["PrefectureName"]}
-                    {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][BasicProfile.Area.slice(0,4)+"0000"]["City"][BasicProfile.Area.slice(0,6)+"00"]["CityName"]}
+                    {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["AreaName"]}　
+                    {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["Prefecture"][String(BasicProfile.Area).slice(0,4)+"0000"]["PrefectureName"]}
+                    {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["Prefecture"][String(BasicProfile.Area).slice(0,4)+"0000"]["City"][String(BasicProfile.Area).slice(0,6)+"00"]["CityName"]}
                   </>
                 )
               // Wardが設定されている場合→「Area」「Prefecture」「Ward」を表示
               } else {
                 return (
                   <>
-                    {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["AreaName"]}　
-                    {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][BasicProfile.Area.slice(0,4)+"0000"]["PrefectureName"]}
-                    {AreaDB.Area[BasicProfile.Area.slice(0,2)+"000000"]["Prefecture"][BasicProfile.Area.slice(0,4)+"0000"]["City"][BasicProfile.Area.slice(0,6)+"00"]["Ward"][BasicProfile.Area]}
+                    {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["AreaName"]}　
+                    {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["Prefecture"][String(BasicProfile.Area).slice(0,4)+"0000"]["PrefectureName"]}
+                    {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["Prefecture"][String(BasicProfile.Area).slice(0,4)+"0000"]["City"][String(BasicProfile.Area).slice(0,6)+"00"]["Ward"][BasicProfile.Area]}
                   </>
                 )
               }
@@ -120,20 +120,20 @@ export function ProfileDetail() {
   function ShowBirthArea() {
     if (BasicProfile.BirthArea !== undefined) {
       // BirthArea未設定の場合→「未設定」と表示
-      if (BasicProfile.BirthArea === "10000000") {
+      if (BasicProfile.BirthArea === 10000000) {
         return (
           <>
-            {AreaDB.Area[BasicProfile.BirthArea.slice(0,2)+"000000"]["AreaName"]}
+            {AreaDB.Area[String(BasicProfile.BirthArea).slice(0,2)+"000000"]["AreaName"]}
           </>
         )
       
       // BirthAreaが設定されている場合
       } else {
         // BirthPrefectureが未設定の場合→「BirthArea」のみを表示
-        if (BasicProfile.BirthArea.slice(2,8) === "000000") {
+        if (String(BasicProfile.BirthAaea).slice(2,8) === "000000") {
           return (
             <>
-              {AreaDB.Area[BasicProfile.BirthArea.slice(0,2)+"000000"]["AreaName"]}
+              {AreaDB.Area[String(BasicProfile.BirthArea).slice(0,2)+"000000"]["AreaName"]}
             </>
           )
         
@@ -141,8 +141,8 @@ export function ProfileDetail() {
         } else {
           return (
             <>
-              {AreaDB.Area[BasicProfile.BirthArea.slice(0,2)+"000000"]["AreaName"]}　
-              {AreaDB.Area[BasicProfile.BirthArea.slice(0,2)+"000000"]["Prefecture"][BasicProfile.BirthArea.slice(0,4)+"0000"]["PrefectureName"]}
+              {AreaDB.Area[String(BasicProfile.BirthArea).slice(0,2)+"000000"]["AreaName"]}　
+              {AreaDB.Area[String(BasicProfile.BirthArea).slice(0,2)+"000000"]["Prefecture"][String(BasicProfile.BirthArea).slice(0,4)+"0000"]["PrefectureName"]}
             </>
           )
         }
