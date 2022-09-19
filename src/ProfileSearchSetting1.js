@@ -107,7 +107,7 @@ export function ProfileSearchSetting1() {
     .then(result => {
       console.log(result.result)
       if (result.result !== "PSAND") {
-        setPSArea(String(result.result))
+        setPSArea(result.result)
       }
     })
     fetch("../../get_profilesearchbirtharea.php",initialRequestOptions)
@@ -115,7 +115,7 @@ export function ProfileSearchSetting1() {
     .then(result => {
       console.log(result.result)
       if (result.result !== "PSAND") {
-        setPSBirthArea(String(result.result))
+        setPSBirthArea(result.result)
       }
     })
     fetch("../../get_profilesearchsetting1.php",initialRequestOptions)
