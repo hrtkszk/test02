@@ -9,6 +9,7 @@ import { useAuth } from "./useAuth";
 import "./Profile.css";
 import ProfileDB from "./Profile.json";
 import SelectProfileItem from "./SelectProfileItem";
+import AreaDB from "./Area.json";
 
 
 export function ProfileList1() {
@@ -37,6 +38,76 @@ export function ProfileList1() {
     setinitialized(true)
   }
   
+
+  const ShowArea = (props) => {
+    if (props.DBValue.Area !== undefined) {
+      // Area未設定の場合→「未設定」と表示
+      if (props.DBValue.Area === 10000000) {
+        return (
+          <>
+            {AreaDB.Area[String(props.DBValue.Area).slice(0,2)+"000000"]["AreaName"]}
+          </>
+        )
+      
+      // Areaが設定されている場合
+      } else {
+        // Prefectureが未設定の場合→「Area」のみを表示
+        if (String(props.DBValue.Area).slice(2,8) === "000000") {
+          return (
+            <>
+              {AreaDB.Area[String(props.DBValue.Area).slice(0,2)+"000000"]["AreaName"]}
+            </>
+          )
+        
+        // Prefectureが設定されている場合
+        } else {
+          // Cityが未設定の場合→「Area」「Prefecture」を表示
+          if (String(props.DBValue.Area).slice(4,8) === "0000") {
+            return (
+              <>
+                {AreaDB.Area[String(props.DBValue.Area).slice(0,2)+"000000"]["AreaName"]}　
+                {AreaDB.Area[String(props.DBValue.Area).slice(0,2)+"000000"]["Prefecture"][String(props.DBValue.Area).slice(0,4)+"0000"]["PrefectureName"]}
+              </>
+            )
+          // Cityが設定されている場合→「Area」「Prefecture」「City」を表示
+          } else {
+            // Wardが存在しないCityが設定されている場合
+            if (AreaDB.Area[String(props.DBValue.Area).slice(0,2)+"000000"]["Prefecture"][String(props.DBValue.Area).slice(0,4)+"0000"]["City"][String(props.DBValue.Area).slice(0,6)+"00"]["CityName"] === undefined) {
+              return (
+                <>
+                  {AreaDB.Area[String(props.DBValue.Area).slice(0,2)+"000000"]["AreaName"]}　
+                  {AreaDB.Area[String(props.DBValue.Area).slice(0,2)+"000000"]["Prefecture"][String(props.DBValue.Area).slice(0,4)+"0000"]["PrefectureName"]}
+                  {AreaDB.Area[String(props.DBValue.Area).slice(0,2)+"000000"]["Prefecture"][String(props.DBValue.Area).slice(0,4)+"0000"]["City"][String(props.DBValue.Area).slice(0,6)+"00"]}
+                </>
+              )
+            // Wardが存在するCityが設定されている場合
+            } else { 
+              // Wardが未設定の場合→「Area」「Prefecture」「City」を表示
+              if (String(props.DBValue.Area).slice(6,8) === "00") {
+                return (
+                  <>
+                    {AreaDB.Area[String(props.DBValue.Area).slice(0,2)+"000000"]["AreaName"]}　
+                    {AreaDB.Area[String(props.DBValue.Area).slice(0,2)+"000000"]["Prefecture"][String(props.DBValue.Area).slice(0,4)+"0000"]["PrefectureName"]}
+                    {AreaDB.Area[String(props.DBValue.Area).slice(0,2)+"000000"]["Prefecture"][String(props.DBValue.Area).slice(0,4)+"0000"]["City"][String(props.DBValue.Area).slice(0,6)+"00"]["CityName"]}
+                  </>
+                )
+              // Wardが設定されている場合→「Area」「Prefecture」「Ward」を表示
+              } else {
+                return (
+                  <>
+                    {AreaDB.Area[String(props.DBValue.Area).slice(0,2)+"000000"]["AreaName"]}　
+                    {AreaDB.Area[String(props.DBValue.Area).slice(0,2)+"000000"]["Prefecture"][String(props.DBValue.Area).slice(0,4)+"0000"]["PrefectureName"]}
+                    {AreaDB.Area[String(props.DBValue.Area).slice(0,2)+"000000"]["Prefecture"][String(props.DBValue.Area).slice(0,4)+"0000"]["City"][String(props.DBValue.Area).slice(0,6)+"00"]["Ward"][props.DBValue.Area]}
+                  </>
+                )
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   if (ProfileList === []) {
     return <></>
   } else {
@@ -50,14 +121,15 @@ export function ProfileList1() {
               ProfileJson = JSON.parse(Profile)
               return <li key={ProfileJson.UUID} onClick={() => auth.setAite(ProfileJson.UUID)}>
                 <Link to="../Detail">
-                  {ProfileJson.NickName}
+                  名前：{ProfileJson.NickName}
                   <SelectProfileItem
                     title="性別"
                     keyName="Gender"
                     keyValue={ProfileDB.Gender}
                     DBValue={ProfileJson}
-                  />
-                  {ProfileJson.Age}
+                  /><br />
+                  場所：<ShowArea DBValue={ProfileJson}/><br />
+                  年齢：{ProfileJson.Age}
                 </Link>
               </li>
             })}
