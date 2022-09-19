@@ -823,7 +823,7 @@ try:
     AreaList = cursor.fetchall()
     if len(AreaList) == 0:
         None
-    elif AreaList.length ==1:
+    elif len(AreaList) ==1:
         PSS_SQL1 += " AND Area = '" + AreaList[0][0] + "'"
     else:
         # 場合分けが必要
