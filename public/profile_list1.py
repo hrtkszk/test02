@@ -818,27 +818,24 @@ except (IndexError, TypeError, KeyError, ValueError) as e:
     print("Create SQL statement:", e)
 
 try:
-    PSS_SQL1 = ""
     cursor.execute(f"SELECT Area FROM {PSArea} WHERE UUID='{sys.argv[1]}'")
     AreaList = cursor.fetchall()
-    print(len(AreaList))
     if len(AreaList) == 0:
         None
     elif len(AreaList) ==1:
-        PSS_SQL1 += " AND Area = '" + AreaList[0][0] + "'"
+        PSS_SQL += " AND Area = '" + AreaList[0][0] + "'"
     else:
         # 場合分けが必要
         count = 1
         for Area in AreaList:
             if count == 1:
-                PSS_SQL1 += " AND (Area = '" + Area[0] + "'"
+                PSS_SQL += " AND (Area = '" + Area[0] + "'"
                 count += 1
             elif count == len(AreaList):
-                PSS_SQL1 += " OR Area = '" + Area[0] + "')"
+                PSS_SQL += " OR Area = '" + Area[0] + "')"
             else:
-                PSS_SQL1 += " OR Area = '" + Area[0] + "'"
+                PSS_SQL += " OR Area = '" + Area[0] + "'"
                 count += 1
-        print("Obtain PSArea SQL1:", PSS_SQL1)
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
     print("Obtain PSArea:", e)
 # 検索設定に基づいたProfileTable1の検索
