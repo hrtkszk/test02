@@ -835,12 +835,33 @@ try:
         count = 1
         for Area in AreaList:
             if count == 1:
-                PSS_SQL += " AND (Area = '" + str(Area[0]) + "'"
+                if str(AreaList[0])[2:] == "000000":
+                    PSS_SQL += " AND (Area >= '" + str(Area[0]) + "' AND Area < '" + str(AreaList[0]+1000000) + "'"
+                elif str(AreaList[0])[4:] == "0000":
+                    PSS_SQL += " AND (Area >= '" + str(Area[0]) + "' AND Area < '" + str(AreaList[0]+10000) + "'"
+                elif str(AreaList[0])[6:] == "00":
+                    PSS_SQL += " AND (Area >= '" + str(Area[0]) + "' AND Area < '" + str(AreaList[0]+100) + "'"
+                else:
+                    PSS_SQL += " AND (Area = '" + str(Area[0]) + "'"
                 count += 1
             elif count == len(AreaList):
-                PSS_SQL += " OR Area = '" + str(Area[0]) + "')"
+                if str(AreaList[0])[2:] == "000000":
+                    PSS_SQL += " OR Area >= '" + str(Area[0]) + "' AND Area < '" + str(AreaList[0]+1000000) + "')"
+                elif str(AreaList[0])[4:] == "0000":
+                    PSS_SQL += " OR Area >= '" + str(Area[0]) + "' AND Area < '" + str(AreaList[0]+10000) + "')"
+                elif str(AreaList[0])[6:] == "00":
+                    PSS_SQL += " OR Area >= '" + str(Area[0]) + "' AND Area < '" + str(AreaList[0]+100) + "')"
+                else:
+                    PSS_SQL += " OR Area = '" + str(Area[0]) + "')"
             else:
-                PSS_SQL += " OR Area = '" +str(Area[0]) + "'"
+                if str(AreaList[0])[2:] == "000000":
+                    PSS_SQL += " OR Area >= '" + str(Area[0]) + "' AND Area < '" + str(AreaList[0]+1000000) + "'"
+                elif str(AreaList[0])[4:] == "0000":
+                    PSS_SQL += " OR Area >= '" + str(Area[0]) + "' AND Area < '" + str(AreaList[0]+10000) + "'"
+                elif str(AreaList[0])[6:] == "00":
+                    PSS_SQL += " OR Area >= '" + str(Area[0]) + "' AND Area < '" + str(AreaList[0]+100) + "'"
+                else:
+                    PSS_SQL += " OR Area = '" +str(Area[0]) + "'"
                 count += 1
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
     print("Obtain PSArea:", e)
