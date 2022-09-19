@@ -821,23 +821,24 @@ try:
     PSS_SQL1 = ""
     cursor.execute(f"SELECT Area FROM {PSArea} WHERE UUID='{sys.argv[1]}'")
     AreaList = cursor.fetchall()
-    if AreaList.length == 0:
-        None
-    elif AreaList.length ==1:
-        PSS_SQL1 += " AND Area = '" + AreaList[0] + "'"
-    else:
-        # 場合分けが必要
-        count = 1
-        for Area in AreaList:
-            if count == 1:
-                PSS_SQL1 += " AND (Area = '" + Area + "'"
-                count += 1
-            elif count == AreaList.length:
-                PSS_SQL1 += " OR Area = '" + Area + "')"
-            else:
-                PSS_SQL1 += " OR Area = '" + Area + "'"
-                count += 1
-    print("Obtain PSArea SQL1:", PSS_SQL1)
+    print(AreaList)
+    # if AreaList.length == 0:
+    #     None
+    # elif AreaList.length ==1:
+    #     PSS_SQL1 += " AND Area = '" + AreaList[0] + "'"
+    # else:
+    #     # 場合分けが必要
+    #     count = 1
+    #     for Area in AreaList:
+    #         if count == 1:
+    #             PSS_SQL1 += " AND (Area = '" + Area + "'"
+    #             count += 1
+    #         elif count == AreaList.length:
+    #             PSS_SQL1 += " OR Area = '" + Area + "')"
+    #         else:
+    #             PSS_SQL1 += " OR Area = '" + Area + "'"
+    #             count += 1
+    # print("Obtain PSArea SQL1:", PSS_SQL1)
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
     print("Obtain PSArea:", e)
 # 検索設定に基づいたProfileTable1の検索
