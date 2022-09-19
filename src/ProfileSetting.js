@@ -23,8 +23,8 @@ export function ProfileSetting() {
   const [Gender, setGender] = useState("0");
   const [Age, setAge] = useState("0");
   // // 地域状況
-  const [SettingArea, setSettingArea] = useState("10000000");
-  const [SettingBirthArea, setSettingBirthArea] = useState("10000000");
+  const [SettingArea, setSettingArea] = useState(10000000);
+  const [SettingBirthArea, setSettingBirthArea] = useState(10000000);
   // // 身体的情報
   const [Height, setHeight] = useState("0");
   const [Style, setStyle] = useState("0");
@@ -97,8 +97,8 @@ export function ProfileSetting() {
       setNickname(JsonData.NickName)
       setGender(SelectProfileValue("Gender", ProfileDB.Gender, JsonData))
       setAge(JsonData.Age)
-      setSettingArea(JsonData.Area)
-      setSettingBirthArea(JsonData.BirthArea)
+      setSettingArea(String(JsonData.Area))
+      setSettingBirthArea(String(JsonData.BirthArea))
       setHeight(SelectProfileValue("Height", ProfileDB.Height, JsonData))
       setStyle(SelectProfileValue("Style", ProfileDB.Style, JsonData))
       setLooks(SelectProfileValue("Looks", ProfileDB.Looks, JsonData))
