@@ -839,7 +839,7 @@ except (IndexError, TypeError, KeyError, ValueError) as e:
 #     print(PSS_SQL)
 # except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
 #     print("Obtain PSArea:", e)
-
+print(PSS_SQL)
 # 検索設定に基づいたProfileTable1の検索
 try:
     cursor.execute(f" \
