@@ -821,6 +821,7 @@ try:
     PSS_SQL1 = ""
     cursor.execute(f"SELECT Area FROM {PSArea} WHERE UUID='{sys.argv[1]}'")
     AreaList = cursor.fetchall()
+    print(len(AreaList))
     # if AreaList.length == 0:
     #     None
     # elif AreaList.length ==1:
