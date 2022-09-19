@@ -837,8 +837,29 @@ try:
                 count += 1
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
     print("Obtain PSArea:", e)
-# 検索設定に基づいたProfileTable1の検索
 
+try:
+    cursor.execute(f"SELECT BirthArea FROM {PSBirthArea} WHERE UUID='{sys.argv[1]}'")
+    BirthAreaList = cursor.fetchall()
+    if len(BirthAreaList) == 0:
+        None
+    elif len(BirthAreaList) ==1:
+        PSS_SQL += " AND BirthArea = '" + str(BirthAreaList[0][0]) + "'"
+    else:
+        count = 1
+        for BirthArea in BirthAreaList:
+            if count == 1:
+                PSS_SQL += " AND (BirthArea = '" + str(BirthArea[0]) + "'"
+                count += 1
+            elif count == len(BirthAreaList):
+                PSS_SQL += " OR BirthArea = '" + str(BirthArea[0]) + "')"
+            else:
+                PSS_SQL += " OR BirthArea = '" +str(BirthArea[0]) + "'"
+                count += 1
+except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
+    print("Obtain PSBirthArea:", e)
+    
+# 検索設定に基づいたProfileTable1の検索
 try:
     cursor.execute(f" \
         SELECT * \
