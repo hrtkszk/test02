@@ -829,7 +829,7 @@ try:
     #     # 場合分けが必要
     #     count = 1
     for Area in AreaList:
-        print(Area)
+        print(Area[0])
         # if count == 1:
         #     PSS_SQL1 += " AND (Area = '" + Area + "'"
         #     count += 1
