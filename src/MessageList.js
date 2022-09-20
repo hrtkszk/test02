@@ -73,8 +73,9 @@ export function MessageList() {
                 <Link to="../Message">
                   名前：{MessageJson.NickName}<br />
                   最新メッセージ：{MessageJson.message}<br />
-                  最新日時：<span class="datetime_l">{MessageJson.messagedDateTime}</span><hr />
+                  最新日時：<span class="datetime_l">{MessageJson.messagedDateTime}</span>
                 </Link>
+                <hr />
               </li>
             })}
         </ul>
