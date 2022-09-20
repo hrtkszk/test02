@@ -124,8 +124,7 @@ export function ProfileList1() {
                   名前：{ProfileJson.NickName}<br />
                   性別：{Object.keys(ProfileDB.Gender).map(key => 
                           <>
-                            {str = "Gender".concat(key)}
-                            {ProfileJson[str] === 1 ? (
+                            {ProfileJson["Gender".concat(key)] === 1 ? (
                               ProfileDB.Gender[key]
                             ) : null}
                           </>
