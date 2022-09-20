@@ -55,7 +55,7 @@ export function BoshuList() {
                   auth.setBoshuID(BoshuJson.BoshuID)
                   auth.setAite(BoshuJson.UUID)
               }}>
-                {ProfileDB.BoshuCategory[BoshuJson.BoshuCategory]}<br />
+                募集カテゴリ：{ProfileDB.BoshuCategory[BoshuJson.BoshuCategory]}<br />
                 {/* {
                 // Area未設定の場合→「未設定」と表示
                   Boshu.BoshuArea === "0" ? (
@@ -110,14 +110,13 @@ export function BoshuList() {
                   )
                 } */}
                 {/* <br /> */}
-                {BoshuJson.NickName}　
+                名前：{BoshuJson.NickName}<br />
                 {/* {ProfileDB.Gender[BoshuJson.gender]}　 */}
-                {BoshuJson.Age}
-                <br />
-                <Link to="../BoshuList">
+                年齢：{BoshuJson.Age}<br />
+                募集タイトル：<Link to="../BoshuList">
                   {BoshuJson.BoshuTitle}
                 </Link><br />
-                {BoshuJson.PostDateTime}<br/>
+                募集投稿日時：{BoshuJson.PostDateTime}<br/><hr />
               </li>
             })}
         </ul>
