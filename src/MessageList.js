@@ -71,9 +71,9 @@ export function MessageList() {
               MessageJson = JSON.parse(Message)
               return <li key={MessageJson.aiteID} onClick={() => auth.setAite(MessageJson.aiteID)}>
                 <Link to="../Message">
-                  {MessageJson.NickName}<br />
-                  {MessageJson.message}
-                  <span class="datetime_l">{MessageJson.messagedDateTime}</span>
+                  名前：{MessageJson.NickName}<br />
+                  最新メッセージ：{MessageJson.message}
+                  最新日時：<span class="datetime_l">{MessageJson.messagedDateTime}</span><hr />
                 </Link>
               </li>
             })}
