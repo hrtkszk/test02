@@ -16,6 +16,8 @@ connection = MySQLdb.connect(
 
 BoshuDB="BoshuDB"
 
+print(sys.argv[1])
+
 try:
     RecieveData=json.loads(sys.argv[1])
 except (IndexError, TypeError, ValueError) as e:
