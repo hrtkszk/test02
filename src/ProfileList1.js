@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { useAuth } from "./useAuth";
 import "./Profile.css";
 import ProfileDB from "./Profile.json";
-import SelectProfileItem from "./SelectProfileItem";
+// import SelectProfileItem from "./SelectProfileItem";
 import AreaDB from "./Area.json";
 
 
@@ -121,16 +121,19 @@ export function ProfileList1() {
               ProfileJson = JSON.parse(Profile)
               return <li key={ProfileJson.UUID} onClick={() => auth.setAite(ProfileJson.UUID)}>
                 <Link to="../Detail">
-                  名前：{ProfileJson.NickName}
-                  <SelectProfileItem
-                    title="性別"
-                    keyName="Gender"
-                    keyValue={ProfileDB.Gender}
-                    DBValue={ProfileJson}
-                  /><br />
+                  名前：{ProfileJson.NickName}<br />
+                  性別：{Object.keys(ProfileDB.Gender).map(key => 
+                          <>
+                            {str = "Gender".concat(key)}
+                            {ProfileJson[str] === 1 ? (
+                              ProfileDB.Gender[key]
+                            ) : null}
+                          </>
+                        )}<br />
                   場所：<ShowArea DBValue={ProfileJson}/><br />
                   年齢：{ProfileJson.Age}
                 </Link>
+                <hr />
               </li>
             })}
         </ul>
