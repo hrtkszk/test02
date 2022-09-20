@@ -51,6 +51,7 @@ export function BoshuList() {
             {BoshuList.map((Boshu, i) => {
               let BoshuJson = {}
               BoshuJson = JSON.parse(Boshu)
+              console.log(BoshuJson.BoshuID)
               return <li key={i} onClick={() => {
                   auth.setBoshuID(BoshuJson.BoshuID)
                   auth.setAite(BoshuJson.UUID)
