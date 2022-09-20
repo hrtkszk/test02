@@ -20,18 +20,22 @@ export function BoshuDetail() {
 
   // ページが読み込まれる時に実行し、Messagesとして登録する。
   if (initialized===false) {
+    let s = {}
+    s["\"UUID\""] = "\"" + auth.AiteID + "\""
+    s["\"BoshuID\""] = "\"" + auth.BoshuID + "\""
+
     const initialRequestOptions ={
       method: 'POST',
       headers:{'Content-Type': 'application/json'},
-      body: JSON.stringify({"BoshuID":auth.BoshuID})
+      body: JSON.stringify(s)
     }
     console.log(initialRequestOptions)
     fetch("../get_boshudetail.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{
       // console.log(result)
-      setBoshuDetail(result.result[0])
-      console.log(result.result)
+      setBoshuDetail(result)
+      console.log(result)
     })
 
     const initialRequestOptions1 ={

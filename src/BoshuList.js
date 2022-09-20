@@ -51,7 +51,6 @@ export function BoshuList() {
             {BoshuList.map((Boshu, i) => {
               let BoshuJson = {}
               BoshuJson = JSON.parse(Boshu)
-              console.log(BoshuJson.BoshuID)
               return <li key={i} onClick={() => {
                   auth.setBoshuID(BoshuJson.BoshuID)
                   auth.setAite(BoshuJson.UUID)
@@ -114,7 +113,7 @@ export function BoshuList() {
                 名前：{BoshuJson.NickName}<br />
                 {/* {ProfileDB.Gender[BoshuJson.gender]}　 */}
                 年齢：{BoshuJson.Age}<br />
-                募集タイトル：<Link to="../BoshuList">
+                募集タイトル：<Link to="../BoshuDetail">
                   {BoshuJson.BoshuTitle}
                 </Link><br />
                 募集投稿日時：{BoshuJson.PostDateTime}<br/><hr />

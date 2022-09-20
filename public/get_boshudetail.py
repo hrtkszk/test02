@@ -5,6 +5,7 @@ import MySQLdb
 import sys
 import datetime
 import SQLconfig
+import json
 
 # データベースへの接続とカーソルの生成
 connection = MySQLdb.connect(
@@ -15,17 +16,22 @@ connection = MySQLdb.connect(
 
 BoshuDB="BoshuDB"
 
-BoshuID = " ".join(sys.argv[1:])
+try:
+    RecieveData=json.loads(sys.argv[1])
+except (IndexError, TypeError, ValueError) as e:
+    print(e)
+
+
+# BoshuID = " ".join(sys.argv[1:])
 # field name込みの場合はこっちを使う
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
 cursor = connection.cursor()
 
 try:
-    cursor.execute(f"SELECT * FROM `{BoshuDB}` WHERE BoshuID='{BoshuID}'")
+    cursor.execute(f"SELECT * FROM `{BoshuDB}` WHERE BoshuID='{RecieveData.BoshuID}'")
 
     # num_fields = len(cursor.description)
     field_names = [i[0] for i in cursor.description]
-    print(field_names)
 
     # print(cursor.fetchone())
     for row in cursor:
@@ -41,7 +47,9 @@ try:
             else:
                 row1.append(item)
         # printでのpythonからphpへの受け渡し
-        print (row1)
+        DictBoshuDetail = dict(zip(field_names, row1))
+        JsonBoshuDetail = json.dumps(DictBoshuDetail)
+        print(JsonBoshuDetail)
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
     print(e)
 
