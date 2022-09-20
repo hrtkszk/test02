@@ -46,7 +46,7 @@ export function BoshuDetail() {
     fetch("../get_basicprofile.php",initialRequestOptions1)
     .then((response) => response.json())
     .then(result => {
-      setBasicProfile(result.result[0])
+      setBasicProfile(result)
     })
 
     setinitialized(true)

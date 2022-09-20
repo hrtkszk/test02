@@ -19,7 +19,7 @@ BoshuDB="BoshuDB"
 try:
     RecieveData=json.loads(sys.argv[1])
 except (IndexError, TypeError, ValueError) as e:
-    print(e)
+    print("Convert Str to JSON:", e)
 
 
 # BoshuID = " ".join(sys.argv[1:])
@@ -51,7 +51,7 @@ try:
         JsonBoshuDetail = json.dumps(DictBoshuDetail)
         print(JsonBoshuDetail)
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
-    print(e)
+    print("SQL exec and Json output:",e)
 
 # 保存を実行
 connection.commit()
