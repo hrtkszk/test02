@@ -151,14 +151,8 @@ export function BoshuDetail() {
             <span className="dan2">{BasicProfile.Age}</span>
           </li>
           <li>
-            <SelectProfileItem
-              title="募集カテゴリ"
-              keyName="BoshuCategory"
-              keyValue={ProfileDB.BoshuCategory}
-              DBValue={BoshuDetail}
-            />
-            {/* <span className="dan">募集カテゴリ</span>
-            <span className="dan2">{BoshuDetail.BoshuCategory}</span> */}
+            <span className="dan">募集カテゴリ</span>
+            <span className="dan2">{ProfileDB.BoshuCategory[BoshuDetail.BoshuCategory]}</span>
           </li>
           <li>
             <span className="dan">募集エリア</span>
