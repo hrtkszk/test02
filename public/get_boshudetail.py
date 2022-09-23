@@ -23,7 +23,7 @@ try:
 except (IndexError, TypeError, ValueError) as e:
     print("Convert Str to JSON:", e)
 
-print(RecieveData.BoshuID)
+print(RecieveData["BoshuID"])
 
 # # BoshuID = " ".join(sys.argv[1:])
 # # field name込みの場合はこっちを使う
