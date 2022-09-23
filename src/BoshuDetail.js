@@ -86,7 +86,7 @@ export function BoshuDetail() {
         } else {
 
           // Wardが存在しないCityが設定されている場合
-          {console.log(BoshuDetail.BoshuArea)}
+          console.log(BoshuDetail.BoshuArea)
           if (AreaDB.Area[String(BoshuDetail.BoshuArea).slice(0,2)+"000000"]["Prefecture"][String(BoshuDetail.BoshuArea).slice(0,4)+"0000"]["City"][String(BoshuDetail.BoshuArea).slice(0,6)+"00"]["CityName"] === undefined)  {
             return (
               <>
