@@ -21,7 +21,7 @@ export function BoshuDetail() {
   // ページが読み込まれる時に実行し、Messagesとして登録する。
   if (initialized===false) {
     let s = {}
-    s["\"AiteID\""] = "\"" + auth.AiteID + "\""
+    s["\"AiteID\""] = "\"" + auth.aite + "\""
     s["\"BoshuID\""] = "\"" + auth.BoshuID + "\""
 
     const initialRequestOptions ={
