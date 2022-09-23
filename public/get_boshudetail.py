@@ -16,13 +16,14 @@ connection = MySQLdb.connect(
 
 BoshuDB="BoshuDB"
 
-# print(sys.argv[1])
+print(sys.argv[1])
 
 try:
     RecieveData=json.loads(sys.argv[1])
 except (IndexError, TypeError, ValueError) as e:
     print("Convert Str to JSON:", e)
 
+print(RecieveData.BoshuID)
 
 # BoshuID = " ".join(sys.argv[1:])
 # field name込みの場合はこっちを使う
