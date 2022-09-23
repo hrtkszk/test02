@@ -34,8 +34,8 @@ export function BoshuDetail() {
     .then((response)=> response.json())
     .then(result =>{
       // console.log(result)
-      setBoshuDetail(result)
-      console.log(result)
+      setBoshuDetail(result[0])
+      console.log(result[0])
     })
 
     const initialRequestOptions1 ={
@@ -127,18 +127,18 @@ export function BoshuDetail() {
   } else {
     return (
       <div>
-        <h1>{BasicProfile.nickname}　{BasicProfile.age}</h1>
+        <h1>{BasicProfile.NickName}　{BasicProfile.Age}</h1>
         <div>
         </div>
         <div>
         <ul>
           <li>
             <span className="dan">ニックネーム</span>
-            <span className="dan2">{BasicProfile.nickname}</span>
+            <span className="dan2">{BasicProfile.NickName}</span>
           </li>
           <li>
             <span className="dan">性別</span>
-            <span className="dan2">{ProfileDB.Gender[BasicProfile.gender]}</span>
+            <span className="dan2">{ProfileDB.Gender[BasicProfile.Gender]}</span>
           </li>
           <li>
             <span className="dan">年齢</span>
