@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { useAuth } from "./useAuth";
 import ProfileDB from "./Profile.json";
 import AreaDB from "./Area.json";
+import SelectProfileItem from "./SelectProfileItem";
 
 export function BoshuDetail() {
   let auth = useAuth();
@@ -46,7 +47,8 @@ export function BoshuDetail() {
     fetch("../get_basicprofile.php",initialRequestOptions1)
     .then((response) => response.json())
     .then(result => {
-      setBasicProfile(result)
+      setBasicProfile(JSON.parse(result[0]))
+      console.log(JSON.parse(result[0]))
     })
 
     setinitialized(true)
@@ -86,7 +88,6 @@ export function BoshuDetail() {
         } else {
 
           // Wardが存在しないCityが設定されている場合
-          console.log(BoshuDetail.BoshuArea)
           if (AreaDB.Area[String(BoshuDetail.BoshuArea).slice(0,2)+"000000"]["Prefecture"][String(BoshuDetail.BoshuArea).slice(0,4)+"0000"]["City"][String(BoshuDetail.BoshuArea).slice(0,6)+"00"]["CityName"] === undefined)  {
             return (
               <>
@@ -138,16 +139,26 @@ export function BoshuDetail() {
             <span className="dan2">{BasicProfile.NickName}</span>
           </li>
           <li>
-            <span className="dan">性別</span>
-            <span className="dan2">{ProfileDB.Gender[BasicProfile.Gender]}</span>
+            <SelectProfileItem
+              title="性別"
+              keyName="Gender"
+              keyValue={ProfileDB.Gender}
+              DBValue={BasicProfile}
+            />
           </li>
           <li>
             <span className="dan">年齢</span>
             <span className="dan2">{BasicProfile.Age}</span>
           </li>
           <li>
-            <span className="dan">募集カテゴリ</span>
-            <span className="dan2">{BoshuDetail.BoshuCategory}</span>
+            <SelectProfileItem
+              title="募集カテゴリ"
+              keyName="BoshuCategory"
+              keyValue={ProfileDB.BoshuCategory}
+              DBValue={BoshuDetail}
+            />
+            {/* <span className="dan">募集カテゴリ</span>
+            <span className="dan2">{BoshuDetail.BoshuCategory}</span> */}
           </li>
           <li>
             <span className="dan">募集エリア</span>
