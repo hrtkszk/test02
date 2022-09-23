@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { useAuth } from "./useAuth";
 import "./ProfileDetail.css";
 import ProfileDB from "./Profile.json";
-// import AreaDB from "./Area.json";
+import AreaDB from "./Area.json";
 import FormSelect from "./FormSelect";
 import FormTextInput from "./FormTextInput";
 
