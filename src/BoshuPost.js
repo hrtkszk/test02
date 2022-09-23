@@ -14,7 +14,7 @@ import FormTextInput from "./FormTextInput";
 
 
 export function BoshuPost() {
-  const [BoshuArea, setBoshuArea] = useState(10000000);
+  const [BoshuArea, setBoshuArea] = useState("10000000");
   const [BoshuCategory, setBoshuCategory] = useState("0");
   const [BoshuTitle, setBoshuTitle] = useState("");
   const [BoshuMessage, setBoshuMessage] = useState("");

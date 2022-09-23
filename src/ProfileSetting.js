@@ -23,8 +23,8 @@ export function ProfileSetting() {
   const [Gender, setGender] = useState("0");
   const [Age, setAge] = useState("0");
   // // 地域状況
-  const [SettingArea, setSettingArea] = useState(10000000);
-  const [SettingBirthArea, setSettingBirthArea] = useState(10000000);
+  const [SettingArea, setSettingArea] = useState("10000000");
+  const [SettingBirthArea, setSettingBirthArea] = useState("10000000");
   // // 身体的情報
   const [Height, setHeight] = useState("0");
   const [Style, setStyle] = useState("0");
