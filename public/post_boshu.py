@@ -37,7 +37,7 @@ BoshuDB="BoshuDB"
 
 cursor = connection.cursor()
 
-BoshuID = str(UUID)+"_"+str(datetime.datetime.now())
+BoshuID = str(UUID)+"_"+str(datetime.datetime.now()).replace(" ", "").replace("-", "").replace(".", "").replace(":", "")
 
 # profileTableのUUIDのチェック（外部からの変更防止？）
 
