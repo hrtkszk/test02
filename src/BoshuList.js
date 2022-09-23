@@ -11,7 +11,7 @@ import {
 import { useAuth } from "./useAuth";
 import "./Profile.css";
 import ProfileDB from "./Profile.json";
-// import AreaDB from "./Area.json";
+import AreaDB from "./Area.json";
 
 
 export function BoshuList() {
@@ -40,6 +40,76 @@ export function BoshuList() {
     setinitialized(true)
   }
 
+  const ShowArea = (props) => {
+    if (props.DBValue !== undefined) {
+      // Area未設定の場合→「未設定」と表示
+      if (props.DBValue === 10000000) {
+        return (
+          <>
+            {AreaDB.Area[String(props.DBValue).slice(0,2)+"000000"]["AreaName"]}
+          </>
+        )
+      
+      // Areaが設定されている場合
+      } else {
+        // Prefectureが未設定の場合→「Area」のみを表示
+        if (String(props.DBValue).slice(2,8) === "000000") {
+          return (
+            <>
+              {AreaDB.Area[String(props.DBValue).slice(0,2)+"000000"]["AreaName"]}
+            </>
+          )
+        
+        // Prefectureが設定されている場合
+        } else {
+          // Cityが未設定の場合→「Area」「Prefecture」を表示
+          if (String(props.DBValue).slice(4,8) === "0000") {
+            return (
+              <>
+                {AreaDB.Area[String(props.DBValue).slice(0,2)+"000000"]["AreaName"]}　
+                {AreaDB.Area[String(props.DBValue).slice(0,2)+"000000"]["Prefecture"][String(props.DBValue).slice(0,4)+"0000"]["PrefectureName"]}
+              </>
+            )
+          // Cityが設定されている場合→「Area」「Prefecture」「City」を表示
+          } else {
+            // Wardが存在しないCityが設定されている場合
+            if (AreaDB.Area[String(props.DBValue).slice(0,2)+"000000"]["Prefecture"][String(props.DBValue).slice(0,4)+"0000"]["City"][String(props.DBValue).slice(0,6)+"00"]["CityName"] === undefined) {
+              return (
+                <>
+                  {AreaDB.Area[String(props.DBValue).slice(0,2)+"000000"]["AreaName"]}　
+                  {AreaDB.Area[String(props.DBValue).slice(0,2)+"000000"]["Prefecture"][String(props.DBValue).slice(0,4)+"0000"]["PrefectureName"]}
+                  {AreaDB.Area[String(props.DBValue).slice(0,2)+"000000"]["Prefecture"][String(props.DBValue).slice(0,4)+"0000"]["City"][String(props.DBValue).slice(0,6)+"00"]}
+                </>
+              )
+            // Wardが存在するCityが設定されている場合
+            } else { 
+              // Wardが未設定の場合→「Area」「Prefecture」「City」を表示
+              if (String(props.DBValue).slice(6,8) === "00") {
+                return (
+                  <>
+                    {AreaDB.Area[String(props.DBValue).slice(0,2)+"000000"]["AreaName"]}　
+                    {AreaDB.Area[String(props.DBValue).slice(0,2)+"000000"]["Prefecture"][String(props.DBValue).slice(0,4)+"0000"]["PrefectureName"]}
+                    {AreaDB.Area[String(props.DBValue).slice(0,2)+"000000"]["Prefecture"][String(props.DBValue).slice(0,4)+"0000"]["City"][String(props.DBValue).slice(0,6)+"00"]["CityName"]}
+                  </>
+                )
+              // Wardが設定されている場合→「Area」「Prefecture」「Ward」を表示
+              } else {
+                return (
+                  <>
+                    {AreaDB.Area[String(props.DBValue).slice(0,2)+"000000"]["AreaName"]}　
+                    {AreaDB.Area[String(props.DBValue).slice(0,2)+"000000"]["Prefecture"][String(props.DBValue).slice(0,4)+"0000"]["PrefectureName"]}
+                    {AreaDB.Area[String(props.DBValue).slice(0,2)+"000000"]["Prefecture"][String(props.DBValue).slice(0,4)+"0000"]["City"][String(props.DBValue).slice(0,6)+"00"]["Ward"][props.DBValue]}
+                  </>
+                )
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
   if (BoshuList === []) {
     return <></>
   } else {
@@ -56,60 +126,7 @@ export function BoshuList() {
                   auth.setAite(BoshuJson.UUID)
               }}>
                 募集カテゴリ：{ProfileDB.BoshuCategory[BoshuJson.BoshuCategory]}<br />
-                {/* {
-                // Area未設定の場合→「未設定」と表示
-                  Boshu.BoshuArea === "0" ? (
-                      <>
-                        {AreaDB.Area[Boshu.BoshuArea]["AreaName"]}
-                      </>    
-                  // Areaが設定されている場合
-                  ):(
-                    // Prefectureが未設定の場合→「Area」のみを表示
-                    Boshu.BoshuPrefecture === "0" ? (
-                        <>
-                          {AreaDB.Area[Boshu.BoshuArea]["AreaName"]}
-                        </>
-                    
-                    // Prefectureが設定されている場合
-                    ) : (
-                      // Cityが未設定の場合→「Area」「Prefecture」を表示
-                      Boshu.BoshuCity === "0" ? (
-                          <>
-                            {AreaDB.Area[Boshu.BoshuArea]["AreaName"]}　
-                            {AreaDB.Area[Boshu.BoshuArea]["Prefecture"][Boshu.BoshuPrefecture]["PrefectureName"]}
-                          </>
-                      // Cityが設定されている場合→「Area」「Prefecture」「City」を表示
-                      ) : (
-                        // Wardが存在しないCityが設定されている場合
-                        AreaDB.Area[Boshu.BoshuArea]["Prefecture"][Boshu.BoshuPrefecture]["City"][Boshu.BoshuCity]["CityName"] === undefined ? (
-                            <>
-                              {AreaDB.Area[Boshu.BoshuArea]["AreaName"]}　
-                              {AreaDB.Area[Boshu.BoshuArea]["Prefecture"][Boshu.BoshuPrefecture]["PrefectureName"]}
-                              {AreaDB.Area[Boshu.BoshuArea]["Prefecture"][Boshu.BoshuPrefecture]["City"][Boshu.BoshuCity]}
-                            </>
-                        // Wardが存在するCityが設定されている場合
-                        ) : (
-                          // Wardが未設定の場合→「Area」「Prefecture」「City」を表示
-                          Boshu.BoshuWard === "0" ? (
-                              <>
-                                {AreaDB.Area[Boshu.BoshuArea]["AreaName"]}　
-                                {AreaDB.Area[Boshu.BoshuArea]["Prefecture"][Boshu.BoshuPrefecture]["PrefectureName"]}
-                                {AreaDB.Area[Boshu.BoshuArea]["Prefecture"][Boshu.BoshuPrefecture]["City"][Boshu.BoshuCity]["CityName"]}
-                              </>
-                          // Wardが設定されている場合→「Area」「Prefecture」「Ward」を表示
-                          ) : (
-                              <>
-                                {AreaDB.Area[Boshu.BoshuArea]["AreaName"]}　
-                                {AreaDB.Area[Boshu.BoshuArea]["Prefecture"][Boshu.BoshuPrefecture]["PrefectureName"]}
-                                {AreaDB.Area[Boshu.BoshuArea]["Prefecture"][Boshu.BoshuPrefecture]["City"][Boshu.BoshuCity]["Ward"][Boshu.BoshuWard]}
-                              </>
-                          )
-                        )
-                      )
-                    )
-                  )
-                } */}
-                {/* <br /> */}
+                場所：<ShowArea DBValue={BoshuJson.BoshuArea}/><br />
                 名前：{BoshuJson.NickName}<br />
                 {/* {ProfileDB.Gender[BoshuJson.gender]}　 */}
                 年齢：{BoshuJson.Age}<br />
