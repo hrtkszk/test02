@@ -34,8 +34,8 @@ export function BoshuDetail() {
     .then((response)=> response.json())
     .then(result =>{
       // console.log(result)
-      setBoshuDetail(result[0])
-      console.log(result[0])
+      setBoshuDetail(JSON.parse(result[0]))
+      console.log(JSON.parse(result[0]))
     })
 
     const initialRequestOptions1 ={
