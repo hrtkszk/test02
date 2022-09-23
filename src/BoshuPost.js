@@ -157,7 +157,7 @@ export function BoshuPost() {
           <span className="dan">募集エリア</span>
           <span className="dan2">
             <select
-              defaultValue={SettingArea.slice(0,2)+"000000"}
+              defaultValue={BoshuArea.slice(0,2)+"000000"}
               onChange={evt => {
                 setBoshuArea(evt.target.value)
               }}>
