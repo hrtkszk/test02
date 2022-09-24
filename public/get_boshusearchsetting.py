@@ -38,6 +38,19 @@ except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
 try:
     DictProfile = dict(zip(field_names, result_data))
     print(DictProfile)
+
+    people = {1: {'name': 'John', 'age': '27', 'sex': 'Male'},
+            2: {'name': 'Marie', 'age': '22', 'sex': 'Female'}}
+
+    people[3] = {}
+
+    people[3]['name'] = 'Luna'
+    people[3]['age'] = '24'
+    people[3]['sex'] = 'Female'
+    people[3]['married'] = 'No'
+
+    print(people)
+
     DictProfile1 = {}
     for k, v in DictProfile.items():
         DictProfile1[k] = v
