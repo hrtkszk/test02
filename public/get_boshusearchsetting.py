@@ -40,7 +40,7 @@ try:
     print(DictProfile)
     DictProfile1 = {}
     for k, v in DictProfile.items():
-        DictProfile1[0][k] = v
+        DictProfile1[k] = v
         # count = 0
         # if v == "":
         #     DictProfile1[k][count] = "0"
