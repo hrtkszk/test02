@@ -2,7 +2,7 @@ import * as React from "react";
 import {
   Link,
 //   // Outlet
-  useNavigate
+  // useNavigate
 } from "react-router-dom";
 import { useState } from 'react';
 import { useAuth } from "./useAuth";
@@ -28,7 +28,7 @@ export function BoshuSearchSetting() {
 
   let auth = useAuth();
 
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
   const [initialized, setinitialized] = useState(false);
 
