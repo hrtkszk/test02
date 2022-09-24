@@ -41,6 +41,8 @@ try:
     for k, v in DictProfile.items():
         DictProfile1[k] = {}
         count = 0
+        print(v)
+        print(v in "_")
         if v == "":
             DictProfile1[k][count] = "0"
         elif v in "_":
@@ -51,7 +53,7 @@ try:
                 count += 1
         else:
             DictProfile1[k][count] = v
-    print(DictProfile1)
+    # print(DictProfile1)
     # JsonProfile1 = json.dumps(DictProfile1)
     # print(JsonProfile1)
 except (IndexError, TypeError, ValueError) as e:
