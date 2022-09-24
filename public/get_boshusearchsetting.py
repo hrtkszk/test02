@@ -39,16 +39,17 @@ print(result_data)
 
 try:
     DictProfile = dict(zip(field_names, result_data))
+    print(DictProfile)
     DictProfile1 = {}
     for k, v in DictProfile.items():
         count = 0
         if v == "":
             DictProfile1[k][count] = "0"
-        elif v in "_":
-            num = v.split("_")
-            for item in num:
-                DictProfile1[k][count] = item
-                count += 1
+        # elif v in "_":
+            # num = v.split("_")
+            # for item in num:
+            #     DictProfile1[k][count] = item
+            #     count += 1
         else:
             DictProfile1[k][count] = v
     print(DictProfile1)
