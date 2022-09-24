@@ -52,32 +52,7 @@ export function BoshuSearchSetting() {
     .then(result => {
       console.log(JSON.parse(result[0]))
       setBSGender((JSON.parse(result[0])).BSGender)
-      console.log((JSON.parse(result[0])).BSGender)
       setBSCategory((JSON.parse(result[0])).BSCategory)
-      console.log((JSON.parse(result[0])).BSCategory)
-      //   if (result.result !== "PSSND") {
-    //     console.log("result:",result.result)
-    //     setBSGender({
-    //       0 : parseInt(result.result[0].BSGender0),
-    //       1 : parseInt(result.result[0].PSGender1),
-    //       2 : parseInt(result.result[0].PSGender2),
-    //       3 : parseInt(result.result[0].PSGender3),
-    //       4 : parseInt(result.result[0].PSGender4),
-    //       5 : parseInt(result.result[0].PSGender5),
-    //       6 : parseInt(result.result[0].PSGender6),
-    //       7 : parseInt(result.result[0].PSGender7)
-    //     })
-    //     setBSCategory({
-    //       0 : parseInt(result.result[0].PSGender0),
-    //       1 : parseInt(result.result[0].PSGender1),
-    //       2 : parseInt(result.result[0].PSGender2),
-    //       3 : parseInt(result.result[0].PSGender3),
-    //       4 : parseInt(result.result[0].PSGender4),
-    //       5 : parseInt(result.result[0].PSGender5),
-    //       6 : parseInt(result.result[0].PSGender6),
-    //       7 : parseInt(result.result[0].PSGender7)
-    //     })
-    //   }
     })
     setinitialized(true)
   }
@@ -92,6 +67,7 @@ export function BoshuSearchSetting() {
     let BSAreaArray = []
     Object.keys(BSArea).map(key => key !== "secondRead" ? BSAreaArray=([...BSAreaArray, key]) : null)
     Object.keys(BSGender).map(key => key !== "secondRead" ? s["BSGender" + key] = BSGender[key] : null)
+    Object.keys(BSCategory).map(key => key !== "secondRead" ? s["BSCategory" + key] = BSCategory[key] : null)
 
     const requestOptions2 ={
       method: 'POST',

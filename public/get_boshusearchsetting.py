@@ -40,14 +40,12 @@ try:
     DictProfile1 = {}
     for k, v in DictProfile.items():
         DictProfile1[k] = {}
-        count = 0
         if v == "":
             DictProfile1[k] = "0"
         elif "_" in v:
             num = v.split("_")
             for item in num:
-                DictProfile1[k][count] = item
-                count += 1
+                DictProfile1[k][item] = True
         else:
             DictProfile1[k] = v
     JsonProfile1 = json.dumps(DictProfile1)
