@@ -42,7 +42,7 @@ try:
         DictProfile1[k] = {}
         count = 0
         if v == "":
-            DictProfile1[k][count] = "0"
+            DictProfile1[k] = "0"
         elif "_" in v:
             num = v.split("_")
             print(num)
@@ -50,7 +50,7 @@ try:
                 DictProfile1[k][count] = item
                 count += 1
         else:
-            DictProfile1[k][count] = v
+            DictProfile1[k] = v
     print(DictProfile1)
     JsonProfile1 = json.dumps(DictProfile1)
     print(JsonProfile1)
