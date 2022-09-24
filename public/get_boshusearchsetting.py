@@ -40,16 +40,17 @@ try:
     print(DictProfile)
     DictProfile1 = {}
     for k, v in DictProfile.items():
-        count = 0
-        if v == "":
-            DictProfile1[k][count] = "0"
-        # elif v in "_":
-            # num = v.split("_")
-            # for item in num:
-            #     DictProfile1[k][count] = item
-            #     count += 1
-        else:
-            DictProfile1[k][count] = v
+        DictProfile1[k] = v
+        # count = 0
+        # if v == "":
+        #     DictProfile1[k][count] = "0"
+        # # elif v in "_":
+        #     # num = v.split("_")
+        #     # for item in num:
+        #     #     DictProfile1[k][count] = item
+        #     #     count += 1
+        # else:
+        #     DictProfile1[k][count] = v
     print(DictProfile1)
     # JsonProfile1 = json.dumps(DictProfile1)
     # print(JsonProfile1)
