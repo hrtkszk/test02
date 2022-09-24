@@ -66,8 +66,12 @@ export function BoshuSearchSetting() {
     }
     let BSAreaArray = []
     Object.keys(BSArea).map(key => key !== "secondRead" ? BSAreaArray=([...BSAreaArray, key]) : null)
-    Object.keys(BSGender).map(key => key !== "secondRead" ? s["BSGender" + key] = BSGender[key] : null)
-    Object.keys(BSCategory).map(key => key !== "secondRead" ? s["BSCategory" + key] = BSCategory[key] : null)
+    let BSGenderString = ""
+    Object.keys(BSGender).map(key => key !== "secondRead" ? BSGenderString += key + "_" : null)
+    s["BSGender"] = BSGenderString.slice(0, -1)
+    let BSCategoryString = ""
+    Object.keys(BSCategory).map(key => key !== "secondRead" ? BSCategoryString += key + "_" : null)
+    s["BSCategory"] = BSCategoryString.slice(0, -1)
 
     const requestOptions2 ={
       method: 'POST',
