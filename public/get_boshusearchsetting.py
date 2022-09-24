@@ -35,8 +35,6 @@ try:
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
     print(e)
 
-print(result_data)
-
 try:
     DictProfile = dict(zip(field_names, result_data))
     print(DictProfile)
@@ -53,7 +51,7 @@ try:
         else:
             DictProfile1[k][count] = v
     print(DictProfile1)
-    JsonProfile1 = json.dumps(DictProfile1)
-    print(JsonProfile1)
+    # JsonProfile1 = json.dumps(DictProfile1)
+    # print(JsonProfile1)
 except (IndexError, TypeError, ValueError) as e:
     print(e)
