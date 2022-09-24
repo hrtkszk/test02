@@ -620,7 +620,7 @@ connection.commit()
 connection.close()
 
 # data=json.load(sys.argv[2])
-print(sys.argv)
+# print(sys.argv)
 # print(sys.argv[3])
 # print(sys.argv[4])
 # print(sys.argv[5])
