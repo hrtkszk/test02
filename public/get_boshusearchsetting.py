@@ -50,5 +50,6 @@ for k, v in DictProfile.items():
             count += 1
     else:
         DictProfile1[k][count] = v
+print(DictProfile1)
 JsonProfile1 = json.dumps(DictProfile1)
 print(JsonProfile1)
