@@ -37,24 +37,21 @@ except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
 
 try:
     DictProfile = dict(zip(field_names, result_data))
-    print(DictProfile)
-
     DictProfile1 = {}
     for k, v in DictProfile.items():
         DictProfile1[k] = {}
-        DictProfile1[k][0] = v
-        # count = 0
-        # if v == "":
-        #     DictProfile1[k][count] = "0"
-        # # elif v in "_":
-        #     # num = v.split("_")
-        #     # for item in num:
-        #     #     DictProfile1[k][count] = item
-        #     #     count += 1
-        # else:
-        #     DictProfile1[k][count] = v
+        count = 0
+        if v == "":
+            DictProfile1[k][count] = "0"
+        elif v in "_":
+            num = v.split("_")
+            for item in num:
+                DictProfile1[k][count] = item
+                count += 1
+        else:
+            DictProfile1[k][count] = v
     print(DictProfile1)
-    # JsonProfile1 = json.dumps(DictProfile1)
-    # print(JsonProfile1)
+    JsonProfile1 = json.dumps(DictProfile1)
+    print(JsonProfile1)
 except (IndexError, TypeError, ValueError) as e:
     print(e)
