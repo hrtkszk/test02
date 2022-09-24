@@ -35,6 +35,8 @@ try:
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
     print(e)
 
+print(result_data)
+
 DictProfile = dict(zip(field_names, result_data))
 DictProfile1 = {}
 for k, v in DictProfile.items():
