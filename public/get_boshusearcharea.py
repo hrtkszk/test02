@@ -29,10 +29,8 @@ try:
 
     # print(cursor.fetchall())
     DictBSArea = {}
-    count = 0
     for row in cursor:
-        DictBSArea[count] = row[0]
-        count += 1
+        DictBSArea[row[0]] = True
         # row1 = list()
         # for item in row:
         #     # if str(type(item)) == "<class 'datetime.datetime'>":
