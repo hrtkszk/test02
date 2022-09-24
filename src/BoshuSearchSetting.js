@@ -61,11 +61,10 @@ export function BoshuSearchSetting() {
   const submit = e => {
     e.preventDefault();
 
-    let s = {
-      "UUID":auth.user
-    }
-    let BSAreaArray = []
-    Object.keys(BSArea).map(key => key !== "secondRead" ? BSAreaArray=([...BSAreaArray, key]) : null)
+    let s = {}
+
+    s["\"UUID\""] = "\"" + auth.user + "\""
+
     let BSGenderString = ""
     Object.keys(BSGender).map(key => key !== "secondRead" ? BSGenderString += key + "_" : null)
     s["\"BSGender\""] = "\"" + BSGenderString.slice(0, -1) + "\""
@@ -73,6 +72,9 @@ export function BoshuSearchSetting() {
     Object.keys(BSCategory).map(key => key !== "secondRead" ? BSCategoryString += key + "_" : null)
     s["\"BSCategory\""] = "\"" + BSCategoryString.slice(0, -1) + "\""
 
+    let BSAreaArray = []
+    Object.keys(BSArea).map(key => key !== "secondRead" ? BSAreaArray=([...BSAreaArray, key]) : null)
+    
     const requestOptions2 ={
       method: 'POST',
       headers:{'Content-Type': 'application/json'},
