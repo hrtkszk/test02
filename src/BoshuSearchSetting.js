@@ -47,9 +47,10 @@ export function BoshuSearchSetting() {
       setBSArea(JSON.parse(result[0]))
     })
 
-    // fetch("../../get_boshusearchsetting.php",initialRequestOptions)
-    // .then((response) => response.json())
-    // .then(result => {
+    fetch("../../get_boshusearchsetting.php",initialRequestOptions)
+    .then((response) => response.json())
+    .then(result => {
+      console.log(result[0])
     //   if (result.result !== "PSSND") {
     //     console.log("result:",result.result)
     //     setBSGender({
@@ -73,7 +74,7 @@ export function BoshuSearchSetting() {
     //       7 : parseInt(result.result[0].PSGender7)
     //     })
     //   }
-    // })
+    })
     setinitialized(true)
   }
 
