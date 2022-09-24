@@ -45,10 +45,6 @@ export function BoshuSearchSetting() {
     .then(result => {
       console.log(JSON.parse(result[0]))
       setBSArea(JSON.parse(result[0]))
-      // console.log(JSON.parse(result[0]))
-      // if (result.result !== "PSAND") {
-      //   setBSArea(result.result)
-      // }
     })
 
     // fetch("../../get_boshusearchsetting.php",initialRequestOptions)
@@ -101,11 +97,11 @@ export function BoshuSearchSetting() {
       })
     }
     console.log(requestOptions2)
-    // fetch("../../set_boshusearcharea.php",requestOptions2)
-    // .then((response)=> response.json())
-    // .then(result =>{
-    //   console.log(result)
-    // })
+    fetch("../../set_boshusearcharea.php",requestOptions2)
+    .then((response)=> response.json())
+    .then(result =>{
+      console.log(result[0])
+    })
 
     const requestOptions1 ={
       method: 'POST',
