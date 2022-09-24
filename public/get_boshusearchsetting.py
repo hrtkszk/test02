@@ -42,10 +42,10 @@ try:
         DictProfile1[k] = {}
         count = 0
         print(v)
-        print(v in '_')
+        print("_" in v)
         if v == "":
             DictProfile1[k][count] = "0"
-        elif v in "_":
+        elif "_" in v:
             num = v.split("_")
             print(num)
             for item in num:
