@@ -50,8 +50,12 @@ export function BoshuSearchSetting() {
     fetch("../../get_boshusearchsetting.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
-      console.log(result)
-    //   if (result.result !== "PSSND") {
+      console.log(JSON.parse(result[0]))
+      setBSGender((JSON.parse(result[0])).BSGender)
+      console.log((JSON.parse(result[0])).BSGender)
+      setBSCategory((JSON.parse(result[0])).BSCategory)
+      console.log((JSON.parse(result[0])).BSCategory)
+      //   if (result.result !== "PSSND") {
     //     console.log("result:",result.result)
     //     setBSGender({
     //       0 : parseInt(result.result[0].BSGender0),

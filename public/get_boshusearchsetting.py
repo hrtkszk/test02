@@ -21,7 +21,7 @@ BoshuSearchSetting="BoshuSearchSetting"
 cursor = connection.cursor()
 
 try:
-    cursor.execute(f"SELECT * FROM {BoshuSearchSetting} WHERE UUID='{sys.argv[1]}'")
+    cursor.execute(f"SELECT BSGender, BSCategory FROM {BoshuSearchSetting} WHERE UUID='{sys.argv[1]}'")
 
     # num_fields = len(cursor.description)
     field_names = [i[0] for i in cursor.description]
@@ -45,13 +45,11 @@ try:
             DictProfile1[k] = "0"
         elif "_" in v:
             num = v.split("_")
-            print(num)
             for item in num:
                 DictProfile1[k][count] = item
                 count += 1
         else:
             DictProfile1[k] = v
-    print(DictProfile1)
     JsonProfile1 = json.dumps(DictProfile1)
     print(JsonProfile1)
 except (IndexError, TypeError, ValueError) as e:
