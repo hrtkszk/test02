@@ -5,6 +5,7 @@ import MySQLdb
 import sys
 import datetime
 import SQLconfig
+import json
 
 # データベースへの接続とカーソルの生成
 connection = MySQLdb.connect(
