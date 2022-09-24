@@ -94,20 +94,20 @@ export function BoshuSearchSetting() {
       body: JSON.stringify(s)
     }
     console.log(requestOptions1)
-    // fetch("../../set_boshusearchsetting.php",requestOptions1)
-    // .then((response)=> response.json())
-    // .then(result =>{
-    //   console.log(result)
-    //   if (result.result[0]==="SPSSS") {
-    //     // プロフィール検索設定設定成功。リダイレクト
-    //     auth.setMessage("プロフィール検索設定を変更しました")
-    //     navigate("../BoshuList") // 検索結果に飛びたい
-    //   } else {
-    //     // プロフィール検索設定設定失敗。(UUIDが合致しない)再表示。
-    //     auth.setMessage("プロフィール検索設定を変更できませんでした")
-    //     navigate("../BoshuList") // 検索結果に飛びたい
-    //   }
-    // })
+    fetch("../../set_boshusearchsetting.php",requestOptions1)
+    .then((response)=> response.json())
+    .then(result =>{
+      console.log(result)
+      // if (result.result[0]==="SPSSS") {
+      //   // プロフィール検索設定設定成功。リダイレクト
+        auth.setMessage("プロフィール検索設定を変更しました")
+        navigate("../BoshuList") // 検索結果に飛びたい
+      // } else {
+      //   // プロフィール検索設定設定失敗。(UUIDが合致しない)再表示。
+      //   auth.setMessage("プロフィール検索設定を変更できませんでした")
+      //   navigate("../BoshuList") // 検索結果に飛びたい
+      // }
+    })
   }
 
   return (
