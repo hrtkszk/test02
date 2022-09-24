@@ -42,7 +42,7 @@ try:
         DictProfile1[k] = {}
         count = 0
         print(v)
-        print(v in "_")
+        print(v in _)
         if v == "":
             DictProfile1[k][count] = "0"
         elif v in "_":
