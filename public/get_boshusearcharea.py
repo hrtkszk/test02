@@ -44,7 +44,7 @@ try:
         #     # else:
         #     row1.append(item)
         # printでのpythonからphpへの受け渡し
-    print (DictBSArea)
+    print (json.dumps(DictBSArea))
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
     print(e)
 
