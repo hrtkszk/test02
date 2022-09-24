@@ -43,8 +43,8 @@ export function BoshuSearchSetting() {
     fetch("../../get_boshusearcharea.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
-      JsonData =JSON.parse(result[0])
-      console.log(JsonData)
+      setBSArea(JSON.parse(result[0]))
+      console.log(JSON.parse(result[0]))
       // if (result.result !== "PSAND") {
       //   setBSArea(result.result)
       // }
