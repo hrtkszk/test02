@@ -14,6 +14,7 @@ import { ChangePwd } from "./ChangePwd";
 import { ChangeEmail } from "./ChangeEmail";
 import { Page2 } from "./page2";
 import { BoshuList } from "./BoshuList";
+import { BoshuSearchSetting } from "./BoshuSearchSetting";
 import { BoshuDetail } from "./BoshuDetail";
 import { BoshuPost } from "./BoshuPost";
 import { ProfileList1 } from "./ProfileList1";
@@ -59,6 +60,7 @@ export default function App() {
           <Route index element={<ProfileList1 />}/>
           <Route path="page2" element={<Page2 />}/>
           <Route path="BoshuList" element={<BoshuList />}/>
+          <Route path="BoshuSearchSetting" element={<BoshuSearchSetting />}/>
           <Route path="BoshuDetail" element={<BoshuDetail />}/>
           <Route path="BoshuPost" element={<BoshuPost />}/>
           <Route path="ProfileList1" element={<ProfileList1 />}/>
