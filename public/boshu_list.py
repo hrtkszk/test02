@@ -14,8 +14,10 @@ connection = MySQLdb.connect(
     passwd=SQLconfig.passwd,
     db=SQLconfig.db)
 
+BoshuSearchSetting="BoshuSearchSetting"
 BoshuDB="BoshuDB"
 ProfileTable="ProfileTable1"
+BSArea="BSArea"
 
 # field name込みの場合はこっちを使う
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
@@ -24,6 +26,89 @@ cursor = connection.cursor()
 # ここから下はreceive_get.phpで流してもよさそう(同じ)
 # cursor.execute(f"SELECT * FROM {table_name} WHERE ID='{sys.argv[1]}' GROUP BY aiteID ORDER BY messagedDateTime")
 # AND messagedDateTime=(SELECT max(messagedDateTime) FROM {table_name} AS md WHERE {table_name}.aiteID=md.aiteID)
+
+# SQL文の作成
+BSS_SQL = ""
+
+# 自分の検索設定の入手
+try:
+    cursor.execute(f"SELECT * FROM {BoshuSearchSetting} WHERE UUID='{sys.argv[1]}'")
+    field_names = [i[0] for i in cursor.description]
+    result_data = cursor.fetchone()
+    DictData = dict(zip(field_names, result_data))
+
+    for k, v in DictData.items():
+        if k == "UUID":
+            BSS_SQL += "t1." +k + " != '" + v + "'"
+            continue
+        elif v == "":
+            BSS_SQL += " AND " + k + " = '0'"
+            continue
+        elif "_" in v:
+            num = v.split("_")
+            BSS_SQL += " AND ("
+            for item in num:
+                BSS_SQL += k + " = " + item + " OR "
+            BSS_SQL = BSS_SQL[:-4]
+            BSS_SQL += ")"
+            continue
+        else:
+            BSS_SQL += " AND " + k + " = '" + v + "'"
+    # print(json.dumps(DictPSS1))
+except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
+    print("Obtain Profile Search Setting:", e)
+
+
+try:
+    cursor.execute(f"SELECT Area FROM {BSArea} WHERE UUID='{sys.argv[1]}'")
+    AreaList = cursor.fetchall()
+    if len(AreaList) == 0:
+        None
+    elif len(AreaList) ==1:
+        if str(AreaList[0][0])[2:] == "000000":
+            BSS_SQL += " AND (BoshuArea >= '" + str(AreaList[0][0]) + "' AND BoshuArea < '" + str(AreaList[0][0]+1000000) + "')"
+        elif str(AreaList[0][0])[4:] == "0000":
+            BSS_SQL += " AND (BoshuArea >= '" + str(AreaList[0][0]) + "' AND BoshuArea < '" + str(AreaList[0][0]+10000) + "')"
+        elif str(AreaList[0][0])[6:] == "00": 
+            BSS_SQL += " AND (BoshuArea >= '" + str(AreaList[0][0]) + "' AND BoshuArea < '" + str(AreaList[0][0]+100) + "')"
+        else:
+            BSS_SQL += " AND BoshuArea = '" + str(AreaList[0][0]) + "'"
+    else:
+        count = 1
+        for Area in AreaList:
+            if count == 1:
+                if str(Area[0])[2:] == "000000":
+                    BSS_SQL += " AND (BoshuArea >= '" + str(Area[0]) + "' AND BoshuArea < '" + str(Area[0]+1000000) + "'"
+                elif str(Area[0])[4:] == "0000":
+                    BSS_SQL += " AND (BoshuArea >= '" + str(Area[0]) + "' AND BoshuArea < '" + str(Area[0]+10000) + "'"
+                elif str(Area[0])[6:] == "00":
+                    BSS_SQL += " AND (BoshuArea >= '" + str(Area[0]) + "' AND BoshuArea < '" + str(Area[0]+100) + "'"
+                else:
+                    BSS_SQL += " AND (BoshuArea = '" + str(Area[0]) + "'"
+                count += 1
+            elif count == len(AreaList):
+                if str(Area[0])[2:] == "000000":
+                    BSS_SQL += " OR BoshuArea >= '" + str(Area[0]) + "' AND BoshuArea < '" + str(Area[0]+1000000) + "')"
+                elif str(Area[0])[4:] == "0000":
+                    BSS_SQL += " OR BoshuArea >= '" + str(Area[0]) + "' AND BoshuArea < '" + str(Area[0]+10000) + "')"
+                elif str(Area[0])[6:] == "00":
+                    BSS_SQL += " OR BoshuArea >= '" + str(Area[0]) + "' AND BoshuArea < '" + str(Area[0]+100) + "')"
+                else:
+                    BSS_SQL += " OR BoshuArea = '" + str(Area[0]) + "')"
+            else:
+                if str(Area[0])[2:] == "000000":
+                    BSS_SQL += " OR BoshuArea >= '" + str(Area[0]) + "' AND BoshuArea < '" + str(Area[0]+1000000) + "'"
+                elif str(Area[0])[4:] == "0000":
+                    BSS_SQL += " OR BoshuArea >= '" + str(Area[0]) + "' AND BoshuArea < '" + str(Area[0]+10000) + "'"
+                elif str(Area[0])[6:] == "00":
+                    BSS_SQL += " OR BoshuArea >= '" + str(Area[0]) + "' AND BoshuArea < '" + str(Area[0]+100) + "'"
+                else:
+                    BSS_SQL += " OR BoshuArea = '" +str(Area[0]) + "'"
+                count += 1
+except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
+    print("Obtain BSArea:", e)
+
+print("BSS_SQL:", BSS_SQL)
 
 try:
     # SELECT t1.UUID, BoshuID, BoshuArea, BoshuPrefecture, BoshuCity, BoshuWard, BoshuCategory, BoshuTitle, ViewCount, PostDateTime, nickname, gender, age \
@@ -37,7 +122,7 @@ try:
             Age0, Age1, Age2, Age3, Age4, Age5, Age6, Age7, Age8, Age9, Age10, Age11, Age12, Age13, Age14, Age15, Age16, Age17 \
             FROM `{ProfileTable}`) AS t2\
         ON t1.UUID = t2.UUID \
-        WHERE t1.UUID!='{sys.argv[1]}' \
+        WHERE t1.UUID != {DictData['UUID']} \
         ORDER BY t1.PostDateTime DESC\
     ")
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:

@@ -36,19 +36,19 @@ except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
     print(e)
 
 try:
-    DictProfile = dict(zip(field_names, result_data))
-    DictProfile1 = {}
-    for k, v in DictProfile.items():
-        DictProfile1[k] = {}
+    DictData = dict(zip(field_names, result_data))
+    DictData1 = {}
+    for k, v in DictData.items():
+        DictData1[k] = {}
         if v == "":
-            DictProfile1[k] = "0"
+            DictData1[k] = "0"
         elif "_" in v:
             num = v.split("_")
             for item in num:
-                DictProfile1[k][item] = True
+                DictData1[k][item] = True
         else:
-            DictProfile1[k] = v
-    JsonProfile1 = json.dumps(DictProfile1)
-    print(JsonProfile1)
+            DictData1[k] = v
+    JsonData1 = json.dumps(DictData1)
+    print(JsonData1)
 except (IndexError, TypeError, ValueError) as e:
     print(e)
