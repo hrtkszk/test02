@@ -122,7 +122,7 @@ try:
             Age0, Age1, Age2, Age3, Age4, Age5, Age6, Age7, Age8, Age9, Age10, Age11, Age12, Age13, Age14, Age15, Age16, Age17 \
             FROM `{ProfileTable}`) AS t2\
         ON t1.UUID = t2.UUID \
-        WHERE t1.UUID != {DictData['UUID']} \
+        WHERE t1.UUID != '{DictData['UUID']}' \
         ORDER BY t1.PostDateTime DESC\
     ")
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
