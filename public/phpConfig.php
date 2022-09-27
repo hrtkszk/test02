@@ -1,2 +1,2 @@
 <?php
-$URL="http://small-arita-6187.egoism.jp/";
+$URL="http://young-amami-3429.pinoko.jp/";
