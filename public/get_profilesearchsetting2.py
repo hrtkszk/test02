@@ -43,7 +43,7 @@ except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
     print(e)
 
 try:
-    cursor.execute(f"SELECT Area FROM {PSBirthArea} WHERE UUID='{sys.argv[1]}'")
+    cursor.execute(f"SELECT BirthArea FROM {PSBirthArea} WHERE UUID='{sys.argv[1]}'")
     DictPSBirthArea = {}
     for row in cursor:
         DictPSBirthArea[row[0]] = True
