@@ -1,8 +1,9 @@
 const FormMultiSelect3 = (props) => {
+    console.log(props.defaultValue)
 
-    Object.keys(props.defaultValue).map(key => (
-        console.log(key)
-    ))
+    // Object.keys(props.defaultValue).map(key => (
+    //     console.log(key)
+    // ))
 
     // if (props.defaultValue["secondRead"] === 1) {
     //     if (Object.keys(props.defaultValue).length === 1) {
