@@ -484,9 +484,9 @@ export function ProfileSearchSetting1() {
   const submit = e => {
     e.preventDefault();
 
-    let s = {
-      "UUID":auth.user
-    }
+    // let s = {
+    //   "UUID":auth.user
+    // }
     let PSAreaArray = []
     let PSBirthAreaArray = []
     Object.keys(PSArea).map(key => key !== "secondRead" ? PSAreaArray=([...PSAreaArray, key]) : null)
