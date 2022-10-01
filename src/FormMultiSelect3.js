@@ -7,7 +7,7 @@ const FormMultiSelect3 = (props) => {
         if (props.defaultValue[props.keyText + "secondRead"] === 1) {
             if (props.defaultValue[props.keyText] === null) {
                 SelectArray = [0]
-                props.setValue({...props.defaultValue, [props.keyText] : 0})
+                props.setValue({...props.defaultValue, [props.keyText] : "0"})
             } else {
                 console.log(props.keyText, ":", props.defaultValue[props.keyText])
                 SelectArrayString = props.defaultValue[props.keyText].split("_")
