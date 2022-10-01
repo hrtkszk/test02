@@ -1,12 +1,13 @@
 const FormMultiSelect3 = (props) => {
     // console.log(props.defaultValue)
 
-    // Object.keys(props.defaultValue).map(key => (
-    //     console.log(key)
-    // ))
-    if (props.defaultValue !== undefined) {
+
+    if (props.defaultValue[props.keyText] !== undefined) {
+        Object.keys(props.defaultValue[props.keyText]).map(key => (
+            console.log(key)
+        ))
         if (props.defaultValue[props.keyText + "secondRead"] === 1) {
-            if (Object.keys(props.defaultValue).length === 1) {
+            if (Object.keys(props.defaultValue[props.keyText]).length === 0) {
                 props.setValue({...props.defaultValue, "0" : 1})
             }
         }
@@ -48,7 +49,7 @@ const FormMultiSelect3 = (props) => {
         // console.log(props.defaultValue)
     }
 
-    if (props.defaultValue !== undefined) {
+    if (props.defaultValue[props.keyText] !== undefined) {
         return (
             <>
                 <span className="dan">{props.title}</span>
@@ -84,11 +85,11 @@ const FormMultiSelect3 = (props) => {
                         </>
                     ))}
                 </span>
-                {console.log(props.title, ":", props.defaultValue)}
+                {console.log(props.title, ":", props.defaultValue[props.keyText])}
             </>
         )
     } else {
-        console.log(props.defaultValue)
+        console.log(props.defaultValue[props.keyText])
         return <>test</>
     }
 }
