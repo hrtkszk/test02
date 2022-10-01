@@ -3,7 +3,8 @@ const FormMultiSelect3 = (props) => {
 
 
     if (props.defaultValue[props.keyText] !== undefined) {
-        console.log(props.defaultValue[props.keyText].key)
+        SelectArray = props.defaultValue[props.keyText].split("_")
+        console.log(SelectArray)
         Object.keys(props.defaultValue[props.keyText]).map(key => (
             console.log(key, ":", props.defaultValue[props.keyText])
         ))
