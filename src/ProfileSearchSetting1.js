@@ -743,7 +743,7 @@ export function ProfileSearchSetting1() {
             </span>
           </li> */}
           <li>
-            <FormMultiSelect2
+            <FormMultiSelect3
               title="プロフィール写真"
               keyText="PSProfilePicture"
               keyValue={ProfileDB.Car} // プロフィール写真あり／なしだけの判断
@@ -752,7 +752,7 @@ export function ProfileSearchSetting1() {
             />
           </li>
           <li>
-            <FormMultiSelect2
+            <FormMultiSelect3
               title="メッセージ"
               keyText="PSProfileMessage"
               keyValue={ProfileDB.Car} // メッセージあり／なしだけの判断
