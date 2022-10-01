@@ -1,6 +1,7 @@
 const FormMultiSelect3 = (props) => {
     // console.log(props.defaultValue)
 
+    let SelectArrayString = []
     let SelectArray = []
     if (props.defaultValue[props.keyText] !== undefined) {
         if (props.defaultValue[props.keyText + "secondRead"] === 1) {
@@ -8,9 +9,9 @@ const FormMultiSelect3 = (props) => {
                 SelectArray = ["0"]
                 props.setValue({...props.defaultValue, [props.keyText] : 0})
             } else {
-                SelectArray = props.defaultValue[props.keyText].split("_")
-                SelectArray.map(select =>
-                    console.log(typeof(select))
+                SelectArrayString = props.defaultValue[props.keyText].split("_")
+                SelectArrayString.map(string =>
+                    SelectArray.push(Number(string))
                 )
             }
         }
@@ -18,9 +19,9 @@ const FormMultiSelect3 = (props) => {
 
     // 未設定がある場合
     const withUnsetSelectionHandle = (event) => {
-        if (event.target.value === "0") {
-            
-            if (SelectArray.indexOf(event.target.value) > -1) {
+        let eventNum = Number(event.target.value)
+        if (eventNum === 0) {
+            if (SelectArray.indexOf(eventNum) > -1) {
             } else {
                 const copyDefaultValue = {...props.defaultValue}
                 delete copyDefaultValue[props.keyText]
@@ -29,14 +30,14 @@ const FormMultiSelect3 = (props) => {
         } else {
             const copyDefaultValue = {...props.defaultValue}
             delete copyDefaultValue[props.keyText]
-            if (SelectArray.indexOf(event.target.value) > -1) {
-                SelectArray = SelectArray.filter(x => x !== event.target.value)
+            if (SelectArray.indexOf(eventNum) > -1) {
+                SelectArray = SelectArray.filter(x => x !== eventNum)
             } else {
                 if (SelectArray.indexOf(0) > -1) {
                     SelectArray = SelectArray.filter(x => x !== 0)
                 }
-                SelectArray = SelectArray.push(event.target.value)
-                // SelectArray = SelectArray.sort
+                SelectArray = SelectArray.push(eventNum)
+                SelectArray = SelectArray.sort()
             }
             props.setValue({...copyDefaultValue, [props.keyText] : SelectArray.join("_")})
         }
