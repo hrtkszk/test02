@@ -612,7 +612,7 @@ export function ProfileSearchSetting1() {
               title="性別"
               keyValue={ProfileDB.Gender}
               defaultValue={PSS.PSGender}
-              setValue={setPSS.PSGender}
+              setValue={setPSS[PSGender]}
             />
           </li>
           {/* <li>
