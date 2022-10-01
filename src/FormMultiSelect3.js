@@ -9,7 +9,7 @@ const FormMultiSelect3 = (props) => {
                 SelectArray = [0]
                 props.setValue({...props.defaultValue, [props.keyText] : 0})
             } else {
-                console.log(props.defaultValue[props.keyText])
+                console.log(props.keyText, ":", props.defaultValue[props.keyText])
                 SelectArrayString = props.defaultValue[props.keyText].split("_")
                 SelectArrayString.map(string =>
                     SelectArray.push(Number(string))
