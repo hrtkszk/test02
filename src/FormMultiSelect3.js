@@ -68,8 +68,6 @@ const FormMultiSelect3 = (props) => {
         // console.log(props.defaultValue)
     }
 
-    let numKey = 0
-
     if (props.defaultValue[props.keyText] !== undefined) {
         return (
             <>
