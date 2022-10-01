@@ -68,7 +68,7 @@ const FormMultiSelect3 = (props) => {
                                     checked={
                                         props.defaultValue[props.keyText + "secondRead"] === 1 ?
                                         (
-                                            SelectArray.includes(key) > -1 ? (
+                                            SelectArray.indexOf(key) > -1 ? (
                                                 1
                                             ) : (
                                                 0
