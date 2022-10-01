@@ -37,6 +37,7 @@ const FormMultiSelect3 = (props) => {
                     SelectArray = SelectArray.filter(x => x !== 0)
                 }
                 SelectArray = SelectArray.push(eventNum)
+                console.log(SelectArray)
                 SelectArray = SelectArray.sort()
             }
             props.setValue({...copyDefaultValue, [props.keyText] : SelectArray.join("_")})
@@ -66,6 +67,7 @@ const FormMultiSelect3 = (props) => {
                 <span className="dan2">
                     {Object.keys(props.keyValue).map(key => (
                         <>
+                            {numKey = Number(key)}
                             <label for={props.title+key}>
                                 <input
                                     value={key}
@@ -78,7 +80,7 @@ const FormMultiSelect3 = (props) => {
                                     checked={
                                         props.defaultValue[props.keyText + "secondRead"] === 1 ?
                                         (
-                                            SelectArray.indexOf(key) > -1 ? (
+                                            SelectArray.indexOf(numKey) > -1 ? (
                                                 1
                                             ) : (
                                                 0
