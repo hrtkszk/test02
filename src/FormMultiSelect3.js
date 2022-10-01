@@ -1,7 +1,7 @@
 const FormMultiSelect3 = (props) => {
     // console.log(props.defaultValue)
 
-
+    let SelectArray = []
     if (props.defaultValue[props.keyText] !== undefined) {
         SelectArray = props.defaultValue[props.keyText].split("_")
         console.log(SelectArray)
