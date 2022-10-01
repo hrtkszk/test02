@@ -51,16 +51,20 @@ const FormMultiSelect3 = (props) => {
     // 未設定がない場合
 
     const withOutUnsetSelectionHandle = (event) => {
-        // const copyDefaultValue = {...props.defaultValue}
-        // delete copyDefaultValue[props.keyText]
-        // if (SelectArray.indexOf(event.target.value) > -1) {
-        //     SelectArray = SelectArray.filter(x => x !== event.target.value)
-        // } else {
-        //     SelectArray = SelectArray.push(event.target.value)
-        //     SelectArray = SelectArray.sort()
-        // }
-        // props.setValue({...copyDefaultValue, [props.keyText] : SelectArray.join("_")})
-        // // console.log(props.defaultValue)
+        let eventNum = Number(event.target.value)
+        const copyDefaultValue = {...props.defaultValue}
+        delete copyDefaultValue[props.keyText]
+        if (SelectArray.indexOf(eventNum) > -1) {
+            SelectArray = SelectArray.filter(x => x !== eventNum)
+            if (SelectArray.length === 0) {
+                SelectArray = [0]
+            }
+        } else {
+            SelectArray.push(eventNum)
+            SelectArray.sort()
+        }
+        props.setValue({...copyDefaultValue, [props.keyText] : SelectArray.join("_")})
+        // console.log(props.defaultValue)
     }
 
     let numKey = 0
