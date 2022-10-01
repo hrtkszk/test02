@@ -5,7 +5,7 @@ const FormMultiSelect3 = (props) => {
     let SelectArray = []
     if (props.defaultValue[props.keyText] !== undefined) {
         if (props.defaultValue[props.keyText + "secondRead"] === 1) {
-            if (props.defaultValue[props.keyText] === null) {
+            if (props.defaultValue[props.keyText] === null || props.defaultValue[props.keyText] === "null") {
                 SelectArray = [0]
                 props.setValue({...props.defaultValue, [props.keyText] : "0"})
             } else {
