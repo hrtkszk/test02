@@ -15,22 +15,22 @@ const FormMultiSelect3 = (props) => {
     // 未設定がある場合
     const withUnsetSelectionHandle = (event) => {
         if (event.target.value === "0") {
-            if (props.defaultValue[event.target.value] === 1) {
+            if (SelectArray.indexOf(event.target.value) > -1) {
             } else {
-                props.setValue({"0" : 1})
+                props.setValue({...props.defaultValue, [props.keyText] : 0})
             }
         } else {
-            if (props.defaultValue[event.target.value] === 1) {
-                const copyDefaultValue = {...props.defaultValue}
-                delete copyDefaultValue[event.target.value]
-                props.setValue(copyDefaultValue)
+            const copyDefaultValue = {...props.defaultValue}
+            delete copyDefaultValue[props.keyText]
+            if (SelectArray.indexOf(event.target.value) > -1) {
+                SelectArray = SelectArray.filter(x => x !== event.target.value)
             } else {
-                const copyDefaultValue = {...props.defaultValue}
-                if (props.defaultValue["0"] === 1) {
-                    delete copyDefaultValue["0"]
+                if (SelectArray.indexOf(0) > -1) {
+                    SelectArray = SelectArray.filter(x => x !== 0)
                 }
-                props.setValue({...copyDefaultValue, [event.target.value] : 1})
+                SelectArray = SelectArray.push(event.target.value).sort()
             }
+            props.setValue({...copyDefaultValue, [props.keyText] : SelectArray.join("_")})
         }
         // console.log(props.defaultValue)
     }
@@ -38,13 +38,14 @@ const FormMultiSelect3 = (props) => {
     // 未設定がない場合
 
     const withOutUnsetSelectionHandle = (event) => {
-        if (props.defaultValue[event.target.value] === 1) {
-            const copyDefaultValue = {...props.defaultValue}
-            delete copyDefaultValue[event.target.value]
-            props.setValue(copyDefaultValue)
+        const copyDefaultValue = {...props.defaultValue}
+        delete copyDefaultValue[props.keyText]
+        if (SelectArray.indexOf(event.target.value) > -1) {
+            SelectArray = SelectArray.filter(x => x !== event.target.value)
         } else {
-            props.setValue({...props.defaultValue, [event.target.value] : 1})
+            SelectArray = SelectArray.push(event.target.value).sort()
         }
+        props.setValue({...copyDefaultValue, [props.keyText] : SelectArray.join("_")})
         // console.log(props.defaultValue)
     }
 
@@ -67,7 +68,7 @@ const FormMultiSelect3 = (props) => {
                                     checked={
                                         props.defaultValue[props.keyText + "secondRead"] === 1 ?
                                         (
-                                            SelectArray.indexOf(key) > -1 ? (
+                                            SelectArray.includes(key) > -1 ? (
                                                 1
                                             ) : (
                                                 0
