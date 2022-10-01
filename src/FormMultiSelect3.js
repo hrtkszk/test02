@@ -5,8 +5,8 @@ const FormMultiSelect3 = (props) => {
     let SelectArray = []
     if (props.defaultValue[props.keyText] !== undefined) {
         if (props.defaultValue[props.keyText + "secondRead"] === 1) {
-            if (Object.keys(props.defaultValue[props.keyText]).length === 0) {
-                SelectArray = ["0"]
+            if (props.defaultValue[props.keyText].length === 0) {
+                SelectArray = [0]
                 props.setValue({...props.defaultValue, [props.keyText] : 0})
             } else {
                 SelectArrayString = props.defaultValue[props.keyText].split("_")
@@ -32,12 +32,15 @@ const FormMultiSelect3 = (props) => {
             delete copyDefaultValue[props.keyText]
             if (SelectArray.indexOf(eventNum) > -1) {
                 SelectArray = SelectArray.filter(x => x !== eventNum)
+                console.log(SelectArray)
+                if (SelectArray.length === 0) {
+                    SelectArray = [0]
+                }
             } else {
                 if (SelectArray.indexOf(0) > -1) {
                     SelectArray = SelectArray.filter(x => x !== 0)
                 }
                 SelectArray.push(eventNum)
-                console.log(SelectArray)
                 SelectArray.sort()
             }
             props.setValue({...copyDefaultValue, [props.keyText] : SelectArray.join("_")})
