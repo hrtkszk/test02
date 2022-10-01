@@ -110,7 +110,6 @@ const FormMultiSelect3 = (props) => {
             </>
         )
     } else {
-        console.log(props.defaultValue[props.keyText])
         return <>test</>
     }
 }
