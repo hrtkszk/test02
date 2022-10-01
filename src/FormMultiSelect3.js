@@ -25,9 +25,9 @@ const FormMultiSelect3 = (props) => {
             if (SelectArray.indexOf(event.target.value) > -1) {
                 SelectArray = SelectArray.filter(x => x !== event.target.value)
             } else {
-                if (SelectArray.indexOf(0) > -1) {
-                    SelectArray = SelectArray.filter(x => x !== 0)
-                }
+                // if (SelectArray.indexOf(0) > -1) {
+                //     SelectArray = SelectArray.filter(x => x !== 0)
+                // }
                 SelectArray = SelectArray.push(event.target.value)
                 SelectArray = SelectArray.sort()
             }
