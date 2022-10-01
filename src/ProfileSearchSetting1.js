@@ -928,17 +928,19 @@ export function ProfileSearchSetting1() {
           <li>
             <FormMultiSelect3
               title="スタイル"
+              keyText="PSStyle"
               keyValue={ProfileDB.Style}
-              defaultValue={PSStyle}
-              setValue={setPSStyle}
+              defaultValue={PSS}
+              setValue={setPSS}
             />
           </li>
           <li>
             <FormMultiSelect3
               title="ルックス"
+              keyText="PSLooks"
               keyValue={ProfileDB.Looks}
-              defaultValue={PSLooks}
-              setValue={setPSLooks}
+              defaultValue={PSS}
+              setValue={setPSS}
             />
           </li>
           {/* <li>
