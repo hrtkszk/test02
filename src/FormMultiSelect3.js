@@ -3,14 +3,11 @@ const FormMultiSelect3 = (props) => {
 
     let SelectArray = []
     if (props.defaultValue[props.keyText] !== undefined) {
-        SelectArray = props.defaultValue[props.keyText].split("_")
-        console.log(SelectArray)
-        SelectArray.map((number) => (
-            console.log(number)
-        ))
         if (props.defaultValue[props.keyText + "secondRead"] === 1) {
             if (Object.keys(props.defaultValue[props.keyText]).length === 0) {
-                props.setValue({...props.defaultValue, "0" : 1})
+                props.setValue({...props.defaultValue, [props.keyText] : 0})
+            } else {
+                SelectArray = props.defaultValue[props.keyText].split("_")
             }
         }
     }
@@ -70,10 +67,10 @@ const FormMultiSelect3 = (props) => {
                                     checked={
                                         props.defaultValue[props.keyText + "secondRead"] === 1 ?
                                         (
-                                            props.defaultValue[key] === "undefined" ? (
-                                                0
+                                            SelectArray.indexOf(key) > -1 ? (
+                                                1
                                             ) : (
-                                                props.defaultValue[key]
+                                                0
                                             )
                                         ) : (
                                             0,
