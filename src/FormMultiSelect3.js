@@ -5,8 +5,8 @@ const FormMultiSelect3 = (props) => {
     if (props.defaultValue[props.keyText] !== undefined) {
         SelectArray = props.defaultValue[props.keyText].split("_")
         console.log(SelectArray)
-        Object.keys(SelectArray).map(value => (
-            console.log(value)
+        Object.keys(SelectArray).map((Selection) => (
+            console.log(Selection)
         ))
         if (props.defaultValue[props.keyText + "secondRead"] === 1) {
             if (Object.keys(props.defaultValue[props.keyText]).length === 0) {
