@@ -484,15 +484,15 @@ export function ProfileSearchSetting1() {
   const submit = e => {
     e.preventDefault();
 
-    // let s = {
-    //   "UUID":auth.user
-    // }
+    let s = {
+      "UUID":auth.user
+    }
     let PSAreaArray = []
     let PSBirthAreaArray = []
     Object.keys(PSArea).map(key => key !== "secondRead" ? PSAreaArray=([...PSAreaArray, key]) : null)
     Object.keys(PSBirthArea).map(key => key !== "secondRead" ? PSBirthAreaArray=([...PSBirthAreaArray, key]) : null)
 
-    // Object.keys(PSGender).map(key => key !== "secondRead" ? s["PSGender" + key] = PSGender[key] : null)
+    Object.keys(PSS).map(key => key.indexOf("secondRead") > -1 ? null : s[key] = PSS[key])
     // Object.keys(PSAge).map(key => key !== "secondRead" ? s["PSAge" + key] = PSAge[key] : null)
     // Object.keys(PSProfilePicture).map(key => key !== "secondRead" ? s["PSProfilePicture" + key] = PSProfilePicture[key] : null)
     // Object.keys(PSProfileMessage).map(key => key !== "secondRead" ? s["PSProfileMessage" + key] = PSProfileMessage[key] : null)
@@ -555,9 +555,7 @@ export function ProfileSearchSetting1() {
     const requestOptions1 ={
       method: 'POST',
       headers:{'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        PSS
-      })
+      body: JSON.stringify(s)
     }
     console.log(requestOptions1)
     fetch("../../set_profilesearchsetting2.php",requestOptions1)
@@ -926,9 +924,9 @@ export function ProfileSearchSetting1() {
               Range={PSHeight}
               setRange={setPSHeight}
             />
-          </li>
+          </li> */}
           <li>
-            <FormMultiSelect2
+            <FormMultiSelect3
               title="スタイル"
               keyValue={ProfileDB.Style}
               defaultValue={PSStyle}
@@ -936,14 +934,14 @@ export function ProfileSearchSetting1() {
             />
           </li>
           <li>
-            <FormMultiSelect2
+            <FormMultiSelect3
               title="ルックス"
               keyValue={ProfileDB.Looks}
               defaultValue={PSLooks}
               setValue={setPSLooks}
             />
           </li>
-          <li>
+          {/* <li>
             <FormSelectRange
               title="カップ" 
               originalRange={ProfileDB.Cup}
