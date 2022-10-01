@@ -77,8 +77,7 @@ const FormMultiSelect3 = (props) => {
                 <span className="dan2">
                     {Object.keys(props.keyValue).map(key => (
                         <>
-                            {numKey = Number(key)}
-                            <label for={props.title+key}>
+                            <label for={props.keyText+key}>
                                 <input
                                     value={key}
                                     type="checkbox"
@@ -86,11 +85,11 @@ const FormMultiSelect3 = (props) => {
                                         props.keyValue["0"] === "未設定" ? 
                                         withUnsetSelectionHandle : withOutUnsetSelectionHandle
                                     }
-                                    id={props.title+key}
+                                    id={props.keyText+key}
                                     checked={
                                         props.defaultValue[props.keyText + "secondRead"] === 1 ?
                                         (
-                                            SelectArray.indexOf(numKey) > -1 ? (
+                                            SelectArray.indexOf(Number(key)) > -1 ? (
                                                 1
                                             ) : (
                                                 0
