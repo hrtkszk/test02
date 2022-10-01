@@ -610,9 +610,10 @@ export function ProfileSearchSetting1() {
           <li>
             <FormMultiSelect3
               title="性別"
+              keyText="PSGender"
               keyValue={ProfileDB.Gender}
               defaultValue={PSS.PSGender}
-              setValue={setPSS["PSGender"]}
+              setValue={setPSS}
             />
           </li>
           {/* <li>
