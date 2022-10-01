@@ -36,9 +36,9 @@ const FormMultiSelect3 = (props) => {
                 if (SelectArray.indexOf(0) > -1) {
                     SelectArray = SelectArray.filter(x => x !== 0)
                 }
-                SelectArray = SelectArray.push(eventNum)
+                SelectArray.push(eventNum)
                 console.log(SelectArray)
-                SelectArray = SelectArray.sort()
+                SelectArray.sort()
             }
             props.setValue({...copyDefaultValue, [props.keyText] : SelectArray.join("_")})
         }
@@ -95,7 +95,6 @@ const FormMultiSelect3 = (props) => {
                                 />
                                 {props.keyValue[key]}<br />
                             </label>
-                            {console.log(props.title, ":", key, ":", props.defaultValue[key])}
                         </>
                     ))}
                 </span>
