@@ -484,15 +484,15 @@ export function ProfileSearchSetting1() {
   const submit = e => {
     e.preventDefault();
 
-    let s = {
-      "UUID":auth.user
-    }
+    let s = {}
+    s["\"UUID\""] = "\"" + auth.user + "\""
+    Object.keys(PSS).map(key => key.indexOf("secondRead") > -1 ? null : s["\"" + key + "\""] = "\"" + PSS[key] + "\"")
+
     let PSAreaArray = []
     let PSBirthAreaArray = []
     Object.keys(PSArea).map(key => key !== "secondRead" ? PSAreaArray=([...PSAreaArray, key]) : null)
     Object.keys(PSBirthArea).map(key => key !== "secondRead" ? PSBirthAreaArray=([...PSBirthAreaArray, key]) : null)
 
-    Object.keys(PSS).map(key => key.indexOf("secondRead") > -1 ? null : s[key] = PSS[key])
     // Object.keys(PSAge).map(key => key !== "secondRead" ? s["PSAge" + key] = PSAge[key] : null)
     // Object.keys(PSProfilePicture).map(key => key !== "secondRead" ? s["PSProfilePicture" + key] = PSProfilePicture[key] : null)
     // Object.keys(PSProfileMessage).map(key => key !== "secondRead" ? s["PSProfileMessage" + key] = PSProfileMessage[key] : null)
@@ -562,7 +562,7 @@ export function ProfileSearchSetting1() {
     .then((response)=> response.json())
     .then(result =>{
       console.log(result)
-      if (result.result[0]==="SPSSS") {
+      if (result[0]==="SPSSS") {
         // プロフィール検索設定設定成功。リダイレクト
         auth.setMessage("プロフィール検索設定を変更しました")
         navigate("../") // 検索結果に飛びたい
