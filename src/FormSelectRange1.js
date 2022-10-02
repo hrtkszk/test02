@@ -20,6 +20,7 @@ const FormSelectRange1 = (props) => {
                 SelectArrayString = props.defaultValue[props.keyText].split("_")
                 Bottom = SelectArrayString[0]
                 Up = SelectArrayString[1]
+                console.log("Initial: " + Bottom + "_" + Up)
             }
         }
     }
@@ -42,9 +43,7 @@ const FormSelectRange1 = (props) => {
                             }
                         }
                         setlatestRange2(latestRange2)
-                        let Range2Log = ""
-                        JSON.stringify(latestRange2).map(key => Range2Log += key + "_")
-                        console.log("BtmChanged : UpperRange: " + Range2Log)
+                        console.log("BtmChanged : UpperRange: " + JSON.stringify(latestRange2))
                     }}
                 >
                 {Object.keys(updatedRange1).map(key => <option value={key}>{updatedRange1[key]}</option>)}
@@ -64,9 +63,7 @@ const FormSelectRange1 = (props) => {
                             }
                         }
                         setlatestRange1(latestRange1)
-                        let Range1Log = ""
-                        JSON.stringify(latestRange1).map(key => Range1Log += key + "_")
-                        console.log("UpChanged : BtmRange: " + Range1Log)
+                        console.log("UpChanged : BtmRange: " + JSON.stringify(latestRange1))
                     }}>
                     {Object.keys(updatedRange2).map(key => <option value={key}>{updatedRange2[key]}</option>)}
                 </select>
