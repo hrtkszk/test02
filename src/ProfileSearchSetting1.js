@@ -9,7 +9,7 @@ import { useAuth } from "./useAuth";
 import "./ProfileDetail.css";
 import ProfileDB from "./Profile.json";
 import AreaDB from "./Area.json";
-// import FormSelectRange from "./FormSelectRange";
+import FormSelectRange1 from "./FormSelectRange1";
 import FormMultiSelect3 from "./FormMultiSelect3";
 // import FormSelect from "./FormSelect";
 
@@ -148,14 +148,15 @@ export function ProfileSearchSetting1() {
               setValue={setPSS}
             />
           </li>
-          {/* <li>
-            <FormSelectRange
-              title="年齢" 
+          <li>
+            <FormSelectRange1
+              title="年齢"
+              keyText="PSAgeRange"
               originalRange={ProfileDB.PreferedAge}
-              Range={PSAge}
-              setRange={setPSAge}
+              defaultValue={PSS}
+              setValue={setPSS}
             />
-          </li> */}
+          </li>
           <li>
             <span className="dan">エリア</span>
             <span className="dan2">
