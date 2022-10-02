@@ -13,7 +13,7 @@ const FormSelectRange1 = (props) => {
     let Bottom = "0"
     let Up = "0"
     if (props.defaultValue[props.keyText] !== undefined) {
-        if (props.defaultValue[props.keyText + "secondRead"] === 1) {
+        // if (props.defaultValue[props.keyText + "secondRead"] === 1) {
             if (props.defaultValue[props.keyText] === null || props.defaultValue[props.keyText] === "null") {
                 props.setValue({...props.defaultValue, [props.keyText] : "0_0"})
             } else {
@@ -22,7 +22,7 @@ const FormSelectRange1 = (props) => {
                 Up = SelectArrayString[1]
                 console.log("Initial: " + Bottom + "_" + Up)
             }
-        }
+        // }
     }
 
     return (
