@@ -156,6 +156,7 @@ export function ProfileSearchSetting1() {
               defaultValue={PSS}
               setValue={setPSS}
             />
+            {console.log("PSS.PSAgeRange: " + PSS.PSAgeRange)}
           </li>
           <li>
             <span className="dan">エリア</span>
