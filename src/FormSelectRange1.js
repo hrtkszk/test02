@@ -34,6 +34,7 @@ const FormSelectRange1 = (props) => {
                         const copyDefaultValue = {...props.defaultValue}
                         delete copyDefaultValue[props.keyText]
                         props.setValue({...copyDefaultValue, [props.keyText] : evt.target.value + "_" + Up})
+                        console.log("BtmChanged : current select: " + evt.target.value + "_" + Up)
                         latestRange2 = JSON.parse(JSON.stringify(props.originalRange)) // 一度リセットする
                         if (Number(evt.target.value) !== 0) {
                             for (let i = 1 ; i < Number(evt.target.value); i++) {
@@ -41,6 +42,7 @@ const FormSelectRange1 = (props) => {
                             }
                         }
                         setlatestRange2(latestRange2)
+                        console.log("BtmChanged : UpperRange: " + latestRange2)
                     }}
                 >
                 {Object.keys(updatedRange1).map(key => <option value={key}>{updatedRange1[key]}</option>)}
@@ -52,6 +54,7 @@ const FormSelectRange1 = (props) => {
                         const copyDefaultValue = {...props.defaultValue}
                         delete copyDefaultValue[props.keyText]
                         props.setValue({...copyDefaultValue, [props.keyText] : Bottom + "_" + evt.target.value})
+                        console.log("UpChanged : current select: " + Bottom + "_" + evt.target.value)
                         latestRange1 = JSON.parse(JSON.stringify(props.originalRange)) // 一度リセットする
                         if (Number(evt.target.value) !== 0) {
                             for (let i = Number(evt.target.value) + 1 ; i <= Object.keys(props.originalRange).length ; i++) {
@@ -59,6 +62,7 @@ const FormSelectRange1 = (props) => {
                             }
                         }
                         setlatestRange1(latestRange1)
+                        console.log("UpChanged : BtmRange: " + latestRange1)
                     }}>
                     {Object.keys(updatedRange2).map(key => <option value={key}>{updatedRange2[key]}</option>)}
                 </select>
