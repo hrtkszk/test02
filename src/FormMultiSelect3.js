@@ -106,7 +106,7 @@ const FormMultiSelect3 = (props) => {
             </>
         )
     } else {
-        return <>test</>
+        return <></>
     }
 }
 export default FormMultiSelect3;
