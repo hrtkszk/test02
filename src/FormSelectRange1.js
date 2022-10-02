@@ -3,27 +3,27 @@ import { useState } from 'react';
 // 上・下を設けて、範囲設定できるようにする。
 // 上が下よりも小さくならないようにしている
 
-let SelectArrayString = []
-let Bottom = "0"
-let Up = "0"
-if (props.defaultValue[props.keyText] !== undefined) {
-    if (props.defaultValue[props.keyText + "secondRead"] === 1) {
-        if (props.defaultValue[props.keyText] === null || props.defaultValue[props.keyText] === "null") {
-            props.setValue({...props.defaultValue, [props.keyText] : "0_0"})
-        } else {
-            SelectArrayString = props.defaultValue[props.keyText].split("_")
-            Bottom = SelectArrayString[0]
-            Up = SelectArrayString[1]
-        }
-    }
-}
-
 const FormSelectRange1 = (props) => {
     let latestRange1 = JSON.parse(JSON.stringify(props.originalRange))
     const [updatedRange1, setlatestRange1] = useState(latestRange1);
     let latestRange2 = JSON.parse(JSON.stringify(props.originalRange))
     const [updatedRange2, setlatestRange2] = useState(latestRange2);
     
+    let SelectArrayString = []
+    let Bottom = "0"
+    let Up = "0"
+    if (props.defaultValue[props.keyText] !== undefined) {
+        if (props.defaultValue[props.keyText + "secondRead"] === 1) {
+            if (props.defaultValue[props.keyText] === null || props.defaultValue[props.keyText] === "null") {
+                props.setValue({...props.defaultValue, [props.keyText] : "0_0"})
+            } else {
+                SelectArrayString = props.defaultValue[props.keyText].split("_")
+                Bottom = SelectArrayString[0]
+                Up = SelectArrayString[1]
+            }
+        }
+    }
+
     return (
         <>
             <span className="dan">{props.title}</span>
