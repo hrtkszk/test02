@@ -156,7 +156,6 @@ export function ProfileSearchSetting1() {
               defaultValue={PSS}
               setValue={setPSS}
             />
-            {console.log("PSS.PSAgeRange: " + PSS.PSAgeRange)}
           </li>
           <li>
             <span className="dan">エリア</span>
@@ -479,14 +478,15 @@ export function ProfileSearchSetting1() {
               setValue={setPSS}
             />
           </li>
-          {/* <li>
-            <FormSelectRange
-              title="カップ" 
+          <li>
+            <FormSelectRange1
+              title="カップ"
+              keyText="PSCup"
               originalRange={ProfileDB.Cup}
-              Range={PSCup}
-              setRange={setPSCup}
+              defaultValue={PSS}
+              setValue={setPSS}
             />
-          </li> */}
+          </li>
           {/* <li>
             <FormSelectRange
               title="バスト" 
