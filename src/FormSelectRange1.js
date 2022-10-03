@@ -36,7 +36,6 @@ const FormSelectRange1 = (props) => {
                             const copyDefaultValue = {...props.defaultValue}
                             delete copyDefaultValue[props.keyText]
                             props.setValue({...copyDefaultValue, [props.keyText] : evt.target.value + "_" + Up})
-                            console.log("BtmChanged : current select: " + evt.target.value + "_" + Up)
                             latestRange2 = JSON.parse(JSON.stringify(props.originalRange)) // 一度リセットする
                             let DeleteUpRange = ""
                             if (Number(evt.target.value) !== 0) {
@@ -45,9 +44,7 @@ const FormSelectRange1 = (props) => {
                                     DeleteUpRange += i + "_"
                                 }
                             }
-                            console.log("BtmChanged : DeletedUpperRange: " + DeleteUpRange)
                             setlatestRange2(latestRange2)
-                            console.log("BtmChanged : UpperRange: " + JSON.stringify(latestRange2))
                         }}
                     >
                     {Object.keys(props.originalRange).map(key =>
@@ -66,7 +63,6 @@ const FormSelectRange1 = (props) => {
                             const copyDefaultValue = {...props.defaultValue}
                             delete copyDefaultValue[props.keyText]
                             props.setValue({...copyDefaultValue, [props.keyText] : Bottom + "_" + evt.target.value})
-                            console.log("UpChanged : current select: " + Bottom + "_" + evt.target.value)
                             latestRange1 = JSON.parse(JSON.stringify(props.originalRange)) // 一度リセットする
                             let DeleteBtmRange = ""
                             if (Number(evt.target.value) !== 0) {
@@ -75,9 +71,7 @@ const FormSelectRange1 = (props) => {
                                     DeleteBtmRange += i + "_"
                                 }
                             }
-                            console.log("UpChanged : DeletedBtmRange: " + DeleteBtmRange)
                             setlatestRange1(latestRange1)
-                            console.log("UpChanged : BtmRange: " + JSON.stringify(latestRange1))
                         }}>
                         {Object.keys(props.originalRange).map(key => 
                             <option
