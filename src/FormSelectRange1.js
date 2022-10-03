@@ -75,11 +75,11 @@ const FormSelectRange1 = (props) => {
                         {Object.keys(props.originalRange).map(key => 
                             <option
                                 value={key}
-                                disabled={updatedRange2[key] === null ? true : false}
+                                disabled={updatedRange2[key] === undefined ? true : false}
                             >
                                 {props.originalRange[key]}
                                 {console.log(updatedRange2[key])}
-                                {console.log(updatedRange2[key] === null)}
+                                {console.log(updatedRange2[key] === undefined)}
                             </option>
                         )}
                     </select>
