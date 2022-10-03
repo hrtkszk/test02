@@ -78,6 +78,8 @@ const FormSelectRange1 = (props) => {
                                 disabled={updatedRange2[key] === null ? true : false}
                             >
                                 {props.originalRange[key]}
+                                {console.log(updatedRange2[key])}
+                                {console.log(updatedRange2[key] === null)}
                             </option>
                         )}
                     </select>
