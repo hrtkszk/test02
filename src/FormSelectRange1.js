@@ -42,7 +42,7 @@ const FormSelectRange1 = (props) => {
                             if (Number(evt.target.value) !== 0) {
                                 for (let i = 1 ; i < Number(evt.target.value); i++) {
                                     delete latestRange2[String(i)]
-                                    DeleteUpRange += i
+                                    DeleteUpRange += i + "_"
                                 }
                             }
                             console.log(DeleteUpRange)
@@ -65,7 +65,7 @@ const FormSelectRange1 = (props) => {
                             if (Number(evt.target.value) !== 0) {
                                 for (let i = Number(evt.target.value) + 1 ; i <= Object.keys(props.originalRange).length ; i++) {
                                     delete latestRange1[String(i)]
-                                    DeleteBtmRange += i
+                                    DeleteBtmRange += i + "_"
                                 }
                             }
                             console.log(DeleteBtmRange)
