@@ -20,7 +20,6 @@ const FormSelectRange1 = (props) => {
                 SelectArrayString = props.defaultValue[props.keyText].split("_")
                 Bottom = SelectArrayString[0]
                 Up = SelectArrayString[1]
-                console.log("Initial: " + Bottom + "_" + Up)
             }
         // }
     }
@@ -37,11 +36,9 @@ const FormSelectRange1 = (props) => {
                             delete copyDefaultValue[props.keyText]
                             props.setValue({...copyDefaultValue, [props.keyText] : evt.target.value + "_" + Up})
                             latestRange2 = JSON.parse(JSON.stringify(props.originalRange)) // 一度リセットする
-                            let DeleteUpRange = ""
                             if (Number(evt.target.value) !== 0) {
                                 for (let i = 1 ; i < Number(evt.target.value); i++) {
                                     delete latestRange2[String(i)]
-                                    DeleteUpRange += i + "_"
                                 }
                             }
                             setlatestRange2(latestRange2)
@@ -64,11 +61,9 @@ const FormSelectRange1 = (props) => {
                             delete copyDefaultValue[props.keyText]
                             props.setValue({...copyDefaultValue, [props.keyText] : Bottom + "_" + evt.target.value})
                             latestRange1 = JSON.parse(JSON.stringify(props.originalRange)) // 一度リセットする
-                            let DeleteBtmRange = ""
                             if (Number(evt.target.value) !== 0) {
                                 for (let i = Number(evt.target.value) + 1 ; i <= Object.keys(props.originalRange).length ; i++) {
                                     delete latestRange1[String(i)]
-                                    DeleteBtmRange += i + "_"
                                 }
                             }
                             setlatestRange1(latestRange1)
