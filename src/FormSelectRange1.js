@@ -50,7 +50,14 @@ const FormSelectRange1 = (props) => {
                             console.log("BtmChanged : UpperRange: " + JSON.stringify(latestRange2))
                         }}
                     >
-                    {Object.keys(updatedRange1).map(key => <option value={key}>{updatedRange1[key]}</option>)}
+                    {Object.keys(updatedRange1).map(key =>
+                        <option
+                            value={key}
+                            disabled={updatedRange1[key] === undefined ? true : false}
+                        >
+                            {props.originalRange[key]}
+                        </option>
+                    )}
                     </select>
                     〜
                     <select
@@ -78,8 +85,6 @@ const FormSelectRange1 = (props) => {
                                 disabled={updatedRange2[key] === undefined ? true : false}
                             >
                                 {props.originalRange[key]}
-                                {console.log(updatedRange2[key])}
-                                {console.log(updatedRange2[key] === undefined)}
                             </option>
                         )}
                     </select>
