@@ -45,7 +45,7 @@ const FormSelectRange1 = (props) => {
                                     DeleteUpRange += i + "_"
                                 }
                             }
-                            console.log(DeleteUpRange)
+                            console.log("BtmChanged : DeletedUpperRange: " + DeleteUpRange)
                             setlatestRange2(latestRange2)
                             console.log("BtmChanged : UpperRange: " + JSON.stringify(latestRange2))
                         }}
@@ -68,7 +68,7 @@ const FormSelectRange1 = (props) => {
                                     DeleteBtmRange += i + "_"
                                 }
                             }
-                            console.log(DeleteBtmRange)
+                            console.log("UpChanged : DeletedBtmRange: " + DeleteBtmRange)
                             setlatestRange1(latestRange1)
                             console.log("UpChanged : BtmRange: " + JSON.stringify(latestRange1))
                         }}>
