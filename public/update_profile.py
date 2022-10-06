@@ -14,10 +14,10 @@ except (IndexError, TypeError, ValueError) as e:
 
 SettingValue = ""
 for k,v in RecieveData.items():
-    if k == "UUID" or k == "NickName" or k == "ProfileMessage":
-        SettingValue += k + "='" + v + "', "
-    else:
-        SettingValue += k + "=" + v + ", "
+    # if k == "UUID" or k == "NickName" or k == "ProfileMessage":
+    SettingValue += k + "='" + v + "', "
+    # else:
+    #     SettingValue += k + "=" + v + ", "
 print(SettingValue)
 
 # データベースへの接続とカーソルの生成
@@ -29,7 +29,7 @@ connection = MySQLdb.connect(
 
 # profileTable="profileTable"
 # basicProfileTable="basicProfileTable"
-ProfileTable="ProfileTable1"
+ProfileTable="ProfileTable"
 
 # field name込みの場合はこっちを使う
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
