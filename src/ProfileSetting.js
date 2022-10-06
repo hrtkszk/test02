@@ -593,7 +593,7 @@ export function ProfileSetting() {
             </li>
             <li>
               {/* 星で表現したい。 */}
-              <FormSelect 
+              <FormSelect1
                 title="セクシーさ"
                 keyText="Sexy"
                 keyValue={ProfileDB.Self}
@@ -603,7 +603,7 @@ export function ProfileSetting() {
             </li>
             <li>
               {/* 星で表現したい。 */}
-              <FormSelect 
+              <FormSelect1
                 title="優しさ"
                 keyText="Kindness"
                 keyValue={ProfileDB.Self}
@@ -613,7 +613,7 @@ export function ProfileSetting() {
             </li>
             <li>
               {/* 星で表現したい。 */}
-              <FormSelect 
+              <FormSelect1
                 title="賢さ"
                 keyText="Smartness"
                 keyValue={ProfileDB.Self}
@@ -623,7 +623,7 @@ export function ProfileSetting() {
             </li>
             <li>
               {/* 星で表現したい。 */}
-              <FormSelect 
+              <FormSelect1
                 title="清楚さ"
                 keyText="Neatness"
                 keyValue={ProfileDB.Self}
@@ -633,7 +633,7 @@ export function ProfileSetting() {
             </li>
             <li>
               {/* 星で表現したい。 */}
-              <FormSelect 
+              <FormSelect1
                 title="ファッション"
                 keyText="Fashionable"
                 keyValue={ProfileDB.Self}
@@ -643,7 +643,7 @@ export function ProfileSetting() {
             </li>
             <li>
               {/* 星で表現したい。 */}
-              <FormSelect 
+              <FormSelect1
                 title="明るさ"
                 keyText="Brightness"
                 keyValue={ProfileDB.Self}
@@ -653,7 +653,7 @@ export function ProfileSetting() {
             </li>
             <li>
               {/* 星で表現したい。 */}
-              <FormSelect 
+              <FormSelect1
                 title="エレガンス"
                 keyText="Elegance"
                 keyValue={ProfileDB.Self}
