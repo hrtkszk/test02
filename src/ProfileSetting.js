@@ -303,12 +303,9 @@ export function ProfileSetting() {
 
   // function MainSelection() {
 
-  console.log(Object.keys(PS).length)
   if (Object.keys(PS).length === 0) {
-    console.log(PS)
     return <></>
   } else {
-    console.log(PS)
     return (
       <div>
       <h1>プロフィール設定</h1>
