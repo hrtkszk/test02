@@ -25,14 +25,14 @@ const FormMultiSelect3 = (props) => {
             } else {
                 const copyDefaultValue = {...props.defaultValue}
                 delete copyDefaultValue[props.keyText]
-                props.setValue({...props.defaultValue, [props.keyText] : "0"})
+                props.setValue({...copyDefaultValue, [props.keyText] : "0"})
             }
         } else {
             const copyDefaultValue = {...props.defaultValue}
             delete copyDefaultValue[props.keyText]
             if (SelectArray.indexOf(eventNum) > -1) {
                 SelectArray = SelectArray.filter(x => x !== eventNum)
-                console.log(SelectArray)
+                // console.log(SelectArray)
                 if (SelectArray.length === 0) {
                     SelectArray = [0]
                 }

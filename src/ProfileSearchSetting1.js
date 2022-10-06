@@ -17,12 +17,10 @@ export function ProfileSearchSetting1() {
   const [PSS, setPSS] = useState({});
   const [PSArea, setPSArea] = useState({});
   const [PSBirthArea, setPSBirthArea] = useState({});
+  const [initialized, setinitialized] = useState(false);
 
   let auth = useAuth();
-
   let navigate = useNavigate();
-
-  const [initialized, setinitialized] = useState(false);
 
   const initialRequestOptions ={
     method: 'POST',
@@ -35,7 +33,7 @@ export function ProfileSearchSetting1() {
     fetch("../../get_profilesearchsetting2.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
-      console.log(result)
+      // console.log(result)
       setPSS(JSON.parse(result[0]))
       setPSArea(JSON.parse(result[1]))
       setPSBirthArea(JSON.parse(result[2]))
