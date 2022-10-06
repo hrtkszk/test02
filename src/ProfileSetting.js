@@ -78,18 +78,18 @@ export function ProfileSetting() {
     body: JSON.stringify({"UUID":auth.user})
   }
   
-  const AppendRequestBody = (s, keyName, keyState) => {
-    if (keyState !== "0") {
-      s["\"" + keyName + "0\""] = "\"" + 0 + "\""
-      s["\"" + keyName + keyState + "\""] = "\"" + 1 + "\""
-    }
-    return s
-  }
+  // const AppendRequestBody = (s, keyName, keyState) => {
+  //   if (keyState !== "0") {
+  //     s["\"" + keyName + "0\""] = "\"" + 0 + "\""
+  //     s["\"" + keyName + keyState + "\""] = "\"" + 1 + "\""
+  //   }
+  //   return s
+  // }
   
   // ページが読み込まれる時に実行し、Profileとして登録する。
   if (initialized===false) {
     // let JsonData = {}
-    fetch("../../get_profile.php",initialRequestOptions)
+    fetch("../../get_profile1.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
       setPS(JSON.parse(result[0]))
