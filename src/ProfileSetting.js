@@ -92,7 +92,7 @@ export function ProfileSetting() {
     fetch("../../get_profile1.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
-      console.log(result)
+      // console.log(result)
       setPS(JSON.parse(result[0]))
       // JsonData =JSON.parse(result[0])
       // setBasicProfile(JsonData)
@@ -307,6 +307,7 @@ export function ProfileSetting() {
   if (PS.length === 0) {
     return <></>
   } else {
+    console.log(PS)
     return (
       <div>
       <h1>プロフィール設定</h1>
@@ -316,7 +317,7 @@ export function ProfileSetting() {
               <FormTextInput1 
                 title="ニックネーム"
                 type="text"
-                keyText="Nickname"
+                keyText="NickName"
                 defaultValue={PS}
                 setValue={setPS}
                 required="true"

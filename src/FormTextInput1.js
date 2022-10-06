@@ -1,4 +1,6 @@
 const FormTextInput1 = (props) => {
+    console.log(props.keyText + "(All) : " + props.defaultValue)
+    console.log(props.keyText + " : " + props.defaultValue[props.keyText])
     return (
         <>
             <span className="dan">{props.title}</span>
