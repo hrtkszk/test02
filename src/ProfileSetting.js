@@ -92,6 +92,7 @@ export function ProfileSetting() {
     fetch("../../get_profile1.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
+      console.log(result)
       setPS(JSON.parse(result[0]))
       // JsonData =JSON.parse(result[0])
       // setBasicProfile(JsonData)
