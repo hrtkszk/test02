@@ -303,7 +303,7 @@ export function ProfileSetting() {
 
   // function MainSelection() {
 
-
+  console.log(PS.length)
   if (PS === null) {
     console.log(PS)
     return <></>
