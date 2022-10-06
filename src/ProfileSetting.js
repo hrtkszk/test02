@@ -304,7 +304,8 @@ export function ProfileSetting() {
   // function MainSelection() {
 
 
-  if (PS.length === 0) {
+  if (PS === {}) {
+    console.log(PS)
     return <></>
   } else {
     console.log(PS)
