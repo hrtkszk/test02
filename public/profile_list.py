@@ -170,7 +170,6 @@ try:
                 row1.append(item)
         # printでのpythonからphpへの受け渡し
         DictProfile=dict(zip(field_names, row1))
-        print(json.dumps(DictProfile))
         DictProfile1 = {}
         for k, v in DictProfile.items():
             if v != 0:
