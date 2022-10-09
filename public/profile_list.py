@@ -34,7 +34,7 @@ try:
     DictData1 = {}
     for k, v in DictData.items():
         if k[:2] == "PS":
-            if v != 0 or v != NULL:
+            if v != 0 or v != "null":
                 # PSを削除
                 DictData1[k[2:]] = v
         else:
@@ -62,6 +62,8 @@ try:
                     PSS_SQL += k + " = " + value + " OR "
                 PSS_SQL = PSS_SQL[:-3]
                 PSS_SQL += ")"
+                continue
+            elif v == "null":
                 continue
             else:
                 PSS_SQL += " AND " + k + " = " + v
