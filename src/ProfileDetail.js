@@ -182,266 +182,266 @@ export function ProfileDetail() {
   //   );
 
   // //  Profileが空でない場合、もしくは[]でない場合、プロフィールを表示＋設定ページボタンの表示
-// if (Profile === []) {
-//   return <></>
-// } else {
-  return (
-    <div>
-      <h1>プロフィール</h1>
-      <ul>
-        <li>
-          <span className="dan">ニックネーム</span>
-          <span className="dan2">{Profile.NickName}</span>
-        </li>
-        <li>
-          <SelectProfileItem
-            title="性別"
-            keyName="Gender"
-            keyValue={ProfileDB.Gender}
-            DBValue={Profile}
-          />
-        </li>
-        <li>
-          <span className="dan">年齢</span>
-          <span className="dan2">{Profile.Age}</span>
-        </li>
-        <li>
-          <span className="dan">年齢確認</span>
-          <span className="dan2">{ProfileDB.AgeConf[Profile.AgeConf]}</span>
-        </li>
-        <li>
-          <span className="dan">エリア</span>
-          <span className="dan2">
-            <ShowArea/>
-          </span>
-        </li>
-        <li>
-          <SelectProfileItem
-            title="身長"
-            keyName="Height"
-            keyValue={ProfileDB.Height}
-            DBValue={Profile}
-          />
-        </li>
-        <li>
-          <SelectProfileItem
-            title="スタイル"
-            keyName="Style"
-            keyValue={ProfileDB.Style}
-            DBValue={Profile}
-          />
-        </li>
-        <li>
-          <SelectProfileItem
-            title="ルックス"
-            keyName="Looks"
-            keyValue={ProfileDB.Looks}
-            DBValue={Profile}
-          />
-        </li>
-        <li>
-          <SelectProfileItem
-            title="カップ"
-            keyName="Cup"
-            keyValue={ProfileDB.Cup}
-            DBValue={Profile}
-          />
-        </li>
-        <li>
-          <span className="dan">バスト</span>
-          <span className="dan2">{Profile.BustSize}</span>
-        </li>
-        <li>
-          <span className="dan">ウエスト</span>
-          <span className="dan2">{Profile.WestSize}</span>
-        </li>
-        <li>
-          <span className="dan">ヒップ</span>
-          <span className="dan2">{Profile.HipSize}</span>
-        </li>
-        <li>
-          <SelectProfileItem
-            title="血液型"
-            keyName="BloodType"
-            keyValue={ProfileDB.BloodType}
-            DBValue={Profile}
-          />
-        </li>
-        <li>
-          <SelectProfileItem
-            title="職業"
-            keyName="Job"
-            keyValue={ProfileDB.Job}
-            DBValue={Profile}
-          />
-        </li>
-        <li>
-          <SelectProfileItem
-            title="学歴"
-            keyName="EduBack"
-            keyValue={ProfileDB.EduBack}
-            DBValue={Profile}
-          />
-        </li>
-
-        <li>
-          <span className="dan">出身地</span>
-          <span className="dan2">
-            <ShowBirthArea/>
-          </span>
-        </li>
-        <li>
-          <SelectProfileItem
-            title="星座"
-            keyName="Zodiac"
-            keyValue={ProfileDB.Zodiac}
-            DBValue={Profile}
-          />
-        </li>
-        <li>
-          <SelectProfileItem
-            title="交際状況"
-            keyName="MarriageStatus"
-            keyValue={ProfileDB.MarriageStatus}
-            DBValue={Profile}
-          />
-        </li>
-        <li>
-          <SelectProfileItem
-            title="子供"
-            keyName="Kids"
-            keyValue={ProfileDB.Kids}
-            DBValue={Profile}
-          />
-        </li>
-        <li>
-          <SelectProfileItem
-            title="タバコ"
-            keyName="Tabacco"
-            keyValue={ProfileDB.Tabacco}
-            DBValue={Profile}
-          />
-        </li>
-        <li>
-          <SelectProfileItem
-            title="お酒"
-            keyName="Alchole"
-            keyValue={ProfileDB.Alchole}
-            DBValue={Profile}
-          />
-        </li>
-        <li>
-          <SelectProfileItem
-            title="車"
-            keyName="Car"
-            keyValue={ProfileDB.Car}
-            DBValue={Profile}
-          />
-        </li>
-
-
-        
-        {/* <li>
-          <span className="dan">興味あること</span>
-          <span className="dan2">{ProfileDB.Interest[Profile.Interest]}</span>
-        </li>
-        <li>
-          <span className="dan">プロフィール写真</span>
-          <span className="dan2">{Profile.ProfilePicture}</span>
-        </li> */}
-
-        <li>
-          <span className="dan">メッセージ</span>
-          <span className="dan2">{Profile.ProfileMessage}</span>
-        </li>
-
-        {/* <li>
-          <span className="dan">希望する年齢</span>
-          <span className="dan2">{ProfileDB.PreferedAge[Profile.PreferedAge1]}〜{ProfileDB.PreferedAge[Profile.PreferedAge2]}</span>
-        </li>
-        <li>
-          <span className="dan">希望する性格</span>
-          <span className="dan2">{ProfileDB.Personality[Profile.PreferedPersonality]}</span>
-        </li>
-        <li>
-          <span className="dan">性格</span>
-          <span className="dan2">{ProfileDB.Personality[Profile.Personality]}</span>
-        </li> */}
-
-
-
-        <li>
-          自己評価<br />
-        </li>
-        <li>
-          <SelectProfileItem
-            title="可愛さ"
-            keyName="Cute"
-            keyValue={ProfileDB.Self}
-            DBValue={Profile}
-          />
-        </li>
-        <li>
-          <SelectProfileItem
-            title="セクシーさ"
-            keyName="Sexy"
-            keyValue={ProfileDB.Self}
-            DBValue={Profile}
-          />
-        </li>
-        <li>
-          <SelectProfileItem
-            title="優しさ"
-            keyName="Kindness"
-            keyValue={ProfileDB.Self}
-            DBValue={Profile}
-          />
-        </li>
-        <li>
-          <SelectProfileItem
-            title="賢さ"
-            keyName="Smartness"
-            keyValue={ProfileDB.Self}
-            DBValue={Profile}
-          />
-        </li>
-        <li>
-          <SelectProfileItem
-            title="清楚さ"
-            keyName="Neatness"
-            keyValue={ProfileDB.Self}
-            DBValue={Profile}
-          />
-        </li>
-        <li>
-          <SelectProfileItem
-            title="ファッション"
-            keyName="Fashionable"
-            keyValue={ProfileDB.Self}
-            DBValue={Profile}
-          />
-        </li>
-        <li>
-          <SelectProfileItem
-            title="明るさ"
-            keyName="Brightness"
-            keyValue={ProfileDB.Self}
-            DBValue={Profile}
-          />
-        </li>
-        <li>
-          <SelectProfileItem
-            title="エレガンス"
-            keyName="Elegance"
-            keyValue={ProfileDB.Self}
-            DBValue={Profile}
-          />
-        </li>
-      </ul>
+  if (Object.keys(Profile).length === 0) {
+    return <></>
+  } else {
+    return (
       <div>
-        <Link to="../../">戻る</Link>
+        <h1>プロフィール</h1>
+        <ul>
+          <li>
+            <span className="dan">ニックネーム</span>
+            <span className="dan2">{Profile.NickName}</span>
+          </li>
+          <li>
+            <SelectProfileItem
+              title="性別"
+              keyName="Gender"
+              keyValue={ProfileDB.Gender}
+              DBValue={Profile}
+            />
+          </li>
+          <li>
+            <span className="dan">年齢</span>
+            <span className="dan2">{Profile.Age}</span>
+          </li>
+          <li>
+            <span className="dan">年齢確認</span>
+            <span className="dan2">{ProfileDB.AgeConf[Profile.AgeConf]}</span>
+          </li>
+          <li>
+            <span className="dan">エリア</span>
+            <span className="dan2">
+              <ShowArea/>
+            </span>
+          </li>
+          <li>
+            <SelectProfileItem
+              title="身長"
+              keyName="Height"
+              keyValue={ProfileDB.Height}
+              DBValue={Profile}
+            />
+          </li>
+          <li>
+            <SelectProfileItem
+              title="スタイル"
+              keyName="Style"
+              keyValue={ProfileDB.Style}
+              DBValue={Profile}
+            />
+          </li>
+          <li>
+            <SelectProfileItem
+              title="ルックス"
+              keyName="Looks"
+              keyValue={ProfileDB.Looks}
+              DBValue={Profile}
+            />
+          </li>
+          <li>
+            <SelectProfileItem
+              title="カップ"
+              keyName="Cup"
+              keyValue={ProfileDB.Cup}
+              DBValue={Profile}
+            />
+          </li>
+          <li>
+            <span className="dan">バスト</span>
+            <span className="dan2">{Profile.BustSize}</span>
+          </li>
+          <li>
+            <span className="dan">ウエスト</span>
+            <span className="dan2">{Profile.WestSize}</span>
+          </li>
+          <li>
+            <span className="dan">ヒップ</span>
+            <span className="dan2">{Profile.HipSize}</span>
+          </li>
+          <li>
+            <SelectProfileItem
+              title="血液型"
+              keyName="BloodType"
+              keyValue={ProfileDB.BloodType}
+              DBValue={Profile}
+            />
+          </li>
+          <li>
+            <SelectProfileItem
+              title="職業"
+              keyName="Job"
+              keyValue={ProfileDB.Job}
+              DBValue={Profile}
+            />
+          </li>
+          <li>
+            <SelectProfileItem
+              title="学歴"
+              keyName="EduBack"
+              keyValue={ProfileDB.EduBack}
+              DBValue={Profile}
+            />
+          </li>
+
+          <li>
+            <span className="dan">出身地</span>
+            <span className="dan2">
+              <ShowBirthArea/>
+            </span>
+          </li>
+          <li>
+            <SelectProfileItem
+              title="星座"
+              keyName="Zodiac"
+              keyValue={ProfileDB.Zodiac}
+              DBValue={Profile}
+            />
+          </li>
+          <li>
+            <SelectProfileItem
+              title="交際状況"
+              keyName="MarriageStatus"
+              keyValue={ProfileDB.MarriageStatus}
+              DBValue={Profile}
+            />
+          </li>
+          <li>
+            <SelectProfileItem
+              title="子供"
+              keyName="Kids"
+              keyValue={ProfileDB.Kids}
+              DBValue={Profile}
+            />
+          </li>
+          <li>
+            <SelectProfileItem
+              title="タバコ"
+              keyName="Tabacco"
+              keyValue={ProfileDB.Tabacco}
+              DBValue={Profile}
+            />
+          </li>
+          <li>
+            <SelectProfileItem
+              title="お酒"
+              keyName="Alchole"
+              keyValue={ProfileDB.Alchole}
+              DBValue={Profile}
+            />
+          </li>
+          <li>
+            <SelectProfileItem
+              title="車"
+              keyName="Car"
+              keyValue={ProfileDB.Car}
+              DBValue={Profile}
+            />
+          </li>
+
+
+          
+          {/* <li>
+            <span className="dan">興味あること</span>
+            <span className="dan2">{ProfileDB.Interest[Profile.Interest]}</span>
+          </li>
+          <li>
+            <span className="dan">プロフィール写真</span>
+            <span className="dan2">{Profile.ProfilePicture}</span>
+          </li> */}
+
+          <li>
+            <span className="dan">メッセージ</span>
+            <span className="dan2">{Profile.ProfileMessage}</span>
+          </li>
+
+          {/* <li>
+            <span className="dan">希望する年齢</span>
+            <span className="dan2">{ProfileDB.PreferedAge[Profile.PreferedAge1]}〜{ProfileDB.PreferedAge[Profile.PreferedAge2]}</span>
+          </li>
+          <li>
+            <span className="dan">希望する性格</span>
+            <span className="dan2">{ProfileDB.Personality[Profile.PreferedPersonality]}</span>
+          </li>
+          <li>
+            <span className="dan">性格</span>
+            <span className="dan2">{ProfileDB.Personality[Profile.Personality]}</span>
+          </li> */}
+
+
+
+          <li>
+            自己評価<br />
+          </li>
+          <li>
+            <SelectProfileItem
+              title="可愛さ"
+              keyName="Cute"
+              keyValue={ProfileDB.Self}
+              DBValue={Profile}
+            />
+          </li>
+          <li>
+            <SelectProfileItem
+              title="セクシーさ"
+              keyName="Sexy"
+              keyValue={ProfileDB.Self}
+              DBValue={Profile}
+            />
+          </li>
+          <li>
+            <SelectProfileItem
+              title="優しさ"
+              keyName="Kindness"
+              keyValue={ProfileDB.Self}
+              DBValue={Profile}
+            />
+          </li>
+          <li>
+            <SelectProfileItem
+              title="賢さ"
+              keyName="Smartness"
+              keyValue={ProfileDB.Self}
+              DBValue={Profile}
+            />
+          </li>
+          <li>
+            <SelectProfileItem
+              title="清楚さ"
+              keyName="Neatness"
+              keyValue={ProfileDB.Self}
+              DBValue={Profile}
+            />
+          </li>
+          <li>
+            <SelectProfileItem
+              title="ファッション"
+              keyName="Fashionable"
+              keyValue={ProfileDB.Self}
+              DBValue={Profile}
+            />
+          </li>
+          <li>
+            <SelectProfileItem
+              title="明るさ"
+              keyName="Brightness"
+              keyValue={ProfileDB.Self}
+              DBValue={Profile}
+            />
+          </li>
+          <li>
+            <SelectProfileItem
+              title="エレガンス"
+              keyName="Elegance"
+              keyValue={ProfileDB.Self}
+              DBValue={Profile}
+            />
+          </li>
+        </ul>
+        <div>
+          <Link to="../../">戻る</Link>
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
-// }
