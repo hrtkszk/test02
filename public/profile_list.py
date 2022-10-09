@@ -140,6 +140,7 @@ try:
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
     print("Obtain PSBirthArea:", e)
     
+print(PSS_SQL)
 
 # 検索設定に基づいたProfileTable1の検索
 try:
