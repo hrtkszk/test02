@@ -56,6 +56,10 @@ try:
             if v != None:
                 PSS_SQL += " AND " + k + " = '" + v + "'"
                 continue
+        elif k == "Order":
+            continue
+        elif k == "ProfileMessage":
+            continue
         else:
             # _が入っているか？(複数選択か？)で単独検索、()付き検索かが変わる
             if ("_" in v):
