@@ -36,7 +36,7 @@ DictData = dict(zip(field_names, recieved_data))
 DictData1 = {}
 for k, v in DictData.items():
     if k[:2] == "PS":
-        if v != 0:
+        if v != 0 or v != "null":
             # PSを削除
             DictData1[k[2:]] = v
     else:
