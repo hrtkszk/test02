@@ -31,12 +31,12 @@ export function ProfileList() {
     .then(result =>{
       // console.log(result)
       setProfileList(result[0])
-      console.log(result[0])
+      console.log(result)
     })
     setinitialized(true)
   }
   
-  if (Object.keys(ProfileList).length === 0) {
+  if (Object.keys(ProfileList).length === 0 || ProfileList === undefined) {
     return <></>
   } else {
     return (
