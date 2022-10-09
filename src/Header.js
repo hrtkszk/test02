@@ -36,7 +36,7 @@ export function Header() {
               <Link to="ProfileSearchSetting1">Set Profile Search1</Link>
             </li>
             <li>
-              <Link to="ProfileList1">Show Profile List_1</Link>
+              <Link to="ProfileList">Show Profile List</Link>
             </li>
             <li>
               <Link to="MessageList">Show Message List</Link>

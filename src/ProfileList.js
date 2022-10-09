@@ -14,13 +14,13 @@ export function ProfileList() {
   let auth = useAuth();
   // const intervalRef = useRef(null);
 
-  const [Profile_List, setProfileList] = useState([]);
+  const [ProfileList, setProfileList] = useState([]);
   const [initialized, setinitialized] = useState(false);
 
   const initialRequestOptions ={
     method: 'POST',
     headers:{'Content-Type': 'application/json'},
-    body: JSON.stringify({"id":auth.user})
+    body: JSON.stringify({"UUID":auth.user})
   }
 
   // ページが読み込まれる時に実行し、Profile_Listとして登録する。
@@ -30,25 +30,21 @@ export function ProfileList() {
     .then((response)=> response.json())
     .then(result =>{
       // console.log(result)
-      setProfileList(result.pythonout2)
-      console.log(result.pythonout2)
+      setProfileList(result[0])
+      console.log(result[0])
     })
     setinitialized(true)
   }
   
-  if (Profile_List === []) {
-    return (
-      <div>
-        <h1>Profile List</h1>
-      </div>
-    )
+  if (ProfileList === []) {
+    return <></>
   } else {
     return (
       <div>
         <h1>Profile List for {auth.user}</h1>
         <div>
         <ul>
-            {Profile_List.map((Profile, i) => {
+            {ProfileList.map((Profile, i) => {
               return <li key={Profile.UUID} onClick={() => auth.setAite(Profile.UUID)}>
                 <Link to="../Detail">
                   {Profile.nickname}
