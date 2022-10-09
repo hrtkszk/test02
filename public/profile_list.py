@@ -29,11 +29,8 @@ try:
     cursor.execute(f"SELECT * FROM {ProfileSearchSetting} WHERE UUID='{sys.argv[1]}'")
     field_names = [i[0] for i in cursor.description]
     recieved_data = cursor.fetchone()
-
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
     print("Obtain Profile Search Setting:", e)
-
-print(recieved_data)
 
 DictData = dict(zip(field_names, recieved_data))
 DictData1 = {}
@@ -149,8 +146,6 @@ try:
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
     print("Obtain PSBirthArea:", e)
     
-print(PSS_SQL)
-
 # 検索設定に基づいたProfileTable1の検索
 try:
     cursor.execute(f" \
@@ -175,6 +170,7 @@ try:
                 row1.append(item)
         # printでのpythonからphpへの受け渡し
         DictProfile=dict(zip(field_names, row1))
+        print(json.dumps(DictProfile))
         DictProfile1 = {}
         for k, v in DictProfile.items():
             if v != 0:
