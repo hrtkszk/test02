@@ -33,9 +33,9 @@ try:
 
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
     print("Obtain Profile Search Setting:", e)
+print(recieved_data)
 
 DictData = dict(zip(field_names, recieved_data))
-print(json.dumps(DictData))
 DictData1 = {}
 for k, v in DictData.items():
     if k[:2] == "PS":
