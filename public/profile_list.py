@@ -34,7 +34,7 @@ try:
     DictData1 = {}
     for k, v in DictData.items():
         if k[:2] == "PS":
-            if v != 0 or v != "null":
+            if v != 0:
                 # PSを削除
                 DictData1[k[2:]] = v
         else:
