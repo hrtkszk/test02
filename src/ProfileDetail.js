@@ -13,7 +13,7 @@ import AreaDB from "./Area.json";
 
 export function ProfileDetail() {
   let auth = useAuth();
-  const [BasicProfile, setBasicProfile] = useState({});
+  const [Profile, setProfile] = useState({});
   // const [Profile, setProfile] = useState([]);
   const [initialized, setinitialized] = useState(false);
   // let GenderNum = 0;
@@ -26,10 +26,10 @@ export function ProfileDetail() {
 
   // ページが読み込まれる時に実行し、Profileとして登録する。
   if (initialized===false) {
-    fetch("../../get_basicprofile.php",initialRequestOptions)
+    fetch("../../get_profile1.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
-      setBasicProfile(JSON.parse(result[0]))
+      setProfile(JSON.parse(result[0]))
       console.log(JSON.parse(result[0]))
     })
 
@@ -49,64 +49,64 @@ export function ProfileDetail() {
   }
   
   function ShowArea() {
-    if (BasicProfile.Area !== undefined) {
+    if (Profile.Area !== undefined) {
       // Area未設定の場合→「未設定」と表示
-      if (BasicProfile.Area === 10000000) {
+      if (Profile.Area === 10000000) {
         return (
           <>
-            {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["AreaName"]}
+            {AreaDB.Area[String(Profile.Area).slice(0,2)+"000000"]["AreaName"]}
           </>
         )
       
       // Areaが設定されている場合
       } else {
         // Prefectureが未設定の場合→「Area」のみを表示
-        if (String(BasicProfile.Area).slice(2,8) === "000000") {
+        if (String(Profile.Area).slice(2,8) === "000000") {
           return (
             <>
-              {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["AreaName"]}
+              {AreaDB.Area[String(Profile.Area).slice(0,2)+"000000"]["AreaName"]}
             </>
           )
         
         // Prefectureが設定されている場合
         } else {
           // Cityが未設定の場合→「Area」「Prefecture」を表示
-          if (String(BasicProfile.Area).slice(4,8) === "0000") {
+          if (String(Profile.Area).slice(4,8) === "0000") {
             return (
               <>
-                {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["AreaName"]}　
-                {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["Prefecture"][String(BasicProfile.Area).slice(0,4)+"0000"]["PrefectureName"]}
+                {AreaDB.Area[String(Profile.Area).slice(0,2)+"000000"]["AreaName"]}　
+                {AreaDB.Area[String(Profile.Area).slice(0,2)+"000000"]["Prefecture"][String(Profile.Area).slice(0,4)+"0000"]["PrefectureName"]}
               </>
             )
           // Cityが設定されている場合→「Area」「Prefecture」「City」を表示
           } else {
             // Wardが存在しないCityが設定されている場合
-            if (AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["Prefecture"][String(BasicProfile.Area).slice(0,4)+"0000"]["City"][String(BasicProfile.Area).slice(0,6)+"00"]["CityName"] === undefined) {
+            if (AreaDB.Area[String(Profile.Area).slice(0,2)+"000000"]["Prefecture"][String(Profile.Area).slice(0,4)+"0000"]["City"][String(Profile.Area).slice(0,6)+"00"]["CityName"] === undefined) {
               return (
                 <>
-                  {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["AreaName"]}　
-                  {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["Prefecture"][String(BasicProfile.Area).slice(0,4)+"0000"]["PrefectureName"]}
-                  {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["Prefecture"][String(BasicProfile.Area).slice(0,4)+"0000"]["City"][String(BasicProfile.Area).slice(0,6)+"00"]}
+                  {AreaDB.Area[String(Profile.Area).slice(0,2)+"000000"]["AreaName"]}　
+                  {AreaDB.Area[String(Profile.Area).slice(0,2)+"000000"]["Prefecture"][String(Profile.Area).slice(0,4)+"0000"]["PrefectureName"]}
+                  {AreaDB.Area[String(Profile.Area).slice(0,2)+"000000"]["Prefecture"][String(Profile.Area).slice(0,4)+"0000"]["City"][String(Profile.Area).slice(0,6)+"00"]}
                 </>
               )
             // Wardが存在するCityが設定されている場合
             } else { 
               // Wardが未設定の場合→「Area」「Prefecture」「City」を表示
-              if (String(BasicProfile.Area).slice(6,8) === "00") {
+              if (String(Profile.Area).slice(6,8) === "00") {
                 return (
                   <>
-                    {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["AreaName"]}　
-                    {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["Prefecture"][String(BasicProfile.Area).slice(0,4)+"0000"]["PrefectureName"]}
-                    {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["Prefecture"][String(BasicProfile.Area).slice(0,4)+"0000"]["City"][String(BasicProfile.Area).slice(0,6)+"00"]["CityName"]}
+                    {AreaDB.Area[String(Profile.Area).slice(0,2)+"000000"]["AreaName"]}　
+                    {AreaDB.Area[String(Profile.Area).slice(0,2)+"000000"]["Prefecture"][String(Profile.Area).slice(0,4)+"0000"]["PrefectureName"]}
+                    {AreaDB.Area[String(Profile.Area).slice(0,2)+"000000"]["Prefecture"][String(Profile.Area).slice(0,4)+"0000"]["City"][String(Profile.Area).slice(0,6)+"00"]["CityName"]}
                   </>
                 )
               // Wardが設定されている場合→「Area」「Prefecture」「Ward」を表示
               } else {
                 return (
                   <>
-                    {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["AreaName"]}　
-                    {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["Prefecture"][String(BasicProfile.Area).slice(0,4)+"0000"]["PrefectureName"]}
-                    {AreaDB.Area[String(BasicProfile.Area).slice(0,2)+"000000"]["Prefecture"][String(BasicProfile.Area).slice(0,4)+"0000"]["City"][String(BasicProfile.Area).slice(0,6)+"00"]["Ward"][BasicProfile.Area]}
+                    {AreaDB.Area[String(Profile.Area).slice(0,2)+"000000"]["AreaName"]}　
+                    {AreaDB.Area[String(Profile.Area).slice(0,2)+"000000"]["Prefecture"][String(Profile.Area).slice(0,4)+"0000"]["PrefectureName"]}
+                    {AreaDB.Area[String(Profile.Area).slice(0,2)+"000000"]["Prefecture"][String(Profile.Area).slice(0,4)+"0000"]["City"][String(Profile.Area).slice(0,6)+"00"]["Ward"][Profile.Area]}
                   </>
                 )
               }
@@ -118,22 +118,22 @@ export function ProfileDetail() {
   }
 
   function ShowBirthArea() {
-    if (BasicProfile.BirthArea !== undefined) {
+    if (Profile.BirthArea !== undefined) {
       // BirthArea未設定の場合→「未設定」と表示
-      if (BasicProfile.BirthArea === 10000000) {
+      if (Profile.BirthArea === 10000000) {
         return (
           <>
-            {AreaDB.Area[String(BasicProfile.BirthArea).slice(0,2)+"000000"]["AreaName"]}
+            {AreaDB.Area[String(Profile.BirthArea).slice(0,2)+"000000"]["AreaName"]}
           </>
         )
       
       // BirthAreaが設定されている場合
       } else {
         // BirthPrefectureが未設定の場合→「BirthArea」のみを表示
-        if (String(BasicProfile.BirthAaea).slice(2,8) === "000000") {
+        if (String(Profile.BirthAaea).slice(2,8) === "000000") {
           return (
             <>
-              {AreaDB.Area[String(BasicProfile.BirthArea).slice(0,2)+"000000"]["AreaName"]}
+              {AreaDB.Area[String(Profile.BirthArea).slice(0,2)+"000000"]["AreaName"]}
             </>
           )
         
@@ -141,8 +141,8 @@ export function ProfileDetail() {
         } else {
           return (
             <>
-              {AreaDB.Area[String(BasicProfile.BirthArea).slice(0,2)+"000000"]["AreaName"]}　
-              {AreaDB.Area[String(BasicProfile.BirthArea).slice(0,2)+"000000"]["Prefecture"][String(BasicProfile.BirthArea).slice(0,4)+"0000"]["PrefectureName"]}
+              {AreaDB.Area[String(Profile.BirthArea).slice(0,2)+"000000"]["AreaName"]}　
+              {AreaDB.Area[String(Profile.BirthArea).slice(0,2)+"000000"]["Prefecture"][String(Profile.BirthArea).slice(0,4)+"0000"]["PrefectureName"]}
             </>
           )
         }
@@ -158,7 +158,7 @@ export function ProfileDetail() {
   //         <ul>
   //           <li>
   //             <span className="dan">ニックネーム</span>
-  //             <span className="dan2">{BasicProfile.NickName}</span>
+  //             <span className="dan2">{Profile.NickName}</span>
   //           </li>
   //           <li>
   //             <span className="dan">性別</span>
@@ -166,11 +166,11 @@ export function ProfileDetail() {
   //           </li>
   //           <li>
   //             <span className="dan">年齢</span>
-  //             <span className="dan2">{BasicProfile.Age}</span>
+  //             <span className="dan2">{Profile.Age}</span>
   //           </li>
   //           <li>
   //             <span className="dan">年齢確認</span>
-  //             <span className="dan2">{ProfileDB.AgeConf[BasicProfile.AgeConf1]}</span>
+  //             <span className="dan2">{ProfileDB.AgeConf[Profile.AgeConf1]}</span>
   //           </li>
   //         </ul>
   //         <p>
@@ -182,7 +182,7 @@ export function ProfileDetail() {
   //   );
 
   // //  Profileが空でない場合、もしくは[]でない場合、プロフィールを表示＋設定ページボタンの表示
-// if (BasicProfile === []) {
+// if (Profile === []) {
 //   return <></>
 // } else {
   return (
@@ -191,23 +191,23 @@ export function ProfileDetail() {
       <ul>
         <li>
           <span className="dan">ニックネーム</span>
-          <span className="dan2">{BasicProfile.NickName}</span>
+          <span className="dan2">{Profile.NickName}</span>
         </li>
         <li>
           <SelectProfileItem
             title="性別"
             keyName="Gender"
             keyValue={ProfileDB.Gender}
-            DBValue={BasicProfile}
+            DBValue={Profile}
           />
         </li>
         <li>
           <span className="dan">年齢</span>
-          <span className="dan2">{BasicProfile.Age}</span>
+          <span className="dan2">{Profile.Age}</span>
         </li>
         <li>
           <span className="dan">年齢確認</span>
-          <span className="dan2">{ProfileDB.AgeConf[BasicProfile.AgeConf1]}</span>
+          <span className="dan2">{ProfileDB.AgeConf[Profile.AgeConf1]}</span>
         </li>
         <li>
           <span className="dan">エリア</span>
@@ -220,7 +220,7 @@ export function ProfileDetail() {
             title="身長"
             keyName="Height"
             keyValue={ProfileDB.Height}
-            DBValue={BasicProfile}
+            DBValue={Profile}
           />
         </li>
         <li>
@@ -228,7 +228,7 @@ export function ProfileDetail() {
             title="スタイル"
             keyName="Style"
             keyValue={ProfileDB.Style}
-            DBValue={BasicProfile}
+            DBValue={Profile}
           />
         </li>
         <li>
@@ -236,7 +236,7 @@ export function ProfileDetail() {
             title="ルックス"
             keyName="Looks"
             keyValue={ProfileDB.Looks}
-            DBValue={BasicProfile}
+            DBValue={Profile}
           />
         </li>
         <li>
@@ -244,27 +244,27 @@ export function ProfileDetail() {
             title="カップ"
             keyName="Cup"
             keyValue={ProfileDB.Cup}
-            DBValue={BasicProfile}
+            DBValue={Profile}
           />
         </li>
         <li>
           <span className="dan">バスト</span>
-          <span className="dan2">{BasicProfile.BustSize}</span>
+          <span className="dan2">{Profile.BustSize}</span>
         </li>
         <li>
           <span className="dan">ウエスト</span>
-          <span className="dan2">{BasicProfile.WestSize}</span>
+          <span className="dan2">{Profile.WestSize}</span>
         </li>
         <li>
           <span className="dan">ヒップ</span>
-          <span className="dan2">{BasicProfile.HipSize}</span>
+          <span className="dan2">{Profile.HipSize}</span>
         </li>
         <li>
           <SelectProfileItem
             title="血液型"
             keyName="BloodType"
             keyValue={ProfileDB.BloodType}
-            DBValue={BasicProfile}
+            DBValue={Profile}
           />
         </li>
         <li>
@@ -272,7 +272,7 @@ export function ProfileDetail() {
             title="職業"
             keyName="Job"
             keyValue={ProfileDB.Job}
-            DBValue={BasicProfile}
+            DBValue={Profile}
           />
         </li>
         <li>
@@ -280,7 +280,7 @@ export function ProfileDetail() {
             title="学歴"
             keyName="EduBack"
             keyValue={ProfileDB.EduBack}
-            DBValue={BasicProfile}
+            DBValue={Profile}
           />
         </li>
 
@@ -295,7 +295,7 @@ export function ProfileDetail() {
             title="星座"
             keyName="Zodiac"
             keyValue={ProfileDB.Zodiac}
-            DBValue={BasicProfile}
+            DBValue={Profile}
           />
         </li>
         <li>
@@ -303,7 +303,7 @@ export function ProfileDetail() {
             title="交際状況"
             keyName="MarriageStatus"
             keyValue={ProfileDB.MarriageStatus}
-            DBValue={BasicProfile}
+            DBValue={Profile}
           />
         </li>
         <li>
@@ -311,7 +311,7 @@ export function ProfileDetail() {
             title="子供"
             keyName="Kids"
             keyValue={ProfileDB.Kids}
-            DBValue={BasicProfile}
+            DBValue={Profile}
           />
         </li>
         <li>
@@ -319,7 +319,7 @@ export function ProfileDetail() {
             title="タバコ"
             keyName="Tabacco"
             keyValue={ProfileDB.Tabacco}
-            DBValue={BasicProfile}
+            DBValue={Profile}
           />
         </li>
         <li>
@@ -327,7 +327,7 @@ export function ProfileDetail() {
             title="お酒"
             keyName="Alchole"
             keyValue={ProfileDB.Alchole}
-            DBValue={BasicProfile}
+            DBValue={Profile}
           />
         </li>
         <li>
@@ -335,7 +335,7 @@ export function ProfileDetail() {
             title="車"
             keyName="Car"
             keyValue={ProfileDB.Car}
-            DBValue={BasicProfile}
+            DBValue={Profile}
           />
         </li>
 
@@ -352,7 +352,7 @@ export function ProfileDetail() {
 
         <li>
           <span className="dan">メッセージ</span>
-          <span className="dan2">{BasicProfile.ProfileMessage}</span>
+          <span className="dan2">{Profile.ProfileMessage}</span>
         </li>
 
         {/* <li>
@@ -378,7 +378,7 @@ export function ProfileDetail() {
             title="可愛さ"
             keyName="Cute"
             keyValue={ProfileDB.Self}
-            DBValue={BasicProfile}
+            DBValue={Profile}
           />
         </li>
         <li>
@@ -386,7 +386,7 @@ export function ProfileDetail() {
             title="セクシーさ"
             keyName="Sexy"
             keyValue={ProfileDB.Self}
-            DBValue={BasicProfile}
+            DBValue={Profile}
           />
         </li>
         <li>
@@ -394,7 +394,7 @@ export function ProfileDetail() {
             title="優しさ"
             keyName="Kindness"
             keyValue={ProfileDB.Self}
-            DBValue={BasicProfile}
+            DBValue={Profile}
           />
         </li>
         <li>
@@ -402,7 +402,7 @@ export function ProfileDetail() {
             title="賢さ"
             keyName="Smartness"
             keyValue={ProfileDB.Self}
-            DBValue={BasicProfile}
+            DBValue={Profile}
           />
         </li>
         <li>
@@ -410,7 +410,7 @@ export function ProfileDetail() {
             title="清楚さ"
             keyName="Neatness"
             keyValue={ProfileDB.Self}
-            DBValue={BasicProfile}
+            DBValue={Profile}
           />
         </li>
         <li>
@@ -418,7 +418,7 @@ export function ProfileDetail() {
             title="ファッション"
             keyName="Fashionable"
             keyValue={ProfileDB.Self}
-            DBValue={BasicProfile}
+            DBValue={Profile}
           />
         </li>
         <li>
@@ -426,7 +426,7 @@ export function ProfileDetail() {
             title="明るさ"
             keyName="Brightness"
             keyValue={ProfileDB.Self}
-            DBValue={BasicProfile}
+            DBValue={Profile}
           />
         </li>
         <li>
@@ -434,7 +434,7 @@ export function ProfileDetail() {
             title="エレガンス"
             keyName="Elegance"
             keyValue={ProfileDB.Self}
-            DBValue={BasicProfile}
+            DBValue={Profile}
           />
         </li>
       </ul>
