@@ -22,20 +22,20 @@ PSBirthArea="PSBirthArea"
 
 # field name込みの場合はこっちを使う
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
-cursor = connection.cursor()
+# cursor = connection.cursor()
 
 print("test")
 
-# 自分の検索設定の入手
-try:
-    cursor.execute(f"SELECT * FROM {ProfileSearchSetting} WHERE UUID='{sys.argv[1]}'")
-    field_names = [i[0] for i in cursor.description]
-    recieved_data = cursor.fetchone()
+# # 自分の検索設定の入手
+# try:
+#     cursor.execute(f"SELECT * FROM {ProfileSearchSetting} WHERE UUID='{sys.argv[1]}'")
+#     field_names = [i[0] for i in cursor.description]
+#     recieved_data = cursor.fetchone()
 
-except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
-    print("Obtain Profile Search Setting:", e)
+# except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
+#     print("Obtain Profile Search Setting:", e)
 
-print(recieved_data)
+# print(recieved_data)
 
 # DictData = dict(zip(field_names, recieved_data))
 # DictData1 = {}
