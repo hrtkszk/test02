@@ -36,7 +36,7 @@ export function ProfileList() {
     setinitialized(true)
   }
   
-  if (Object.keys(ProfileList).length === 0 || ProfileList === undefined) {
+  if (ProfileList === undefined || Object.keys(ProfileList).length === 0) {
     return <></>
   } else {
     return (
