@@ -207,7 +207,7 @@ export function ProfileDetail() {
         </li>
         <li>
           <span className="dan">年齢確認</span>
-          <span className="dan2">{ProfileDB.AgeConf[Profile.AgeConf1]}</span>
+          <span className="dan2">{ProfileDB.AgeConf[Profile.AgeConf]}</span>
         </li>
         <li>
           <span className="dan">エリア</span>
