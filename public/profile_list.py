@@ -30,18 +30,17 @@ try:
     cursor.execute(f"SELECT * FROM {ProfileSearchSetting} WHERE UUID='{sys.argv[1]}'")
     field_names = [i[0] for i in cursor.description]
     recieved_data = cursor.fetchone()
+    DictData = dict(zip(field_names, recieved_data))
+    DictData1 = {}
+    for k, v in DictData.items():
+        if k[:2] == "PS":
+            if v != 0 or v != NULL:
+                # PSを削除
+                DictData1[k[2:]] = v
+        else:
+            DictData1[k] = v
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
     print("Obtain Profile Search Setting:", e)
-
-DictData = dict(zip(field_names, recieved_data))
-DictData1 = {}
-for k, v in DictData.items():
-    if k[:2] == "PS":
-        if v != 0 or v != NULL:
-            # PSを削除
-            DictData1[k[2:]] = v
-    else:
-        DictData1[k] = v
 
 # SQL文の作成
 PSS_SQL = ""
