@@ -50,7 +50,7 @@ try:
             PSS_SQL += k + " != '" + v + "'"
             continue
         elif k == "NickName":
-            if v != None or v != "null":
+            if  v != "null" or v != None:
                 print(v)
                 PSS_SQL += " AND " + k + " = '" + v + "'"
                 continue
