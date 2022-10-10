@@ -148,6 +148,7 @@ except (IndexError, TypeError, KeyError, ValueError) as e:
     
 # 検索設定に基づいたProfileTable1の検索
 try:
+    print(PSS_SQL)
     cursor.execute(f" \
         SELECT * \
         FROM {ProfileTable} \
