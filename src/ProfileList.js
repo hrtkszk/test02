@@ -46,11 +46,13 @@ export function ProfileList() {
         <div>
         <ul>
             {ProfileList.map((Profile) => {
-              return <li key={Profile.UUID} onClick={() => auth.setAite(Profile.UUID)}>
+              let ProfileJson = {}
+              ProfileJson = JSON.parse(Profile)
+              return <li key={ProfileJson.UUID} onClick={() => auth.setAite(ProfileJson.UUID)}>
                 <Link to="../Detail">
-                  {Profile.NickName}
-                  {ProfileDB.Gender[Profile.Gender]}
-                  {Profile.Age}
+                  名前：{ProfileJson.NickName}<br />
+                  性別：{ProfileDB.Gender[ProfileJson.Gender]}<br />
+                  年齢：{ProfileJson.Age}<br /><hr />
                 </Link>
               </li>
             })}
