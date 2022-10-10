@@ -204,7 +204,7 @@ export function ProfileSetting() {
       return (
         <>
           <select
-            defaultValue={PS[Area].slice(0,4)+"0000"}
+            defaultValue={PS["Area"].slice(0,4)+"0000"}
             onChange={event => {
               setPS({...PS, "Area" : event.target.value})
             }}>
@@ -344,7 +344,7 @@ export function ProfileSetting() {
             <span className="dan">エリア</span>
             <span className="dan2">
               <select
-                defaultValue={PS[Area].slice(0,2)+"000000"}
+                defaultValue={PS["Area"].slice(0,2)+"000000"}
                 onChange={event => {
                   setPS({...PS, "Area" : event.target.value})
                 }}>
