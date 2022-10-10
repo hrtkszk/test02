@@ -200,7 +200,7 @@ export function ProfileSetting() {
   }
 
   function PrefectureSelect() {
-    PS_Area = String(PS["Area"])
+    let PS_Area = String(PS["Area"])
     if (PS_Area !== "10000000") {
       return (
         <>
@@ -224,7 +224,7 @@ export function ProfileSetting() {
   }
 
   function CitySelect() {
-    PS_Area = String(PS["Area"])
+    let PS_Area = String(PS["Area"])
     if (PS_Area.slice(2,8) !== "000000") {
       return (
         <>
@@ -252,7 +252,7 @@ export function ProfileSetting() {
   }
 
   function WardSelect() {
-    PS_Area = String(PS["Area"])
+    let PS_Area = String(PS["Area"])
     if (PS_Area.slice(4,8) !== "0000") {
       if (AreaDB.Area[PS_Area.slice(0,2)+"000000"]["Prefecture"][PS_Area.slice(0,4)+"0000"]["City"][PS_Area.slice(0,6)+"00"]["CityName"] === undefined) {
         return <></>
