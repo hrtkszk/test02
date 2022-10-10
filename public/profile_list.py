@@ -52,7 +52,8 @@ try:
         elif k == "NickName":
             if v == "null":
                 print("Yes_", v)
-            if  v != "null" or v != None:
+                continue
+            elif v != None:
                 print("No_",v)
                 PSS_SQL += " AND " + k + " = '" + v + "'"
                 continue
