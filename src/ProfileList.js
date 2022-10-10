@@ -45,12 +45,12 @@ export function ProfileList() {
         <h1>Profile List for {auth.user}</h1>
         <div>
         <ul>
-            {ProfileList.map((Profile, i) => {
+            {ProfileList.map((Profile) => {
               return <li key={Profile.UUID} onClick={() => auth.setAite(Profile.UUID)}>
                 <Link to="../Detail">
-                  {Profile.nickname}
-                  {ProfileDB.Gender[Profile.gender]}
-                  {Profile.age}
+                  {Profile.NickName}
+                  {ProfileDB.Gender[Profile.Gender]}
+                  {Profile.Age}
                 </Link>
               </li>
             })}
