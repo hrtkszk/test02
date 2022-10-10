@@ -32,7 +32,7 @@ export function ProfileList() {
       // console.log(result)
       // setProfileList(JSON.parse(result))
       setProfileList(result)
-      console.log(result)
+      // console.log(result)
     })
     setinitialized(true)
   }
