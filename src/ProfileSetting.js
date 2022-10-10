@@ -276,27 +276,28 @@ export function ProfileSetting() {
     }
   }
 
-  // function BirthPrefectureSelect() {
-  //   if (SettingBirthArea !== "10000000") {
-  //     return (
-  //       <>
-  //         <select
-  //           defaultValue={SettingBirthArea.slice(0,4)+"0000"}
-  //           onChange={event => {
-  //             setSettingBirthArea(event.target.value)
-  //           }}>
-  //             {Object.keys(AreaDB.Area[SettingBirthArea.slice(0,2)+"000000"]["Prefecture"]).map(key => 
-  //               <option value={key}>
-  //                 {AreaDB.Area[SettingBirthArea.slice(0,2)+"000000"]["Prefecture"][key]["PrefectureName"]}
-  //               </option>
-  //             )}
-  //         </select>
-  //       </>
-  //     )
-  //   } else {
-  //     return <></>
-  //   }
-  // }
+  function BirthPrefectureSelect() {
+    let PS_BirthArea = String(PS["BirthArea"])
+    if (PS_BirthArea !== "10000000") {
+      return (
+        <>
+          <select
+            defaultValue={PS_BirthArea.slice(0,4)+"0000"}
+            onChange={event => {
+              setPS({...PS, "BirthArea" : event.target.value})
+            }}>
+              {Object.keys(AreaDB.Area[PS_BirthArea.slice(0,2)+"000000"]["Prefecture"]).map(key => 
+                <option value={key}>
+                  {AreaDB.Area[PS_BirthArea.slice(0,2)+"000000"]["Prefecture"][key]["PrefectureName"]}
+                </option>
+              )}
+          </select>
+        </>
+      )
+    } else {
+      return <></>
+    }
+  }
 
   // const handleInput = (event) => {
   //   event.preventDefault();
@@ -449,19 +450,19 @@ export function ProfileSetting() {
                 setValue={setPS}
               />
             </li>
-            {/* <li>
+            <li>
               <span className="dan">出身地</span>
               <span className="dan2">
                 <select
-                  defaultValue={SettingBirthArea.slice(0,2)+"000000"}
+                  defaultValue={String(PS["BirthArea"]).slice(0,2)+"000000"}
                   onChange={event => {
-                      setSettingBirthArea(event.target.value)
+                    setPS({...PS, "BirthArea" : event.target.value})
                   }}>
                     {Object.keys(AreaDB.Area).map(key => <option value={key}>{AreaDB.Area[key]["AreaName"]}</option>)}
                 </select>
                 <BirthPrefectureSelect/>
               </span>
-            </li> */}
+            </li>
             <li>
               <FormSelect1
                 title="星座"
