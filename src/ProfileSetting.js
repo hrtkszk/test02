@@ -200,17 +200,18 @@ export function ProfileSetting() {
   }
 
   function PrefectureSelect() {
-    if (PS["Area"] !== "10000000") {
+    PS_Area = String(PS_Area)
+    if (PS_Area !== "10000000") {
       return (
         <>
           <select
-            defaultValue={PS["Area"].slice(0,4)+"0000"}
+            defaultValue={PS_Area.slice(0,4)+"0000"}
             onChange={event => {
               setPS({...PS, "Area" : event.target.value})
             }}>
-              {Object.keys(AreaDB.Area[PS["Area"].slice(0,2)+"000000"]["Prefecture"]).map(key => 
+              {Object.keys(AreaDB.Area[PS_Area.slice(0,2)+"000000"]["Prefecture"]).map(key => 
                 <option value={key}>
-                  {AreaDB.Area[PS["Area"].slice(0,2)+"000000"]["Prefecture"][key]["PrefectureName"]}
+                  {AreaDB.Area[PS_Area.slice(0,2)+"000000"]["Prefecture"][key]["PrefectureName"]}
                 </option>
               )}
           </select>
@@ -223,20 +224,21 @@ export function ProfileSetting() {
   }
 
   function CitySelect() {
-    if (PS["Area"].slice(2,8) !== "000000") {
+    PS_Area = String(PS_Area)
+    if (PS_Area.slice(2,8) !== "000000") {
       return (
         <>
           <select
-            defaultValue={PS["Area"].slice(0,6)+"00"}
+            defaultValue={PS_Area.slice(0,6)+"00"}
             onChange={event => {
               setPS({...PS, "Area" : event.target.value})
             }}>
-              {Object.keys(AreaDB.Area[PS["Area"].slice(0,2)+"000000"]["Prefecture"][PS["Area"].slice(0,4)+"0000"]["City"]).map(key => 
+              {Object.keys(AreaDB.Area[PS_Area.slice(0,2)+"000000"]["Prefecture"][PS_Area.slice(0,4)+"0000"]["City"]).map(key => 
                 <option value={key}>
-                  {AreaDB.Area[PS["Area"].slice(0,2)+"000000"]["Prefecture"][PS["Area"].slice(0,4)+"0000"]["City"][key]["CityName"] === undefined ? (
-                    AreaDB.Area[PS["Area"].slice(0,2)+"000000"]["Prefecture"][PS["Area"].slice(0,4)+"0000"]["City"][key]
+                  {AreaDB.Area[PS_Area.slice(0,2)+"000000"]["Prefecture"][PS_Area.slice(0,4)+"0000"]["City"][key]["CityName"] === undefined ? (
+                    AreaDB.Area[PS_Area.slice(0,2)+"000000"]["Prefecture"][PS_Area.slice(0,4)+"0000"]["City"][key]
                   ) : (
-                    AreaDB.Area[PS["Area"].slice(0,2)+"000000"]["Prefecture"][PS["Area"].slice(0,4)+"0000"]["City"][key]["CityName"]
+                    AreaDB.Area[PS_Area.slice(0,2)+"000000"]["Prefecture"][PS_Area.slice(0,4)+"0000"]["City"][key]["CityName"]
                   )}
                 </option>
               )}
@@ -250,19 +252,20 @@ export function ProfileSetting() {
   }
 
   function WardSelect() {
-    if (PS["Area"].slice(4,8) !== "0000") {
-      if (AreaDB.Area[PS["Area"].slice(0,2)+"000000"]["Prefecture"][PS["Area"].slice(0,4)+"0000"]["City"][PS["Area"].slice(0,6)+"00"]["CityName"] === undefined) {
+    PS_Area = String(PS_Area)
+    if (PS_Area.slice(4,8) !== "0000") {
+      if (AreaDB.Area[PS_Area.slice(0,2)+"000000"]["Prefecture"][PS_Area.slice(0,4)+"0000"]["City"][PS_Area.slice(0,6)+"00"]["CityName"] === undefined) {
         return <></>
       } else {
         return (
           <select
-            defaultValue={PS["Area"]}
+            defaultValue={PS_Area}
             onChange={event => {
               setPS({...PS, "Area" : event.target.value})
             }}>
-              {Object.keys(AreaDB.Area[PS["Area"].slice(0,2)+"000000"]["Prefecture"][PS["Area"].slice(0,4)+"0000"]["City"][PS["Area"].slice(0,6)+"00"]["Ward"]).map(key => 
+              {Object.keys(AreaDB.Area[PS_Area.slice(0,2)+"000000"]["Prefecture"][PS_Area.slice(0,4)+"0000"]["City"][PS_Area.slice(0,6)+"00"]["Ward"]).map(key => 
                 <option value={key}>
-                  {AreaDB.Area[PS["Area"].slice(0,2)+"000000"]["Prefecture"][PS["Area"].slice(0,4)+"0000"]["City"][PS["Area"].slice(0,6)+"00"]["Ward"][key]}
+                  {AreaDB.Area[PS_Area.slice(0,2)+"000000"]["Prefecture"][PS_Area.slice(0,4)+"0000"]["City"][PS_Area.slice(0,6)+"00"]["Ward"][key]}
                 </option>
               )}
           </select>
@@ -344,7 +347,7 @@ export function ProfileSetting() {
             <span className="dan">エリア</span>
             <span className="dan2">
               <select
-                defaultValue={PS["Area"].slice(0,2)+"000000"}
+                defaultValue={String(PS_Area).slice(0,2)+"000000"}
                 onChange={event => {
                   setPS({...PS, "Area" : event.target.value})
                 }}>
