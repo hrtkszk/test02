@@ -51,7 +51,7 @@ try:
             continue
         elif k == "NickName":
             if  v != "null" or v != None:
-                print(v)
+                print(type(v))
                 PSS_SQL += " AND " + k + " = '" + v + "'"
                 continue
         elif k == "Order":
