@@ -61,17 +61,19 @@ try:
             continue
         else:
             # _が入っているか？(複数選択か？)で単独検索、()付き検索かが変わる
-            if ("_" in v):
+            if v == 0:
+                continue
+            elif v == "null":
+                continue
+            elif v == "0_0":
+                continue
+            elif ("_" in v):
                 PSS_SQL += " AND ( "
                 each_value = v.split("_")
                 for value in each_value:
                     PSS_SQL += k + " = " + value + " OR "
                 PSS_SQL = PSS_SQL[:-3]
                 PSS_SQL += ")"
-                continue
-            elif v == "null":
-                continue
-            elif v == 0:
                 continue
             else:
                 PSS_SQL += " AND " + k + " = " + v
