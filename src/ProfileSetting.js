@@ -200,7 +200,7 @@ export function ProfileSetting() {
   }
 
   function PrefectureSelect() {
-    PS_Area = String(PS_Area)
+    PS_Area = String(PS["Area"])
     if (PS_Area !== "10000000") {
       return (
         <>
@@ -224,7 +224,7 @@ export function ProfileSetting() {
   }
 
   function CitySelect() {
-    PS_Area = String(PS_Area)
+    PS_Area = String(PS["Area"])
     if (PS_Area.slice(2,8) !== "000000") {
       return (
         <>
@@ -252,7 +252,7 @@ export function ProfileSetting() {
   }
 
   function WardSelect() {
-    PS_Area = String(PS_Area)
+    PS_Area = String(PS["Area"])
     if (PS_Area.slice(4,8) !== "0000") {
       if (AreaDB.Area[PS_Area.slice(0,2)+"000000"]["Prefecture"][PS_Area.slice(0,4)+"0000"]["City"][PS_Area.slice(0,6)+"00"]["CityName"] === undefined) {
         return <></>
@@ -347,7 +347,7 @@ export function ProfileSetting() {
             <span className="dan">エリア</span>
             <span className="dan2">
               <select
-                defaultValue={String(PS_Area).slice(0,2)+"000000"}
+                defaultValue={String(PS["Area"]).slice(0,2)+"000000"}
                 onChange={event => {
                   setPS({...PS, "Area" : event.target.value})
                 }}>
