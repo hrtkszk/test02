@@ -76,75 +76,75 @@ try:
 except (IndexError, TypeError, KeyError, ValueError) as e:
     print("Create SQL statement:", e)
 
-try:
-    cursor.execute(f"SELECT Area FROM {PSArea} WHERE UUID='{sys.argv[1]}'")
-    AreaList = cursor.fetchall()
-    if len(AreaList) == 0:
-        None
-    elif len(AreaList) ==1:
-        if str(AreaList[0][0])[2:] == "000000":
-            PSS_SQL += " AND (Area >= '" + str(AreaList[0][0]) + "' AND Area < '" + str(AreaList[0][0]+1000000) + "')"
-        elif str(AreaList[0][0])[4:] == "0000":
-            PSS_SQL += " AND (Area >= '" + str(AreaList[0][0]) + "' AND Area < '" + str(AreaList[0][0]+10000) + "')"
-        elif str(AreaList[0][0])[6:] == "00": 
-            PSS_SQL += " AND (Area >= '" + str(AreaList[0][0]) + "' AND Area < '" + str(AreaList[0][0]+100) + "')"
-        else:
-            PSS_SQL += " AND Area = '" + str(AreaList[0][0]) + "'"
-    else:
-        count = 1
-        for Area in AreaList:
-            if count == 1:
-                if str(Area[0])[2:] == "000000":
-                    PSS_SQL += " AND (Area >= '" + str(Area[0]) + "' AND Area < '" + str(Area[0]+1000000) + "'"
-                elif str(Area[0])[4:] == "0000":
-                    PSS_SQL += " AND (Area >= '" + str(Area[0]) + "' AND Area < '" + str(Area[0]+10000) + "'"
-                elif str(Area[0])[6:] == "00":
-                    PSS_SQL += " AND (Area >= '" + str(Area[0]) + "' AND Area < '" + str(Area[0]+100) + "'"
-                else:
-                    PSS_SQL += " AND (Area = '" + str(Area[0]) + "'"
-                count += 1
-            elif count == len(AreaList):
-                if str(Area[0])[2:] == "000000":
-                    PSS_SQL += " OR Area >= '" + str(Area[0]) + "' AND Area < '" + str(Area[0]+1000000) + "')"
-                elif str(Area[0])[4:] == "0000":
-                    PSS_SQL += " OR Area >= '" + str(Area[0]) + "' AND Area < '" + str(Area[0]+10000) + "')"
-                elif str(Area[0])[6:] == "00":
-                    PSS_SQL += " OR Area >= '" + str(Area[0]) + "' AND Area < '" + str(Area[0]+100) + "')"
-                else:
-                    PSS_SQL += " OR Area = '" + str(Area[0]) + "')"
-            else:
-                if str(Area[0])[2:] == "000000":
-                    PSS_SQL += " OR Area >= '" + str(Area[0]) + "' AND Area < '" + str(Area[0]+1000000) + "'"
-                elif str(Area[0])[4:] == "0000":
-                    PSS_SQL += " OR Area >= '" + str(Area[0]) + "' AND Area < '" + str(Area[0]+10000) + "'"
-                elif str(Area[0])[6:] == "00":
-                    PSS_SQL += " OR Area >= '" + str(Area[0]) + "' AND Area < '" + str(Area[0]+100) + "'"
-                else:
-                    PSS_SQL += " OR Area = '" +str(Area[0]) + "'"
-                count += 1
-except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
-    print("Obtain PSArea:", e)
+# try:
+#     cursor.execute(f"SELECT Area FROM {PSArea} WHERE UUID='{sys.argv[1]}'")
+#     AreaList = cursor.fetchall()
+#     if len(AreaList) == 0:
+#         None
+#     elif len(AreaList) ==1:
+#         if str(AreaList[0][0])[2:] == "000000":
+#             PSS_SQL += " AND (Area >= '" + str(AreaList[0][0]) + "' AND Area < '" + str(AreaList[0][0]+1000000) + "')"
+#         elif str(AreaList[0][0])[4:] == "0000":
+#             PSS_SQL += " AND (Area >= '" + str(AreaList[0][0]) + "' AND Area < '" + str(AreaList[0][0]+10000) + "')"
+#         elif str(AreaList[0][0])[6:] == "00": 
+#             PSS_SQL += " AND (Area >= '" + str(AreaList[0][0]) + "' AND Area < '" + str(AreaList[0][0]+100) + "')"
+#         else:
+#             PSS_SQL += " AND Area = '" + str(AreaList[0][0]) + "'"
+#     else:
+#         count = 1
+#         for Area in AreaList:
+#             if count == 1:
+#                 if str(Area[0])[2:] == "000000":
+#                     PSS_SQL += " AND (Area >= '" + str(Area[0]) + "' AND Area < '" + str(Area[0]+1000000) + "'"
+#                 elif str(Area[0])[4:] == "0000":
+#                     PSS_SQL += " AND (Area >= '" + str(Area[0]) + "' AND Area < '" + str(Area[0]+10000) + "'"
+#                 elif str(Area[0])[6:] == "00":
+#                     PSS_SQL += " AND (Area >= '" + str(Area[0]) + "' AND Area < '" + str(Area[0]+100) + "'"
+#                 else:
+#                     PSS_SQL += " AND (Area = '" + str(Area[0]) + "'"
+#                 count += 1
+#             elif count == len(AreaList):
+#                 if str(Area[0])[2:] == "000000":
+#                     PSS_SQL += " OR Area >= '" + str(Area[0]) + "' AND Area < '" + str(Area[0]+1000000) + "')"
+#                 elif str(Area[0])[4:] == "0000":
+#                     PSS_SQL += " OR Area >= '" + str(Area[0]) + "' AND Area < '" + str(Area[0]+10000) + "')"
+#                 elif str(Area[0])[6:] == "00":
+#                     PSS_SQL += " OR Area >= '" + str(Area[0]) + "' AND Area < '" + str(Area[0]+100) + "')"
+#                 else:
+#                     PSS_SQL += " OR Area = '" + str(Area[0]) + "')"
+#             else:
+#                 if str(Area[0])[2:] == "000000":
+#                     PSS_SQL += " OR Area >= '" + str(Area[0]) + "' AND Area < '" + str(Area[0]+1000000) + "'"
+#                 elif str(Area[0])[4:] == "0000":
+#                     PSS_SQL += " OR Area >= '" + str(Area[0]) + "' AND Area < '" + str(Area[0]+10000) + "'"
+#                 elif str(Area[0])[6:] == "00":
+#                     PSS_SQL += " OR Area >= '" + str(Area[0]) + "' AND Area < '" + str(Area[0]+100) + "'"
+#                 else:
+#                     PSS_SQL += " OR Area = '" +str(Area[0]) + "'"
+#                 count += 1
+# except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
+#     print("Obtain PSArea:", e)
 
-try:
-    cursor.execute(f"SELECT BirthArea FROM {PSBirthArea} WHERE UUID='{sys.argv[1]}'")
-    BirthAreaList = cursor.fetchall()
-    if len(BirthAreaList) == 0:
-        None
-    elif len(BirthAreaList) ==1:
-        PSS_SQL += " AND BirthArea = '" + str(BirthAreaList[0][0]) + "'"
-    else:
-        count = 1
-        for BirthArea in BirthAreaList:
-            if count == 1:
-                PSS_SQL += " AND (BirthArea = '" + str(BirthArea[0]) + "'"
-                count += 1
-            elif count == len(BirthAreaList):
-                PSS_SQL += " OR BirthArea = '" + str(BirthArea[0]) + "')"
-            else:
-                PSS_SQL += " OR BirthArea = '" +str(BirthArea[0]) + "'"
-                count += 1
-except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
-    print("Obtain PSBirthArea:", e)
+# try:
+#     cursor.execute(f"SELECT BirthArea FROM {PSBirthArea} WHERE UUID='{sys.argv[1]}'")
+#     BirthAreaList = cursor.fetchall()
+#     if len(BirthAreaList) == 0:
+#         None
+#     elif len(BirthAreaList) ==1:
+#         PSS_SQL += " AND BirthArea = '" + str(BirthAreaList[0][0]) + "'"
+#     else:
+#         count = 1
+#         for BirthArea in BirthAreaList:
+#             if count == 1:
+#                 PSS_SQL += " AND (BirthArea = '" + str(BirthArea[0]) + "'"
+#                 count += 1
+#             elif count == len(BirthAreaList):
+#                 PSS_SQL += " OR BirthArea = '" + str(BirthArea[0]) + "')"
+#             else:
+#                 PSS_SQL += " OR BirthArea = '" +str(BirthArea[0]) + "'"
+#                 count += 1
+# except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
+#     print("Obtain PSBirthArea:", e)
     
 # 検索設定に基づいたProfileTable1の検索
 try:
