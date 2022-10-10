@@ -71,6 +71,8 @@ try:
                 continue
             elif v == "null":
                 continue
+            elif v == 0:
+                continue
             else:
                 PSS_SQL += " AND " + k + " = " + v
                 continue
