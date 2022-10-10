@@ -30,7 +30,7 @@ export function ProfileList() {
     .then((response)=> response.json())
     .then(result =>{
       // console.log(result)
-      setProfileList(result[0])
+      setProfileList(JSON.parse(result[0]))
       console.log(result)
     })
     setinitialized(true)
