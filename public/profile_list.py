@@ -137,17 +137,29 @@ try:
     if len(BirthAreaList) == 0:
         None
     elif len(BirthAreaList) ==1:
-        PSS_SQL += " AND BirthArea = '" + str(BirthAreaList[0][0]) + "'"
+        if str(BirthAreaList[0][0])[2:] == "000000":
+            PSS_SQL += " AND (BirthArea >= '" + str(BirthAreaList[0][0]) + "' AND BirthArea < '" + str(BirthAreaList[0][0]+1000000) + "')"
+        elif str(BirthAreaList[0][0])[4:] == "0000":
+            PSS_SQL += " AND (BirthArea >= '" + str(BirthAreaList[0][0]) + "' AND BirthArea < '" + str(BirthAreaList[0][0]+10000) + "')"
     else:
         count = 1
         for BirthArea in BirthAreaList:
             if count == 1:
-                PSS_SQL += " AND (BirthArea = '" + str(BirthArea[0]) + "'"
+                if str(BirthArea[0])[2:] == "000000":
+                    PSS_SQL += " AND (BirthArea >= '" + str(BirthArea[0]) + "' AND BirthArea < '" + str(BirthArea[0]+1000000) + "'"
+                elif str(BirthArea[0])[4:] == "0000":
+                    PSS_SQL += " AND (BirthArea >= '" + str(BirthArea[0]) + "' AND BirthArea < '" + str(BirthArea[0]+10000) + "'"
                 count += 1
             elif count == len(BirthAreaList):
-                PSS_SQL += " OR BirthArea = '" + str(BirthArea[0]) + "')"
+                if str(BirthArea[0])[2:] == "000000":
+                    PSS_SQL += " OR BirthArea >= '" + str(BirthArea[0]) + "' AND BirthArea < '" + str(BirthArea[0]+1000000) + "')"
+                elif str(BirthArea[0])[4:] == "0000":
+                    PSS_SQL += " OR BirthArea >= '" + str(BirthArea[0]) + "' AND BirthArea < '" + str(BirthArea[0]+10000) + "')"
             else:
-                PSS_SQL += " OR BirthArea = '" +str(BirthArea[0]) + "'"
+                if str(BirthArea[0])[2:] == "000000":
+                    PSS_SQL += " OR BirthArea >= '" + str(BirthArea[0]) + "' AND BirthArea < '" + str(BirthArea[0]+1000000) + "'"
+                elif str(BirthArea[0])[4:] == "0000":
+                    PSS_SQL += " OR BirthArea >= '" + str(BirthArea[0]) + "' AND BirthArea < '" + str(BirthArea[0]+10000) + "'"
                 count += 1
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
     print("Obtain PSBirthArea:", e)
