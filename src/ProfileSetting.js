@@ -141,7 +141,12 @@ export function ProfileSetting() {
 
     let s = {}
     s["\"UUID\""] = "\"" + auth.user + "\""
-    Object.keys(PS).map(key => key !== "AgeRange" ? (s["\"" + key + "\""] = "\"" + PS[key] + "\""):(none))
+    Object.keys(PS).map(key => (
+      key !== "AgeRange" ? (
+        s["\"" + key + "\""] = "\"" + PS[key] + "\""
+      ):(
+        null
+      )))
 
     // s["\"NickName\""] = "\"" + Nickname + "\""
     // s["\"Age\""] = "\"" + Age + "\""
