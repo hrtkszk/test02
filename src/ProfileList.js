@@ -39,7 +39,7 @@ export function ProfileList() {
 
   function ShowArea(ProfileArea) {
     let Area = 10000000
-    console.log(ProfileArea)
+    console.log(ProfileArea.ProfileArea)
     // console.log(ProfileArea.Area)
     // Area = ProfileArea.Area
     console.log(Area)
