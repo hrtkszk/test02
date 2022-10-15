@@ -37,9 +37,9 @@ export function ProfileList() {
     setinitialized(true)
   }
 
-  function ShowArea(ProfileArea) {
+  function ShowArea(ReceivedData) {
     let Area = 10000000
-    console.log(ProfileArea.ProfileArea)
+    console.log(ReceivedData.Area)
     // console.log(ProfileArea.Area)
     // Area = ProfileArea.Area
     console.log(Area)
@@ -128,7 +128,7 @@ export function ProfileList() {
                   名前：{ProfileJson.NickName}<br />
                   性別：{ProfileDB.Gender[ProfileJson.Gender]}<br />
                   年齢：{ProfileDB.AgeRange[ProfileJson.AgeRange]}<br />
-                  エリア：<ShowArea ProfileArea={ProfileJson.Area}/><br /><hr />
+                  エリア：<ShowArea Area={ProfileJson.Area}/><br /><hr />
                 </Link>
               </li>
             })}
