@@ -150,7 +150,7 @@ export function ProfileSearchSetting1() {
             <FormSelectRange1
               title="年齢"
               keyText="PSAgeRange"
-              originalRange={ProfileDB.PreferedAge}
+              originalRange={ProfileDB.AgeRange}
               defaultValue={PSS}
               setValue={setPSS}
             />
