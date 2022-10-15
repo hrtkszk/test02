@@ -40,7 +40,7 @@ export function ProfileList() {
   function ShowArea(Area) {
     if (Area !== undefined) {
       // Area未設定の場合→「未設定」と表示
-      if (Profile.Area === 10000000) {
+      if (Area === 10000000) {
         return (
           <>
             {AreaDB.Area[String(Area).slice(0,2)+"000000"]["AreaName"]}
@@ -50,7 +50,7 @@ export function ProfileList() {
       // Areaが設定されている場合
       } else {
         // Prefectureが未設定の場合→「Area」のみを表示
-        if (String(Profile.Area).slice(2,8) === "000000") {
+        if (String(Area).slice(2,8) === "000000") {
           return (
             <>
               {AreaDB.Area[String(Area).slice(0,2)+"000000"]["AreaName"]}
@@ -70,18 +70,18 @@ export function ProfileList() {
           // Cityが設定されている場合→「Area」「Prefecture」「City」を表示
           } else {
             // Wardが存在しないCityが設定されている場合
-            if (AreaDB.Area[String(Area).slice(0,2)+"000000"]["Prefecture"][String(Area).slice(0,4)+"0000"]["City"][String(Profile.Area).slice(0,6)+"00"]["CityName"] === undefined) {
+            if (AreaDB.Area[String(Area).slice(0,2)+"000000"]["Prefecture"][String(Area).slice(0,4)+"0000"]["City"][String(Area).slice(0,6)+"00"]["CityName"] === undefined) {
               return (
                 <>
                   {AreaDB.Area[String(Area).slice(0,2)+"000000"]["AreaName"]}　
                   {AreaDB.Area[String(Area).slice(0,2)+"000000"]["Prefecture"][String(Area).slice(0,4)+"0000"]["PrefectureName"]}
-                  {AreaDB.Area[String(Area).slice(0,2)+"000000"]["Prefecture"][String(Area).slice(0,4)+"0000"]["City"][String(Profile.Area).slice(0,6)+"00"]}
+                  {AreaDB.Area[String(Area).slice(0,2)+"000000"]["Prefecture"][String(Area).slice(0,4)+"0000"]["City"][String(Area).slice(0,6)+"00"]}
                 </>
               )
             // Wardが存在するCityが設定されている場合
             } else { 
               // Wardが未設定の場合→「Area」「Prefecture」「City」を表示
-              if (String(Profile.Area).slice(6,8) === "00") {
+              if (String(Area).slice(6,8) === "00") {
                 return (
                   <>
                     {AreaDB.Area[String(Area).slice(0,2)+"000000"]["AreaName"]}　
