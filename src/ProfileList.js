@@ -52,7 +52,7 @@ export function ProfileList() {
                 <Link to="../Detail">
                   名前：{ProfileJson.NickName}<br />
                   性別：{ProfileDB.Gender[ProfileJson.Gender]}<br />
-                  年齢：{ProfileJson.Age}<br /><hr />
+                  年齢：{ProfileDB.AgeRange[ProfileJson.AgeRange]}<br /><hr />
                 </Link>
               </li>
             })}
