@@ -40,6 +40,7 @@ export function ProfileList() {
   function ShowArea(ProfileArea) {
     let Area = 0
     console.log(ProfileArea)
+    console.log(ProfileArea.Area)
     Area = ProfileArea.Area
     console.log(Area)
     if (Area !== undefined) {
