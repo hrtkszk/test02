@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { useAuth } from "./useAuth";
 import "./Profile.css";
 import ProfileDB from "./Profile.json";
-
+import AreaDB from "./Area.json";
 
 export function ProfileList() {
   let auth = useAuth();
@@ -36,7 +36,76 @@ export function ProfileList() {
     })
     setinitialized(true)
   }
-  
+
+  function ShowArea(Area) {
+    if (Area !== undefined) {
+      // Area未設定の場合→「未設定」と表示
+      if (Profile.Area === 10000000) {
+        return (
+          <>
+            {AreaDB.Area[String(Area).slice(0,2)+"000000"]["AreaName"]}
+          </>
+        )
+      
+      // Areaが設定されている場合
+      } else {
+        // Prefectureが未設定の場合→「Area」のみを表示
+        if (String(Profile.Area).slice(2,8) === "000000") {
+          return (
+            <>
+              {AreaDB.Area[String(Area).slice(0,2)+"000000"]["AreaName"]}
+            </>
+          )
+        
+        // Prefectureが設定されている場合
+        } else {
+          // Cityが未設定の場合→「Area」「Prefecture」を表示
+          if (String(Area).slice(4,8) === "0000") {
+            return (
+              <>
+                {AreaDB.Area[String(Area).slice(0,2)+"000000"]["AreaName"]}　
+                {AreaDB.Area[String(Area).slice(0,2)+"000000"]["Prefecture"][String(Area).slice(0,4)+"0000"]["PrefectureName"]}
+              </>
+            )
+          // Cityが設定されている場合→「Area」「Prefecture」「City」を表示
+          } else {
+            // Wardが存在しないCityが設定されている場合
+            if (AreaDB.Area[String(Area).slice(0,2)+"000000"]["Prefecture"][String(Area).slice(0,4)+"0000"]["City"][String(Profile.Area).slice(0,6)+"00"]["CityName"] === undefined) {
+              return (
+                <>
+                  {AreaDB.Area[String(Area).slice(0,2)+"000000"]["AreaName"]}　
+                  {AreaDB.Area[String(Area).slice(0,2)+"000000"]["Prefecture"][String(Area).slice(0,4)+"0000"]["PrefectureName"]}
+                  {AreaDB.Area[String(Area).slice(0,2)+"000000"]["Prefecture"][String(Area).slice(0,4)+"0000"]["City"][String(Profile.Area).slice(0,6)+"00"]}
+                </>
+              )
+            // Wardが存在するCityが設定されている場合
+            } else { 
+              // Wardが未設定の場合→「Area」「Prefecture」「City」を表示
+              if (String(Profile.Area).slice(6,8) === "00") {
+                return (
+                  <>
+                    {AreaDB.Area[String(Area).slice(0,2)+"000000"]["AreaName"]}　
+                    {AreaDB.Area[String(Area).slice(0,2)+"000000"]["Prefecture"][String(Area).slice(0,4)+"0000"]["PrefectureName"]}
+                    {AreaDB.Area[String(Area).slice(0,2)+"000000"]["Prefecture"][String(Area).slice(0,4)+"0000"]["City"][String(Area).slice(0,6)+"00"]["CityName"]}
+                  </>
+                )
+              // Wardが設定されている場合→「Area」「Prefecture」「Ward」を表示
+              } else {
+                return (
+                  <>
+                    {AreaDB.Area[String(Area).slice(0,2)+"000000"]["AreaName"]}　
+                    {AreaDB.Area[String(Area).slice(0,2)+"000000"]["Prefecture"][String(Area).slice(0,4)+"0000"]["PrefectureName"]}
+                    {AreaDB.Area[String(Area).slice(0,2)+"000000"]["Prefecture"][String(Area).slice(0,4)+"0000"]["City"][String(Area).slice(0,6)+"00"]["Ward"][Area]}
+                  </>
+                )
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   if (ProfileList === undefined || Object.keys(ProfileList).length === 0) {
     return <></>
   } else {
@@ -52,7 +121,8 @@ export function ProfileList() {
                 <Link to="../Detail">
                   名前：{ProfileJson.NickName}<br />
                   性別：{ProfileDB.Gender[ProfileJson.Gender]}<br />
-                  年齢：{ProfileDB.AgeRange[ProfileJson.AgeRange]}<br /><hr />
+                  年齢：{ProfileDB.AgeRange[ProfileJson.AgeRange]}<br />
+                  エリア：<ShowArea Area={ProfileJson.Area}/><br /><hr />
                 </Link>
               </li>
             })}
