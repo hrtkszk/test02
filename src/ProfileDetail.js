@@ -206,6 +206,10 @@ export function ProfileDetail() {
             <span className="dan2">{Profile.Age}</span>
           </li>
           <li>
+            <span className="dan">表示年齢</span>
+            <span className="dan2">{ProfileDB.AgeRange[Profile.AgeRange]}</span>
+          </li>
+          <li>
             <span className="dan">年齢確認</span>
             <span className="dan2">{ProfileDB.AgeConf[Profile.AgeConf]}</span>
           </li>

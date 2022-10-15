@@ -25,14 +25,14 @@ export function ProfileList() {
 
   // ページが読み込まれる時に実行し、Profile_Listとして登録する。
   if (initialized===false) {
-    console.log(initialRequestOptions)
+    // console.log(initialRequestOptions)
     fetch("../profile_list.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{
       // console.log(result)
       // setProfileList(JSON.parse(result))
       setProfileList(result)
-      console.log(result)
+      // console.log(result)
     })
     setinitialized(true)
   }

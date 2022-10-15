@@ -274,7 +274,7 @@ export function AiteProfile() {
           </li>
           <li>
             <span className="dan">年齢</span>
-            <span className="dan2">{Profile.Age}</span>
+            <span className="dan2">{ProfileDB.AgeRange[Profile.AgeRange]}</span>
           </li>
           <li>
             <span className="dan">年齢確認</span>
