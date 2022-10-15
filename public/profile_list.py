@@ -57,6 +57,17 @@ try:
                 continue
         elif k == "Order":
             continue
+        elif k == "AgeRange":
+            if v == 0:
+                continue
+            elif v == "null":
+                continue
+            elif v == "0_0":
+                continue
+            elif ("_" in v):
+                each_value = v.split("_")
+                PSS_SQL += " AND ( " + k + " >= " + each_value[0] + " AND "+ k + " >= " + each_value[1] + " )" 
+                continue
         elif k == "ProfileMessage":
             continue
         else:
