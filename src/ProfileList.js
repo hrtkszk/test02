@@ -38,6 +38,7 @@ export function ProfileList() {
   }
 
   function ShowArea(Area) {
+    console.log(Area)
     if (Area !== undefined) {
       // Area未設定の場合→「未設定」と表示
       if (Area === 10000000) {
@@ -117,7 +118,6 @@ export function ProfileList() {
             {ProfileList.map((Profile) => {
               let ProfileJson = {}
               ProfileJson = JSON.parse(Profile)
-              console.log(ProfileJson.Area)
               return <li key={ProfileJson.UUID} onClick={() => auth.setAite(ProfileJson.UUID)}>
                 <Link to="../Detail">
                   名前：{ProfileJson.NickName}<br />
