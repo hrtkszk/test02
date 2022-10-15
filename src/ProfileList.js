@@ -117,6 +117,7 @@ export function ProfileList() {
             {ProfileList.map((Profile) => {
               let ProfileJson = {}
               ProfileJson = JSON.parse(Profile)
+              console.log(ProfileJson.Area)
               return <li key={ProfileJson.UUID} onClick={() => auth.setAite(ProfileJson.UUID)}>
                 <Link to="../Detail">
                   名前：{ProfileJson.NickName}<br />
