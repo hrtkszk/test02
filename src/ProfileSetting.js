@@ -182,7 +182,7 @@ export function ProfileSetting() {
       headers:{'Content-Type': 'application/json'},
       body: JSON.stringify(s)
     }
-
+    console.log(requestOptions1)
     fetch("../../update_profile.php",requestOptions1)
     .then((response)=> response.json())
     .then(result =>{
