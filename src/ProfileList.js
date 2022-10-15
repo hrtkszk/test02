@@ -38,10 +38,10 @@ export function ProfileList() {
   }
 
   function ShowArea(ProfileArea) {
-    let Area = 0
+    let Area = 10000000
     console.log(ProfileArea)
-    console.log(ProfileArea.Area)
-    Area = ProfileArea.Area
+    // console.log(ProfileArea.Area)
+    // Area = ProfileArea.Area
     console.log(Area)
     if (Area !== undefined) {
       // Area未設定の場合→「未設定」と表示
@@ -128,7 +128,7 @@ export function ProfileList() {
                   名前：{ProfileJson.NickName}<br />
                   性別：{ProfileDB.Gender[ProfileJson.Gender]}<br />
                   年齢：{ProfileDB.AgeRange[ProfileJson.AgeRange]}<br />
-                  エリア：<ShowArea ProfileArea={ProfileJson}/><br /><hr />
+                  エリア：<ShowArea ProfileArea={ProfileJson.Area}/><br /><hr />
                 </Link>
               </li>
             })}
