@@ -38,8 +38,9 @@ export function ProfileList() {
   }
 
   function ShowArea(ProfileArea) {
-    let Area = ProfileArea.Area
+    let Area = 0
     console.log(ProfileArea)
+    Area = ProfileArea.Area
     console.log(Area)
     if (Area !== undefined) {
       // Area未設定の場合→「未設定」と表示
