@@ -33,8 +33,13 @@ BSS_SQL = ""
 # 自分の検索設定の入手
 try:
     cursor.execute(f"SELECT * FROM {BoshuSearchSetting} WHERE UUID='{sys.argv[1]}'")
+except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
+    print("Execute to Obtain BSS:", e)
+
+try:
     field_names = [i[0] for i in cursor.description]
     result_data = cursor.fetchone()
+    print(result_data)
     DictData = dict(zip(field_names, result_data))
 
     for k, v in DictData.items():
@@ -56,7 +61,7 @@ try:
             BSS_SQL += " AND " + k + " = '" + v + "'"
     # print(json.dumps(DictPSS1))
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
-    print("Obtain Profile Search Setting:", e)
+    print("Create SQL for BSS:", e)
 
 
 try:
