@@ -46,6 +46,13 @@ try:
         if k == "UUID":
             BSS_SQL += "t1." +k + " != '" + v + "'"
             continue
+        elif k == "BSAgeRange":
+            if v == 0 or v=="null" or v == None or v == "0_0":
+                continue
+            elif ("_" in v):
+                each_value = v.split("_")
+                BSS_SQL += " AND ( " + k + " >= " + each_value[0] + " AND "+ k + " <= " + each_value[1] + " )" 
+                continue
         elif v == "":
             BSS_SQL += " AND " + k + " = '0'"
             continue
