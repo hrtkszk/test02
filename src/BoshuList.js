@@ -128,8 +128,8 @@ export function BoshuList() {
                 募集カテゴリ：{ProfileDB.BoshuCategory[BoshuJson.BoshuCategory]}<br />
                 場所：<ShowArea DBValue={BoshuJson.BoshuArea}/><br />
                 名前：{BoshuJson.NickName}<br />
-                {/* {ProfileDB.Gender[BoshuJson.gender]}　 */}
-                年齢：{BoshuJson.Age}<br />
+                性別：{ProfileDB.Gender[BoshuJson.Gender]}<br />
+                年齢：{ProfileDB.AgeRange[BoshuJson.AgeRange]}<br />
                 募集タイトル：<Link to="../BoshuDetail">
                   {BoshuJson.BoshuTitle}
                 </Link><br />

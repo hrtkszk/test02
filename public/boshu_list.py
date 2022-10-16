@@ -16,7 +16,7 @@ connection = MySQLdb.connect(
 
 BoshuSearchSetting="BoshuSearchSetting"
 BoshuDB="BoshuDB"
-ProfileTable="ProfileTable1"
+ProfileTable="ProfileTable"
 BSArea="BSArea"
 
 # field name込みの場合はこっちを使う
@@ -117,9 +117,7 @@ try:
         SELECT * \
         FROM `{BoshuDB}` AS t1\
         INNER JOIN ( \
-            SELECT UUID, NickName, Age, \
-            Gender0, Gender1, Gender2, Gender3, Gender4, Gender5, Gender6, Gender7, \
-            Age0, Age1, Age2, Age3, Age4, Age5, Age6, Age7, Age8, Age9, Age10, Age11, Age12, Age13, Age14, Age15, Age16, Age17 \
+            SELECT UUID, NickName, Gender, AgeRange \
             FROM `{ProfileTable}`) AS t2\
         ON t1.UUID = t2.UUID \
         WHERE t1.UUID != '{DictData['UUID']}' \
@@ -143,8 +141,6 @@ try:
                 # phpでの文字列から配列への変換時の誤動作防止用前処理
                 item = item.replace("'","’")
                 row1.append(item.replace(', ', '，'))
-            elif isinstance(item, bytes):
-                row1.append(int.from_bytes(item, "big"))
             else:
                 row1.append(item)
         DictProfile=dict(zip(field_names, row1))
