@@ -5,36 +5,41 @@ import MySQLdb
 import sys
 import datetime
 import SQLconfig
+import json
 
 # データベースへの接続とカーソルの生成
+
+connection = MySQLdb.connect(
+    host=SQLconfig.host,
+    user=SQLconfig.user,
+    passwd=SQLconfig.passwd,
+    db=SQLconfig.db)
+
+MessageDB="MessageDB"
+
+# field name込みの場合はこっちを使う
+# cursor = connection.cursor(MySQLdb.cursors.DictCursor)
+cursor = connection.cursor()
+message = " ".join(sys.argv[3:])
+messageID1 = str(sys.argv[1])+"_"+str(sys.argv[2])+"_"+str(datetime.datetime.now())
+messageID2 = str(sys.argv[2])+"_"+str(sys.argv[1])+"_"+str(datetime.datetime.now())
+
 try:
-    connection = MySQLdb.connect(
-        host=SQLconfig.host,
-        user=SQLconfig.user,
-        passwd=SQLconfig.passwd,
-        db=SQLconfig.db)
-
-    table_name="MessageDB"
-
-    # field name込みの場合はこっちを使う
-    # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor = connection.cursor()
-    message = " ".join(sys.argv[3:])
-    messageID1 = str(sys.argv[1])+"_"+str(sys.argv[2])+"_"+str(datetime.datetime.now())
-    messageID2 = str(sys.argv[2])+"_"+str(sys.argv[1])+"_"+str(datetime.datetime.now())
-
-    cursor.execute(f"INSERT `{table_name}` (`UUID`, `aiteID`, `sender`, `messagedDateTime`, `messageID`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[1]}', '{sys.argv[2]}', '{sys.argv[1]}', CURRENT_TIMESTAMP, '{messageID1}', '{message}', '1', NULL)")
-    cursor.execute(f"INSERT `{table_name}` (`UUID`, `aiteID`, `sender`, `messagedDateTime`, `messageID`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[2]}', '{sys.argv[1]}', '{sys.argv[1]}', CURRENT_TIMESTAMP, '{messageID2}', '{message}', '0', NULL)")
-
+    cursor.execute(f"INSERT `{MessageDB}` (`UUID`, `aiteID`, `sender`, `messagedDateTime`, `messageID`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[1]}', '{sys.argv[2]}', '{sys.argv[1]}', CURRENT_TIMESTAMP, '{messageID1}', '{message}', '1', NULL)")
+    cursor.execute(f"INSERT `{MessageDB}` (`UUID`, `aiteID`, `sender`, `messagedDateTime`, `messageID`, `message`, `alreadyRead`, `pictureURL`) VALUES ('{sys.argv[2]}', '{sys.argv[1]}', '{sys.argv[1]}', CURRENT_TIMESTAMP, '{messageID2}', '{message}', '0', NULL)")
+except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
+    print("Execute SQL write:", e)
     # 既読処理が必要。
 
     # ここから下はreceive_get.phpで流してもよさそう(同じ)
-    cursor.execute(f"SELECT * FROM {table_name} WHERE UUID='{sys.argv[1]}' AND aiteID='{sys.argv[2]}' ORDER BY messagedDateTime")
+try:
+    cursor.execute(f"SELECT * FROM {MessageDB} WHERE UUID='{sys.argv[1]}' AND aiteID='{sys.argv[2]}' ORDER BY messagedDateTime")
+except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
+    print("Execute SQL read:", e)
 
-    num_fields = len(cursor.description)
+try:
+    # num_fields = len(cursor.description)
     field_names = [i[0] for i in cursor.description]
-    print(field_names)
-
     for row in cursor:
         row1 = list()
         for item in row:
@@ -47,14 +52,15 @@ try:
                 row1.append(item.replace(', ', '，'))
             else:
                 row1.append(item)
+        DictProfile=dict(zip(field_names, row1))
         # printでのpythonからphpへの受け渡し
-        print (row1)
+        print(json.dumps(DictProfile))
+except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
+    print("Message Result:", e)
 
-    # 保存を実行
-    connection.commit()
+# 保存を実行
+connection.commit()
 
-    # 接続を閉じる
-    connection.close()
-    
-except (MySQLdb.Error, MySQLdb.Warning) as e:
-    print(e)
+# 接続を閉じる
+connection.close()
+

@@ -14,7 +14,7 @@ connection = MySQLdb.connect(
     passwd=SQLconfig.passwd,
     db=SQLconfig.db)
 
-table_name="MessageDB"
+MessageDB="MessageDB"
 
 # field name込みの場合はこっちを使う
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
@@ -22,7 +22,7 @@ cursor = connection.cursor()
 
 # 既読処理が必要。
 try:
-    cursor.execute(f"SELECT * FROM {table_name} WHERE UUID='{sys.argv[1]}' AND aiteID='{sys.argv[2]}' ORDER BY messagedDateTime")
+    cursor.execute(f"SELECT * FROM {MessageDB} WHERE UUID='{sys.argv[1]}' AND aiteID='{sys.argv[2]}' ORDER BY messagedDateTime")
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
     print("Execute SQL:", e)
 

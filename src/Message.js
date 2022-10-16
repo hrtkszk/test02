@@ -55,11 +55,11 @@ export function Message() {
   if (intervalRef.current === null) {
     intervalRef.current = setInterval(() =>{
       fetch("../get_message.php",initialRequestOptions)
-        .then((response)=> response.json())
-        .then(result =>{
-          console.log("result.pythonout2: ", result.pythonout2)
-          setMessages(result.pythonout2)
-        })
+      .then((response)=> response.json())
+      .then(result =>{
+        setMessages(result)
+        console.log(result)
+      })
     }, 10000);
   }
 
@@ -82,7 +82,7 @@ export function Message() {
     .then((response)=> response.json())
     .then(result =>{
       console.log(result)
-      setMessages(result.pythonout2)
+      setMessages(result)
       // console.log(Messages)
       inputRef.current.value = ""
       setSendMessage("")
