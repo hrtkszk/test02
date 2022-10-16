@@ -14,10 +14,10 @@ $command_post="python3 set_profilesearcharea.py " //pythonに引数を渡す
 .$PSArea;
 exec($command_post, $output); //python実行と、返り数受け取り
 
-echo json_encode(
-  [
-    // "_POST" => $_POST,
-    "result" => $output,
-    // "result" => "SPSSS",
-  ]
-);
+echo json_encode($output);
+//   [
+//     // "_POST" => $_POST,
+//     "result" => $output,
+//     // "result" => "SPSSS",
+//   ]
+// );
