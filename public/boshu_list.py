@@ -40,12 +40,20 @@ try:
     field_names = [i[0] for i in cursor.description]
     result_data = cursor.fetchone()
     DictData = dict(zip(field_names, result_data))
-
+    DictData1 = {}
     for k, v in DictData.items():
+        if k[:2] == "BS":
+            if v != "0":
+                # BSを削除
+                DictData1[k[2:]] = v
+        else:
+            DictData1[k] = v
+
+    for k, v in DictData1.items():
         if k == "UUID":
             BSS_SQL += "t1." +k + " != '" + v + "'"
             continue
-        elif k == "BSAgeRange":
+        elif k == "AgeRange":
             if v == 0 or v=="null" or v == None or v == "0_0":
                 continue
             elif ("_" in v):
