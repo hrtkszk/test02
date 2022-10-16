@@ -145,7 +145,7 @@ export function BoshuSearchSetting() {
             <li>
               <FormMultiSelect3
                 title="募集カテゴリ"
-                keyText="BSCategory"
+                keyText="BSBoshuCategory"
                 keyValue={ProfileDB.BoshuCategory}
                 defaultValue={BSS}
                 setValue={setBSS}
