@@ -15,6 +15,9 @@ import FormTextInput1 from "./FormTextInput1";
 
 export function BoshuPost() {
   const [BS, setBS] = useState({});
+  if (Object.keys(BS).length === 0) {
+    setBS({...BS, "BoshuArea" : 10000000})
+  }
   // const [BoshuArea, setBoshuArea] = useState("10000000");
   // const [BoshuCategory, setBoshuCategory] = useState("0");
   // const [BoshuTitle, setBoshuTitle] = useState("");
@@ -139,108 +142,112 @@ export function BoshuPost() {
     }
   }
 
-  return (
-    <div>
-    <h1>募集投稿設定</h1>
-      <form onSubmit={e => submit(e)}>
-        <ul>
-          <li>
-            <FormSelect1
-              title="募集カテゴリ"
-              keyText="BoshuCategory"
-              keyValue={ProfileDB.BoshuCategory}
-              defaultValue={BS}
-              setValue={setBS}
-            />
-            {/* <span className="dan">募集カテゴリ</span>
+  if (Object.keys(BS).length === 0) {
+    return <></>
+  } else {
+    return (
+      <div>
+      <h1>募集投稿設定</h1>
+        <form onSubmit={e => submit(e)}>
+          <ul>
+            <li>
+              <FormSelect1
+                title="募集カテゴリ"
+                keyText="BoshuCategory"
+                keyValue={ProfileDB.BoshuCategory}
+                defaultValue={BS}
+                setValue={setBS}
+              />
+              {/* <span className="dan">募集カテゴリ</span>
+              <span className="dan2">
+                <select
+                  onChange={evt => setBoshuCategory(evt.target.value)}>
+                    {Object.keys(ProfileDB.BoshuCategory).map(key => <option value={key}>{ProfileDB.BoshuCategory[key]}</option>)}
+                </select>
+              </span> */}
+            </li>
+            <li>
+            <span className="dan">募集エリア</span>
             <span className="dan2">
               <select
-                onChange={evt => setBoshuCategory(evt.target.value)}>
-                  {Object.keys(ProfileDB.BoshuCategory).map(key => <option value={key}>{ProfileDB.BoshuCategory[key]}</option>)}
+                defaultValue={String(BS["BoshuArea"]).slice(0,2)+"000000"}
+                onChange={event => {
+                  setBS({...BS, "BoshuArea" : event.target.value})
+                }}>
+                  {Object.keys(AreaDB.Area).map(key => <option value={key}>{AreaDB.Area[key]["AreaName"]}</option>)}
               </select>
-            </span> */}
-          </li>
-          <li>
-          <span className="dan">募集エリア</span>
-          <span className="dan2">
-            <select
-              defaultValue={String(BS["BoshuArea"]).slice(0,2)+"000000"}
-              onChange={event => {
-                setBS({...BS, "BoshuArea" : event.target.value})
-              }}>
-                {Object.keys(AreaDB.Area).map(key => <option value={key}>{AreaDB.Area[key]["AreaName"]}</option>)}
-            </select>
-            <PrefectureSelect/>
-          </span>
-          </li>
-          <li>
-            <FormTextInput1
-              title="募集タイトル"
-              type="text"
-              keyText="BoshuTitile"
-              defaultValue={BS}
-              setValue={setBS}
-              required="true"
-            />
-            {/* <span className="dan">募集タイトル</span>
-            <span className="dan2">
-              <input
+              <PrefectureSelect/>
+            </span>
+            </li>
+            <li>
+              <FormTextInput1
+                title="募集タイトル"
                 type="text"
-                onChange={evt => {
-                  // 本当は、サーバー側でも入力制限を設けたい。
-                  setBoshuTitle(evt.target.value)
-                }}
-                placeholder='募集タイトル'
-              />    
-            </span> */}
-          </li>
-          <li>
-            <FormTextInput1
-              title="募集内容"
-              type="text"
-              keyText="BoshuTitile"
-              defaultValue={BS}
-              setValue={setBS}
-              required="true"
-            />
-            {/* <span className="dan">募集内容</span>
-            <span className="dan2">
-              <input
+                keyText="BoshuTitile"
+                defaultValue={BS}
+                setValue={setBS}
+                required="true"
+              />
+              {/* <span className="dan">募集タイトル</span>
+              <span className="dan2">
+                <input
+                  type="text"
+                  onChange={evt => {
+                    // 本当は、サーバー側でも入力制限を設けたい。
+                    setBoshuTitle(evt.target.value)
+                  }}
+                  placeholder='募集タイトル'
+                />    
+              </span> */}
+            </li>
+            <li>
+              <FormTextInput1
+                title="募集内容"
                 type="text"
-                onChange={evt => {
-                  // 本当は、サーバー側でも入力制限を設けたい。
-                  setBoshuMessage(evt.target.value)
-                }}
-                placeholder='募集内容'
-              />    
-            </span> */}
-          </li>
-          <li>
-            <FormTextInput1
-              title="募集上限"
-              type="number"
-              keyText="BoshuLimit"
-              defaultValue={BS}
-              setValue={setBS}
-              required="true"
-            />
-            {/* <span className="dan">募集上限</span>
-            <span className="dan2">
-              <input
+                keyText="BoshuTitile"
+                defaultValue={BS}
+                setValue={setBS}
+                required="true"
+              />
+              {/* <span className="dan">募集内容</span>
+              <span className="dan2">
+                <input
+                  type="text"
+                  onChange={evt => {
+                    // 本当は、サーバー側でも入力制限を設けたい。
+                    setBoshuMessage(evt.target.value)
+                  }}
+                  placeholder='募集内容'
+                />    
+              </span> */}
+            </li>
+            <li>
+              <FormTextInput1
+                title="募集上限"
                 type="number"
-                onChange={evt => {
-                // 本当は、サーバー側でも入力制限を設けたい。
-                setBoshuLimit(evt.target.value)
-                }}
-                placeholder='募集上限'
-              />          
-            </span> */}
-          </li>
-        </ul>
-        <button type="submit">投稿</button>
-      </form>
-      <br />
-      <Link to="../">戻る</Link>
-    </div>
-  );
+                keyText="BoshuLimit"
+                defaultValue={BS}
+                setValue={setBS}
+                required="true"
+              />
+              {/* <span className="dan">募集上限</span>
+              <span className="dan2">
+                <input
+                  type="number"
+                  onChange={evt => {
+                  // 本当は、サーバー側でも入力制限を設けたい。
+                  setBoshuLimit(evt.target.value)
+                  }}
+                  placeholder='募集上限'
+                />          
+              </span> */}
+            </li>
+          </ul>
+          <button type="submit">投稿</button>
+        </form>
+        <br />
+        <Link to="../">戻る</Link>
+      </div>
+    );
+  }
 }
