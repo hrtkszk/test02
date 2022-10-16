@@ -76,7 +76,7 @@ export function MessageList() {
                   性別：{ProfileDB.Gender[MessageJson.Gender]}<br />
                   年齢：{ProfileDB.AgeRange[MessageJson.AgeRange]}<br />
                   最新メッセージ：{MessageJson.message}<br />
-                  最新日時：<span class="datetime_l">{MessageJson.messagedDateTime}</span>
+                  最新日時：{MessageJson.messagedDateTime}<br />
                 </Link>
                 <hr />
               </li>
