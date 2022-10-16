@@ -9,19 +9,19 @@ import { useAuth } from "./useAuth";
 import "./ProfileDetail.css";
 import ProfileDB from "./Profile.json";
 import AreaDB from "./Area.json";
-import FormSelect from "./FormSelect";
-import FormTextInput from "./FormTextInput";
+import FormSelect1 from "./FormSelect1";
+import FormTextInput1 from "./FormTextInput1";
 
 
 export function BoshuPost() {
-  const [BoshuArea, setBoshuArea] = useState("10000000");
-  const [BoshuCategory, setBoshuCategory] = useState("0");
-  const [BoshuTitle, setBoshuTitle] = useState("");
-  const [BoshuMessage, setBoshuMessage] = useState("");
-  const [BoshuLimit, setBoshuLimit] = useState("0");
+  const [BS, setBS] = useState({});
+  // const [BoshuArea, setBoshuArea] = useState("10000000");
+  // const [BoshuCategory, setBoshuCategory] = useState("0");
+  // const [BoshuTitle, setBoshuTitle] = useState("");
+  // const [BoshuMessage, setBoshuMessage] = useState("");
+  // const [BoshuLimit, setBoshuLimit] = useState("0");
 
   let auth = useAuth();
-
   let navigate = useNavigate();
 
   // 入力値に問題があれば遷移しない。問題なければ遷移する
@@ -30,11 +30,14 @@ export function BoshuPost() {
 
     let s = {}
     s["\"UUID\""] = "\"" + auth.user + "\""
-    s["\"BoshuArea\""] = "\"" + BoshuArea + "\""
-    s["\"BoshuCategory\""] = "\"" + BoshuCategory + "\""
-    s["\"BoshuTitle\""] = "\"" + BoshuTitle + "\""
-    s["\"BoshuMessage\""] = "\"" + BoshuMessage + "\""
-    s["\"BoshuLimit\""] = "\"" + BoshuLimit + "\""
+    Object.keys(BS).map(key => s["\"" + key + "\""] = "\"" + BS[key] + "\"")
+
+
+    // s["\"BoshuArea\""] = "\"" + BoshuArea + "\""
+    // s["\"BoshuCategory\""] = "\"" + BoshuCategory + "\""
+    // s["\"BoshuTitle\""] = "\"" + BoshuTitle + "\""
+    // s["\"BoshuMessage\""] = "\"" + BoshuMessage + "\""
+    // s["\"BoshuLimit\""] = "\"" + BoshuLimit + "\""
     
     const requestOptions ={
       method: 'POST',
@@ -60,17 +63,18 @@ export function BoshuPost() {
 
 
   function PrefectureSelect() {
-    if (BoshuArea !== "10000000") {
+    let BS_Area = String(BS["BoshuArea"])
+    if (BS_Area !== "10000000") {
       return (
         <>
           <select
-            defaultValue={BoshuArea.slice(0,4)+"0000"}
+            defaultValue={BS_Area.slice(0,4)+"0000"}
             onChange={event => {
-              setBoshuArea(event.target.value)
+              setBS({...BS, "BoshuArea" : event.target.value})
             }}>
-              {Object.keys(AreaDB.Area[BoshuArea.slice(0,2)+"000000"]["Prefecture"]).map(key => 
+              {Object.keys(AreaDB.Area[BS_Area.slice(0,2)+"000000"]["Prefecture"]).map(key => 
                 <option value={key}>
-                  {AreaDB.Area[BoshuArea.slice(0,2)+"000000"]["Prefecture"][key]["PrefectureName"]}
+                  {AreaDB.Area[BS_Area.slice(0,2)+"000000"]["Prefecture"][key]["PrefectureName"]}
                 </option>
               )}
           </select>
@@ -83,20 +87,21 @@ export function BoshuPost() {
   }
 
   function CitySelect() {
-    if (BoshuArea.slice(2,8) !== "000000") {
+    let BS_Area = String(BS["BoshuArea"])
+    if (BS_Area.slice(2,8) !== "000000") {
       return (
         <>
           <select
-            defaultValue={BoshuArea.slice(0,6)+"00"}
+            defaultValue={BS_Area.slice(0,6)+"00"}
             onChange={event => {
-              setBoshuArea(event.target.value)
+              setBS({...BS, "BoshuArea" : event.target.value})
             }}>
-              {Object.keys(AreaDB.Area[BoshuArea.slice(0,2)+"000000"]["Prefecture"][BoshuArea.slice(0,4)+"0000"]["City"]).map(key => 
+              {Object.keys(AreaDB.Area[BS_Area.slice(0,2)+"000000"]["Prefecture"][BS_Area.slice(0,4)+"0000"]["City"]).map(key => 
                 <option value={key}>
-                  {AreaDB.Area[BoshuArea.slice(0,2)+"000000"]["Prefecture"][BoshuArea.slice(0,4)+"0000"]["City"][key]["CityName"] === undefined ? (
-                    AreaDB.Area[BoshuArea.slice(0,2)+"000000"]["Prefecture"][BoshuArea.slice(0,4)+"0000"]["City"][key]
+                  {AreaDB.Area[BS_Area.slice(0,2)+"000000"]["Prefecture"][BS_Area.slice(0,4)+"0000"]["City"][key]["CityName"] === undefined ? (
+                    AreaDB.Area[BS_Area.slice(0,2)+"000000"]["Prefecture"][BS_Area.slice(0,4)+"0000"]["City"][key]
                   ) : (
-                    AreaDB.Area[BoshuArea.slice(0,2)+"000000"]["Prefecture"][BoshuArea.slice(0,4)+"0000"]["City"][key]["CityName"]
+                    AreaDB.Area[BoBS_AreahuArea.slice(0,2)+"000000"]["Prefecture"][BS_Area.slice(0,4)+"0000"]["City"][key]["CityName"]
                   )}
                 </option>
               )}
@@ -110,19 +115,20 @@ export function BoshuPost() {
   }
 
   function WardSelect() {
-    if (BoshuArea.slice(4,8) !== "0000") {
-      if (AreaDB.Area[BoshuArea.slice(0,2)+"000000"]["Prefecture"][BoshuArea.slice(0,4)+"0000"]["City"][BoshuArea.slice(0,6)+"00"]["CityName"] === undefined) {
+    let BS_Area = String(BS["BoshuArea"])
+    if (BS_Area.slice(4,8) !== "0000") {
+      if (AreaDB.Area[BS_Area.slice(0,2)+"000000"]["Prefecture"][BS_Area.slice(0,4)+"0000"]["City"][BS_Area.slice(0,6)+"00"]["CityName"] === undefined) {
         return <></>
       } else {
         return (
           <select
-            defaultValue={BoshuArea}
+            defaultValue={BS_Area}
             onChange={event => {
-              setBoshuArea(event.target.value)
+              setBS({...BS, "BoshuArea" : event.target.value})
             }}>
-              {Object.keys(AreaDB.Area[BoshuArea.slice(0,2)+"000000"]["Prefecture"][BoshuArea.slice(0,4)+"0000"]["City"][BoshuArea.slice(0,6)+"00"]["Ward"]).map(key => 
+              {Object.keys(AreaDB.Area[BS_Area.slice(0,2)+"000000"]["Prefecture"][BS_Area.slice(0,4)+"0000"]["City"][BS_Area.slice(0,6)+"00"]["Ward"]).map(key => 
                 <option value={key}>
-                  {AreaDB.Area[BoshuArea.slice(0,2)+"000000"]["Prefecture"][BoshuArea.slice(0,4)+"0000"]["City"][BoshuArea.slice(0,6)+"00"]["Ward"][key]}
+                  {AreaDB.Area[BS_Area.slice(0,2)+"000000"]["Prefecture"][BS_Area.slice(0,4)+"0000"]["City"][BS_Area.slice(0,6)+"00"]["Ward"][key]}
                 </option>
               )}
           </select>
@@ -139,11 +145,12 @@ export function BoshuPost() {
       <form onSubmit={e => submit(e)}>
         <ul>
           <li>
-            <FormSelect
+            <FormSelect1
               title="募集カテゴリ"
+              keyText="BoshuCategory"
               keyValue={ProfileDB.BoshuCategory}
-              defaultValue={BoshuCategory}
-              setValue={setBoshuCategory}
+              defaultValue={BS}
+              setValue={setBS}
             />
             {/* <span className="dan">募集カテゴリ</span>
             <span className="dan2">
@@ -157,9 +164,9 @@ export function BoshuPost() {
           <span className="dan">募集エリア</span>
           <span className="dan2">
             <select
-              defaultValue={BoshuArea.slice(0,2)+"000000"}
-              onChange={evt => {
-                setBoshuArea(evt.target.value)
+              defaultValue={String(BS["BoshuArea"]).slice(0,2)+"000000"}
+              onChange={event => {
+                setBS({...BS, "BoshuArea" : event.target.value})
               }}>
                 {Object.keys(AreaDB.Area).map(key => <option value={key}>{AreaDB.Area[key]["AreaName"]}</option>)}
             </select>
@@ -167,11 +174,12 @@ export function BoshuPost() {
           </span>
           </li>
           <li>
-            <FormTextInput 
+            <FormTextInput1
               title="募集タイトル"
               type="text"
-              defaultValue={BoshuTitle}
-              setValue={setBoshuTitle}
+              keyText="BoshuTitile"
+              defaultValue={BS}
+              setValue={setBS}
               required="true"
             />
             {/* <span className="dan">募集タイトル</span>
@@ -187,11 +195,12 @@ export function BoshuPost() {
             </span> */}
           </li>
           <li>
-            <FormTextInput 
+            <FormTextInput1
               title="募集内容"
               type="text"
-              defaultValue={BoshuMessage}
-              setValue={setBoshuMessage}
+              keyText="BoshuTitile"
+              defaultValue={BS}
+              setValue={setBS}
               required="true"
             />
             {/* <span className="dan">募集内容</span>
@@ -207,11 +216,12 @@ export function BoshuPost() {
             </span> */}
           </li>
           <li>
-            <FormTextInput 
+            <FormTextInput1
               title="募集上限"
               type="number"
-              defaultValue={BoshuLimit}
-              setValue={setBoshuLimit}
+              keyText="BoshuLimit"
+              defaultValue={BS}
+              setValue={setBS}
               required="true"
             />
             {/* <span className="dan">募集上限</span>

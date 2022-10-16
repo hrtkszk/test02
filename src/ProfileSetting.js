@@ -191,7 +191,7 @@ export function ProfileSetting() {
     fetch("../../update_profile.php",requestOptions1)
     .then((response)=> response.json())
     .then(result =>{
-      console.log(result)
+      // console.log(result)
       if (result[0]==="UPS") {
         // プロフィール変更成功。リダイレクト
         auth.setMessage("プロフィールを変更しました")
