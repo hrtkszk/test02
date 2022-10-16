@@ -29,7 +29,7 @@ export function MessageList() {
     fetch("../message_list.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{
-      console.log(result)
+      // console.log(result)
       setMessageList(result)
       // console.log(result.pythonout2)
     })

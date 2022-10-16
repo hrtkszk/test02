@@ -7,7 +7,7 @@ import * as React from "react";
 import { useState, useRef, useEffect } from 'react';
 import { useAuth } from "./useAuth";
 import "./Message.css";
-
+import ProfileDB from "./Profile.json";
 
 export function Message() {
   let auth = useAuth();
@@ -16,7 +16,7 @@ export function Message() {
   const inputRef = useRef();
   const [Messages, setMessages] = useState([]);
   const [SendMessage, setSendMessage] = useState("");
-  const [BasicProfile, setBasicProfile] = useState({});
+  const [Profile, setProfile] = useState([]);
   const [initialized, setinitialized] = useState(false);
 
   const initialRequestOptions ={
@@ -42,11 +42,11 @@ export function Message() {
       body: JSON.stringify({"UUID":auth.aite})
     }
     console.log(initialRequestOptions1)
-    fetch("../get_basicprofile.php",initialRequestOptions1)
+    fetch("../get_profile1.php",initialRequestOptions1)
     .then((response) => response.json())
     .then(result => {
       console.log(result[0])
-      setBasicProfile(JSON.parse(result[0]))
+      setProfile(JSON.parse(result[0]))
     })
 
     setinitialized(true)
@@ -89,14 +89,13 @@ export function Message() {
     })
   }
 
-  // BasicProfileが空の場合、空ページを表示（読み込みが完了していないため）
-  if (BasicProfile.length === 0) {
+  // Profileが空の場合、空ページを表示（読み込みが完了していないため）
+  if (Object.keys(Profile).length === 0) {
     return <></>
-  
   } else if (Messages === []) {
     return (
       <div>
-        <h1>{BasicProfile.NickName}　{BasicProfile.Age}</h1>
+        <h1>{Profile.NickName}　{ProfileDB.AgeRange[Profile.AgeRange]}</h1>
         <footer>
           <input
             id="sendMessage"
@@ -111,7 +110,7 @@ export function Message() {
   } else {
     return (
       <div>
-        <h1>{BasicProfile.NickName}　{BasicProfile.Age}</h1>
+        <h1>{Profile.NickName}　{ProfileDB.AgeRange[Profile.AgeRange]}</h1>
         <div>
         <ul>
           {Messages.map((Message, i) => {
