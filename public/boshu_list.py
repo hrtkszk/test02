@@ -39,7 +39,6 @@ except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueEr
 try:
     field_names = [i[0] for i in cursor.description]
     result_data = cursor.fetchone()
-    print(result_data)
     DictData = dict(zip(field_names, result_data))
 
     for k, v in DictData.items():
