@@ -101,7 +101,7 @@ export function BoshuPost() {
                   {AreaDB.Area[BS_Area.slice(0,2)+"000000"]["Prefecture"][BS_Area.slice(0,4)+"0000"]["City"][key]["CityName"] === undefined ? (
                     AreaDB.Area[BS_Area.slice(0,2)+"000000"]["Prefecture"][BS_Area.slice(0,4)+"0000"]["City"][key]
                   ) : (
-                    AreaDB.Area[BoBS_AreahuArea.slice(0,2)+"000000"]["Prefecture"][BS_Area.slice(0,4)+"0000"]["City"][key]["CityName"]
+                    AreaDB.Area[BS_Area.slice(0,2)+"000000"]["Prefecture"][BS_Area.slice(0,4)+"0000"]["City"][key]["CityName"]
                   )}
                 </option>
               )}
