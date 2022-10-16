@@ -7,6 +7,7 @@ import {
 import { useState } from 'react';
 import { useAuth } from "./useAuth";
 import "./Message.css";
+import ProfileDB from "./Profile.json";
 
 
 export function MessageList() {
@@ -72,6 +73,8 @@ export function MessageList() {
               return <li key={MessageJson.aiteID} onClick={() => auth.setAite(MessageJson.aiteID)}>
                 <Link to="../Message">
                   名前：{MessageJson.NickName}<br />
+                  性別：{ProfileDB.Gender[MessageJson.Gender]}<br />
+                  年齢：{ProfileDB.AgeRange[MessageJson.AgeRange]}<br />
                   最新メッセージ：{MessageJson.message}<br />
                   最新日時：<span class="datetime_l">{MessageJson.messagedDateTime}</span>
                 </Link>

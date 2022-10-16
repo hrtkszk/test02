@@ -57,7 +57,7 @@ try:
                 continue
         elif k == "Order":
             continue
-        elif k == "AgeRange":
+        elif k == "AgeRange" or k== "Cup":
             if v == 0:
                 continue
             elif v == "null":
