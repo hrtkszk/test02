@@ -127,7 +127,7 @@ try:
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
     print("Obtain BSArea:", e)
 
-print("BSS_SQL:", BSS_SQL)
+# print("BSS_SQL:", BSS_SQL)
 
 try:
     # SELECT t1.UUID, BoshuID, BoshuArea, BoshuPrefecture, BoshuCity, BoshuWard, BoshuCategory, BoshuTitle, ViewCount, PostDateTime, nickname, gender, age \
