@@ -15,7 +15,7 @@ export function BoshuDetail() {
 
   // const inputRef = useRef();
   const [BoshuDetail, setBoshuDetail] = useState([]);
-  const [BasicProfile, setBasicProfile] = useState([]);
+  const [Profile, setProfile] = useState([]);
   const [initialized, setinitialized] = useState(false);
 
 
@@ -36,20 +36,20 @@ export function BoshuDetail() {
     .then(result =>{
       // console.log(result)
       setBoshuDetail(JSON.parse(result[0]))
-      console.log(JSON.parse(result[0]))
+      setProfile(JSON.parse(result[1]))
     })
 
-    const initialRequestOptions1 ={
-      method: 'POST',
-      headers:{'Content-Type': 'application/json'},
-      body: JSON.stringify({"UUID":auth.aite})
-    }
-    fetch("../get_basicprofile.php",initialRequestOptions1)
-    .then((response) => response.json())
-    .then(result => {
-      setBasicProfile(JSON.parse(result[0]))
-      console.log(JSON.parse(result[0]))
-    })
+    // const initialRequestOptions1 ={
+    //   method: 'POST',
+    //   headers:{'Content-Type': 'application/json'},
+    //   body: JSON.stringify({"UUID":auth.aite})
+    // }
+    // fetch("../get_basicprofile.php",initialRequestOptions1)
+    // .then((response) => response.json())
+    // .then(result => {
+    //   setBasicProfile(JSON.parse(result[0]))
+    //   console.log(JSON.parse(result[0]))
+    // })
 
     setinitialized(true)
   }
@@ -124,31 +124,27 @@ export function BoshuDetail() {
   }
 
   // 空の場合、空ページを表示（読み込みが完了していないため）
-  if (BasicProfile.length === 0 || BoshuDetail.length === 0 || BoshuDetail === []) {
+  if (Profile.length === 0 || BoshuDetail.length === 0 || BoshuDetail === []) {
     return <></>
   } else {
     return (
       <div>
-        <h1>{BasicProfile.NickName}　{BasicProfile.Age}</h1>
-        <div>
-        </div>
-        <div>
         <ul>
           <li>
             <span className="dan">ニックネーム</span>
-            <span className="dan2">{BasicProfile.NickName}</span>
+            <span className="dan2">{Profile.NickName}</span>
           </li>
           <li>
             <SelectProfileItem
               title="性別"
               keyName="Gender"
               keyValue={ProfileDB.Gender}
-              DBValue={BasicProfile}
+              DBValue={Profile}
             />
           </li>
           <li>
             <span className="dan">年齢</span>
-            <span className="dan2">{BasicProfile.Age}</span>
+            <span className="dan2">{ProfileDB.AgeRange[Profile.AgeRange]}</span>
           </li>
           <li>
             <span className="dan">募集カテゴリ</span>
@@ -177,15 +173,11 @@ export function BoshuDetail() {
             <span className="dan2">{BoshuDetail.EntryCount}/{BoshuDetail.BoshuLimit}</span>
           </li>
         </ul>
-        </div>
-        <div>
           {/* メッセージを送る際に、募集タイトルが記載されると良い */}
           <div  onClick={() => auth.setAite(BoshuDetail.UUID)}>
             <Link to="../Message">メッセージを送る</Link>
           </div><br />
-
           <Link to="../">戻る</Link>
-        </div>
       </div>
     )
   }
