@@ -29,13 +29,13 @@ export function BoshuList() {
 
   // ページが読み込まれる時に実行し、BoshuListとして登録する。
   if (initialized===false) {
-    console.log(initialRequestOptions)
+    // console.log(initialRequestOptions)
     fetch("../boshu_list.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{
       // console.log(result)
       setBoshuList(result)
-      console.log(result)
+      // console.log(result)
     })
     setinitialized(true)
   }
