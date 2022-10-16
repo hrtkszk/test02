@@ -33,7 +33,7 @@ export function BoshuList() {
     fetch("../boshu_list.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{
-      // console.log(result)
+      console.log(result)
       setBoshuList(result)
       // console.log(result)
     })
