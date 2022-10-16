@@ -204,7 +204,7 @@ export function BoshuPost() {
               <FormTextInput1
                 title="募集内容"
                 type="text"
-                keyText="BoshuTitile"
+                keyText="BoshuMessage"
                 defaultValue={BS}
                 setValue={setBS}
                 required="true"
