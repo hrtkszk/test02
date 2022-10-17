@@ -151,13 +151,13 @@ export function AuthProvider({ children }) {
     .then((response)=> response.json())
     .then(result =>{
       console.log(result)
-      PwdReset = result.result[0]
+      PwdReset = result[0]
       // TempPwdが間違っていれば弾き(signoutでuserID=""にする)、
       // OKならパスワードをリセットして、そのままログインする。
       if (PwdReset==="PRC") {
         setUser(UserID)
         setAuthStatus(true)
-        setRegistrationStatus(result.result[1])
+        setRegistrationStatus(result[1])
         setMessage("パスワードを再設定しました")
       } else {
         console.log("エラー：", PwdReset)

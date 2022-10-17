@@ -15,7 +15,7 @@ connection = MySQLdb.connect(
 
 pwdtable="PwdSettings"
 # profiletable="basicProfileTable"
-ProfileTable="ProfileTable1"
+ProfileTable="ProfileTable"
 
 # TempPwdをチェック。
 # TempPwdがOKなら、NewPwdを追加する。
@@ -38,7 +38,7 @@ else:
     if TempPwdDB == sys.argv[2]:
         # 新パスワード登録
         cursor.execute(f"INSERT `{pwdtable}` (`UUID`, `password`, `datetime`) VALUES ('{sys.argv[1]}', '{sys.argv[3]}', CURRENT_TIME)")
-        cursor.execute(f"SELECT RegistrationStatus1 FROM {ProfileTable} WHERE UUID='{sys.argv[1]}'")
+        cursor.execute(f"SELECT RegistrationStatus FROM {ProfileTable} WHERE UUID='{sys.argv[1]}'")
         RegistrationStatus = cursor.fetchone()[0]
         print("PRC") # Password Reset Complete
         print(RegistrationStatus)
