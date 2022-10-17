@@ -34,9 +34,9 @@ export function NewUser() {
     fetch("../check_add_mailpw.php",requestOptions1)
     .then((response)=> response.json())
     .then(result =>{
-      if (result.result[0]==="TRC") {
+      if (result[0]==="TRC") {
         NewEmail = true;
-        UUID = result.result[1]
+        UUID = result[1]
       } else {
         navigate("../EmailExist")
       }
@@ -53,7 +53,7 @@ export function NewUser() {
         fetch("../send_mail.php",requestOptions2)
         .then((response)=> response.json())
         .then(result =>{
-          if (result.EmailSend===true) {
+          if (result===true) {
             navigate("../EmailSent")
           } else {
             navigate("../EmailExist")

@@ -22,17 +22,17 @@ mb_internal_encoding("UTF-8");
 
 if(mb_send_mail($to, $title, $message, $headers))
 {
-  echo json_encode(
-      [
-        "EmailSend" => true,
-      ]
-    );
+  echo json_encode(true);
+    //   [
+    //     "EmailSend" => true,
+    //   ]
+    // );
 }
 else
 {
-  echo json_encode(
-      [
-        "EmailSend" => false,
-      ]
-    );
+  echo json_encode(false);
+    //   [
+    //     "EmailSend" => false,
+    //   ]
+    // );
 }
