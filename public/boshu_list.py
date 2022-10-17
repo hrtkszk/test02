@@ -27,8 +27,7 @@ cursor = connection.cursor()
 # cursor.execute(f"SELECT * FROM {table_name} WHERE ID='{sys.argv[1]}' GROUP BY aiteID ORDER BY messagedDateTime")
 # AND messagedDateTime=(SELECT max(messagedDateTime) FROM {table_name} AS md WHERE {table_name}.aiteID=md.aiteID)
 
-# SQL文の作成
-BSS_SQL = ""
+
 
 # 自分の検索設定の入手
 try:
@@ -39,16 +38,25 @@ except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueEr
 try:
     field_names = [i[0] for i in cursor.description]
     result_data = cursor.fetchone()
+
     DictData = dict(zip(field_names, result_data))
     DictData1 = {}
+
     for k, v in DictData.items():
         if k[:2] == "BS":
             if v != "0":
-                # BSを削除
+                # PSを削除
                 DictData1[k[2:]] = v
+            elif v == None:
+                DictData1[k[2:]] = 0
         else:
             DictData1[k] = v
+except Exception as e:
+    print("Create Dict:", e)
 
+# SQL文の作成
+BSS_SQL = ""
+try:
     for k, v in DictData1.items():
         if k == "UUID":
             BSS_SQL += "t1." +k + " != '" + v + "'"
