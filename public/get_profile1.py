@@ -39,7 +39,8 @@ connection.close()
 
 print(recieved_data)
 for item in recieved_data:
-    print(type(item))
+    if type(item) == "datetime.datetime":
+        print(item)
 DictData = dict(zip(field_names, recieved_data))
 # print(json.dumps(DictData))
 
