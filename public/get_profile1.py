@@ -37,17 +37,17 @@ connection.commit()
 # 接続を閉じる
 connection.close()
 
-
+# print(recieved_data)
+recieved_data1 = []
 try:
-    # print(recieved_data)
-    recieved_data1 = []
     for item in recieved_data:
         if isinstance(item, datetime.datetime):
             recieved_data1.append(item.strftime('%Y/%m/%d %H:%M:%S'))
             continue
         recieved_data1.append(item)
-except e:
+except Exception as e:
     print(e)
+
 DictData = dict(zip(field_names, recieved_data1))
 print(json.dumps(DictData))
 
