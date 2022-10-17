@@ -39,7 +39,7 @@ connection.close()
 
 print(recieved_data)
 for item in recieved_data:
-    if isinstance(item, datetime):
+    if isinstance(item, datetime.datetime):
         print(item)
 DictData = dict(zip(field_names, recieved_data))
 # print(json.dumps(DictData))
