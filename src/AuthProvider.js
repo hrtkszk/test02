@@ -71,7 +71,7 @@ export function AuthProvider({ children }) {
     .then((response)=> response.json())
     .then(result =>{
       console.log(result)
-      if (result.result[0]==="NRY") {
+      if (result[0]==="NRY") {
         NewRegistry = true;
       } else {
         console.log("登録済み")

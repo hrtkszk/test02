@@ -6,7 +6,7 @@ import sys
 import datetime
 import SQLconfig
 
-try:
+# try:
     # GenderInt=int(sys.argv[3])
     # Gender=""
     # if GenderInt==0: Gender += "Gender0=1,"
@@ -26,7 +26,7 @@ try:
     # if GenderInt==7: Gender += "Gender7=1,"
     # else: Gender += "Gender7=0,"
 
-    Age=int(sys.argv[4])
+    # Age=int(sys.argv[4])
     # AgeRange="" SQLで勝手に計算されるようにした
     # if 18 <= Age and Age <= 120: AgeRange += "Age0=0,"
     # else: AgeRange += "Age0=1,"
@@ -65,45 +65,59 @@ try:
     # if 70 <= Age: AgeRange += "Age17=1,"
     # else: AgeRange += "Age17=0,"
     # データベースへの接続とカーソルの生成
-except (ValueError, Exception) as e:
-    print(e)
+# except (ValueError, Exception) as e:
+#     print(e)
+
+
+connection = MySQLdb.connect(
+    host=SQLconfig.host,
+    user=SQLconfig.user,
+    passwd=SQLconfig.passwd,
+    db=SQLconfig.db)
+
+# profiletable="basicProfileTable"
+# pwdtable="PwdSettings"
+ProfileTable="ProfileTable"
+PSS="ProfileSearchSetting"
+BSS="BoshuSearchSetting"
+
+#先に、UUIDが存在するか確認する。存在しない場合は、エラーを返す。
+
+# field name込みの場合はこっちを使う
+# cursor = connection.cursor(MySQLdb.cursors.DictCursor)
+cursor = connection.cursor()
 
 try:
-    connection = MySQLdb.connect(
-        host=SQLconfig.host,
-        user=SQLconfig.user,
-        passwd=SQLconfig.passwd,
-        db=SQLconfig.db)
-
-    # profiletable="basicProfileTable"
-    # pwdtable="PwdSettings"
-    ProfileTable="ProfileTable"
-
-    #先に、UUIDが存在するか確認する。存在しない場合は、エラーを返す。
-
-    # field name込みの場合はこっちを使う
-    # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor = connection.cursor()
-
     # 該当するUUIDのRegistrationStatusを1に変更する。
     cursor.execute(f" \
         INSERT `{ProfileTable}` \
         SET \
             UUID='{sys.argv[1]}', \
             NickName='{sys.argv[2]}', \
-            Age={Age}, \
+            Age={sys.argv[4]}, \
             RegistrationDateTime=CURRENT_TIME, \
             LastAccessDateTime=CURRENT_TIME, \
             Gender={sys.argv[3]}, \
             RegistrationStatus=1\
         ")
-
-    print("RC") # Registration Complete
-
-    # 保存を実行
-    connection.commit()
-
-    # 接続を閉じる
-    connection.close()
 except (MySQLdb.Error, MySQLdb.Warning) as e:
     print(e)
+
+try:
+    cursor.execute(f"INSERT `{PSS}` SET UUID='{sys.argv[1]}'")
+except (MySQLdb.Error, MySQLdb.Warning) as e:
+    print(e)
+
+try:
+    cursor.execute(f"INSERT `{BSS}` SET UUID='{sys.argv[1]}'")
+except (MySQLdb.Error, MySQLdb.Warning) as e:
+    print(e)
+
+
+print("RC") # Registration Complete
+
+# 保存を実行
+connection.commit()
+
+# 接続を閉じる
+connection.close()
