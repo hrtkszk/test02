@@ -23,7 +23,7 @@ export function ProfileDetail() {
     headers:{'Content-Type': 'application/json'},
     body: JSON.stringify({"UUID":auth.user})
   }
-
+  console.log(initialRequestOptions)
   // ページが読み込まれる時に実行し、Profileとして登録する。
   if (initialized===false) {
     fetch("../../get_profile1.php",initialRequestOptions)
