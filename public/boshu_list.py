@@ -57,6 +57,7 @@ except Exception as e:
 # SQL文の作成
 BSS_SQL = ""
 try:
+    print(DictData1)
     for k, v in DictData1.items():
         if k == "UUID":
             BSS_SQL += "t1." +k + " != '" + v + "'"
