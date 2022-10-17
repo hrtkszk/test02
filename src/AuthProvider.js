@@ -89,7 +89,7 @@ export function AuthProvider({ children }) {
         .then(result =>{
           // setRegResult(result.result[0])
           console.log(result)
-          registerResult = result.result[0]
+          registerResult = result[0]
 
           if (registerResult==="RC") {
             setUser(newUserID)

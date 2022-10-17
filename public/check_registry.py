@@ -15,7 +15,7 @@ try:
         db=SQLconfig.db)
 
     # profiletable="basicProfileTable"
-    ProfileTable="ProfileTable1"
+    ProfileTable="ProfileTable"
 
     #先に、UUIDが存在するか確認する。存在しない場合は、エラーを返す。
 
@@ -25,7 +25,7 @@ try:
 
     # 該当するUUIDのRegistrationStatusを1に変更する。
     cursor.execute(f" \
-        SELECT UUID, RegistrationStatus1 \
+        SELECT UUID, RegistrationStatus \
         FROM {ProfileTable} \
         WHERE \
             UUID='{sys.argv[1]}'")
