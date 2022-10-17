@@ -41,11 +41,11 @@ connection.close()
 recieved_data1 = []
 for item in recieved_data:
     if isinstance(item, datetime.datetime):
-        recieved_data1.append(item.strftime('%Y/%m/%d %H:%M:%S'))
+        recieved_data1.append(item.strftime('%Y/%m/%\d %H:%M:%S'))
         continue
     recieved_data1.append(item)
 DictData = dict(zip(field_names, recieved_data1))
-# print(json.dumps(DictData))
+print(json.dumps(DictData))
 
 # DictProfile = dict(zip(field_names, profile))
 # DictProfile1 = {}
