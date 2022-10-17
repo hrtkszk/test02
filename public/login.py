@@ -15,7 +15,7 @@ connection = MySQLdb.connect(
 
 emailtable="EmailSettings"
 pwdtable="PwdSettings"
-profiletable="ProfileTable1"
+ProfileTable="ProfileTable"
 
 # メールアドレスが存在するかチェック。存在しなければ、入力間違い。存在したら、同じUUIDを取得し、パスワードを照合する。
 # パスワードが間違っていたら、入力間違い。合っていたら、ログイン。
@@ -68,8 +68,9 @@ if checkExist!=None:
         # print(cursor.fetchone())
 
         try:
-            cursor.execute(f"SELECT RegistrationStatus1 FROM {profiletable} WHERE UUID='{UUID}'")
-            RegistrationStatus = int.from_bytes(cursor.fetchone()[0], "big")
+            cursor.execute(f"SELECT RegistrationStatus FROM {ProfileTable} WHERE UUID='{UUID}'")
+            RegistrationStatus = cursor.fetchone()[0]
+            # RegistrationStatus = int.from_bytes(cursor.fetchone()[0], "big")
         except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
             RegistrationStatus = e
         # if checkExist!=None:

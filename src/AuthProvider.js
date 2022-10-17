@@ -26,12 +26,12 @@ export function AuthProvider({ children }) {
     fetch("../login.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{
-      console.log(result.result)
+      console.log(result)
       // console.log(result.result[1])
       // console.log(result.result(1))
-      if (result.result[0]==="LS") {
-        setUser(result.result[1])
-        setRegistrationStatus(result.result[2])
+      if (result[0]==="LS") {
+        setUser(result[1])
+        setRegistrationStatus(result[2])
         setAuthStatus(true)
         setMessage("")
         // setTimeout(callback, 100);
