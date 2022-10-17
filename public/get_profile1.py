@@ -38,6 +38,8 @@ connection.commit()
 connection.close()
 
 print(recieved_data)
+for item in recieved_data:
+    print(type(item))
 DictData = dict(zip(field_names, recieved_data))
 # print(json.dumps(DictData))
 
