@@ -20,7 +20,7 @@ ProfileTable="ProfileTable"
 # field name込みの場合はこっちを使う
 # cursor = connection.cursor(MySQLdb.cursors.DictCursor)
 cursor = connection.cursor()
-print(sys.argv[1])
+
 try:
     cursor.execute(f" \
         SELECT * \
