@@ -37,8 +37,9 @@ connection.commit()
 # 接続を閉じる
 connection.close()
 
+print(recieved_data)
 DictData = dict(zip(field_names, recieved_data))
-print(json.dumps(DictData))
+# print(json.dumps(DictData))
 
 # DictProfile = dict(zip(field_names, profile))
 # DictProfile1 = {}
