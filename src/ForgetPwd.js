@@ -33,10 +33,10 @@ export function ForgetPwd() {
     fetch("../check_mail_exist.php",requestOptions1)
     .then((response)=> response.json())
     .then(result =>{
-      if (result.result[0]==="EE") {
+      if (result[0]==="EE") {
         EmailExist = true;
-        UUID = result.result[1]
-        NewPwd = result.result[2]
+        UUID = result[1]
+        NewPwd = result[2]
       } else {
         navigate("../EmailNotExist")
       }
@@ -53,7 +53,7 @@ export function ForgetPwd() {
         fetch("../send_mail_newpwd.php",requestOptions2)
         .then((response)=> response.json())
         .then(result =>{
-          if (result.EmailSend===true) {
+          if (result===true) {
             navigate("../EmailSent")
           } else {
             navigate("../EmailNotExist")
