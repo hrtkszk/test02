@@ -66,8 +66,15 @@ try:
             #     continue
             elif ("_" in v):
                 each_value = v.split("_")
-                PSS_SQL += " AND ( " + k + " >= " + each_value[0] + " AND "+ k + " <= " + each_value[1] + " )" 
-                continue
+                if each_value[0] != "0" and each_value[1] != "0":
+                    PSS_SQL += " AND ( " + k + " >= " + each_value[0] + " AND "+ k + " <= " + each_value[1] + " )" 
+                    continue
+                elif each_value[0] == "0":
+                    PSS_SQL += " AND " + k + " <= " + each_value[1] 
+                    continue
+                elif each_value[1] == "0":
+                    PSS_SQL += " AND " + k + " >= " + each_value[0]
+                    continue
         elif k == "ProfileMessage":
             continue
         else:
