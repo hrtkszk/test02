@@ -150,7 +150,7 @@ try:
             SELECT UUID, NickName, Gender, AgeRange \
             FROM `{ProfileTable}`) AS t2\
         ON t1.UUID = t2.UUID \
-        WHERE t1.UUID != '{UUID}' \
+        WHERE {BSS_SQL} \
         ORDER BY t1.PostDateTime DESC\
     ")
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
