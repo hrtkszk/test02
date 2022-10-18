@@ -45,7 +45,7 @@ try:
     for k, v in DictData.items():
         if k[:2] == "BS":
             if v == None:
-                DictData1[k[2:]] = "0"
+                continue
             elif v != "0":
                 # PSを削除
                 DictData1[k[2:]] = v
@@ -57,7 +57,7 @@ except Exception as e:
 # SQL文の作成
 BSS_SQL = ""
 try:
-    print(DictData1)
+    # print(DictData1)
     for k, v in DictData1.items():
         if k == "UUID":
             UUID = v
@@ -83,7 +83,7 @@ try:
             continue
         else:
             BSS_SQL += " AND " + k + " = '" + v + "'"
-    print(BSS_SQL)
+    # print(BSS_SQL)
     # print(json.dumps(DictPSS1))
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
     print("Create SQL for BSS:", e)
