@@ -68,7 +68,7 @@ try:
                 each_value = v.split("_")
                 BSS_SQL += " AND ( " + k + " >= " + each_value[0] + " AND "+ k + " <= " + each_value[1] + " )" 
                 continue
-        elif v == "":
+        elif v == "" or v=="0":
             BSS_SQL += " AND " + k + " = '0'"
             continue
         elif "_" in v:
