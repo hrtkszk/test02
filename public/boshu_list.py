@@ -44,11 +44,11 @@ try:
 
     for k, v in DictData.items():
         if k[:2] == "BS":
-            if v != "0":
+            if v == None:
+                DictData1[k[2:]] = 0
+            elif v != "0":
                 # PSを削除
                 DictData1[k[2:]] = v
-            elif v == None:
-                DictData1[k[2:]] = 0
         else:
             DictData1[k] = v
 except Exception as e:
