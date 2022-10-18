@@ -45,7 +45,7 @@ try:
     for k, v in DictData.items():
         if k[:2] == "BS":
             if v == None:
-                DictData1[k[2:]] = 0
+                DictData1[k[2:]] = "0"
             elif v != "0":
                 # PSを削除
                 DictData1[k[2:]] = v
