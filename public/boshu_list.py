@@ -60,6 +60,7 @@ try:
     print(DictData1)
     for k, v in DictData1.items():
         if k == "UUID":
+            UUID = v
             BSS_SQL += "t1." +k + " != '" + v + "'"
             continue
         elif k == "AgeRange":
@@ -149,7 +150,7 @@ try:
             SELECT UUID, NickName, Gender, AgeRange \
             FROM `{ProfileTable}`) AS t2\
         ON t1.UUID = t2.UUID \
-        WHERE {BSS_SQL} \
+        WHERE t1.UUID != '{UUID}' \
         ORDER BY t1.PostDateTime DESC\
     ")
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError) as e:
@@ -161,7 +162,6 @@ try:
     # print(field_names)
 
     for row in cursor:
-        print(row)
         row1 = list()
         for item in row:
             if str(type(item)) == "<class 'datetime.datetime'>":
