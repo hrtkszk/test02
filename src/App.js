@@ -12,7 +12,7 @@ import { ProfileDetail } from "./ProfileDetail";
 import { ProfileSetting } from "./ProfileSetting";
 import { ChangePwd } from "./ChangePwd";
 import { ChangeEmail } from "./ChangeEmail";
-import { Page2 } from "./page2";
+// import { Page2 } from "./page2";
 import { BoshuList } from "./BoshuList";
 import { BoshuSearchSetting } from "./BoshuSearchSetting";
 import { BoshuDetail } from "./BoshuDetail";
@@ -58,7 +58,7 @@ export default function App() {
           }
         >
           <Route index element={<ProfileList />}/>
-          <Route path="page2" element={<Page2 />}/>
+          {/* <Route path="page2" element={<Page2 />}/> */}
           <Route path="BoshuList" element={<BoshuList />}/>
           <Route path="BoshuSearchSetting" element={<BoshuSearchSetting />}/>
           <Route path="BoshuDetail" element={<BoshuDetail />}/>
