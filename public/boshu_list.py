@@ -81,6 +81,7 @@ try:
             continue
         else:
             BSS_SQL += " AND " + k + " = '" + v + "'"
+    print(BSS_SQL)
     # print(json.dumps(DictPSS1))
 except (MySQLdb.Error, MySQLdb.Warning, IndexError, TypeError, KeyError, ValueError) as e:
     print("Create SQL for BSS:", e)
