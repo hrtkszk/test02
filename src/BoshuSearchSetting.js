@@ -162,7 +162,7 @@ export function BoshuSearchSetting() {
             <li>
               <span className="dan">募集エリア</span>
               <span className="dan2">
-              {console.log("read:BSArea: ",BSArea)}
+              {/* {console.log("read:BSArea: ",BSArea)} */}
               {Object.keys(AreaDB.Area).map(key1 => 
                 <>
                   {key1 !== "10000000" ? (

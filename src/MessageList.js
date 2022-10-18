@@ -25,7 +25,7 @@ export function MessageList() {
 
   // ページが読み込まれる時に実行し、MessageListとして登録する。
   if (initialized===false) {
-    console.log(initialRequestOptions)
+    // console.log(initialRequestOptions)
     fetch("../message_list.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{

@@ -161,7 +161,7 @@ export function ProfileSearchSetting1() {
             <li>
               <span className="dan">エリア</span>
               <span className="dan2">
-              {console.log("read:PSArea: ",PSArea)}
+              {/* {console.log("read:PSArea: ",PSArea)} */}
               {Object.keys(AreaDB.Area).map(key1 => 
                 <>
                   {key1 !== "10000000" ? (
@@ -548,7 +548,7 @@ export function ProfileSearchSetting1() {
             <li>
               <span className="dan">出身地</span>
               <span className="dan2">
-              {console.log("read:PSBirthArea: ",PSBirthArea)}
+              {/* {console.log("read:PSBirthArea: ",PSBirthArea)} */}
               {Object.keys(AreaDB.Area).map(key1 => 
                 <>
                   {key1 !== "10000000" ? (

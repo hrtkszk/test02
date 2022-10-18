@@ -26,7 +26,7 @@ export function AuthProvider({ children }) {
     fetch("../login.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{
-      console.log(result)
+      // console.log(result)
       // console.log(result.result[1])
       // console.log(result.result(1))
       if (result[0]==="LS") {
