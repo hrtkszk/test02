@@ -161,6 +161,7 @@ try:
     # print(field_names)
 
     for row in cursor:
+        print(row)
         row1 = list()
         for item in row:
             if str(type(item)) == "<class 'datetime.datetime'>":
