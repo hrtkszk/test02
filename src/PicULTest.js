@@ -12,6 +12,7 @@ export function PicULTest() {
 
   const submit = () => {
     // const files = e.target.files
+    console.log(imgfile)
     const formData = new FormData()
     formData.append('img', imgfile)
     console.log(formData)
@@ -28,15 +29,18 @@ export function PicULTest() {
       <div>
         <center>
           <h2>Upload</h2>
-          <label for="image_uploads">アップロードする画像を選択してください (PNG, JPG)</label>
-          <input
-            type="file"
-            id="image_uploads"
-            name="image_uploads"
-            accept=".jpg, .jpeg, .png"
-            onChange={imgFilehandler}
-          /><br />
-          <button onSubmit={e => submit(e)}>送信</button>
+          <div>
+            <label for="image_uploads">アップロードする画像を選択してください (PNG, JPG)</label>
+            <input
+              type="file"
+              id="image_uploads"
+              name="image_uploads"
+              accept=".jpg, .jpeg, .png"
+              onChange={imgFilehandler}
+            />
+          </div>
+          <br />
+          <button onSubmit={submit}>送信</button>
           <hr />
           
           <h2>Preview</h2>
