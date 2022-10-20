@@ -22,8 +22,8 @@ import ImageUploader from 'react-images-upload';
 //   )
 // }
 
-import React from 'react';
-import ImageUploader from 'react-images-upload';
+// import React from 'react';
+// import ImageUploader from 'react-images-upload';
  
 class App extends React.Component {
  
