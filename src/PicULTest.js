@@ -12,11 +12,11 @@ export function PicULTest() {
 
   const submit = (e) => {
     // const files = e.target.files
-    console.log(e)
-    console.log(imgfile)
-    const formData = new FormData()
-    formData.append('img', imgfile)
-    console.log(formData)
+    console.log("submit:", e)
+    console.log("imgfile:", imgfile)
+    // const formData = new FormData()
+    // formData.append('img', imgfile)
+    // console.log(formData)
     // fetch('http://127.0.0.1:8000/api/store', {
     //   method: 'POST',
     //   body: formData,
