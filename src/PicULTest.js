@@ -4,13 +4,13 @@ import ImageUploader from 'react-images-upload';
 
 // export function PicULTest(){
 //   const [pictures, setPictures] = useState("");
-//   console.log("Picture:", pictures)
 
 //   const onDrop=(pictureFiles)=>{
 //     console.log("onDrop:", pictureFiles)
-//     setPictures(pictures.concat(pictureFiles))
+//     setPictures(pictureFiles)
 //   }
 
+//   console.log("Picture:", pictures)
 //   return(
 //     <ImageUploader
 //         withIcon={false}
@@ -22,33 +22,33 @@ import ImageUploader from 'react-images-upload';
 //   )
 // }
 
+
 // import React from 'react';
 // import ImageUploader from 'react-images-upload';
  
-// class App extends React.Component {
-
-export class PicULTest {
-  constructor() {
-    this.state = { pictures: [] };
-    this.onDrop = this.onDrop.bind(this);
-
-  const onDrop=(picture)=> {
-      console.log(picture)
-      this.setState({
-          pictures: this.state.pictures.concat(picture),
-      });
-      console.log(this.state.pictures)
-  }
-
-    return (
-      <ImageUploader
-        withIcon={true}
-        buttonText='Choose images'
-        onChange={onDrop}
-        imgExtension={['.jpg', '.gif', '.png', '.gif']}
-        maxFileSize={5242880} />
-    );
-  }
-
-  
+class PicULTest extends React.Component {
+ 
+    constructor(props) {
+        super(props);
+         this.state = { pictures: [] };
+         this.onDrop = this.onDrop.bind(this);
+    }
+ 
+    onDrop(picture) {
+        this.setState({
+            pictures: this.state.pictures.concat(picture),
+        });
+    }
+ 
+    render() {
+        return (
+            <ImageUploader
+                withIcon={true}
+                buttonText='Choose images'
+                onChange={this.onDrop}
+                imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                maxFileSize={5242880}
+            />
+        );
+    }
 }
