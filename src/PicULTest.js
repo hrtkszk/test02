@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function PicULTest() {
+export function PicULTest() {
   const [imgfile, uploadimg] = useState([])
   console.log("Image FIles",imgfile);
 
@@ -33,7 +33,7 @@ function PicULTest() {
     </div>
   );
 }
-export default PicULTest;
+// export default PicULTest;
 
 
 // const upload = (e) => {
