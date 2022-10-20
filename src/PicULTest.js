@@ -3,12 +3,12 @@ import { useState } from 'react';
 import ImageUploader from 'react-images-upload';
 
 export function PicULTest(){
-  const [Picture, setPicture] = useState("");
-  console.log("Picture:", Picture)
+  const [pictures, setPictures] = useState("");
+  console.log("Picture:", pictures)
 
-  const onDrop=(event)=>{
-    console.log("onDrop:", event)
-    setPicture(event)
+  const onDrop=(pictureFiles)=>{
+    console.log("onDrop:", pictureFiles)
+    setPictures(pictures.concat(pictureFiles))
   }
 
   return(
