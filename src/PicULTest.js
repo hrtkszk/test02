@@ -22,11 +22,7 @@ export function PicULTest() {
           <hr />
           <h2>Preview</h2>
           {imgfile.map((elem) => {
-            return <>
-              <span key={elem}>
-                <img src={elem} height="200" width="200" alt="med1" />
-              </span>
-            </>
+            <img src={elem} height="200" width="200" alt="med1" />
           })}
         </center>
       </div>
