@@ -30,7 +30,7 @@ export function BoshuDetail() {
       headers:{'Content-Type': 'application/json'},
       body: JSON.stringify(s)
     }
-    console.log(initialRequestOptions)
+    // console.log(initialRequestOptions)
     fetch("../get_boshudetail.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{

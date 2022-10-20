@@ -27,13 +27,13 @@ export function Message() {
 
   // ページが読み込まれる時に実行し、Messagesとして登録する。
   if (initialized===false) {
-    console.log(initialRequestOptions)
+    // console.log(initialRequestOptions)
     fetch("../get_message.php",initialRequestOptions)
     .then((response)=> response.json())
     .then(result =>{
       // console.log(result)
       setMessages(result)
-      console.log(result)
+      // console.log(result)
     })
 
     const initialRequestOptions1 ={
@@ -41,11 +41,11 @@ export function Message() {
       headers:{'Content-Type': 'application/json'},
       body: JSON.stringify({"UUID":auth.aite})
     }
-    console.log(initialRequestOptions1)
+    // console.log(initialRequestOptions1)
     fetch("../get_profile1.php",initialRequestOptions1)
     .then((response) => response.json())
     .then(result => {
-      console.log(result[0])
+      // console.log(result[0])
       setProfile(JSON.parse(result[0]))
     })
 

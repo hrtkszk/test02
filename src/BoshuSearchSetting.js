@@ -51,7 +51,7 @@ export function BoshuSearchSetting() {
     fetch("../../get_boshusearchsetting.php",initialRequestOptions)
     .then((response) => response.json())
     .then(result => {
-      console.log(JSON.parse(result[0]))
+      // console.log(JSON.parse(result[0]))
       setBSS(JSON.parse(result[0]))
       setBSArea(JSON.parse(result[1]))
       // setBSGender((JSON.parse(result[0])).BSGender)
