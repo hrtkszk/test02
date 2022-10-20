@@ -3,16 +3,16 @@ import { useState } from 'react';
 import ImageUploader from 'react-images-upload';
 
 export function PicULTest(){
-  const [pictures, setPictures] = useState({pictures:[]});
+  const [pictures, setPictures] = useState([]);
 
-  const onDrop=(event)=>{
-    console.log("onDrop:", event)
-    setPictures({pictures: pictures.pictures.concat(event)})
+  const onDrop=(picture)=>{
+    console.log("onDrop:", picture)
+    setPictures(pictures.concat(picture))
   }
 
   return(
     <ImageUploader
-        withIcon={false}
+        withIcon={true}
         buttonText='Choose images'
         onChange={onDrop}
         imgExtension={['.jpg', '.gif', '.png', '.gif']}
