@@ -10,8 +10,9 @@ export function PicULTest() {
     }
   }
 
-  const submit = () => {
+  const submit = (e) => {
     // const files = e.target.files
+    console.log(e)
     console.log(imgfile)
     const formData = new FormData()
     formData.append('img', imgfile)
@@ -40,7 +41,7 @@ export function PicULTest() {
             />
           </div>
           <br />
-          <button onSubmit={submit}>送信</button>
+          <button onSubmit={e => submit(e)}>送信</button>
           <hr />
           
           <h2>Preview</h2>
