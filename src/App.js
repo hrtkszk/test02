@@ -2,6 +2,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import { PicULTest } from "./PicULTest";
 import { AuthProvider } from "./AuthProvider";
 import { LoginPage } from "./LoginPage";
 import { Header } from "./Header";
@@ -59,6 +60,7 @@ export default function App() {
         >
           <Route index element={<ProfileList />}/>
           {/* <Route path="page2" element={<Page2 />}/> */}
+          <Route path="PicULTest" element={<PicULTest />}/>
           <Route path="BoshuList" element={<BoshuList />}/>
           <Route path="BoshuSearchSetting" element={<BoshuSearchSetting />}/>
           <Route path="BoshuDetail" element={<BoshuDetail />}/>

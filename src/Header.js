@@ -24,6 +24,9 @@ export function Header() {
           </button> */}
           <ul>
             <li>
+              <Link to="PicULTest">PicULTest</Link>
+            </li>
+            <li>
               <Link to="BoshuList">Boshu List</Link>
             </li>
             <li>
