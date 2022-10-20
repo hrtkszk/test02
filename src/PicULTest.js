@@ -4,9 +4,10 @@ import ImageUploader from 'react-images-upload';
 
 export function PicULTest(){
   const [Picture, setPicture] = useState("");
+  console.log("Picture:", Picture)
 
   const onDrop=(event)=>{
-    console.log(event)
+    console.log("onDrop:", event)
     setPicture(event)
   }
 
