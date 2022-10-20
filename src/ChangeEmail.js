@@ -35,7 +35,7 @@ export function ChangeEmail() {
     .then((response)=> response.json())
     .then(result =>{
       console.log(result)
-      if (result.result[0]==="CES") {
+      if (result[0]==="CES") {
         // メールアドレス変更成功。リダイレクト
         auth.setMessage("メールアドレスを変更しました")
         navigate("../ProfileDetail")

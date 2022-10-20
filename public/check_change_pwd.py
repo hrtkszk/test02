@@ -23,18 +23,29 @@ pwdtable="PwdSettings"
 
 cursor = connection.cursor()
 
-cursor.execute(f"SELECT * FROM {pwdtable} WHERE UUID='{sys.argv[1]}'")
+try:
+    cursor.execute(f"SELECT * FROM {pwdtable} WHERE UUID='{sys.argv[1]}'")
+    checkExist = cursor.fetchone()
+except Exception as e:
+    print(e)
+    
 
-checkExist = cursor.fetchone()
 if checkExist==None:
     print("UNE") # UUID Not Exist
 else:
-    # 最新パスワードの確認
-    cursor.execute(f"SELECT password FROM {pwdtable} WHERE UUID='{sys.argv[1]}' AND datetime = (SELECT MAX(datetime) FROM {pwdtable} WHERE UUID='{sys.argv[1]}')")
-    OldPwdDB = cursor.fetchone()[0]
+    try:
+        # 最新パスワードの確認
+        cursor.execute(f"SELECT password FROM {pwdtable} WHERE UUID='{sys.argv[1]}' AND datetime = (SELECT MAX(datetime) FROM {pwdtable} WHERE UUID='{sys.argv[1]}')")
+        OldPwdDB = cursor.fetchone()[0]
+    except Exception as e:
+        print(e)
     if OldPwdDB == sys.argv[2]:
-        # 新パスワード登録
-        cursor.execute(f"INSERT `{pwdtable}` (`UUID`, `password`, `datetime`) VALUES ('{sys.argv[1]}', '{sys.argv[3]}', CURRENT_TIME)")
+        try:
+            # 新パスワード登録
+            cursor.execute(f"INSERT `{pwdtable}` (`UUID`, `password`, `datetime`) VALUES ('{sys.argv[1]}', '{sys.argv[3]}', CURRENT_TIME)")
+        except Exception as e:
+            print(e)
+
         print("CPS") # Change Password Success
         print(OldPwdDB)
         # print(datetime_pwd)

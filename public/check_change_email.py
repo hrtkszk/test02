@@ -24,9 +24,11 @@ emailtable="EmailSettings"
 cursor = connection.cursor()
 
 # UUIDのチェック（外部からの変更防止）
-
-cursor.execute(f"SELECT * FROM {emailtable} WHERE UUID='{sys.argv[1]}'")
-checkExist = cursor.fetchone()
+try:
+    cursor.execute(f"SELECT * FROM {emailtable} WHERE UUID='{sys.argv[1]}'")
+    checkExist = cursor.fetchone()
+except Exception as e:
+    print(e)
 
 # UUIDが存在しない→弾く
 if checkExist==None:
@@ -34,21 +36,30 @@ if checkExist==None:
 
 # UUIDが存在する場合→進む
 else:
-    # DB全体で同じメールアドレスが存在するかの確認
-    cursor.execute(f"SELECT * FROM {emailtable} WHERE email='{sys.argv[2]}'")
-    SameEmailDB = cursor.fetchone()
+    try:
+        # DB全体で同じメールアドレスが存在するかの確認
+        cursor.execute(f"SELECT * FROM {emailtable} WHERE email='{sys.argv[2]}'")
+        SameEmailDB = cursor.fetchone()
+    except Exception as e:
+        print(e)
 
     # 存在しない→変更する
     if SameEmailDB == None:
-        cursor.execute(f"INSERT `{emailtable}` (`UUID`, `email`, `datetime`) VALUES ('{sys.argv[1]}', '{sys.argv[2]}', CURRENT_TIME)")
+        try:
+            cursor.execute(f"INSERT `{emailtable}` (`UUID`, `email`, `datetime`) VALUES ('{sys.argv[1]}', '{sys.argv[2]}', CURRENT_TIME)")
+        except Exception as e:
+            print(e)
         print("CES") # Change Email Success
         print(SameEmailDB)
 
     # 存在する場合    
     else:
-        # 同じUUIDで過去に同じメールアドレスが登録されているかの確認
-        cursor.execute(f"SELECT * FROM {emailtable} WHERE UUID='{sys.argv[1]}' AND email='{sys.argv[2]}'")
-        SameEmail = cursor.fetchone()
+        try:
+            # 同じUUIDで過去に同じメールアドレスが登録されているかの確認
+            cursor.execute(f"SELECT * FROM {emailtable} WHERE UUID='{sys.argv[1]}' AND email='{sys.argv[2]}'")
+            SameEmail = cursor.fetchone()
+        except Exception as e:
+            print(e)
 
         # 同じUUIDで同じメールアドレスが存在しない場合→弾く
         if SameEmail == None:
@@ -58,7 +69,10 @@ else:
 
         # 同じUUIDで同じメールアドレスが存在する場合→datetimeをアップデートする
         else:
-            cursor.execute(f"UPDATE `{emailtable}` SET datetime= CURRENT_TIME WHERE UUID='{sys.argv[1]}' AND email='{sys.argv[2]}'")
+            try:
+                cursor.execute(f"UPDATE `{emailtable}` SET datetime= CURRENT_TIME WHERE UUID='{sys.argv[1]}' AND email='{sys.argv[2]}'")
+            except Exception as e:
+                print(e)
             print("CES") # Change Email Success
             print(SameEmail)
 
