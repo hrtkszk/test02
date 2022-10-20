@@ -30,7 +30,6 @@ export function PicULTest() {
       <div>
         <center>
           <h2>Upload</h2>
-          <form onSubmit={e => submit(e)}>
             <div>
               <label for="image_uploads">アップロードする画像を選択してください (PNG, JPG)</label>
               <input
@@ -42,8 +41,7 @@ export function PicULTest() {
               />
             </div>
             <br />
-            <button>送信</button>
-          </form>
+            <button onSubmit={e => submit(e)}>送信</button>
           <hr />
           
           <h2>Preview</h2>
