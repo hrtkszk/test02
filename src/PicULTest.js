@@ -10,19 +10,38 @@ export function PicULTest() {
     }
   }
 
+  const submit = () => {
+    // const files = e.target.files
+    const formData = new FormData()
+    formData.append('img', imgfile)
+    console.log(formData)
+    // fetch('http://127.0.0.1:8000/api/store', {
+    //   method: 'POST',
+    //   body: formData,
+    // })
+    // .then(resp => resp.json())
+    // .then(result => console.log(result))
+  }
+
   return (
     <div className="App">
       <div>
         <center>
           <h2>Upload</h2>
+          <label for="image_uploads">アップロードする画像を選択してください (PNG, JPG)</label>
           <input
             type="file"
+            id="image_uploads"
+            name="image_uploads"
+            accept=".jpg, .jpeg, .png"
             onChange={imgFilehandler}
-          />
+          /><br />
+          <button onSubmit={e => submit(e)}>送信</button>
           <hr />
+          
           <h2>Preview</h2>
           {imgfile.map(elem => {
-            return(<img src={elem} height="200" width="200" alt="med1" />)
+            return(<img src={elem} height="200" width="200" />)
           })}
         </center>
       </div>
