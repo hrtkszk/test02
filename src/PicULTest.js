@@ -22,9 +22,9 @@ export function PicULTest() {
 
     console.log("imgfile:", imgfile)
     const formData = new FormData()
-    formData.append('img', imgfile)
+    formData.append('img', imgfile[0])
     console.log(formData)
-    
+
     navigate("../")
     // fetch('http://127.0.0.1:8000/api/store', {
     //   method: 'POST',
