@@ -1,19 +1,27 @@
+import * as React from "react";
 import { useState } from 'react';
+import {
+  // Link,
+//   // Outlet
+  useNavigate
+} from "react-router-dom";
 
 export function PicULTest() {
   const [imgfile, uploadimg] = useState([])
   console.log("Image FIles",imgfile);
+  let navigate = useNavigate();
 
-  const imgFilehandler = (e) => {
-    if (e.target.files.length !== 0) {
-      uploadimg(imgfile => [...imgfile, URL.createObjectURL(e.target.files[0])])
-    }
-  }
+  // const imgFilehandler = (e) => {
+  //   if (e.target.files.length !== 0) {
+  //     uploadimg(imgfile => [...imgfile, URL.createObjectURL(e.target.files[0])])
+  //   }
+  // }
 
   const submit = (e) => {
     // const files = e.target.files
     console.log("submit:", e)
     console.log("imgfile:", imgfile)
+    navigate("../")
     // const formData = new FormData()
     // formData.append('img', imgfile)
     // console.log(formData)
@@ -30,6 +38,7 @@ export function PicULTest() {
       <div>
         <center>
           <h2>Upload</h2>
+          <form onSubmit={e => submit(e)}>
             <div>
               <label for="image_uploads">アップロードする画像を選択してください (PNG, JPG)</label>
               <input
@@ -37,11 +46,12 @@ export function PicULTest() {
                 id="image_uploads"
                 name="image_uploads"
                 accept=".jpg, .jpeg, .png"
-                onChange={imgFilehandler}
+                onChange={e => uploadimg(imgfile => [...imgfile, URL.createObjectURL(e.target.files[0])])}
               />
             </div>
             <br />
-            <button onSubmit={e => submit(e)}>送信</button>
+            <button>送信</button>
+          </form>
           <hr />
           
           <h2>Preview</h2>
