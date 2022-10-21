@@ -7,7 +7,8 @@ import {
 } from "react-router-dom";
 
 export function PicULTest() {
-  const [imgfile, uploadimg] = useState([])
+  const [imgfile, uploadimg] = useState("")
+  // const [imgfile, uploadimg] = useState([])
   console.log("Image FIles",imgfile);
   let navigate = useNavigate();
 
@@ -20,10 +21,10 @@ export function PicULTest() {
   const submit = (event) => {
     event.preventDefault();
 
-    console.log("imgfile:", imgfile[0])
+    console.log("imgfile:", imgfile)
 
     const formData = new FormData()
-    formData.set('img', imgfile[0]);
+    formData.set('img', imgfile);
 
     // formData.append('img', imgfile[0])
     console.log(formData)
@@ -50,7 +51,8 @@ export function PicULTest() {
                 id="image_uploads"
                 name="image_uploads"
                 accept=".jpg, .jpeg, .png"
-                onChange={e => uploadimg(imgfile => [...imgfile, URL.createObjectURL(e.target.files[0])])}
+                onChange={e => uploadimg(e.target.files[0])}
+                // onChange={e => uploadimg(imgfile => [...imgfile, URL.createObjectURL(e.target.files[0])])}
               />
             </div>
             <br />
