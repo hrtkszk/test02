@@ -20,9 +20,12 @@ export function PicULTest() {
   const submit = (event) => {
     event.preventDefault();
 
-    console.log("imgfile:", imgfile)
+    console.log("imgfile:", imgfile[0])
+
     const formData = new FormData()
-    formData.append('img', imgfile[0])
+    formData.set('img', imgfile[0]);
+
+    // formData.append('img', imgfile[0])
     console.log(formData)
 
     navigate("../")
