@@ -31,7 +31,7 @@ export function PicULTest() {
 
     const requestOptions1 ={
       method: 'POST',
-      enctype:"multipart/form-data",
+      // enctype:"multipart/form-data",
       body: formData
     }
 
