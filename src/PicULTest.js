@@ -41,7 +41,9 @@ export function PicULTest() {
       responseClone = response.clone(); // 2
       return response.json();
     })
-    .then(function (rejectionReason) { // 3
+    .then(function (data) {
+      console.log(data)
+  }, function (rejectionReason) { // 3
       console.log('Error parsing JSON from response:', rejectionReason, responseClone); // 4
       responseClone.text() // 5
       .then(function (bodyText) {
