@@ -34,15 +34,14 @@ export function PicULTest() {
       // enctype:"multipart/form-data",
       body: JSON.stringify({"img":imgfile})
     }
+    var responseClone; // 1
 
     fetch('../piULTest.php',requestOptions1)
     .then(function (response) {
       responseClone = response.clone(); // 2
       return response.json();
     })
-    .then(function (data) {
-      console.log(data)
-  }, function (rejectionReason) { // 3
+    .then(function (rejectionReason) { // 3
       console.log('Error parsing JSON from response:', rejectionReason, responseClone); // 4
       responseClone.text() // 5
       .then(function (bodyText) {
