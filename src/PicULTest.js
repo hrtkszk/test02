@@ -74,18 +74,19 @@ export function PicULTest() {
 
 
   const upload = (e) => {
-    console.warn(e.target.files)
+    console.log(e.target.files)
     const files = e.target.files
     const formData = new FormData()
     formData.append('img', files[0])
-    fetch('http://127.0.0.1:8000/api/store', {
-      method: 'POST',
-      body: formData,
-    }).then((resp) => {
-      resp.json().then((result) => {
-        console.warn(result)
-      })
-    })
+    console.log(formData)
+    // fetch('http://127.0.0.1:8000/api/store', {
+    //   method: 'POST',
+    //   body: formData,
+    // }).then((resp) => {
+    //   resp.json().then((result) => {
+    //     console.warn(result)
+    //   })
+    // })
   }
   return(<div>
     <h1>Upload File in React js</h1>
