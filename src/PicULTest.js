@@ -79,7 +79,7 @@ export function PicULTest() {
     const formData = new FormData()
     formData.append('img', files[0])
     console.log(formData)
-    fetch('http://plain-saiki-7250.nobushi.jp/', {
+    fetch('../', {
       method: 'POST',
       body: formData,
     }).then((resp) => {
