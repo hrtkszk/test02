@@ -82,11 +82,9 @@ export function PicULTest() {
     fetch('../', {
       method: 'POST',
       body: formData,
-    }).then((resp) => {
-      resp.json().then((result) => {
-        console.log(result)
-      })
     })
+    .then(resp => resp.json())
+    .then(result => console.log(result))
   }
   return(<div>
     <h1>Upload File in React js</h1>
