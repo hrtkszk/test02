@@ -6,11 +6,11 @@ $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 // $command_post="python3 boshu_list.py ".$_POST['UUID']; //pythonに引数を渡す
 // exec($command_post, $output); //python実行と、返り数受け取り
 // echo json_encode($rest_json);
-echo json_encode(
-    [
-        "result" =>  $_POST['img'],
-    ]
-);
+echo json_encode($_POST['img']);
+//     [
+//         "result" =>  $_POST['img'],
+//     ]
+// );
 
 
 // // pythonからの返り数のうち、SQLのヘッダーの受け取りと、文字列から配列変換(pythonの出力1行目)
