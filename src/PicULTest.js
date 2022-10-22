@@ -9,7 +9,7 @@ import {
 export function PicULTest() {
   const [imgfile, uploadimg] = useState("")
   // const [imgfile, uploadimg] = useState([])
-  console.log("Image FIles",imgfile);
+  // console.log("Image FIles",imgfile);
   let navigate = useNavigate();
 
   // const imgFilehandler = (e) => {
@@ -23,21 +23,21 @@ export function PicULTest() {
 
     console.log("imgfile:", imgfile)
 
-    const formData = new FormData()
-    // formData.set('img', imgfile);
+    // const formData = new FormData()
+    // // formData.set('img', imgfile);
 
-    formData.append('img', imgfile)
-    console.log(formData)
+    // formData.append('img', imgfile)
+    // console.log(formData)
 
     const requestOptions1 ={
       method: 'POST',
-      // enctype:"multipart/form-data",
-      body: formData
+      enctype:"multipart/form-data",
+      body: imgfile
     }
 
     fetch('../piULTest.php',requestOptions1)
-    .then(resp =>  console.log(resp))
-    // .then(result => console.log(result))
+    .then((response)=> response.json())
+    .then(result => console.log(result))
 
     navigate("../")
   }
@@ -52,7 +52,6 @@ export function PicULTest() {
               {/* <label for="image_uploads">アップロードする画像を選択してください (PNG, JPG)</label> */}
               <input
                 type="file"
-                id="img"
                 name="img"
                 accept=".jpg, .jpeg, .png"
                 onChange={e => uploadimg(URL.createObjectURL(e.target.files[0]))}
