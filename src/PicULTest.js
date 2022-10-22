@@ -31,12 +31,13 @@ export function PicULTest() {
 
     const requestOptions1 ={
       method: 'POST',
+      // headers:{'Content-Type': 'application/json'},
       // enctype:"multipart/form-data",
       body: JSON.stringify({"img":imgfile})
     }
     var responseClone; // 1
 
-    fetch('../piULTest.php',requestOptions1)
+    fetch('../../piULTest.php',requestOptions1)
     .then(function (response) {
       responseClone = response.clone(); // 2
       return response.json();
