@@ -79,14 +79,14 @@ export function PicULTest() {
     const formData = new FormData()
     formData.append('img', files[0])
     console.log(formData)
-    // fetch('http://127.0.0.1:8000/api/store', {
-    //   method: 'POST',
-    //   body: formData,
-    // }).then((resp) => {
-    //   resp.json().then((result) => {
-    //     console.warn(result)
-    //   })
-    // })
+    fetch('http://plain-saiki-7250.nobushi.jp/', {
+      method: 'POST',
+      body: formData,
+    }).then((resp) => {
+      resp.json().then((result) => {
+        console.log(result)
+      })
+    })
   }
   return(<div>
     <h1>Upload File in React js</h1>
