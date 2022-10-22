@@ -36,8 +36,8 @@ export function PicULTest() {
     }
 
     fetch('../piULTest.php',requestOptions1)
-    .then(resp => resp.json())
-    .then(result => console.log(result))
+    .then(resp =>  console.log(resp))
+    // .then(result => console.log(result))
 
     navigate("../")
   }
