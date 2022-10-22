@@ -35,7 +35,7 @@ export function PicULTest() {
       // enctype:"multipart/form-data",
       body: JSON.stringify({"img":imgfile})
     }
-    var responseClone; // 1
+    // var responseClone; // 1
 
     fetch('../picULTest.php',requestOptions1)
     .then((response) => response.json())
