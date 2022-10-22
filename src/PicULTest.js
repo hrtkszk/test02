@@ -31,13 +31,15 @@ export function PicULTest() {
 
     const requestOptions1 ={
       method: 'POST',
-      enctype:"multipart/form-data",
+      // enctype:"multipart/form-data",
       body: JSON.stringify({"img":imgfile})
     }
 
     fetch('../piULTest.php',requestOptions1)
     .then((response)=> response.json())
-    .then(result => console.log(result))
+    .then(result => {
+      console.log(result)
+    })
 
     navigate("../")
   }
