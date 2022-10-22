@@ -6,7 +6,7 @@ $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 // $command_post="python3 boshu_list.py ".$_POST['UUID']; //pythonに引数を渡す
 // exec($command_post, $output); //python実行と、返り数受け取り
 // echo json_encode($rest_json);
-echo json_encode($_POST['img']);
+echo json_encode($_POST);
 //     [
 //         "result" =>  $_POST['img'],
 //     ]

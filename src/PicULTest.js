@@ -32,7 +32,7 @@ export function PicULTest() {
     const requestOptions1 ={
       method: 'POST',
       // headers:{'Content-Type': 'application/json'},
-      // enctype:"multipart/form-data",
+      enctype:"multipart/form-data",
       body: JSON.stringify({"img":imgfile})
     }
     // var responseClone; // 1
@@ -58,7 +58,7 @@ export function PicULTest() {
                 type="file"
                 name="img"
                 accept=".jpg, .jpeg, .png"
-                onChange={e => uploadimg(URL.createObjectURL(e.target.files[0]['blob']))}
+                onChange={e => uploadimg(URL.createObjectURL(e.target.files[0]))}
                 // onChange={e => uploadimg(imgfile => [...imgfile, URL.createObjectURL(e.target.files[0])])}
               />
             </div>
