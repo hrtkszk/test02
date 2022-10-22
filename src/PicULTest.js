@@ -79,7 +79,7 @@ export function PicULTest() {
     const formData = new FormData()
     formData.append('img', files[0])
     console.log(formData)
-    fetch('../', {
+    fetch('../picULTest.php', {
       method: 'POST',
       body: formData,
     })
