@@ -32,7 +32,7 @@ export function PicULTest() {
     const requestOptions1 ={
       method: 'POST',
       enctype:"multipart/form-data",
-      body: imgfile
+      body: JSON.stringify({"img":imgfile})
     }
 
     fetch('../piULTest.php',requestOptions1)
