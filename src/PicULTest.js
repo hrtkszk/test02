@@ -37,7 +37,7 @@ export function PicULTest() {
     }
     var responseClone; // 1
 
-    fetch('../../piULTest.php',requestOptions1)
+    fetch('../picULTest.php',requestOptions1)
     .then(function (response) {
       responseClone = response.clone(); // 2
       return response.json();
