@@ -6,7 +6,7 @@
 //   useNavigate
 // } from "react-router-dom";
 
-// export function PicULTest() {
+export function PicULTest() {
 //   const [imgfile, uploadimg] = useState("")
 //   // const [imgfile, uploadimg] = useState([])
 //   console.log("Image FIles",imgfile);
@@ -73,25 +73,25 @@
 // export default PicULTest;
 
 
-const upload = (e) => {
-	console.warn(e.target.files)
-	const files = e.target.files
-	const formData = new FormData()
-	formData.append('img', files[0])
-	fetch('http://127.0.0.1:8000/api/store', {
-		method: 'POST',
-		body: formData,
-	}).then((resp) => {
-		resp.json().then((result) => {
-			console.warn(result)
-		})
-	})
+  const upload = (e) => {
+    console.warn(e.target.files)
+    const files = e.target.files
+    const formData = new FormData()
+    formData.append('img', files[0])
+    fetch('http://127.0.0.1:8000/api/store', {
+      method: 'POST',
+      body: formData,
+    }).then((resp) => {
+      resp.json().then((result) => {
+        console.warn(result)
+      })
+    })
+  }
+  return(<div>
+    <h1>Upload File in React js</h1>
+    <input type='file' onChange={(e) => upload(e)} name='img' />
+  </div>)
 }
-return(<div>
-	<h1>Upload File in React js</h1>
-	<input type='file' onChange={(e) => upload(e)} name='img' />
-</div>)
-
 
 // import React from 'react';
 // import { useState } from 'react';
