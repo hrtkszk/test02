@@ -4,12 +4,14 @@ header('Access-Control-Allow-Headers: Content-Type');
 // $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
 // $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 // $data = file("php://input");
-$data = "test";
+$data = touch('file.txt');
 
-$file_path = "../aaa.text";
-$data_serialize = serialize($data);
-file_put_contents($file_path, $data_serialize, LOCK_EX);
-chmod($file_path, 0604);
+// $file_path = "../aaa.text";
+fwrite($data, '*「ここはイムルのむらです。');
+fclose($data);
+// $data_serialize = serialize($data);
+// file_put_contents($file_path, $data_serialize, LOCK_EX);
+chmod($data, 0604);
 
 // $file_handle =fopen($file, "r");
 // $file_handle =touch('aaa.jpg');

@@ -30,11 +30,11 @@ export function PicULTest() {
     // console.log(formData)
 
     const requestOptions1 ={
-      credentials: 'include',
+      // credentials: 'include',
       method: 'POST',
       // headers:{'Content-Type': 'application/json'},
       enctype:"multipart/form-data",
-      body: imgfile
+      // body: imgfile
       // body: JSON.stringify({"img":imgfile})
     }
 
