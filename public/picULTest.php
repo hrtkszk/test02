@@ -4,7 +4,7 @@ header('Access-Control-Allow-Headers: *');
 // header('Access-Control-Allow-Headers: Content-Type');
 // $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
 // $_POST = json_decode($rest_json, true); // JSON文字列をデコード
-$data = file("php://stdin");
+$data = file("php://input");
 $data_serialize = serialize($data);
 
 // file("php://stdin");
