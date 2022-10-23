@@ -19,15 +19,15 @@ while(!feof($stdin)){
 }
 fclose($stdin);
 
-touch('file.jpg');
+// touch('file.jpg');
 // // $file_path = "../aaa.text";
 // $file_path = fopen('file.jpg', 'w');
 // // fwrite($file_path);
 // // fclose($file_path);
 // // chmod('file.jpg', 0604);
 // // $data_serialize = serialize($data);
-file_put_contents('file.jpg', $file);
-chmod('file.jpg', 0604);
+// file_put_contents('file.jpg', $file);
+// chmod('file.jpg', 0604);
 
 // $file_handle =fopen($file, "r");
 // $file_handle =touch('aaa.jpg');
