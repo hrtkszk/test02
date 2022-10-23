@@ -1,14 +1,13 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Headers: Content-Type');
-// $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
+$rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
 // $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 // $data = file("php://input");
 touch('file.txt');
-
 // $file_path = "../aaa.text";
 $fp = fopen('file.txt', 'w');
-fwrite($fp, '*「ここはイムルのむらです。');
+fwrite($fp, $rest_json);
 fclose($fp);
 chmod('file.txt', 0604);
 // $data_serialize = serialize($data);
