@@ -12,6 +12,7 @@ header('Access-Control-Allow-Headers: *');
 
 $stdin = fopen('php://input', 'r');
 
+touch('file.jpg');
 copy($stdin,'file.jpg');
 // while(!feof($stdin)){
 //     echo fgets($stdin, 1024);
@@ -26,7 +27,7 @@ fclose($stdin);
 // // chmod('file.jpg', 0604);
 // // $data_serialize = serialize($data);
 // file_put_contents($file_path, $data_serialize, LOCK_EX);
-chmod('file.jpg', 0604);
+// chmod('file.jpg', 0604);
 
 // $file_handle =fopen($file, "r");
 // $file_handle =touch('aaa.jpg');
