@@ -1,7 +1,7 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Headers: Content-Type');
-// $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
+$rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
 $_POST = file("php://input");
 // $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 // $_FILES[$_POST['name']];
@@ -9,11 +9,12 @@ $_POST = file("php://input");
 // exec($command_post, $output); //python実行と、返り数受け取り
 // echo json_encode($rest_json);
 // $contents = file_get_contents($_POST);
-echo json_encode($_POST);
-//     [
-//         "result" =>  $_POST['img'],
-//     ]
-// );
+echo json_encode(
+    [
+        "file" =>  $_POST,
+        "contents" => $rest_json,
+    ]
+);
 
 
 // // pythonからの返り数のうち、SQLのヘッダーの受け取りと、文字列から配列変換(pythonの出力1行目)
