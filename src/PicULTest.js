@@ -36,8 +36,10 @@ export function PicULTest() {
       body: JSON.stringify({"img":imgfile})
       // body: JSON.stringify({"img":imgfile})
     }
+
     console.log("requestOptions1:", requestOptions1)
     // var responseClone; // 1
+    console.log("imgfile:", imgfile)
 
     fetch('../picULTest.php',requestOptions1)
     .then((response) => response.json())
