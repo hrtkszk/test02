@@ -12,11 +12,13 @@ header('Access-Control-Allow-Headers: *');
 
 $stdin = fopen('php://input', 'r');
 // fwrite($stdin);
-// touch('file.jpg');
+touch('file.jpg');
+$file_path = fopen('file.jpg', 'a');
 // copy($stdin,'file.jpg');
 while(!feof($stdin)){
-    echo fgets($stdin, 1024);
+    fwrite($file_path, fgets($stdin, 1024));
 }
+fclose($file_path);
 fclose($stdin);
 
 // touch('file.jpg');
