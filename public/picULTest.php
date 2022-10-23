@@ -10,7 +10,7 @@ $file = file("php://input");
 // exec($command_post, $output); //python実行と、返り数受け取り
 // echo json_encode($rest_json);
 // $contents = file_get_contents($_POST);
-echo $file;
+echo json_encode($file);
 // json_encode(
 //     [
 //         // "contents" => $_POST,

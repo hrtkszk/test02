@@ -42,13 +42,10 @@ export function PicULTest() {
     console.log("imgfile:", imgfile)
 
     fetch('../picULTest.php',requestOptions1)
-    .then((response) => {
-      console.log(response)
+    .then((response) => response.json())
+    .then(result => {
+      console.log(result)
     })
-    // .then((response) => response.json())
-    // .then(result => {
-    //   console.log(result)
-    // })
 
     navigate("../")
   }
