@@ -26,7 +26,7 @@ export function PicULTest() {
     const formData = new FormData()
     // // formData.set('img', imgfile);
 
-    formData.set('img', imgfile)
+    formData.append('image', imgfile)
     // console.log(formData)
 
     const requestOptions1 ={
@@ -63,6 +63,7 @@ export function PicULTest() {
               {/* <label for="image_uploads">アップロードする画像を選択してください (PNG, JPG)</label> */}
               <input
                 type="file"
+                id="img"
                 name="img"
                 accept=".jpg, .jpeg, .png"
                 onChange={e => uploadimg(e.target.files[0])}
