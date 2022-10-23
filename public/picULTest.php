@@ -9,7 +9,7 @@ $_POST = file("php://input");
 // exec($command_post, $output); //python実行と、返り数受け取り
 // echo json_encode($rest_json);
 $contents = file_get_contents($_POST);
-echo json_encode($contents);
+echo $contents;
 //     [
 //         "result" =>  $_POST['img'],
 //     ]
