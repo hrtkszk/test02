@@ -33,7 +33,7 @@ export function PicULTest() {
       method: 'POST',
       // headers:{'Content-Type': 'application/json'},
       enctype:"multipart/form-data",
-      body: JSON.stringify(imgfile)
+      body: imgfile
       // body: JSON.stringify({"img":imgfile})
     }
 
@@ -46,6 +46,10 @@ export function PicULTest() {
     .then(result => {
       console.log(result)
     })
+    // .then((response) => response.json())
+    // .then(result => {
+    //   console.log(result)
+    // })
 
     navigate("../")
   }

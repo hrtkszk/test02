@@ -1,10 +1,10 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Headers: Content-Type');
-$rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
-$_POST = json_decode($rest_json, true); // JSON文字列をデコード
-$file_json = file("php://input");
-$file = json_decode($file_json[0], true);
+// $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
+// $_POST = json_decode($rest_json, true); // JSON文字列をデコード
+$file = file("php://input");
+// $file = json_decode($file_json[0], true);
 // $_FILES[$_POST['name']];
 // $command_post="python3 boshu_list.py ".$_POST['UUID']; //pythonに引数を渡す
 // exec($command_post, $output); //python実行と、返り数受け取り
@@ -12,7 +12,7 @@ $file = json_decode($file_json[0], true);
 // $contents = file_get_contents($_POST);
 echo json_encode(
     [
-        "contents" => $_POST,
+        // "contents" => $_POST,
         "file" =>  $file,
     ]
 );
