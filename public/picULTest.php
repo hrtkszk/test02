@@ -6,17 +6,17 @@ header('Access-Control-Allow-Headers: *');
 // $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 // $data = file("php://input");
 // $data_serialize = serialize($data);
-$file_path = fopen('php://input', 'r');
-// while(!feof($stdin)){
-//     echo fgets($stdin, 1024);
-// }
-// fclose($stdin);
+$stdin = fopen('php://input', 'r');
+while(!feof($stdin)){
+    echo fgets($stdin, 1024);
+}
+fclose($stdin);
 
 // touch('file.jpg');
 // $file_path = "../aaa.text";
 // $file_path = fopen('file.jpg', 'w');
-fwrite($file_path);
-fclose($file_path);
+// fwrite($file_path);
+// fclose($file_path);
 // chmod('file.jpg', 0604);
 // $data_serialize = serialize($data);
 // file_put_contents($file_path, $data_serialize, LOCK_EX);
