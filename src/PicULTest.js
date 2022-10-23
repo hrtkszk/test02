@@ -39,12 +39,16 @@ export function PicULTest() {
       // body: JSON.stringify({"img":imgfile})
     }
 
-    console.log("requestOptions1:", requestOptions1)
+    // console.log("requestOptions1:", requestOptions1)
     // var responseClone; // 1
     console.log("imgfile:", imgfile)
     console.log("formData:", formData)
 
-    fetch('../picULTest.php',requestOptions1)
+    var request = new XMLHttpRequest();
+    request.open("POST", "../picULTest.php");
+    request.send(formData);
+
+    // fetch('../picULTest.php',requestOptions1)
     // .then((response) => response.json())
     // .then(result => {
     //   console.log(result)
