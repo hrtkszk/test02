@@ -4,14 +4,20 @@ header('Access-Control-Allow-Headers: *');
 // header('Access-Control-Allow-Headers: Content-Type');
 // $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
 // $_POST = json_decode($rest_json, true); // JSON文字列をデコード
-$data = file("php://input");
+// $data = file("php://input");
 // $data_serialize = serialize($data);
-touch('file.jpg');
+$file_path = fopen('php://input', 'r'))
+// while(!feof($stdin)){
+//     echo fgets($stdin, 1024);
+// }
+// fclose($stdin);
+
+// touch('file.jpg');
 // $file_path = "../aaa.text";
-$file_path = fopen('file.jpg', 'w');
-fwrite($file_path, $data);
+// $file_path = fopen('file.jpg', 'w');
+fwrite($file_path);
 fclose($file_path);
-chmod('file.jpg', 0604);
+// chmod('file.jpg', 0604);
 // $data_serialize = serialize($data);
 // file_put_contents($file_path, $data_serialize, LOCK_EX);
 
