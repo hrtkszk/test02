@@ -9,8 +9,8 @@ touch('file.txt');
 // $file_path = "../aaa.text";
 $fp = fopen('file.txt', 'w');
 fwrite($fp, '*「ここはイムルのむらです。');
-chmod($fp, 604);
 fclose($fp);
+chmod('file.txt', 604);
 // $data_serialize = serialize($data);
 // file_put_contents($file_path, $data_serialize, LOCK_EX);
 
