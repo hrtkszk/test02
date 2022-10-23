@@ -11,7 +11,7 @@ $_POST = file("php://input");
 // $contents = file_get_contents($_POST);
 echo json_encode(
     [
-        "file" =>  $_POST,
+        "file" =>  $_POST[0],
         "contents" => $rest_json,
     ]
 );
