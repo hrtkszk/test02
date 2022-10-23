@@ -23,10 +23,10 @@ export function PicULTest() {
 
     // console.log("imgfile:", imgfile)
 
-    // const formData = new FormData()
+    const formData = new FormData()
     // // formData.set('img', imgfile);
 
-    // formData.append('img', imgfile)
+    formData.append('img', imgfile)
     // console.log(formData)
 
     const requestOptions1 ={
@@ -35,13 +35,14 @@ export function PicULTest() {
       headers:{'Content-Type': 'multipart/form-data'},
       // headers:{'Content-Type': 'application/json'},
       // enctype:"multipart/form-data",
-      // body: imgfile
+      body: formData
       // body: JSON.stringify({"img":imgfile})
     }
 
     console.log("requestOptions1:", requestOptions1)
     // var responseClone; // 1
     console.log("imgfile:", imgfile)
+    console.log("formData:", formData)
 
     fetch('../picULTest.php',requestOptions1)
     // .then((response) => response.json())
