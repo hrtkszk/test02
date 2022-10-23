@@ -34,7 +34,7 @@ export function PicULTest() {
       method: 'POST',
       // headers:{'Content-Type': 'application/json'},
       enctype:"multipart/form-data",
-      // body: imgfile
+      body: imgfile
       // body: JSON.stringify({"img":imgfile})
     }
 
