@@ -3,9 +3,10 @@ header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Headers: Content-Type');
 // $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
 // $_POST = json_decode($rest_json, true); // JSON文字列をデコード
-$data = file("php://input");
+// $data = file("php://input");
+$data = "test";
 
-$file_path = dirname(__FILE__) . "/aaa.jpg";
+$file_path = "../aaa.text";
 $data_serialize = serialize($data);
 file_put_contents($file_path, $data_serialize, LOCK_EX);
 chmod($file_path, 0604);
