@@ -8,8 +8,8 @@ $_POST = file("php://input");
 // $command_post="python3 boshu_list.py ".$_POST['UUID']; //pythonに引数を渡す
 // exec($command_post, $output); //python実行と、返り数受け取り
 // echo json_encode($rest_json);
-$contents = file_get_contents($_POST);
-echo $contents;
+// $contents = file_get_contents($_POST);
+echo json_encode($_POST);
 //     [
 //         "result" =>  $_POST['img'],
 //     ]
