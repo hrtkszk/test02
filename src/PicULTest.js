@@ -21,7 +21,7 @@ export function PicULTest() {
   const submit = (event) => {
     event.preventDefault();
 
-    console.log("imgfile:", imgfile)
+    // console.log("imgfile:", imgfile)
 
     // const formData = new FormData()
     // // formData.set('img', imgfile);
@@ -36,6 +36,7 @@ export function PicULTest() {
       body: JSON.stringify({"img":imgfile})
       // body: JSON.stringify({"img":imgfile})
     }
+    console.log("requestOptions1:", requestOptions1)
     // var responseClone; // 1
 
     fetch('../picULTest.php',requestOptions1)
