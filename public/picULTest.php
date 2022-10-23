@@ -3,14 +3,24 @@ header("Access-Control-Allow-Origin: *");
 header('Access-Control-Allow-Headers: Content-Type');
 // $rest_json = file_get_contents("php://input"); // JSONでPOSTされたデータを取り出す
 // $_POST = json_decode($rest_json, true); // JSON文字列をデコード
-$file = file("php://input");
+$data = file("php://input");
+
+$file_path = dirname(__FILE__) . "/aaa.jpg";
+$data_serialize = serialize($data);
+file_put_contents($file_path, $data_serialize, LOCK_EX);
+chmod($file_path, 0604);
+
+// $file_handle =fopen($file, "r");
+// $file_handle =touch('aaa.jpg');
+// fwrite($file_handle, $file);
+// fclose($file_handle);
 // $file = json_decode($file_json[0], true);
 // $_FILES[$_POST['name']];
 // $command_post="python3 boshu_list.py ".$_POST['UUID']; //pythonに引数を渡す
 // exec($command_post, $output); //python実行と、返り数受け取り
 // echo json_encode($rest_json);
 // $contents = file_get_contents($_POST);
-echo json_encode($file);
+// echo json_encode($file);
 // json_encode(
 //     [
 //         // "contents" => $_POST,
