@@ -26,7 +26,7 @@ export function PicULTest() {
     const formData = new FormData()
     // // formData.set('img', imgfile);
 
-    formData.append('img', imgfile)
+    formData.set('img', imgfile)
     // console.log(formData)
 
     const requestOptions1 ={
