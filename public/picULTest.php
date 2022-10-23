@@ -11,7 +11,7 @@ header('Access-Control-Allow-Headers: *');
 // touch('file.jpg');
 
 $stdin = fopen('php://input', 'r');
-fwrite($stdin);
+// fwrite($stdin);
 // touch('file.jpg');
 // copy($stdin,'file.jpg');
 while(!feof($stdin)){
