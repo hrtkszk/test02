@@ -15,7 +15,7 @@ $stdin = fopen('php://input', 'r');
 // touch('file.jpg');
 // copy($stdin,'file.jpg');
 while(!feof($stdin)){
-    $file += fgets($stdin, 1024);
+    echo fgets($stdin, 1024);
 }
 fclose($stdin);
 
