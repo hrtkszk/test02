@@ -6,7 +6,7 @@ header('Access-Control-Allow-Headers: *');
 // $_POST = json_decode($rest_json, true); // JSON文字列をデコード
 // $data = file("php://input");
 // $data_serialize = serialize($data);
-$file_path = fopen('php://input', 'r'))
+$file_path = fopen('php://input', 'r');
 // while(!feof($stdin)){
 //     echo fgets($stdin, 1024);
 // }
