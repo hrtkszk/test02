@@ -42,17 +42,21 @@ export function PicULTest() {
     // console.log("requestOptions1:", requestOptions1)
     // var responseClone; // 1
     console.log("imgfile:", imgfile)
-    console.log("formData:", formData)
+    // console.log("formData:", formData)
 
-    var request = new XMLHttpRequest();
-    request.open("POST", "../picULTest.php");
-    request.send(formData);
+    try {
+      var request = new XMLHttpRequest();
+      request.open("POST", "../picULTest.php");
+      request.send(formData);
+      // fetch('../picULTest.php',requestOptions1)
+      // .then((response) => response.json())
+      // .then(result => {
+      //   console.log(result)
+      // })
+    } catch (err) {
+      console.log(err);
+    }
 
-    // fetch('../picULTest.php',requestOptions1)
-    // .then((response) => response.json())
-    // .then(result => {
-    //   console.log(result)
-    // })
 
     navigate("../")
   }
