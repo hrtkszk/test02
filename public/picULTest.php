@@ -11,7 +11,7 @@ header('Access-Control-Allow-Headers: *');
 // touch('file.jpg');
 
 //（2）$_FILEに情報があれば（formタグからpost送信されていれば）以下の処理を実行する
-echo "test";
+echo "test1";
 if(!empty($_FILES)){
 
     //（3）$_FILESからファイル名を取得する
@@ -23,7 +23,9 @@ if(!empty($_FILES)){
     // //echo $uploaded_path.'<br>';
      
     // $result = move_uploaded_file($_FILES['upload_image']['tmp_name'],$uploaded_path);
-}    
+} else {
+    echo "test2";
+}
 
 // $fp = fopen('php://input', 'r');
 // if ( ! $fp) exit("Error\n");
