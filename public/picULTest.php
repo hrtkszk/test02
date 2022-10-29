@@ -16,7 +16,7 @@ echo var_dump($_FILES);
 if(!empty($_FILES)){
 
     //（3）$_FILESからファイル名を取得する
-    $filename = $_FILES['upload_image']['name'];
+    $filename = $_FILES['imgfile']['name'];
     echo $filename;
     // //（4）$_FILESから保存先を取得して、images_after（ローカルフォルダ）に移す
     // //move_uploaded_file（第1引数：ファイル名,第2引数：格納後のディレクトリ/ファイル名）
