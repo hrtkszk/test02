@@ -29,15 +29,15 @@ export function PicULTest() {
     formData.append('image', imgfile)
     // console.log(formData)
 
-    // const requestOptions1 ={
-    //   // credentials: 'include',
-    //   method: 'POST',
-    //   headers:{'Content-Type': 'multipart/form-data'},
-    //   // headers:{'Content-Type': 'application/json'},
-    //   // enctype:"multipart/form-data",
-    //   body: formData
-    //   // body: JSON.stringify({"img":imgfile})
-    // }
+    const requestOptions1 ={
+      // credentials: 'include',
+      method: 'POST',
+      // headers:{'Content-Type': 'multipart/form-data'},
+      // headers:{'Content-Type': 'application/json'},
+      // enctype:"multipart/form-data",
+      body: formData
+      // body: JSON.stringify({"img":imgfile})
+    }
 
     // console.log("requestOptions1:", requestOptions1)
     // var responseClone; // 1
@@ -45,17 +45,17 @@ export function PicULTest() {
     // console.log("formData:", formData)
 
     try {
-      var request = new XMLHttpRequest();
-      request.open("POST", "../picULTest.php");
-      request.send(formData);
-      request.onload = ()=> {
-        console.log(request.response);
-      };
-      // fetch('../picULTest.php',requestOptions1)
-      // .then((response) => response.json())
-      // .then(result => {
-      //   console.log(result)
-      // })
+      // var request = new XMLHttpRequest();
+      // request.open("POST", "../picULTest.php");
+      // request.send(formData);
+      // request.onload = ()=> {
+      //   console.log(request.response);
+      // };
+      fetch('../picULTest.php',requestOptions1)
+      .then((response) => response.text())
+      .then(result => {
+        console.log(result)
+      })
     } catch (err) {
       console.log(err);
     }
