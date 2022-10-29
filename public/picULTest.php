@@ -11,7 +11,7 @@ header('Access-Control-Allow-Headers: *');
 // touch('file.jpg');
 
 $fp = fopen('php://input', 'r');
-if ( ! $fp) exit("Error\n");
+// if ( ! $fp) exit("Error\n");
 // fwrite($stdin);
 
 // copy($stdin,'file.jpg');
