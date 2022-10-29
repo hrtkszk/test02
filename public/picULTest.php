@@ -12,6 +12,7 @@ header('Access-Control-Allow-Headers: *');
 
 //（2）$_FILEに情報があれば（formタグからpost送信されていれば）以下の処理を実行する
 echo "test1";
+echo var_dump($_FILES);
 if(!empty($_FILES)){
 
     //（3）$_FILESからファイル名を取得する
