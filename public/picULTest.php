@@ -10,21 +10,26 @@ header('Access-Control-Allow-Headers: *');
 // file("php://stdin");
 // touch('file.jpg');
 
-$stdin = fopen('php://input', 'r');
+$fp = fopen('php://input', 'r');
+if ( ! $fp) exit("Error\n");
 // fwrite($stdin);
 
 // copy($stdin,'file.jpg');
-while(!feof($stdin)){
-    $uploadPic .= fgets($stdin, 1024);
+$stdin = '';
+while(!feof($fp)){
+    $stdin .= fgets($fp, 1024);
 }
-fclose($stdin);
+fclose($fp);
 
-touch('file.jpg');
-$file_path = fopen('file.jpg', 'a');
-fwrite($file_path, $uploadPic);
-fclose($file_path);
+$stdin = str_replace("\r\n", "\n", $stdin);
+list($head, $body) = explode("\n\n", $stdin, 2);
 
-chmod('file.jpg', 0604);
+// touch('file.jpg');
+// $file_path = fopen('file.jpg', 'a');
+// fwrite($file_path, $stdin);
+// fclose($file_path);
+
+// chmod('file.jpg', 0604);
 
 // touch('file.jpg');
 // // $file_path = "../aaa.text";
