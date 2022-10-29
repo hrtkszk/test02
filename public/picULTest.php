@@ -14,11 +14,10 @@ $stdin = fopen('php://input', 'r');
 // fwrite($stdin);
 touch('file.jpg');
 $file_path = fopen('file.jpg', 'a');
-fwrite($file_path, fgets($stdin));
 // copy($stdin,'file.jpg');
-// while(!feof($stdin)){
-//     fwrite($file_path, fgets($stdin, 1024));
-// }
+while(!feof($stdin)){
+    fwrite($file_path, fgets($stdin, 1024));
+}
 fclose($file_path);
 fclose($stdin);
 chmod('file.jpg', 0604);
