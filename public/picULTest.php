@@ -11,6 +11,7 @@ header('Access-Control-Allow-Headers: *');
 // touch('file.jpg');
 
 //（2）$_FILEに情報があれば（formタグからpost送信されていれば）以下の処理を実行する
+echo "test";
 if(!empty($_FILES)){
 
     //（3）$_FILESからファイル名を取得する
