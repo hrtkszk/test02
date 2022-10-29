@@ -13,32 +13,36 @@ header('Access-Control-Allow-Headers: *');
 //（2）$_FILEに情報があれば（formタグからpost送信されていれば）以下の処理を実行する
 echo "test1";
 echo var_dump($_FILES);
-if(!empty($_FILES)){
+echo "test2";
+// if(!empty($_FILES)){
 
-    //（3）$_FILESからファイル名を取得する
-    $filename = $_FILES['imgfile']['name'];
-    echo $filename;
-    // //（4）$_FILESから保存先を取得して、images_after（ローカルフォルダ）に移す
-    // //move_uploaded_file（第1引数：ファイル名,第2引数：格納後のディレクトリ/ファイル名）
-    // $uploaded_path = 'images_after/'.$filename;
-    // //echo $uploaded_path.'<br>';
+//     //（3）$_FILESからファイル名を取得する
+//     $filename = $_FILES['imgfile']['name'];
+//     echo $filename;
+//     // //（4）$_FILESから保存先を取得して、images_after（ローカルフォルダ）に移す
+//     // //move_uploaded_file（第1引数：ファイル名,第2引数：格納後のディレクトリ/ファイル名）
+//     // $uploaded_path = 'images_after/'.$filename;
+//     // //echo $uploaded_path.'<br>';
      
-    // $result = move_uploaded_file($_FILES['upload_image']['tmp_name'],$uploaded_path);
-} else {
-    echo "test2";
-}
+//     // $result = move_uploaded_file($_FILES['upload_image']['tmp_name'],$uploaded_path);
+// } else {
+//     echo "test2";
+// }
 
-// $fp = fopen('php://input', 'r');
+$fp = fopen('php://input', 'r');
 // if ( ! $fp) exit("Error\n");
 // // fwrite($stdin);
 
 // // copy($stdin,'file.jpg');
-// $stdin = '';
-// while(!feof($fp)){
-//     $stdin .= fgets($fp, 1024);
-// }
-// fclose($fp);
+$stdin = '';
+while(!feof($fp)){
+    $stdin .= fgets($fp, 1024);
+}
+fclose($fp);
 
+echo "test3";
+echo var_dump($stdin);
+echo "test4";
 // // $stdin = str_replace("\r\n", "\n", $stdin);
 // // list($head, $body) = explode("\n\n", $stdin, 2);
 
