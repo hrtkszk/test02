@@ -48,6 +48,9 @@ export function PicULTest() {
       var request = new XMLHttpRequest();
       request.open("POST", "../picULTest.php");
       request.send(formData);
+      request.onload = ()=> {
+        console.log(request.response);
+      };
       // fetch('../picULTest.php',requestOptions1)
       // .then((response) => response.json())
       // .then(result => {

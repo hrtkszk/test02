@@ -10,26 +10,40 @@ header('Access-Control-Allow-Headers: *');
 // file("php://stdin");
 // touch('file.jpg');
 
-$fp = fopen('php://input', 'r');
-if ( ! $fp) exit("Error\n");
-// fwrite($stdin);
+//（2）$_FILEに情報があれば（formタグからpost送信されていれば）以下の処理を実行する
+if(!empty($_FILES)){
 
-// copy($stdin,'file.jpg');
-$stdin = '';
-while(!feof($fp)){
-    $stdin .= fgets($fp, 1024);
-}
-fclose($fp);
+    //（3）$_FILESからファイル名を取得する
+    $filename = $_FILES['upload_image']['name'];
+    echo $filename;
+    // //（4）$_FILESから保存先を取得して、images_after（ローカルフォルダ）に移す
+    // //move_uploaded_file（第1引数：ファイル名,第2引数：格納後のディレクトリ/ファイル名）
+    // $uploaded_path = 'images_after/'.$filename;
+    // //echo $uploaded_path.'<br>';
+     
+    // $result = move_uploaded_file($_FILES['upload_image']['tmp_name'],$uploaded_path);
+}    
 
-// $stdin = str_replace("\r\n", "\n", $stdin);
-// list($head, $body) = explode("\n\n", $stdin, 2);
+// $fp = fopen('php://input', 'r');
+// if ( ! $fp) exit("Error\n");
+// // fwrite($stdin);
 
-touch('file.jpg');
-$file_path = fopen('file.jpg', 'a');
-fwrite($file_path, $stdin);
-fclose($file_path);
+// // copy($stdin,'file.jpg');
+// $stdin = '';
+// while(!feof($fp)){
+//     $stdin .= fgets($fp, 1024);
+// }
+// fclose($fp);
 
-chmod('file.jpg', 0604);
+// // $stdin = str_replace("\r\n", "\n", $stdin);
+// // list($head, $body) = explode("\n\n", $stdin, 2);
+
+// touch('file.jpg');
+// $file_path = fopen('file.jpg', 'a');
+// fwrite($file_path, $stdin);
+// fclose($file_path);
+
+// chmod('file.jpg', 0604);
 
 // touch('file.jpg');
 // // $file_path = "../aaa.text";
