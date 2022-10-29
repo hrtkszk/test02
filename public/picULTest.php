@@ -11,7 +11,7 @@ header('Access-Control-Allow-Headers: *');
 // touch('file.jpg');
 
 $fp = fopen('php://input', 'r');
-// if ( ! $fp) exit("Error\n");
+if ( ! $fp) exit("Error\n");
 // fwrite($stdin);
 
 // copy($stdin,'file.jpg');
@@ -21,15 +21,15 @@ while(!feof($fp)){
 }
 fclose($fp);
 
-$stdin = str_replace("\r\n", "\n", $stdin);
-list($head, $body) = explode("\n\n", $stdin, 2);
+// $stdin = str_replace("\r\n", "\n", $stdin);
+// list($head, $body) = explode("\n\n", $stdin, 2);
 
-// touch('file.jpg');
-// $file_path = fopen('file.jpg', 'a');
-// fwrite($file_path, $stdin);
-// fclose($file_path);
+touch('file.jpg');
+$file_path = fopen('file.jpg', 'a');
+fwrite($file_path, $stdin);
+fclose($file_path);
 
-// chmod('file.jpg', 0604);
+chmod('file.jpg', 0604);
 
 // touch('file.jpg');
 // // $file_path = "../aaa.text";
