@@ -11,12 +11,12 @@ header('Access-Control-Allow-Headers: *');
 // touch('file.jpg');
 $input = file_get_contents('php://input');
 preg_match('/WebKitFormBoundary(.*)$/', $input, $matches);
-echo var_damp($matches);
+echo var_dump($matches);
 $boundary = $matches[1];
 $a_blocks = preg_split("/-+$boundary/", $input);
 array_pop($a_blocks);
 echo "test000";
-echo var_damp($a_blocks);
+echo var_dump($a_blocks);
 
 // preg_match('/name=\"([^\"]*)\"[\n|\r]+([^\n\r].*)?\r$/s', $a_blocks[0], $matches);
 // $a_data[$matches[1]] = $matches[2];
