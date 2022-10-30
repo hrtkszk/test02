@@ -14,8 +14,9 @@ echo var_dump($input);
 preg_match('/WebKitFormBoundary(.*)$/', $input, $matches);
 echo var_dump($matches);
 $boundary = $matches[1];
+echo $boundary;
 $a_blocks = preg_split("/-+$boundary/", $input);
-array_pop($a_blocks);
+// array_pop($a_blocks);
 echo "test000";
 echo var_dump($a_blocks);
 
