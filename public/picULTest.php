@@ -10,8 +10,8 @@ header('Access-Control-Allow-Headers: *');
 // file("php://stdin");
 // touch('file.jpg');
 $input = file_get_contents('php://input');
-echo $_SERVER;
-echo $_SERVER['HTTP_CONTENT_TYPE'];
+echo var_dump($_SERVER);
+// echo $_SERVER['HTTP_CONTENT_TYPE'];
 
 // function parse_raw_http_request(array &$a_data)
 // {
