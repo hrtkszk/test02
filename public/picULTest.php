@@ -10,7 +10,6 @@ header('Access-Control-Allow-Headers: *');
 // file("php://stdin");
 // touch('file.jpg');
 $input = file_get_contents('php://input');
-echo $input;
 echo $_SERVER;
 echo $_SERVER['HTTP_CONTENT_TYPE'];
 
