@@ -11,7 +11,8 @@ header('Access-Control-Allow-Headers: *');
 // touch('file.jpg');
 $input = file_get_contents('php://input');
 echo $input;
-echo $_SERVER['CONTENT_TYPE'];
+echo $_SERVER;
+echo $_SERVER['HTTP_CONTENT_TYPE'];
 
 // function parse_raw_http_request(array &$a_data)
 // {
