@@ -14,7 +14,7 @@ preg_match('/------WebKitFormBoundary(.*)$/', $input, $matches);
 echo $matches[1];
 $boundary = $matches[1];
 $a_blocks = preg_split("/-+$boundary/", $input);
-echo var_dump($a_blocks);
+echo $a_blocks[0];
 // echo var_dump($_SERVER);
 // echo $_SERVER['HTTP_CONTENT_TYPE'];
 
