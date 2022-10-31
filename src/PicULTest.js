@@ -52,7 +52,7 @@ export function PicULTest() {
                 id="img"
                 name="img"
                 accept=".jpg, .jpeg, .png"
-                onChange={e => uploadimg(imgfile => [...imgfile, e.target.files[0]])}
+                onChange={e => uploadimg({...imgfile, 0 : e.target.files[0]})}
                 // onChange={e => uploadimg(imgfile => [...imgfile, URL.createObjectURL(e.target.files[0])])}
               />
             </div>
