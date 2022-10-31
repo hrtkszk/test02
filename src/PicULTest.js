@@ -7,16 +7,17 @@ import {
 } from "react-router-dom";
 
 export function PicULTest() {
-  const [imgfile, uploadimg] = useState([])
+  const [imgfile, uploadimg] = useState("")
+  const [tempURL, setTempURL] = useState("")
   let navigate = useNavigate();
 
-  console.log("imgfile:", imgfile[0])
+  console.log("imgfile:", imgfile)
 
   const submit = (event) => {
     event.preventDefault();
 
     const formData = new FormData()
-    formData.append('image', imgfile[0])
+    formData.append('image', imgfile)
 
     const requestOptions1 ={
       method: 'POST',
@@ -52,7 +53,10 @@ export function PicULTest() {
                 id="img"
                 name="img"
                 accept=".jpg, .jpeg, .png"
-                onChange={e => uploadimg({0 : e.target.files[0]})}
+                onChange={e => {
+                  uploadimg(e.target.files[0]),
+                  setTempURL(URL.createObjectURL(e.target.files[0]))
+                }}
                 // onChange={e => uploadimg(imgfile => [...imgfile, URL.createObjectURL(e.target.files[0])])}
               />
             </div>
@@ -62,14 +66,14 @@ export function PicULTest() {
           <hr />
           
           <h2>Preview</h2>
-          {/* <img src={imgfile} height="200" width="200" alt="med1" /> */}
-          {Object.keys(imgfile).map(elem => {
+          <img src={tempURL} height="200" width="200" alt="med1" />
+          {/* {Object.keys(imgfile).map(elem => {
             return <>
             <span key={elem}>
               <img src={elem} height="200" width="200" alt="med1" />
             </span>
           </>
-          })}
+          })} */}
         </center>
       </div>
     </div>
