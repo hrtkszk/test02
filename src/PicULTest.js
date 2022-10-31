@@ -20,8 +20,18 @@ export function PicULTest() {
 
   const submit = (event) => {
     event.preventDefault();
+    const files = (async () => {
+      await imagemin([imgfile], {
+        plugins: [
+          imageminWebp({quality: 50})
+        ]
+      });
+    
+      console.log('Images optimized');
+    })();
+    setCompImgFile(files)
 
-    setCompImgFile(imagemin([imgfile], {plugins: [imageminWebp({quality: 50})]}))
+    // setCompImgFile(imagemin([imgfile], {plugins: [imageminWebp({quality: 50})]}))
     console.log("compImgFile:", compImgFile)
     
 
