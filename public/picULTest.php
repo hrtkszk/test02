@@ -10,16 +10,33 @@ header('Access-Control-Allow-Headers: *');
 // file("php://stdin");
 // touch('file.jpg');
 echo var_dump($_FILES);
-$input = file_get_contents('php://input');
-echo var_dump($input);
-preg_match('/WebKitFormBoundary(.*)$/', $input, $matches);
-echo var_dump($matches);
-$boundary = $matches[1];
-echo $boundary;
-$a_blocks = preg_split("/$boundary/", $input);
-// array_pop($a_blocks);
-echo "test000";
-echo var_dump($a_blocks);
+
+$image = uniqid(mt_rand(), true);//ファイル名をユニーク化
+$image .= '.' . substr(strrchr($_FILES['image']['name'], '.'), 1);//アップロードされたファイルの拡張子を取得
+// $file = "images/$image";
+// $sql = "INSERT INTO images(name) VALUES (:image)";
+// $stmt = $dbh->prepare($sql);
+// $stmt->bindValue(':image', $image, PDO::PARAM_STR);
+if (!empty($_FILES['image']['name'])) {//ファイルが選択されていれば$imageにファイル名を代入
+    move_uploaded_file($_FILES['image']['tmp_name'], './images/' . $image);//imagesディレクトリにファイル保存
+    // if (exif_imagetype($file)) {//画像ファイルかのチェック
+    //     $message = '画像をアップロードしました';
+    //     $stmt->execute();
+    // } else {
+    //     $message = '画像ファイルではありません';
+    // }
+}
+
+// $input = file_get_contents('php://input');
+// echo var_dump($input);
+// preg_match('/WebKitFormBoundary(.*)$/', $input, $matches);
+// echo var_dump($matches);
+// $boundary = $matches[1];
+// echo $boundary;
+// $a_blocks = preg_split("/$boundary/", $input);
+// // array_pop($a_blocks);
+// echo "test000";
+// echo var_dump($a_blocks);
 
 // preg_match('/name=\"([^\"]*)\"[\n|\r]+([^\n\r].*)?\r$/s', $a_blocks[0], $matches);
 // $a_data[$matches[1]] = $matches[2];
