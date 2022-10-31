@@ -8,13 +8,30 @@ import {
 
 export function PicULTest() {
   const [imgfile, uploadimg] = useState("")
+  const [compImgFile, setCompImgFile] = useState("")
   const [tempURL, setTempURL] = useState("")
+  const gulp = require('gulp')
+  const webp = require('gulp-webp')
+
+
+  // gulp.task('default', () =>
+  //     gulp.src('src/image.jpg')
+  //         .pipe(webp())
+  //         .pipe(gulp.dest('dist'))
+  // );
+
   let navigate = useNavigate();
 
   console.log("imgfile:", imgfile)
 
   const submit = (event) => {
     event.preventDefault();
+
+    setCompImgFile(gulp.src(imgfile)
+      .pipe(webp())
+      .pipe(gulp.dest(paths.img_build))
+    )
+    console.log("compImgFile:", compImgFile)
 
     const formData = new FormData()
     formData.append('image', imgfile)
