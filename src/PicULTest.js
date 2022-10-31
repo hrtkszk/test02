@@ -53,10 +53,10 @@ export function PicULTest() {
                 id="img"
                 name="img"
                 accept=".jpg, .jpeg, .png"
-                onChange={e => {
+                onChange={e => (
                   uploadimg(e.target.files[0]),
                   setTempURL(URL.createObjectURL(e.target.files[0]))
-                }}
+                )}
                 // onChange={e => uploadimg(imgfile => [...imgfile, URL.createObjectURL(e.target.files[0])])}
               />
             </div>
