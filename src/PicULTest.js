@@ -5,12 +5,12 @@ import {
 //   // Outlet
   useNavigate
 } from "react-router-dom";
-import imagemin from 'imagemin';
-import imageminWebp from 'imagemin-webp';
+// import imagemin from 'imagemin';
+// import imageminWebp from 'imagemin-webp';
 
 export function PicULTest() {
   const [imgfile, uploadimg] = useState("")
-  const [compImgFile, setCompImgFile] = useState("")
+  // const [compImgFile, setCompImgFile] = useState("")
   const [tempURL, setTempURL] = useState("")
 
   let navigate = useNavigate();
@@ -32,8 +32,8 @@ export function PicULTest() {
     // })();
     // setCompImgFile(files)
 
-    setCompImgFile(imagemin([imgfile], {plugins: [imageminWebp({quality: 50})]}))
-    console.log("compImgFile:", compImgFile)
+    // setCompImgFile(imagemin([imgfile], {plugins: [imageminWebp({quality: 50})]}))
+    // console.log("compImgFile:", compImgFile)
     
 
     const formData = new FormData()
