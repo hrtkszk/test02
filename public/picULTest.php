@@ -7,7 +7,7 @@ header('Access-Control-Allow-Headers: *');
 
 $image = uniqid(mt_rand(), true);//ファイル名をユニーク化
 $image .= '.' . substr(strrchr($_FILES['image']['name'], '.'), 1);//アップロードされたファイルの拡張子を取得
-
+echo $image;
 if (!empty($_FILES['image']['name'])) {//ファイルが選択されていれば$imageにファイル名を代入
     try {
         move_uploaded_file($_FILES['image']['tmp_name'], './images/' . $image);//imagesディレクトリにファイル保存
