@@ -70,7 +70,7 @@ export function PicULTest() {
             (
               null
             ):(
-              <img src={tempURL} height="200" width="200" alt="med1" />
+              <img src={tempURL} height="70" alt="" />
             )
           }
         </center>
