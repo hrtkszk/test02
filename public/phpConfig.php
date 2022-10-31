@@ -1,2 +1,2 @@
 <?php
-$URL="http://plain-saiki-7250.nobushi.jp";
+$URL="http://broad-saito-3173.moo.jp";
