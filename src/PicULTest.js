@@ -5,7 +5,7 @@ import {
 //   // Outlet
   useNavigate
 } from "react-router-dom";
-import imagemin from 'imagemin';
+import imagemin from '@types/imagemin';
 import imageminWebp from 'imagemin-webp';
 
 export function PicULTest() {
