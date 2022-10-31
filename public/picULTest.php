@@ -18,8 +18,8 @@ try {
 
 
 $file = "./images/$image";
-if (exif_imagetype($file)) {//画像ファイルかのチェック
+if (exif_imagetype($file)) {//画像ファイルがアップロードされたかのチェック
     echo '画像をアップロードしました';
 } else {
-    echo '画像ファイルではありません';
+    echo '画像がアップロードされませんでした'';
 }
