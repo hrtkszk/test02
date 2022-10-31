@@ -9,6 +9,7 @@ header('Access-Control-Allow-Headers: *');
 
 // file("php://stdin");
 // touch('file.jpg');
+echo var_dump($_FILES);
 $input = file_get_contents('php://input');
 echo var_dump($input);
 preg_match('/WebKitFormBoundary(.*)$/', $input, $matches);

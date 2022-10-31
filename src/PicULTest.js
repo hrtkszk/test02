@@ -42,7 +42,7 @@ export function PicULTest() {
     // console.log("requestOptions1:", requestOptions1)
     // var responseClone; // 1
     console.log("imgfile:", imgfile)
-    console.log("formData:", formData)
+    // console.log("formData:", formData)
 
     try {
       // var request = new XMLHttpRequest();
