@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 
 export function PicULTest() {
-  const [imgfile, uploadimg] = useState("")
+  const [imgfile, uploadimg] = useState([])
   let navigate = useNavigate();
 
   console.log("imgfile:", imgfile)
@@ -62,10 +62,10 @@ export function PicULTest() {
           <hr />
           
           <h2>Preview</h2>
-          <img src={imgfile} height="200" width="200" alt="med1" />
-          {/* {imgfile.map(elem => {
+          {/* <img src={imgfile} height="200" width="200" alt="med1" /> */}
+          {imgfile.map(elem => {
             return(<img src={elem} height="200" width="200" alt="med1" />)
-          })} */}
+          })}
         </center>
       </div>
     </div>
