@@ -10,13 +10,13 @@ export function PicULTest() {
   const [imgfile, uploadimg] = useState([])
   let navigate = useNavigate();
 
-  console.log("imgfile:", imgfile)
+  console.log("imgfile:", imgfile[0])
 
   const submit = (event) => {
     event.preventDefault();
 
     const formData = new FormData()
-    formData.append('image', imgfile)
+    formData.append('image', imgfile[0])
 
     const requestOptions1 ={
       method: 'POST',
@@ -52,7 +52,7 @@ export function PicULTest() {
                 id="img"
                 name="img"
                 accept=".jpg, .jpeg, .png"
-                onChange={e => uploadimg({...imgfile, 0 : e.target.files[0]})}
+                onChange={e => uploadimg({0 : e.target.files[0]})}
                 // onChange={e => uploadimg(imgfile => [...imgfile, URL.createObjectURL(e.target.files[0])])}
               />
             </div>
@@ -63,7 +63,7 @@ export function PicULTest() {
           
           <h2>Preview</h2>
           {/* <img src={imgfile} height="200" width="200" alt="med1" /> */}
-          {imgfile.map(elem => {
+          {Object.keys(imgfile).map(elem => {
             return(<img src={elem} height="200" width="200" alt="med1" />)
           })}
         </center>
