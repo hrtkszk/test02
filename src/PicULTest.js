@@ -10,6 +10,8 @@ export function PicULTest() {
   const [imgfile, uploadimg] = useState("")
   let navigate = useNavigate();
 
+  console.log("imgfile:", imgfile)
+
   const submit = (event) => {
     event.preventDefault();
 
