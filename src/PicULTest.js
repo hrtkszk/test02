@@ -10,9 +10,8 @@ import imageminWebp from 'imagemin-webp';
 
 export function PicULTest() {
   const [imgfile, uploadimg] = useState("")
-  // const [compImgFile, setCompImgFile] = useState("")
+  const [compImgFile, setCompImgFile] = useState("")
   const [tempURL, setTempURL] = useState("")
-
 
   let navigate = useNavigate();
 
@@ -20,20 +19,21 @@ export function PicULTest() {
 
   const submit = (event) => {
     event.preventDefault();
-    (async () => {
-      await imagemin([imgfile], {
-        plugins: [
-          imageminWebp({quality: 50})
-        ]
-      });
+    
+    // const files = (async () => {
+    //   await imagemin([imgfile], {
+    //     plugins: [
+    //       imageminWebp({quality: 50})
+    //     ]
+    //   });
 
     
-    console.log('Images optimized');
-    })();
+    // console.log('Images optimized');
+    // })();
     // setCompImgFile(files)
 
-    // setCompImgFile(imagemin([imgfile], {plugins: [imageminWebp({quality: 50})]}))
-    // console.log("compImgFile:", compImgFile)
+    setCompImgFile(imagemin([imgfile], {plugins: [imageminWebp({quality: 50})]}))
+    console.log("compImgFile:", compImgFile)
     
 
     const formData = new FormData()
