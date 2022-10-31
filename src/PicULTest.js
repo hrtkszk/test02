@@ -66,14 +66,13 @@ export function PicULTest() {
           <hr />
           
           <h2>Preview</h2>
-          <img src={tempURL} height="200" width="200" alt="med1" />
-          {/* {Object.keys(imgfile).map(elem => {
-            return <>
-            <span key={elem}>
-              <img src={elem} height="200" width="200" alt="med1" />
-            </span>
-          </>
-          })} */}
+          {tempURL === "" ?
+            (
+              null
+            ):(
+              <img src={tempURL} height="200" width="200" alt="med1" />
+            )
+          }
         </center>
       </div>
     </div>
