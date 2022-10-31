@@ -64,7 +64,11 @@ export function PicULTest() {
           <h2>Preview</h2>
           {/* <img src={imgfile} height="200" width="200" alt="med1" /> */}
           {Object.keys(imgfile).map(elem => {
-            return(<img src={elem} height="200" width="200" alt="med1" />)
+            return <>
+            <span key={elem}>
+              <img src={elem} height="200" width="200" alt="med1" />
+            </span>
+          </>
           })}
         </center>
       </div>
