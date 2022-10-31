@@ -5,8 +5,8 @@ import {
 //   // Outlet
   useNavigate
 } from "react-router-dom";
-// import imagemin from 'imagemin';
-// import imageminWebp from 'imagemin-webp';
+import imagemin from 'imagemin';
+import imageminWebp from 'imagemin-webp';
 
 export function PicULTest() {
   const [imgfile, uploadimg] = useState("")
@@ -20,15 +20,16 @@ export function PicULTest() {
 
   const submit = (event) => {
     event.preventDefault();
-    // const files = (async () => {
-    //   await imagemin([imgfile], {
-    //     plugins: [
-    //       imageminWebp({quality: 50})
-    //     ]
-    //   });
+    (async () => {
+      await imagemin([imgfile], {
+        plugins: [
+          imageminWebp({quality: 50})
+        ]
+      });
+
     
-    //   console.log('Images optimized');
-    // })();
+    console.log('Images optimized');
+    })();
     // setCompImgFile(files)
 
     // setCompImgFile(imagemin([imgfile], {plugins: [imageminWebp({quality: 50})]}))
