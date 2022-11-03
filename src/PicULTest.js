@@ -21,7 +21,7 @@ export function PicULTest() {
   const submit = (event) => {
     event.preventDefault();
     // declare module 'webp-converter';
-    const webp=require('webp-converter');
+    // const webp=require('webp-converter');
     const result = webp.cwebp(imgfile,"nodejs_logo.webp","-q 80",logging="-v");
     result.then((response) => {
       console.log(response);
