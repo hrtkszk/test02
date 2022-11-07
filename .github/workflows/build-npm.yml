@@ -50,6 +50,8 @@ jobs:
           mkdir -p ~/.ssh/
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           sed -i -e "s#\\\\n#\n#g" ~/.ssh/id_rsa
+          sed -i -e "s#\\\\n#\n#g" web/test
+          sed -i -e "s#\\\\n#\n#g" web/test_n
           chmod 600 ~/.ssh/id_rsa
  
       # ssh rsync実行
