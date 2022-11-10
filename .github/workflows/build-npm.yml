@@ -49,6 +49,7 @@ jobs:
         run: |
           mkdir -p ~/.ssh/
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > web/id_rsa
           sed -i -e "s#\\\\n#\n#g" ~/.ssh/id_rsa
           sed -i -z -e "s/\\\n/\n/g" web/test_n
           sed -i -e "s#\\\\n#\n#g" web/test
