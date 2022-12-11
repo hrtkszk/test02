@@ -1,4 +1,4 @@
 host='mysql209.phy.lolipop.lan'
-user='LAA1474285'
+user='LAA1484587'
 passwd='1234testTEST'
-db='LAA1474285-test'
+db='LAA1484587-test'
